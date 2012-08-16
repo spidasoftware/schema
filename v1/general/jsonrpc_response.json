@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "id": "jsonrpc_response",
+    "properties": {
+        "id": {
+            "type": "number",
+            "id": "id",
+            "required": true
+        },
+        "jsonrpc": {
+            "type": "string",
+            "id": "jsonrpc",
+            "required": true
+        },
+        "result": {
+            "type": "any",
+            "id": "result",
+            "required": false
+        },
+        "error": {
+            "type": "object",
+            "id": "error",
+            "required": false,
+            "properties": {
+                "code": {
+                    "type": "number",
+                    "id": "code",
+                    "required": true
+                },
+                "message": {
+                    "type": "string",
+                    "id": "message",
+                    "required": true
+                }
+            }
+        }
+    }
+}

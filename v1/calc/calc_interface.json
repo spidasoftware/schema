@@ -2,8 +2,12 @@
     "launch": {
         "description": "Open SPIDACalc",
         "type": "method",
-        "returns": "boolean",
-        
+        "returns": "boolean"    
+    },
+    "exit": {
+        "description": "Close SPIDACalc",
+        "type": "method",
+        "returns": "boolean"    
     },
     "goToLocation": {
         "description": "Have SPIDACalc navigate and select a location",
@@ -18,6 +22,7 @@
             }
         ]
     },
+
     "id": "http://spidasoftware.com/calcInterface.schema",
     "description": "This schema allows for the control of SPIDACalc from the CLI."
 }

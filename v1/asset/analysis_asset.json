@@ -1,0 +1,10 @@
+{
+    "id": "analysis_asset",
+    "description": "A SPIDA analysis asset",
+    "type": "object",
+    "properties": {
+        "stress": {"type": "number"},
+        "strength": {"type": "number"},
+        "component": {"type": "string"}
+    }
+}

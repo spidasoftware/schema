@@ -1,25 +1,20 @@
 {
-    "id": "geometry",
     "type": "object",
-    "optional": false,
-    "description": "Geometry from geoscript.geom.",
+    "id": "geometry",
     "properties": {
-        "type": {
-            "type": "string",
-            "optional": false,
-            "enum": [
-                "Point",
-                "LinearRing",
-                "LineString"
-            ]
-        },
         "coordinates": {
             "type": "array",
-            "optional": false,
-            "description": "Array contains the points or array of points",
-            "items":{
-                "type":"any"
+            "id": "coordinates",
+            "required": false,
+            "items": {
+                "type": "any",
+                "required": true
             }
+        },
+        "type": {
+            "type": "string",
+            "id": "type",
+            "required": true
         }
     }
 }

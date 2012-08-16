@@ -1,0 +1,27 @@
+{
+    "id": "pole_asset",
+    "description": "A SPIDA pole asset",
+    "type": "object",
+    "properties": {
+        "poleClass": {"type": "string"},
+        "construction": {"type": "string"},
+        "county": {"type": "string"},
+        "createdDate": {"type": "date"},
+        "dateInspected": {"type": "date"},
+        "glc": {"type": "string"},
+        "length": {"type": "string"},
+        "loading": {"type": "string"},
+        "manufacturer": {"type": "string"},
+        "material": {"type": "string"},
+        "modifiedDate": {"type": "date"},
+        "owner": {"type": "string"},
+        "species": {"type": "string"},
+        "strength": {"type": "string"},
+        "substation": {"type": "string"},
+        "township": {"type": "string"},
+        "treatment": {"type": "string"},
+        "year": {"type": "number"},
+        "yearManufacture": {"type": "number"},
+        "yearSet": {"type": "number"}
+    }
+}
