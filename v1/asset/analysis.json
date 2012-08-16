@@ -1,0 +1,33 @@
+{
+    "id": "locations",
+    "description": "A SPIDAMin locations",
+    "type": "array",
+    "items": {
+        "id": "location",
+        "description": "A SPIDAMin location",
+        "type": "object",
+        "properties": {
+            "locationId": {
+                "type": "string"
+            },
+            "spotted": {
+                "type": "boolean"
+            },
+            "requiredFilled": {
+                "type": "boolean"
+            },
+            "type": {
+                "type": "string"
+            },
+            "id": {
+                "type": "number"
+            },
+            "lng": {
+                "type": "number"
+            },
+            "lat": {
+                "type": "number"
+            }
+        }
+    }
+}

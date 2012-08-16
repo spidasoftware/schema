@@ -1,0 +1,19 @@
+{
+    "id": "api",
+    "description": "general api response object",
+    "type": "object",
+    "properties": {
+        "response": {
+            "type": "array",
+            "optional": true,
+            "items": {
+                "type": "any",
+                "description": "response items"
+            }
+        },
+        "error": {
+            "type": "string",
+            "optional": true
+        }
+    }
+}
