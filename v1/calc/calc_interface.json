@@ -1,0 +1,23 @@
+{
+    "launch": {
+        "description": "Open SPIDACalc",
+        "type": "method",
+        "returns": "boolean",
+        
+    },
+    "goToLocation": {
+        "description": "Have SPIDACalc navigate and select a location",
+        "type": "method",
+        "returns": "boolean",
+        "params": [
+            {
+                "type": "string",
+                "name": "locationId",
+                "required": true,
+                "description": "ID of the location to navigate to."
+            }
+        ]
+    },
+    "id": "http://spidasoftware.com/calcInterface.schema",
+    "description": "This schema allows for the control of SPIDACalc from the CLI."
+}
