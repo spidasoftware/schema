@@ -33,3 +33,12 @@ Our geometry object conform to the geojson object given at:
 
 We have provided a basic schema here for testing.
 
+#### Validation
+
+We have included some jasmine test for nodejs.  Using some of the   
+
+npm install jasmine-node -g
+
+then you can just run you tests
+
+jasmine-node --coffee /spec
