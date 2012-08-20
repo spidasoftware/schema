@@ -198,13 +198,14 @@ public class JSONSchema {
 	 */
 	public static String findReferenceSchema(String schemaName, String version) {
 		String schemaRef = "";
+		if(!schemaName.toLowerCase().contains(".json")) schemaName += ".json"
 		def file = new File(".")
 		for(f1 in file.listFiles()){
 			if(f1.isDirectory() && f1.name==version){
 				for(f2 in f1.listFiles()){	
 					if(f2.isDirectory()){
 						for(f3 in f2.listFiles()){
-							if(f3.name==schemaName+".json"){
+							if(f3.name==schemaName){
 								log.info f3.toString()
 								return f3.text
 							}

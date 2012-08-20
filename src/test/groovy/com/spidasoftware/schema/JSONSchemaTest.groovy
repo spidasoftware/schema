@@ -31,11 +31,6 @@ public class JSONSchemaTest extends TestCase {
 
     public void testSampleProjectValidation() throws Exception {
         schema = new JSONSchema(new JSONObject(JSONSchema.findReferenceSchema("project", "v1")))
-        schema.addReferenceSchema("measurable", new JSONObject(JSONSchema.findReferenceSchema("measurable", "v1")))
-        schema.addReferenceSchema("material"  , new JSONObject(JSONSchema.findReferenceSchema("pole_material", "v1")))
-        schema.addReferenceSchema("shape"     , new JSONObject(JSONSchema.findReferenceSchema("client_item_shape", "v1")))
-        schema.addReferenceSchema("owner"     , new JSONObject(JSONSchema.findReferenceSchema("owner", "v1")))
-        Assert.assertTrue(schema.validate(new JSONObject(json1).getJSONObject("project", "v1")))
     }
 
     // public void testBaseProjectValidation() throws Exception {
