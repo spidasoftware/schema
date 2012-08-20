@@ -84,8 +84,8 @@
         "geometry": {
             "$ref": "geometry"
         },
-        "stations": {
-            "$ref": "stations"
+        "locations": {
+            "$ref": "locations"
         }
     }
 }
