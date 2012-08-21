@@ -6,9 +6,9 @@ General Overview of the Schema
 
 We will strive for flexibility and simplicity, which are usually the same.
 
-There will be generally two types of services "remote procedures" and "stateful service".
+There will be two types of services "remote procedures" and "stateful service".
 
-To address these two types of services we will be implementing two different service types "JSON-RPC" and "REST" services.  These two types of service address different needs within the service environment.
+To address these two types of services we will be implementing two different service types "JSON-RPC" and "REST" services.  These two types of services address different needs within the service environment.
 
 ### JSON-RPC
 
@@ -22,23 +22,39 @@ The second type of services are "REST" services.  These services differ from the
 
 #### Request and Response
 
-All remote procedure calls should conform to the JSON-RPC 2.0 standard.
-http://www.jsonrpc.org/specification
+Remote procedure calls should conform to the [JSON-RPC 2.0 standard](http://www.jsonrpc.org/specification).  
 
 #### Geometry
 
-Our geometry object conform to the geojson object given at:
+Geometry objects should conform to the [geojson object spec](http://www.geojson.org/geojson-spec.html).  
 
-//http://www.geojson.org/geojson-spec.html
+We have provided a basic schema here for testing.  	
 
-We have provided a basic schema here for testing.
+	{
+		name:"Tim",
+		math:"PASS",
+		science:"PASS",
+		english:"FAIL"
+	}
 
-#### Validation
+### Tools
 
-We have included some jasmine test for nodejs.  Using some of the   
+We have included jasmine tests using nodejs.  
 
-npm install jasmine-node -g
+To Install:
 
-then you can just run you tests
+	npm install jasmine-node -g
 
-jasmine-node --coffee /spec
+Run you tests:
+
+	jasmine-node --coffee /spec
+
+For Debugging: [JSON Tools](https://github.com/ddopson/underscore-cli)
+	
+	echo "{'some':'json'}" | underscore pretty --color
+
+
+***
+
+SPIDA® is a registered trademark of SPIDAWeb LLC. Copyright © 2012 SPIDAWeb LLC. All rights reserved. All other brands or product names are the property of their respective holders.
+[spidasoftware.com](http://www.spidasoftware.com/)
