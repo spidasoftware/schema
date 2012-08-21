@@ -1,20 +1,17 @@
 describe 'project', ->
-  it 'load the external schema', ->
+  it 'load the external project schema', ->
     #Include some stuff.
     util = require('util')
     fs = require('fs')
     JSV = require("JSV").JSV
+    env = JSV.createEnvironment()
     #Load schema
-    projectSchema = null
-    fs.readFile("./v1/project/project.json", (err, data)->
-      projectSchema = JSON.parse(data)
-      json = {Jagger:"Rock"}
-      schema = {"type" : "object"}
-      env = JSV.createEnvironment()
-      report = env.validate(json, schema)
-      if (report.errors.length == 0) 
-        util.puts projectSchema
-        util.puts "Woot"
-    )
+    data = fs.readFileSync "./v1/project/project.json"
+    schema = JSON.parse(data)
+    json = {"name":"test name"}
+    report = env.validate(json, schema)
+    expect(report).not.toBe(report.errors.length==0)
+    if (report.errors.length != 0) 
+      util.puts JSON.stringify(report.errors, null, 2)    
     
     
