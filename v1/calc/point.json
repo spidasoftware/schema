@@ -1,0 +1,24 @@
+{
+	"id": "point",
+	"type": "object",
+	"description": "An object a certain distance and direction from the pole.",
+	"properties": {
+		"id": { 
+			"type": "string",
+			"required": "true"
+		}
+		"uuid": {
+			"type": "string"
+		}
+		"distance": {
+			"extends": { "$ref": "../general/measurable.json" },
+			"required": "true"
+		}
+		"direction": {
+			"extends": { "$ref": "../general/bearing.json" },
+			"required": "true"
+		}
+	}
+}
+			
+	

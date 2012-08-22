@@ -1,0 +1,13 @@
+{
+	"id": "measurable",
+	"description": "A measurable value with a unit.",
+	"type": "object",
+	"properties": {
+		"value": {
+			"type": "number"
+		}
+		"unit": {
+			"type": "string"
+		}
+	}
+}

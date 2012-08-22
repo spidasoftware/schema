@@ -1,0 +1,26 @@
+{
+	"id": "usageGroup",
+	"description": "Usage group for a wire.",
+	"type": "object",
+	"properties": {
+		"id": {
+			"type": "string",
+			"required": "true"
+		},
+		"industry": {
+			"type": "string",
+			"required": "true"
+		}
+	},
+	"enum": [
+		{ "id": "PRIMARY", "industry": "UTLITY" },
+		{ "id": "NEUTRAL", "industry": "UTLITY" },
+		{ "id": "SECONDARY", "industry": "UTLITY" },
+		{ "id": "OPEN_WIRE", "industry": "UTLITY" },
+		{ "id": "UTILITY_SERVICE", "industry": "UTLITY" },
+		{ "id": "GUY", "industry": "BOTH" },
+		{ "id": "COMMUNICATION", "industry": "COMMUNICATION" },
+		{ "id": "COMMUNICATION_SERVICE", "industry": "COMMUNICATION" },
+
+	]
+}		
