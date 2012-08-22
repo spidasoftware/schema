@@ -47,7 +47,7 @@ To Install:
 
 Run you tests:
 
-	jasmine-node --coffee /spec
+	jasmine-node --coffee spec
 
 For Debugging: [JSON Tools](https://github.com/ddopson/underscore-cli)
 	
