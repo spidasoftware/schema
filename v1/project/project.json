@@ -18,37 +18,6 @@
         "requiredFilled": {
             "type": "boolean"
         },
-        "address": {
-            "type": "object",
-            "optional": true,
-            "description": "project address",
-            "properties": {
-                "number": {
-                    "type": "string",
-                    "optional": true
-                },
-                "street": {
-                    "type": "string",
-                    "optional": true
-                },
-                "county": {
-                    "type": "string",
-                    "optional": true
-                },
-                "city": {
-                    "type": "string",
-                    "optional": true
-                },
-                "state": {
-                    "type": "string",
-                    "optional": true
-                },
-                "zip_code": {
-                    "type": "string",
-                    "optional": true
-                }
-            }
-        },
         "projectCodes": {
             "type": "array",
             "optional": false,
@@ -86,6 +55,10 @@
         },
         "locations": {
             "$ref": "locations"
+        },
+        "address": {
+            "$ref": "address",
+            "optional": false
         }
     }
 }
