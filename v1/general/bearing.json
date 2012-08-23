@@ -1,6 +1,5 @@
 {
-	"id": bearing,
-	"type": integer,
-	"maximum": 360,
-	"minimum": 0
+	"type": "integer",
+	"maximum": "360",
+	"minimum": "0"
 }

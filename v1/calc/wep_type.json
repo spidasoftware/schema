@@ -1,10 +1,10 @@
 {
 	"id": "wepType",
 	"type": "string",
-	"enum": {
+	"enum": [
 		"NEXT_POLE",
 		"PREVIOUS_POLE",
 		"OTHER_POLE",
 		"BUILDING"
-	}
+	]
 }

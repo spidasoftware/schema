@@ -328,7 +328,7 @@
 					},
 					"tensionAdjustment": {
 						"type": "number"
-					}
+					},
 					"calculation": {
 						"type": "string",
 						"required": "true",

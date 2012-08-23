@@ -6,14 +6,14 @@
 		"id": { 
 			"type": "string",
 			"required": "true"
-		}
+		},
 		"uuid": {
 			"type": "string"
-		}
+		},
 		"distance": {
 			"extends": { "$ref": "../general/measurable.json" },
 			"required": "true"
-		}
+		},
 		"direction": {
 			"extends": { "$ref": "../general/bearing.json" },
 			"required": "true"
