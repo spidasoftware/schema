@@ -5,43 +5,43 @@
     "properties": {
         "id" :  {
           	"type": "string",
-            "required": "true"
+            "required": true
         },        
         "pole": {
         	"type": "object",
-        	"required": "true",
+        	"required": true,
         	"properties": {
 				"glc": {
 					"extends": {"$ref": "measurable"},
-					"required": "true"
+					"required": true
 				},
 		
 				"agl": {
 					"extends": {"$ref": "measurable"},
-					"required": "true"
+					"required": true
 				},
 		
 				"environment": {
 					"type": "string",
-					"required": "true"
+					"required": true
 				},
 				"temperature": {
 					"extends": {"$ref": "measurable"},
-					"required": "true"
+					"required": true
 				},
 				"stressRatio": {
 					"type": "number",
-					"required": "true"
+					"required": true
 				},
 				"clientPole": {
 					"type": "string",
-					"required":"true"
+					"required":true
 				}
 			}
 		},
  		"wireEndPoints": {
  			"type": "array",
- 			"required": "true",
+ 			"required": true,
  			"items": {
  				"type": "object",
  				"id": "wireEndPoint",
@@ -50,20 +50,20 @@
  					
  					"inclination": {
  						"extends": {"$ref": "measurable"},
- 						"required": "true"
+ 						"required": true
  					},
  					"type": {
  						"extends": {"$ref": "wep_type"},
- 						"required": "true"
+ 						"required": true
  					},
  					"comments": {
  						"type": "string",
- 						"required": "true"
+ 						"required": true
  					},
  					
  					"wires": {
  						"type": "array",
- 						"required": "true",
+ 						"required": true,
  						"items": {
  							"type": "string"
  						}
@@ -71,7 +71,7 @@
  					
  					"spanGuys": {
  						"type": "array",
- 						"required": "true",
+ 						"required": true,
  						"items": {
  							"type": "string"
  						}
@@ -79,7 +79,7 @@
  					 					
  					"spanPoints": {
  						"type": "array",
- 						"required": "true",
+ 						"required": true,
  						"items": {
  							"type": "string"
  						}
@@ -89,7 +89,7 @@
  		},		
 		"spanPoints": {
 			"type": "array",
-			"required": "true",
+			"required": true,
 			"items": {
 				"type": "object",
 				"id": "spanPoint",
@@ -97,22 +97,22 @@
 				"properties": {
 					"environment": {
 						"extends": {"$ref": "environment"},
-						"required": "true"
+						"required": true
 					},
 					"heights": {
 						"type": "array",
-						"required": "true", 
+						"required": true,
 						"items": {
 							"type": "object",
 							"id": "height",
 							"properties": {
 								"wireId": {
 									"type": "string",
-									"required": "true"
+									"required": true
 								},
 								"height": {
 									"extends": {"$ref": "measurable"},
-									"required": "true"
+									"required": true
 								}
 							}
 						}
@@ -122,7 +122,7 @@
 		},		
 		"anchors": {
 			"type": "array",
-			"required": "true",
+			"required": true,
 			"items": {
 				"type": "object",
 				"id": "anchor",
@@ -130,27 +130,27 @@
 				"properties": {
 					"owner": {
 						"extends": {"$ref": "owner",
-						"required": "true"
+						"required": true
 					},
 					"height": {
 						"extends": {"$ref": "measurable"},
-						"required": "true"
+						"required": true
 					},
 					"supportType": {
 						"type": "string",
-						"required": "true"
+						"required": true
 					},
 					"inclination": {
 						"extends": {"$ref": "measurable"},
-						"required": "true"
+						"required": true
 					},
 					"clientAnchor": {
 						"type": "string",
-						"required": "true"
+						"required": true
 					},
 					"guys": {
 						"type": "array",
-						"required": "true",
+						"required": true,
 						"items": {
 							"type":"string"
 						}
@@ -161,47 +161,47 @@
 	}, 		
  		"notePoints": {
  			"type": "array",
- 			"required": "true",
+ 			"required": true,
  			"items": {
  				"type": "object",
  				"id": "notePoint",
  				"properties": {
  					"id": {
  						"type": "string",
- 						"required": "true"
+ 						"required": true
  					},
  					"uuid": {
  						"type": "string"
  					},
  					"note": {
  						"type": "string",
- 						"required": "true"
+ 						"required": true
  					},
  					"direction": {
  						"extends": {"$ref": "bearing"},
- 						"required": "true"
+ 						"required": true
  					},
  					"height": {
  						"extends": {"$ref": "measurable"},
- 						"required": "true"
+ 						"required": true
  					},
  					"distance": {
  						"extends": {"$ref": "measurable"},
- 						"required": "true"
+ 						"required": true
  					}
  				}
  			}
  		},
  		"pointLoads": {
  			"type": "array",
- 			"required": "true",
+ 			"required": true,
  			"items": {
  				"type": "object",
  				"id": "pointLoad",
  				"properties": {
  					"id": {
  						"type": "string",
- 						"required": "true"
+ 						"required": true
  					},
  					"uuid": {
  						"type": "string"
@@ -211,47 +211,47 @@
 					},
 					"elevation": {
  						"extends": {"$ref": "measurable"},
- 						"required": "true"
+ 						"required": true
  					},
  					"direction": {
  						"extends": {"$ref": "bearing"},
- 						"required": "true"
+ 						"required": true
  					},
  					"x": {
  						"extends": {"$ref": "measurable"},
- 						"required": "true"
+ 						"required": true
  					},
  					"y": {
  						"extends": {"$ref": "measurable"},
- 						"required": "true"
+ 						"required": true
  					}, 					
  					"z": {
  						"extends": {"$ref": "measurable"},
- 						"required": "true"
+ 						"required": true
  					},
  					"fx": {
  						"extends": {"$ref": "measurable"},
- 						"required": "true"
+ 						"required": true
  					},
  					"fy": {
  						"extends": {"$ref": "measurable"},
- 						"required": "true"
+ 						"required": true
  					},
 					"fz": {
  						"extends": {"$ref": "measurable"},
- 						"required": "true"
+ 						"required": true
  					}, 					 					
  					"mx": {
  						"extends": {"$ref": "measurable"},
- 						"required": "true"
+ 						"required": true
  					},
  					"my": {
  						"extends": {"$ref": "measurable"},
- 						"required": "true"
+ 						"required": true
  					},
 					"mz": {
  						"extends": {"$ref": "measurable"},
- 						"required": "true"
+ 						"required": true
  					}
  				}	 						
  			}
@@ -263,22 +263,22 @@
 				"properties": {
 					"id": {
 						"type": "string",
-						"required": "true"
+						"required": true
 					},
 					"uuid": {
 						"type": "string"
 					},
 					"damageType": {
 						"extends": {"$ref": "damage_type"},
-						"required": "true" 
+						"required": true
 					},
 					"attachHeight": {
 						"extends": {"$ref": "measurable"},
-						"required": "true"
+						"required": true
 					},
 					"damageHeight": {
 						"extends": {"$ref": "measurable"},
-						"required": "true"
+						"required": true
 					},
 					"direction": {
 						"extends": {"$ref": "bearing"}
@@ -316,22 +316,22 @@
 				"properties": {
 					"usageGroup": {
 						"extends": {"$ref": "usage_group" },
-						"required": "true"
+						"required": true
 					},
 					"tensionGroup": {
 						"type": "string",
-						"required": "true"
+						"required": true
 					},
 					"midspanHeight": {
 						"extends": {"$ref": "measurable"},
-						"required": "true"
+						"required": true
 					},
 					"tensionAdjustment": {
 						"type": "number"
 					},
 					"calculation": {
 						"type": "string",
-						"required": "true",
+						"required": true,
 						"enum": [
 							"INITIAL",
 							"FINAL"
@@ -349,11 +349,11 @@
 				"properties": {		
 					"midspanHeight": {
 						"extends": {"$ref": "measurable"},
-						"required": "true"
+						"required": true
 					},
 					"height": {
 						"extends": {"$ref": "measurable"},
-						"required": "true"
+						"required": true
 					}
 				}
 			}
@@ -375,11 +375,11 @@
 				"properties": {		
 					"braceHeight": {
 						"extends": {"$ref": "measurable"},
-						"required": "true"
+						"required": true
 					},
 					"braceLength": {
 						"extends": {"$ref": "measurable"},
-						"required": "true"
+						"required": true
 					}
 				}
 			}
@@ -393,11 +393,11 @@
 				"properties": {		
 					"bottomHeight": {
 						"extends": {"$ref": "measurable"},
-						"required": "true"
+						"required": true
 					},
 					"direction": {
 						"extends": {"$ref": "bearing"},
-						"required": "true"
+						"required": true
 					}
 				}
 			}
@@ -411,15 +411,15 @@
 				"properties": {		
 					"offset": {
 						"extends": {"$ref": "measurable"},
-						"required": "true"
+						"required": true
 					},
 					"direction": {
 						"extends": {"$ref": "bearing"},
-						"required": "true"
+						"required": true
 					},
 					"associatedBacking": {
 						"type": "string",
-						"required": "true"
+						"required": true
 					},
 					"insulators": {
 						"type": "array",
@@ -439,15 +439,15 @@
 				"properties": {		
 					"offset": {
 						"extends": {"$ref": "measurable"},
-						"required": "true"
+						"required": true
 					},
 					"direction": {
 						"extends": {"$ref": "bearing"},
-						"required": "true"
+						"required": true
 					},
 					"doubleInsulator": {
 						"type": "boolean",
-						"required": "true"
+						"required": true
 					},
 					"wires":  {
 						"type": "array",
@@ -467,15 +467,15 @@
 				"properties": {		
 					"glc": {
 						"extends": {"$ref": "measurable"},
-						"required": "true"
+						"required": true
 					},
 					"direction": {
 						"extends": {"$ref": "measurable"},
-						"required": "true"
+						"required": true
 					},
 					"distance": {
 						"extends": {"$ref": "measurable"},
-						"required": "true"
+						"required": true
 					}					
 				}
 			}

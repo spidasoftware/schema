@@ -5,18 +5,18 @@
 	"properties": {
 		"id": { 
 			"type": "string",
-			"required": "true"
+			"required": true
 		},
 		"uuid": {
 			"type": "string"
 		},
 		"distance": {
 			"extends": { "$ref": "measurable" },
-			"required": "true"
+			"required": true
 		},
 		"direction": {
 			"extends": { "$ref": "bearing" },
-			"required": "true"
+			"required": true
 		}
 	}
 }

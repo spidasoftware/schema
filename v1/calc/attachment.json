@@ -5,18 +5,18 @@
 	"properties": {
 		"id": {
 			"type": "string",
-			"required": "true"
+			"required": true
 		},
 		"uuid": {
 			"type": "string"
 		},
 		"owner": {
 			"extends": { "$ref": "owner" },
-			"required": "true"
+			"required": true
 		},
 		"clientItem": {
 			"type": "string",
-			"required": "true"
+			"required": true
 		}
 	}
 	
