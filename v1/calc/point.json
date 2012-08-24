@@ -11,11 +11,11 @@
 			"type": "string"
 		},
 		"distance": {
-			"extends": { "$ref": "../general/measurable.json" },
+			"extends": { "$ref": "measurable" },
 			"required": "true"
 		},
 		"direction": {
-			"extends": { "$ref": "../general/bearing.json" },
+			"extends": { "$ref": "bearing" },
 			"required": "true"
 		}
 	}

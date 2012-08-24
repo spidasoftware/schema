@@ -11,7 +11,7 @@
 			"type": "string"
 		},
 		"owner": {
-			"extends": { "$ref": "../general/owner.json" },
+			"extends": { "$ref": "owner" },
 			"required": "true"
 		},
 		"clientItem": {

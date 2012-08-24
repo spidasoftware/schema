@@ -23,6 +23,7 @@ zip.sha1
 plugins/xcel/deploy/*.groovy
 *.xml.sha1
 *.zip.sha1
+*.iws
 projectmanager/.pt/-w
 projectmanager/connected
 projectmanager/devDB.properties

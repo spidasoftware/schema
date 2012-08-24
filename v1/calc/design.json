@@ -12,12 +12,12 @@
         	"required": "true",
         	"properties": {
 				"glc": {
-					"extends": {"$ref": "../general/measurable.json"},
+					"extends": {"$ref": "measurable"},
 					"required": "true"
 				},
 		
 				"agl": {
-					"extends": {"$ref": "../general/measurable.json"},
+					"extends": {"$ref": "measurable"},
 					"required": "true"
 				},
 		
@@ -26,7 +26,7 @@
 					"required": "true"
 				},
 				"temperature": {
-					"extends": {"$ref": "../general/measurable.json"},
+					"extends": {"$ref": "measurable"},
 					"required": "true"
 				},
 				"stressRatio": {
@@ -45,15 +45,15 @@
  			"items": {
  				"type": "object",
  				"id": "wireEndPoint",
-				"extends": {"$ref": "point.json"},
+				"extends": {"$ref": "point"},
  				"properties": {
  					
  					"inclination": {
- 						"extends": {"$ref": "../general/measurable.json"},
+ 						"extends": {"$ref": "measurable"},
  						"required": "true"
  					},
  					"type": {
- 						"extends": {"$ref": "wep_type.json"},
+ 						"extends": {"$ref": "wep_type"},
  						"required": "true"
  					},
  					"comments": {
@@ -93,10 +93,10 @@
 			"items": {
 				"type": "object",
 				"id": "spanPoint",
-				"extends": {"$ref": "point.json"},
+				"extends": {"$ref": "point"},
 				"properties": {
 					"environment": {
-						"extends": {"$ref": "environment.json"},
+						"extends": {"$ref": "environment"},
 						"required": "true"
 					},
 					"heights": {
@@ -111,7 +111,7 @@
 									"required": "true"
 								},
 								"height": {
-									"extends": {"$ref": "../general/measurable.json"},
+									"extends": {"$ref": "measurable"},
 									"required": "true"
 								}
 							}
@@ -126,14 +126,14 @@
 			"items": {
 				"type": "object",
 				"id": "anchor",
-				"extends": {"$ref": "point.json"},
+				"extends": {"$ref": "point"},
 				"properties": {
 					"owner": {
-						"extends": {"$ref": "../general/owner.json",
+						"extends": {"$ref": "owner",
 						"required": "true"
 					},
 					"height": {
-						"extends": {"$ref": "../general/measurable.json"},
+						"extends": {"$ref": "measurable"},
 						"required": "true"
 					},
 					"supportType": {
@@ -141,7 +141,7 @@
 						"required": "true"
 					},
 					"inclination": {
-						"extends": {"$ref": "../general/measurable.json"},
+						"extends": {"$ref": "measurable"},
 						"required": "true"
 					},
 					"clientAnchor": {
@@ -178,15 +178,15 @@
  						"required": "true"
  					},
  					"direction": {
- 						"extends": {"$ref": "../general/bearing.json"},
+ 						"extends": {"$ref": "bearing"},
  						"required": "true"
  					},
  					"height": {
- 						"extends": {"$ref": "../general/measurable.json"},
+ 						"extends": {"$ref": "measurable"},
  						"required": "true"
  					},
  					"distance": {
- 						"extends": {"$ref": "../general/measurable.json"},
+ 						"extends": {"$ref": "measurable"},
  						"required": "true"
  					}
  				}
@@ -207,50 +207,50 @@
  						"type": "string"
 					},
 					"owner": {
-						"extends": {"$ref": "../general/owner.json"}
+						"extends": {"$ref": "owner"}
 					},
 					"elevation": {
- 						"extends": {"$ref": "../general/measurable.json"},
+ 						"extends": {"$ref": "measurable"},
  						"required": "true"
  					},
  					"direction": {
- 						"extends": {"$ref": "../general/bearing.json"},
+ 						"extends": {"$ref": "bearing"},
  						"required": "true"
  					},
  					"x": {
- 						"extends": {"$ref": "../general/measurable.json"},
+ 						"extends": {"$ref": "measurable"},
  						"required": "true"
  					},
  					"y": {
- 						"extends": {"$ref": "../general/measurable.json"},
+ 						"extends": {"$ref": "measurable"},
  						"required": "true"
  					}, 					
  					"z": {
- 						"extends": {"$ref": "../general/measurable.json"},
+ 						"extends": {"$ref": "measurable"},
  						"required": "true"
  					},
  					"fx": {
- 						"extends": {"$ref": "../general/measurable.json"},
+ 						"extends": {"$ref": "measurable"},
  						"required": "true"
  					},
  					"fy": {
- 						"extends": {"$ref": "../general/measurable.json"},
+ 						"extends": {"$ref": "measurable"},
  						"required": "true"
  					},
 					"fz": {
- 						"extends": {"$ref": "../general/measurable.json"},
+ 						"extends": {"$ref": "measurable"},
  						"required": "true"
  					}, 					 					
  					"mx": {
- 						"extends": {"$ref": "../general/measurable.json"},
+ 						"extends": {"$ref": "measurable"},
  						"required": "true"
  					},
  					"my": {
- 						"extends": {"$ref": "../general/measurable.json"},
+ 						"extends": {"$ref": "measurable"},
  						"required": "true"
  					},
 					"mz": {
- 						"extends": {"$ref": "../general/measurable.json"},
+ 						"extends": {"$ref": "measurable"},
  						"required": "true"
  					}
  				}	 						
@@ -269,40 +269,40 @@
 						"type": "string"
 					},
 					"damageType": {
-						"extends": {"$ref": "damage_type.json"},
+						"extends": {"$ref": "damage_type"},
 						"required": "true" 
 					},
 					"attachHeight": {
-						"extends": {"$ref": "../general/measurable.json"},
+						"extends": {"$ref": "measurable"},
 						"required": "true"
 					},
 					"damageHeight": {
-						"extends": {"$ref": "../general/measurable.json"},
+						"extends": {"$ref": "measurable"},
 						"required": "true"
 					},
 					"direction": {
-						"extends": {"$ref": "../general/bearing.json"}
+						"extends": {"$ref": "bearing"}
 					},
 					"circumference": {
-						"extends": {"$ref": "../general/measurable.json"}
+						"extends": {"$ref": "measurable"}
 					},
 					"arcLength": {
-						"extends": {"$ref": "../general/measurable.json"}
+						"extends": {"$ref": "measurable"}
 					},						
 					"depth": {
-						"extends": {"$ref": "../general/measurable.json"}
+						"extends": {"$ref": "measurable"}
 					},									
 					"shellThickness": {
-						"extends": {"$ref": "../general/measurable.json"}
+						"extends": {"$ref": "measurable"}
 					},					 					
 					"neckDepth": {
-						"extends": {"$ref": "../general/measurable.json"}
+						"extends": {"$ref": "measurable"}
 					}, 
 					"neckDiameter": {
-						"extends": {"$ref": "../general/measurable.json"}
+						"extends": {"$ref": "measurable"}
 					},
 					"neckOffset": {
-						"extends": {"$ref": "../general/measurable.json"}
+						"extends": {"$ref": "measurable"}
 					}
 				}
 			}
@@ -312,10 +312,10 @@
 			"items": {
 				"type": "object",
 				"id": "wire",
-				"extends": {"$ref": "attachment.json" },
+				"extends": {"$ref": "attachment" },
 				"properties": {
 					"usageGroup": {
-						"extends": {"$ref": "usage_group.json" },
+						"extends": {"$ref": "usage_group" },
 						"required": "true"
 					},
 					"tensionGroup": {
@@ -323,7 +323,7 @@
 						"required": "true"
 					},
 					"midspanHeight": {
-						"extends": {"$ref": "../general/measurable.json"},
+						"extends": {"$ref": "measurable"},
 						"required": "true"
 					},
 					"tensionAdjustment": {
@@ -345,14 +345,14 @@
 			"items": {
 				"type": "object",
 				"id": "spanGuy",
-				"extends": {"$ref": "attachment.json" },
+				"extends": {"$ref": "attachment" },
 				"properties": {		
 					"midspanHeight": {
-						"extends": {"$ref": "../general/measurable.json"},
+						"extends": {"$ref": "measurable"},
 						"required": "true"
 					},
 					"height": {
-						"extends": {"$ref": "../general/measurable.json"},
+						"extends": {"$ref": "measurable"},
 						"required": "true"
 					}
 				}
@@ -363,7 +363,7 @@
 			"items": {
 				"type": "object",
 				"id": "guy",
-				"extends": {"$ref": "attachment.json" }
+				"extends": {"$ref": "attachment" }
 			}
 		},
 		"sidewalkGuys": {
@@ -371,14 +371,14 @@
 			"items": {
 				"type": "object",
 				"id": "sidewalkGuy",
-				"extends": {"$ref": "attachment.json" },
+				"extends": {"$ref": "attachment" },
 				"properties": {		
 					"braceHeight": {
-						"extends": {"$ref": "../general/measurable.json"},
+						"extends": {"$ref": "measurable"},
 						"required": "true"
 					},
 					"braceLength": {
-						"extends": {"$ref": "../general/measurable.json"},
+						"extends": {"$ref": "measurable"},
 						"required": "true"
 					}
 				}
@@ -389,14 +389,14 @@
 			"items": {
 				"type": "object",
 				"id": "equipment",
-				"extends": {"$ref": "attachment.json" },
+				"extends": {"$ref": "attachment" },
 				"properties": {		
 					"bottomHeight": {
-						"extends": {"$ref": "../general/measurable.json"},
+						"extends": {"$ref": "measurable"},
 						"required": "true"
 					},
 					"direction": {
-						"extends": {"$ref": "../general/bearing.json"},
+						"extends": {"$ref": "bearing"},
 						"required": "true"
 					}
 				}
@@ -407,14 +407,14 @@
 			"items": {
 				"type": "object",
 				"id": "crossArm",
-				"extends": {"$ref": "attachment.json" },
+				"extends": {"$ref": "attachment" },
 				"properties": {		
 					"offset": {
-						"extends": {"$ref": "../general/measurable.json"},
+						"extends": {"$ref": "measurable"},
 						"required": "true"
 					},
 					"direction": {
-						"extends": {"$ref": "../general/bearing.json"},
+						"extends": {"$ref": "bearing"},
 						"required": "true"
 					},
 					"associatedBacking": {
@@ -435,14 +435,14 @@
 			"items": {
 				"type": "object",
 				"id": "insulator",
-				"extends": {"$ref": "attachment.json" },
+				"extends": {"$ref": "attachment" },
 				"properties": {		
 					"offset": {
-						"extends": {"$ref": "../general/measurable.json"},
+						"extends": {"$ref": "measurable"},
 						"required": "true"
 					},
 					"direction": {
-						"extends": {"$ref": "../general/bearing.json"},
+						"extends": {"$ref": "bearing"},
 						"required": "true"
 					},
 					"doubleInsulator": {
@@ -463,18 +463,18 @@
 			"items": {
 				"type": "object",
 				"id": "pushBrace",
-				"extends": {"$ref": "attachment.json" },
+				"extends": {"$ref": "attachment" },
 				"properties": {		
 					"glc": {
-						"extends": {"$ref": "../general/measurable.json"},
+						"extends": {"$ref": "measurable"},
 						"required": "true"
 					},
 					"direction": {
-						"extends": {"$ref": "../general/measurable.json"},
+						"extends": {"$ref": "measurable"},
 						"required": "true"
 					},
 					"distance": {
-						"extends": {"$ref": "../general/measurable.json"},
+						"extends": {"$ref": "measurable"},
 						"required": "true"
 					}					
 				}
