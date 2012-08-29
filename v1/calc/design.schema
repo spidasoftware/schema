@@ -11,6 +11,9 @@
         	"type": "object",
         	"required": true,
         	"properties": {
+        		"uuid": {
+        			"type": "string"
+        		},
 				"glc": {
 					"extends": {"$ref": "measurable"},
 					"required": true
@@ -47,7 +50,6 @@
  				"id": "wireEndPoint",
 				"extends": {"$ref": "point"},
  				"properties": {
- 					
  					"inclination": {
  						"extends": {"$ref": "measurable"},
  						"required": true
@@ -57,8 +59,7 @@
  						"required": true
  					},
  					"comments": {
- 						"type": "string",
- 						"required": true
+ 						"type": "string"
  					},
  					
  					"wires": {
@@ -93,8 +94,18 @@
 			"items": {
 				"type": "object",
 				"id": "spanPoint",
-				"extends": {"$ref": "point"},
 				"properties": {
+					"id": { 
+						"type": "string",
+						"required": true
+					},
+					"uuid": {
+						"type": "string"
+					},
+					"distance": {
+						"extends": { "$ref": "measurable" },
+						"required": true
+					},
 					"environment": {
 						"extends": {"$ref": "environment"},
 						"required": true
@@ -140,11 +151,7 @@
 						"type": "string",
 						"required": true
 					},
-					"inclination": {
-						"extends": {"$ref": "measurable"},
-						"required": true
-					},
-					"clientAnchor": {
+					"clientItem": {
 						"type": "string",
 						"required": true
 					},
@@ -165,27 +172,13 @@
  			"items": {
  				"type": "object",
  				"id": "notePoint",
+ 				"extends": {"$ref": "point"},
  				"properties": {
- 					"id": {
- 						"type": "string",
- 						"required": true
- 					},
- 					"uuid": {
- 						"type": "string"
- 					},
  					"note": {
  						"type": "string",
  						"required": true
  					},
- 					"direction": {
- 						"extends": {"$ref": "bearing"},
- 						"required": true
- 					},
  					"height": {
- 						"extends": {"$ref": "measurable"},
- 						"required": true
- 					},
- 					"distance": {
  						"extends": {"$ref": "measurable"},
  						"required": true
  					}
@@ -198,6 +191,7 @@
  			"items": {
  				"type": "object",
  				"id": "pointLoad",
+ 				"extends": {"$ref": "attachment" },
  				"properties": {
  					"id": {
  						"type": "string",
@@ -213,8 +207,8 @@
  						"extends": {"$ref": "measurable"},
  						"required": true
  					},
- 					"direction": {
- 						"extends": {"$ref": "bearing"},
+ 					"rotation": {
+ 						"extends": {"$ref": "measurable"},
  						"required": true
  					},
  					"x": {
@@ -283,10 +277,7 @@
 					"direction": {
 						"extends": {"$ref": "bearing"}
 					},
-					"circumference": {
-						"extends": {"$ref": "measurable"}
-					},
-					"arcLength": {
+					"arc": {
 						"extends": {"$ref": "measurable"}
 					},						
 					"depth": {
@@ -328,14 +319,6 @@
 					},
 					"tensionAdjustment": {
 						"type": "number"
-					},
-					"calculation": {
-						"type": "string",
-						"required": true,
-						"enum": [
-							"INITIAL",
-							"FINAL"
-						]
 					}
 				}
 			}
@@ -363,27 +346,17 @@
 			"items": {
 				"type": "object",
 				"id": "guy",
-				"extends": {"$ref": "attachment" }
-			}
-		},
-		"sidewalkGuys": {
-			"type": "array",
-			"items": {
-				"type": "object",
-				"id": "sidewalkGuy",
 				"extends": {"$ref": "attachment" },
-				"properties": {		
+				"properties": {
 					"braceHeight": {
-						"extends": {"$ref": "measurable"},
-						"required": true
+						"extends": {"$ref": "measurable"}						
 					},
 					"braceLength": {
-						"extends": {"$ref": "measurable"},
-						"required": true
+						"extends": {"$ref": "measurable"}
 					}
 				}
 			}
-		},		
+		},
 		"equipments": {
 			"type": "array",
 			"items": {

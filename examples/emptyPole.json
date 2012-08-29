@@ -1,0 +1,34 @@
+{
+  "anchors": [], 
+  "crossArms": [], 
+  "damages": [], 
+  "equipments": [], 
+  "guys": [], 
+  "id": "Pole", 
+  "insulators": [], 
+  "notePoints": [], 
+  "pointLoads": [], 
+  "pole": {
+    "agl": {
+      "unit": "FOOT", 
+      "value": 38.5
+    }, 
+    "clientPole": "4", 
+    "environment": "STREET", 
+    "glc": {
+      "unit": "FOOT", 
+      "value": 2.8990375130504664
+    }, 
+    "stressRatio": 1.0, 
+    "temperature": {
+      "unit": "FAHRENHEIT", 
+      "value": 60.0
+    }, 
+    "uuid": "86e883a5-181d-4107-9d61-4eb9a1ed3e06"
+  }, 
+  "pushBraces": [], 
+  "spanGuy": [], 
+  "spanPoints": [], 
+  "wireEndPoints": [], 
+  "wires": []
+}

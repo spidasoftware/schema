@@ -12,10 +12,10 @@ describe 'calc', ->
 		util.puts "loading schemas in #{folder}"
 		for file in files
 			do (file) ->
-				if path.extname(file) is ".json"
+				if path.extname(file) is ".schema"
 					util.puts "loading schema for file #{file}"
 					schemaData = fs.readFileSync("#{folder}/#{file}")
-					env.createSchema( schemaData, true, path.basename(file, ".json")  )
+					env.createSchema( schemaData, true, path.basename(file, ".schema")  )
 
 
 	loadSupportSchemas = () ->
@@ -23,10 +23,11 @@ describe 'calc', ->
 		loadSchemasInFolder("./v1/calc")
 
 
-	validate = (json, schemaFile, success) ->
+	validate = (json, schemaFile, success=true) ->
 		loadSupportSchemas()
-		util.puts(schemaFile )
-		util.puts(success)
+		#util.puts(schemaFile )
+		#util.puts(success)
+		util.puts("json string to validate.")
 		util.puts(JSON.stringify(json, null, 2))
 		data = fs.readFileSync(schemaFile)
 		schema = JSON.parse(data)
@@ -48,7 +49,7 @@ describe 'calc', ->
 			"direction": 360
 		}
 
-		validate(json, "./v1/calc/point.json", true)
+		validate(json, "./v1/calc/point.schema", true)
 
 	it 'check usage group schema', ->
 		success =
@@ -58,20 +59,44 @@ describe 'calc', ->
 		failure = {
 			"id": "NONEXISTANT",
 			"industry": "COMMUNICATION"
-        }
-		testSchema = "./v1/calc/usage_group.json"
+		}
+		testSchema = "./v1/calc/usage_group.schema"
 		validate(success, testSchema, true)
 		validate(failure, testSchema, false)
 
 	it 'check design schema', ->
-		json = fs.readFileSync("./examples/baseDesign.json")
-		designSchema = "./v1/calc/design.json"
+		util.puts ("Checking empty pole")
+		jsonString = fs.readFileSync("./examples/emptyPole.json").toString()
+		json = JSON.parse(jsonString)
+		designSchema = "./v1/calc/design.schema"
+		validate(json, designSchema)
+		
+		util.puts ("Checking pole with everything")
+		jsonString = fs.readFileSync("./examples/oneOfEverything.json", "utf8")
+		json = JSON.parse(jsonString)
+		validate(json, designSchema)
+		
+		util.puts("Checking pole with anchor and guy")
+		jsonString = fs.readFileSync("./examples/anchorGuy.json", "utf8")
+		json = JSON.parse(jsonString)
 		validate(json, designSchema)
 
+		util.puts("Checking pole with bisector guy")
+		jsonString = fs.readFileSync("./examples/bisector.json", "utf8")
+		json = JSON.parse(jsonString)
+		validate(json, designSchema)
 
+		util.puts("Checking pole with insulator")
+		jsonString = fs.readFileSync("./examples/insulator.json", "utf8")
+		json = JSON.parse(jsonString)
+		validate(json, designSchema)
 
+		util.puts("Checking pole with wire")
+		jsonString = fs.readFileSync("./examples/wire.json", "utf8")
+		json = JSON.parse(jsonString)
+		validate(json, designSchema)
 
-
-
-
-
+		util.puts("Checking pole with crossarm.")
+		jsonString = fs.readFileSync("./examples/xarm.json", "utf8")
+		json = JSON.parse(jsonString)
+		validate(json, designSchema)

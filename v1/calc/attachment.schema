@@ -17,6 +17,10 @@
 		"clientItem": {
 			"type": "string",
 			"required": true
+		},
+		"attachmentHeight": {
+		    "extends": "$ref": "measurable" },
+		    "required": true
 		}
 	}
 	

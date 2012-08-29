@@ -1,0 +1,55 @@
+{
+  "anchors": [], 
+  "crossArms": [
+    {
+      "associatedBacking": "Other", 
+      "attachmentHeight": {
+        "unit": "FOOT", 
+        "value": 29.166666666666664
+      }, 
+      "clientItem": "10 Foot Cross Arm", 
+      "direction": 0, 
+      "id": "CrossArm#1", 
+      "insulators": [], 
+      "offset": {
+        "unit": "INCH", 
+        "value": 60.0
+      }, 
+      "owner": {
+        "industry": "UTILITY", 
+        "name": "SCE"
+      }, 
+      "uuid": "5eafde6b-0d88-4dfd-82ac-48a0e9daada8"
+    }
+  ], 
+  "damages": [], 
+  "equipments": [], 
+  "guys": [], 
+  "id": "Pole", 
+  "insulators": [], 
+  "notePoints": [], 
+  "pointLoads": [], 
+  "pole": {
+    "agl": {
+      "unit": "FOOT", 
+      "value": 38.5
+    }, 
+    "clientPole": "4", 
+    "environment": "STREET", 
+    "glc": {
+      "unit": "FOOT", 
+      "value": 2.8990375130504664
+    }, 
+    "stressRatio": 1.0, 
+    "temperature": {
+      "unit": "FAHRENHEIT", 
+      "value": 60.0
+    }, 
+    "uuid": "80c2be28-05d7-4274-a1bc-564406f88869"
+  }, 
+  "pushBraces": [], 
+  "spanGuy": [], 
+  "spanPoints": [], 
+  "wireEndPoints": [], 
+  "wires": []
+}
