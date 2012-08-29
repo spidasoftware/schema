@@ -1,12 +1,10 @@
 {
     "getName": {
         "description": "Get name of this service.",
-        "type": "method",
         "returns": "string"
     },
     "getPossibleAssetTypes": {
         "description": "Analyze given pole and wait for results",
-        "type": "method",
         "returns": {
             "type": "array",
             "name": "types",
@@ -27,7 +25,6 @@
     },
     "getStations": {
         "description": "Analyze given pole and wait for results",
-        "type": "method",
         "returns": {
             "$ref": "stations"
         },
@@ -80,7 +77,6 @@
     },
     "getAssets": {
         "description": "Analyze given pole and wait for results",
-        "type": "method",
         "returns": {
             "$ref": "assets"
         },
