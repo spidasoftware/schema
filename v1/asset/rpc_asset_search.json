@@ -1,0 +1,26 @@
+{
+    "extends": {
+        "$ref": "rpc_asset"
+    },
+    "getPossibleAssetTypes": {
+        "description": "Analyze given pole and wait for results",
+        "type": "method",
+        "returns": {
+            "type": "array",
+            "name": "types",
+            "required": true,
+            "description": "Asset types in this service",
+            "items": {
+                "type": "string"
+            }
+        },
+        "params": [
+            {
+                "type": "number",
+                "name": "companyId",
+                "required": true,
+                "description": "Company to get the asset types for."
+            }
+        ]
+    }
+}

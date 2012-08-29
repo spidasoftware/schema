@@ -1,6 +1,6 @@
 {
-    "id": "location",
-    "description": "A SPIDAMin location",
+    "id": "station",
+    "description": "A SPIDAMin station",
     "type": "object",
     "properties": {
             "locationId": {

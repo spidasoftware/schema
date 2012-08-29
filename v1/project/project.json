@@ -23,7 +23,8 @@
             "optional": false,
             "description": "Codes for the project.",
             "items": {
-                "type": "string"
+                "type": "string",
+                "value": "string"
             }
         },
         "formTemplateIds": {

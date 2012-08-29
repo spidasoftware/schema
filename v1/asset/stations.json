@@ -1,11 +1,11 @@
 {
-    "id": "locations",
-    "description": "A SPIDAMin locations",
+    "id": "stations",
+    "description": "A SPIDAMin stations",
     "type": "array",
     "items": {
         "id": "location",
         "description": "A SPIDAMin location",
-        "type": {"$ref":"location"},
+        "type": {"$ref":"station"},
        
     }
 }

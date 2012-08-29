@@ -1,0 +1,46 @@
+{
+    "id": "dataForm",
+    "description": "A SPIDAMin form",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "number"
+        },
+        "formTemplateName": {
+            "type": "string"
+        },
+        "formTemplateId": {
+            "type": "number"
+        },
+        "formTemplateVersion": {
+            "type": "number"
+        },
+        "parentLevel": {
+            "type": "string"
+        },
+        "parentId": {
+            "type": "string"
+        },
+        "dataFields": {
+            "type": "array",
+            "items": {
+                "id": "ate",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "fieldTemplateName": {
+                        "type": "string"
+                    },
+                    "fieldTemplateId": {
+                        "type": "number"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                }
+            }
+        }
+    }
+}
