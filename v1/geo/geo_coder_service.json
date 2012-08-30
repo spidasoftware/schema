@@ -1,4 +1,6 @@
 {
+    "id": "geo_coder_service",
+    "description": "This object describes the service needed to geo code poles",
     "geoCodeAddress": {
         "description": "Return a point geometry from an address.",
         "returns": "geometry",

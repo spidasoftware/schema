@@ -18,7 +18,9 @@ describe 'asset', ->
 
   loadSupportSchemas = () ->
     loadSchemasInFolder("./v1/general")
-    loadSchemasInFolder("./v1/service")
+    loadSchemasInFolder("./v1/asset")
+    loadSchemasInFolder("./v1/geo")
+    loadSchemasInFolder("./v1/user")
 
 
   validate = (json, schemaFile, success=true) ->
@@ -37,13 +39,25 @@ describe 'asset', ->
   schema = JSON.parse(fs.readFileSync "./v1/general/service_method.schema")
    
   it 'make sure the asset service descriptor validates', ->  
-    service = JSON.parse(fs.readFileSync "./v1/service/asset_service.json")
+    service = JSON.parse(fs.readFileSync "./v1/asset/asset_service.json")
     for method of service
       if method!="id" and method!="description" 
         validate(service[method], "./v1/general/service_method.schema", true)
 
   it 'make sure the asset search service descriptor validates', ->  
-    service = JSON.parse(fs.readFileSync "./v1/service/asset_search_service.json")
+    service = JSON.parse(fs.readFileSync "./v1/asset/asset_search_service.json")
+    for method of service
+      if method!="id" and method!="description" 
+        validate(service[method], "./v1/general/service_method.schema", true)
+
+  it 'make sure the geo coder service descriptor validates', ->  
+    service = JSON.parse(fs.readFileSync "./v1/geo/geo_coder_service.json")
+    for method of service
+      if method!="id" and method!="description" 
+        validate(service[method], "./v1/general/service_method.schema", true)
+   
+  it 'make sure the user service descriptor validates', ->  
+    service = JSON.parse(fs.readFileSync "./v1/user/user_service.json")
     for method of service
       if method!="id" and method!="description" 
         validate(service[method], "./v1/general/service_method.schema", true)

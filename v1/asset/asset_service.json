@@ -1,4 +1,6 @@
 {
+    "id": "asset_service",
+    "description": "This schema allows for the analysis of poles",
     "getName": {
         "description": "Get name of this service.",
         "returns": "string"
@@ -65,7 +67,5 @@
                 "description": "Whether to fetch station asset details with the query."
             }
         ]
-    },
-    "id": "rpc_asset",
-    "description": "This schema allows for the analysis of poles"
+    }
 }

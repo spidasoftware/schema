@@ -1,4 +1,6 @@
 {
+    "id": "asset_search_service",
+    "description": "This extention of the asset service allow for advanced searching",
     "extends": {
         "$ref": "asset_service"
     },    
