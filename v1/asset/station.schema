@@ -3,23 +3,30 @@
     "description": "A SPIDAMin station",
     "type": "object",
     "properties": {
-            "locationId": {
-                "type": "string"
-            },
-            "spotted": {
-                "type": "boolean"
-            },
-            "requiredFilled": {
-                "type": "boolean"
-            },
-            "type": {
-                "type": "string"
-            },
-            "id": {
-                "type": "number"
-            },
-            "geometry": {
-                "$ref": "geometry"
+        "locationId": {
+            "type": "string"
+        },
+        "spotted": {
+            "type": "boolean"
+        },
+        "requiredFilled": {
+            "type": "boolean"
+        },
+        "type": {
+            "type": "string"
+        },
+        "id": {
+            "type": "number"
+        },
+        "geometry": {
+            "$ref": "geometry"
+        },
+        "stationAssets": {
+            "type": "array",
+            "required": false,
+            "items": {
+                "$ref": "asset"
             }
         }
     }
+}

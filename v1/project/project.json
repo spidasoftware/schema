@@ -20,7 +20,6 @@
         },
         "projectCodes": {
             "type": "array",
-            "optional": false,
             "description": "Codes for the project.",
             "items": {
                 "type": "string",
@@ -29,7 +28,6 @@
         },
         "formTemplateIds": {
             "type": "array",
-            "optional": false,
             "description": "Form template ids for the project.",
             "items": {
                 "type": "number"
@@ -37,7 +35,6 @@
         },
         "dataFormIds": {
             "type": "array",
-            "optional": false,
             "description": "Data form ids for the project.",
             "items": {
                 "type": "number"
@@ -45,7 +42,6 @@
         },
         "stationFormTemplateIds": {
             "type": "array",
-            "optional": false,
             "description": "Form template ids for the stations in this project.",
             "items": {
                 "type": "number"
@@ -54,12 +50,18 @@
         "geometry": {
             "$ref": "geometry"
         },
-        "locations": {
-            "$ref": "locations"
-        },
         "address": {
-            "$ref": "address",
-            "optional": false
+            "$ref": "address"
+        },
+        "stations": {
+            "type": "array",
+            "items": {
+                "id": "location",
+                "description": "A SPIDAMin station",
+                "type": {
+                    "$ref": "station"
+                }
+            }
         }
     }
 }
