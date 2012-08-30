@@ -18,7 +18,7 @@ describe 'asset', ->
 
   loadSupportSchemas = () ->
     loadSchemasInFolder("./v1/general")
-    loadSchemasInFolder("./v1/asset")
+    loadSchemasInFolder("./v1/service")
 
 
   validate = (json, schemaFile, success=true) ->
@@ -34,17 +34,17 @@ describe 'asset', ->
     else
       expect(report.errors.length).not.toBe(0)
 
-  schema = JSON.parse(fs.readFileSync "./v1/general/rpc_method.schema")
+  schema = JSON.parse(fs.readFileSync "./v1/general/service_method.schema")
    
   it 'make sure the asset service descriptor validates', ->  
-    service = JSON.parse(fs.readFileSync "./v1/asset/rpc_asset.json")
+    service = JSON.parse(fs.readFileSync "./v1/service/asset_service.json")
     for method of service
       if method!="id" and method!="description" 
-        validate(service[method], "./v1/general/rpc_method.schema", true)
+        validate(service[method], "./v1/general/service_method.schema", true)
 
   it 'make sure the asset search service descriptor validates', ->  
-    service = JSON.parse(fs.readFileSync "./v1/asset/rpc_asset.json")
+    service = JSON.parse(fs.readFileSync "./v1/service/asset_search_service.json")
     for method of service
       if method!="id" and method!="description" 
-        validate(service[method], "./v1/general/rpc_method.schema", true)
+        validate(service[method], "./v1/general/service_method.schema", true)
    
