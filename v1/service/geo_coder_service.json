@@ -1,0 +1,32 @@
+{
+    "geoCodeAddress": {
+        "description": "Return a point geometry from an address.",
+        "returns": "geometry",
+         "params": [
+            {
+                "type": "address",
+                "name": "lat",
+                "required": true,
+                "description": "Address to code."
+            }
+        ]
+    },
+    "geoCodeLatLng": {
+        "description": "Return an address for a lat/long.",
+        "returns": "address",
+        "params": [
+            {
+                "type": "number",
+                "name": "lat",
+                "required": true,
+                "description": "Latitude."
+            },
+            {
+                "type": "number",
+                "name": "lng",
+                "required": true,
+                "description": "Longitude."
+            }
+        ]
+    }
+}
