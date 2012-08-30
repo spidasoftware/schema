@@ -1,5 +1,5 @@
 {
-    "id": "rpc_method",
+    "id": "service_method",
     "type": "object",
     "description": "A general rpc method",
     "properties": {

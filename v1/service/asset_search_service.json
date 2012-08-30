@@ -1,15 +1,10 @@
 {
     "extends": {
-        "$ref": "rpc_asset"
+        "$ref": "asset_service"
     },    
     "findStations": {
         "description": "Analyze given pole and wait for results",
-        "returns": {
-            "type": "stations",
-            "name": "types",
-            "required": true,
-            "description": "Asset types in this service"
-        },
+        "returns": "stations",
         "params": [
             {
                 "type": "advanced_params",
@@ -27,11 +22,6 @@
     },
     "getSearchableKeys": {
         "description": "Analyze given pole and wait for results",
-        "returns": {
-            "type": "searchable_keys",
-            "name": "types",
-            "required": true,
-            "description": "Formatted list of searchable keys for this service as a JSON object"
-        }
+        "returns": "searchable_keys"
     }
 }
