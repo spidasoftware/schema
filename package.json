@@ -9,7 +9,7 @@
     "url": "git@192.168.47.84:schema.git"
   },
   "scripts": {
-    "test": "jasmine-node --coffee -m Service spec/"
+    "test": "jasmine-node --coffee spec/"
   },
   "engines": {
     "node": "~0.6.9"
