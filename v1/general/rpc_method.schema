@@ -1,23 +1,35 @@
 {
     "id": "rpc_method",
     "type": "object",
+    "description": "A general rpc method",
     "properties": {
-        "description": "string",
+        "description": {
+            "type": "string"
+        },
         "params": {
             "type": "array",
             "required": false,
             "items": {
                 "type": "object",
                 "properties": {
-                    "description": "string",
-                    "name": "string",
-                    "required": "boolean",
-                    "type": "string"
+                    "description": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "required": {
+                        "type": "boolean"
+                    },
+                    "type": {
+                        "type": "string"
+                    }
                 }
             }
         },
         "returns": {
             "type": "string",
+            "description": "The TYPE description or schema name for the return value.",
             "required": false
         }
     }

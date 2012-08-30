@@ -2,9 +2,13 @@
     "extends": {
         "$ref": "rpc_asset"
     },
+
+public JSONString findStationsFromAdvancedSearch(JSONString advancedSerach);
+    public JSONString findCompanyStationsFromAdvancedSearch(long companyID, JSONString advancedSerach);
+    public JSONString getSearchableKeys();
+    
     "getPossibleAssetTypes": {
         "description": "Analyze given pole and wait for results",
-        "type": "method",
         "returns": {
             "type": "array",
             "name": "types",

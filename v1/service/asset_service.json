@@ -4,16 +4,8 @@
         "returns": "string"
     },
     "getPossibleAssetTypes": {
-        "description": "Analyze given pole and wait for results",
-        "returns": {
-            "type": "array",
-            "name": "types",
-            "required": true,
-            "description": "Asset types in this service",
-            "items": {
-                "type": "string"
-            }
-        },
+        "description": "Return the asset types this service returns.",
+        "returns": "array",
         "params": [
             {
                 "type": "number",
@@ -25,47 +17,25 @@
     },
     "getStations": {
         "description": "Analyze given pole and wait for results",
-        "returns": {
-            "$ref": "stations"
-        },
+        "returns": "stations",
         "params": [
             {
-                "type": "array",
+                "type": "search_keys",
                 "name": "keys",
                 "required": true,
-                "description": "Keys to return.",
-                "items": {
-                    "type": "object",
-                    "properties": {
-                        "key": "string",
-                        "value": "string",
-                        "operator": {
-                            "type": "string",
-                            "required": false
-                        }
-                    }
-                }
+                "description": "Keys to return."
             },
             {
-                "type": "object",
+                "type": "geometry",
                 "name": "bbox",
                 "required": false,
-                "description": "Whether to fetch station asset details with the query.",
-                "properties": {
-                    "south": "number",
-                    "west": "number",
-                    "north": "number",
-                    "east": "number"
-                }
+                "description": "A polygon that is the south, west, north, east of information to return.."
             },
             {
                 "type": "array",
                 "name": "foreignCompanyIds",
                 "required": false,
-                "description": "Keys to return.",
-                "items": {
-                    "type": "number"
-                }
+                "description": "Company ids from the foreign companies."
             },
             {
                 "type": "boolean",
@@ -77,9 +47,7 @@
     },
     "getAssets": {
         "description": "Analyze given pole and wait for results",
-        "returns": {
-            "$ref": "assets"
-        },
+        "returns": "assets",
         "params": [
             {
                 "type": "array",
