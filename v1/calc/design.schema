@@ -39,6 +39,10 @@
 				"clientPole": {
 					"type": "string",
 					"required":true
+				},
+				"owner": {
+					"extends": {"$ref": "owner"},
+					"required": true
 				}
 			}
 		},
@@ -306,7 +310,7 @@
 				"extends": {"$ref": "attachment" },
 				"properties": {
 					"usageGroup": {
-						"extends": {"$ref": "usage_group" },
+						"type": "string",
 						"required": true
 					},
 					"tensionGroup": {

@@ -2,9 +2,14 @@
     "id"         : "owner",
     "type"       : "object",
     "properties" : {
-        "name"     : { "type" : "string" },
+    	"uuid"     : { "type" : "string" },
+        "name"     : {
+        	 "type" : "string",
+        	 "required" : true
+    	},
         "industry" : {
             "type" : "string",
+            "required": true,
             "choices" : [
                 {"value" : "COMMUNICATION"},
                 {"value" : "UTILITY"},
