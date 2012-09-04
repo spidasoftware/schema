@@ -1,0 +1,20 @@
+{
+  "author": "SPIDAMan <info@spidasoftware.com>",
+  "name": "schema",
+  "description": "A place for spida schema",
+  "version": "0.0.0",
+  "homepage": "github.com/spidasoftware/schema",
+  "repository": {
+    "type": "git",
+    "url": "git@192.168.47.84:schema.git"
+  },
+  "scripts": {
+    "test": "jasmine-node --coffee spec/"
+  },
+  "engines": {
+    "node": "~0.6.9"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {}
+}

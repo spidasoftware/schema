@@ -1,0 +1,36 @@
+{
+    "id": "service_method",
+    "type": "object",
+    "description": "A general rpc method",
+    "properties": {
+        "description": {
+            "type": "string"
+        },
+        "params": {
+            "type": "array",
+            "required": false,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "required": {
+                        "type": "boolean"
+                    },
+                    "type": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "returns": {
+            "type": "string",
+            "description": "The TYPE description or schema name for the return value.",
+            "required": false
+        }
+    }
+}
