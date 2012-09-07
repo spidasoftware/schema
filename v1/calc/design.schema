@@ -36,8 +36,8 @@
 					"type": "number",
 					"required": true
 				},
-				"clientPole": {
-					"type": "string",
+				"clientItem": {
+					"extends": {"$ref": "clientPoleReference"},
 					"required":true
 				},
 				"owner": {
@@ -323,6 +323,10 @@
 					},
 					"tensionAdjustment": {
 						"type": "number"
+					},
+					"clientItem": {
+						"extends" : {"$ref": "clientWireReference" },
+						"required": true
 					}
 				}
 			}
@@ -341,6 +345,10 @@
 					"height": {
 						"extends": {"$ref": "measurable"},
 						"required": true
+					},
+					"clientItem": {
+						"extends" : {"$ref": "clientWireReference" },
+						"required": true
 					}
 				}
 			}
@@ -357,6 +365,10 @@
 					},
 					"braceLength": {
 						"extends": {"$ref": "measurable"}
+					},
+					"clientItem": {
+						"extends" : {"$ref": "clientWireReference" },
+						"required": true
 					}
 				}
 			}
@@ -374,6 +386,10 @@
 					},
 					"direction": {
 						"extends": {"$ref": "bearing"},
+						"required": true
+					},
+					"clientItem": {
+						"extends": {"$ref": "clientEquipmentReference" },
 						"required": true
 					}
 				}
@@ -403,7 +419,11 @@
 						"items": {
 							"type": "string"
 						}
-					}							
+					},
+					"clientItem": {
+						"type": "string",
+						"required": true
+					}
 				}
 			}
 		},
@@ -431,6 +451,10 @@
 						"items": {
 							"type": "string"
 						}
+					},
+					"clientItem": {
+						"type": "string",
+						"required": true
 					}
 				}
 			}
@@ -453,7 +477,11 @@
 					"distance": {
 						"extends": {"$ref": "measurable"},
 						"required": true
-					}					
+					},
+					"clientItem": {
+						"extends": {"$ref": "clientPoleReference" },
+						"required": true
+					}
 				}
 			}
 		}														

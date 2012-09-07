@@ -1,0 +1,35 @@
+{
+  "clientInsulator": {
+    "size": "13.2 kV Horizontal Line Post Insulator (8\" Bracket)",
+    "strength": {
+      "unit": "POUND_FORCE",
+      "value": "2500.0"
+    },
+    "horizontalOffset": {
+      "unit": "INCH",
+      "value": "13.0"
+    },
+    "verticalOffset": {
+      "unit": "INCH",
+      "value": "6.0"
+    },
+    "lateralArea": {
+      "unit": "SQUARE_INCH",
+      "value": "37.2528"
+    },
+    "weight": {
+      "unit": "POUND_FORCE",
+      "value": "5.0"
+    },
+    "poleSideArea": {
+      "unit": "SQUARE_INCH",
+      "value": "35.24976"
+    },
+    "type": "BRACKET",
+    "shape": "ROUND",
+    "throughHoleDiameter": {
+      "unit": "SIXTEENTH_INCH",
+      "value": "-1.0"
+    }
+  }
+}

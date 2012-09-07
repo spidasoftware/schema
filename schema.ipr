@@ -177,6 +177,14 @@
       </item>
     </group>
   </component>
+  <component name="ProjectDictionaryState">
+    <dictionary name="mford">
+      <words>
+        <w>arrestor</w>
+        <w>recloser</w>
+      </words>
+    </dictionary>
+  </component>
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/schema.iml" filepath="$PROJECT_DIR$/schema.iml" />

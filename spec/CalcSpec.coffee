@@ -66,37 +66,37 @@ describe 'calc', ->
 
 	it 'check design schema', ->
 		util.puts ("Checking empty pole")
-		jsonString = fs.readFileSync("./examples/emptyPole.json").toString()
+		jsonString = fs.readFileSync("./examples/designs/emptyPole.json").toString()
 		json = JSON.parse(jsonString)
 		designSchema = "./v1/calc/design.schema"
 		validate(json, designSchema)
 		
 		util.puts ("Checking pole with everything")
-		jsonString = fs.readFileSync("./examples/oneOfEverything.json", "utf8")
+		jsonString = fs.readFileSync("./examples/designs/oneOfEverything.json", "utf8")
 		json = JSON.parse(jsonString)
 		validate(json, designSchema)
 		
 		util.puts("Checking pole with anchor and guy")
-		jsonString = fs.readFileSync("./examples/anchorGuy.json", "utf8")
+		jsonString = fs.readFileSync("./examples/designs/anchorGuy.json", "utf8")
 		json = JSON.parse(jsonString)
 		validate(json, designSchema)
 
 		util.puts("Checking pole with bisector guy")
-		jsonString = fs.readFileSync("./examples/bisector.json", "utf8")
+		jsonString = fs.readFileSync("./examples/designs/bisector.json", "utf8")
 		json = JSON.parse(jsonString)
 		validate(json, designSchema)
 
 		util.puts("Checking pole with insulator")
-		jsonString = fs.readFileSync("./examples/insulator.json", "utf8")
+		jsonString = fs.readFileSync("./examples/designs/insulator.json", "utf8")
 		json = JSON.parse(jsonString)
 		validate(json, designSchema)
 
 		util.puts("Checking pole with wire")
-		jsonString = fs.readFileSync("./examples/wire.json", "utf8")
+		jsonString = fs.readFileSync("./examples/designs/wire.json", "utf8")
 		json = JSON.parse(jsonString)
 		validate(json, designSchema)
 
 		util.puts("Checking pole with crossarm.")
-		jsonString = fs.readFileSync("./examples/xarm.json", "utf8")
+		jsonString = fs.readFileSync("./examples/designs/xarm.json", "utf8")
 		json = JSON.parse(jsonString)
 		validate(json, designSchema)

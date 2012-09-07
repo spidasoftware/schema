@@ -14,10 +14,6 @@
 			"extends": { "$ref": "owner" },
 			"required": true
 		},
-		"clientItem": {
-			"type": "string",
-			"required": true
-		},
 		"attachmentHeight": {
 		    "extends": "$ref": "measurable" },
 		    "required": true
