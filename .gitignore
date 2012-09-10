@@ -11,5 +11,6 @@
 dump.rdb
 .svn
 ._redcar
-
+*.iws
+target
 *.sha1
