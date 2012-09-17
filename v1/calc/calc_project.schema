@@ -1,0 +1,90 @@
+{
+    "id": "project",
+    "type": "object",
+    "properties": {
+        "clientFile": {
+            "type": "string",
+            "required": true
+        },
+        "date": {
+            "type": "string"
+        },
+        "leads": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "id": "lead",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "uuid": {
+                        "type": "string"
+                    },
+                    "locations": {
+                        "type": "array",
+                        "id": "locations",
+                        "items": {
+                            "id": "location",
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "uuid": {
+                                    "type": "string"
+                                },
+                                "mapNumber": {
+                                    "type": "string"
+                                },
+                                "comments": {
+                                    "type": "string"
+                                },
+                                "address": {
+                                    "extends": {
+                                        "$ref": "address"
+                                    }
+                                },
+                                "geographicCoordinate": {
+                                    "type": "object",
+                                    "properties": {
+                                        "latitude": {
+                                            "type": "number",
+                                            "required": true
+                                        },
+                                        "longitude": {
+                                            "type": "number",
+                                            "required": true
+                                        }
+                                    }
+                                },
+                                "designs": {
+                                    "type": "array",
+                                    "id": "designs",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "framingPlan": {
+                                                "extends": {
+                                                    "$ref": "framingPlan"
+                                                }
+                                            },
+                                            "design": {
+                                                "extends": {
+                                                    "$ref": "design"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

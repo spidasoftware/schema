@@ -1,30 +1,15 @@
 {
 	"id": "usageGroup",
 	"description": "Usage group for a wire.",
-	"type": "object",
-	"properties": {
-		"id": {
-			"type": "string",
-			"required": true,
-			"enum": [
-				"PRIMARY",
-				"NEUTRAL",
-				"OPEN_WIRE",
-				"UTILITY_SERVICE",
-				"GUY",
-				"COMMUNICATION",
-				"COMMUNICATION_SERVICE"
-			]
-		},
-		"industry": {
-			"type": "string",
-			"required": true,
-			"enum": [
-				"UTILITY",
-				"COMMUNICATION",
-				"BOTH"
-			]
-		}
-	}
-
-}		
+	"type": "string",
+	"required": true,
+	"enum": [
+		"PRIMARY",
+		"NEUTRAL",
+		"OPEN_WIRE",
+		"UTILITY_SERVICE",
+		"GUY",
+		"COMMUNICATION",
+		"COMMUNICATION_SERVICE"
+	]
+}

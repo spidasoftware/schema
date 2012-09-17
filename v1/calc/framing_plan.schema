@@ -1,0 +1,67 @@
+{
+	"type":"object",
+	"id": "framingPlan",
+	"properties":{
+		"customName": {
+			"type":"string",
+			"id": "customName"
+		},
+		"framingEndPoints": {
+			"type":"array",
+			"id": "framingEndPoints",
+			"items": {
+				"type":"object",
+				"id": "framingEndPoint",
+				"properties":{
+					"direction": {
+						"extends": {"$ref": "bearing" },
+						"required": true
+					},
+					"distance": {
+						"extends": {"$ref": "measurable" },
+						"required": true
+					},
+					"framingWireItems": {
+						"type":"array",
+						"id": "framingWireItems",
+						"required":true,
+						"items":{
+							"type":"object",
+							"id": "framingWireItem",
+							"properties":{
+								"code": {
+									"type":"string",
+									"required":true
+								},
+								"owner": {
+									"extends": {"$ref": "owner"}
+								},
+								"tensionGroupOverride": {
+									"type":"string"
+								},
+								"usageGroup": {
+									"extends": {"$ref": "usage_group"},
+									"required": true
+								}
+							}
+						}
+
+
+					}
+				}
+			}
+
+
+		},
+		"framingUnitItems": {
+			"type":"array",
+			"id": "framingUnitItems",
+			"items": {
+					"type":"string",
+					"id": "framingUnitItem"
+				}
+		}
+	}
+
+
+}

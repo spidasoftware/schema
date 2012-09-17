@@ -1,0 +1,90 @@
+{
+	"id": "client_data_service",
+	"description": "A service to query client values available",
+
+	"getClientInsulators": {
+		"description": "Return the client insulators in the client file.",
+		"returns": "array",
+		"params": [
+			{
+				"type": "string",
+				"name": "clientFile",
+				"required": false,
+				"description": "Client File to be queried"
+			}
+		]
+	},
+	"getClientAnchors": {
+		"description": "Return the client anchors in the client file.",
+		"returns": "array",
+		"params": [
+			{
+				"type": "string",
+				"name": "clientFile",
+				"required": false,
+				"description": "Client File to be queried"
+			}
+		]
+	},
+	"getClientPoles": {
+		"description": "Return the client poles in the client file.",
+		"returns": "array",
+		"params": [
+			{
+				"type": "string",
+				"name": "clientFile",
+				"required": false,
+				"description": "Client File to be queried"
+			}
+		]
+	},
+	"getClientWires": {
+		"description": "Return the client wires in the client file.",
+		"returns": "array",
+		"params": [
+			{
+				"type": "string",
+				"name": "clientFile",
+				"required": false,
+				"description": "Client File to be queried"
+			},
+			{
+				"type": "string",
+				"name": "industry",
+				"required": false,
+				"description": "Filters results by industry"
+			}
+		]
+	},
+	"getClientEquipment": {
+		"description": "Return the client equipment in the client file.",
+		"returns": "array",
+		"params": [
+			{
+				"type": "string",
+				"name": "clientFile",
+				"required": false,
+				"description": "Client File to be queried"
+			},
+			{
+				"type": "string",
+				"name": "type",
+				"required": false,
+				"description": "Filter equipment by type"
+			}
+		]
+	},
+	"getClientCrossArms": {
+		"description": "Return the client cross arms in the client file.",
+		"returns": "array",
+		"params": [
+			{
+				"type": "string",
+				"name": "clientFile",
+				"required": false,
+				"description": "Client File to be queried"
+			}
+		]
+	}
+
+}
