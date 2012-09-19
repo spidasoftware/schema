@@ -1,28 +1,100 @@
 {
-    "launch": {
-        "description": "Open SPIDACalc",
-        "type": "method",
-        "returns": "boolean"    
-    },
-    "exit": {
-        "description": "Close SPIDACalc",
-        "type": "method",
-        "returns": "boolean"    
-    },
-    "goToLocation": {
-        "description": "Have SPIDACalc navigate and select a location",
-        "type": "method",
-        "returns": "boolean",
-        "params": [
-            {
-                "type": "string",
-                "name": "locationId",
-                "required": true,
-                "description": "ID of the location to navigate to."
-            }
-        ]
-    },
-
-    "id": "http://spidasoftware.com/calcInterface.schema",
-    "description": "This schema allows for the control of SPIDACalc from the CLI."
+	"openProject": {
+		"description": "Open project .",
+		"returns": "boolean",
+		"params": [
+			{
+				"type": "object",
+				"name": "project",
+				"required": true,
+				"description": "JSON description of the project to be imported"
+			}
+		]
+	},
+ 	"openProjectFile": {
+ 		"description": "Open project from a file.",
+ 		"returns": "boolean",
+ 		"params": [
+ 			{
+ 				"type": "string",
+ 				"name": "projectFile",
+ 				"required": true,
+ 				"description": "URL of the file to be opened"
+ 			}
+ 		]
+ 	},
+  	"openPole": {
+  		"description": "Create a project from a single pole .",
+  		"returns": "boolean",
+  		"params": [
+  			{
+  				"type": "object",
+  				"name": "pole",
+  				"required": true,
+  				"description": "JSON description of the pole to be opened"
+  			}
+  		]
+  	},
+  	"saveCurrentProject": {
+  		"description": "Save the currently opened project",
+  		"returns": "boolean",
+  		"params": [
+  			{
+  				"type": "string",
+  				"name": "projectFile",
+  				"required": false,
+  				"description": "URL of location to save to."
+  			}
+  		]
+  	},
+  	"exit": {
+  		"description": "Exit SPIDACalc. This will shutdown control services",
+  		"returns": "boolean",
+  		"params": [
+  		]
+  	},
+   	"analyzeCurrentProject": {
+   		"description": "Analyze the currently opened project",
+   		"returns": "object",
+   		"params": [
+   			{
+   				"type": "array",
+   				"name": "loadCases",
+   				"required": true,
+   				"description": "Load cases to include in the analysis"
+   			}
+   		]
+   	},
+	"generateReport": {
+		"description": "Generate a report for the current project.",
+		"returns": "object",
+		"params": [
+			{
+				"type": "string",
+				"name": "reportFile",
+				"required": false,
+				"description": "Load cases to include in the analysis"
+			},
+			{
+				"type": "string",
+				"name": "reportName",
+				"required": false,
+				"description": "The preset custom report to generate."
+			}
+		]
+	},
+	"runScript": {
+		"description": "Run a script on the current project",
+		"returns": "object",
+		"params": [
+			{
+				"type": "string",
+				"name": "scriptName",
+				"required": false,
+				"description": "The script in the client file you want to run"
+			}
+		]
+	},
+    "id": "http://spidasoftware.com/calc_interface.schema",
+    "description": "This schema allows for the control of SPIDACalc."
 }

@@ -85,6 +85,54 @@
 				"description": "Client File to be queried"
 			}
 		]
+	},
+	"getLoadCases": {
+		"description": "Return the load cases in the client file.",
+		"returns": "array",
+		"params": [
+			{
+				"type": "string",
+				"name": "clientFile",
+				"required": false,
+				"description": "Client File to be queried"
+			}
+		]
+	},
+	"getFramingUnits": {
+		"description": "Return framing units in the client file.",
+        "returns": "array",
+		"params": [
+			{
+				"type": "string",
+				"name": "clientFile",
+				"required": false,
+				"description": "Client File to be queried"
+			}
+		]
+	},
+	"getScripts": {
+		"description": "Return scripts in the client file.",
+        "returns": "array",
+		"params": [
+			{
+				"type": "string",
+				"name": "clientFile",
+				"required": false,
+				"description": "Client File to be queried"
+			}
+		]
+	},
+	"getClientReports": {
+		"description": "Return reports saved in the client file.",
+        "returns": "array",
+		"params": [
+			{
+				"type": "string",
+				"name": "clientFile",
+				"required": false,
+				"description": "Client File to be queried"
+			}
+		]
 	}
 
 }

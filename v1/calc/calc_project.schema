@@ -11,6 +11,7 @@
         },
         "leads": {
             "type": "array",
+            "required": true,
             "items": {
                 "type": "object",
                 "id": "lead",
@@ -24,6 +25,7 @@
                     "locations": {
                         "type": "array",
                         "id": "locations",
+                        "required": true,
                         "items": {
                             "id": "location",
                             "type": "object",
@@ -37,6 +39,7 @@
                                 "mapNumber": {
                                     "type": "string"
                                 },
+
                                 "comments": {
                                     "type": "string"
                                 },
@@ -58,6 +61,50 @@
                                         }
                                     }
                                 },
+                                "remedies": {
+                                	"type": "array",
+                                	"id": "remedies",
+                                	"description": "List of remedies for the location"
+                                	"items": {
+                                		"type": "object",
+                                		"id": "remedy",
+                                		"properties": {
+                                			"description": {
+                                				"type": "string",
+                                				"required": true
+                                			}
+                                		}
+                                	}
+                                },
+                                "poleTags": {
+                                	"type": "array",
+                                	"id": "poleTags",
+                                	"description": "List of physical tags on the pole.",
+                                	"items": {
+                                		"type": "object",
+                                		"id": "poleTag",
+                                		"properties": {
+                                			"type": {
+                                				"type" : "string",
+                                				"required": true,
+                                				"description": "Can be anything, but values known by calc are FIELD, MAP, and FOREIGN"
+                                			},
+                                			"value": {
+                                				"type" : "string",
+                                				"required" : true
+                                			}
+                                		}
+                                	}
+                                },
+                                "summaryNotes": {
+                                	"type": "array",
+                                	"id": "summaryNotes",
+                                	"description": "List of summary notes for the location",
+                                	"items": {
+                                		"type": "string"
+                                	}
+                                },
+
                                 "designs": {
                                     "type": "array",
                                     "id": "designs",
@@ -79,6 +126,30 @@
                                             }
                                         }
                                     }
+                                },
+                                "forms": {
+                                	"type": "array",
+                                	"id": "forms",
+                                	"items": {
+                                		"extends": { "$ref": "data_form" }
+                                	}
+                                },
+                                "images": {
+                                	"type": "array",
+                                	"id": "images",
+                                	"items": {
+                                		"type": "object",
+                                		"properties": {
+											"data": {
+												"type": "string",
+												"description": "A Base64 encoded image"
+											},
+											"url": {
+												"type": "string",
+												"description": "A URL pointing to the image"
+											}
+                                		}
+                                	}
                                 }
                             }
                         }
