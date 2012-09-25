@@ -1,7 +1,7 @@
 {
     "id": "service_method",
     "type": "object",
-    "description": "A general rpc method",
+    "description": "A general rpc method. All methods should be called over POST.",
     "properties": {
         "description": {
             "type": "string"
@@ -9,6 +9,7 @@
         "params": {
             "type": "array",
             "required": false,
+            "description": "The parameters to be passed to the method. Each individual parameter should be a POST method parameter.",
             "items": {
                 "type": "object",
                 "properties": {

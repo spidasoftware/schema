@@ -1,7 +1,7 @@
 {
 	"openProject": {
 		"description": "Open project .",
-		"returns": "boolean",
+		"returns": "null",
 		"params": [
 			{
 				"type": "object",
@@ -13,31 +13,37 @@
 	},
  	"openProjectFile": {
  		"description": "Open project from a file.",
- 		"returns": "boolean",
+ 		"returns": "null",
  		"params": [
  			{
  				"type": "string",
  				"name": "projectFile",
  				"required": true,
- 				"description": "URL of the file to be opened"
+ 				"description": "Absolute path to the file to be opened"
  			}
  		]
  	},
   	"openPole": {
   		"description": "Create a project from a single pole .",
-  		"returns": "boolean",
+  		"returns": "null",
   		"params": [
   			{
   				"type": "object",
   				"name": "pole",
   				"required": true,
   				"description": "JSON description of the pole to be opened"
+  			},
+  			{
+  				"type": "string",
+  				"name": "clientFile",
+  				"required": true,
+  				"description": "name of the client file to use to create the pole"
   			}
   		]
   	},
   	"saveCurrentProject": {
   		"description": "Save the currently opened project",
-  		"returns": "boolean",
+  		"returns": "null",
   		"params": [
   			{
   				"type": "string",
@@ -49,13 +55,13 @@
   	},
   	"exit": {
   		"description": "Exit SPIDACalc. This will shutdown control services",
-  		"returns": "boolean",
+  		"returns": "null",
   		"params": [
   		]
   	},
    	"analyzeCurrentProject": {
    		"description": "Analyze the currently opened project",
-   		"returns": "object",
+   		"returns": "null",
    		"params": [
    			{
    				"type": "array",
@@ -73,7 +79,7 @@
 				"type": "string",
 				"name": "reportFile",
 				"required": false,
-				"description": "Load cases to include in the analysis"
+				"description": "Location to save the report."
 			},
 			{
 				"type": "string",
@@ -85,12 +91,12 @@
 	},
 	"runScript": {
 		"description": "Run a script on the current project",
-		"returns": "object",
+		"returns": "null",
 		"params": [
 			{
 				"type": "string",
 				"name": "scriptName",
-				"required": false,
+				"required": true,
 				"description": "The script in the client file you want to run"
 			}
 		]

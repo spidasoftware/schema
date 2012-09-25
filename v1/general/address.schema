@@ -2,7 +2,7 @@
     "id":"address",
     "type": "object",
     "optional": true,
-    "description": "project address",
+    "description": "A street address.",
     "properties": {
         "number": {
             "type": "string",

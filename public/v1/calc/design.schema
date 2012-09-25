@@ -1,0 +1,2299 @@
+{
+  "id": "design",
+  "description": "Structural Description of a calc Design",
+  "type": "object",
+  "properties": {
+    "pole": {
+      "type": "object",
+      "required": true,
+      "properties": {
+        "uuid": {
+          "type": "string"
+        },
+        "glc": {
+          "required": true,
+          "id": "measurable",
+          "type": "object",
+          "description": "a measured quantity",
+          "properties": {
+            "value": {
+              "type": "number"
+            },
+            "unit": {
+              "type": "string",
+              "choices": [
+                {
+                  "value": "CUBIC_INCH"
+                },
+                {
+                  "value": "DEGREE_ANGLE"
+                },
+                {
+                  "value": "FAHRENHEIT"
+                },
+                {
+                  "value": "FOOT"
+                },
+                {
+                  "value": "INCH"
+                },
+                {
+                  "value": "METRE"
+                },
+                {
+                  "value": "PERCENT"
+                },
+                {
+                  "value": "PER_FAHRENHEIT"
+                },
+                {
+                  "value": "POUND_FORCE"
+                },
+                {
+                  "value": "POUND_FORCE_FOOT"
+                },
+                {
+                  "value": "POUND_FORCE_PER_FOOT"
+                },
+                {
+                  "value": "POUND_FORCE_PER_SQUARE_INCH"
+                },
+                {
+                  "value": "POUND_PER_CUBIC_FOOT"
+                },
+                {
+                  "value": "PSI"
+                },
+                {
+                  "value": "SIXTEENTH_INCH"
+                },
+                {
+                  "value": "SQUARE_FOOT"
+                },
+                {
+                  "value": "SQUARE_INCH"
+                }
+              ]
+            }
+          }
+        },
+        "agl": {
+          "required": true,
+          "id": "measurable",
+          "type": "object",
+          "description": "a measured quantity",
+          "properties": {
+            "value": {
+              "type": "number"
+            },
+            "unit": {
+              "type": "string",
+              "choices": [
+                {
+                  "value": "CUBIC_INCH"
+                },
+                {
+                  "value": "DEGREE_ANGLE"
+                },
+                {
+                  "value": "FAHRENHEIT"
+                },
+                {
+                  "value": "FOOT"
+                },
+                {
+                  "value": "INCH"
+                },
+                {
+                  "value": "METRE"
+                },
+                {
+                  "value": "PERCENT"
+                },
+                {
+                  "value": "PER_FAHRENHEIT"
+                },
+                {
+                  "value": "POUND_FORCE"
+                },
+                {
+                  "value": "POUND_FORCE_FOOT"
+                },
+                {
+                  "value": "POUND_FORCE_PER_FOOT"
+                },
+                {
+                  "value": "POUND_FORCE_PER_SQUARE_INCH"
+                },
+                {
+                  "value": "POUND_PER_CUBIC_FOOT"
+                },
+                {
+                  "value": "PSI"
+                },
+                {
+                  "value": "SIXTEENTH_INCH"
+                },
+                {
+                  "value": "SQUARE_FOOT"
+                },
+                {
+                  "value": "SQUARE_INCH"
+                }
+              ]
+            }
+          }
+        },
+        "environment": {
+          "type": "string",
+          "required": true
+        },
+        "temperature": {
+          "required": true,
+          "id": "measurable",
+          "type": "object",
+          "description": "a measured quantity",
+          "properties": {
+            "value": {
+              "type": "number"
+            },
+            "unit": {
+              "type": "string",
+              "choices": [
+                {
+                  "value": "CUBIC_INCH"
+                },
+                {
+                  "value": "DEGREE_ANGLE"
+                },
+                {
+                  "value": "FAHRENHEIT"
+                },
+                {
+                  "value": "FOOT"
+                },
+                {
+                  "value": "INCH"
+                },
+                {
+                  "value": "METRE"
+                },
+                {
+                  "value": "PERCENT"
+                },
+                {
+                  "value": "PER_FAHRENHEIT"
+                },
+                {
+                  "value": "POUND_FORCE"
+                },
+                {
+                  "value": "POUND_FORCE_FOOT"
+                },
+                {
+                  "value": "POUND_FORCE_PER_FOOT"
+                },
+                {
+                  "value": "POUND_FORCE_PER_SQUARE_INCH"
+                },
+                {
+                  "value": "POUND_PER_CUBIC_FOOT"
+                },
+                {
+                  "value": "PSI"
+                },
+                {
+                  "value": "SIXTEENTH_INCH"
+                },
+                {
+                  "value": "SQUARE_FOOT"
+                },
+                {
+                  "value": "SQUARE_INCH"
+                }
+              ]
+            }
+          }
+        },
+        "stressRatio": {
+          "type": "number",
+          "required": true
+        },
+        "clientItem": {
+          "required": true,
+          "id": "clientPoleReference",
+          "type": "object",
+          "description": "A reference to a client pole",
+          "properties": {
+            "species": {
+              "type": "string",
+              "required": true
+            },
+            "classOfPole": {
+              "type": "string",
+              "required": true
+            },
+            "height": {
+              "required": true,
+              "id": "measurable",
+              "type": "object",
+              "description": "a measured quantity",
+              "properties": {
+                "value": {
+                  "type": "number"
+                },
+                "unit": {
+                  "type": "string",
+                  "choices": [
+                    {
+                      "value": "CUBIC_INCH"
+                    },
+                    {
+                      "value": "DEGREE_ANGLE"
+                    },
+                    {
+                      "value": "FAHRENHEIT"
+                    },
+                    {
+                      "value": "FOOT"
+                    },
+                    {
+                      "value": "INCH"
+                    },
+                    {
+                      "value": "METRE"
+                    },
+                    {
+                      "value": "PERCENT"
+                    },
+                    {
+                      "value": "PER_FAHRENHEIT"
+                    },
+                    {
+                      "value": "POUND_FORCE"
+                    },
+                    {
+                      "value": "POUND_FORCE_FOOT"
+                    },
+                    {
+                      "value": "POUND_FORCE_PER_FOOT"
+                    },
+                    {
+                      "value": "POUND_FORCE_PER_SQUARE_INCH"
+                    },
+                    {
+                      "value": "POUND_PER_CUBIC_FOOT"
+                    },
+                    {
+                      "value": "PSI"
+                    },
+                    {
+                      "value": "SIXTEENTH_INCH"
+                    },
+                    {
+                      "value": "SQUARE_FOOT"
+                    },
+                    {
+                      "value": "SQUARE_INCH"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "owner": {
+          "required": true,
+          "id": "owner",
+          "type": "object",
+          "description": "A company that owns components at a location.",
+          "properties": {
+            "uuid": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string",
+              "required": true
+            },
+            "industry": {
+              "type": "string",
+              "required": true,
+              "choices": [
+                {
+                  "value": "COMMUNICATION"
+                },
+                {
+                  "value": "UTILITY"
+                },
+                {
+                  "value": "BOTH"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "wireEndPoints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "point",
+        "properties": {
+          "id": {
+            "type": "string",
+            "required": true,
+            "description": "A display id for the object. Should be unique to the pole."
+          },
+          "uuid": {
+            "type": "string",
+            "description": "An option UUID."
+          },
+          "distance": {
+            "required": true,
+            "description": "a measured quantity",
+            "id": "measurable",
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string",
+                "choices": [
+                  {
+                    "value": "CUBIC_INCH"
+                  },
+                  {
+                    "value": "DEGREE_ANGLE"
+                  },
+                  {
+                    "value": "FAHRENHEIT"
+                  },
+                  {
+                    "value": "FOOT"
+                  },
+                  {
+                    "value": "INCH"
+                  },
+                  {
+                    "value": "METRE"
+                  },
+                  {
+                    "value": "PERCENT"
+                  },
+                  {
+                    "value": "PER_FAHRENHEIT"
+                  },
+                  {
+                    "value": "POUND_FORCE"
+                  },
+                  {
+                    "value": "POUND_FORCE_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_SQUARE_INCH"
+                  },
+                  {
+                    "value": "POUND_PER_CUBIC_FOOT"
+                  },
+                  {
+                    "value": "PSI"
+                  },
+                  {
+                    "value": "SIXTEENTH_INCH"
+                  },
+                  {
+                    "value": "SQUARE_FOOT"
+                  },
+                  {
+                    "value": "SQUARE_INCH"
+                  }
+                ]
+              }
+            }
+          },
+          "direction": {
+            "required": true,
+            "description": "The bearing relative to true north fo a component.",
+            "type": "integer",
+            "maximum": 360,
+            "minimum": 0
+          }
+        },
+        "description": "An object a certain distance and direction from the pole."
+      }
+    },
+    "spanPoints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "spanPoint",
+        "properties": {
+          "id": {
+            "type": "string",
+            "required": true
+          },
+          "uuid": {
+            "type": "string"
+          },
+          "distance": {
+            "required": true,
+            "id": "measurable",
+            "type": "object",
+            "description": "a measured quantity",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string",
+                "choices": [
+                  {
+                    "value": "CUBIC_INCH"
+                  },
+                  {
+                    "value": "DEGREE_ANGLE"
+                  },
+                  {
+                    "value": "FAHRENHEIT"
+                  },
+                  {
+                    "value": "FOOT"
+                  },
+                  {
+                    "value": "INCH"
+                  },
+                  {
+                    "value": "METRE"
+                  },
+                  {
+                    "value": "PERCENT"
+                  },
+                  {
+                    "value": "PER_FAHRENHEIT"
+                  },
+                  {
+                    "value": "POUND_FORCE"
+                  },
+                  {
+                    "value": "POUND_FORCE_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_SQUARE_INCH"
+                  },
+                  {
+                    "value": "POUND_PER_CUBIC_FOOT"
+                  },
+                  {
+                    "value": "PSI"
+                  },
+                  {
+                    "value": "SIXTEENTH_INCH"
+                  },
+                  {
+                    "value": "SQUARE_FOOT"
+                  },
+                  {
+                    "value": "SQUARE_INCH"
+                  }
+                ]
+              }
+            }
+          },
+          "environment": {
+            "required": true,
+            "id": "environment",
+            "description": "Environment for poles, span points, and wire end points.",
+            "type": "string",
+            "enum": [
+              "STREET",
+              "HIGHWAY",
+              "PEDESTRIAN",
+              "PARALLEL_TO_STREET",
+              "OBSTRUCTED_PARALLEL_TO_STREET",
+              "UNLIKELY_PARALLEL_TO_STREET",
+              "RESIDENTIAL_DRIVEWAY",
+              "COMMERCIAL_DRIVEWAY",
+              "PARKING_LOT",
+              "ALLEY",
+              "RAILROAD",
+              "RURAL",
+              "FARM",
+              "WATER_WITH_SAILBOATS",
+              "WATER_WITHOUT_SAILBOATS"
+            ]
+          },
+          "heights": {
+            "type": "array",
+            "required": true,
+            "items": {
+              "type": "object",
+              "id": "height",
+              "properties": {
+                "wireId": {
+                  "type": "string",
+                  "required": true
+                },
+                "height": {
+                  "required": true,
+                  "id": "measurable",
+                  "type": "object",
+                  "description": "a measured quantity",
+                  "properties": {
+                    "value": {
+                      "type": "number"
+                    },
+                    "unit": {
+                      "type": "string",
+                      "choices": [
+                        {
+                          "value": "CUBIC_INCH"
+                        },
+                        {
+                          "value": "DEGREE_ANGLE"
+                        },
+                        {
+                          "value": "FAHRENHEIT"
+                        },
+                        {
+                          "value": "FOOT"
+                        },
+                        {
+                          "value": "INCH"
+                        },
+                        {
+                          "value": "METRE"
+                        },
+                        {
+                          "value": "PERCENT"
+                        },
+                        {
+                          "value": "PER_FAHRENHEIT"
+                        },
+                        {
+                          "value": "POUND_FORCE"
+                        },
+                        {
+                          "value": "POUND_FORCE_FOOT"
+                        },
+                        {
+                          "value": "POUND_FORCE_PER_FOOT"
+                        },
+                        {
+                          "value": "POUND_FORCE_PER_SQUARE_INCH"
+                        },
+                        {
+                          "value": "POUND_PER_CUBIC_FOOT"
+                        },
+                        {
+                          "value": "PSI"
+                        },
+                        {
+                          "value": "SIXTEENTH_INCH"
+                        },
+                        {
+                          "value": "SQUARE_FOOT"
+                        },
+                        {
+                          "value": "SQUARE_INCH"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "anchors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "point",
+        "properties": {
+          "id": {
+            "type": "string",
+            "required": true,
+            "description": "A display id for the object. Should be unique to the pole."
+          },
+          "uuid": {
+            "type": "string",
+            "description": "An option UUID."
+          },
+          "distance": {
+            "required": true,
+            "description": "a measured quantity",
+            "id": "measurable",
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string",
+                "choices": [
+                  {
+                    "value": "CUBIC_INCH"
+                  },
+                  {
+                    "value": "DEGREE_ANGLE"
+                  },
+                  {
+                    "value": "FAHRENHEIT"
+                  },
+                  {
+                    "value": "FOOT"
+                  },
+                  {
+                    "value": "INCH"
+                  },
+                  {
+                    "value": "METRE"
+                  },
+                  {
+                    "value": "PERCENT"
+                  },
+                  {
+                    "value": "PER_FAHRENHEIT"
+                  },
+                  {
+                    "value": "POUND_FORCE"
+                  },
+                  {
+                    "value": "POUND_FORCE_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_SQUARE_INCH"
+                  },
+                  {
+                    "value": "POUND_PER_CUBIC_FOOT"
+                  },
+                  {
+                    "value": "PSI"
+                  },
+                  {
+                    "value": "SIXTEENTH_INCH"
+                  },
+                  {
+                    "value": "SQUARE_FOOT"
+                  },
+                  {
+                    "value": "SQUARE_INCH"
+                  }
+                ]
+              }
+            }
+          },
+          "direction": {
+            "required": true,
+            "description": "The bearing relative to true north fo a component.",
+            "type": "integer",
+            "maximum": 360,
+            "minimum": 0
+          }
+        },
+        "description": "An object a certain distance and direction from the pole."
+      }
+    },
+    "notePoints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "point",
+        "properties": {
+          "id": {
+            "type": "string",
+            "required": true,
+            "description": "A display id for the object. Should be unique to the pole."
+          },
+          "uuid": {
+            "type": "string",
+            "description": "An option UUID."
+          },
+          "distance": {
+            "required": true,
+            "description": "a measured quantity",
+            "id": "measurable",
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string",
+                "choices": [
+                  {
+                    "value": "CUBIC_INCH"
+                  },
+                  {
+                    "value": "DEGREE_ANGLE"
+                  },
+                  {
+                    "value": "FAHRENHEIT"
+                  },
+                  {
+                    "value": "FOOT"
+                  },
+                  {
+                    "value": "INCH"
+                  },
+                  {
+                    "value": "METRE"
+                  },
+                  {
+                    "value": "PERCENT"
+                  },
+                  {
+                    "value": "PER_FAHRENHEIT"
+                  },
+                  {
+                    "value": "POUND_FORCE"
+                  },
+                  {
+                    "value": "POUND_FORCE_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_SQUARE_INCH"
+                  },
+                  {
+                    "value": "POUND_PER_CUBIC_FOOT"
+                  },
+                  {
+                    "value": "PSI"
+                  },
+                  {
+                    "value": "SIXTEENTH_INCH"
+                  },
+                  {
+                    "value": "SQUARE_FOOT"
+                  },
+                  {
+                    "value": "SQUARE_INCH"
+                  }
+                ]
+              }
+            }
+          },
+          "direction": {
+            "required": true,
+            "description": "The bearing relative to true north fo a component.",
+            "type": "integer",
+            "maximum": 360,
+            "minimum": 0
+          }
+        },
+        "description": "An object a certain distance and direction from the pole."
+      }
+    },
+    "pointLoads": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "attachment",
+        "properties": {
+          "id": {
+            "type": "string",
+            "required": true,
+            "description": "The display ID for the attachment. Must be unique within the pole."
+          },
+          "uuid": {
+            "type": "string",
+            "description": "An optional UUID for the item."
+          },
+          "owner": {
+            "required": true,
+            "id": "owner",
+            "type": "object",
+            "description": "A company that owns components at a location.",
+            "properties": {
+              "uuid": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string",
+                "required": true
+              },
+              "industry": {
+                "type": "string",
+                "required": true,
+                "choices": [
+                  {
+                    "value": "COMMUNICATION"
+                  },
+                  {
+                    "value": "UTILITY"
+                  },
+                  {
+                    "value": "BOTH"
+                  }
+                ]
+              }
+            }
+          },
+          "attachmentHeight": {
+            "required": true,
+            "description": "a measured quantity",
+            "id": "measurable",
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string",
+                "choices": [
+                  {
+                    "value": "CUBIC_INCH"
+                  },
+                  {
+                    "value": "DEGREE_ANGLE"
+                  },
+                  {
+                    "value": "FAHRENHEIT"
+                  },
+                  {
+                    "value": "FOOT"
+                  },
+                  {
+                    "value": "INCH"
+                  },
+                  {
+                    "value": "METRE"
+                  },
+                  {
+                    "value": "PERCENT"
+                  },
+                  {
+                    "value": "PER_FAHRENHEIT"
+                  },
+                  {
+                    "value": "POUND_FORCE"
+                  },
+                  {
+                    "value": "POUND_FORCE_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_SQUARE_INCH"
+                  },
+                  {
+                    "value": "POUND_PER_CUBIC_FOOT"
+                  },
+                  {
+                    "value": "PSI"
+                  },
+                  {
+                    "value": "SIXTEENTH_INCH"
+                  },
+                  {
+                    "value": "SQUARE_FOOT"
+                  },
+                  {
+                    "value": "SQUARE_INCH"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "description": "An item that can be attached to the pole."
+      }
+    },
+    "damages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "required": true
+          },
+          "uuid": {
+            "type": "string"
+          },
+          "damageType": {
+            "required": true,
+            "id": "damageType",
+            "description": "Type of damage applied - shell, heart rot, etc",
+            "type": "string",
+            "enum": [
+              "ARC",
+              "HEART",
+              "POCKET",
+              "SHELL",
+              "SLICE",
+              "THROUGH_BOLT",
+              "WEDGE",
+              "WOODPECKER"
+            ]
+          },
+          "attachHeight": {
+            "required": true,
+            "id": "measurable",
+            "type": "object",
+            "description": "a measured quantity",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string",
+                "choices": [
+                  {
+                    "value": "CUBIC_INCH"
+                  },
+                  {
+                    "value": "DEGREE_ANGLE"
+                  },
+                  {
+                    "value": "FAHRENHEIT"
+                  },
+                  {
+                    "value": "FOOT"
+                  },
+                  {
+                    "value": "INCH"
+                  },
+                  {
+                    "value": "METRE"
+                  },
+                  {
+                    "value": "PERCENT"
+                  },
+                  {
+                    "value": "PER_FAHRENHEIT"
+                  },
+                  {
+                    "value": "POUND_FORCE"
+                  },
+                  {
+                    "value": "POUND_FORCE_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_SQUARE_INCH"
+                  },
+                  {
+                    "value": "POUND_PER_CUBIC_FOOT"
+                  },
+                  {
+                    "value": "PSI"
+                  },
+                  {
+                    "value": "SIXTEENTH_INCH"
+                  },
+                  {
+                    "value": "SQUARE_FOOT"
+                  },
+                  {
+                    "value": "SQUARE_INCH"
+                  }
+                ]
+              }
+            }
+          },
+          "damageHeight": {
+            "required": true,
+            "id": "measurable",
+            "type": "object",
+            "description": "a measured quantity",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string",
+                "choices": [
+                  {
+                    "value": "CUBIC_INCH"
+                  },
+                  {
+                    "value": "DEGREE_ANGLE"
+                  },
+                  {
+                    "value": "FAHRENHEIT"
+                  },
+                  {
+                    "value": "FOOT"
+                  },
+                  {
+                    "value": "INCH"
+                  },
+                  {
+                    "value": "METRE"
+                  },
+                  {
+                    "value": "PERCENT"
+                  },
+                  {
+                    "value": "PER_FAHRENHEIT"
+                  },
+                  {
+                    "value": "POUND_FORCE"
+                  },
+                  {
+                    "value": "POUND_FORCE_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_SQUARE_INCH"
+                  },
+                  {
+                    "value": "POUND_PER_CUBIC_FOOT"
+                  },
+                  {
+                    "value": "PSI"
+                  },
+                  {
+                    "value": "SIXTEENTH_INCH"
+                  },
+                  {
+                    "value": "SQUARE_FOOT"
+                  },
+                  {
+                    "value": "SQUARE_INCH"
+                  }
+                ]
+              }
+            }
+          },
+          "direction": {
+            "type": "integer",
+            "maximum": 360,
+            "minimum": 0,
+            "description": "The bearing relative to true north fo a component."
+          },
+          "arc": {
+            "id": "measurable",
+            "type": "object",
+            "description": "a measured quantity",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string",
+                "choices": [
+                  {
+                    "value": "CUBIC_INCH"
+                  },
+                  {
+                    "value": "DEGREE_ANGLE"
+                  },
+                  {
+                    "value": "FAHRENHEIT"
+                  },
+                  {
+                    "value": "FOOT"
+                  },
+                  {
+                    "value": "INCH"
+                  },
+                  {
+                    "value": "METRE"
+                  },
+                  {
+                    "value": "PERCENT"
+                  },
+                  {
+                    "value": "PER_FAHRENHEIT"
+                  },
+                  {
+                    "value": "POUND_FORCE"
+                  },
+                  {
+                    "value": "POUND_FORCE_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_SQUARE_INCH"
+                  },
+                  {
+                    "value": "POUND_PER_CUBIC_FOOT"
+                  },
+                  {
+                    "value": "PSI"
+                  },
+                  {
+                    "value": "SIXTEENTH_INCH"
+                  },
+                  {
+                    "value": "SQUARE_FOOT"
+                  },
+                  {
+                    "value": "SQUARE_INCH"
+                  }
+                ]
+              }
+            }
+          },
+          "depth": {
+            "id": "measurable",
+            "type": "object",
+            "description": "a measured quantity",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string",
+                "choices": [
+                  {
+                    "value": "CUBIC_INCH"
+                  },
+                  {
+                    "value": "DEGREE_ANGLE"
+                  },
+                  {
+                    "value": "FAHRENHEIT"
+                  },
+                  {
+                    "value": "FOOT"
+                  },
+                  {
+                    "value": "INCH"
+                  },
+                  {
+                    "value": "METRE"
+                  },
+                  {
+                    "value": "PERCENT"
+                  },
+                  {
+                    "value": "PER_FAHRENHEIT"
+                  },
+                  {
+                    "value": "POUND_FORCE"
+                  },
+                  {
+                    "value": "POUND_FORCE_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_SQUARE_INCH"
+                  },
+                  {
+                    "value": "POUND_PER_CUBIC_FOOT"
+                  },
+                  {
+                    "value": "PSI"
+                  },
+                  {
+                    "value": "SIXTEENTH_INCH"
+                  },
+                  {
+                    "value": "SQUARE_FOOT"
+                  },
+                  {
+                    "value": "SQUARE_INCH"
+                  }
+                ]
+              }
+            }
+          },
+          "shellThickness": {
+            "id": "measurable",
+            "type": "object",
+            "description": "a measured quantity",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string",
+                "choices": [
+                  {
+                    "value": "CUBIC_INCH"
+                  },
+                  {
+                    "value": "DEGREE_ANGLE"
+                  },
+                  {
+                    "value": "FAHRENHEIT"
+                  },
+                  {
+                    "value": "FOOT"
+                  },
+                  {
+                    "value": "INCH"
+                  },
+                  {
+                    "value": "METRE"
+                  },
+                  {
+                    "value": "PERCENT"
+                  },
+                  {
+                    "value": "PER_FAHRENHEIT"
+                  },
+                  {
+                    "value": "POUND_FORCE"
+                  },
+                  {
+                    "value": "POUND_FORCE_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_SQUARE_INCH"
+                  },
+                  {
+                    "value": "POUND_PER_CUBIC_FOOT"
+                  },
+                  {
+                    "value": "PSI"
+                  },
+                  {
+                    "value": "SIXTEENTH_INCH"
+                  },
+                  {
+                    "value": "SQUARE_FOOT"
+                  },
+                  {
+                    "value": "SQUARE_INCH"
+                  }
+                ]
+              }
+            }
+          },
+          "neckDepth": {
+            "id": "measurable",
+            "type": "object",
+            "description": "a measured quantity",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string",
+                "choices": [
+                  {
+                    "value": "CUBIC_INCH"
+                  },
+                  {
+                    "value": "DEGREE_ANGLE"
+                  },
+                  {
+                    "value": "FAHRENHEIT"
+                  },
+                  {
+                    "value": "FOOT"
+                  },
+                  {
+                    "value": "INCH"
+                  },
+                  {
+                    "value": "METRE"
+                  },
+                  {
+                    "value": "PERCENT"
+                  },
+                  {
+                    "value": "PER_FAHRENHEIT"
+                  },
+                  {
+                    "value": "POUND_FORCE"
+                  },
+                  {
+                    "value": "POUND_FORCE_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_SQUARE_INCH"
+                  },
+                  {
+                    "value": "POUND_PER_CUBIC_FOOT"
+                  },
+                  {
+                    "value": "PSI"
+                  },
+                  {
+                    "value": "SIXTEENTH_INCH"
+                  },
+                  {
+                    "value": "SQUARE_FOOT"
+                  },
+                  {
+                    "value": "SQUARE_INCH"
+                  }
+                ]
+              }
+            }
+          },
+          "neckDiameter": {
+            "id": "measurable",
+            "type": "object",
+            "description": "a measured quantity",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string",
+                "choices": [
+                  {
+                    "value": "CUBIC_INCH"
+                  },
+                  {
+                    "value": "DEGREE_ANGLE"
+                  },
+                  {
+                    "value": "FAHRENHEIT"
+                  },
+                  {
+                    "value": "FOOT"
+                  },
+                  {
+                    "value": "INCH"
+                  },
+                  {
+                    "value": "METRE"
+                  },
+                  {
+                    "value": "PERCENT"
+                  },
+                  {
+                    "value": "PER_FAHRENHEIT"
+                  },
+                  {
+                    "value": "POUND_FORCE"
+                  },
+                  {
+                    "value": "POUND_FORCE_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_SQUARE_INCH"
+                  },
+                  {
+                    "value": "POUND_PER_CUBIC_FOOT"
+                  },
+                  {
+                    "value": "PSI"
+                  },
+                  {
+                    "value": "SIXTEENTH_INCH"
+                  },
+                  {
+                    "value": "SQUARE_FOOT"
+                  },
+                  {
+                    "value": "SQUARE_INCH"
+                  }
+                ]
+              }
+            }
+          },
+          "neckOffset": {
+            "id": "measurable",
+            "type": "object",
+            "description": "a measured quantity",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string",
+                "choices": [
+                  {
+                    "value": "CUBIC_INCH"
+                  },
+                  {
+                    "value": "DEGREE_ANGLE"
+                  },
+                  {
+                    "value": "FAHRENHEIT"
+                  },
+                  {
+                    "value": "FOOT"
+                  },
+                  {
+                    "value": "INCH"
+                  },
+                  {
+                    "value": "METRE"
+                  },
+                  {
+                    "value": "PERCENT"
+                  },
+                  {
+                    "value": "PER_FAHRENHEIT"
+                  },
+                  {
+                    "value": "POUND_FORCE"
+                  },
+                  {
+                    "value": "POUND_FORCE_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_SQUARE_INCH"
+                  },
+                  {
+                    "value": "POUND_PER_CUBIC_FOOT"
+                  },
+                  {
+                    "value": "PSI"
+                  },
+                  {
+                    "value": "SIXTEENTH_INCH"
+                  },
+                  {
+                    "value": "SQUARE_FOOT"
+                  },
+                  {
+                    "value": "SQUARE_INCH"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "wires": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "attachment",
+        "properties": {
+          "id": {
+            "type": "string",
+            "required": true,
+            "description": "The display ID for the attachment. Must be unique within the pole."
+          },
+          "uuid": {
+            "type": "string",
+            "description": "An optional UUID for the item."
+          },
+          "owner": {
+            "required": true,
+            "id": "owner",
+            "type": "object",
+            "description": "A company that owns components at a location.",
+            "properties": {
+              "uuid": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string",
+                "required": true
+              },
+              "industry": {
+                "type": "string",
+                "required": true,
+                "choices": [
+                  {
+                    "value": "COMMUNICATION"
+                  },
+                  {
+                    "value": "UTILITY"
+                  },
+                  {
+                    "value": "BOTH"
+                  }
+                ]
+              }
+            }
+          },
+          "attachmentHeight": {
+            "required": true,
+            "description": "a measured quantity",
+            "id": "measurable",
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string",
+                "choices": [
+                  {
+                    "value": "CUBIC_INCH"
+                  },
+                  {
+                    "value": "DEGREE_ANGLE"
+                  },
+                  {
+                    "value": "FAHRENHEIT"
+                  },
+                  {
+                    "value": "FOOT"
+                  },
+                  {
+                    "value": "INCH"
+                  },
+                  {
+                    "value": "METRE"
+                  },
+                  {
+                    "value": "PERCENT"
+                  },
+                  {
+                    "value": "PER_FAHRENHEIT"
+                  },
+                  {
+                    "value": "POUND_FORCE"
+                  },
+                  {
+                    "value": "POUND_FORCE_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_SQUARE_INCH"
+                  },
+                  {
+                    "value": "POUND_PER_CUBIC_FOOT"
+                  },
+                  {
+                    "value": "PSI"
+                  },
+                  {
+                    "value": "SIXTEENTH_INCH"
+                  },
+                  {
+                    "value": "SQUARE_FOOT"
+                  },
+                  {
+                    "value": "SQUARE_INCH"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "description": "An item that can be attached to the pole."
+      }
+    },
+    "spanGuys": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "attachment",
+        "properties": {
+          "id": {
+            "type": "string",
+            "required": true,
+            "description": "The display ID for the attachment. Must be unique within the pole."
+          },
+          "uuid": {
+            "type": "string",
+            "description": "An optional UUID for the item."
+          },
+          "owner": {
+            "required": true,
+            "id": "owner",
+            "type": "object",
+            "description": "A company that owns components at a location.",
+            "properties": {
+              "uuid": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string",
+                "required": true
+              },
+              "industry": {
+                "type": "string",
+                "required": true,
+                "choices": [
+                  {
+                    "value": "COMMUNICATION"
+                  },
+                  {
+                    "value": "UTILITY"
+                  },
+                  {
+                    "value": "BOTH"
+                  }
+                ]
+              }
+            }
+          },
+          "attachmentHeight": {
+            "required": true,
+            "description": "a measured quantity",
+            "id": "measurable",
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string",
+                "choices": [
+                  {
+                    "value": "CUBIC_INCH"
+                  },
+                  {
+                    "value": "DEGREE_ANGLE"
+                  },
+                  {
+                    "value": "FAHRENHEIT"
+                  },
+                  {
+                    "value": "FOOT"
+                  },
+                  {
+                    "value": "INCH"
+                  },
+                  {
+                    "value": "METRE"
+                  },
+                  {
+                    "value": "PERCENT"
+                  },
+                  {
+                    "value": "PER_FAHRENHEIT"
+                  },
+                  {
+                    "value": "POUND_FORCE"
+                  },
+                  {
+                    "value": "POUND_FORCE_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_SQUARE_INCH"
+                  },
+                  {
+                    "value": "POUND_PER_CUBIC_FOOT"
+                  },
+                  {
+                    "value": "PSI"
+                  },
+                  {
+                    "value": "SIXTEENTH_INCH"
+                  },
+                  {
+                    "value": "SQUARE_FOOT"
+                  },
+                  {
+                    "value": "SQUARE_INCH"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "description": "An item that can be attached to the pole."
+      }
+    },
+    "guys": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "attachment",
+        "properties": {
+          "id": {
+            "type": "string",
+            "required": true,
+            "description": "The display ID for the attachment. Must be unique within the pole."
+          },
+          "uuid": {
+            "type": "string",
+            "description": "An optional UUID for the item."
+          },
+          "owner": {
+            "required": true,
+            "id": "owner",
+            "type": "object",
+            "description": "A company that owns components at a location.",
+            "properties": {
+              "uuid": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string",
+                "required": true
+              },
+              "industry": {
+                "type": "string",
+                "required": true,
+                "choices": [
+                  {
+                    "value": "COMMUNICATION"
+                  },
+                  {
+                    "value": "UTILITY"
+                  },
+                  {
+                    "value": "BOTH"
+                  }
+                ]
+              }
+            }
+          },
+          "attachmentHeight": {
+            "required": true,
+            "description": "a measured quantity",
+            "id": "measurable",
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string",
+                "choices": [
+                  {
+                    "value": "CUBIC_INCH"
+                  },
+                  {
+                    "value": "DEGREE_ANGLE"
+                  },
+                  {
+                    "value": "FAHRENHEIT"
+                  },
+                  {
+                    "value": "FOOT"
+                  },
+                  {
+                    "value": "INCH"
+                  },
+                  {
+                    "value": "METRE"
+                  },
+                  {
+                    "value": "PERCENT"
+                  },
+                  {
+                    "value": "PER_FAHRENHEIT"
+                  },
+                  {
+                    "value": "POUND_FORCE"
+                  },
+                  {
+                    "value": "POUND_FORCE_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_SQUARE_INCH"
+                  },
+                  {
+                    "value": "POUND_PER_CUBIC_FOOT"
+                  },
+                  {
+                    "value": "PSI"
+                  },
+                  {
+                    "value": "SIXTEENTH_INCH"
+                  },
+                  {
+                    "value": "SQUARE_FOOT"
+                  },
+                  {
+                    "value": "SQUARE_INCH"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "description": "An item that can be attached to the pole."
+      }
+    },
+    "equipments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "attachment",
+        "properties": {
+          "id": {
+            "type": "string",
+            "required": true,
+            "description": "The display ID for the attachment. Must be unique within the pole."
+          },
+          "uuid": {
+            "type": "string",
+            "description": "An optional UUID for the item."
+          },
+          "owner": {
+            "required": true,
+            "id": "owner",
+            "type": "object",
+            "description": "A company that owns components at a location.",
+            "properties": {
+              "uuid": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string",
+                "required": true
+              },
+              "industry": {
+                "type": "string",
+                "required": true,
+                "choices": [
+                  {
+                    "value": "COMMUNICATION"
+                  },
+                  {
+                    "value": "UTILITY"
+                  },
+                  {
+                    "value": "BOTH"
+                  }
+                ]
+              }
+            }
+          },
+          "attachmentHeight": {
+            "required": true,
+            "description": "a measured quantity",
+            "id": "measurable",
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string",
+                "choices": [
+                  {
+                    "value": "CUBIC_INCH"
+                  },
+                  {
+                    "value": "DEGREE_ANGLE"
+                  },
+                  {
+                    "value": "FAHRENHEIT"
+                  },
+                  {
+                    "value": "FOOT"
+                  },
+                  {
+                    "value": "INCH"
+                  },
+                  {
+                    "value": "METRE"
+                  },
+                  {
+                    "value": "PERCENT"
+                  },
+                  {
+                    "value": "PER_FAHRENHEIT"
+                  },
+                  {
+                    "value": "POUND_FORCE"
+                  },
+                  {
+                    "value": "POUND_FORCE_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_SQUARE_INCH"
+                  },
+                  {
+                    "value": "POUND_PER_CUBIC_FOOT"
+                  },
+                  {
+                    "value": "PSI"
+                  },
+                  {
+                    "value": "SIXTEENTH_INCH"
+                  },
+                  {
+                    "value": "SQUARE_FOOT"
+                  },
+                  {
+                    "value": "SQUARE_INCH"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "description": "An item that can be attached to the pole."
+      }
+    },
+    "crossArms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "attachment",
+        "properties": {
+          "id": {
+            "type": "string",
+            "required": true,
+            "description": "The display ID for the attachment. Must be unique within the pole."
+          },
+          "uuid": {
+            "type": "string",
+            "description": "An optional UUID for the item."
+          },
+          "owner": {
+            "required": true,
+            "id": "owner",
+            "type": "object",
+            "description": "A company that owns components at a location.",
+            "properties": {
+              "uuid": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string",
+                "required": true
+              },
+              "industry": {
+                "type": "string",
+                "required": true,
+                "choices": [
+                  {
+                    "value": "COMMUNICATION"
+                  },
+                  {
+                    "value": "UTILITY"
+                  },
+                  {
+                    "value": "BOTH"
+                  }
+                ]
+              }
+            }
+          },
+          "attachmentHeight": {
+            "required": true,
+            "description": "a measured quantity",
+            "id": "measurable",
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string",
+                "choices": [
+                  {
+                    "value": "CUBIC_INCH"
+                  },
+                  {
+                    "value": "DEGREE_ANGLE"
+                  },
+                  {
+                    "value": "FAHRENHEIT"
+                  },
+                  {
+                    "value": "FOOT"
+                  },
+                  {
+                    "value": "INCH"
+                  },
+                  {
+                    "value": "METRE"
+                  },
+                  {
+                    "value": "PERCENT"
+                  },
+                  {
+                    "value": "PER_FAHRENHEIT"
+                  },
+                  {
+                    "value": "POUND_FORCE"
+                  },
+                  {
+                    "value": "POUND_FORCE_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_SQUARE_INCH"
+                  },
+                  {
+                    "value": "POUND_PER_CUBIC_FOOT"
+                  },
+                  {
+                    "value": "PSI"
+                  },
+                  {
+                    "value": "SIXTEENTH_INCH"
+                  },
+                  {
+                    "value": "SQUARE_FOOT"
+                  },
+                  {
+                    "value": "SQUARE_INCH"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "description": "An item that can be attached to the pole."
+      }
+    },
+    "insulators": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "attachment",
+        "properties": {
+          "id": {
+            "type": "string",
+            "required": true,
+            "description": "The display ID for the attachment. Must be unique within the pole."
+          },
+          "uuid": {
+            "type": "string",
+            "description": "An optional UUID for the item."
+          },
+          "owner": {
+            "required": true,
+            "id": "owner",
+            "type": "object",
+            "description": "A company that owns components at a location.",
+            "properties": {
+              "uuid": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string",
+                "required": true
+              },
+              "industry": {
+                "type": "string",
+                "required": true,
+                "choices": [
+                  {
+                    "value": "COMMUNICATION"
+                  },
+                  {
+                    "value": "UTILITY"
+                  },
+                  {
+                    "value": "BOTH"
+                  }
+                ]
+              }
+            }
+          },
+          "attachmentHeight": {
+            "required": true,
+            "description": "a measured quantity",
+            "id": "measurable",
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string",
+                "choices": [
+                  {
+                    "value": "CUBIC_INCH"
+                  },
+                  {
+                    "value": "DEGREE_ANGLE"
+                  },
+                  {
+                    "value": "FAHRENHEIT"
+                  },
+                  {
+                    "value": "FOOT"
+                  },
+                  {
+                    "value": "INCH"
+                  },
+                  {
+                    "value": "METRE"
+                  },
+                  {
+                    "value": "PERCENT"
+                  },
+                  {
+                    "value": "PER_FAHRENHEIT"
+                  },
+                  {
+                    "value": "POUND_FORCE"
+                  },
+                  {
+                    "value": "POUND_FORCE_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_SQUARE_INCH"
+                  },
+                  {
+                    "value": "POUND_PER_CUBIC_FOOT"
+                  },
+                  {
+                    "value": "PSI"
+                  },
+                  {
+                    "value": "SIXTEENTH_INCH"
+                  },
+                  {
+                    "value": "SQUARE_FOOT"
+                  },
+                  {
+                    "value": "SQUARE_INCH"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "description": "An item that can be attached to the pole."
+      }
+    },
+    "pushBraces": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "attachment",
+        "properties": {
+          "id": {
+            "type": "string",
+            "required": true,
+            "description": "The display ID for the attachment. Must be unique within the pole."
+          },
+          "uuid": {
+            "type": "string",
+            "description": "An optional UUID for the item."
+          },
+          "owner": {
+            "required": true,
+            "id": "owner",
+            "type": "object",
+            "description": "A company that owns components at a location.",
+            "properties": {
+              "uuid": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string",
+                "required": true
+              },
+              "industry": {
+                "type": "string",
+                "required": true,
+                "choices": [
+                  {
+                    "value": "COMMUNICATION"
+                  },
+                  {
+                    "value": "UTILITY"
+                  },
+                  {
+                    "value": "BOTH"
+                  }
+                ]
+              }
+            }
+          },
+          "attachmentHeight": {
+            "required": true,
+            "description": "a measured quantity",
+            "id": "measurable",
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string",
+                "choices": [
+                  {
+                    "value": "CUBIC_INCH"
+                  },
+                  {
+                    "value": "DEGREE_ANGLE"
+                  },
+                  {
+                    "value": "FAHRENHEIT"
+                  },
+                  {
+                    "value": "FOOT"
+                  },
+                  {
+                    "value": "INCH"
+                  },
+                  {
+                    "value": "METRE"
+                  },
+                  {
+                    "value": "PERCENT"
+                  },
+                  {
+                    "value": "PER_FAHRENHEIT"
+                  },
+                  {
+                    "value": "POUND_FORCE"
+                  },
+                  {
+                    "value": "POUND_FORCE_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_SQUARE_INCH"
+                  },
+                  {
+                    "value": "POUND_PER_CUBIC_FOOT"
+                  },
+                  {
+                    "value": "PSI"
+                  },
+                  {
+                    "value": "SIXTEENTH_INCH"
+                  },
+                  {
+                    "value": "SQUARE_FOOT"
+                  },
+                  {
+                    "value": "SQUARE_INCH"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "description": "An item that can be attached to the pole."
+      }
+    }
+  }
+}

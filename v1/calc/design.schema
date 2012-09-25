@@ -3,10 +3,6 @@
     "description": "Structural Description of a calc Design",
     "type": "object",
     "properties": {
-        "id" :  {
-          	"type": "string",
-            "required": true
-        },        
         "pole": {
         	"type": "object",
         	"required": true,
@@ -48,7 +44,6 @@
 		},
  		"wireEndPoints": {
  			"type": "array",
- 			"required": true,
  			"items": {
  				"type": "object",
  				"id": "wireEndPoint",
@@ -94,7 +89,6 @@
  		},		
 		"spanPoints": {
 			"type": "array",
-			"required": true,
 			"items": {
 				"type": "object",
 				"id": "spanPoint",
@@ -137,7 +131,6 @@
 		},		
 		"anchors": {
 			"type": "array",
-			"required": true,
 			"items": {
 				"type": "object",
 				"id": "anchor",
@@ -172,7 +165,6 @@
 	}, 		
  		"notePoints": {
  			"type": "array",
- 			"required": true,
  			"items": {
  				"type": "object",
  				"id": "notePoint",
@@ -191,7 +183,6 @@
  		},
  		"pointLoads": {
  			"type": "array",
- 			"required": true,
  			"items": {
  				"type": "object",
  				"id": "pointLoad",

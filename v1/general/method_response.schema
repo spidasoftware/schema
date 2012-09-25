@@ -1,6 +1,7 @@
 {
     "type": "object",
     "id": "method_response",
+    "description": "The response wrapper for all SPIDA API methods.",
     "properties": {
         "result": {
             "type": "any",

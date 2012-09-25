@@ -1,6 +1,7 @@
 {
 	"type":"object",
 	"id": "framingPlan",
+	"description": "List of end points and code units describing a framing plan.",
 	"properties":{
 		"customName": {
 			"type":"string",
@@ -12,6 +13,7 @@
 			"items": {
 				"type":"object",
 				"id": "framingEndPoint",
+				"description": "Description of an end point for the framer. End points are anything that a wire can go to.",
 				"properties":{
 					"direction": {
 						"extends": {"$ref": "bearing" },
@@ -28,16 +30,19 @@
 						"items":{
 							"type":"object",
 							"id": "framingWireItem",
+							"description": "A wire that goes to this wire end point.",
 							"properties":{
 								"code": {
 									"type":"string",
-									"required":true
+									"required":true,
+									"description": "Code to use to look up this wire's properties."
 								},
 								"owner": {
 									"extends": {"$ref": "owner"}
 								},
 								"tensionGroupOverride": {
-									"type":"string"
+									"type":"string",
+									"description": "Force the wire to use a different tension group than the default."
 								},
 								"usageGroup": {
 									"extends": {"$ref": "usage_group"},
@@ -56,12 +61,11 @@
 		"framingUnitItems": {
 			"type":"array",
 			"id": "framingUnitItems",
+			"description": "The list of framing Units that are to be applied to this pole.",
 			"items": {
 					"type":"string",
 					"id": "framingUnitItem"
 				}
 		}
 	}
-
-
 }

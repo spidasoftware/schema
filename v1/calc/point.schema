@@ -5,18 +5,22 @@
 	"properties": {
 		"id": { 
 			"type": "string",
-			"required": true
+			"required": true,
+			"description": "A display id for the object. Should be unique to the pole."
 		},
 		"uuid": {
-			"type": "string"
+			"type": "string",
+			"description": "An option UUID."
 		},
 		"distance": {
 			"extends": { "$ref": "measurable" },
-			"required": true
+			"required": true,
+			"description" : "Distance from the pole to the point."
 		},
 		"direction": {
 			"extends": { "$ref": "bearing" },
-			"required": true
+			"required": true,
+			"description": "Direction on the compass from the pole to the point."
 		}
 	}
 }

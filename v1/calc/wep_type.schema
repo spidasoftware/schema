@@ -1,6 +1,7 @@
 {
 	"id": "wepType",
 	"type": "string",
+	"description": "Enumeration of the accepted types of wire end points.",
 	"enum": [
 		"NEXT_POLE",
 		"PREVIOUS_POLE",

@@ -2,46 +2,71 @@
     "id": "project",
     "type": "object",
     "properties": {
+    	"schema": {
+    		"type": "string",
+    		"required": true,
+    		"description": "Full URL of the calc schema. For version 1 should be --insert URL here-- "
+    	},
         "clientFile": {
             "type": "string",
-            "required": true
+            "required": true,
+            "description": "Filename of the client file with extension. (ex, Demo.client)"
         },
         "date": {
-            "type": "string"
+            "type": "string",
+            "description": "Date the project was created."
         },
+        "forms": {
+			"type": "array",
+			"id": "projectForms",
+			"description": "All custom project forms.",
+			"items": {
+				"extends": { "$ref": "data_form" }
+			}
+		},
         "leads": {
             "type": "array",
             "required": true,
+            "description": "All of the leads in the project",
             "items": {
                 "type": "object",
                 "id": "lead",
+                "description": "A lead is a string of poles. It could be a circuit, or just a logical grouping.",
                 "properties": {
                     "id": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Required display ID for the lead. Must be unique to project."
                     },
                     "uuid": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Optional UUID for lead."
                     },
                     "locations": {
                         "type": "array",
                         "id": "locations",
                         "required": true,
+                        "description": "All locations in lead.",
                         "items": {
                             "id": "location",
                             "type": "object",
+                            "description": "A location is single physical location that has a pole",
                             "properties": {
                                 "id": {
-                                    "type": "string"
+                                    "type": "string",
+                                    "description": "Optional display ID for location. Should be unique to project."
                                 },
                                 "uuid": {
-                                    "type": "string"
+                                    "type": "string",
+                                    "description": "Optional UUID"
                                 },
                                 "mapNumber": {
-                                    "type": "string"
+                                    "type": "string",
+                                    "description": "Optional map number to align with GIS system."
                                 },
 
                                 "comments": {
-                                    "type": "string"
+                                    "type": "string",
+                                    "description": "Technician comments about location."
                                 },
                                 "address": {
                                     "extends": {
@@ -50,6 +75,7 @@
                                 },
                                 "geographicCoordinate": {
                                     "type": "object",
+                                    "description": "Latitude and longitude GPS coordinate of the pole.",
                                     "properties": {
                                         "latitude": {
                                             "type": "number",
@@ -64,7 +90,7 @@
                                 "remedies": {
                                 	"type": "array",
                                 	"id": "remedies",
-                                	"description": "List of remedies for the location"
+                                	"description": "List of remedies for the location",
                                 	"items": {
                                 		"type": "object",
                                 		"id": "remedy",
@@ -108,11 +134,17 @@
                                 "designs": {
                                     "type": "array",
                                     "id": "designs",
+                                    "description": "All pole structural designs for location",
                                     "items": {
                                         "type": "object",
                                         "properties": {
                                             "id": {
-                                                "type": "string"
+                                                "type": "string",
+                                                "description": "Optional display ID"
+                                            },
+                                            "uuid": {
+                                            	"type": "string",
+                                            	"description": "Optional UUID for design"
                                             },
                                             "framingPlan": {
                                                 "extends": {
@@ -130,6 +162,7 @@
                                 "forms": {
                                 	"type": "array",
                                 	"id": "forms",
+                                	"description": "All custom location forms.",
                                 	"items": {
                                 		"extends": { "$ref": "data_form" }
                                 	}
@@ -137,6 +170,7 @@
                                 "images": {
                                 	"type": "array",
                                 	"id": "images",
+                                	"description": "Base64 encoded images for this location.",
                                 	"items": {
                                 		"type": "object",
                                 		"properties": {

@@ -1,0 +1,170 @@
+{
+  "type": "object",
+  "id": "framingPlan",
+  "description": "List of end points and code units describing a framing plan.",
+  "properties": {
+    "customName": {
+      "type": "string",
+      "id": "customName"
+    },
+    "framingEndPoints": {
+      "type": "array",
+      "id": "framingEndPoints",
+      "items": {
+        "type": "object",
+        "id": "framingEndPoint",
+        "description": "Description of an end point for the framer. End points are anything that a wire can go to.",
+        "properties": {
+          "direction": {
+            "required": true,
+            "type": "integer",
+            "maximum": 360,
+            "minimum": 0,
+            "description": "The bearing relative to true north fo a component."
+          },
+          "distance": {
+            "required": true,
+            "id": "measurable",
+            "type": "object",
+            "description": "a measured quantity",
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "unit": {
+                "type": "string",
+                "choices": [
+                  {
+                    "value": "CUBIC_INCH"
+                  },
+                  {
+                    "value": "DEGREE_ANGLE"
+                  },
+                  {
+                    "value": "FAHRENHEIT"
+                  },
+                  {
+                    "value": "FOOT"
+                  },
+                  {
+                    "value": "INCH"
+                  },
+                  {
+                    "value": "METRE"
+                  },
+                  {
+                    "value": "PERCENT"
+                  },
+                  {
+                    "value": "PER_FAHRENHEIT"
+                  },
+                  {
+                    "value": "POUND_FORCE"
+                  },
+                  {
+                    "value": "POUND_FORCE_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_SQUARE_INCH"
+                  },
+                  {
+                    "value": "POUND_PER_CUBIC_FOOT"
+                  },
+                  {
+                    "value": "PSI"
+                  },
+                  {
+                    "value": "SIXTEENTH_INCH"
+                  },
+                  {
+                    "value": "SQUARE_FOOT"
+                  },
+                  {
+                    "value": "SQUARE_INCH"
+                  }
+                ]
+              }
+            }
+          },
+          "framingWireItems": {
+            "type": "array",
+            "id": "framingWireItems",
+            "required": true,
+            "items": {
+              "type": "object",
+              "id": "framingWireItem",
+              "description": "A wire that goes to this wire end point.",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "required": true,
+                  "description": "Code to use to look up this wire's properties."
+                },
+                "owner": {
+                  "id": "owner",
+                  "type": "object",
+                  "description": "A company that owns components at a location.",
+                  "properties": {
+                    "uuid": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string",
+                      "required": true
+                    },
+                    "industry": {
+                      "type": "string",
+                      "required": true,
+                      "choices": [
+                        {
+                          "value": "COMMUNICATION"
+                        },
+                        {
+                          "value": "UTILITY"
+                        },
+                        {
+                          "value": "BOTH"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "tensionGroupOverride": {
+                  "type": "string",
+                  "description": "Force the wire to use a different tension group than the default."
+                },
+                "usageGroup": {
+                  "required": true,
+                  "id": "usageGroup",
+                  "description": "Usage group for a wire.",
+                  "type": "string",
+                  "enum": [
+                    "PRIMARY",
+                    "NEUTRAL",
+                    "OPEN_WIRE",
+                    "UTILITY_SERVICE",
+                    "GUY",
+                    "COMMUNICATION",
+                    "COMMUNICATION_SERVICE"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "framingUnitItems": {
+      "type": "array",
+      "id": "framingUnitItems",
+      "description": "The list of framing Units that are to be applied to this pole.",
+      "items": {
+        "type": "string",
+        "id": "framingUnitItem"
+      }
+    }
+  }
+}

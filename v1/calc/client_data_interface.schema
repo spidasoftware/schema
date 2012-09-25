@@ -2,50 +2,50 @@
 	"id": "client_data_service",
 	"description": "A service to query client values available",
 
-	"getClientInsulators": {
+	"insulators": {
 		"description": "Return the client insulators in the client file.",
 		"returns": "array",
 		"params": [
 			{
 				"type": "string",
 				"name": "clientFile",
-				"required": false,
+				"required": true,
 				"description": "Client File to be queried"
 			}
 		]
 	},
-	"getClientAnchors": {
+	"anchors": {
 		"description": "Return the client anchors in the client file.",
 		"returns": "array",
 		"params": [
 			{
 				"type": "string",
 				"name": "clientFile",
-				"required": false,
+				"required": true,
 				"description": "Client File to be queried"
 			}
 		]
 	},
-	"getClientPoles": {
+	"poles": {
 		"description": "Return the client poles in the client file.",
 		"returns": "array",
 		"params": [
 			{
 				"type": "string",
 				"name": "clientFile",
-				"required": false,
+				"required": true,
 				"description": "Client File to be queried"
 			}
 		]
 	},
-	"getClientWires": {
+	"wires": {
 		"description": "Return the client wires in the client file.",
 		"returns": "array",
 		"params": [
 			{
 				"type": "string",
 				"name": "clientFile",
-				"required": false,
+				"required": true,
 				"description": "Client File to be queried"
 			},
 			{
@@ -56,14 +56,14 @@
 			}
 		]
 	},
-	"getClientEquipment": {
+	"equipments": {
 		"description": "Return the client equipment in the client file.",
 		"returns": "array",
 		"params": [
 			{
 				"type": "string",
 				"name": "clientFile",
-				"required": false,
+				"required": true,
 				"description": "Client File to be queried"
 			},
 			{
@@ -74,65 +74,82 @@
 			}
 		]
 	},
-	"getClientCrossArms": {
+	"crossArms": {
 		"description": "Return the client cross arms in the client file.",
 		"returns": "array",
 		"params": [
 			{
 				"type": "string",
 				"name": "clientFile",
-				"required": false,
+				"required": true,
 				"description": "Client File to be queried"
 			}
 		]
 	},
-	"getLoadCases": {
+	"loadCases": {
 		"description": "Return the load cases in the client file.",
 		"returns": "array",
 		"params": [
 			{
 				"type": "string",
 				"name": "clientFile",
-				"required": false,
+				"required": true,
 				"description": "Client File to be queried"
 			}
 		]
 	},
-	"getFramingUnits": {
+	"framingUnits": {
 		"description": "Return framing units in the client file.",
         "returns": "array",
 		"params": [
 			{
 				"type": "string",
 				"name": "clientFile",
-				"required": false,
+				"required": true,
 				"description": "Client File to be queried"
 			}
 		]
 	},
-	"getScripts": {
+	"scripts": {
 		"description": "Return scripts in the client file.",
         "returns": "array",
 		"params": [
 			{
 				"type": "string",
 				"name": "clientFile",
-				"required": false,
+				"required": true,
 				"description": "Client File to be queried"
 			}
 		]
 	},
-	"getClientReports": {
+	"reports": {
 		"description": "Return reports saved in the client file.",
         "returns": "array",
 		"params": [
 			{
 				"type": "string",
 				"name": "clientFile",
-				"required": false,
+				"required": true,
 				"description": "Client File to be queried"
 			}
 		]
+	},
+	"owners": {
+		"description": "Owners available in client file",
+        "returns": "array",
+		"params": [
+			{
+				"type": "string",
+				"name": "clientFile",
+				"required": true,
+				"description": "Client File to be queried"
+			}
+		]
+	},
+	"clientFiles": {
+		"description": "Return available client files.",
+		"returns": "array",
+		"params": []
 	}
 
 }

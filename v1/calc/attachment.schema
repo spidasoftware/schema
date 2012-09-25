@@ -5,18 +5,21 @@
 	"properties": {
 		"id": {
 			"type": "string",
-			"required": true
+			"required": true,
+			"description": "The display ID for the attachment. Must be unique within the pole."
 		},
 		"uuid": {
-			"type": "string"
+			"type": "string",
+			"description": "An optional UUID for the item."
 		},
 		"owner": {
 			"extends": { "$ref": "owner" },
 			"required": true
 		},
 		"attachmentHeight": {
-		    "extends": "$ref": "measurable" },
-		    "required": true
+		    "extends": { "$ref": "measurable" },
+		    "required": true,
+		    "description": "The height above ground at which the item is attached to the pole. If there are multiple points of attachment, the highest is used."
 		}
 	}
 	
