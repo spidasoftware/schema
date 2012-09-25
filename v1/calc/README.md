@@ -33,7 +33,7 @@ located at http://localhost:4560/calc/<method name>. Provides stateful control m
 
 ###Schema Public access
 
-The schemas are published and available online at https://raw.github.com/spidasoftware/schema/master/public/v1/calc/
+The schemas are published and available online at http://github.com/spidasoftware/schema
 
 ###Command Line Interface
 
