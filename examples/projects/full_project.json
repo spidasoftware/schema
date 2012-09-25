@@ -1,6 +1,6 @@
 {
   "clientFile": "TrainingDemo_4.2.client",
-   "schema": "http://github.com/spidasoftware/schema/blob/master/public/v1/calc_project.schema",
+   "schema": "https://raw.github.com/spidasoftware/schema/master/public/v1/calc/calc_project.schema",
   "date": "2011-02-21",
   "leads": [
     {
