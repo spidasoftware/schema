@@ -1,50 +1,70 @@
 {
-	"id": "clientEquipment",
-	"type": "object",
-	"description": "Engineering properties for an equipment",
-	"properties": {
-         "size": {
-         	"type": "string",
-         	"required": true
-         },
-         "type": {
-         	"extends": {"$ref": "equipment_type"},
-         	"required": true
-         },
-                  "offset": {
-         	"extends": {"$ref": "measurable"},
-         	"required": true
-         },
-                  "weight": {
-         	"extends": {"$ref": "measurable"},
-         	"required": true
-         },
-                  "lateralArea": {
-         	"extends": {"$ref": "measurable"},
-         	"required": true
-         },
-	   		"poleSideArea": {
-         	"extends": {"$ref": "measurable"},
-         	"required": true
-         },
-         	   		"valuePerLength": {
-         	"extends": {"$ref": "measurable"},
-         	"required": true
-         },
-                  	   		"distanceToBottom": {
-         	"extends": {"$ref": "measurable"},
-         	"required": true
-         },
-         "distanceToTop": {
-         	"extends": {"$ref": "measurable"},
-         	"required": true
-         },
-                 "throughHoleDiameter": {
-         	"extends": {"$ref": "measurable"},
-         	"required": true
-         },
-         "shape": {
-         	"extends": {"$ref": "shape"}
-         }
-	}
+  "description": "Engineering properties for an equipment", 
+  "id": "clientEquipment", 
+  "properties": {
+    "distanceToBottom": {
+      "extends": {
+        "$ref": "measurable"
+      }, 
+      "required": true
+    }, 
+    "distanceToTop": {
+      "extends": {
+        "$ref": "measurable"
+      }, 
+      "required": true
+    }, 
+    "lateralArea": {
+      "extends": {
+        "$ref": "measurable"
+      }, 
+      "required": true
+    }, 
+    "offset": {
+      "extends": {
+        "$ref": "measurable"
+      }, 
+      "required": true
+    }, 
+    "poleSideArea": {
+      "extends": {
+        "$ref": "measurable"
+      }, 
+      "required": true
+    }, 
+    "shape": {
+      "extends": {
+        "$ref": "shape"
+      }
+    }, 
+    "size": {
+      "required": true, 
+      "type": "string"
+    }, 
+    "throughHoleDiameter": {
+      "extends": {
+        "$ref": "measurable"
+      }, 
+      "required": true
+    }, 
+    "type": {
+      "extends": {
+        "$ref": "equipment_type"
+      }, 
+      "required": true
+    }, 
+    "valuePerLength": {
+      "extends": {
+        "$ref": "measurable"
+      }, 
+      "required": true
+    }, 
+    "weight": {
+      "extends": {
+        "$ref": "measurable"
+      }, 
+      "required": true
+    }
+  }, 
+  "type": "object"
 }

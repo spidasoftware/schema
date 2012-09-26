@@ -1,36 +1,41 @@
 {
-	"id": "tensionGroup",
-	"type": "object",
-	"description": "Tension information for a client wire.",
-	"properties": {
-		"name": {
-			"type": "string",
-			"required": true
-		},
-		"temperature": {
-			"extends": {"$ref": "measurable"},
-			"required": true
-		},
-		"tension": {
-			"$ref": "measurable"
-		},
-		"groups": {
-			"type": "array",
-			"required": true,
-			"items": {
-				"type": "object",
-				"properties": {
-					"distance": {
-						"extends": {"$ref": "measurable"},
-						"required": true
-					},
-					"tension": {
-						"extends": {"$ref": "measurable"},
-						"required": true
-					}
-				}
-			}
-
-		}
-	}
+  "description": "Tension information for a client wire.", 
+  "id": "tensionGroup", 
+  "properties": {
+    "groups": {
+      "items": {
+        "properties": {
+          "distance": {
+            "extends": {
+              "$ref": "measurable"
+            }, 
+            "required": true
+          }, 
+          "tension": {
+            "extends": {
+              "$ref": "measurable"
+            }, 
+            "required": true
+          }
+        }, 
+        "type": "object"
+      }, 
+      "required": true, 
+      "type": "array"
+    }, 
+    "name": {
+      "required": true, 
+      "type": "string"
+    }, 
+    "temperature": {
+      "extends": {
+        "$ref": "measurable"
+      }, 
+      "required": true
+    }, 
+    "tension": {
+      "$ref": "measurable"
+    }
+  }, 
+  "type": "object"
 }

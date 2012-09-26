@@ -1,7 +1,7 @@
 {
-	"type": "string",
-	"enum": [
-       "INITIAL",
-       "FINAL"
-	]
+  "enum": [
+    "INITIAL", 
+    "FINAL"
+  ], 
+  "type": "string"
 }

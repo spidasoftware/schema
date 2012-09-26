@@ -14,10 +14,47 @@
 			}
 		]
 	},
+
+	"insulator": {
+		"description": "Return a client insulator",
+		"returns": "array",
+		"params": [
+			{
+				"type": "string",
+				"name": "insulator",
+				"required": true,
+				"description": "id of the insulator"
+			},
+			{
+				"type": "string",
+				"name": "clientFile",
+				"required": true,
+				"description": "Client File to be queried"
+			}
+		]
+	},
 	"anchors": {
 		"description": "Return the client anchors in the client file.",
 		"returns": "array",
 		"params": [
+			{
+				"type": "string",
+				"name": "clientFile",
+				"required": true,
+				"description": "Client File to be queried"
+			}
+		]
+	},
+	"anchor": {
+		"description": "Return a client anchor in the client file.",
+		"returns": "array",
+		"params": [
+			{
+				"type": "string",
+				"name": "anchor",
+				"required": true,
+				"description": "anchor id"
+			},
 			{
 				"type": "string",
 				"name": "clientFile",
@@ -38,6 +75,24 @@
 			}
 		]
 	},
+	"pole": {
+    		"description": "Return a client pole in the client file.",
+    		"returns": "array",
+    		"params": [
+    			{
+    				"type": "object",
+    				"name": "pole",
+    				"required": true,
+    				"description": "pole reference"
+    			},
+    			{
+    				"type": "string",
+    				"name": "clientFile",
+    				"required": true,
+    				"description": "Client File to be queried"
+    			}
+    		]
+    	},
 	"wires": {
 		"description": "Return the client wires in the client file.",
 		"returns": "array",
@@ -56,6 +111,24 @@
 			}
 		]
 	},
+	"wire": {
+    		"description": "Return a client wire in the client file.",
+    		"returns": "array",
+    		"params": [
+    			{
+    				"type": "object",
+    				"name": "wire",
+    				"required": true,
+    				"description": "wire reference"
+    			},
+    			{
+    				"type": "string",
+    				"name": "clientFile",
+    				"required": true,
+    				"description": "Client File to be queried"
+    			}
+    		]
+    	},
 	"equipments": {
 		"description": "Return the client equipment in the client file.",
 		"returns": "array",
@@ -74,6 +147,24 @@
 			}
 		]
 	},
+	"equipment": {
+    		"description": "Return a client equipment in the client file.",
+    		"returns": "array",
+    		"params": [
+    			{
+    				"type": "object",
+    				"name": "equipment",
+    				"required": true,
+    				"description": "equipment reference"
+    			},
+    			{
+    				"type": "string",
+    				"name": "clientFile",
+    				"required": true,
+    				"description": "Client File to be queried"
+    			}
+    		]
+    	},
 	"crossArms": {
 		"description": "Return the client cross arms in the client file.",
 		"returns": "array",
@@ -86,6 +177,24 @@
 			}
 		]
 	},
+	"crossArm": {
+			"description": "Return a client cross arm in the client file.",
+			"returns": "array",
+			"params": [
+				{
+					"type": "string",
+					"name": "crossarm",
+					"required": true,
+					"description": "crossAarm id"
+				},
+				{
+					"type": "string",
+					"name": "clientFile",
+					"required": true,
+					"description": "Client File to be queried"
+				}
+			]
+		},
 	"loadCases": {
 		"description": "Return the load cases in the client file.",
 		"returns": "array",

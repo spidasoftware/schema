@@ -1,56 +1,76 @@
 {
-	"id": "clientCrossArm",
-	"type": "object",
-	"description": "Engineering properties for a cross arm",
-	"properties": {
-         "size": {
-         	"type": "string",
-         	"required": true
-         },
-         "height": {
-         	"extends": {"$ref": "measurable"},
-         	"required": true
-         },
-                  "width": {
-         	"extends": {"$ref": "measurable"},
-         	"required": true
-         },
-                  "length": {
-         	"extends": {"$ref": "measurable"},
-         	"required": true
-         },
-                  "strengthAllow": {
-         	"extends": {"$ref": "measurable"},
-         	"required": true
-         },
-	   		"density": {
-         	"extends": {"$ref": "measurable"},
-         	"required": true
-         },
-            		"modulus": {
-         	"extends": {"$ref": "measurable"},
-         	"required": true
-         },
-         	   		"wallThickness": {
-         	"extends": {"$ref": "measurable"},
-         	"required": true
-         },
-                  	   		"throughHoleDiameter": {
-         	"extends": {"$ref": "measurable"}
-         },
-         "materialCategory": {
-         	"extends": {"$ref": "material_category"}
-         },
-         "shape": {
-         	"extends": {"$ref": "shape"}
-         },
-         "doubleCrossArm": {
-         	"type": "boolean",
-         	"required": true
-         },
-         "poisson": {
-         	"type": "number",
-         	"required": true
-         }
-	}
+  "description": "Engineering properties for a cross arm", 
+  "id": "clientCrossArm", 
+  "properties": {
+    "density": {
+      "extends": {
+        "$ref": "measurable"
+      }, 
+      "required": true
+    }, 
+    "doubleCrossArm": {
+      "required": true, 
+      "type": "boolean"
+    }, 
+    "height": {
+      "extends": {
+        "$ref": "measurable"
+      }, 
+      "required": true
+    }, 
+    "length": {
+      "extends": {
+        "$ref": "measurable"
+      }, 
+      "required": true
+    }, 
+    "materialCategory": {
+      "extends": {
+        "$ref": "material_category"
+      }
+    }, 
+    "modulus": {
+      "extends": {
+        "$ref": "measurable"
+      }, 
+      "required": true
+    }, 
+    "poisson": {
+      "required": true, 
+      "type": "number"
+    }, 
+    "shape": {
+      "extends": {
+        "$ref": "shape"
+      }
+    }, 
+    "size": {
+      "required": true, 
+      "type": "string"
+    }, 
+    "strengthAllow": {
+      "extends": {
+        "$ref": "measurable"
+      }, 
+      "required": true
+    }, 
+    "throughHoleDiameter": {
+      "extends": {
+        "$ref": "measurable"
+      }
+    }, 
+    "wallThickness": {
+      "extends": {
+        "$ref": "measurable"
+      }, 
+      "required": true
+    }, 
+    "width": {
+      "extends": {
+        "$ref": "measurable"
+      }, 
+      "required": true
+    }
+  }, 
+  "type": "object"
 }

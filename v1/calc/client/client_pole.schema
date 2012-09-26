@@ -1,57 +1,75 @@
 {
-	"id": "clientCrossArm",
-	"type": "object",
-	"description": "Engineering properties for a cross arm",
-	"properties": {
-         "size": {
-         	"type": "string",
-         	"required": true
-         },
-          "species": {
-         	"type": "string",
-         	"required": true
-         },
-		   "classOfPole": {
-         	"type": "string",
-         	"required": true
-         },
-         "height": {
-         	"extends": {"$ref": "measurable"},
-         	"required": true
-         },
-                  "momentAllow": {
-         	"extends": {"$ref": "measurable"}
-         },
-                  "stressAllow": {
-         	"extends": {"$ref": "measurable"}
-         },
-	   		"density": {
-         	"extends": {"$ref": "measurable"},
-         	"required": true
-         },
-         	   		"wallThickness": {
-         	"extends": {"$ref": "measurable"},
-         	"required": true
-         },
-                  	   		"modulus": {
-         	"extends": {"$ref": "measurable"}
-         },
-                          	   		"ptc": {
-         	"extends": {"$ref": "measurable"}
-         },
-         "materialCategory": {
-         	"extends": {"$ref": "material_category"}
-         },
-         "shape": {
-         	"extends": {"$ref": "shape"}
-         },
-         "poissonRatio": {
-         	"type": "number",
-         	"required": true
-         },
-         "taper": {
-         	"type": "number",
-         	"required": true
-         }
-	}
+  "description": "Engineering properties for a pole", 
+  "id": "clientPole", 
+  "properties": {
+    "classOfPole": {
+      "required": true, 
+      "type": "string"
+    }, 
+    "density": {
+      "extends": {
+        "$ref": "measurable"
+      }, 
+      "required": true
+    }, 
+    "height": {
+      "extends": {
+        "$ref": "measurable"
+      }, 
+      "required": true
+    }, 
+    "materialCategory": {
+      "extends": {
+        "$ref": "material_category"
+      }
+    }, 
+    "modulus": {
+      "extends": {
+        "$ref": "measurable"
+      }
+    }, 
+    "momentAllow": {
+      "extends": {
+        "$ref": "measurable"
+      }
+    }, 
+    "poissonRatio": {
+      "required": true, 
+      "type": "number"
+    }, 
+    "ptc": {
+      "extends": {
+        "$ref": "measurable"
+      }
+    }, 
+    "shape": {
+      "extends": {
+        "$ref": "shape"
+      }
+    }, 
+    "size": {
+      "required": true, 
+      "type": "string"
+    }, 
+    "species": {
+      "required": true, 
+      "type": "string"
+    }, 
+    "stressAllow": {
+      "extends": {
+        "$ref": "measurable"
+      }
+    }, 
+    "taper": {
+      "required": true, 
+      "type": "number"
+    }, 
+    "wallThickness": {
+      "extends": {
+        "$ref": "measurable"
+      }, 
+      "required": true
+    }
+  }, 
+  "type": "object"
 }
