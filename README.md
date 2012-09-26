@@ -1,6 +1,8 @@
 SPIDA Software JSON Interfaces
 ==============================
 
+[![Build Status](https://secure.travis-ci.org/spidasoftware/schema.png)](http://travis-ci.org/spidasoftware/schema)
+
 General Overview of the Schema
 --------------------------------
 
