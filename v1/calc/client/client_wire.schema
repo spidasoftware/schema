@@ -1,0 +1,71 @@
+{
+	"id": "clientWire",
+	"type": "object",
+	"description": "Engineering properties for a wire",
+	"properties": {
+         "size": {
+         	"type": "string",
+         	"required": true
+         },
+
+                  "expansionCoefficient": {
+         	"extends": {"$ref": "measurable"},
+         	"required": true
+         },
+                  "weight": {
+         	"extends": {"$ref": "measurable"},
+         	"required": true
+         },
+                  "diameter": {
+         	"extends": {"$ref": "measurable"},
+         	"required": true
+         },
+	   		"crossArea": {
+         	"extends": {"$ref": "measurable"},
+         	"required": true
+         },
+         	   		"strength": {
+         	"extends": {"$ref": "measurable"},
+         	"required": true
+         },
+                  	   		"modulus": {
+         	"extends": {"$ref": "measurable"},
+         	"required": true
+         },
+         "description": {
+         	"type": "string",
+         	"required": true
+         },
+         "conductorStrands": {
+         	"type": "integer",
+         	"required":true
+         },
+         "coreStrands": {
+         	"type": "integer",
+         	"required":true
+         } ,
+         "numberOfConductors": {
+         	"type": "integer",
+         	"required": true
+         },
+         "calculation": {
+         	"extends": {"$ref": "calculation"},
+         	"required": true
+         },
+
+         "usageGroups": {
+         	"required": true,
+         	"type": "array",
+         	"items": {
+         		"type": "string"
+         	}
+         },
+         "tensionGroups": {
+         	"required": true,
+         	"type": "array",
+         	"items": {
+         		"$ref": "tension_group"
+         	}
+         }
+	}
+}

@@ -1,0 +1,19 @@
+{
+	  "id": "clientWireReference",
+	  "type": "object",
+	  "description" : "A reference to a client wire",
+	  "properties": {
+	  	"size": {
+	  		"type": "string",
+	  		"required": true
+	  	},
+	  	"coreStrands": {
+	  		"type": "integer",
+	  		"required": true
+	  	},
+	  	"conductorStrands": {
+	  		"type": "integer",
+	  		"required": true
+	  	}
+	  }
+}

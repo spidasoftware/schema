@@ -1,0 +1,46 @@
+{
+	"id": "clientInsulator",
+	"type": "object",
+	"description": "Engineering properties for an insulator",
+	"properties": {
+         "size": {
+         	"type": "string",
+         	"required": true
+         },
+         "type": {
+         	"extends": {"$ref": "insulator_type"},
+         	"required": true
+         },
+                  "strength": {
+         	"extends": {"$ref": "measurable"},
+         	"required": true
+         },
+                  "horizontalOffset": {
+         	"extends": {"$ref": "measurable"},
+         	"required": true
+         },
+                  "verticalOffset": {
+         	"extends": {"$ref": "measurable"},
+         	"required": true
+         },
+	   		"lateralArea": {
+         	"extends": {"$ref": "measurable"},
+         	"required": true
+         },
+         	   		"poleSideArea": {
+         	"extends": {"$ref": "measurable"},
+         	"required": true
+         },
+                  	   		"weight": {
+         	"extends": {"$ref": "measurable"},
+         	"required": true
+         },
+                 "throughHoleDiameter": {
+         	"extends": {"$ref": "measurable"},
+         	"required": true
+         },
+         "shape": {
+         	"extends": {"$ref": "shape"}
+         }
+	}
+}

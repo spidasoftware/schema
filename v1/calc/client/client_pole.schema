@@ -1,0 +1,57 @@
+{
+	"id": "clientCrossArm",
+	"type": "object",
+	"description": "Engineering properties for a cross arm",
+	"properties": {
+         "size": {
+         	"type": "string",
+         	"required": true
+         },
+          "species": {
+         	"type": "string",
+         	"required": true
+         },
+		   "classOfPole": {
+         	"type": "string",
+         	"required": true
+         },
+         "height": {
+         	"extends": {"$ref": "measurable"},
+         	"required": true
+         },
+                  "momentAllow": {
+         	"extends": {"$ref": "measurable"}
+         },
+                  "stressAllow": {
+         	"extends": {"$ref": "measurable"}
+         },
+	   		"density": {
+         	"extends": {"$ref": "measurable"},
+         	"required": true
+         },
+         	   		"wallThickness": {
+         	"extends": {"$ref": "measurable"},
+         	"required": true
+         },
+                  	   		"modulus": {
+         	"extends": {"$ref": "measurable"}
+         },
+                          	   		"ptc": {
+         	"extends": {"$ref": "measurable"}
+         },
+         "materialCategory": {
+         	"extends": {"$ref": "material_category"}
+         },
+         "shape": {
+         	"extends": {"$ref": "shape"}
+         },
+         "poissonRatio": {
+         	"type": "number",
+         	"required": true
+         },
+         "taper": {
+         	"type": "number",
+         	"required": true
+         }
+	}
+}

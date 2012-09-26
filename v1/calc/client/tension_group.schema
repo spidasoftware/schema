@@ -1,0 +1,36 @@
+{
+	"id": "tensionGroup",
+	"type": "object",
+	"description": "Tension information for a client wire.",
+	"properties": {
+		"name": {
+			"type": "string",
+			"required": true
+		},
+		"temperature": {
+			"extends": {"$ref": "measurable"},
+			"required": true
+		},
+		"tension": {
+			"$ref": "measurable"
+		},
+		"groups": {
+			"type": "array",
+			"required": true,
+			"items": {
+				"type": "object",
+				"properties": {
+					"distance": {
+						"extends": {"$ref": "measurable"},
+						"required": true
+					},
+					"tension": {
+						"extends": {"$ref": "measurable"},
+						"required": true
+					}
+				}
+			}
+
+		}
+	}
+}

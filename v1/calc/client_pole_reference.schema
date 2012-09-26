@@ -1,0 +1,19 @@
+{
+	  "id": "clientPoleReference",
+	  "type": "object",
+	  "description" : "A reference to a client pole",
+	  "properties": {
+	  	"species": {
+	  		"type": "string",
+	  		"required": true
+	  	},
+	  	"classOfPole": {
+	  		"type": "string",
+	  		"required": true
+	  	},
+	  	"height": {
+	  		"extends" : {"$ref" : "measurable"},
+	  		"required": true
+	  	}
+	  }
+}

@@ -1,0 +1,15 @@
+{
+	"id": "clientAnchor",
+	"type": "object",
+	"description": "Engineering properties for an anchor",
+	"properties": {
+         "size": {
+         	"type": "string",
+         	"required": true
+         },
+         "strength": {
+         	"extends": {"$ref": "measurable"},
+         	"required": true
+         }
+	}
+}

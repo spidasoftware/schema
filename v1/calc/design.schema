@@ -33,7 +33,7 @@
 					"required": true
 				},
 				"clientItem": {
-					"extends": {"$ref": "clientPoleReference"},
+					"extends": {"$ref": "client_pole_reference"},
 					"required":true
 				},
 				"owner": {
@@ -316,7 +316,7 @@
 						"type": "number"
 					},
 					"clientItem": {
-						"extends" : {"$ref": "clientWireReference" },
+						"extends" : {"$ref": "client_wire_reference" },
 						"required": true
 					}
 				}
@@ -338,7 +338,7 @@
 						"required": true
 					},
 					"clientItem": {
-						"extends" : {"$ref": "clientWireReference" },
+						"extends" : {"$ref": "client_wire_reference" },
 						"required": true
 					}
 				}
@@ -358,7 +358,7 @@
 						"extends": {"$ref": "measurable"}
 					},
 					"clientItem": {
-						"extends" : {"$ref": "clientWireReference" },
+						"extends" : {"$ref": "client_wire_reference" },
 						"required": true
 					}
 				}
@@ -380,7 +380,7 @@
 						"required": true
 					},
 					"clientItem": {
-						"extends": {"$ref": "clientEquipmentReference" },
+						"extends": {"$ref": "client_equipment_reference" },
 						"required": true
 					}
 				}
@@ -470,7 +470,7 @@
 						"required": true
 					},
 					"clientItem": {
-						"extends": {"$ref": "clientPoleReference" },
+						"extends": {"$ref": "client_pole_reference" },
 						"required": true
 					}
 				}
