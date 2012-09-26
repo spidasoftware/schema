@@ -1,0 +1,78 @@
+{
+  "description": "Engineering properties for an anchor",
+  "id": "clientAnchor",
+  "properties": {
+    "size": {
+      "required": true,
+      "type": "string"
+    },
+    "strength": {
+      "required": true,
+      "id": "measurable",
+      "type": "object",
+      "description": "a measured quantity",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "unit": {
+          "type": "string",
+          "choices": [
+            {
+              "value": "CUBIC_INCH"
+            },
+            {
+              "value": "DEGREE_ANGLE"
+            },
+            {
+              "value": "FAHRENHEIT"
+            },
+            {
+              "value": "FOOT"
+            },
+            {
+              "value": "INCH"
+            },
+            {
+              "value": "METRE"
+            },
+            {
+              "value": "PERCENT"
+            },
+            {
+              "value": "PER_FAHRENHEIT"
+            },
+            {
+              "value": "POUND_FORCE"
+            },
+            {
+              "value": "POUND_FORCE_FOOT"
+            },
+            {
+              "value": "POUND_FORCE_PER_FOOT"
+            },
+            {
+              "value": "POUND_FORCE_PER_SQUARE_INCH"
+            },
+            {
+              "value": "POUND_PER_CUBIC_FOOT"
+            },
+            {
+              "value": "PSI"
+            },
+            {
+              "value": "SIXTEENTH_INCH"
+            },
+            {
+              "value": "SQUARE_FOOT"
+            },
+            {
+              "value": "SQUARE_INCH"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "type": "object"
+}

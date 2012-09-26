@@ -48,7 +48,7 @@
       "required": true, 
       "type": "string"
     }, 
-    "strengthAllow": {
+    "stressAllow": {
       "extends": {
         "$ref": "measurable"
       }, 

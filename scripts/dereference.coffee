@@ -25,6 +25,7 @@ loadSchemasInFolder = (folder) ->
 loadSupportSchemas = () ->
 	loadSchemasInFolder("../v1/general")
 	loadSchemasInFolder("../v1/calc")
+	loadSchemasInFolder("../v1/calc/client")
 
 replaceReferences = (schema) ->
 	for key in Object.keys(schema)
@@ -61,21 +62,20 @@ replaceExtends = (schema) ->
 
 loadSupportSchemas()
 
+replaceAndSave = (source, dest) ->
+	data = fs.readFileSync(source)
+	schema = JSON.parse(data)
+	replaceReferences(schema)
+	replaceExtends(schema)
+	fs.writeFileSync(dest, JSON.stringify(schema, null, 2))
 
-data = fs.readFileSync("../v1/calc/calc_project.schema")
-schema = JSON.parse(data)
-replaceReferences(schema)
-replaceExtends(schema)
-fs.writeFileSync("../public/v1/calc/calc_project.schema", JSON.stringify(schema, null, 2))
+replaceAndSave("../v1/calc/calc_project.schema", "../public/v1/calc/calc_project.schema")
+replaceAndSave("../v1/calc/design.schema", "../public/v1/calc/design.schema")
+replaceAndSave("../v1/calc/framing_plan.schema", "../public/v1/calc/framing_plan.schema")
+replaceAndSave("../v1/calc/client/client_anchor.schema", "../public/v1/calc/client/client_anchor.schema")
+replaceAndSave("../v1/calc/client/client_crossarm.schema", "../public/v1/calc/client/client_crossarm.schema")
+replaceAndSave("../v1/calc/client/client_equipment.schema", "../public/v1/calc/client/client_equipment.schema")
+replaceAndSave("../v1/calc/client/client_insulator.schema", "../public/v1/calc/client/client_insulator.schema")
+replaceAndSave("../v1/calc/client/client_pole.schema", "../public/v1/calc/client/client_pole.schema")
+replaceAndSave("../v1/calc/client/client_wire.schema", "../public/v1/calc/client/client_wire.schema")
 
-data = fs.readFileSync("../v1/calc/design.schema")
-schema = JSON.parse(data)
-replaceReferences(schema)
-replaceExtends(schema)
-fs.writeFileSync("../public/v1/calc/design.schema", JSON.stringify(schema, null, 2))
-
-data = fs.readFileSync("../v1/calc/framing_plan.schema")
-schema = JSON.parse(data)
-replaceReferences(schema)
-replaceExtends(schema)
-fs.writeFileSync("../public/v1/calc/framing_plan.schema", JSON.stringify(schema, null, 2))

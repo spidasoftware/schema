@@ -46,11 +46,7 @@
       "extends": {
         "$ref": "shape"
       }
-    }, 
-    "size": {
-      "required": true, 
-      "type": "string"
-    }, 
+    },
     "species": {
       "required": true, 
       "type": "string"

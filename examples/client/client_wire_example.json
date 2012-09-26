@@ -1,1 +1,76 @@
-{"size":"1 AAC","expansionCoefficient":{"@unit":"PER_FAHRENHEIT","#text":1.28E-5},"weight":{"@unit":"POUND_FORCE_PER_FOOT","#text":0.0784},"diameter":{"@unit":"INCH","#text":0.328},"crossArea":{"@unit":"SQUARE_INCH","#text":0.0657},"strength":{"@unit":"POUND_FORCE","#text":1640},"modulus":{"@unit":"POUND_FORCE_PER_SQUARE_INCH","#text":8900000},"description":"Pansy","conductorStrands":7,"coreStrands":0,"numberOfConductors":1,"calculation":"INITIAL","usageGroups":["PRIMARY","NEUTRAL"],"tensionGroups":[{"name":"Full","temperature":{"@unit":"FAHRENHEIT","#text":60},"groups":[{"tension":{"@unit":"POUND_FORCE","#text":196.79999999999998},"distance":{"@unit":"FOOT","#text":4999}}]},{"name":"Slack","temperature":{"@unit":"FAHRENHEIT","#text":60},"groups":[{"tension":{"@unit":"POUND_FORCE","#text":41},"distance":{"@unit":"FOOT","#text":4999}}]}]}
+{
+  "calculation": "INITIAL", 
+  "conductorStrands": 7, 
+  "coreStrands": 0, 
+  "crossArea": {
+    "#text": 0.065699999999999995, 
+    "@unit": "SQUARE_INCH"
+  }, 
+  "description": "Pansy", 
+  "diameter": {
+    "#text": 0.32800000000000001, 
+    "@unit": "INCH"
+  }, 
+  "expansionCoefficient": {
+    "#text": 1.2799999999999999e-05, 
+    "@unit": "PER_FAHRENHEIT"
+  }, 
+  "modulus": {
+    "#text": 8900000, 
+    "@unit": "POUND_FORCE_PER_SQUARE_INCH"
+  }, 
+  "numberOfConductors": 1, 
+  "size": "1 AAC", 
+  "strength": {
+    "#text": 1640, 
+    "@unit": "POUND_FORCE"
+  }, 
+  "tensionGroups": [
+    {
+      "groups": [
+        {
+          "distance": {
+            "#text": 4999, 
+            "@unit": "FOOT"
+          }, 
+          "tension": {
+            "#text": 196.79999999999998, 
+            "@unit": "POUND_FORCE"
+          }
+        }
+      ], 
+      "name": "Full", 
+      "temperature": {
+        "#text": 60, 
+        "@unit": "FAHRENHEIT"
+      }
+    }, 
+    {
+      "groups": [
+        {
+          "distance": {
+            "#text": 4999, 
+            "@unit": "FOOT"
+          }, 
+          "tension": {
+            "#text": 41, 
+            "@unit": "POUND_FORCE"
+          }
+        }
+      ], 
+      "name": "Slack", 
+      "temperature": {
+        "#text": 60, 
+        "@unit": "FAHRENHEIT"
+      }
+    }
+  ], 
+  "usageGroups": [
+    "PRIMARY", 
+    "NEUTRAL"
+  ], 
+  "weight": {
+    "#text": 0.078399999999999997, 
+    "@unit": "POUND_FORCE_PER_FOOT"
+  }
+}
