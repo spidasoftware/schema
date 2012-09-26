@@ -56,11 +56,9 @@
         "stations": {
             "type": "array",
             "items": {
+            	"extends": {"$ref": "station" },
                 "id": "location",
-                "description": "A SPIDAMin station",
-                "type": {
-                    "$ref": "station"
-                }
+                "description": "A SPIDAMin station"
             }
         }
     }
