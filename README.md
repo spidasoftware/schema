@@ -53,6 +53,12 @@ Geometry objects should conform to the [geojson object spec](http://www.geojson.
 
 ### Tools
 
+#### Script Defreference
+
+There is a coffee script in the utils/scripts that will combine all the schemas into a fewer number of really large files.  This is useful in test and validating entire project structures.
+
+#### Javascript Testing
+
 We have included jasmine tests using nodejs.  
 
 To Install:
@@ -71,6 +77,13 @@ For Debugging: [JSON Tools](https://github.com/ddopson/underscore-cli)
 	
 	echo "{'some':'json'}" | underscore pretty --color
 
+#### Java Tools
+
+In the utils/src/* folders are some java classes that can be helpful when integrating our stuff into a java world.  This includes a classes that produces a JSON descriptor of a class and validate a service against a JSON descriptor.
+
+The jar can be compiled with:
+    
+    mvn install
 
 ***
 
