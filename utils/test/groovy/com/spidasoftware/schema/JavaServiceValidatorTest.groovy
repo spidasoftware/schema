@@ -6,7 +6,18 @@ import groovy.json.*
 class JavaServiceValidatorTest extends GroovyTestCase { 
 
   void testValidatorOutput(){
-     println JavaServiceValidator.generateDescriptor(this.class)
+     assert JavaServiceValidator.generateDescriptor(this.class)
+  }
+
+  void testValidateService(){
+    def validateResponse = JavaServiceValidator.validateService(this.class, exampleServiceJSON)
+    
+    validateResponse.error.each{line->
+      println line
+    }    
+    validateResponse.info.each{line->
+      println line
+    }
   }
   
   @ServiceDescription(id="someMethod",  description="Test Method")
@@ -29,6 +40,46 @@ class JavaServiceValidatorTest extends GroovyTestCase {
     //This is here for testing
   }
 
-
+def exampleServiceJSON = """
+{
+    "id": "someService",
+    "description": "someService",
+    "methodFour": {
+        "description": "[unassigned]",
+        "returns": "number"
+    },
+    "methodOne": {
+        "description": "Test Method",
+        "returns": "object",
+        "params": [
+            {
+                "type": "string",
+                "name": "param0",
+                "required": true
+            },
+            {
+                "type": "number",
+                "name": "param1",
+                "required": true
+            }
+        ]
+    },
+    "methodThree": {
+        "description": "[unassigned]",
+        "returns": "number"
+    },
+    "methodTwo": {
+        "description": "Test Method",
+        "returns": "number"
+    },
+    "methodDoesNotExist": {
+        "description": "Test Method",
+        "returns": "string"
+    },
+    "testValidatorOutput": {
+        "description": "[unassigned]"
+    }
+}
+"""
 
 }

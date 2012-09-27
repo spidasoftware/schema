@@ -12,7 +12,6 @@ class JavaServiceValidator {
     def builder = new JsonBuilder()
     def annotations = new JavaServiceValidatorTest().class.getAnnotation(ServiceDescription.class)
     def packageName = clazz.name.replace(clazz.getSimpleName(), "")
-    println packageName
     def methods = clazz.metaClass.methods.findAll{!JavaServiceValidator.ignoreMethods.contains(it.name)}
     methods = methods.findAll{it.isPublic()}
     methods = methods.unique()*.name
@@ -30,6 +29,42 @@ class JavaServiceValidator {
     }
     return builder.toPrettyString()
   } 
+
+  //Pass in a service class and a descriptor to validate it against.
+  static validateService(Class service, String jsonDescriptor){
+      def serviceDescription = JavaServiceValidator.generateDescriptor(service)
+      def slurper = new JsonSlurper()
+      def serviceJSON = slurper.parseText(serviceDescription)
+      def descriptorJSON = slurper.parseText(jsonDescriptor)
+      def errorArray = []
+      def infoArray = []
+      def returnMap = [:]
+      returnMap.error = errorArray
+      returnMap.info = infoArray
+      
+      if(serviceJSON.id==null) errorArray.add "The service does not have an id annotation."
+      if(serviceJSON.description==null) errorArray.add "The service does not have a description annotation."
+      descriptorJSON.eachWithIndex{descriptorMethod, descriptorValue, methodIndex->
+        if(descriptorValue instanceof Map){
+          def serviceMethod = serviceJSON.find{k,v -> k==descriptorMethod}
+          if(serviceMethod==null){
+            infoArray.add "  Method: $descriptorMethod is in the descriptor but not in the class."
+          }else{
+            if(serviceMethod.value.returns!=descriptorValue.returns) errorArray.add "  Method: the returns value for $descriptorMethod does not match the descriptor."
+            if(descriptorValue.params?.size()!=serviceMethod.value.params?.size()){
+              errorArray.add "  Method: the parameter count for $descriptorMethod does not match the descriptor."
+            }else{
+              descriptorValue.params.eachWithIndex{descriptorParam, paramIndex->
+                  def serviceParam = serviceMethod.value.params.get(paramIndex)
+                  if(serviceParam.type!=descriptorParam.type) errorArray.add "  Method: the parameter at position $paramIndex for $descriptorMethod does not match the descriptor type."
+                  if(serviceParam.required!=descriptorParam.required) errorArray.add "  Method: the parameter at position $paramIndex for $descriptorMethod does not match the descriptor requiredness."
+              }
+            } 
+          }
+        }
+      }
+      return returnMap
+  }
 
   def static makeMethod(v){
     def map = [:]
@@ -105,10 +140,6 @@ class JavaServiceValidator {
     }
   }
 
-  //Pass in a service class and a descriptor to validate it against.
-  def static validateService(Class service, String jsonDescriptor){
-
-
-  }
+  
   
 }

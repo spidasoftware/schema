@@ -55,10 +55,7 @@
                 "type": "array",
                 "name": "assetIds",
                 "required": true,
-                "description": "Keys to return.",
-                "items": {
-                    "type": "string"
-                }
+                "description": "Keys to return."
             },
             {
                 "type": "boolean",
