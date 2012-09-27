@@ -1,76 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.spidasoftware</groupId>
-    <artifactId>schema</artifactId>
-    <packaging>jar</packaging>
-    <version>1.0-SNAPSHOT</version>
-    <name>Schema</name>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.spidasoftware</groupId>
+  <artifactId>schema</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>Schema</name>
+  <url>http://www.spidasoftware.com/</url>
+  <description>Schema for data transport APIs.</description>
+  <organization>
+    <name>SpidaSoftware LLC</name>
     <url>http://www.spidasoftware.com/</url>
-    <description>Schema for data transport APIs.</description>
-    <organization>
-	<name>SpidaSoftware LLC</name>
-	<url>http://www.spidasoftware.com/</url>
-    </organization>
-    <issueManagement>
-	<system>pivotal</system>
-	<url>https://www.pivotaltracker.com/projects/147153</url>
-    </issueManagement>
-    <build>
-	<plugins>
-	    <plugin>
-		<groupId>org.apache.maven.plugins</groupId>
-		<artifactId>maven-jar-plugin</artifactId>
-		<configuration>
-		    <archive>
-			<compress>true</compress>
-			<manifest>
-			</manifest>
-			<manifestEntries>
-			    <buildtime>${maven.build.timestamp}</buildtime>
-			</manifestEntries>
-		    </archive>
-		</configuration>
-	    </plugin>
-	    <plugin>
-				<artifactId>maven-resources-plugin</artifactId>
-				<configuration>
-					<encoding>UTF-8</encoding>
-					
-				</configuration>
-			</plugin>
-
-	</plugins>
-	<resources>
-        <resource>
-            <directory>v1</directory>
-        </resource>
-    </resources>  
-    </build>
-   
-
-    <properties>
-	<netbeans.hint.useExternalMaven>true</netbeans.hint.useExternalMaven>
-	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-    <distributionManagement>
-	<snapshotRepository>
-	    <id>ubuntu</id>
-	    <url>${snapshotsLocation}</url>
-	</snapshotRepository>
-	<repository>
-	    <id>ubuntu</id>
-	    <url>${releasesLocation}</url>
-	</repository>
-    </distributionManagement>
+  </organization>
+  <issueManagement>
+    <system>pivotal</system>
+    <url>https://www.pivotaltracker.com/projects/147153</url>
+  </issueManagement>
+  <dependencies>
+    <dependency>
+      <groupId>org.codehaus.groovy</groupId>
+      <artifactId>groovy-all</artifactId>
+      <version>2.0.2</version>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.8.1</version>
+    </dependency>
+  </dependencies>  
+  <build>
+    <sourceDirectory>.</sourceDirectory>
+    <plugins>
+      <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>2.5.1</version>
+          <configuration>
+            <includes>
+              <include>utils/src/java/**/*.java</include>
+            </includes>
+          </configuration>
+        </plugin>
+      <plugin>
+        <groupId>org.codehaus.gmaven</groupId>
+        <artifactId>gmaven-plugin</artifactId>
+        <version>1.4</version>
+        <configuration>
+          <providerSelection>2.0</providerSelection>
+          <sources>
+              <fileset>
+                  <directory>${pom.basedir}/utils/src/groovy</directory>
+                  <includes>
+                      <include>**/*.groovy</include>
+                  </includes>
+              </fileset>
+              <fileset>
+                  <directory>${pom.basedir}/utils/test/groovy</directory>
+                  <includes>
+                      <include>**/*.groovy</include>
+                  </includes>
+              </fileset>
+          </sources>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+              <goal>testCompile</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <compress>true</compress>
+            <manifest></manifest>
+            <manifestEntries>
+              <buildtime>${maven.build.timestamp}</buildtime>
+            </manifestEntries>
+          </archive>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <configuration>
+          <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+    </plugins>
+    <resources>
+      <resource>
+        <directory>v1</directory>
+      </resource>
+    </resources>
+  </build>
+  <properties>
+    <netbeans.hint.useExternalMaven>true</netbeans.hint.useExternalMaven>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ubuntu</id>
+      <url>${snapshotsLocation}</url>
+    </snapshotRepository>
+    <repository>
+      <id>ubuntu</id>
+      <url>${releasesLocation}</url>
+    </repository>
+  </distributionManagement>
 </project>
-
-
-
-
-
-
-
-
-
-
