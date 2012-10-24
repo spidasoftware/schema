@@ -20,7 +20,6 @@
                 { "value" : "POUND_FORCE_PER_FOOT"        },
                 { "value" : "POUND_FORCE_PER_SQUARE_INCH" },
                 { "value" : "POUND_PER_CUBIC_FOOT"        },
-                { "value" : "PSI"                         },
                 { "value" : "SIXTEENTH_INCH"              },
                 { "value" : "SQUARE_FOOT"                 },
                 { "value" : "SQUARE_INCH"                 }

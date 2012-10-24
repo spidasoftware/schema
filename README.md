@@ -57,6 +57,11 @@ Geometry objects should conform to the [geojson object spec](http://www.geojson.
 
 There is a coffee script in the utils/scripts that will combine all the schemas into a fewer number of really large files.  This is useful in test and validating entire project structures.
 
+To Run:
+
+	cd utils/scripts
+	coffee dereference.coffee
+
 #### Javascript Testing
 
 We have included jasmine tests using nodejs.  
