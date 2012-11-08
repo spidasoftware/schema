@@ -17,10 +17,12 @@
           "description": "a measured quantity",
           "properties": {
             "value": {
-              "type": "number"
+              "type": "number",
+              "required": true
             },
             "unit": {
               "type": "string",
+              "required": true,
               "choices": [
                 {
                   "value": "CUBIC_INCH"
@@ -81,10 +83,12 @@
           "description": "a measured quantity",
           "properties": {
             "value": {
-              "type": "number"
+              "type": "number",
+              "required": true
             },
             "unit": {
               "type": "string",
+              "required": true,
               "choices": [
                 {
                   "value": "CUBIC_INCH"
@@ -149,10 +153,12 @@
           "description": "a measured quantity",
           "properties": {
             "value": {
-              "type": "number"
+              "type": "number",
+              "required": true
             },
             "unit": {
               "type": "string",
+              "required": true,
               "choices": [
                 {
                   "value": "CUBIC_INCH"
@@ -231,10 +237,12 @@
               "description": "a measured quantity",
               "properties": {
                 "value": {
-                  "type": "number"
+                  "type": "number",
+                  "required": true
                 },
                 "unit": {
                   "type": "string",
+                  "required": true,
                   "choices": [
                     {
                       "value": "CUBIC_INCH"
@@ -344,10 +352,12 @@
             "type": "object",
             "properties": {
               "value": {
-                "type": "number"
+                "type": "number",
+                "required": true
               },
               "unit": {
                 "type": "string",
+                "required": true,
                 "choices": [
                   {
                     "value": "CUBIC_INCH"
@@ -432,10 +442,12 @@
             "description": "a measured quantity",
             "properties": {
               "value": {
-                "type": "number"
+                "type": "number",
+                "required": true
               },
               "unit": {
                 "type": "string",
+                "required": true,
                 "choices": [
                   {
                     "value": "CUBIC_INCH"
@@ -530,10 +542,12 @@
                   "description": "a measured quantity",
                   "properties": {
                     "value": {
-                      "type": "number"
+                      "type": "number",
+                      "required": true
                     },
                     "unit": {
                       "type": "string",
+                      "required": true,
                       "choices": [
                         {
                           "value": "CUBIC_INCH"
@@ -615,10 +629,12 @@
             "type": "object",
             "properties": {
               "value": {
-                "type": "number"
+                "type": "number",
+                "required": true
               },
               "unit": {
                 "type": "string",
+                "required": true,
                 "choices": [
                   {
                     "value": "CUBIC_INCH"
@@ -705,10 +721,12 @@
             "type": "object",
             "properties": {
               "value": {
-                "type": "number"
+                "type": "number",
+                "required": true
               },
               "unit": {
                 "type": "string",
+                "required": true,
                 "choices": [
                   {
                     "value": "CUBIC_INCH"
@@ -825,10 +843,12 @@
             "type": "object",
             "properties": {
               "value": {
-                "type": "number"
+                "type": "number",
+                "required": true
               },
               "unit": {
                 "type": "string",
+                "required": true,
                 "choices": [
                   {
                     "value": "CUBIC_INCH"
@@ -921,10 +941,12 @@
             "description": "a measured quantity",
             "properties": {
               "value": {
-                "type": "number"
+                "type": "number",
+                "required": true
               },
               "unit": {
                 "type": "string",
+                "required": true,
                 "choices": [
                   {
                     "value": "CUBIC_INCH"
@@ -985,10 +1007,12 @@
             "description": "a measured quantity",
             "properties": {
               "value": {
-                "type": "number"
+                "type": "number",
+                "required": true
               },
               "unit": {
                 "type": "string",
+                "required": true,
                 "choices": [
                   {
                     "value": "CUBIC_INCH"
@@ -1054,10 +1078,12 @@
             "description": "a measured quantity",
             "properties": {
               "value": {
-                "type": "number"
+                "type": "number",
+                "required": true
               },
               "unit": {
                 "type": "string",
+                "required": true,
                 "choices": [
                   {
                     "value": "CUBIC_INCH"
@@ -1117,10 +1143,12 @@
             "description": "a measured quantity",
             "properties": {
               "value": {
-                "type": "number"
+                "type": "number",
+                "required": true
               },
               "unit": {
                 "type": "string",
+                "required": true,
                 "choices": [
                   {
                     "value": "CUBIC_INCH"
@@ -1180,10 +1208,12 @@
             "description": "a measured quantity",
             "properties": {
               "value": {
-                "type": "number"
+                "type": "number",
+                "required": true
               },
               "unit": {
                 "type": "string",
+                "required": true,
                 "choices": [
                   {
                     "value": "CUBIC_INCH"
@@ -1243,10 +1273,12 @@
             "description": "a measured quantity",
             "properties": {
               "value": {
-                "type": "number"
+                "type": "number",
+                "required": true
               },
               "unit": {
                 "type": "string",
+                "required": true,
                 "choices": [
                   {
                     "value": "CUBIC_INCH"
@@ -1306,10 +1338,12 @@
             "description": "a measured quantity",
             "properties": {
               "value": {
-                "type": "number"
+                "type": "number",
+                "required": true
               },
               "unit": {
                 "type": "string",
+                "required": true,
                 "choices": [
                   {
                     "value": "CUBIC_INCH"
@@ -1369,10 +1403,12 @@
             "description": "a measured quantity",
             "properties": {
               "value": {
-                "type": "number"
+                "type": "number",
+                "required": true
               },
               "unit": {
                 "type": "string",
+                "required": true,
                 "choices": [
                   {
                     "value": "CUBIC_INCH"
@@ -1481,10 +1517,12 @@
             "type": "object",
             "properties": {
               "value": {
-                "type": "number"
+                "type": "number",
+                "required": true
               },
               "unit": {
                 "type": "string",
+                "required": true,
                 "choices": [
                   {
                     "value": "CUBIC_INCH"
@@ -1594,10 +1632,12 @@
             "type": "object",
             "properties": {
               "value": {
-                "type": "number"
+                "type": "number",
+                "required": true
               },
               "unit": {
                 "type": "string",
+                "required": true,
                 "choices": [
                   {
                     "value": "CUBIC_INCH"
@@ -1707,10 +1747,12 @@
             "type": "object",
             "properties": {
               "value": {
-                "type": "number"
+                "type": "number",
+                "required": true
               },
               "unit": {
                 "type": "string",
+                "required": true,
                 "choices": [
                   {
                     "value": "CUBIC_INCH"
@@ -1820,10 +1862,12 @@
             "type": "object",
             "properties": {
               "value": {
-                "type": "number"
+                "type": "number",
+                "required": true
               },
               "unit": {
                 "type": "string",
+                "required": true,
                 "choices": [
                   {
                     "value": "CUBIC_INCH"
@@ -1933,10 +1977,12 @@
             "type": "object",
             "properties": {
               "value": {
-                "type": "number"
+                "type": "number",
+                "required": true
               },
               "unit": {
                 "type": "string",
+                "required": true,
                 "choices": [
                   {
                     "value": "CUBIC_INCH"
@@ -2046,10 +2092,12 @@
             "type": "object",
             "properties": {
               "value": {
-                "type": "number"
+                "type": "number",
+                "required": true
               },
               "unit": {
                 "type": "string",
+                "required": true,
                 "choices": [
                   {
                     "value": "CUBIC_INCH"
@@ -2159,10 +2207,12 @@
             "type": "object",
             "properties": {
               "value": {
-                "type": "number"
+                "type": "number",
+                "required": true
               },
               "unit": {
                 "type": "string",
+                "required": true,
                 "choices": [
                   {
                     "value": "CUBIC_INCH"
