@@ -14,15 +14,27 @@
         "name": "wire",
         "required": true,
         "description": "JSON description of the load_case to be used for the analysis"
-      },
+      }
     ]
   },
-  "openProjectFile": {
+  "calculateTensionAtSag": {
     "description": "Open project from a file.",
     "returns": "null",
     "params": [
       {
-        "type": "string",
+        "type": "measurable",
+        "name": "projectFile",
+        "required": true,
+        "description": "Absolute path to the file to be opened"
+      }
+    ]
+  },
+  "calculateSagAtTension": {
+    "description": "Open project from a file.",
+    "returns": "null",
+    "params": [
+      {
+        "type": "measurable",
         "name": "projectFile",
         "required": true,
         "description": "Absolute path to the file to be opened"

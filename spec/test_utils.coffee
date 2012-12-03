@@ -21,7 +21,8 @@ loadSchemasInFolder = (folder) ->
         schemaData = fs.readFileSync("#{folder}/#{file}")
         env.createSchema( schemaData, true, path.basename(file, ".schema")  )
 
-validate = (json, schemaFile, success=true) ->
+validate = (json, schemaFile, success=true, level='INFO') ->
+  logger.setLevel(level)
   for schema in supportedSchemasArray
     logger.debug "Loading: "+schema
     loadSchemasInFolder(schema)
