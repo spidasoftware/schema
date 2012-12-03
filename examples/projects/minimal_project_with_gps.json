@@ -1,6 +1,6 @@
 {
   "clientFile": "Demo.client",
-   "schema": "https://raw.github.com/spidasoftware/schema/master/public/v1/calc/calc_project.schema",
+   "schema": "https://www.spidasoftware.com/schema/v1/calc/calc_project.schema",
   "leads": [
     {
       "locations": [
