@@ -1,6 +1,6 @@
 {
   "description": "Engineering properties for an anchor",
-  "id": "clientAnchor",
+  "id": "client_anchor",
   "properties": {
     "size": {
       "required": true,

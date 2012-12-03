@@ -1,6 +1,6 @@
 {
   "description": "Engineering properties for an equipment",
-  "id": "clientEquipment",
+  "id": "client_equipment",
   "properties": {
     "distanceToBottom": {
       "required": true,

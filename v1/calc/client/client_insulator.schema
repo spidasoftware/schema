@@ -1,6 +1,6 @@
 {
   "description": "Engineering properties for an insulator", 
-  "id": "clientInsulator", 
+  "id": "client_insulator", 
   "properties": {
     "horizontalOffset": {
       "extends": {

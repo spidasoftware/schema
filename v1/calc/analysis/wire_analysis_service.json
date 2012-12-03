@@ -1,43 +1,73 @@
 {
   "analyzeWire": {
     "description": "A wire is analyzed under loading conditions for a variety of outputs.",
-    "returns": "wire_analysis",
+    "returns": "object",
     "params": [
       {
-        "type": "object",
-        "name": "load_case",
+        "type": "client_wire",
+        "name": "client wire",
         "required": true,
-        "description": "JSON description of the load_case to be used for the analysis"
+        "description": "The client wire containing all the engineering information for analysis."
       },
       {
-        "type": "object",
-        "name": "wire",
+        "type": "measurable",
+        "name": "wire length",
         "required": true,
-        "description": "JSON description of the load_case to be used for the analysis"
+        "description": "The length of the wire in straight line distance."
+      },
+      {
+        "type": "wire_load_case",
+        "name": "client wire",
+        "required": true,
+        "description": "The client wire containing all the engineering information for analysis."
       }
     ]
   },
   "calculateTensionAtSag": {
     "description": "Open project from a file.",
-    "returns": "null",
+    "returns": "measurable",
     "params": [
       {
-        "type": "measurable",
-        "name": "projectFile",
+        "type": "client_wire",
+        "name": "client wire",
         "required": true,
-        "description": "Absolute path to the file to be opened"
+        "description": "The client wire containing all the engineering information for analysis."
+      },
+      {
+        "type": "measurable",
+        "name": "wire length",
+        "required": true,
+        "description": "The length of the wire in straight line distance."
+      },
+      {
+        "type": "measurable",
+        "name": "sag",
+        "required": true,
+        "description": "Sag to evaluate the tension."
       }
     ]
   },
   "calculateSagAtTension": {
     "description": "Open project from a file.",
-    "returns": "null",
+    "returns": "measurable",
     "params": [
       {
-        "type": "measurable",
-        "name": "projectFile",
+        "type": "client_wire",
+        "name": "client wire",
         "required": true,
-        "description": "Absolute path to the file to be opened"
+        "description": "The client wire containing all the engineering information for analysis."
+      },
+      {
+        "type": "measurable",
+        "name": "wire length",
+        "required": true,
+        "description": "The length of the wire in straight line distance."
+      },
+      {
+        "type": "measurable",
+        "name": "tension",
+        "required": true,
+        "description": "Tension to evaluate the sag."
       }
     ]
   }

@@ -1,0 +1,35 @@
+{
+    "id": "wire_load_case",
+    "type": "object",
+    "description": "An object with the needed information for analyzing a wire for sag and tension.",
+    "properties": {
+        "windForce": {
+            "extends": {
+                "$ref": "measurable"
+            },
+            "required": true,
+            "description": "The wind force that is acting on this wire. In force per length."
+        },
+        "weightForce": {
+            "extends": {
+                "$ref": "measurable"
+            },
+            "required": true,
+            "description": "The weight force that is acting on this wire. In force per length."
+        },
+        "constantForce": {
+            "extends": {
+                "$ref": "measurable"
+            },
+            "required": true,
+            "description": "The addtional linear force that is acting on this wire. In force per length."
+        },
+        "temperature": {
+            "extends": {
+                "$ref": "measurable"
+            },
+            "required": true,
+            "description": "The temperature at which to analyze this wire."
+        }
+    }
+}

@@ -5,7 +5,7 @@ describe 'calc', ->
   logger = log4js.getLogger()
   
   #Odd things happen if you set this in multiple places.
-  logger.setLevel('ERROR')
+  logger.setLevel('INFO')
 
   fs = require('fs')
   designSchema = "./public/v1/calc/design.schema"

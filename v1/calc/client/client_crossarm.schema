@@ -1,6 +1,6 @@
 {
   "description": "Engineering properties for a cross arm", 
-  "id": "clientCrossArm", 
+  "id": "client_cross_arm", 
   "properties": {
     "density": {
       "extends": {

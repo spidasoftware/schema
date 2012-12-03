@@ -1,6 +1,6 @@
 {
   "description": "Engineering properties for a pole",
-  "id": "clientPole",
+  "id": "client_pole",
   "properties": {
     "classOfPole": {
       "required": true,

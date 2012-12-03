@@ -31,7 +31,21 @@ describe 'asset', ->
    
   it 'make sure the user service descriptor validates', ->  
     logger.info("make sure the user service descriptor validates") 
-    service = JSON.parse(fs.readFileSync "./v1/user/user_service.json")
+    service = JSON.parse(fs.readFileSync "./v1/user/users_service.json")
+    for method of service
+      if method!="id" and method!="description" 
+        testUtils.validate(service[method], "./v1/general/service_method.schema", true)  
+
+  it 'make sure the users security service descriptor validates', ->  
+    logger.info("make sure the users security service descriptor validates") 
+    service = JSON.parse(fs.readFileSync "./v1/user/users_security_service.json")
+    for method of service
+      if method!="id" and method!="description" 
+        testUtils.validate(service[method], "./v1/general/service_method.schema", true)
+
+  it 'make sure the wire analysis descriptor validates', ->  
+    logger.info("make sure the wire analysis service descriptor validates") 
+    service = JSON.parse(fs.readFileSync "./v1/calc/analysis/wire_analysis_service.json")
     for method of service
       if method!="id" and method!="description" 
         testUtils.validate(service[method], "./v1/general/service_method.schema", true)
