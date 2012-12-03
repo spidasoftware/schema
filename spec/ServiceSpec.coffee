@@ -1,7 +1,6 @@
 describe 'asset', ->
   log4js = require('log4js')
   logger = log4js.getLogger()
-  logger.setLevel('INFO')
   fs = require('fs')
   testUtils = require "./test_utils"
 

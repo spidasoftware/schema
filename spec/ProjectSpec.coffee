@@ -1,7 +1,6 @@
 describe 'project', ->
   log4js = require('log4js')
   logger = log4js.getLogger()
-  logger.setLevel('INFO')
   fs = require('fs')
   JSV = require("JSV").JSV
   env = JSV.createEnvironment()

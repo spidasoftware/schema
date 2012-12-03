@@ -3,7 +3,6 @@ describe 'client', ->
   #Include some stuff.
   log4js = require('log4js')
   logger = log4js.getLogger()
-  logger.setLevel('INFO')
   fs = require('fs')
   designSchema = "./public/v1/calc/design.schema"
   testUtils = require "./test_utils"

@@ -7,6 +7,9 @@ fs = require('fs')
 JSV = require("JSV").JSV
 env = JSV.createEnvironment("json-schema-draft-03")
 path = require("path")
+log4js = require('log4js')
+logger = log4js.getLogger()
+logger.setLevel('INFO')
 schemaMap = new Object
 loadSchemasInFolder = (folder) ->
 	files = fs.readdirSync(folder)

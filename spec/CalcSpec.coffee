@@ -3,7 +3,10 @@ describe 'calc', ->
   #Include some stuff.
   log4js = require('log4js')
   logger = log4js.getLogger()
+  
+  #Odd things happen if you set this in multiple places.
   logger.setLevel('ERROR')
+
   fs = require('fs')
   designSchema = "./public/v1/calc/design.schema"
   testUtils = require "./test_utils"

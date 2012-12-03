@@ -1,6 +1,5 @@
 log4js = require('log4js')
 logger = log4js.getLogger()
-logger.setLevel('DEBUG')
 fs = require('fs')
 JSV = require("JSV").JSV
 path = require("path")
@@ -19,7 +18,7 @@ loadSchemasInFolder = (folder) ->
 
 validate = (json, schemaFile, success=true, supportedSchemasArray=[]) ->
   for schema in supportedSchemasArray
-    logger.info "  Loading: "+schema
+    logger.debug "  Loading: "+schema
     loadSchemasInFolder(schema)
   logger.debug("json string to validate.")
   logger.debug(JSON.stringify(json, null, 2))
