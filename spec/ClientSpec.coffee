@@ -9,7 +9,7 @@ describe 'client', ->
   testUtils = require "./test_utils"
 
   #testUtils.supportedSchemas(["./v1/general", "./v1/calc"])
-  testUtils.supportedSchemas([])
+  #testUtils.supportedSchemas([])
 
   it 'check anchor', ->
     logger.info "check anchor"

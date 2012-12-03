@@ -5,7 +5,7 @@ describe 'asset', ->
   fs = require('fs')
   testUtils = require "./test_utils"
 
-  testUtils.supportedSchemas(["./v1/general", "./v1/asset", "./v1/geo", "./v1/user"])
+  #testUtils.supportedSchemas(["./v1/general", "./v1/asset", "./v1/geo", "./v1/user"])
 
   schema = JSON.parse(fs.readFileSync "./v1/general/service_method.schema")
    

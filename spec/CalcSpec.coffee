@@ -8,8 +8,6 @@ describe 'calc', ->
   designSchema = "./public/v1/calc/design.schema"
   testUtils = require "./test_utils"
 
-  testUtils.supportedSchemas(["./v1/calc","./v1/general"])
-
   it 'Check point schema', ->
     logger.info("Check point schema")
     json = {
@@ -21,7 +19,7 @@ describe 'calc', ->
       }
       "direction": 360
     }
-    testUtils.validate(json, "./v1/calc/point.schema", true, 'DEBUG')
+    testUtils.validate(json, "./v1/calc/point.schema", true, ["./v1/calc","./v1/general"])
 
   it 'check usage group schema', ->
     logger.info("check usage group schema")

@@ -1,15 +1,11 @@
 log4js = require('log4js')
 logger = log4js.getLogger()
-logger.setLevel('INFO')
+logger.setLevel('DEBUG')
 fs = require('fs')
 JSV = require("JSV").JSV
 path = require("path")
 env = JSV.createEnvironment("json-schema-draft-03")
 
-supportedSchemasArray=[]
-
-supportedSchemas = (a)->
-  supportedSchemasArray=a
 
 loadSchemasInFolder = (folder) ->
   files = fs.readdirSync(folder)
@@ -21,10 +17,9 @@ loadSchemasInFolder = (folder) ->
         schemaData = fs.readFileSync("#{folder}/#{file}")
         env.createSchema( schemaData, true, path.basename(file, ".schema")  )
 
-validate = (json, schemaFile, success=true, level='INFO') ->
-  logger.setLevel(level)
+validate = (json, schemaFile, success=true, supportedSchemasArray=[]) ->
   for schema in supportedSchemasArray
-    logger.debug "Loading: "+schema
+    logger.info "  Loading: "+schema
     loadSchemasInFolder(schema)
   logger.debug("json string to validate.")
   logger.debug(JSON.stringify(json, null, 2))
@@ -42,6 +37,5 @@ validate = (json, schemaFile, success=true, level='INFO') ->
     if report.errors.length==0
       logger.error "There were no errors, but we expected some."
 
-module.exports.supportedSchemas = supportedSchemas
 module.exports.validate = validate
 module.exports.loadSchemasInFolder = loadSchemasInFolder

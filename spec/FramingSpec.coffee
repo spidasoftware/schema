@@ -8,7 +8,7 @@ describe 'calc', ->
 
   testUtils = require "./test_utils"
 
-  testUtils.supportedSchemas(["./v1/general", "./v1/calc"])
+  #testUtils.supportedSchemas(["./v1/general", "./v1/calc"])
 
   it 'check framing plan schema', ->
     logger.info ("check framing plan schema")
