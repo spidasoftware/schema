@@ -5,7 +5,6 @@ describe 'client', ->
   logger = log4js.getLogger()
   logger.setLevel('INFO')
   fs = require('fs')
-  path = require("path")
   designSchema = "./public/v1/calc/design.schema"
   testUtils = require "./test_utils"
 

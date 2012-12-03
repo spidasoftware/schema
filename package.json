@@ -9,7 +9,7 @@
     "url": "git@192.168.47.84:schema.git"
   },
   "scripts": {
-    "test": "jasmine-node --coffee --junitreport spec/"
+    "test": "coffee utils/scripts/dereference.coffee; jasmine-node --coffee --junitreport spec/"
   },
   "engines": {
     "node": "~0.6.9"

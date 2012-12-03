@@ -21,8 +21,7 @@ describe 'calc', ->
       }
       "direction": 360
     }
-
-    testUtils.validate(json, "./v1/calc/point.schema", true)
+    testUtils.validate(json, "./v1/calc/point.schema")
 
   it 'check usage group schema', ->
     logger.info("check usage group schema")

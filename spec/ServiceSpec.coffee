@@ -3,9 +3,6 @@ describe 'asset', ->
   logger = log4js.getLogger()
   logger.setLevel('INFO')
   fs = require('fs')
-  JSV = require("JSV").JSV
-  path = require("path")
-  env = JSV.createEnvironment()
   testUtils = require "./test_utils"
 
   testUtils.supportedSchemas(["./v1/general", "./v1/asset", "./v1/geo", "./v1/user"])

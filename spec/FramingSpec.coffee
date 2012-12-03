@@ -5,7 +5,6 @@ describe 'calc', ->
   logger = log4js.getLogger()
   logger.setLevel('INFO')
   fs = require('fs')
-  path = require("path")
 
   testUtils = require "./test_utils"
 

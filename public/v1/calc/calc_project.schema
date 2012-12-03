@@ -5,7 +5,7 @@
     "schema": {
       "type": "string",
       "required": true,
-      "description": "Full URL of the calc schema. For version 1 should be https://www.spidasoftware.com/schema/v1/calc/calc_project.schema"
+      "description": "Full URL of the calc schema. For version 1 should be --insert URL here-- "
     },
     "clientFile": {
       "type": "string",
