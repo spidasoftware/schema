@@ -13,3 +13,4 @@ dump.rdb
 *.iws
 target
 *.sha1
+reports
