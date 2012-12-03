@@ -1,0 +1,36 @@
+{
+    "id": "formTemplates",
+    "description": "A SPIDAMin form templates",
+    "type": "array",
+    "items": {
+        "id": "formTemplate",
+        "description": "A SPIDAMin form template",
+        "type": "object",
+        "properties": {
+            "id": {
+                "type": "number"
+            },
+            "name": {
+                "type": "string"
+            },
+            "required": {
+                "type": "boolean"
+            },
+            "fieldTemplates": {
+                "type": "array",
+                "items": {
+                    "id": "fieldTemplate",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "number"
+                        },
+                        "name": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -414,6 +414,7 @@
           "direction": {
             "required": true,
             "description": "The bearing relative to true north fo a component.",
+            "id": "bearing",
             "type": "integer",
             "maximum": 360,
             "minimum": 0
@@ -691,6 +692,7 @@
           "direction": {
             "required": true,
             "description": "The bearing relative to true north fo a component.",
+            "id": "bearing",
             "type": "integer",
             "maximum": 360,
             "minimum": 0
@@ -783,6 +785,7 @@
           "direction": {
             "required": true,
             "description": "The bearing relative to true north fo a component.",
+            "id": "bearing",
             "type": "integer",
             "maximum": 360,
             "minimum": 0
@@ -1067,6 +1070,7 @@
             }
           },
           "direction": {
+            "id": "bearing",
             "type": "integer",
             "maximum": 360,
             "minimum": 0,
