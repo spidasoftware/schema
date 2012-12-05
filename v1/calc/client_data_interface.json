@@ -11,7 +11,13 @@
 				"name": "clientFile",
 				"required": true,
 				"description": "Client File to be queried"
-			}
+			},
+      {
+        "type": "boolean",
+        "name": "details",
+        "required": false,
+        "description": "Should the complete details be returned."
+      }
 		]
 	},
 
@@ -42,7 +48,13 @@
 				"name": "clientFile",
 				"required": true,
 				"description": "Client File to be queried"
-			}
+			},
+      {
+        "type": "boolean",
+        "name": "details",
+        "required": false,
+        "description": "Should the complete details be returned."
+      }
 		]
 	},
 	"anchor": {
@@ -104,6 +116,12 @@
 				"description": "Client File to be queried"
 			},
 			{
+        "type": "boolean",
+        "name": "details",
+        "required": false,
+        "description": "Should the complete details be returned."
+      },
+      {
 				"type": "string",
 				"name": "industry",
 				"required": false,
@@ -139,6 +157,12 @@
 				"required": true,
 				"description": "Client File to be queried"
 			},
+      {
+        "type": "boolean",
+        "name": "details",
+        "required": false,
+        "description": "Should the complete details be returned."
+      },
 			{
 				"type": "string",
 				"name": "type",
@@ -174,7 +198,13 @@
 				"name": "clientFile",
 				"required": true,
 				"description": "Client File to be queried"
-			}
+			},
+      {
+        "type": "boolean",
+        "name": "details",
+        "required": false,
+        "description": "Should the complete details be returned."
+      }
 		]
 	},
 	"crossArm": {
