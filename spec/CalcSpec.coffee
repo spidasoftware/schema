@@ -28,6 +28,7 @@ describe 'calc', ->
     logger.info("check usage group schema")
     success = "PRIMARY"
 
+
     failure = "NONEXISTANT"
     testSchema = "./v1/calc/usage_group.schema"
     testUtils.validate(success, testSchema, true)

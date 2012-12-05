@@ -5,19 +5,19 @@
     "params": [
       {
         "type": "client_wire",
-        "name": "client wire",
+        "name": "client_wire",
         "required": true,
         "description": "The client wire containing all the engineering information for analysis."
       },
       {
         "type": "measurable",
-        "name": "wire length",
+        "name": "wire_length",
         "required": true,
         "description": "The length of the wire in straight line distance."
       },
       {
         "type": "wire_load_case",
-        "name": "client wire",
+        "name": "load_case",
         "required": true,
         "description": "The client wire containing all the engineering information for analysis."
       }
@@ -29,13 +29,13 @@
     "params": [
       {
         "type": "client_wire",
-        "name": "client wire",
+        "name": "client_wire",
         "required": true,
         "description": "The client wire containing all the engineering information for analysis."
       },
       {
         "type": "measurable",
-        "name": "wire length",
+        "name": "wire_length",
         "required": true,
         "description": "The length of the wire in straight line distance."
       },
@@ -53,13 +53,13 @@
     "params": [
       {
         "type": "client_wire",
-        "name": "client wire",
+        "name": "client_wire",
         "required": true,
         "description": "The client wire containing all the engineering information for analysis."
       },
       {
         "type": "measurable",
-        "name": "wire length",
+        "name": "wire_length",
         "required": true,
         "description": "The length of the wire in straight line distance."
       },

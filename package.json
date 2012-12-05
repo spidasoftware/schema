@@ -1,25 +1,27 @@
 {
-  "author": "SPIDAMan <info@spidasoftware.com>",
-  "name": "schema",
-  "description": "A place for spida schema",
-  "version": "0.0.0",
-  "homepage": "github.com/spidasoftware/schema",
-  "repository": {
-    "type": "git",
-    "url": "git@192.168.47.84:schema.git"
-  },
-  "scripts": {
-    "test": "coffee utils/scripts/dereference.coffee; jasmine-node --coffee --junitreport spec/"
-  },
-  "engines": {
-    "node": "~0.6.9"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "log4js":"*",
-    "querystring":"*",
-    "JSV": "*",
-    "jasmine-node":"*"
-  },
-  "optionalDependencies": {}
+    "author": "SPIDAMan <info@spidasoftware.com>",
+    "name": "schema",
+    "description": "A place for spida schema",
+    "version": "0.0.0",
+    "homepage": "github.com/spidasoftware/schema",
+    "repository": {
+        "type": "git",
+        "url": "git@192.168.47.84:schema.git"
+    },
+    "scripts": {
+        "test": "coffee utils/scripts/dereference.coffee; jasmine-node --coffee spec/",
+        "monitor": "coffee utils/scripts/dereference.coffee; jasmine-node --coffee --junitreport --autotest spec/",
+        "build": "coffee utils/scripts/dereference.coffee"
+    },
+    "engines": {
+        "node": "~0.6.9"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "log4js": "*",
+        "querystring": "*",
+        "JSV": "*",
+        "jasmine-node": "*"
+    },
+    "optionalDependencies": {}
 }

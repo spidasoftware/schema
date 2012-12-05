@@ -14,9 +14,17 @@
             "required": false,
             "properties": {
                 "code": {
-                    "type": "number",
+                    "type": "string",
                     "id": "code",
-                    "required": true
+                    "required": true,
+                    "choices" : [
+                        { "value" : "NO_ERROR"                    },
+                        { "value" : "INTERNAL_ERROR"              },
+                        { "value" : "SCHEMA_NOT_FOUND"            },
+                        { "value" : "MISSING_RESOURCE"            },
+                        { "value" : "MISSING_METHOD"              },   
+                        { "value" : "MISSING_REQUIRED_PARAM"      }   
+                    ]
                 },
                 "message": {
                     "type": "string",

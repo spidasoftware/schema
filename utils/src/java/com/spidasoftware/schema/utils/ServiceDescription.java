@@ -1,4 +1,4 @@
-package com.spidasoftware.schema;
+package com.spidasoftware.schema.utils;
 
 import java.lang.annotation.*;
 

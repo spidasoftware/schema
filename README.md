@@ -59,8 +59,11 @@ There is a coffee script in the utils/scripts that will combine all the schemas 
 
 To Run:
 
-	cd utils/scripts
-	coffee dereference.coffee
+	coffee utils/scripts/dereference.coffee
+
+This is also run on each test from:
+
+    npm test
 
 #### Javascript Testing
 

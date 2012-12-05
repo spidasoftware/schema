@@ -1,4 +1,4 @@
-package com.spidasoftware.schema
+package com.spidasoftware.schema.utils
 
 import groovy.json.*
 
@@ -6,18 +6,7 @@ import groovy.json.*
 class JavaServiceValidatorTest extends GroovyTestCase { 
 
   void testValidatorOutput(){
-     assert JavaServiceValidator.generateDescriptor(this.class)
-  }
-
-  void testValidateService(){
-    def validateResponse = JavaServiceValidator.validateService(this.class, exampleServiceJSON)
-    
-    validateResponse.error.each{line->
-      println line
-    }    
-    validateResponse.info.each{line->
-      println line
-    }
+     assert ServiceDescriptorGenerator.generateDescriptor(this.class)
   }
   
   @ServiceDescription(id="someMethod",  description="Test Method")

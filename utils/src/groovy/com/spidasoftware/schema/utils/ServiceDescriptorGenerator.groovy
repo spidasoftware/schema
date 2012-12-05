@@ -1,8 +1,8 @@
-package com.spidasoftware.schema
+package com.spidasoftware.schema.utils
 
 import groovy.json.*
 
-class JavaServiceValidator {
+class ServiceDescriptorGenerator {
 
   def static ignoreMethods = ["equals", "__\$swapInit","assertEquals","assertFalse","assertNotNull","assertNotSame","assertNull","assertSame","assertTrue","countTestCases","fail","failNotEquals","failNotSame","failSame","format","getClass","getMetaClass","getMethodName","getName","getProperty","hashCode","invokeMethod","notYetImplemented","notify","notifyAll","run","runBare","setMetaClass","setName","setProperty","toString","wait"]
 
@@ -12,7 +12,7 @@ class JavaServiceValidator {
     def builder = new JsonBuilder()
     def annotations = new JavaServiceValidatorTest().class.getAnnotation(ServiceDescription.class)
     def packageName = clazz.name.replace(clazz.getSimpleName(), "")
-    def methods = clazz.metaClass.methods.findAll{!JavaServiceValidator.ignoreMethods.contains(it.name)}
+    def methods = clazz.metaClass.methods.findAll{!ServiceDescriptorGenerator.ignoreMethods.contains(it.name)}
     methods = methods.findAll{it.isPublic()}
     methods = methods.unique()*.name
     def methodMap = [:]
@@ -21,8 +21,8 @@ class JavaServiceValidator {
     }
     //Only public methods
     builder {
-      id "${JavaServiceValidator.getId(clazz)}"
-      description "${JavaServiceValidator.getId(clazz)}"
+      id "${ServiceDescriptorGenerator.getId(clazz)}"
+      description "${ServiceDescriptorGenerator.getId(clazz)}"
       methodMap.each {k,v -> 
          "${k}"(makeMethod(v))
       }
@@ -30,48 +30,12 @@ class JavaServiceValidator {
     return builder.toPrettyString()
   } 
 
-  //Pass in a service class and a descriptor to validate it against.
-  static validateService(Class service, String jsonDescriptor){
-      def serviceDescription = JavaServiceValidator.generateDescriptor(service)
-      def slurper = new JsonSlurper()
-      def serviceJSON = slurper.parseText(serviceDescription)
-      def descriptorJSON = slurper.parseText(jsonDescriptor)
-      def errorArray = []
-      def infoArray = []
-      def returnMap = [:]
-      returnMap.error = errorArray
-      returnMap.info = infoArray
-      
-      if(serviceJSON.id==null) errorArray.add "The service does not have an id annotation."
-      if(serviceJSON.description==null) errorArray.add "The service does not have a description annotation."
-      descriptorJSON.eachWithIndex{descriptorMethod, descriptorValue, methodIndex->
-        if(descriptorValue instanceof Map){
-          def serviceMethod = serviceJSON.find{k,v -> k==descriptorMethod}
-          if(serviceMethod==null){
-            infoArray.add "  Method: $descriptorMethod is in the descriptor but not in the class."
-          }else{
-            if(serviceMethod.value.returns!=descriptorValue.returns) errorArray.add "  Method: the returns value for $descriptorMethod does not match the descriptor."
-            if(descriptorValue.params?.size()!=serviceMethod.value.params?.size()){
-              errorArray.add "  Method: the parameter count for $descriptorMethod does not match the descriptor."
-            }else{
-              descriptorValue.params.eachWithIndex{descriptorParam, paramIndex->
-                  def serviceParam = serviceMethod.value.params.get(paramIndex)
-                  if(serviceParam.type!=descriptorParam.type) errorArray.add "  Method: the parameter at position $paramIndex for $descriptorMethod does not match the descriptor type."
-                  if(serviceParam.required!=descriptorParam.required) errorArray.add "  Method: the parameter at position $paramIndex for $descriptorMethod does not match the descriptor requiredness."
-              }
-            } 
-          }
-        }
-      }
-      return returnMap
-  }
-
   def static makeMethod(v){
     def map = [:]
-    map.description="${JavaServiceValidator.getDescription(v.get(0))}"
-    def returnType = JavaServiceValidator.getReturnType(v.get(0))
+    map.description="${ServiceDescriptorGenerator.getDescription(v.get(0))}"
+    def returnType = ServiceDescriptorGenerator.getReturnType(v.get(0))
     if(returnType!="void") map.returns = returnType
-    def params =JavaServiceValidator.getParams(v)
+    def params =ServiceDescriptorGenerator.getParams(v)
     if(params!=null) map.params = params
     return map
   }
@@ -88,7 +52,7 @@ class JavaServiceValidator {
     def params = []
     largestMethod.getGenericParameterTypes().eachWithIndex{p, i ->
       def map = [:]
-      map.type = JavaServiceValidator.format(p)
+      map.type = ServiceDescriptorGenerator.format(p)
       map.name = "param"+i
       if(i>requiredParams-1){
         map.required = false
@@ -101,7 +65,7 @@ class JavaServiceValidator {
   }
 
   def static getReturnType(m){
-    return JavaServiceValidator.format(m.getReturnType())
+    return ServiceDescriptorGenerator.format(m.getReturnType())
   }
   def static format(m){
     def index = m.toString().lastIndexOf(".")
