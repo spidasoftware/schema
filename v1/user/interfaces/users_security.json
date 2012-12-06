@@ -1,0 +1,52 @@
+{
+    "id": "user_security_service",
+    "description": "This service is for validating a user agains the A&A backend.",
+    "loadUserByApiToken": {
+        "description": "Return the asset types this service returns.",
+        "returns": "user_details",
+        "params": [
+            {
+                "type": "string",
+                "name": "token",
+                "required": true,
+                "description": "load the user details from an api token"
+            }
+        ]
+    },
+    "loadUserByAlias": {
+        "description": "Return the asset types this service returns.",
+        "returns": "user_details",
+        "params": [
+            {
+                "type": "string",
+                "name": "alias",
+                "required": true,
+                "description": "alias for the user"
+            },
+            {
+                "type": "string",
+                "name": "aliasCompany",
+                "required": true,
+                "description": "alias the company belongs to"
+            }
+        ]
+    },
+    "loadUserByUsername": {
+        "description": "Return the asset types this service returns.",
+        "returns": "user_details",
+        "params": [
+            {
+                "type": "string",
+                "name": "username",
+                "required": true,
+                "description": "username for the user"
+            },
+            {
+                "type": "number",
+                "name": "companyId",
+                "required": false,
+                "description": "Company id for the user"
+            }
+        ]
+    }
+}
