@@ -71,9 +71,7 @@ public abstract class LocalJSONServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		JSONObject json = null;
-		System.out.println(request.getParameter("clientFile"));
 		Enumeration paramNames = request.getParameterNames();
-		
 		while(paramNames.hasMoreElements()) {
 			String paramName = (String)paramNames.nextElement();
 			String[] paramValues = request.getParameterValues(paramName);
