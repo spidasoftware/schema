@@ -18,9 +18,9 @@ class LocalServerTest extends GroovyTestCase {
       new Thread(server).start();
       def response = "http://localhost:7890/local/path/analyzeWire?client_wire={'wire':'client'}".toURL().text
       assert response.contains("MISSING_REQUIRED_PARAM")
-      response = "http://localhost:7890/local/path/noMethod?client_wire={'wire':'client'}&wire_length={'wire':'length'}&load_case={'wire':'case'}".toURL().text
+      response = "http://localhost:7890/local/path/noMethod?client_wire={'wire':'client'}&span_length={'wire':'length'}&load_case={'wire':'case'}".toURL().text
       assert response.contains('MISSING_METHOD')
-      response = "http://localhost:7890/local/path/analyzeWire?client_wire={'wire':'client'}&wire_length={'wire':'length'}&load_case={'wire':'case'}".toURL().text
+      response = "http://localhost:7890/local/path/analyzeWire?client_wire={'wire':'client'}&span_length={'wire':'length'}&load_case={'wire':'case'}".toURL().text
       assert response.contains('{"analysis":true}')
       //TEST POST
       DefaultHttpClient client = new DefaultHttpClient();
@@ -28,7 +28,7 @@ class LocalServerTest extends GroovyTestCase {
       post.addHeader("Content-Type", "application/x-www-form-urlencoded");
       ArrayList<NameValuePair> parameters = new ArrayList<NameValuePair>();
       parameters.add(new BasicNameValuePair("client_wire", "value"));
-      parameters.add(new BasicNameValuePair("wire_length", "value"));
+      parameters.add(new BasicNameValuePair("span_length", "value"));
       parameters.add(new BasicNameValuePair("load_case", "value"));
       post.setEntity(new UrlEncodedFormEntity(parameters));
       response = client.execute(post)

@@ -11,7 +11,7 @@
       },
       {
         "type": "measurable",
-        "name": "wire_length",
+        "name": "span_length",
         "required": true,
         "description": "The length of the wire in straight line distance."
       },
@@ -35,7 +35,7 @@
       },
       {
         "type": "measurable",
-        "name": "wire_length",
+        "name": "span_length",
         "required": true,
         "description": "The length of the wire in straight line distance."
       },
@@ -48,6 +48,30 @@
     ]
   },
   "calculateSagAtTension": {
+    "description": "Calculate the sag at a given tension.",
+    "returns": "measurable",
+    "params": [
+      {
+        "type": "client_wire",
+        "name": "client_wire",
+        "required": true,
+        "description": "The client wire containing all the engineering information for analysis."
+      },
+      {
+        "type": "measurable",
+        "name": "span_length",
+        "required": true,
+        "description": "The length of the wire in straight line distance."
+      },
+      {
+        "type": "measurable",
+        "name": "tension",
+        "required": true,
+        "description": "Tension to evaluate the sag."
+      }
+    ]
+  },
+  "calculateTensionAtGivenStressFreeLength": {
     "description": "Open project from a file.",
     "returns": "measurable",
     "params": [
@@ -59,15 +83,15 @@
       },
       {
         "type": "measurable",
-        "name": "wire_length",
+        "name": "span_length",
         "required": true,
         "description": "The length of the wire in straight line distance."
       },
       {
         "type": "measurable",
-        "name": "tension",
+        "name": "stress_free_length",
         "required": true,
-        "description": "Tension to evaluate the sag."
+        "description": "The length of the cable if not under any load."
       }
     ]
   }
