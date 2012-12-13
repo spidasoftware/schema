@@ -114,16 +114,16 @@
                 "description": "Client File to be queried"
             },
             {
-                "type": "boolean",
-                "name": "details",
-                "required": false,
-                "description": "Should the complete details be returned."
-            },
-            {
                 "type": "string",
                 "name": "industry",
                 "required": false,
                 "description": "Filters results by industry"
+            },
+            {
+                "type": "boolean",
+                "name": "details",
+                "required": false,
+                "description": "Should the complete details be returned."
             }
         ]
     },
@@ -211,7 +211,7 @@
         "params": [
             {
                 "type": "string",
-                "name": "crossarm",
+                "name": "crossArm",
                 "required": true,
                 "description": "crossAarm id"
             },

@@ -14,7 +14,7 @@ class LocalServerTest extends GroovyTestCase {
   void testServer(){
       def server = new LocalServer(7890);
       def service = ["analyzeWire": {one, two, three -> return "{'analysis':true}"}]
-      server.addServlet(new LocalServiceServlet("/local/path", "/calc/analysis/wire_analysis_service.json", service))
+      server.addServlet(new LocalServiceServlet("/local/path", "/calc/interfaces/wire_analysis.json", service))
       new Thread(server).start();
       def response = "http://localhost:7890/local/path/analyzeWire?client_wire={'wire':'client'}".toURL().text
       assert response.contains("MISSING_REQUIRED_PARAM")
