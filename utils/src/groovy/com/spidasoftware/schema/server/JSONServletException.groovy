@@ -7,6 +7,9 @@ import net.sf.json.JSONObject;
  */
 public class JSONServletException extends Exception {
 
+	public static String NO_ERROR = "NO_ERROR";
+	public static String INVALID_PARAMETERS = "INVALID_PARAMETERS";
+
 	protected String code;
 
 	public JSONServletException(String code, String message) {

@@ -24,9 +24,6 @@ import java.util.Enumeration;
 public abstract class LocalJSONServlet extends HttpServlet {
 	protected static Logger log = Logger.getLogger(LocalJSONServlet.class);
 
-	public static int NO_ERROR = 0;
-	public static int INVALID_PARAMETERS = 1;
-
 	public Object get(HttpServletRequest request) throws JSONServletException {
 		return null;
 	}
