@@ -17,6 +17,11 @@ class LocalServerTest extends GroovyTestCase {
 	server.addServlet(new LocalServiceServlet("/local/path", "/calc/interfaces/wire_analysis.json", service))
 	new Thread(server).start();
 	int timeout = 0;
+	try {
+		Thread.currentThread().sleep(1000);
+	} catch (InterruptedException ex) {
+		ex.printStackTrace();
+	}
 	while (timeout < 15 && !server.isRunning()) {
 		timeout++;
 		try {
