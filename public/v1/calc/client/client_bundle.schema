@@ -1,0 +1,2461 @@
+{
+  "description": "A bundle of communication wires with a messenger.",
+  "id": "client_bundle",
+  "properties": {
+    "numberOfConductors": {
+      "required": true,
+      "type": "integer"
+    },
+    "messenger": {
+      "description": "A wire and an offset from the center of the cable.",
+      "required": true,
+      "type": "object",
+      "id": "wire_placement",
+      "properties": {
+        "x": {
+          "required": true,
+          "id": "measurable",
+          "type": "object",
+          "description": "a measured quantity",
+          "properties": {
+            "value": {
+              "type": "number",
+              "required": true
+            },
+            "unit": {
+              "type": "string",
+              "required": true,
+              "choices": [
+                {
+                  "value": "CUBIC_INCH"
+                },
+                {
+                  "value": "DEGREE_ANGLE"
+                },
+                {
+                  "value": "FAHRENHEIT"
+                },
+                {
+                  "value": "FOOT"
+                },
+                {
+                  "value": "INCH"
+                },
+                {
+                  "value": "METRE"
+                },
+                {
+                  "value": "PERCENT"
+                },
+                {
+                  "value": "PER_FAHRENHEIT"
+                },
+                {
+                  "value": "POUND_FORCE"
+                },
+                {
+                  "value": "POUND_FORCE_FOOT"
+                },
+                {
+                  "value": "POUND_FORCE_PER_FOOT"
+                },
+                {
+                  "value": "POUND_FORCE_PER_SQUARE_INCH"
+                },
+                {
+                  "value": "POUND_PER_CUBIC_FOOT"
+                },
+                {
+                  "value": "SIXTEENTH_INCH"
+                },
+                {
+                  "value": "SQUARE_FOOT"
+                },
+                {
+                  "value": "SQUARE_INCH"
+                }
+              ]
+            }
+          }
+        },
+        "y": {
+          "required": true,
+          "id": "measurable",
+          "type": "object",
+          "description": "a measured quantity",
+          "properties": {
+            "value": {
+              "type": "number",
+              "required": true
+            },
+            "unit": {
+              "type": "string",
+              "required": true,
+              "choices": [
+                {
+                  "value": "CUBIC_INCH"
+                },
+                {
+                  "value": "DEGREE_ANGLE"
+                },
+                {
+                  "value": "FAHRENHEIT"
+                },
+                {
+                  "value": "FOOT"
+                },
+                {
+                  "value": "INCH"
+                },
+                {
+                  "value": "METRE"
+                },
+                {
+                  "value": "PERCENT"
+                },
+                {
+                  "value": "PER_FAHRENHEIT"
+                },
+                {
+                  "value": "POUND_FORCE"
+                },
+                {
+                  "value": "POUND_FORCE_FOOT"
+                },
+                {
+                  "value": "POUND_FORCE_PER_FOOT"
+                },
+                {
+                  "value": "POUND_FORCE_PER_SQUARE_INCH"
+                },
+                {
+                  "value": "POUND_PER_CUBIC_FOOT"
+                },
+                {
+                  "value": "SIXTEENTH_INCH"
+                },
+                {
+                  "value": "SQUARE_FOOT"
+                },
+                {
+                  "value": "SQUARE_INCH"
+                }
+              ]
+            }
+          }
+        },
+        "clientWire": {
+          "required": true,
+          "description": "Engineering properties for a wire",
+          "id": "client_wire",
+          "properties": {
+            "calculation": {
+              "required": true,
+              "enum": [
+                "INITIAL",
+                "FINAL"
+              ],
+              "type": "string"
+            },
+            "conductorStrands": {
+              "required": true,
+              "type": "integer"
+            },
+            "coreStrands": {
+              "required": true,
+              "type": "integer"
+            },
+            "crossArea": {
+              "required": true,
+              "id": "measurable",
+              "type": "object",
+              "description": "a measured quantity",
+              "properties": {
+                "value": {
+                  "type": "number",
+                  "required": true
+                },
+                "unit": {
+                  "type": "string",
+                  "required": true,
+                  "choices": [
+                    {
+                      "value": "CUBIC_INCH"
+                    },
+                    {
+                      "value": "DEGREE_ANGLE"
+                    },
+                    {
+                      "value": "FAHRENHEIT"
+                    },
+                    {
+                      "value": "FOOT"
+                    },
+                    {
+                      "value": "INCH"
+                    },
+                    {
+                      "value": "METRE"
+                    },
+                    {
+                      "value": "PERCENT"
+                    },
+                    {
+                      "value": "PER_FAHRENHEIT"
+                    },
+                    {
+                      "value": "POUND_FORCE"
+                    },
+                    {
+                      "value": "POUND_FORCE_FOOT"
+                    },
+                    {
+                      "value": "POUND_FORCE_PER_FOOT"
+                    },
+                    {
+                      "value": "POUND_FORCE_PER_SQUARE_INCH"
+                    },
+                    {
+                      "value": "POUND_PER_CUBIC_FOOT"
+                    },
+                    {
+                      "value": "SIXTEENTH_INCH"
+                    },
+                    {
+                      "value": "SQUARE_FOOT"
+                    },
+                    {
+                      "value": "SQUARE_INCH"
+                    }
+                  ]
+                }
+              }
+            },
+            "description": {
+              "required": true,
+              "type": "string"
+            },
+            "diameter": {
+              "required": true,
+              "id": "measurable",
+              "type": "object",
+              "description": "a measured quantity",
+              "properties": {
+                "value": {
+                  "type": "number",
+                  "required": true
+                },
+                "unit": {
+                  "type": "string",
+                  "required": true,
+                  "choices": [
+                    {
+                      "value": "CUBIC_INCH"
+                    },
+                    {
+                      "value": "DEGREE_ANGLE"
+                    },
+                    {
+                      "value": "FAHRENHEIT"
+                    },
+                    {
+                      "value": "FOOT"
+                    },
+                    {
+                      "value": "INCH"
+                    },
+                    {
+                      "value": "METRE"
+                    },
+                    {
+                      "value": "PERCENT"
+                    },
+                    {
+                      "value": "PER_FAHRENHEIT"
+                    },
+                    {
+                      "value": "POUND_FORCE"
+                    },
+                    {
+                      "value": "POUND_FORCE_FOOT"
+                    },
+                    {
+                      "value": "POUND_FORCE_PER_FOOT"
+                    },
+                    {
+                      "value": "POUND_FORCE_PER_SQUARE_INCH"
+                    },
+                    {
+                      "value": "POUND_PER_CUBIC_FOOT"
+                    },
+                    {
+                      "value": "SIXTEENTH_INCH"
+                    },
+                    {
+                      "value": "SQUARE_FOOT"
+                    },
+                    {
+                      "value": "SQUARE_INCH"
+                    }
+                  ]
+                }
+              }
+            },
+            "expansionCoefficient": {
+              "required": true,
+              "id": "measurable",
+              "type": "object",
+              "description": "a measured quantity",
+              "properties": {
+                "value": {
+                  "type": "number",
+                  "required": true
+                },
+                "unit": {
+                  "type": "string",
+                  "required": true,
+                  "choices": [
+                    {
+                      "value": "CUBIC_INCH"
+                    },
+                    {
+                      "value": "DEGREE_ANGLE"
+                    },
+                    {
+                      "value": "FAHRENHEIT"
+                    },
+                    {
+                      "value": "FOOT"
+                    },
+                    {
+                      "value": "INCH"
+                    },
+                    {
+                      "value": "METRE"
+                    },
+                    {
+                      "value": "PERCENT"
+                    },
+                    {
+                      "value": "PER_FAHRENHEIT"
+                    },
+                    {
+                      "value": "POUND_FORCE"
+                    },
+                    {
+                      "value": "POUND_FORCE_FOOT"
+                    },
+                    {
+                      "value": "POUND_FORCE_PER_FOOT"
+                    },
+                    {
+                      "value": "POUND_FORCE_PER_SQUARE_INCH"
+                    },
+                    {
+                      "value": "POUND_PER_CUBIC_FOOT"
+                    },
+                    {
+                      "value": "SIXTEENTH_INCH"
+                    },
+                    {
+                      "value": "SQUARE_FOOT"
+                    },
+                    {
+                      "value": "SQUARE_INCH"
+                    }
+                  ]
+                }
+              }
+            },
+            "modulus": {
+              "required": true,
+              "id": "measurable",
+              "type": "object",
+              "description": "a measured quantity",
+              "properties": {
+                "value": {
+                  "type": "number",
+                  "required": true
+                },
+                "unit": {
+                  "type": "string",
+                  "required": true,
+                  "choices": [
+                    {
+                      "value": "CUBIC_INCH"
+                    },
+                    {
+                      "value": "DEGREE_ANGLE"
+                    },
+                    {
+                      "value": "FAHRENHEIT"
+                    },
+                    {
+                      "value": "FOOT"
+                    },
+                    {
+                      "value": "INCH"
+                    },
+                    {
+                      "value": "METRE"
+                    },
+                    {
+                      "value": "PERCENT"
+                    },
+                    {
+                      "value": "PER_FAHRENHEIT"
+                    },
+                    {
+                      "value": "POUND_FORCE"
+                    },
+                    {
+                      "value": "POUND_FORCE_FOOT"
+                    },
+                    {
+                      "value": "POUND_FORCE_PER_FOOT"
+                    },
+                    {
+                      "value": "POUND_FORCE_PER_SQUARE_INCH"
+                    },
+                    {
+                      "value": "POUND_PER_CUBIC_FOOT"
+                    },
+                    {
+                      "value": "SIXTEENTH_INCH"
+                    },
+                    {
+                      "value": "SQUARE_FOOT"
+                    },
+                    {
+                      "value": "SQUARE_INCH"
+                    }
+                  ]
+                }
+              }
+            },
+            "numberOfConductors": {
+              "required": true,
+              "type": "integer"
+            },
+            "size": {
+              "required": true,
+              "type": "string"
+            },
+            "strength": {
+              "required": true,
+              "id": "measurable",
+              "type": "object",
+              "description": "a measured quantity",
+              "properties": {
+                "value": {
+                  "type": "number",
+                  "required": true
+                },
+                "unit": {
+                  "type": "string",
+                  "required": true,
+                  "choices": [
+                    {
+                      "value": "CUBIC_INCH"
+                    },
+                    {
+                      "value": "DEGREE_ANGLE"
+                    },
+                    {
+                      "value": "FAHRENHEIT"
+                    },
+                    {
+                      "value": "FOOT"
+                    },
+                    {
+                      "value": "INCH"
+                    },
+                    {
+                      "value": "METRE"
+                    },
+                    {
+                      "value": "PERCENT"
+                    },
+                    {
+                      "value": "PER_FAHRENHEIT"
+                    },
+                    {
+                      "value": "POUND_FORCE"
+                    },
+                    {
+                      "value": "POUND_FORCE_FOOT"
+                    },
+                    {
+                      "value": "POUND_FORCE_PER_FOOT"
+                    },
+                    {
+                      "value": "POUND_FORCE_PER_SQUARE_INCH"
+                    },
+                    {
+                      "value": "POUND_PER_CUBIC_FOOT"
+                    },
+                    {
+                      "value": "SIXTEENTH_INCH"
+                    },
+                    {
+                      "value": "SQUARE_FOOT"
+                    },
+                    {
+                      "value": "SQUARE_INCH"
+                    }
+                  ]
+                }
+              }
+            },
+            "tensionGroups": {
+              "items": {
+                "description": "Tension information for a client wire.",
+                "id": "tensionGroup",
+                "properties": {
+                  "groups": {
+                    "items": {
+                      "properties": {
+                        "distance": {
+                          "required": true,
+                          "id": "measurable",
+                          "type": "object",
+                          "description": "a measured quantity",
+                          "properties": {
+                            "value": {
+                              "type": "number",
+                              "required": true
+                            },
+                            "unit": {
+                              "type": "string",
+                              "required": true,
+                              "choices": [
+                                {
+                                  "value": "CUBIC_INCH"
+                                },
+                                {
+                                  "value": "DEGREE_ANGLE"
+                                },
+                                {
+                                  "value": "FAHRENHEIT"
+                                },
+                                {
+                                  "value": "FOOT"
+                                },
+                                {
+                                  "value": "INCH"
+                                },
+                                {
+                                  "value": "METRE"
+                                },
+                                {
+                                  "value": "PERCENT"
+                                },
+                                {
+                                  "value": "PER_FAHRENHEIT"
+                                },
+                                {
+                                  "value": "POUND_FORCE"
+                                },
+                                {
+                                  "value": "POUND_FORCE_FOOT"
+                                },
+                                {
+                                  "value": "POUND_FORCE_PER_FOOT"
+                                },
+                                {
+                                  "value": "POUND_FORCE_PER_SQUARE_INCH"
+                                },
+                                {
+                                  "value": "POUND_PER_CUBIC_FOOT"
+                                },
+                                {
+                                  "value": "SIXTEENTH_INCH"
+                                },
+                                {
+                                  "value": "SQUARE_FOOT"
+                                },
+                                {
+                                  "value": "SQUARE_INCH"
+                                }
+                              ]
+                            }
+                          }
+                        },
+                        "tension": {
+                          "required": true,
+                          "id": "measurable",
+                          "type": "object",
+                          "description": "a measured quantity",
+                          "properties": {
+                            "value": {
+                              "type": "number",
+                              "required": true
+                            },
+                            "unit": {
+                              "type": "string",
+                              "required": true,
+                              "choices": [
+                                {
+                                  "value": "CUBIC_INCH"
+                                },
+                                {
+                                  "value": "DEGREE_ANGLE"
+                                },
+                                {
+                                  "value": "FAHRENHEIT"
+                                },
+                                {
+                                  "value": "FOOT"
+                                },
+                                {
+                                  "value": "INCH"
+                                },
+                                {
+                                  "value": "METRE"
+                                },
+                                {
+                                  "value": "PERCENT"
+                                },
+                                {
+                                  "value": "PER_FAHRENHEIT"
+                                },
+                                {
+                                  "value": "POUND_FORCE"
+                                },
+                                {
+                                  "value": "POUND_FORCE_FOOT"
+                                },
+                                {
+                                  "value": "POUND_FORCE_PER_FOOT"
+                                },
+                                {
+                                  "value": "POUND_FORCE_PER_SQUARE_INCH"
+                                },
+                                {
+                                  "value": "POUND_PER_CUBIC_FOOT"
+                                },
+                                {
+                                  "value": "SIXTEENTH_INCH"
+                                },
+                                {
+                                  "value": "SQUARE_FOOT"
+                                },
+                                {
+                                  "value": "SQUARE_INCH"
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "required": true,
+                    "type": "array"
+                  },
+                  "name": {
+                    "required": true,
+                    "type": "string"
+                  },
+                  "temperature": {
+                    "required": true,
+                    "id": "measurable",
+                    "type": "object",
+                    "description": "a measured quantity",
+                    "properties": {
+                      "value": {
+                        "type": "number",
+                        "required": true
+                      },
+                      "unit": {
+                        "type": "string",
+                        "required": true,
+                        "choices": [
+                          {
+                            "value": "CUBIC_INCH"
+                          },
+                          {
+                            "value": "DEGREE_ANGLE"
+                          },
+                          {
+                            "value": "FAHRENHEIT"
+                          },
+                          {
+                            "value": "FOOT"
+                          },
+                          {
+                            "value": "INCH"
+                          },
+                          {
+                            "value": "METRE"
+                          },
+                          {
+                            "value": "PERCENT"
+                          },
+                          {
+                            "value": "PER_FAHRENHEIT"
+                          },
+                          {
+                            "value": "POUND_FORCE"
+                          },
+                          {
+                            "value": "POUND_FORCE_FOOT"
+                          },
+                          {
+                            "value": "POUND_FORCE_PER_FOOT"
+                          },
+                          {
+                            "value": "POUND_FORCE_PER_SQUARE_INCH"
+                          },
+                          {
+                            "value": "POUND_PER_CUBIC_FOOT"
+                          },
+                          {
+                            "value": "SIXTEENTH_INCH"
+                          },
+                          {
+                            "value": "SQUARE_FOOT"
+                          },
+                          {
+                            "value": "SQUARE_INCH"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "tension": {
+                    "id": "measurable",
+                    "type": "object",
+                    "description": "a measured quantity",
+                    "properties": {
+                      "value": {
+                        "type": "number",
+                        "required": true
+                      },
+                      "unit": {
+                        "type": "string",
+                        "required": true,
+                        "choices": [
+                          {
+                            "value": "CUBIC_INCH"
+                          },
+                          {
+                            "value": "DEGREE_ANGLE"
+                          },
+                          {
+                            "value": "FAHRENHEIT"
+                          },
+                          {
+                            "value": "FOOT"
+                          },
+                          {
+                            "value": "INCH"
+                          },
+                          {
+                            "value": "METRE"
+                          },
+                          {
+                            "value": "PERCENT"
+                          },
+                          {
+                            "value": "PER_FAHRENHEIT"
+                          },
+                          {
+                            "value": "POUND_FORCE"
+                          },
+                          {
+                            "value": "POUND_FORCE_FOOT"
+                          },
+                          {
+                            "value": "POUND_FORCE_PER_FOOT"
+                          },
+                          {
+                            "value": "POUND_FORCE_PER_SQUARE_INCH"
+                          },
+                          {
+                            "value": "POUND_PER_CUBIC_FOOT"
+                          },
+                          {
+                            "value": "SIXTEENTH_INCH"
+                          },
+                          {
+                            "value": "SQUARE_FOOT"
+                          },
+                          {
+                            "value": "SQUARE_INCH"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                "type": "object"
+              },
+              "required": true,
+              "type": "array"
+            },
+            "usageGroups": {
+              "items": {
+                "type": "string"
+              },
+              "required": true,
+              "type": "array"
+            },
+            "weight": {
+              "required": true,
+              "id": "measurable",
+              "type": "object",
+              "description": "a measured quantity",
+              "properties": {
+                "value": {
+                  "type": "number",
+                  "required": true
+                },
+                "unit": {
+                  "type": "string",
+                  "required": true,
+                  "choices": [
+                    {
+                      "value": "CUBIC_INCH"
+                    },
+                    {
+                      "value": "DEGREE_ANGLE"
+                    },
+                    {
+                      "value": "FAHRENHEIT"
+                    },
+                    {
+                      "value": "FOOT"
+                    },
+                    {
+                      "value": "INCH"
+                    },
+                    {
+                      "value": "METRE"
+                    },
+                    {
+                      "value": "PERCENT"
+                    },
+                    {
+                      "value": "PER_FAHRENHEIT"
+                    },
+                    {
+                      "value": "POUND_FORCE"
+                    },
+                    {
+                      "value": "POUND_FORCE_FOOT"
+                    },
+                    {
+                      "value": "POUND_FORCE_PER_FOOT"
+                    },
+                    {
+                      "value": "POUND_FORCE_PER_SQUARE_INCH"
+                    },
+                    {
+                      "value": "POUND_PER_CUBIC_FOOT"
+                    },
+                    {
+                      "value": "SIXTEENTH_INCH"
+                    },
+                    {
+                      "value": "SQUARE_FOOT"
+                    },
+                    {
+                      "value": "SQUARE_INCH"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "type": "object"
+        }
+      }
+    },
+    "cables": {
+      "type": "array",
+      "description": "The non-load-bearing communication cables.",
+      "required": true,
+      "items": {
+        "description": "A wire and an offset from the center of the cable.",
+        "type": "object",
+        "id": "wire_placement",
+        "properties": {
+          "x": {
+            "required": true,
+            "id": "measurable",
+            "type": "object",
+            "description": "a measured quantity",
+            "properties": {
+              "value": {
+                "type": "number",
+                "required": true
+              },
+              "unit": {
+                "type": "string",
+                "required": true,
+                "choices": [
+                  {
+                    "value": "CUBIC_INCH"
+                  },
+                  {
+                    "value": "DEGREE_ANGLE"
+                  },
+                  {
+                    "value": "FAHRENHEIT"
+                  },
+                  {
+                    "value": "FOOT"
+                  },
+                  {
+                    "value": "INCH"
+                  },
+                  {
+                    "value": "METRE"
+                  },
+                  {
+                    "value": "PERCENT"
+                  },
+                  {
+                    "value": "PER_FAHRENHEIT"
+                  },
+                  {
+                    "value": "POUND_FORCE"
+                  },
+                  {
+                    "value": "POUND_FORCE_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_SQUARE_INCH"
+                  },
+                  {
+                    "value": "POUND_PER_CUBIC_FOOT"
+                  },
+                  {
+                    "value": "SIXTEENTH_INCH"
+                  },
+                  {
+                    "value": "SQUARE_FOOT"
+                  },
+                  {
+                    "value": "SQUARE_INCH"
+                  }
+                ]
+              }
+            }
+          },
+          "y": {
+            "required": true,
+            "id": "measurable",
+            "type": "object",
+            "description": "a measured quantity",
+            "properties": {
+              "value": {
+                "type": "number",
+                "required": true
+              },
+              "unit": {
+                "type": "string",
+                "required": true,
+                "choices": [
+                  {
+                    "value": "CUBIC_INCH"
+                  },
+                  {
+                    "value": "DEGREE_ANGLE"
+                  },
+                  {
+                    "value": "FAHRENHEIT"
+                  },
+                  {
+                    "value": "FOOT"
+                  },
+                  {
+                    "value": "INCH"
+                  },
+                  {
+                    "value": "METRE"
+                  },
+                  {
+                    "value": "PERCENT"
+                  },
+                  {
+                    "value": "PER_FAHRENHEIT"
+                  },
+                  {
+                    "value": "POUND_FORCE"
+                  },
+                  {
+                    "value": "POUND_FORCE_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_SQUARE_INCH"
+                  },
+                  {
+                    "value": "POUND_PER_CUBIC_FOOT"
+                  },
+                  {
+                    "value": "SIXTEENTH_INCH"
+                  },
+                  {
+                    "value": "SQUARE_FOOT"
+                  },
+                  {
+                    "value": "SQUARE_INCH"
+                  }
+                ]
+              }
+            }
+          },
+          "clientWire": {
+            "required": true,
+            "description": "Engineering properties for a wire",
+            "id": "client_wire",
+            "properties": {
+              "calculation": {
+                "required": true,
+                "enum": [
+                  "INITIAL",
+                  "FINAL"
+                ],
+                "type": "string"
+              },
+              "conductorStrands": {
+                "required": true,
+                "type": "integer"
+              },
+              "coreStrands": {
+                "required": true,
+                "type": "integer"
+              },
+              "crossArea": {
+                "required": true,
+                "id": "measurable",
+                "type": "object",
+                "description": "a measured quantity",
+                "properties": {
+                  "value": {
+                    "type": "number",
+                    "required": true
+                  },
+                  "unit": {
+                    "type": "string",
+                    "required": true,
+                    "choices": [
+                      {
+                        "value": "CUBIC_INCH"
+                      },
+                      {
+                        "value": "DEGREE_ANGLE"
+                      },
+                      {
+                        "value": "FAHRENHEIT"
+                      },
+                      {
+                        "value": "FOOT"
+                      },
+                      {
+                        "value": "INCH"
+                      },
+                      {
+                        "value": "METRE"
+                      },
+                      {
+                        "value": "PERCENT"
+                      },
+                      {
+                        "value": "PER_FAHRENHEIT"
+                      },
+                      {
+                        "value": "POUND_FORCE"
+                      },
+                      {
+                        "value": "POUND_FORCE_FOOT"
+                      },
+                      {
+                        "value": "POUND_FORCE_PER_FOOT"
+                      },
+                      {
+                        "value": "POUND_FORCE_PER_SQUARE_INCH"
+                      },
+                      {
+                        "value": "POUND_PER_CUBIC_FOOT"
+                      },
+                      {
+                        "value": "SIXTEENTH_INCH"
+                      },
+                      {
+                        "value": "SQUARE_FOOT"
+                      },
+                      {
+                        "value": "SQUARE_INCH"
+                      }
+                    ]
+                  }
+                }
+              },
+              "description": {
+                "required": true,
+                "type": "string"
+              },
+              "diameter": {
+                "required": true,
+                "id": "measurable",
+                "type": "object",
+                "description": "a measured quantity",
+                "properties": {
+                  "value": {
+                    "type": "number",
+                    "required": true
+                  },
+                  "unit": {
+                    "type": "string",
+                    "required": true,
+                    "choices": [
+                      {
+                        "value": "CUBIC_INCH"
+                      },
+                      {
+                        "value": "DEGREE_ANGLE"
+                      },
+                      {
+                        "value": "FAHRENHEIT"
+                      },
+                      {
+                        "value": "FOOT"
+                      },
+                      {
+                        "value": "INCH"
+                      },
+                      {
+                        "value": "METRE"
+                      },
+                      {
+                        "value": "PERCENT"
+                      },
+                      {
+                        "value": "PER_FAHRENHEIT"
+                      },
+                      {
+                        "value": "POUND_FORCE"
+                      },
+                      {
+                        "value": "POUND_FORCE_FOOT"
+                      },
+                      {
+                        "value": "POUND_FORCE_PER_FOOT"
+                      },
+                      {
+                        "value": "POUND_FORCE_PER_SQUARE_INCH"
+                      },
+                      {
+                        "value": "POUND_PER_CUBIC_FOOT"
+                      },
+                      {
+                        "value": "SIXTEENTH_INCH"
+                      },
+                      {
+                        "value": "SQUARE_FOOT"
+                      },
+                      {
+                        "value": "SQUARE_INCH"
+                      }
+                    ]
+                  }
+                }
+              },
+              "expansionCoefficient": {
+                "required": true,
+                "id": "measurable",
+                "type": "object",
+                "description": "a measured quantity",
+                "properties": {
+                  "value": {
+                    "type": "number",
+                    "required": true
+                  },
+                  "unit": {
+                    "type": "string",
+                    "required": true,
+                    "choices": [
+                      {
+                        "value": "CUBIC_INCH"
+                      },
+                      {
+                        "value": "DEGREE_ANGLE"
+                      },
+                      {
+                        "value": "FAHRENHEIT"
+                      },
+                      {
+                        "value": "FOOT"
+                      },
+                      {
+                        "value": "INCH"
+                      },
+                      {
+                        "value": "METRE"
+                      },
+                      {
+                        "value": "PERCENT"
+                      },
+                      {
+                        "value": "PER_FAHRENHEIT"
+                      },
+                      {
+                        "value": "POUND_FORCE"
+                      },
+                      {
+                        "value": "POUND_FORCE_FOOT"
+                      },
+                      {
+                        "value": "POUND_FORCE_PER_FOOT"
+                      },
+                      {
+                        "value": "POUND_FORCE_PER_SQUARE_INCH"
+                      },
+                      {
+                        "value": "POUND_PER_CUBIC_FOOT"
+                      },
+                      {
+                        "value": "SIXTEENTH_INCH"
+                      },
+                      {
+                        "value": "SQUARE_FOOT"
+                      },
+                      {
+                        "value": "SQUARE_INCH"
+                      }
+                    ]
+                  }
+                }
+              },
+              "modulus": {
+                "required": true,
+                "id": "measurable",
+                "type": "object",
+                "description": "a measured quantity",
+                "properties": {
+                  "value": {
+                    "type": "number",
+                    "required": true
+                  },
+                  "unit": {
+                    "type": "string",
+                    "required": true,
+                    "choices": [
+                      {
+                        "value": "CUBIC_INCH"
+                      },
+                      {
+                        "value": "DEGREE_ANGLE"
+                      },
+                      {
+                        "value": "FAHRENHEIT"
+                      },
+                      {
+                        "value": "FOOT"
+                      },
+                      {
+                        "value": "INCH"
+                      },
+                      {
+                        "value": "METRE"
+                      },
+                      {
+                        "value": "PERCENT"
+                      },
+                      {
+                        "value": "PER_FAHRENHEIT"
+                      },
+                      {
+                        "value": "POUND_FORCE"
+                      },
+                      {
+                        "value": "POUND_FORCE_FOOT"
+                      },
+                      {
+                        "value": "POUND_FORCE_PER_FOOT"
+                      },
+                      {
+                        "value": "POUND_FORCE_PER_SQUARE_INCH"
+                      },
+                      {
+                        "value": "POUND_PER_CUBIC_FOOT"
+                      },
+                      {
+                        "value": "SIXTEENTH_INCH"
+                      },
+                      {
+                        "value": "SQUARE_FOOT"
+                      },
+                      {
+                        "value": "SQUARE_INCH"
+                      }
+                    ]
+                  }
+                }
+              },
+              "numberOfConductors": {
+                "required": true,
+                "type": "integer"
+              },
+              "size": {
+                "required": true,
+                "type": "string"
+              },
+              "strength": {
+                "required": true,
+                "id": "measurable",
+                "type": "object",
+                "description": "a measured quantity",
+                "properties": {
+                  "value": {
+                    "type": "number",
+                    "required": true
+                  },
+                  "unit": {
+                    "type": "string",
+                    "required": true,
+                    "choices": [
+                      {
+                        "value": "CUBIC_INCH"
+                      },
+                      {
+                        "value": "DEGREE_ANGLE"
+                      },
+                      {
+                        "value": "FAHRENHEIT"
+                      },
+                      {
+                        "value": "FOOT"
+                      },
+                      {
+                        "value": "INCH"
+                      },
+                      {
+                        "value": "METRE"
+                      },
+                      {
+                        "value": "PERCENT"
+                      },
+                      {
+                        "value": "PER_FAHRENHEIT"
+                      },
+                      {
+                        "value": "POUND_FORCE"
+                      },
+                      {
+                        "value": "POUND_FORCE_FOOT"
+                      },
+                      {
+                        "value": "POUND_FORCE_PER_FOOT"
+                      },
+                      {
+                        "value": "POUND_FORCE_PER_SQUARE_INCH"
+                      },
+                      {
+                        "value": "POUND_PER_CUBIC_FOOT"
+                      },
+                      {
+                        "value": "SIXTEENTH_INCH"
+                      },
+                      {
+                        "value": "SQUARE_FOOT"
+                      },
+                      {
+                        "value": "SQUARE_INCH"
+                      }
+                    ]
+                  }
+                }
+              },
+              "tensionGroups": {
+                "items": {
+                  "description": "Tension information for a client wire.",
+                  "id": "tensionGroup",
+                  "properties": {
+                    "groups": {
+                      "items": {
+                        "properties": {
+                          "distance": {
+                            "required": true,
+                            "id": "measurable",
+                            "type": "object",
+                            "description": "a measured quantity",
+                            "properties": {
+                              "value": {
+                                "type": "number",
+                                "required": true
+                              },
+                              "unit": {
+                                "type": "string",
+                                "required": true,
+                                "choices": [
+                                  {
+                                    "value": "CUBIC_INCH"
+                                  },
+                                  {
+                                    "value": "DEGREE_ANGLE"
+                                  },
+                                  {
+                                    "value": "FAHRENHEIT"
+                                  },
+                                  {
+                                    "value": "FOOT"
+                                  },
+                                  {
+                                    "value": "INCH"
+                                  },
+                                  {
+                                    "value": "METRE"
+                                  },
+                                  {
+                                    "value": "PERCENT"
+                                  },
+                                  {
+                                    "value": "PER_FAHRENHEIT"
+                                  },
+                                  {
+                                    "value": "POUND_FORCE"
+                                  },
+                                  {
+                                    "value": "POUND_FORCE_FOOT"
+                                  },
+                                  {
+                                    "value": "POUND_FORCE_PER_FOOT"
+                                  },
+                                  {
+                                    "value": "POUND_FORCE_PER_SQUARE_INCH"
+                                  },
+                                  {
+                                    "value": "POUND_PER_CUBIC_FOOT"
+                                  },
+                                  {
+                                    "value": "SIXTEENTH_INCH"
+                                  },
+                                  {
+                                    "value": "SQUARE_FOOT"
+                                  },
+                                  {
+                                    "value": "SQUARE_INCH"
+                                  }
+                                ]
+                              }
+                            }
+                          },
+                          "tension": {
+                            "required": true,
+                            "id": "measurable",
+                            "type": "object",
+                            "description": "a measured quantity",
+                            "properties": {
+                              "value": {
+                                "type": "number",
+                                "required": true
+                              },
+                              "unit": {
+                                "type": "string",
+                                "required": true,
+                                "choices": [
+                                  {
+                                    "value": "CUBIC_INCH"
+                                  },
+                                  {
+                                    "value": "DEGREE_ANGLE"
+                                  },
+                                  {
+                                    "value": "FAHRENHEIT"
+                                  },
+                                  {
+                                    "value": "FOOT"
+                                  },
+                                  {
+                                    "value": "INCH"
+                                  },
+                                  {
+                                    "value": "METRE"
+                                  },
+                                  {
+                                    "value": "PERCENT"
+                                  },
+                                  {
+                                    "value": "PER_FAHRENHEIT"
+                                  },
+                                  {
+                                    "value": "POUND_FORCE"
+                                  },
+                                  {
+                                    "value": "POUND_FORCE_FOOT"
+                                  },
+                                  {
+                                    "value": "POUND_FORCE_PER_FOOT"
+                                  },
+                                  {
+                                    "value": "POUND_FORCE_PER_SQUARE_INCH"
+                                  },
+                                  {
+                                    "value": "POUND_PER_CUBIC_FOOT"
+                                  },
+                                  {
+                                    "value": "SIXTEENTH_INCH"
+                                  },
+                                  {
+                                    "value": "SQUARE_FOOT"
+                                  },
+                                  {
+                                    "value": "SQUARE_INCH"
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "required": true,
+                      "type": "array"
+                    },
+                    "name": {
+                      "required": true,
+                      "type": "string"
+                    },
+                    "temperature": {
+                      "required": true,
+                      "id": "measurable",
+                      "type": "object",
+                      "description": "a measured quantity",
+                      "properties": {
+                        "value": {
+                          "type": "number",
+                          "required": true
+                        },
+                        "unit": {
+                          "type": "string",
+                          "required": true,
+                          "choices": [
+                            {
+                              "value": "CUBIC_INCH"
+                            },
+                            {
+                              "value": "DEGREE_ANGLE"
+                            },
+                            {
+                              "value": "FAHRENHEIT"
+                            },
+                            {
+                              "value": "FOOT"
+                            },
+                            {
+                              "value": "INCH"
+                            },
+                            {
+                              "value": "METRE"
+                            },
+                            {
+                              "value": "PERCENT"
+                            },
+                            {
+                              "value": "PER_FAHRENHEIT"
+                            },
+                            {
+                              "value": "POUND_FORCE"
+                            },
+                            {
+                              "value": "POUND_FORCE_FOOT"
+                            },
+                            {
+                              "value": "POUND_FORCE_PER_FOOT"
+                            },
+                            {
+                              "value": "POUND_FORCE_PER_SQUARE_INCH"
+                            },
+                            {
+                              "value": "POUND_PER_CUBIC_FOOT"
+                            },
+                            {
+                              "value": "SIXTEENTH_INCH"
+                            },
+                            {
+                              "value": "SQUARE_FOOT"
+                            },
+                            {
+                              "value": "SQUARE_INCH"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    "tension": {
+                      "id": "measurable",
+                      "type": "object",
+                      "description": "a measured quantity",
+                      "properties": {
+                        "value": {
+                          "type": "number",
+                          "required": true
+                        },
+                        "unit": {
+                          "type": "string",
+                          "required": true,
+                          "choices": [
+                            {
+                              "value": "CUBIC_INCH"
+                            },
+                            {
+                              "value": "DEGREE_ANGLE"
+                            },
+                            {
+                              "value": "FAHRENHEIT"
+                            },
+                            {
+                              "value": "FOOT"
+                            },
+                            {
+                              "value": "INCH"
+                            },
+                            {
+                              "value": "METRE"
+                            },
+                            {
+                              "value": "PERCENT"
+                            },
+                            {
+                              "value": "PER_FAHRENHEIT"
+                            },
+                            {
+                              "value": "POUND_FORCE"
+                            },
+                            {
+                              "value": "POUND_FORCE_FOOT"
+                            },
+                            {
+                              "value": "POUND_FORCE_PER_FOOT"
+                            },
+                            {
+                              "value": "POUND_FORCE_PER_SQUARE_INCH"
+                            },
+                            {
+                              "value": "POUND_PER_CUBIC_FOOT"
+                            },
+                            {
+                              "value": "SIXTEENTH_INCH"
+                            },
+                            {
+                              "value": "SQUARE_FOOT"
+                            },
+                            {
+                              "value": "SQUARE_INCH"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "type": "object"
+                },
+                "required": true,
+                "type": "array"
+              },
+              "usageGroups": {
+                "items": {
+                  "type": "string"
+                },
+                "required": true,
+                "type": "array"
+              },
+              "weight": {
+                "required": true,
+                "id": "measurable",
+                "type": "object",
+                "description": "a measured quantity",
+                "properties": {
+                  "value": {
+                    "type": "number",
+                    "required": true
+                  },
+                  "unit": {
+                    "type": "string",
+                    "required": true,
+                    "choices": [
+                      {
+                        "value": "CUBIC_INCH"
+                      },
+                      {
+                        "value": "DEGREE_ANGLE"
+                      },
+                      {
+                        "value": "FAHRENHEIT"
+                      },
+                      {
+                        "value": "FOOT"
+                      },
+                      {
+                        "value": "INCH"
+                      },
+                      {
+                        "value": "METRE"
+                      },
+                      {
+                        "value": "PERCENT"
+                      },
+                      {
+                        "value": "PER_FAHRENHEIT"
+                      },
+                      {
+                        "value": "POUND_FORCE"
+                      },
+                      {
+                        "value": "POUND_FORCE_FOOT"
+                      },
+                      {
+                        "value": "POUND_FORCE_PER_FOOT"
+                      },
+                      {
+                        "value": "POUND_FORCE_PER_SQUARE_INCH"
+                      },
+                      {
+                        "value": "POUND_PER_CUBIC_FOOT"
+                      },
+                      {
+                        "value": "SIXTEENTH_INCH"
+                      },
+                      {
+                        "value": "SQUARE_FOOT"
+                      },
+                      {
+                        "value": "SQUARE_INCH"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "type": "object"
+          }
+        }
+      }
+    },
+    "calculation": {
+      "required": true,
+      "enum": [
+        "INITIAL",
+        "FINAL"
+      ],
+      "type": "string"
+    },
+    "conductorStrands": {
+      "required": true,
+      "type": "integer"
+    },
+    "coreStrands": {
+      "required": true,
+      "type": "integer"
+    },
+    "crossArea": {
+      "required": true,
+      "id": "measurable",
+      "type": "object",
+      "description": "a measured quantity",
+      "properties": {
+        "value": {
+          "type": "number",
+          "required": true
+        },
+        "unit": {
+          "type": "string",
+          "required": true,
+          "choices": [
+            {
+              "value": "CUBIC_INCH"
+            },
+            {
+              "value": "DEGREE_ANGLE"
+            },
+            {
+              "value": "FAHRENHEIT"
+            },
+            {
+              "value": "FOOT"
+            },
+            {
+              "value": "INCH"
+            },
+            {
+              "value": "METRE"
+            },
+            {
+              "value": "PERCENT"
+            },
+            {
+              "value": "PER_FAHRENHEIT"
+            },
+            {
+              "value": "POUND_FORCE"
+            },
+            {
+              "value": "POUND_FORCE_FOOT"
+            },
+            {
+              "value": "POUND_FORCE_PER_FOOT"
+            },
+            {
+              "value": "POUND_FORCE_PER_SQUARE_INCH"
+            },
+            {
+              "value": "POUND_PER_CUBIC_FOOT"
+            },
+            {
+              "value": "SIXTEENTH_INCH"
+            },
+            {
+              "value": "SQUARE_FOOT"
+            },
+            {
+              "value": "SQUARE_INCH"
+            }
+          ]
+        }
+      }
+    },
+    "description": {
+      "required": true,
+      "type": "string"
+    },
+    "diameter": {
+      "required": true,
+      "id": "measurable",
+      "type": "object",
+      "description": "a measured quantity",
+      "properties": {
+        "value": {
+          "type": "number",
+          "required": true
+        },
+        "unit": {
+          "type": "string",
+          "required": true,
+          "choices": [
+            {
+              "value": "CUBIC_INCH"
+            },
+            {
+              "value": "DEGREE_ANGLE"
+            },
+            {
+              "value": "FAHRENHEIT"
+            },
+            {
+              "value": "FOOT"
+            },
+            {
+              "value": "INCH"
+            },
+            {
+              "value": "METRE"
+            },
+            {
+              "value": "PERCENT"
+            },
+            {
+              "value": "PER_FAHRENHEIT"
+            },
+            {
+              "value": "POUND_FORCE"
+            },
+            {
+              "value": "POUND_FORCE_FOOT"
+            },
+            {
+              "value": "POUND_FORCE_PER_FOOT"
+            },
+            {
+              "value": "POUND_FORCE_PER_SQUARE_INCH"
+            },
+            {
+              "value": "POUND_PER_CUBIC_FOOT"
+            },
+            {
+              "value": "SIXTEENTH_INCH"
+            },
+            {
+              "value": "SQUARE_FOOT"
+            },
+            {
+              "value": "SQUARE_INCH"
+            }
+          ]
+        }
+      }
+    },
+    "expansionCoefficient": {
+      "required": true,
+      "id": "measurable",
+      "type": "object",
+      "description": "a measured quantity",
+      "properties": {
+        "value": {
+          "type": "number",
+          "required": true
+        },
+        "unit": {
+          "type": "string",
+          "required": true,
+          "choices": [
+            {
+              "value": "CUBIC_INCH"
+            },
+            {
+              "value": "DEGREE_ANGLE"
+            },
+            {
+              "value": "FAHRENHEIT"
+            },
+            {
+              "value": "FOOT"
+            },
+            {
+              "value": "INCH"
+            },
+            {
+              "value": "METRE"
+            },
+            {
+              "value": "PERCENT"
+            },
+            {
+              "value": "PER_FAHRENHEIT"
+            },
+            {
+              "value": "POUND_FORCE"
+            },
+            {
+              "value": "POUND_FORCE_FOOT"
+            },
+            {
+              "value": "POUND_FORCE_PER_FOOT"
+            },
+            {
+              "value": "POUND_FORCE_PER_SQUARE_INCH"
+            },
+            {
+              "value": "POUND_PER_CUBIC_FOOT"
+            },
+            {
+              "value": "SIXTEENTH_INCH"
+            },
+            {
+              "value": "SQUARE_FOOT"
+            },
+            {
+              "value": "SQUARE_INCH"
+            }
+          ]
+        }
+      }
+    },
+    "modulus": {
+      "required": true,
+      "id": "measurable",
+      "type": "object",
+      "description": "a measured quantity",
+      "properties": {
+        "value": {
+          "type": "number",
+          "required": true
+        },
+        "unit": {
+          "type": "string",
+          "required": true,
+          "choices": [
+            {
+              "value": "CUBIC_INCH"
+            },
+            {
+              "value": "DEGREE_ANGLE"
+            },
+            {
+              "value": "FAHRENHEIT"
+            },
+            {
+              "value": "FOOT"
+            },
+            {
+              "value": "INCH"
+            },
+            {
+              "value": "METRE"
+            },
+            {
+              "value": "PERCENT"
+            },
+            {
+              "value": "PER_FAHRENHEIT"
+            },
+            {
+              "value": "POUND_FORCE"
+            },
+            {
+              "value": "POUND_FORCE_FOOT"
+            },
+            {
+              "value": "POUND_FORCE_PER_FOOT"
+            },
+            {
+              "value": "POUND_FORCE_PER_SQUARE_INCH"
+            },
+            {
+              "value": "POUND_PER_CUBIC_FOOT"
+            },
+            {
+              "value": "SIXTEENTH_INCH"
+            },
+            {
+              "value": "SQUARE_FOOT"
+            },
+            {
+              "value": "SQUARE_INCH"
+            }
+          ]
+        }
+      }
+    },
+    "size": {
+      "required": true,
+      "type": "string"
+    },
+    "strength": {
+      "required": true,
+      "id": "measurable",
+      "type": "object",
+      "description": "a measured quantity",
+      "properties": {
+        "value": {
+          "type": "number",
+          "required": true
+        },
+        "unit": {
+          "type": "string",
+          "required": true,
+          "choices": [
+            {
+              "value": "CUBIC_INCH"
+            },
+            {
+              "value": "DEGREE_ANGLE"
+            },
+            {
+              "value": "FAHRENHEIT"
+            },
+            {
+              "value": "FOOT"
+            },
+            {
+              "value": "INCH"
+            },
+            {
+              "value": "METRE"
+            },
+            {
+              "value": "PERCENT"
+            },
+            {
+              "value": "PER_FAHRENHEIT"
+            },
+            {
+              "value": "POUND_FORCE"
+            },
+            {
+              "value": "POUND_FORCE_FOOT"
+            },
+            {
+              "value": "POUND_FORCE_PER_FOOT"
+            },
+            {
+              "value": "POUND_FORCE_PER_SQUARE_INCH"
+            },
+            {
+              "value": "POUND_PER_CUBIC_FOOT"
+            },
+            {
+              "value": "SIXTEENTH_INCH"
+            },
+            {
+              "value": "SQUARE_FOOT"
+            },
+            {
+              "value": "SQUARE_INCH"
+            }
+          ]
+        }
+      }
+    },
+    "tensionGroups": {
+      "items": {
+        "description": "Tension information for a client wire.",
+        "id": "tensionGroup",
+        "properties": {
+          "groups": {
+            "items": {
+              "properties": {
+                "distance": {
+                  "required": true,
+                  "id": "measurable",
+                  "type": "object",
+                  "description": "a measured quantity",
+                  "properties": {
+                    "value": {
+                      "type": "number",
+                      "required": true
+                    },
+                    "unit": {
+                      "type": "string",
+                      "required": true,
+                      "choices": [
+                        {
+                          "value": "CUBIC_INCH"
+                        },
+                        {
+                          "value": "DEGREE_ANGLE"
+                        },
+                        {
+                          "value": "FAHRENHEIT"
+                        },
+                        {
+                          "value": "FOOT"
+                        },
+                        {
+                          "value": "INCH"
+                        },
+                        {
+                          "value": "METRE"
+                        },
+                        {
+                          "value": "PERCENT"
+                        },
+                        {
+                          "value": "PER_FAHRENHEIT"
+                        },
+                        {
+                          "value": "POUND_FORCE"
+                        },
+                        {
+                          "value": "POUND_FORCE_FOOT"
+                        },
+                        {
+                          "value": "POUND_FORCE_PER_FOOT"
+                        },
+                        {
+                          "value": "POUND_FORCE_PER_SQUARE_INCH"
+                        },
+                        {
+                          "value": "POUND_PER_CUBIC_FOOT"
+                        },
+                        {
+                          "value": "SIXTEENTH_INCH"
+                        },
+                        {
+                          "value": "SQUARE_FOOT"
+                        },
+                        {
+                          "value": "SQUARE_INCH"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "tension": {
+                  "required": true,
+                  "id": "measurable",
+                  "type": "object",
+                  "description": "a measured quantity",
+                  "properties": {
+                    "value": {
+                      "type": "number",
+                      "required": true
+                    },
+                    "unit": {
+                      "type": "string",
+                      "required": true,
+                      "choices": [
+                        {
+                          "value": "CUBIC_INCH"
+                        },
+                        {
+                          "value": "DEGREE_ANGLE"
+                        },
+                        {
+                          "value": "FAHRENHEIT"
+                        },
+                        {
+                          "value": "FOOT"
+                        },
+                        {
+                          "value": "INCH"
+                        },
+                        {
+                          "value": "METRE"
+                        },
+                        {
+                          "value": "PERCENT"
+                        },
+                        {
+                          "value": "PER_FAHRENHEIT"
+                        },
+                        {
+                          "value": "POUND_FORCE"
+                        },
+                        {
+                          "value": "POUND_FORCE_FOOT"
+                        },
+                        {
+                          "value": "POUND_FORCE_PER_FOOT"
+                        },
+                        {
+                          "value": "POUND_FORCE_PER_SQUARE_INCH"
+                        },
+                        {
+                          "value": "POUND_PER_CUBIC_FOOT"
+                        },
+                        {
+                          "value": "SIXTEENTH_INCH"
+                        },
+                        {
+                          "value": "SQUARE_FOOT"
+                        },
+                        {
+                          "value": "SQUARE_INCH"
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              "type": "object"
+            },
+            "required": true,
+            "type": "array"
+          },
+          "name": {
+            "required": true,
+            "type": "string"
+          },
+          "temperature": {
+            "required": true,
+            "id": "measurable",
+            "type": "object",
+            "description": "a measured quantity",
+            "properties": {
+              "value": {
+                "type": "number",
+                "required": true
+              },
+              "unit": {
+                "type": "string",
+                "required": true,
+                "choices": [
+                  {
+                    "value": "CUBIC_INCH"
+                  },
+                  {
+                    "value": "DEGREE_ANGLE"
+                  },
+                  {
+                    "value": "FAHRENHEIT"
+                  },
+                  {
+                    "value": "FOOT"
+                  },
+                  {
+                    "value": "INCH"
+                  },
+                  {
+                    "value": "METRE"
+                  },
+                  {
+                    "value": "PERCENT"
+                  },
+                  {
+                    "value": "PER_FAHRENHEIT"
+                  },
+                  {
+                    "value": "POUND_FORCE"
+                  },
+                  {
+                    "value": "POUND_FORCE_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_SQUARE_INCH"
+                  },
+                  {
+                    "value": "POUND_PER_CUBIC_FOOT"
+                  },
+                  {
+                    "value": "SIXTEENTH_INCH"
+                  },
+                  {
+                    "value": "SQUARE_FOOT"
+                  },
+                  {
+                    "value": "SQUARE_INCH"
+                  }
+                ]
+              }
+            }
+          },
+          "tension": {
+            "id": "measurable",
+            "type": "object",
+            "description": "a measured quantity",
+            "properties": {
+              "value": {
+                "type": "number",
+                "required": true
+              },
+              "unit": {
+                "type": "string",
+                "required": true,
+                "choices": [
+                  {
+                    "value": "CUBIC_INCH"
+                  },
+                  {
+                    "value": "DEGREE_ANGLE"
+                  },
+                  {
+                    "value": "FAHRENHEIT"
+                  },
+                  {
+                    "value": "FOOT"
+                  },
+                  {
+                    "value": "INCH"
+                  },
+                  {
+                    "value": "METRE"
+                  },
+                  {
+                    "value": "PERCENT"
+                  },
+                  {
+                    "value": "PER_FAHRENHEIT"
+                  },
+                  {
+                    "value": "POUND_FORCE"
+                  },
+                  {
+                    "value": "POUND_FORCE_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_FOOT"
+                  },
+                  {
+                    "value": "POUND_FORCE_PER_SQUARE_INCH"
+                  },
+                  {
+                    "value": "POUND_PER_CUBIC_FOOT"
+                  },
+                  {
+                    "value": "SIXTEENTH_INCH"
+                  },
+                  {
+                    "value": "SQUARE_FOOT"
+                  },
+                  {
+                    "value": "SQUARE_INCH"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "type": "object"
+      },
+      "required": true,
+      "type": "array"
+    },
+    "usageGroups": {
+      "items": {
+        "type": "string"
+      },
+      "required": true,
+      "type": "array"
+    },
+    "weight": {
+      "required": true,
+      "id": "measurable",
+      "type": "object",
+      "description": "a measured quantity",
+      "properties": {
+        "value": {
+          "type": "number",
+          "required": true
+        },
+        "unit": {
+          "type": "string",
+          "required": true,
+          "choices": [
+            {
+              "value": "CUBIC_INCH"
+            },
+            {
+              "value": "DEGREE_ANGLE"
+            },
+            {
+              "value": "FAHRENHEIT"
+            },
+            {
+              "value": "FOOT"
+            },
+            {
+              "value": "INCH"
+            },
+            {
+              "value": "METRE"
+            },
+            {
+              "value": "PERCENT"
+            },
+            {
+              "value": "PER_FAHRENHEIT"
+            },
+            {
+              "value": "POUND_FORCE"
+            },
+            {
+              "value": "POUND_FORCE_FOOT"
+            },
+            {
+              "value": "POUND_FORCE_PER_FOOT"
+            },
+            {
+              "value": "POUND_FORCE_PER_SQUARE_INCH"
+            },
+            {
+              "value": "POUND_PER_CUBIC_FOOT"
+            },
+            {
+              "value": "SIXTEENTH_INCH"
+            },
+            {
+              "value": "SQUARE_FOOT"
+            },
+            {
+              "value": "SQUARE_INCH"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "type": "object"
+}

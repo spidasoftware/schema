@@ -29,7 +29,6 @@ loadSupportSchemas = () ->
 	loadSchemasInFolder("./v1/general")
 	loadSchemasInFolder("./v1/calc")
 	loadSchemasInFolder("./v1/calc/client")
-	loadSchemasInFolder("./v1/calc/client")
 
 replaceReferences = (schema) ->
 	for key in Object.keys(schema)
@@ -83,4 +82,5 @@ replaceAndSave("./v1/calc/client/client_equipment.schema", "./public/v1/calc/cli
 replaceAndSave("./v1/calc/client/client_insulator.schema", "./public/v1/calc/client/client_insulator.schema")
 replaceAndSave("./v1/calc/client/client_pole.schema", "./public/v1/calc/client/client_pole.schema")
 replaceAndSave("./v1/calc/client/client_wire.schema", "./public/v1/calc/client/client_wire.schema")
+replaceAndSave("./v1/calc/client/client_bundle.schema", "./public/v1/calc/client/client_bundle.schema")
 

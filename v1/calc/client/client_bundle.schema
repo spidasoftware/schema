@@ -1,0 +1,109 @@
+{
+    "description": "A bundle of communication wires with a messenger.",
+    "id": "client_bundle",
+    "properties": {
+        "numberOfConductors": {
+            "required": true,
+            "type": "integer",
+            "enum": [
+                1
+            ]
+        },
+        "messenger": {
+            "extends": {
+                "$ref": "wire_placement"
+            },
+            "description": "The load-bearing messenger cable.",
+            "required": true
+        },
+        "cables": {
+            "type": "array",
+            "description": "The non-load-bearing communication cables.",
+            "required": true,
+            "items": {
+                "extends": {
+                    "$ref": "wire_placement"
+                }
+            }
+        },
+    "calculation": {
+      "extends": {
+        "$ref": "calculation"
+      }, 
+      "required": true
+    }, 
+    "conductorStrands": {
+      "required": true, 
+      "type": "integer"
+    }, 
+    "coreStrands": {
+      "required": true, 
+      "type": "integer"
+    }, 
+    "crossArea": {
+      "extends": {
+        "$ref": "measurable"
+      }, 
+      "required": true
+    }, 
+    "description": {
+      "required": true, 
+      "type": "string"
+    }, 
+    "diameter": {
+      "extends": {
+        "$ref": "measurable"
+      }, 
+      "required": true
+    }, 
+    "expansionCoefficient": {
+      "extends": {
+        "$ref": "measurable"
+      }, 
+      "required": true
+    }, 
+    "modulus": {
+      "extends": {
+        "$ref": "measurable"
+      }, 
+      "required": true
+    }, 
+    "numberOfConductors": {
+      "required": true, 
+      "type": "integer"
+    }, 
+    "size": {
+      "required": true, 
+      "type": "string"
+    }, 
+    "strength": {
+      "extends": {
+        "$ref": "measurable"
+      }, 
+      "required": true
+    }, 
+    "tensionGroups": {
+      "items": {
+        "$ref": "tension_group"
+      }, 
+      "required": true, 
+      "type": "array"
+    }, 
+    "usageGroups": {
+      "items": {
+        "type": "string"
+      }, 
+      "required": true, 
+      "type": "array"
+    }, 
+    "weight": {
+      "extends": {
+        "$ref": "measurable"
+      }, 
+      "required": true
+    }
+  }, 
+  "type": "object"
+        
+    
+}

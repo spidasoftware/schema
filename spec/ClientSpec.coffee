@@ -45,3 +45,12 @@ describe 'client', ->
     jsonString = fs.readFileSync("./examples/client/client_wire_example.json").toString()
     json = JSON.parse(jsonString)
     testUtils.validate(json, "./public/v1/calc/client/client_wire.schema")
+    
+  it 'check wire bundle', ->
+    logger.info "check wire bundle"
+    jsonString = fs.readFileSync("./examples/client/client_bundle_example.json").toString()
+    json = JSON.parse(jsonString)
+    testUtils.validate(json, "./public/v1/calc/client/client_bundle.schema")
+    json.messenger = null
+    testUtils.validate(json, "./public/v1/calc/client/client_bundle.schema", false)
+

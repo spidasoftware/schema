@@ -1,0 +1,26 @@
+{
+  "description": "A wire and an offset from the center of the cable.",
+  "type": "object",
+  "id": "wire_placement",
+  "properties": {
+    "x": {
+      "extends": {
+        "$ref": "measurable"
+      },
+      "required": true
+    },
+    "y": {
+      "extends": {
+        "$ref": "measurable"
+      },
+      "required": true
+    },
+    "clientWire": {
+      "extends": {
+        "$ref": "client_wire"
+      },
+      "required": true
+    }
+
+  }
+}
