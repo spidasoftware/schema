@@ -71,7 +71,7 @@
       }
     ]
   },
-  "calculateTensionAtGivenStressFreeLength": {
+  "calculateTensionAtStressFreeLength": {
     "description": "Open project from a file.",
     "returns": "measurable",
     "params": [
