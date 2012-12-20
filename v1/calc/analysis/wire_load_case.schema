@@ -3,6 +3,11 @@
     "type": "object",
     "description": "An object with the needed information for analyzing a wire for sag and tension.",
     "properties": {
+        "name": {
+            "type":"string"
+            "required": true,
+            "description": "Name of this wire load case."
+        },
         "windPressure": {
             "extends": {
                 "$ref": "measurable"
@@ -17,14 +22,7 @@
             "required": false,
             "description": "The weight force that is acting on this wire. In force per length."
         },
-        "constantForce": {
-            "extends": {
-                "$ref": "measurable"
-            },
-            "required": false,
-            "description": "The addtional linear force that is acting on this wire. In force per length."
-        },
-        "additionalVertical": {
+        "linearConstant": {
             "extends": {
                 "$ref": "measurable"
             },
