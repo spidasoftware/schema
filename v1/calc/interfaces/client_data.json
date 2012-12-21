@@ -235,6 +235,24 @@
             }
         ]
     },
+    "wireLoadCases": {
+        "description": "Return the load cases in the client file.",
+        "returns": "array",
+        "params": [
+            {
+                "type": "string",
+                "name": "clientFile",
+                "required": true,
+                "description": "Client File to be queried"
+            },
+            {
+                "type": "boolean",
+                "name": "details",
+                "required": false,
+                "description": "Should the complete details be returned."
+            }
+        ]
+    },
     "framingUnits": {
         "description": "Return framing units in the client file.",
         "returns": "array",
