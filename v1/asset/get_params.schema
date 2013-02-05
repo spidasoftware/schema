@@ -1,5 +1,5 @@
 {
-    "id": "search_keys",
+    "id": "get_params",
     "type": "array",
     "description": "Keys to return and use in searching.",
     "items": {

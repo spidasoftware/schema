@@ -1,6 +1,6 @@
 {
     "type": "object",
-    "id":"seachable_keys",
+    "id":"find_params",
     "$schema": "http://json-schema.org/draft-03/schema",
     "properties": {
         "keys": {

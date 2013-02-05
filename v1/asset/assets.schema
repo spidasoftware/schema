@@ -1,0 +1,9 @@
+{
+    "id": "assets",
+    "description": "A SPIDAMin assets",
+    "type": "array",
+    "items": {
+        "description": "A SPIDAMin asset",
+        "type": {"$ref":"asset"}
+    }
+}

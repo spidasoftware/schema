@@ -21,12 +21,6 @@
         "geometry": {
             "$ref": "geometry"
         },
-        "stationAssets": {
-            "type": "array",
-            "required": false,
-            "items": {
-                "$ref": "asset"
-            }
-        }
+        "stationAssets": {"$ref": "assets"}
     }
 }

@@ -3,9 +3,7 @@
     "description": "A SPIDAMin stations",
     "type": "array",
     "items": {
-        "id": "location",
         "description": "A SPIDAMin station",
-        "type": {"$ref":"station"},
-       
+        "type": {"$ref":"station"}
     }
 }
