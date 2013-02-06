@@ -1,4 +1,10 @@
 {
+  "id": "asset_creation_service",
+  "description": "This service allows for the creation of assets",
+  "getName": {
+    "description": "Get name of this service.",
+    "returns": "string"
+  },
   "create": {
     "description": "Analyze given pole and wait for results",
     "type": "method",

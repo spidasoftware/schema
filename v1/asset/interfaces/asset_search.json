@@ -1,6 +1,10 @@
 {
     "id": "asset_search_service",
     "description": "This extention of the asset service allow for advanced searching",   
+    "getName": {
+        "description": "Get name of this service.",
+        "returns": "string"
+    },
     "findStations": {
         "description": "Find stations based on the given params.",
         "returns": "stations",
