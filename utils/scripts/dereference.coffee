@@ -83,6 +83,7 @@ exec('rm -rf ./public',(error, stdout, sterr)->
 	fs.mkdirSync('./public/v1/calc/client')
 	fs.mkdirSync('./public/v1/asset')
 	fs.mkdirSync('./public/v1/asset/interfaces')
+	fs.mkdirSync('./public/v1/general')
 
 	replaceAndSave("./v1/calc/calc_project.schema", "./public/v1/calc/calc_project.schema")
 	replaceAndSave("./v1/calc/design.schema", "./public/v1/calc/design.schema")
@@ -105,6 +106,11 @@ exec('rm -rf ./public',(error, stdout, sterr)->
 	for assetFile in assetFiles
 		if(!fs.statSync("./v1/asset/interfaces/"+assetFile).isDirectory())
 			replaceAndSave("./v1/asset/interfaces/"+assetFile, "./public/v1/asset/interfaces/"+assetFile)
+
+	generalFiles = fs.readdirSync("./v1/general")
+	for generalFile in generalFiles
+		if(!fs.statSync("./v1/general/"+generalFile).isDirectory())
+			replaceAndSave("./v1/general/"+generalFile, "./public/v1/general/"+generalFile)
 )
 
 

@@ -23,7 +23,7 @@
         "params": [
             {
                 "type": "https://raw.github.com/spidasoftware/schema/master/public/v1/asset/get_params.schema",
-                "name": "keys",
+                "name": "get_params",
                 "required": true,
                 "description": "Keys to return."
             },

@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "id": "geometry",
+  "properties": {
+    "coordinates": {
+      "type": "array",
+      "id": "coordinates",
+      "required": false,
+      "items": {
+        "type": "any",
+        "required": true
+      }
+    },
+    "type": {
+      "type": "string",
+      "id": "type",
+      "required": true
+    }
+  }
+}

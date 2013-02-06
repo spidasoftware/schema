@@ -23,7 +23,8 @@
                         { "value" : "SCHEMA_NOT_FOUND"            },
                         { "value" : "MISSING_RESOURCE"            },
                         { "value" : "MISSING_METHOD"              },   
-                        { "value" : "MISSING_REQUIRED_PARAM"      }   
+                        { "value" : "MISSING_REQUIRED_PARAM"      },
+                        { "value" : "INVALID_PARAM"               }   
                     ]
                 },
                 "message": {

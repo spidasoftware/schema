@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "id": "method_response",
+  "description": "The response wrapper for all SPIDA API methods.",
+  "properties": {
+    "result": {
+      "type": "any",
+      "id": "result",
+      "required": false
+    },
+    "error": {
+      "type": "object",
+      "id": "error",
+      "required": false,
+      "properties": {
+        "code": {
+          "type": "string",
+          "id": "code",
+          "required": true,
+          "choices": [
+            {
+              "value": "NO_ERROR"
+            },
+            {
+              "value": "INTERNAL_ERROR"
+            },
+            {
+              "value": "SCHEMA_NOT_FOUND"
+            },
+            {
+              "value": "MISSING_RESOURCE"
+            },
+            {
+              "value": "MISSING_METHOD"
+            },
+            {
+              "value": "MISSING_REQUIRED_PARAM"
+            },
+            {
+              "value": "INVALID_PARAM"
+            }
+          ]
+        },
+        "message": {
+          "type": "string",
+          "id": "message",
+          "required": true
+        }
+      }
+    }
+  }
+}
