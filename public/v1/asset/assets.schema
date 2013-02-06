@@ -1,0 +1,74 @@
+{
+  "id": "assets",
+  "description": "A SPIDAMin assets",
+  "type": "array",
+  "items": {
+    "description": "A SPIDAMin asset",
+    "type": {
+      "id": "asset",
+      "type": "object",
+      "properties": {
+        "assetType": {
+          "type": "string",
+          "required": true
+        },
+        "assetId": {
+          "type": "string",
+          "required": true
+        },
+        "assetAttachments": {
+          "type": "array",
+          "id": "assetAttachments",
+          "required": false,
+          "items": {
+            "type": "object",
+            "properties": {
+              "companyId": {
+                "type": "number"
+              },
+              "quantity": {
+                "type": "number"
+              },
+              "type": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "assetDetails": {
+          "type": "array",
+          "required": false,
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "assetTags": {
+          "type": "array",
+          "required": false,
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "primary": {
+                "type": "boolean"
+              },
+              "value": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

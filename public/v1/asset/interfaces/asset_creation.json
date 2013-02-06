@@ -1,0 +1,38 @@
+{
+  "create": {
+    "description": "Analyze given pole and wait for results",
+    "type": "method",
+    "returns": "boolean",
+    "params": [
+      {
+        "type": "object",
+        "name": "asset",
+        "required": true,
+        "description": "The asset object to create"
+      },
+      {
+        "type": "array",
+        "name": "files",
+        "required": false,
+        "description": "The asset object to create",
+        "items": {
+          "type": "string",
+          "description": "base64 encoded file"
+        }
+      }
+    ]
+  },
+  "delete": {
+    "description": "Analyze given pole and wait for results",
+    "type": "method",
+    "returns": "boolean",
+    "params": [
+      {
+        "type": "object",
+        "name": "asset",
+        "required": true,
+        "description": "The asset object to delete"
+      }
+    ]
+  }
+}

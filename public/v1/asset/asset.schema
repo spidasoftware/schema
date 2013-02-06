@@ -17,9 +17,15 @@
       "items": {
         "type": "object",
         "properties": {
-          "companyId": { "type": "number" },
-          "quantity": { "type": "number" },
-          "type": { "type": "string" }
+          "companyId": {
+            "type": "number"
+          },
+          "quantity": {
+            "type": "number"
+          },
+          "type": {
+            "type": "string"
+          }
         }
       }
     },
@@ -29,8 +35,12 @@
       "items": {
         "type": "object",
         "properties": {
-          "name": { "type": "string" },
-          "value": { "type": "string" }
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
         }
       }
     },
@@ -40,9 +50,15 @@
       "items": {
         "type": "object",
         "properties": {
-          "name": { "type": "string" },
-          "primary": {  "type": "boolean" },
-          "value": { "type": "string" }
+          "name": {
+            "type": "string"
+          },
+          "primary": {
+            "type": "boolean"
+          },
+          "value": {
+            "type": "string"
+          }
         }
       }
     }

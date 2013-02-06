@@ -1,0 +1,68 @@
+{
+  "id": "asset_service",
+  "description": "This schema allows for the analysis of poles",
+  "getName": {
+    "description": "Get name of this service.",
+    "returns": "string"
+  },
+  "getPossibleAssetTypes": {
+    "description": "Return the asset types this service returns.",
+    "returns": "array",
+    "params": [
+      {
+        "type": "number",
+        "name": "companyId",
+        "required": true,
+        "description": "Company to get the asset types for."
+      }
+    ]
+  },
+  "getStations": {
+    "description": "Analyze given pole and wait for results",
+    "returns": "stations",
+    "params": [
+      {
+        "type": "search_keys",
+        "name": "keys",
+        "required": true,
+        "description": "Keys to return."
+      },
+      {
+        "type": "geometry",
+        "name": "bbox",
+        "required": false,
+        "description": "A polygon that is the south, west, north, east of information to return.."
+      },
+      {
+        "type": "array",
+        "name": "foreignCompanyIds",
+        "required": false,
+        "description": "Company ids from the foreign companies."
+      },
+      {
+        "type": "boolean",
+        "name": "details",
+        "required": false,
+        "description": "Whether to fetch station asset details with the query."
+      }
+    ]
+  },
+  "getAssets": {
+    "description": "Analyze given pole and wait for results",
+    "returns": "assets",
+    "params": [
+      {
+        "type": "array",
+        "name": "assetIds",
+        "required": true,
+        "description": "Keys to return."
+      },
+      {
+        "type": "boolean",
+        "name": "details",
+        "required": false,
+        "description": "Whether to fetch station asset details with the query."
+      }
+    ]
+  }
+}

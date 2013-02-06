@@ -1,0 +1,116 @@
+{
+  "id": "station",
+  "description": "A SPIDAMin station",
+  "type": "object",
+  "properties": {
+    "locationId": {
+      "type": "string"
+    },
+    "spotted": {
+      "type": "boolean"
+    },
+    "requiredFilled": {
+      "type": "boolean"
+    },
+    "type": {
+      "type": "string"
+    },
+    "id": {
+      "type": "number"
+    },
+    "geometry": {
+      "type": "object",
+      "id": "geometry",
+      "properties": {
+        "coordinates": {
+          "type": "array",
+          "id": "coordinates",
+          "required": false,
+          "items": {
+            "type": "any",
+            "required": true
+          }
+        },
+        "type": {
+          "type": "string",
+          "id": "type",
+          "required": true
+        }
+      }
+    },
+    "stationAssets": {
+      "id": "assets",
+      "description": "A SPIDAMin assets",
+      "type": "array",
+      "items": {
+        "description": "A SPIDAMin asset",
+        "type": {
+          "id": "asset",
+          "type": "object",
+          "properties": {
+            "assetType": {
+              "type": "string",
+              "required": true
+            },
+            "assetId": {
+              "type": "string",
+              "required": true
+            },
+            "assetAttachments": {
+              "type": "array",
+              "id": "assetAttachments",
+              "required": false,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "companyId": {
+                    "type": "number"
+                  },
+                  "quantity": {
+                    "type": "number"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "assetDetails": {
+              "type": "array",
+              "required": false,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "assetTags": {
+              "type": "array",
+              "required": false,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "primary": {
+                    "type": "boolean"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

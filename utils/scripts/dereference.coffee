@@ -11,6 +11,7 @@ log4js = require('log4js')
 logger = log4js.getLogger()
 logger.setLevel('INFO')
 schemaMap = new Object
+
 loadSchemasInFolder = (folder) ->
 	files = fs.readdirSync(folder)
 	#util.puts "loading schemas in #{folder}"
@@ -28,6 +29,7 @@ loadSchemasInFolder = (folder) ->
 loadSupportSchemas = () ->
 	loadSchemasInFolder("./v1/general")
 	loadSchemasInFolder("./v1/calc")
+	loadSchemasInFolder("./v1/asset")
 	loadSchemasInFolder("./v1/calc/client")
 
 replaceReferences = (schema) ->
@@ -73,14 +75,36 @@ replaceAndSave = (source, dest) ->
 	replaceExtends(schema)
 	fs.writeFileSync(dest, JSON.stringify(schema, null, 2))
 
-replaceAndSave("./v1/calc/calc_project.schema", "./public/v1/calc/calc_project.schema")
-replaceAndSave("./v1/calc/design.schema", "./public/v1/calc/design.schema")
-replaceAndSave("./v1/calc/framing_plan.schema", "./public/v1/calc/framing_plan.schema")
-replaceAndSave("./v1/calc/client/client_anchor.schema", "./public/v1/calc/client/client_anchor.schema")
-replaceAndSave("./v1/calc/client/client_crossarm.schema", "./public/v1/calc/client/client_crossarm.schema")
-replaceAndSave("./v1/calc/client/client_equipment.schema", "./public/v1/calc/client/client_equipment.schema")
-replaceAndSave("./v1/calc/client/client_insulator.schema", "./public/v1/calc/client/client_insulator.schema")
-replaceAndSave("./v1/calc/client/client_pole.schema", "./public/v1/calc/client/client_pole.schema")
-replaceAndSave("./v1/calc/client/client_wire.schema", "./public/v1/calc/client/client_wire.schema")
-replaceAndSave("./v1/calc/client/client_bundle.schema", "./public/v1/calc/client/client_bundle.schema")
+exec = require('child_process').exec
+exec('rm -rf ./public',(error, stdout, sterr)->
+	fs.mkdirSync('./public')
+	fs.mkdirSync('./public/v1')
+	fs.mkdirSync('./public/v1/calc')
+	fs.mkdirSync('./public/v1/calc/client')
+	fs.mkdirSync('./public/v1/asset')
+	fs.mkdirSync('./public/v1/asset/interfaces')
+
+	replaceAndSave("./v1/calc/calc_project.schema", "./public/v1/calc/calc_project.schema")
+	replaceAndSave("./v1/calc/design.schema", "./public/v1/calc/design.schema")
+	replaceAndSave("./v1/calc/framing_plan.schema", "./public/v1/calc/framing_plan.schema")
+	replaceAndSave("./v1/calc/client/client_anchor.schema", "./public/v1/calc/client/client_anchor.schema")
+	replaceAndSave("./v1/calc/client/client_crossarm.schema", "./public/v1/calc/client/client_crossarm.schema")
+	replaceAndSave("./v1/calc/client/client_equipment.schema", "./public/v1/calc/client/client_equipment.schema")
+	replaceAndSave("./v1/calc/client/client_insulator.schema", "./public/v1/calc/client/client_insulator.schema")
+	replaceAndSave("./v1/calc/client/client_pole.schema", "./public/v1/calc/client/client_pole.schema")
+	replaceAndSave("./v1/calc/client/client_wire.schema", "./public/v1/calc/client/client_wire.schema")
+	replaceAndSave("./v1/calc/client/client_bundle.schema", "./public/v1/calc/client/client_bundle.schema")
+
+	# Dereference the Asset and AssetService stuff
+	assetFiles = fs.readdirSync("./v1/asset")
+	for assetFile in assetFiles
+		if(!fs.statSync("./v1/asset/"+assetFile).isDirectory())
+			replaceAndSave("./v1/asset/"+assetFile, "./public/v1/asset/"+assetFile)# Dereference the Asset and AssetService stuff
+
+	assetFiles = fs.readdirSync("./v1/asset/interfaces")
+	for assetFile in assetFiles
+		if(!fs.statSync("./v1/asset/interfaces/"+assetFile).isDirectory())
+			replaceAndSave("./v1/asset/interfaces/"+assetFile, "./public/v1/asset/interfaces/"+assetFile)
+)
+
 
