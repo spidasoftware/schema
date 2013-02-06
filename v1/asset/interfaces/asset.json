@@ -11,7 +11,7 @@
         "params": [
             {
                 "type": "number",
-                "name": "companyId",
+                "name": "company_id",
                 "required": true,
                 "description": "Company to get the asset types for."
             }
@@ -29,13 +29,13 @@
             },
             {
                 "type": "https://raw.github.com/spidasoftware/schema/master/public/v1/general/geometry.schema",
-                "name": "bbox",
+                "name": "bounding_box",
                 "required": false,
                 "description": "A polygon that is the south, west, north, east of information to return.."
             },
             {
                 "type": "array",
-                "name": "foreignCompanyIds",
+                "name": "foreign_company_ids",
                 "required": false,
                 "description": "Company ids from the foreign companies."
             },
@@ -53,7 +53,7 @@
         "params": [
             {
                 "type": "array",
-                "name": "assetIds",
+                "name": "asset_ids",
                 "required": true,
                 "description": "Keys to return."
             },
