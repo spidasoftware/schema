@@ -2,11 +2,11 @@
   "id": "asset_search_service",
   "description": "This extention of the asset service allow for advanced searching",
   "findStations": {
-    "description": "Analyze given pole and wait for results",
+    "description": "Find stations based on the given params.",
     "returns": "stations",
     "params": [
       {
-        "type": "advanced_params",
+        "type": "https://raw.github.com/spidasoftware/schema/master/public/v1/asset/find_params.schema",
         "name": "advanced_params",
         "required": true,
         "description": "A formatted advanced search JSON object."
@@ -20,7 +20,7 @@
     ]
   },
   "getSearchableKeys": {
-    "description": "Analyze given pole and wait for results",
-    "returns": "searchable_keys"
+    "description": "Get the options for searching on this service",
+    "returns": "https://raw.github.com/spidasoftware/schema/master/public/v1/asset/find_options.schema"
   }
 }

@@ -19,16 +19,16 @@
     },
     "getStations": {
         "description": "Analyze given pole and wait for results",
-        "returns": "stations",
+        "returns": "https://raw.github.com/spidasoftware/schema/master/public/v1/asset/stations.schema",
         "params": [
             {
-                "type": "search_keys",
+                "type": "https://raw.github.com/spidasoftware/schema/master/public/v1/asset/get_params.schema",
                 "name": "keys",
                 "required": true,
                 "description": "Keys to return."
             },
             {
-                "type": "geometry",
+                "type": "https://raw.github.com/spidasoftware/schema/master/public/v1/general/geometry.schema",
                 "name": "bbox",
                 "required": false,
                 "description": "A polygon that is the south, west, north, east of information to return.."
@@ -49,7 +49,7 @@
     },
     "getAssets": {
         "description": "Analyze given pole and wait for results",
-        "returns": "assets",
+        "returns": "https://raw.github.com/spidasoftware/schema/master/public/v1/asset/assets.schema",
         "params": [
             {
                 "type": "array",
