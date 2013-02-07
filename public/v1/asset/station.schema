@@ -43,86 +43,82 @@
       "description": "A SPIDAMin assets",
       "type": "array",
       "items": {
-        "id": "assetsItem",
-        "description": "A SPIDAMin asset",
-        "type": {
-          "id": "asset",
-          "type": "object",
-          "properties": {
-            "assetId": {
-              "id": "assetId",
-              "type": "string",
-              "required": true
-            },
-            "assetType": {
-              "id": "assetType",
-              "type": "string",
-              "required": true,
-              "choices": [
-                {
-                  "value": "POLE"
+        "id": "asset",
+        "type": "object",
+        "properties": {
+          "assetId": {
+            "id": "assetId",
+            "type": "string",
+            "required": true
+          },
+          "assetType": {
+            "id": "assetType",
+            "type": "string",
+            "required": true,
+            "choices": [
+              {
+                "value": "POLE"
+              },
+              {
+                "value": "NJUNS"
+              },
+              {
+                "value": "ANALYSIS"
+              }
+            ]
+          },
+          "assetAttachments": {
+            "id": "assetAttachments",
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "object",
+              "properties": {
+                "companyId": {
+                  "type": "number"
                 },
-                {
-                  "value": "NJUNS"
+                "quantity": {
+                  "type": "number"
                 },
-                {
-                  "value": "ANALYSIS"
-                }
-              ]
-            },
-            "assetAttachments": {
-              "id": "assetAttachments",
-              "type": "array",
-              "required": false,
-              "items": {
-                "type": "object",
-                "properties": {
-                  "companyId": {
-                    "type": "number"
-                  },
-                  "quantity": {
-                    "type": "number"
-                  },
-                  "type": {
-                    "type": "string"
-                  }
+                "type": {
+                  "type": "string"
                 }
               }
-            },
-            "assetDetails": {
-              "id": "assetDetails",
-              "type": "array",
-              "required": false,
-              "items": {
-                "id": "assetDetailsItem",
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "value": {
-                    "type": "string"
-                  }
+            }
+          },
+          "assetDetails": {
+            "id": "assetDetails",
+            "type": "array",
+            "required": false,
+            "items": {
+              "id": "assetDetailsItem",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
                 }
               }
-            },
-            "assetTags": {
-              "id": "assetTags",
-              "type": "array",
-              "required": false,
-              "items": {
-                "id": "assetTagsItem",
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "primary": {
-                    "type": "boolean"
-                  },
-                  "value": {
-                    "type": "string"
-                  }
+            }
+          },
+          "assetTags": {
+            "id": "assetTags",
+            "type": "array",
+            "required": false,
+            "items": {
+              "id": "assetTagsItem",
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "primary": {
+                  "type": "boolean"
+                },
+                "value": {
+                  "type": "string"
                 }
               }
             }

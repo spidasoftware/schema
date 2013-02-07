@@ -2,8 +2,5 @@
     "id": "stations",
     "description": "A SPIDAMin stations",
     "type": "array",
-    "items": {
-        "description": "A SPIDAMin station",
-        "type": {"$ref":"station"}
-    }
+    "items": {"$ref":"station"}
 }
