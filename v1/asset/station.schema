@@ -1,26 +1,40 @@
 {
-    "id": "station",
-    "description": "A SPIDAMin station",
-    "type": "object",
-    "properties": {
-        "stationId": {
-            "type": "string"
-        },
-        "spotted": {
-            "type": "boolean"
-        },
-        "requiredFilled": {
-            "type": "boolean"
-        },
-        "type": {
-            "type": "string"
-        },
-        "id": {
-            "type": "number"
-        },
-        "geometry": {
-            "$ref": "geometry"
-        },
-        "stationAssets": {"$ref": "assets"}
+  "id": "station",
+  "description": "A SPIDAMin station",
+  "type": "object",
+  "properties": {
+    "id": {
+      "required": true,
+      "type": "number"
+    },
+    "stationId": {
+      "type": "string",
+      "required": true
+    },
+    "dataProviderId": {
+      "type": "string",
+      "required": true,
+      "description": "Id of company that provided the asset data"
+    },
+    "primaryAssetOwnerId": {
+      "type": "string",
+      "required": true,
+      "description": "Id of company that provided the asset data"
+    },
+    "type": {
+      "required": true,
+      "type": "string"
+    },
+    "assetTypes": {
+      "required": true,
+      "type": "string"
+    },
+    "geometry": {
+      "required": true,
+      "$ref": "geometry"
+    },
+    "stationAssets": {
+      "$ref": "assets"
     }
+  }
 }

@@ -3,20 +3,31 @@
   "description": "A SPIDAMin station",
   "type": "object",
   "properties": {
+    "id": {
+      "required": true,
+      "type": "number"
+    },
     "stationId": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
-    "spotted": {
-      "type": "boolean"
+    "dataProviderId": {
+      "type": "string",
+      "required": true,
+      "description": "Id of company that provided the asset data"
     },
-    "requiredFilled": {
-      "type": "boolean"
+    "primaryAssetOwnerId": {
+      "type": "string",
+      "required": true,
+      "description": "Id of company that provided the asset data"
     },
     "type": {
+      "required": true,
       "type": "string"
     },
-    "id": {
-      "type": "number"
+    "assetTypes": {
+      "required": true,
+      "type": "string"
     },
     "geometry": {
       "type": "object",
