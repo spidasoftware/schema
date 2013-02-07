@@ -3,10 +3,6 @@
   "description": "A SPIDAMin station",
   "type": "object",
   "properties": {
-    "id": {
-      "required": true,
-      "type": "number"
-    },
     "stationId": {
       "type": "string",
       "required": true
