@@ -9,7 +9,7 @@
       "description": "A SPIDAMin station",
       "type": "object",
       "properties": {
-        "locationId": {
+        "stationId": {
           "type": "string"
         },
         "spotted": {
