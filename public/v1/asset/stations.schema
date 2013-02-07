@@ -12,14 +12,14 @@
         "required": true
       },
       "dataProviderId": {
-        "type": "string",
+        "type": "number",
         "required": true,
         "description": "Id of company that provided the asset data"
       },
       "primaryAssetOwnerId": {
-        "type": "string",
+        "type": "number",
         "required": true,
-        "description": "Id of company that provided the asset data"
+        "description": "Id of company that owns the primary asset"
       },
       "type": {
         "required": true,
