@@ -3,18 +3,24 @@
   "type": "object",
   "properties": {
     "assetId": {
-      "id":"assetId",
+      "id": "assetId",
       "type": "string",
       "required": true
     },
     "assetType": {
-      "id":"assetType",
+      "id": "assetType",
       "type": "string",
       "required": true,
-      "choices" : [
-          { "value" : "POLE"                    },
-          { "value" : "NJUNS"                   },
-          { "value" : "ANALYSIS"                }
+      "choices": [
+        {
+          "value": "POLE"
+        },
+        {
+          "value": "NJUNS"
+        },
+        {
+          "value": "ANALYSIS"
+        }
       ]
     },
     "assetAttachments": {
@@ -24,36 +30,60 @@
       "items": {
         "type": "object",
         "properties": {
-          "companyId": { "type": "number" },
-          "quantity": { "type": "number" },
-          "type": { "type": "string" }
+          "companyId": {
+            "required": true,
+            "type": "number"
+          },
+          "quantity": {
+            "required": true,
+            "type": "number"
+          },
+          "type": {
+            "required": true,
+            "type": "string"
+          }
         }
       }
     },
     "assetDetails": {
-      "id":"assetDetails",
+      "id": "assetDetails",
       "type": "array",
       "required": false,
       "items": {
-        "id":"assetDetailsItem",
+        "id": "assetDetailsItem",
         "type": "object",
         "properties": {
-          "name": { "type": "string" },
-          "value": { "type": "string" }
+          "name": {
+            "required": true,
+            "type": "string"
+          },
+          "value": {
+            "required": true,
+            "type": "string"
+          }
         }
       }
     },
     "assetTags": {
-      "id":"assetTags",
+      "id": "assetTags",
       "type": "array",
       "required": false,
       "items": {
-        "id":"assetTagsItem",
+        "id": "assetTagsItem",
         "type": "object",
         "properties": {
-          "name": { "type": "string" },
-          "primary": {  "type": "boolean" },
-          "value": { "type": "string" }
+          "name": {
+            "required": true,
+            "type": "string"
+          },
+          "primary": {
+            "required": true,
+            "type": "boolean"
+          },
+          "value": {
+            "required": true,
+            "type": "string"
+          }
         }
       }
     }

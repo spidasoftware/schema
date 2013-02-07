@@ -101,12 +101,15 @@
                 "type": "object",
                 "properties": {
                   "companyId": {
+                    "required": true,
                     "type": "number"
                   },
                   "quantity": {
+                    "required": true,
                     "type": "number"
                   },
                   "type": {
+                    "required": true,
                     "type": "string"
                   }
                 }
@@ -121,9 +124,11 @@
                 "type": "object",
                 "properties": {
                   "name": {
+                    "required": true,
                     "type": "string"
                   },
                   "value": {
+                    "required": true,
                     "type": "string"
                   }
                 }
@@ -138,12 +143,15 @@
                 "type": "object",
                 "properties": {
                   "name": {
+                    "required": true,
                     "type": "string"
                   },
                   "primary": {
+                    "required": true,
                     "type": "boolean"
                   },
                   "value": {
+                    "required": true,
                     "type": "string"
                   }
                 }
