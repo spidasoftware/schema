@@ -23,7 +23,22 @@
     },
     "assetTypes": {
       "required": true,
-      "type": "string"
+      "type": "array",
+      "items": {
+        "type": "string",
+        "required": true,
+        "choices": [
+          {
+            "value": "POLE"
+          },
+          {
+            "value": "NJUNS"
+          },
+          {
+            "value": "ANALYSIS"
+          }
+        ]
+      }
     },
     "geometry": {
       "type": "object",
