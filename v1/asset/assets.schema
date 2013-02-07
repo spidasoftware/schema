@@ -3,6 +3,7 @@
     "description": "A SPIDAMin assets",
     "type": "array",
     "items": {
+        "id":"assetsItem",
         "description": "A SPIDAMin asset",
         "type": {"$ref":"asset"}
     }

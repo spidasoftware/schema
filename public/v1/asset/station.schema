@@ -43,16 +43,19 @@
       "description": "A SPIDAMin assets",
       "type": "array",
       "items": {
+        "id": "assetsItem",
         "description": "A SPIDAMin asset",
         "type": {
           "id": "asset",
           "type": "object",
           "properties": {
             "assetId": {
+              "id": "assetId",
               "type": "string",
               "required": true
             },
             "assetType": {
+              "id": "assetType",
               "type": "string",
               "required": true,
               "choices": [
@@ -68,8 +71,8 @@
               ]
             },
             "assetAttachments": {
-              "type": "array",
               "id": "assetAttachments",
+              "type": "array",
               "required": false,
               "items": {
                 "type": "object",
@@ -87,9 +90,11 @@
               }
             },
             "assetDetails": {
+              "id": "assetDetails",
               "type": "array",
               "required": false,
               "items": {
+                "id": "assetDetailsItem",
                 "type": "object",
                 "properties": {
                   "name": {
@@ -102,9 +107,11 @@
               }
             },
             "assetTags": {
+              "id": "assetTags",
               "type": "array",
               "required": false,
               "items": {
+                "id": "assetTagsItem",
                 "type": "object",
                 "properties": {
                   "name": {
