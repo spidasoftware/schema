@@ -8,13 +8,24 @@
       "id": "asset",
       "type": "object",
       "properties": {
-        "assetType": {
-          "type": "string",
-          "required": true
-        },
         "assetId": {
           "type": "string",
           "required": true
+        },
+        "assetType": {
+          "type": "string",
+          "required": true,
+          "choices": [
+            {
+              "value": "POLE"
+            },
+            {
+              "value": "NJUNS"
+            },
+            {
+              "value": "ANALYSIS"
+            }
+          ]
         },
         "assetAttachments": {
           "type": "array",
