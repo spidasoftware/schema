@@ -12,9 +12,8 @@
             }
         },
         "type": {
-            "type": "string",
-            "id": "type",
-            "required": true
+            "required": true,
+            "type": "string"
         }
     }
 }
