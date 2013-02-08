@@ -2,5 +2,5 @@
     "id": "assets",
     "description": "A SPIDAMin assets",
     "type": "array",
-    "items": {"$ref":"asset"}
+    "items": {"$ref":"https://raw.github.com/spidasoftware/schema/master/v1/asset/asset.schema"}
 }

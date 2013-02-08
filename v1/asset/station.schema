@@ -42,10 +42,10 @@
     },
     "geometry": {
       "required": true,
-      "$ref": "geometry"
+      "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/geometry.schema"
     },
     "stationAssets": {
-      "$ref": "assets"
+      "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/asset/assets.schema"
     }
   }
 }
