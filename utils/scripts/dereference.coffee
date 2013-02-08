@@ -29,7 +29,6 @@ loadSchemasInFolder = (folder) ->
 loadSupportSchemas = () ->
 	loadSchemasInFolder("./v1/general")
 	loadSchemasInFolder("./v1/calc")
-	loadSchemasInFolder("./v1/asset")
 	loadSchemasInFolder("./v1/calc/client")
 
 replaceReferences = (schema) ->
@@ -96,21 +95,6 @@ exec('rm -rf ./public',(error, stdout, sterr)->
 	replaceAndSave("./v1/calc/client/client_wire.schema", "./public/v1/calc/client/client_wire.schema")
 	replaceAndSave("./v1/calc/client/client_bundle.schema", "./public/v1/calc/client/client_bundle.schema")
 
-	# Dereference the Asset and AssetService stuff
-	assetFiles = fs.readdirSync("./v1/asset")
-	for assetFile in assetFiles
-		if(!fs.statSync("./v1/asset/"+assetFile).isDirectory())
-			replaceAndSave("./v1/asset/"+assetFile, "./public/v1/asset/"+assetFile)# Dereference the Asset and AssetService stuff
-
-	assetFiles = fs.readdirSync("./v1/asset/interfaces")
-	for assetFile in assetFiles
-		if(!fs.statSync("./v1/asset/interfaces/"+assetFile).isDirectory())
-			replaceAndSave("./v1/asset/interfaces/"+assetFile, "./public/v1/asset/interfaces/"+assetFile)
-
-	generalFiles = fs.readdirSync("./v1/general")
-	for generalFile in generalFiles
-		if(!fs.statSync("./v1/general/"+generalFile).isDirectory())
-			replaceAndSave("./v1/general/"+generalFile, "./public/v1/general/"+generalFile)
 )
 
 

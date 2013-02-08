@@ -1,7 +1,7 @@
 {
     "type": "object",
     "$schema": "http://json-schema.org/draft-03/schema",
-    "id": "advanced_params",
+    "id": "find_params",
     "properties": {
         "groups": {
             "type": "array",
