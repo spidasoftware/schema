@@ -41,7 +41,6 @@
       }
     },
     "geometry": {
-      "required": true,
       "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/geometry.schema"
     },
     "stationAssets": {
