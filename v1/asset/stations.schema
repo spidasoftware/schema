@@ -1,6 +1,15 @@
 {
-    "id": "stations",
-    "description": "A SPIDAMin stations",
-    "type": "array",
-    "items": {"$ref":"station"}
+  "id": "stations",
+  "description": "A SPIDAMin stations",
+  "type": "object",
+  "properties": {
+    "stations": {
+      "type": "array",
+      "required": true,
+      "items": {
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/asset/station.schema"
+      }
+    },
+    "geometry": {"$ref":"https://raw.github.com/spidasoftware/schema/master/v1/general/geometry.schema"}
+  }
 }

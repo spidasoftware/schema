@@ -11,7 +11,7 @@
         "returns": "boolean",
         "params": [
             {
-                "type": "https://raw.github.com/spidasoftware/schema/master/public/v1/asset/asset.schema",
+                "type": "https://raw.github.com/spidasoftware/schema/master/v1/asset/asset.schema",
                 "name": "asset",
                 "required": true,
                 "description": "The asset object to create"
@@ -34,7 +34,7 @@
         "returns": "boolean",
         "params": [
             {
-                "type": "https://raw.github.com/spidasoftware/schema/master/public/v1/asset/asset.schema",
+                "type": "https://raw.github.com/spidasoftware/schema/master/v1/asset/asset.schema",
                 "name": "asset",
                 "required": true,
                 "description": "The asset object to delete"

@@ -22,10 +22,10 @@
         "returns": "https://raw.github.com/spidasoftware/schema/master/public/v1/asset/stations.schema",
         "params": [
             {
-                "type": "https://raw.github.com/spidasoftware/schema/master/public/v1/asset/get_params.schema",
-                "name": "get_params",
+                "type": "array",
+                "name": "station_ids",
                 "required": true,
-                "description": "Keys to return."
+                "description": "Ids of stations to return."
             },
             {
                 "type": "https://raw.github.com/spidasoftware/schema/master/public/v1/general/geometry.schema",
