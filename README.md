@@ -6,7 +6,7 @@ SPIDA Software JSON Interfaces
 General Overview of the Schema
 --------------------------------
 
-We will strive for simplicity.
+We will strive for simplicity, and it is still being working on.
 
 There will be two types of services "remote procedures" and "stateful services".
 
@@ -39,19 +39,18 @@ The second type of services are "REST" services.  These services differ from the
 
 * Request: REST type methods will be done agains a url that ends with the id or object name.  
 * Params: parameters for the procedure are included in the http params list after the method name i.e. project/1?
-* Response: the response will always be formated in the generic "method_response", this allows for passing error codes and the result. Example: {"error":"Object not found"}
+* Response: the response will always be formated in the generic "method_response", this allows for passing error codes and the result. Example: {"error":"Object not found"} 
 
-### General Objects
-
-#### Response
-
-We have wrapped all our responses in a basic object to allow for error codes.
-
-#### Geometry
-
-Geometry objects should conform to the [geojson object spec](http://www.geojson.org/geojson-spec.html).  
+### Schema Parts
+1. [Asset](https://github.com/spidasoftware/schema/tree/master/v1/asset)
+2. [General](https://github.com/spidasoftware/schema/tree/master/v1/general)
 
 ### Tools
+
+#### Validation
+
+1. Java - We have used the excellent library by [fge](https://github.com/fge/json-schema-validator) in our java environments.  It gives very good validation errors and also does all the references for you, so there is no need to load all the linked schemas.
+2. javascript - [JSV](https://github.com/garycourt/JSV) is what we have used in our javascript tests here in this package.  The references are harder to handle, but still good.
 
 #### Script Defreference
 

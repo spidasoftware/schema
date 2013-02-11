@@ -24,14 +24,14 @@
             {
                 "type": "array",
                 "name": "station_ids",
-                "required": true,
-                "description": "Ids of stations to return."
+                "required": false,
+                "description": "Ids of stations to return.  Required if bounding box not provided."
             },
             {
                 "type": "https://raw.github.com/spidasoftware/schema/master/public/v1/general/geometry.schema",
                 "name": "bounding_box",
                 "required": false,
-                "description": "A polygon that is the south, west, north, east of information to return.."
+                "description": "A polygon that is the south, west, north, east of information to return. Required if no station ids provided."
             },
             {
                 "type": "array",

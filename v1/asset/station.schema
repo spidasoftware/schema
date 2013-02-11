@@ -19,10 +19,12 @@
     },
     "type": {
       "required": true,
-      "type": "string"
+      "type": "string",
+      "description": "Type of the primary asset"
     },
     "assetTypes": {
       "required": true,
+      "description": "All available asset types at this station",
       "type": "array",
       "items": {
         "type": "string",
