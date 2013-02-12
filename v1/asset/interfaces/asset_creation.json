@@ -5,22 +5,28 @@
         "description": "Get name of this service.",
         "returns": "string"
     },
-    "create": {
+    "createOrUpdate": {
         "description": "Analyze given pole and wait for results",
         "type": "method",
         "returns": "boolean",
         "params": [
             {
+                "type": "https://raw.github.com/spidasoftware/schema/master/v1/asset/station.schema",
+                "name": "station",
+                "required": false,
+                "description": "The station object to create or update, station or asset required"
+            },
+            {
                 "type": "https://raw.github.com/spidasoftware/schema/master/v1/asset/asset.schema",
                 "name": "asset",
-                "required": true,
-                "description": "The asset object to create"
+                "required": false,
+                "description": "The station object to create or update, station or asset required"
             },
             {
                 "type": "array",
                 "name": "files",
                 "required": false,
-                "description": "The asset object to create",
+                "description": "The station file to create or update",
                 "items": {
                     "type": "string",
                     "description": "base64 encoded file"
@@ -36,7 +42,13 @@
             {
                 "type": "https://raw.github.com/spidasoftware/schema/master/v1/asset/asset.schema",
                 "name": "asset",
-                "required": true,
+                "required": false,
+                "description": "The asset object to delete"
+            },
+            {
+                "type": "https://raw.github.com/spidasoftware/schema/master/v1/asset/station.schema",
+                "name": "station",
+                "required": false,
                 "description": "The asset object to delete"
             }
         ]

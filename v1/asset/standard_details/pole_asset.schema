@@ -1,8 +1,8 @@
 {
     "id": "pole_asset",
     "description": "A SPIDA pole asset",
-    "type": "object",
-    "properties": {
+    "type": "array",
+    "items": {
         "poleClass": {"type": "string"},
         "construction": {"type": "string"},
         "county": {"type": "string"},
