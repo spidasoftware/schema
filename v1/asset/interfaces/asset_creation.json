@@ -40,16 +40,16 @@
         "returns": "boolean",
         "params": [
             {
-                "type": "https://raw.github.com/spidasoftware/schema/master/v1/asset/asset.schema",
-                "name": "asset",
+                "type": "string",
+                "name": "asset_id",
                 "required": false,
-                "description": "The asset object to delete"
+                "description": "The asset object id to delete"
             },
             {
-                "type": "https://raw.github.com/spidasoftware/schema/master/v1/asset/station.schema",
-                "name": "station",
+                "type": "string",
+                "name": "station_id",
                 "required": false,
-                "description": "The asset object to delete"
+                "description": "The asset object id to delete"
             }
         ]
     }
