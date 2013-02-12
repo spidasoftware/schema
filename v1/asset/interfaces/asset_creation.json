@@ -8,7 +8,7 @@
     "createOrUpdate": {
         "description": "Analyze given pole and wait for results",
         "type": "method",
-        "returns": "boolean",
+        "returns": "https://raw.github.com/spidasoftware/schema/master/v1/general/id.schema",
         "params": [
             {
                 "type": "https://raw.github.com/spidasoftware/schema/master/v1/asset/station.schema",
@@ -37,7 +37,7 @@
     "delete": {
         "description": "Analyze given pole and wait for results",
         "type": "method",
-        "returns": "boolean",
+        "returns": "https://raw.github.com/spidasoftware/schema/master/v1/general/id.schema",
         "params": [
             {
                 "type": "string",

@@ -17,7 +17,7 @@
       "required": true,
       "description": "Id of company that owns the primary asset"
     },
-    "type": {
+    "primaryAssetType": {
       "required": true,
       "type": "string",
       "description": "Type of the primary asset"

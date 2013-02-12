@@ -8,6 +8,10 @@ class ResponseUtils {
 		return new JSONObject(result:resultJson).toString()
 	}
 
+	static String resultId(id){
+		return new JSONObject(result:new JSONObject(id:id)).toString()
+	}
+
 	static String error(codeString, messageString){
 		return new JSONObject(error:new JSONObject(code:codeString, message:messageString)).toString()
 	}

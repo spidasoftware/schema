@@ -7,6 +7,16 @@
       "type": "string",
       "required": true
     },
+    "stationId": {
+      "id": "assetId",
+      "type": "string",
+      "required": false
+    },
+    "ownerId": {
+      "id": "ownerId",
+      "type": "number",
+      "required": false
+    },
     "assetType": {
       "id": "assetType",
       "type": "string",

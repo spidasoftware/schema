@@ -4,7 +4,7 @@
   "description": "General id holder for success responses",
   "properties": {
     "id": {
-      "type": "string",
+      "type": [ "number", "string" ],
       "required": true
     }
   }
