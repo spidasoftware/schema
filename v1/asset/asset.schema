@@ -12,15 +12,9 @@
       "type": "string",
       "required": true,
       "choices": [
-        {
-          "value": "POLE"
-        },
-        {
-          "value": "NJUNS"
-        },
-        {
-          "value": "ANALYSIS"
-        }
+        { "value": "POLE" },
+        { "value": "NJUNS" },
+        { "value": "ANALYSIS" }
       ]
     },
     "assetAttachments": {

@@ -13,7 +13,7 @@
       "description": "Id of company that provided the asset data"
     },
     "primaryAssetOwnerId": {
-      "type": "number",
+      "type": "number", 
       "required": true,
       "description": "Id of company that owns the primary asset"
     },
@@ -30,15 +30,9 @@
         "type": "string",
         "required": true,
         "choices": [
-          {
-            "value": "POLE"
-          },
-          {
-            "value": "NJUNS"
-          },
-          {
-            "value": "ANALYSIS"
-          }
+          { "value": "POLE" },
+          { "value": "NJUNS" },
+          { "value": "ANALYSIS" }
         ]
       }
     },

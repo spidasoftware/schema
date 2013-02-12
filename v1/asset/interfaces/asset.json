@@ -1,6 +1,6 @@
 {
     "id": "asset_service",
-    "description": "This schema allows for the analysis of poles",
+    "description": "Manage Assets in AssetManager",
     "getName": {
         "description": "Get name of this service.",
         "returns": "string"

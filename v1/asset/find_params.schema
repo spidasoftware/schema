@@ -1,31 +1,31 @@
 {
-    "type": "object",
-    "id": "find_params",
-    "properties": {
-        "groups": {
+  "type": "object",
+  "id": "find_params",
+  "properties": {
+    "groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "entries": {
             "type": "array",
             "items": {
-                "type": "object",
-                "properties": {
-                    "entries": {
-                        "type": "array",
-                        "items": {
-                            "type": "object",
-                            "properties": {
-                                "key": {
-                                    "type": "string"
-                                },
-                                "operator": {
-                                    "type": "string"
-                                },
-                                "value": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    }
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "operator": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
                 }
+              }
             }
+          }
         }
+      }
     }
+  }
 }

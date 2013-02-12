@@ -12,7 +12,7 @@ describe('project', function() {
   return it('load the external project schema', function() {
     var data, json, report, schema;
     logger.info("load the external project schema");
-    data = fs.readFileSync("./v1/pm/pm_project.schema");
+    data = fs.readFileSync("./v1/pm/project.schema");
     schema = JSON.parse(data);
     json = {
       "name": "test name"

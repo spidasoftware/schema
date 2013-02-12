@@ -1,0 +1,47 @@
+{
+  "id": "project",
+  "description": "A ProjectManager project",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number",
+      "required": false
+    },
+    "name": {
+      "type": "string"
+    },
+    "address": {
+      "$ref": "address"
+    },
+    "status": {
+      "type": "string",
+      "required": false
+    },
+    "draft": {
+      "type": "boolean"
+    },
+    "projectCodes": {
+      "type": "array",
+      "description": "Codes for the project.",
+      "items": {
+        "type": "string",
+        "value": "string"
+      }
+    },
+    "dataFormIds": {
+      "type": "array",
+      "description": "Data form ids for the project.",
+      "items": {
+        "type": "number"
+      }
+    },
+    "stations": {
+      "type": "array",
+      "items": {
+        "extends": { "$ref" : "station" },
+        "id": "location",
+        "description": "A project manager station"
+      }
+    }
+  }
+}

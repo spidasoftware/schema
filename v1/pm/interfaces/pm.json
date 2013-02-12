@@ -1,23 +1,37 @@
 {
-    "post": {
-        "description": "Update a project",
-        "type": "method",
-        "returns": "boolean"    
-    },
-    "get": {
-        "description": "Return a list of projects",
-        "type": "method",
-        "returns": "boolean",
-        "params": [
-            {
-                "type": "string",
-                "name": "id",
-                "required": false,
-                "description": "Return a specific project else a list of all your projects"
-            }
-        ]
-    },
+  "id": "pm",
+  "description": "Manage Projects in ProjectManager",
+  "post": {
+    "description": "Update a project",
+    "type": "method",
+    "returns": "boolean"    
+  },
 
-    "id": "http://spidasoftware.com/project_interface.schema",
-    "description": "This schema allows updating of project through a REST service."
+  "getProjects": {
+    "description": "Return a list of projects",
+    "type": "method",
+    "returns": "https://raw.github.com/spidasoftware/schema/master/public/v1/pm/projects.schema",
+    "params": [
+      {
+        "type": "string",
+        "name": "id",
+        "required": false,
+        "description": "Return a list of projects"
+      }
+    ]
+  },
+
+  "getForms": {
+    "description": "Return a list of forms",
+    "type": "method",
+    "returns": "https://raw.github.com/spidasoftware/schema/master/public/v1/pm/forms.schema",
+    "params": [
+      {
+        "type": "string",
+        "name": "id",
+        "required": false,
+        "description": "Return a list of forms"
+      }
+    ]
+  }
 }
