@@ -11,7 +11,7 @@ describe 'project', ->
 
   it 'load the external project schema', ->
     logger.info "load the external project schema"
-    data = fs.readFileSync "./v1/min/min_project.schema"
+    data = fs.readFileSync "./v1/pm/pm_project.schema"
     schema = JSON.parse(data)
     json = {"name":"test name"}
     report = env.validate(json, schema)

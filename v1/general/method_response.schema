@@ -1,7 +1,7 @@
 {
     "type": "object",
     "id": "method_response",
-    "description": "The response wrapper for all SPIDA API methods.",
+    "description": "The response wrapper for all SPIDA API methods.  Result OR Error will be set but not both.",
     "properties": {
         "result": {
             "type": "any",
@@ -18,12 +18,11 @@
                     "id": "code",
                     "required": true,
                     "choices" : [
-                        { "value" : "NO_ERROR"                    },
-                        { "value" : "INTERNAL_ERROR"              },
-                        { "value" : "SCHEMA_NOT_FOUND"            },
                         { "value" : "MISSING_RESOURCE"            },
                         { "value" : "MISSING_METHOD"              },   
                         { "value" : "MISSING_REQUIRED_PARAM"      },
+                        { "value" : "INTERNAL_ERROR"              },
+                        { "value" : "SCHEMA_NOT_FOUND"            },
                         { "value" : "INVALID_PARAM"               }   
                     ]
                 },
