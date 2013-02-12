@@ -9,7 +9,7 @@ class ResponseUtils {
 	}
 
 	static String error(codeString, messageString){
-		return new JSONObject(error:new JSONObject(code:code, message:message)).toString()
+		return new JSONObject(error:new JSONObject(code:codeString, message:messageString)).toString()
 	}
 
 	static String missingParam(paramName){
