@@ -1,0 +1,11 @@
+{
+  "id": "id",
+  "type": "object",
+  "description": "General id holder for success responses",
+  "properties": {
+    "id": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

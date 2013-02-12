@@ -20,6 +20,14 @@ class ResponseUtils {
 		return new JSONObject(error:new JSONObject(code:"INVALID_PARAM", message:"Please correct the '$paramName' parameter.")).toString()
 	}
 
+	static String missingResource(resource){
+		return new JSONObject(error:new JSONObject(code:"MISSING_RESOURCE", message:"The requested $resource was not found.")).toString()
+	}
+
+	static String internalError(message){
+		return new JSONObject(error:new JSONObject(code:"INTERNAL_ERROR", message:message)).toString()
+	}
+
 	static String notImplemented(){
 		return new JSONObject(error:new JSONObject(code:"INTERNAL_ERROR", message:"Method not yet implemented.")).toString()
 	}
