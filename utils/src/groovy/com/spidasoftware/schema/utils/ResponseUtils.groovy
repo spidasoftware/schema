@@ -13,31 +13,31 @@ class ResponseUtils {
 	}
 
 	static String error(codeString, messageString){
-		return new JSONObject(error:new JSONObject(code:codeString, message:messageString)).toString()
+		return new JSONObject(error:new JSONObject(code:codeString, message:messageString.toString())).toString()
 	}
 
 	static String missingParam(paramName){
-		return new JSONObject(error:new JSONObject(code:"MISSING_REQUIRED_PARAM", message:"Please provide the $paramName parameter.")).toString()
+		return new JSONObject(error:new JSONObject(code:"MISSING_REQUIRED_PARAM", message:"Please provide the ${paramName.toString()} parameter.".toString())).toString()
 	}
 
 	static String missingParamMsg(messageString){
-		return new JSONObject(error:new JSONObject(code:"MISSING_REQUIRED_PARAM", message:messageString)).toString()
+		return new JSONObject(error:new JSONObject(code:"MISSING_REQUIRED_PARAM", message:messageString.toString())).toString()
 	}
 
 	static String invalidParam(paramName){
-		return new JSONObject(error:new JSONObject(code:"INVALID_PARAM", message:"Please correct the $paramName parameter.")).toString()
+		return new JSONObject(error:new JSONObject(code:"INVALID_PARAM", message:"Please correct the ${paramName.toString()} parameter.".toString())).toString()
 	}
 
 	static String missingResource(resource){
-		return new JSONObject(error:new JSONObject(code:"MISSING_RESOURCE", message:"The requested $resource was not found.")).toString()
+		return new JSONObject(error:new JSONObject(code:"MISSING_RESOURCE", message:"The requested ${resource.toString()} was not found.".toString())).toString()
 	}
 
 	static String internalError(message){
-		return new JSONObject(error:new JSONObject(code:"INTERNAL_ERROR", message:message)).toString()
+		return new JSONObject(error:new JSONObject(code:"INTERNAL_ERROR", message:message.toString())).toString()
 	}
 
 	static String notImplemented(){
-		return new JSONObject(error:new JSONObject(code:"INTERNAL_ERROR", message:"Method not yet implemented.")).toString()
+		return new JSONObject(error:new JSONObject(code:"INTERNAL_ERROR", message:"Method not yet implemented.".toString())).toString()
 	}
 
 }

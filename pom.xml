@@ -117,6 +117,23 @@
           <encoding>UTF-8</encoding>
         </configuration>
       </plugin>
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>install</phase>
+            <configuration>
+            <tasks>
+              <delete dir="${user.home}/.ivy2/cache/com.spidasoftware/schema"/>
+              <delete dir="${user.home}/.grails/ivy-cache/com.spidasoftware/schema"/>
+            </tasks>
+            </configuration>
+            <goals>
+             <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
     <resources>
       <resource>
