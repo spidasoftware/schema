@@ -5,7 +5,7 @@
   "properties": {
     "stationId": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "dataProviderId": {
       "type": "number",

@@ -5,7 +5,7 @@
     "assetId": {
       "id": "assetId",
       "type": "string",
-      "required": true
+      "required": false
     },
     "stationId": {
       "id": "assetId",
