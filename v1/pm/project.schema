@@ -7,18 +7,40 @@
       "type": "number",
       "required": false
     },
-    "name": {
-      "type": "string"
-    },
     "address": {
+      "required": false,
       "$ref": "address"
     },
-    "status": {
-      "type": "string",
-      "required": false
-    },
     "draft": {
+      "required": false,
       "type": "boolean"
+    },
+    "deleted": {
+      "required": false,
+      "type": "boolean"
+    },
+    "status": {
+      "type": "object",
+      "required": false,
+      "properties": {
+        "current": {
+          "required": false,
+          "type": "string"
+        },
+        "possible": {
+          "required": false,
+          "type": "array"
+        }
+      }
+    },
+    "members": {
+      "required": false,
+      "type": "array",
+      "description": "Codes for the project.",
+      "items": {
+        "type": "string",
+        "userId": "number"
+      }
     },
     "projectCodes": {
       "type": "array",
@@ -28,14 +50,8 @@
         "value": "string"
       }
     },
-    "dataFormIds": {
-      "type": "array",
-      "description": "Data form ids for the project.",
-      "items": {
-        "type": "number"
-      }
-    },
     "stations": {
+      "required": false,
       "type": "array",
       "items": {
         "extends": { "$ref" : "station" },

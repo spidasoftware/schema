@@ -1,0 +1,14 @@
+{
+  "id": "flows",
+  "description": "ProjectManager flows",
+  "type": "object",
+  "properties": {
+    "projects": {
+      "type": "array",
+      "required": true,
+      "items": {
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/pm/flow.schema"
+      }
+    },
+  }
+}

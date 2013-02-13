@@ -52,7 +52,7 @@ The second type of services are "REST" services.  These services differ from the
 1. Java - We have used the excellent library by [fge](https://github.com/fge/json-schema-validator) in our java environments.  It gives very good validation errors and also does all the references for you, so there is no need to load all the linked schemas.
 2. javascript - [JSV](https://github.com/garycourt/JSV) is what we have used in our javascript tests here in this package.  The references are harder to handle, but still good.
 
-#### Script Defreference
+#### Script Dereference
 
 There is a coffee script in the utils/scripts that will combine all the schemas into a fewer number of really large files.  This is useful in test and validating entire project structures.
 

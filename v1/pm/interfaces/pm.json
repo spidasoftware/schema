@@ -1,37 +1,53 @@
 {
   "id": "pm",
   "description": "Manage Projects in ProjectManager",
-  "post": {
-    "description": "Update a project",
+  "createOrUpdate": {
+    "description": "creates a project",
     "type": "method",
-    "returns": "boolean"    
+    "params": [
+      {
+        "type": "https://raw.github.com/spidasoftware/schema/master/v1/pm/project.schema",
+        "name": "project",
+        "required": false,
+        "description": "The project object to create or update"
+      }
+    ]
   },
-
   "getProjects": {
     "description": "Return a list of projects",
     "type": "method",
     "returns": "https://raw.github.com/spidasoftware/schema/master/public/v1/pm/projects.schema",
     "params": [
       {
-        "type": "string",
-        "name": "id",
+        "type": "array",
+        "name": "project_ids",
         "required": false,
-        "description": "Return a list of projects"
+        "description": "Get projects by projectmanager ids."
+      },
+      {
+        "type": "array",
+        "name": "project_codes",
+        "required": false,
+        "description": "Get projects by projectmanager project codes."
+      },
+      {
+        "type": "array",
+        "name": "am_station_ids",
+        "required": false,
+        "description": "Get projects containing stations with provided assetmaster station ids."
+      },
+      {
+        "type": "boolean",
+        "name": "details",
+        "required": false,
+        "description": "Get projects including all stations."
       }
     ]
   },
-
-  "getForms": {
-    "description": "Return a list of forms",
+  "getFlows": {
+    "description": "Return available flows",
     "type": "method",
-    "returns": "https://raw.github.com/spidasoftware/schema/master/public/v1/pm/forms.schema",
-    "params": [
-      {
-        "type": "string",
-        "name": "id",
-        "required": false,
-        "description": "Return a list of forms"
-      }
-    ]
+    "returns": "https://raw.github.com/spidasoftware/schema/master/public/v1/pm/flows.schema"
   }
+
 }

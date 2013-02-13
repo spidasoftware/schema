@@ -1,0 +1,14 @@
+{
+  "id": "flow",
+  "description": "A ProjectManager flow",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number",
+      "required": false
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

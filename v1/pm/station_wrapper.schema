@@ -1,0 +1,28 @@
+{
+  "id": "station_wrapper",
+  "description": "A project manager station which points to an asset master station",
+  "type": "object",
+  "properties": {
+    "spotted": {
+      "type": "boolean",
+      "description": ""
+    },
+    "projectCodes": {
+      "type": "array",
+      "description": "Codes for the project.",
+      "items": {
+        "type": "string",
+        "value": "string"
+      }
+    },
+    "geometry": {
+      "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/geometry.schema",
+      "description": "if it is spotted, this is required"
+    },
+    "station": {
+      "required": false,
+      "$ref":"https://raw.github.com/spidasoftware/schema/master/v1/asset/station.schema",
+      "description": "if not spotted, and it is an actual asset in assetmaster"
+    }
+  }
+}

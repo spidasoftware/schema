@@ -7,16 +7,10 @@ describe 'project', ->
   path = require("path")
   testUtils = require "./test_utils"
 
-  #testUtils.supportedSchemas(["./v1/general", "./v1/min", "./v1/asset"])
-
   it 'load the external project schema', ->
     logger.info "load the external project schema"
-    data = fs.readFileSync "./v1/pm/pm_project.schema"
+    data = fs.readFileSync "./v1/pm/project.schema"
     schema = JSON.parse(data)
-    json = {"name":"test name"}
+    json = {"id":"1","draft":false}
     report = env.validate(json, schema)
-    #testUtils.validate(json, schema)
-    #expect(report.errors.length).toBe(0)
-    #if (report.errors.length != 0) 
-    #  logger.info JSON.stringify(report.errors, null, 2)    
     

@@ -17,11 +17,15 @@ class ResponseUtils {
 	}
 
 	static String missingParam(paramName){
-		return new JSONObject(error:new JSONObject(code:"MISSING_REQUIRED_PARAM", message:"Please provide the '$paramName' parameter.")).toString()
+		return new JSONObject(error:new JSONObject(code:"MISSING_REQUIRED_PARAM", message:"Please provide the $paramName parameter.")).toString()
+	}
+
+	static String missingParamMsg(messageString){
+		return new JSONObject(error:new JSONObject(code:"MISSING_REQUIRED_PARAM", message:messageString)).toString()
 	}
 
 	static String invalidParam(paramName){
-		return new JSONObject(error:new JSONObject(code:"INVALID_PARAM", message:"Please correct the '$paramName' parameter.")).toString()
+		return new JSONObject(error:new JSONObject(code:"INVALID_PARAM", message:"Please correct the $paramName parameter.")).toString()
 	}
 
 	static String missingResource(resource){
