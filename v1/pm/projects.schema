@@ -9,6 +9,6 @@
       "items": {
         "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/pm/project.schema"
       }
-    },
+    }
   }
 }

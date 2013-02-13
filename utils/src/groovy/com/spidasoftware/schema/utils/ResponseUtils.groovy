@@ -4,8 +4,8 @@ import net.sf.json.JSONObject;
 
 class ResponseUtils {
 
-	static String result(resultJson){
-		return new JSONObject(result:resultJson).toString()
+	static String result(resultJsonString){
+		return new JSONObject(result:resultJson.toString()).toString()
 	}
 
 	static String resultId(id){

@@ -54,8 +54,8 @@
       "required": false,
       "type": "array",
       "items": {
-        "extends": { "$ref" : "station" },
-        "id": "location",
+        "extends": { "$ref" : "station_wrapper" },
+        "id": "station",
         "description": "A project manager station"
       }
     }
