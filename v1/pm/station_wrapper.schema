@@ -3,9 +3,9 @@
   "description": "A project manager station which points to an asset master station",
   "type": "object",
   "properties": {
-    "spotted": {
-      "type": "boolean",
-      "description": ""
+    "id": {
+      "type": "number",
+      "required": false
     },
     "projectCodes": {
       "type": "array",
@@ -15,14 +15,18 @@
         "value": "string"
       }
     },
+    "spotted": {
+      "type": "boolean",
+      "description": "does not exist in assetmaster"
+    },
     "geometry": {
       "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/geometry.schema",
-      "description": "if it is spotted, this is required"
+      "description": "required if spotted and not in assetmaster"
     },
     "station": {
       "required": false,
       "$ref":"https://raw.github.com/spidasoftware/schema/master/v1/asset/station.schema",
-      "description": "if not spotted, and it is an actual asset in assetmaster"
+      "description": "required if not spotted and in assetmaster"
     }
   }
 }

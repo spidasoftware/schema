@@ -19,10 +19,6 @@
       "required": false,
       "type": "boolean"
     },
-    "deleted": {
-      "required": false,
-      "type": "boolean"
-    },
     "status": {
       "type": "object",
       "required": false,
@@ -42,25 +38,25 @@
       "type": "array",
       "description": "Codes for the project.",
       "items": {
-        "type": "string",
-        "userId": "number"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/pm/member.schema"
       }
     },
     "projectCodes": {
       "type": "array",
       "description": "Codes for the project.",
       "items": {
-        "type": "string",
-        "value": "string"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/pm/project_code.schema"
       }
     },
     "stations": {
       "required": false,
       "type": "array",
       "items": {
-        "extends": { "$ref" : "station_wrapper" },
         "id": "station",
-        "description": "A project manager station"
+        "description": "A project manager station",
+        "items": {
+          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/pm/project.schema"
+        }
       }
     }
   }

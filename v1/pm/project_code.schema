@@ -1,0 +1,23 @@
+{
+  "id": "member",
+  "description": "A ProjectManager member",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number",
+      "required": false
+    },
+    "companyId": {
+      "type": "number",
+      "required": true
+    },
+    "type": {
+      "type": "string",
+      "required": true
+    },
+    "value": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
