@@ -17,14 +17,24 @@
       "type": "number",
       "required": false
     },
+    "primary": {
+      "type": "boolean",
+      "required": true
+    },
     "assetType": {
       "id": "assetType",
       "type": "string",
       "required": true,
       "choices": [
-        { "value": "POLE" },
-        { "value": "NJUNS" },
-        { "value": "ANALYSIS" }
+        {
+          "value": "POLE"
+        },
+        {
+          "value": "NJUNS"
+        },
+        {
+          "value": "ANALYSIS"
+        }
       ]
     },
     "assetAttachments": {
