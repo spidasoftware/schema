@@ -15,16 +15,16 @@
     "primaryAssetOwnerId": {
       "type": "number", 
       "required": false,
-      "description": "Id of company that owns the primary asset, not required for creation"
+      "description": "Id of company that owns the primary asset, not required for creation."
     },
     "primaryAssetType": {
       "required": false,
       "type": "string",
-      "description": "Type of the primary asset, not required for creation"
+      "description": "Type of the primary asset, not required for creation."
     },
     "assetTypes": {
-      "required": true,
-      "description": "All available asset types at this station",
+      "required": false,
+      "description": "All available asset types at this station, not required for creation.",
       "type": "array",
       "items": {
         "type": "string",
