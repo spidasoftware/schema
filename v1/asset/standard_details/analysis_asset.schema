@@ -1,10 +1,28 @@
 {
-    "id": "analysis_asset",
-    "description": "A SPIDA analysis asset",
-    "type": "object",
-    "properties": {
-        "stress": {"type": "number"},
-        "strength": {"type": "number"},
-        "component": {"type": "string"}
+  "id": "analysis_asset",
+  "description": "A SPIDA analysis asset",
+  "type": "object",
+  "properties": {
+    "actual": {
+      "type": "number"
+    },
+    "allowable": {
+      "type": "number"
+    },
+    "analysisDate": {
+      "type": "date"
+    },
+    "component": {
+      "type": "string"
+    },
+    "loadInfo": {
+      "type": "string"
+    },
+    "passes": {
+      "type": "boolean"
+    },
+    "unit": {
+      "type": "string"
     }
+  }
 }

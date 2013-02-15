@@ -14,13 +14,13 @@
     },
     "primaryAssetOwnerId": {
       "type": "number", 
-      "required": true,
-      "description": "Id of company that owns the primary asset"
+      "required": false,
+      "description": "Id of company that owns the primary asset, not required for creation"
     },
     "primaryAssetType": {
-      "required": true,
+      "required": false,
       "type": "string",
-      "description": "Type of the primary asset"
+      "description": "Type of the primary asset, not required for creation"
     },
     "assetTypes": {
       "required": true,
