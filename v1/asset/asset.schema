@@ -15,7 +15,7 @@
     "ownerId": {
       "id": "ownerId",
       "type": "number",
-      "required": false
+      "required": true
     },
     "primaryAsset": {
       "type": "boolean",
@@ -101,5 +101,6 @@
         }
       }
     }
-  }
+  },
+  "additionalProperties" : false
 }

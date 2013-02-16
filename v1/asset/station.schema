@@ -42,5 +42,6 @@
     "stationAssets": {
       "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/asset/assets.schema"
     }
-  }
+  },
+  "additionalProperties" : false
 }
