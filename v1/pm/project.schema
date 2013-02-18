@@ -55,7 +55,7 @@
         "id": "station",
         "description": "A project manager station",
         "items": {
-          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/pm/project.schema"
+          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/pm/station.schema"
         }
       }
     }

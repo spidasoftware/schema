@@ -2,7 +2,7 @@
   "id": "pm",
   "description": "Manage Projects in ProjectManager",
   "createOrUpdate": {
-    "description": "creates a project",
+    "description": "creates or updates a project",
     "type": "method",
     "params": [
       {
@@ -41,6 +41,37 @@
         "name": "details",
         "required": false,
         "description": "Get projects including all stations."
+      }
+    ]
+  },
+  "delete": {
+    "description": "deletes Members, ProjectCodes, Stations, Projects",
+    "type": "method",
+    "returns": "https://raw.github.com/spidasoftware/schema/master/v1/general/id.schema",
+    "params": [
+      {
+        "type": "array",
+        "name": "project_ids",
+        "required": false,
+        "description": "projectmanager project ids."
+      },
+      {
+        "type": "array",
+        "name": "station_ids",
+        "required": false,
+        "description": "projectmanager station ids."
+      },,
+      {
+        "type": "array",
+        "name": "project_code_ids",
+        "required": false,
+        "description": "projectmanager project code ids."
+      },
+      {
+        "type": "array",
+        "name": "member_ids",
+        "required": false,
+        "description": "projectmanager member ids."
       }
     ]
   },
