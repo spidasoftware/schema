@@ -10,7 +10,8 @@
       "type": "number"
     },
     "analysisDate": {
-      "type": "date"
+      "type": "number",
+      "description": "The long java value for date."
     },
     "component": {
       "type": "string"
