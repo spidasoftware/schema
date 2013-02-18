@@ -73,7 +73,7 @@
           },
           "value": {
             "required": true,
-            "type": "[string, number]"
+            "type": ["string", "number", "boolean"]
           }
         }
       }
