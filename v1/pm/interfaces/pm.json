@@ -60,7 +60,7 @@
         "name": "station_ids",
         "required": false,
         "description": "projectmanager station ids."
-      },,
+      },
       {
         "type": "array",
         "name": "project_code_ids",
