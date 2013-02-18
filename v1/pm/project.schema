@@ -13,7 +13,7 @@
     },
     "address": {
       "required": false,
-      "$ref": "address"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/pm/address.schema"
     },
     "draft": {
       "required": false,
