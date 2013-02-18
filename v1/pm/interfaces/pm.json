@@ -26,7 +26,7 @@
       },
       {
         "type": "array",
-        "name": "project_codes",
+        "name": "project_code_values",
         "required": false,
         "description": "Get projects by projectmanager project codes."
       },
@@ -63,7 +63,7 @@
       },
       {
         "type": "array",
-        "name": "project_code_ids",
+        "name": "project_code_values",
         "required": false,
         "description": "projectmanager project code ids."
       },
