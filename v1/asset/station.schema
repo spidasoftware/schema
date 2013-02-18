@@ -37,7 +37,8 @@
       }
     },
     "geometry": {
-      "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/geometry.schema"
+      "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/geometry.schema",
+      "required":true
     },
     "stationAssets": {
       "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/asset/assets.schema"
