@@ -36,6 +36,10 @@ class ResponseUtils {
 		return new JSONObject(error:new JSONObject(code:"INTERNAL_ERROR", message:message.toString())).toString()
 	}
 
+	static String permissionDenied(message){
+		return new JSONObject(error:new JSONObject(code:"PERMISSION_DENIED", message:message.toString())).toString()
+	}
+
 	static String notImplemented(){
 		return new JSONObject(error:new JSONObject(code:"INTERNAL_ERROR", message:"Method not yet implemented.".toString())).toString()
 	}

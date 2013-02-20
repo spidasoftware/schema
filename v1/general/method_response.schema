@@ -18,6 +18,7 @@
                     "id": "code",
                     "required": true,
                     "choices" : [
+                        { "value" : "PERMISSION_DENIED"           },
                         { "value" : "MISSING_RESOURCE"            },
                         { "value" : "MISSING_METHOD"              },   
                         { "value" : "MISSING_REQUIRED_PARAM"      },
