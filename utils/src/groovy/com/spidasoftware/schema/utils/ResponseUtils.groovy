@@ -5,7 +5,7 @@ import net.sf.json.JSONObject;
 class ResponseUtils {
 
 	static String result(resultJsonString){
-		return new JSONObject(result:resultJson.toString()).toString()
+		return new JSONObject(result:resultJsonString).toString()
 	}
 
 	static String resultId(id){
