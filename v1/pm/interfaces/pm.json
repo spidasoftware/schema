@@ -32,7 +32,7 @@
       },
       {
         "type": "array",
-        "name": "am_station_ids",
+        "name": "associated_station_ids",
         "required": false,
         "description": "Get projects containing stations with provided assetmaster station ids."
       },
@@ -63,7 +63,7 @@
       },
       {
         "type": "array",
-        "name": "project_code_values",
+        "name": "project_code_ids",
         "required": false,
         "description": "projectmanager project code ids."
       },
