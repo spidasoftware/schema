@@ -5,15 +5,18 @@
   "properties": {
     "id": {
       "type": "number",
-      "required": false
+      "required": false,
+      "description": "ID for project model in project manager database"
     },
-    "companyId": {
-      "type": "number",
-      "required": false
+    "name": {
+      "type": "string",
+      "required": false,
+      "description": "project code for project model in project manager database"
     },
     "flowId": {
       "type": "number",
-      "required": true
+      "required": true,
+      "description": "ID for flow model in project manager database"
     },
     "address": {
       "required": false,
@@ -21,7 +24,8 @@
     },
     "draft": {
       "required": false,
-      "type": "boolean"
+      "type": "boolean",
+      "description": "Draft projects do not move through the project manager work flow"
     },
     "status": {
       "type": "object",
@@ -29,27 +33,14 @@
       "properties": {
         "current": {
           "required": false,
-          "type": "string"
+          "type": "string",
+          "description": "Current status of project model in project manager database"
         },
         "possible": {
           "required": false,
-          "type": "array"
+          "type": "array",
+          "description": "Every possible next status for project model in project manager database"
         }
-      }
-    },
-    "members": {
-      "required": false,
-      "type": "array",
-      "description": "Codes for the project.",
-      "items": {
-        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/pm/member.schema"
-      }
-    },
-    "projectCodes": {
-      "type": "array",
-      "description": "Codes for the project.",
-      "items": {
-        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/pm/project_code.schema"
       }
     },
     "stations": {
@@ -59,7 +50,7 @@
         "id": "station",
         "description": "A project manager station",
         "items": {
-          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/pm/station.schema"
+          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/pm/station_wrapper.schema"
         }
       }
     }

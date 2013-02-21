@@ -28,6 +28,10 @@ class ResponseUtils {
 		return new JSONObject(error:new JSONObject(code:"INVALID_PARAM", message:"Please correct the ${paramName.toString()} parameter.".toString())).toString()
 	}
 
+	static String invalidParamMsg(messageString){
+		return new JSONObject(error:new JSONObject(code:"INVALID_PARAM", message:messageString.toString())).toString()
+	}
+
 	static String missingResource(resource){
 		return new JSONObject(error:new JSONObject(code:"MISSING_RESOURCE", message:"The requested ${resource.toString()} was not found.".toString())).toString()
 	}

@@ -7,26 +7,19 @@
       "type": "number",
       "required": false
     },
-    "projectCodes": {
-      "type": "array",
-      "description": "Codes for the project.",
-      "items": {
-        "type": "string",
-        "value": "string"
-      }
+    "amStationId": {
+      "type": "string",
+      "required": false
     },
     "spotted": {
       "type": "boolean",
-      "description": "does not exist in assetmaster"
+      "description": "true if station does not exist in assetmaster",
+      "required": false
     },
     "geometry": {
       "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/geometry.schema",
-      "description": "required if spotted and not in assetmaster"
-    },
-    "station": {
-      "required": false,
-      "$ref":"https://raw.github.com/spidasoftware/schema/master/v1/asset/station.schema",
-      "description": "required if not spotted and in assetmaster"
+      "description": "required if spotted and not in assetmaster",
+      "required": false
     }
   }
 }
