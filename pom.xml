@@ -148,10 +148,12 @@
   <distributionManagement>
     <snapshotRepository>
       <id>ubuntu</id>
+      <uniqueVersion>false</uniqueVersion>
       <url>${snapshotsLocation}</url>
     </snapshotRepository>
     <repository>
       <id>ubuntu</id>
+      <uniqueVersion>false</uniqueVersion>
       <url>${releasesLocation}</url>
     </repository>
   </distributionManagement>
