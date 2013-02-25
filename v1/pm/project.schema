@@ -33,7 +33,7 @@
       "properties": {
         "current": {
           "required": false,
-          "type": "string",
+          "type": ["string", "null"],
           "description": "Current status of project model in project manager database"
         },
         "possible": {
