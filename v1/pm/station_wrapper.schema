@@ -8,12 +8,17 @@
       "required": false
     },
     "amStationId": {
-      "type": "string",
+      "type": ["string","null"],
       "required": false
     },
     "spotted": {
       "type": "boolean",
       "description": "true if station does not exist in assetmaster",
+      "required": false
+    },
+    "display": {
+      "type": "string",
+      "description": "Defaults to assetmaster tag.  If spotted, this value should be set.",
       "required": false
     },
     "geometry": {
