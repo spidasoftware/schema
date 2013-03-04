@@ -41,6 +41,12 @@
         "name": "details",
         "required": false,
         "description": "Get projects including all stations."
+      },
+      {
+        "type": "number",
+        "name": "companyId",
+        "required": true,
+        "description": "project companyId"
       }
     ]
   },
