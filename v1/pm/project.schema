@@ -15,7 +15,7 @@
     },
     "deleted": {
       "type": "boolean",
-      "description": "true if project is marked as deleted",
+      "description": "true if project is marked as deleted (NOTE: value is not writable, only readable through API)",
       "required": false
     },
     "flowId": {
