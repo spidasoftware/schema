@@ -16,6 +16,11 @@
       "description": "true if station does not exist in assetmaster",
       "required": false
     },
+    "deleted": {
+      "type": "boolean",
+      "description": "true if station is marked as deleted",
+      "required": false
+    },
     "display": {
       "type": "string",
       "description": "Defaults to assetmaster tag.  If spotted, this value should be set.",

@@ -13,6 +13,11 @@
       "required": false,
       "description": "project code for project model in project manager database"
     },
+    "deleted": {
+      "type": "boolean",
+      "description": "true if project is marked as deleted",
+      "required": false
+    },
     "flowId": {
       "type": "number",
       "required": true,
