@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
+import java.net.InetAddress;
 
 /**
  * Created with IntelliJ IDEA.
@@ -21,26 +22,49 @@ import java.util.Enumeration;
  * Time: 10:21 AM
  * To change this template use File | Settings | File Templates.
  */
-public abstract class LocalJSONServlet extends HttpServlet {
+public class LocalJSONServlet extends HttpServlet {
 	protected static Logger log = Logger.getLogger(LocalJSONServlet.class);
+	
+	private Set<String> localAddresses = new HashSet<String>(); 
+  
+	public LocalJSONServlet()  {
+		try {
+			localAddresses.add(InetAddress.getLocalHost().getHostAddress());
+			for (InetAddress inetAddress : InetAddress.getAllByName("localhost")) {
+				localAddresses.add(inetAddress.getHostAddress());
+			}
+		} catch (IOException e) {
+			log.error("Servlet could not get local addresses. It will not serve anything.");
+			log.error(e, e);
+		}
+	}
+	
+	protected void checkLocality(HttpServletRequest request) throws ServletException {
+		if (!localAddresses.contains(request.getRemoteAddr())) {
+			throw new ServletException("Local Services are restricted to localhost. Request origin was " + request.getRemoteAddr());
+		}
+	}
 
-	public Object get(HttpServletRequest request) throws JSONServletException {
+
+	public Object get(HttpServletRequest request) throws com.spidasoftware.schema.server.JSONServletException {
 		return null;
 	}
 
-	public Object update(HttpServletRequest request) throws JSONServletException {
+	public Object update(HttpServletRequest request) throws com.spidasoftware.schema.server.JSONServletException {
 		return null;
 	}
 
-	public Object create(HttpServletRequest request) throws JSONServletException {
+	public Object create(HttpServletRequest request) throws com.spidasoftware.schema.server.JSONServletException {
 		return null;
 	}
 
-	public Object delete(HttpServletRequest request) throws JSONServletException {
+	public Object delete(HttpServletRequest request) throws com.spidasoftware.schema.server.JSONServletException {
 		return null;
 	}
+	
+	
 
-	public JSONObject makeResponseBody(Object result, JSONServletException exception) {
+	public JSONObject makeResponseBody(Object result, com.spidasoftware.schema.server.JSONServletException exception) {
 		JSONObject response = new JSONObject();
 		if (result != null) {
 			response.put("result", result);
@@ -67,6 +91,7 @@ public abstract class LocalJSONServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		checkLocality(request);
 		JSONObject json = null;
 		Enumeration paramNames = request.getParameterNames();
 		while(paramNames.hasMoreElements()) {
@@ -79,7 +104,7 @@ public abstract class LocalJSONServlet extends HttpServlet {
 		try {
 			Object result = update(request);
 			json = makeResponseBody(result, null);
-		} catch (JSONServletException e) {
+		} catch (com.spidasoftware.schema.server.JSONServletException e) {
 			log.warn(e, e);
 			json = makeResponseBody(null, e);
 		}
@@ -90,6 +115,7 @@ public abstract class LocalJSONServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		checkLocality(request);
 		JSONObject json = null;
 		try {
 			Object result = get(request);
@@ -105,6 +131,7 @@ public abstract class LocalJSONServlet extends HttpServlet {
 
 	@Override
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		checkLocality(request);
 		JSONObject json = null;
 		try {
 			Object result = create(request);
@@ -119,6 +146,7 @@ public abstract class LocalJSONServlet extends HttpServlet {
 
 	@Override
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		checkLocality(request);
 		JSONObject json = null;
 		try {
 			Object result = delete(request);
