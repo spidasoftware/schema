@@ -13,12 +13,12 @@
 			"description": "An option UUID."
 		},
 		"distance": {
-			"extends": { "$ref": "measurable" },
+			"extends": { "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema" },
 			"required": true,
 			"description" : "Distance from the pole to the point."
 		},
 		"direction": {
-			"extends": { "$ref": "bearing" }, 
+			"extends": { "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/bearing.schema" }, 
 			"required": true,
 			"description": "Direction on the compass from the pole to the point."
 		}

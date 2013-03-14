@@ -9,18 +9,17 @@
         "url": "git@192.168.47.84:schema.git"
     },
     "scripts": {
-        "test": "coffee utils/scripts/dereference.coffee; jasmine-node --coffee spec/",
-        "monitor": "coffee utils/scripts/dereference.coffee; jasmine-node --coffee --junitreport --autotest spec/",
-        "build": "coffee utils/scripts/dereference.coffee"
+        "test": "jasmine-node --coffee spec/",
+        "monitor": "jasmine-node --coffee --junitreport --autotest spec/"
     },
     "engines": {
-        "node": "~0.6.9"
+        "node": "~0.10.0"
     },
     "dependencies": {},
     "devDependencies": {
         "log4js": "*",
         "querystring": "*",
-        "JSV": "*",
+        "jayschema": "*",
         "jasmine-node": "*"
     },
     "optionalDependencies": {}
