@@ -12,7 +12,7 @@ loadSchemasInFolder = (folder) ->
   for file in files
     do (file) ->
       if path.extname(file) is ".schema"
-        logger.debug "loading schema for file #{file}"
+        logger.info "loading schema for file #{file}"
         schemaData = fs.readFileSync("#{folder}/#{file}")
         env.createSchema( schemaData, true, path.basename(file, ".schema")  )
 
