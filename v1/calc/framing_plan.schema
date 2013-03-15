@@ -36,20 +36,25 @@
                   "description": "Code to use to look up this wire's properties."
                 },
                 "owner": {
-                  "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/owner.schema"
+                  "extends": {
+                    "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/owner.schema"
+                  }
                 },
                 "tensionGroupOverride": {
                   "type": "string",
                   "description": "Force the wire to use a different tension group than the default."
                 },
                 "usageGroup": {
-                  "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/usage_group.schema"
+                  "extends": {
+                    "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/usage_group.schema"
+                  }
                 }
               },
               "required": [
                 "usageGroup",
                 "owner"
-              ]
+              ],
+              "additionalProperties": false
             }
           }
         },

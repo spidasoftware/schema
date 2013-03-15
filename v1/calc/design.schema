@@ -1,480 +1,467 @@
 {
-    "id": "design",
-    "description": "Structural Description of a calc Design",
-    "type": "object",
-    "properties": {
-        "pole": {
-        	"type": "object",
-        	"required": true,
-        	"properties": {
-        		"uuid": {
-        			"type": "string"
-        		},
-				"glc": {
-					"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"},
-					"required": true
-				},
-		
-				"agl": {
-					"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"},
-					"required": true
-				},
-		
-				"environment": {
-					"type": "string",
-					"required": true
-				},
-				"temperature": {
-					"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"},
-					"required": true
-				},
-				"stressRatio": {
-					"type": "number",
-					"required": true
-				},
-				"clientItem": {
-					"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/client_pole_reference.schema"},
-					"required":true
-				},
-				"owner": {
-					"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/owner.schema"},
-					"required": true
-				}
-			}
-		},
- 		"wireEndPoints": {
- 			"type": "array",
- 			"items": {
- 				"type": "object",
- 				"id": "wireEndPoint",
-				"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/point.schema"},
- 				"properties": {
- 					"inclination": {
- 						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"},
- 						"required": true
- 					},
- 					"type": {
- 						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/wep_type.schema"},
- 						"required": true
- 					},
- 					"comments": {
- 						"type": "string"
- 					},
- 					
- 					"wires": {
- 						"type": "array",
- 						"required": true,
- 						"items": {
- 							"type": "string"
- 						}
- 					},
- 					
- 					"spanGuys": {
- 						"type": "array",
- 						"required": true,
- 						"items": {
- 							"type": "string"
- 						}
- 					},
- 					 					
- 					"spanPoints": {
- 						"type": "array",
- 						"required": true,
- 						"items": {
- 							"type": "string"
- 						}
- 					}
- 				}					
- 			}
- 		},		
-		"spanPoints": {
-			"type": "array",
-			"items": {
-				"type": "object",
-				"id": "spanPoint",
-				"properties": {
-					"id": { 
-						"type": "string",
-						"required": true
-					},
-					"uuid": {
-						"type": "string"
-					},
-					"distance": {
-						"extends": { "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable" },
-						"required": true
-					},
-					"environment": {
-						"extends": {"$ref": "environment"},
-						"required": true
-					},
-					"heights": {
-						"type": "array",
-						"required": true,
-						"items": {
-							"type": "object",
-							"id": "height",
-							"properties": {
-								"wireId": {
-									"type": "string",
-									"required": true
-								},
-								"height": {
-									"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable"},
-									"required": true
-								}
-							}
-						}
-					}
-				}
-			}
-		},		
-		"anchors": {
-			"type": "array",
-			"items": {
-				"type": "object",
-				"id": "anchor",
-				"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/point.schema"},
-				"properties": {
-					"owner": {
-						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/owner.schema",
-						"required": true
-					},
-					"height": {
-						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable"},
-						"required": true
-					},
-					"supportType": {
-						"type": "string",
-						"required": true
-					},
-					"clientItem": {
-						"type": "string",
-						"required": true
-					},
-					"guys": {
-						"type": "array",
-						"required": true,
-						"items": {
-							"type":"string"
-						}
-					}
-				}
-			}
-		}		
-	}, 		
- 		"notePoints": {
- 			"type": "array",
- 			"items": {
- 				"type": "object",
- 				"id": "notePoint",
- 				"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/point.schema"},
- 				"properties": {
- 					"note": {
- 						"type": "string",
- 						"required": true
- 					},
- 					"height": {
- 						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"},
- 						"required": true
- 					}
- 				}
- 			}
- 		},
- 		"pointLoads": {
- 			"type": "array",
- 			"items": {
- 				"type": "object",
- 				"id": "pointLoad",
- 				"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/attachment.schema" },
- 				"properties": {
- 					"id": {
- 						"type": "string",
- 						"required": true
- 					},
- 					"uuid": {
- 						"type": "string"
-					},
-					"owner": {
-						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/owner.schema"}
-					},
-					"elevation": {
- 						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"},
- 						"required": true
- 					},
- 					"rotation": {
- 						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"},
- 						"required": true
- 					},
- 					"x": {
- 						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"},
- 						"required": true
- 					},
- 					"y": {
- 						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"},
- 						"required": true
- 					}, 					
- 					"z": {
- 						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"},
- 						"required": true
- 					},
- 					"fx": {
- 						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"},
- 						"required": true
- 					},
- 					"fy": {
- 						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"},
- 						"required": true
- 					},
-					"fz": {
- 						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"},
- 						"required": true
- 					}, 					 					
- 					"mx": {
- 						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"},
- 						"required": true
- 					},
- 					"my": {
- 						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"},
- 						"required": true
- 					},
-					"mz": {
- 						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"},
- 						"required": true
- 					}
- 				}	 						
- 			}
- 		}, 		
- 		"damages": {
- 			"type": "array",
- 			"items": {
- 				"type": "object",
-				"properties": {
-					"id": {
-						"type": "string",
-						"required": true
-					},
-					"uuid": {
-						"type": "string"
-					},
-					"damageType": {
-						"extends": {"$ref": "damage_type"},
-						"required": true
-					},
-					"attachHeight": {
-						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"},
-						"required": true
-					},
-					"damageHeight": {
-						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"},
-						"required": true
-					},
-					"direction": {
-						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/bearing.schema"}
-					},
-					"arc": {
-						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"}
-					},						
-					"depth": {
-						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"}
-					},									
-					"shellThickness": {
-						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"}
-					},					 					
-					"neckDepth": {
-						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"}
-					}, 
-					"neckDiameter": {
-						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"}
-					},
-					"neckOffset": {
-						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"}
-					}
-				}
-			}
-		},		
-		"wires": {
-			"type": "array",
-			"items": {
-				"type": "object",
-				"id": "wire",
-				"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/attachment.schema" },
-				"properties": {
-					"usageGroup": {
-						"type": "string",
-						"required": true
-					},
-					"tensionGroup": {
-						"type": "string",
-						"required": true
-					},
-					"midspanHeight": {
-						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"},
-						"required": true
-					},
-					"tensionAdjustment": {
-						"type": "number"
-					},
-					"clientItem": {
-						"extends" : {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/client_wire_reference.schema" },
-						"required": true
-					}
-				}
-			}
-		},
-		"spanGuys": {
-			"type": "array",
-			"items": {
-				"type": "object",
-				"id": "spanGuy",
-				"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/attachment.schema" },
-				"properties": {		
-					"midspanHeight": {
-						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"},
-						"required": true
-					},
-					"height": {
-						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"},
-						"required": true
-					},
-					"clientItem": {
-						"extends" : {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/client_wire_reference.schema" },
-						"required": true
-					}
-				}
-			}
-		},				
-		"guys": {
-			"type": "array",
-			"items": {
-				"type": "object",
-				"id": "guy",
-				"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/attachment.schema" },
-				"properties": {
-					"braceHeight": {
-						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"}						
-					},
-					"braceLength": {
-						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"}
-					},
-					"clientItem": {
-						"extends" : {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/client_wire_reference.schema" },
-						"required": true
-					}
-				}
-			}
-		},
-		"equipments": {
-			"type": "array",
-			"items": {
-				"type": "object",
-				"id": "equipment",
-				"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/attachment.schema" },
-				"properties": {		
-					"bottomHeight": {
-						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"},
-						"required": true
-					},
-					"direction": {
-						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/bearing.schema"},
-						"required": true
-					},
-					"clientItem": {
-						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/client_equipment_reference.schema" },
-						"required": true
-					}
-				}
-			}
-		},
-		"crossArms": {
-			"type": "array",
-			"items": {
-				"type": "object",
-				"id": "crossArm",
-				"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/attachment.schema" },
-				"properties": {		
-					"offset": {
-						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"},
-						"required": true
-					},
-					"direction": {
-						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/bearing.schema"},
-						"required": true
-					},
-					"associatedBacking": {
-						"type": "string",
-						"required": true
-					},
-					"insulators": {
-						"type": "array",
-						"items": {
-							"type": "string"
-						}
-					},
-					"clientItem": {
-						"type": "string",
-						"required": true
-					}
-				}
-			}
-		},
-		"insulators": {
-			"type": "array",
-			"items": {
-				"type": "object",
-				"id": "insulator",
-				"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/attachment.schema" },
-				"properties": {		
-					"offset": {
-						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"},
-						"required": true
-					},
-					"direction": {
-						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/bearing.schema"},
-						"required": true
-					},
-					"doubleInsulator": {
-						"type": "boolean",
-						"required": true
-					},
-					"wires":  {
-						"type": "array",
-						"items": {
-							"type": "string"
-						}
-					},
-					"clientItem": {
-						"type": "string",
-						"required": true
-					}
-				}
-			}
-		},	
-		"pushBraces": {
-			"type": "array",
-			"items": {
-				"type": "object",
-				"id": "pushBrace",
-				"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/attachment.schema" },
-				"properties": {		
-					"glc": {
-						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"},
-						"required": true
-					},
-					"direction": {
-						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"},
-						"required": true
-					},
-					"distance": {
-						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"},
-						"required": true
-					},
-					"clientItem": {
-						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/client_pole_reference.schema" },
-						"required": true
-					}
-				}
-			}
-		}														
+  "id": "design",
+  "description": "Structural Description of a calc Design",
+  "type": "object",
+  "properties": {
+    "pole": {
+      "type": "object",
+      "required": true,
+      "properties": {
+        "uuid": {
+          "type": "string"
+        },
+        "glc": {
+          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+        },
+        "agl": {
+          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+        },
+        "environment": {
+          "ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/environment.schema"
+        },
+        "temperature": {
+          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+        },
+        "stressRatio": {
+          "type": "number",
+          "required": true
+        },
+        "clientItem": {
+          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/client_pole_reference.schema"
+        },
+        "owner": {
+          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/owner.schema"
+        }
+      }
+    },
+    "wireEndPoints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "wireEndPoint",
+        "extends": {
+          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/point.schema"
+        },
+        "properties": {
+          "inclination": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          },
+          "type": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/wep_type.schema"
+          },
+          "comments": {
+            "type": "string"
+          },
+          "wires": {
+            "type": "array",
+            "required": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "spanGuys": {
+            "type": "array",
+            "required": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "spanPoints": {
+            "type": "array",
+            "required": true,
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "spanPoints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "spanPoint",
+        "properties": {
+          "id": {
+            "type": "string",
+            "required": true
+          },
+          "uuid": {
+            "type": "string"
+          },
+          "distance": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          },
+          "environment": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/environment.schema"
+          },
+          "heights": {
+            "type": "array",
+            "required": true,
+            "items": {
+              "type": "object",
+              "id": "height",
+              "properties": {
+                "wireId": {
+                  "type": "string",
+                  "required": true
+                },
+                "height": {
+                  "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "anchors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "anchor",
+        "extends": {
+          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/point.schema"
+        },
+        "properties": {
+          "owner": {
+            "extends": {
+              "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/owner.schema",
+              "required": true
+            },
+            "height": {
+              "extends": {
+                "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable"
+              },
+              "required": true
+            },
+            "supportType": {
+              "type": "string",
+              "required": true
+            },
+            "clientItem": {
+              "type": "string",
+              "required": true
+            },
+            "guys": {
+              "type": "array",
+              "required": true,
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "notePoints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "notePoint",
+        "extends": {
+          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/point.schema"
+        },
+        "properties": {
+          "note": {
+            "type": "string",
+            "required": true
+          },
+          "height": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          }
+        }
+      }
+    },
+    "pointLoads": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "pointLoad",
+        "extends": {
+          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/attachment.schema"
+        },
+        "properties": {
+          "id": {
+            "type": "string",
+            "required": true
+          },
+          "uuid": {
+            "type": "string"
+          },
+          "owner": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/owner.schema"
+          },
+          "elevation": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          },
+          "rotation": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          },
+          "x": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          },
+          "y": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          },
+          "z": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          },
+          "fx": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          },
+          "fy": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          },
+          "fz": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          },
+          "mx": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          },
+          "my": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          },
+          "mz": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          }
+        }
+      }
+    },
+    "damages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "required": true
+          },
+          "uuid": {
+            "type": "string"
+          },
+          "damageType": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/damage_type.schema"
+          },
+          "attachHeight": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          },
+          "damageHeight": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          },
+          "direction": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/bearing.schema"
+          },
+          "arc": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          },
+          "depth": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          },
+          "shellThickness": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          },
+          "neckDepth": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          },
+          "neckDiameter": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          },
+          "neckOffset": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          }
+        }
+      }
+    },
+    "wires": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "wire",
+        "extends": {
+          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/attachment.schema"
+        },
+        "properties": {
+          "usageGroup": {
+            "type": "string",
+            "required": true
+          },
+          "tensionGroup": {
+            "type": "string",
+            "required": true
+          },
+          "midspanHeight": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          },
+          "tensionAdjustment": {
+            "type": "number"
+          },
+          "clientItem": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/client_wire_reference.schema"
+          }
+        }
+      }
+    },
+    "spanGuys": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "spanGuy",
+        "extends": {
+          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/attachment.schema"
+        },
+        "properties": {
+          "midspanHeight": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          },
+          "height": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          },
+          "clientItem": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/client_wire_reference.schema"
+          }
+        }
+      }
+    },
+    "guys": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "guy",
+        "extends": {
+          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/attachment.schema"
+        },
+        "properties": {
+          "braceHeight": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          },
+          "braceLength": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          },
+          "clientItem": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/client_wire_reference.schema"
+          }
+        }
+      }
+    },
+    "equipments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "equipment",
+        "extends": {
+          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/attachment.schema"
+        },
+        "properties": {
+          "bottomHeight": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          },
+          "direction": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/bearing.schema"
+          },
+          "clientItem": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/client_equipment_reference.schema"
+          }
+        }
+      }
+    },
+    "crossArms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "crossArm",
+        "extends": {
+          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/attachment.schema"
+        },
+        "properties": {
+          "offset": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          },
+          "direction": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/bearing.schema"
+          },
+          "associatedBacking": {
+            "type": "string",
+            "required": true
+          },
+          "insulators": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "clientItem": {
+            "type": "string",
+            "required": true
+          }
+        }
+      }
+    },
+    "insulators": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "insulator",
+        "extends": {
+          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/attachment.schema"
+        },
+        "properties": {
+          "offset": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          },
+          "direction": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/bearing.schema"
+          },
+          "doubleInsulator": {
+            "type": "boolean",
+            "required": true
+          },
+          "wires": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "clientItem": {
+            "type": "string",
+            "required": true
+          }
+        },
+        "required": [
+          "direction",
+          "offset"
+        ]
+      }
+    },
+    "pushBraces": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "pushBrace",
+        "extends": {
+          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/attachment.schema"
+        },
+        "properties": {
+          "glc": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          },
+          "direction": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          },
+          "distance": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          },
+          "clientItem": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/client_pole_reference.schema"
+          }
+        },
+        "required": [
+          "clientItem",
+          "distance",
+          "direction",
+          "glc"
+        ]
+      }
     }
+  }
 }

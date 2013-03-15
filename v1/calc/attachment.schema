@@ -1,26 +1,26 @@
 {
-	"id": "attachment",
-	"type": "object",
-	"description": "An item that can be attached to the pole.",
-	"properties": {
-		"id": {
-			"type": "string",
-			"required": true,
-			"description": "The display ID for the attachment. Must be unique within the pole."
-		},
-		"uuid": {
-			"type": "string",
-			"description": "An optional UUID for the item."
-		},
-		"owner": {
-			"extends": { "$ref": "owner" },
-			"required": true
-		},
-		"attachmentHeight": {
-		    "extends": { "$ref": "measurable" },
-		    "required": true,
-		    "description": "The height above ground at which the item is attached to the pole. If there are multiple points of attachment, the highest is used."
-		}
-	}
-	
+  "id": "attachment",
+  "type": "object",
+  "description": "An item that can be attached to the pole.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "required": true,
+      "description": "The display ID for the attachment. Must be unique within the pole."
+    },
+    "uuid": {
+      "type": "string",
+      "description": "An optional UUID for the item."
+    },
+    "owner": {
+      "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/owner.schema"
+    },
+    "attachmentHeight": {
+      "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+    }
+  },
+  "required": [
+    "attachmentHeight",
+    "owner"
+  ]
 }

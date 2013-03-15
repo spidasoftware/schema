@@ -1,0 +1,10 @@
+{
+  "id": "dataForm",
+  "description": "A SPIDAMin form",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number"
+    }
+  }
+}

@@ -1,19 +1,21 @@
 {
-	  "id": "clientPoleReference",
-	  "type": "object",
-	  "description" : "A reference to a client pole",
-	  "properties": {
-	  	"species": {
-	  		"type": "string",
-	  		"required": true
-	  	},
-	  	"classOfPole": {
-	  		"type": "string",
-	  		"required": true
-	  	},
-	  	"height": {
-	  		"extends" : {"$ref" : "measurable"},
-	  		"required": true
-	  	}
-	  }
+  "id": "clientPoleReference",
+  "type": "object",
+  "description": "A reference to a client pole",
+  "properties": {
+    "species": {
+      "type": "string",
+      "required": true
+    },
+    "classOfPole": {
+      "type": "string",
+      "required": true
+    },
+    "height": {
+      "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+    }
+  },
+  "required": [
+    "height"
+  ]
 }
