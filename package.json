@@ -6,20 +6,20 @@
     "homepage": "github.com/spidasoftware/schema",
     "repository": {
         "type": "git",
-        "url": "git@192.168.47.84:schema.git"
+        "url": "https://github.com/spidasoftware/schema.git"
     },
     "scripts": {
         "test": "jasmine-node --coffee spec/",
         "monitor": "jasmine-node --coffee --junitreport --autotest spec/"
     },
     "engines": {
-        "node": "~0.10.0"
+        "node": "~0.9.12"
     },
     "dependencies": {},
     "devDependencies": {
         "log4js": "*",
         "querystring": "*",
-        "jayschema": "*",
+        "JSV": "*",
         "jasmine-node": "*"
     },
     "optionalDependencies": {}
