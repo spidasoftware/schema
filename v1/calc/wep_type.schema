@@ -1,5 +1,5 @@
 {
-	"id": "wepType",
+	"id": "https://raw.github.com/spidasoftware/schema/master/v1/calc/wep_type.schema",
 	"type": "string",
 	"description": "Enumeration of the accepted types of wire end points.",
 	"enum": [

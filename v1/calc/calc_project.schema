@@ -1,5 +1,5 @@
 {
-  "id": "project",
+  "id": "https://raw.github.com/spidasoftware/schema/master/v1/calc/calc_project.schema",
   "type": "object",
   "properties": {
     "schema": {

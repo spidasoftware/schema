@@ -1,5 +1,5 @@
 {
-	  "id": "clientEquipmentReference",
+	  "id": "https://raw.github.com/spidasoftware/schema/master/v1/calc/client_equipment_reference.schema",
 	  "type": "object",
 	  "description" : "A reference to a client equipment",
 	  "properties": {

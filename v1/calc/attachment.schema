@@ -1,5 +1,5 @@
 {
-  "id": "attachment",
+  "id": "https://raw.github.com/spidasoftware/schema/master/v1/calc/attachment.schema",
   "type": "object",
   "description": "An item that can be attached to the pole.",
   "properties": {

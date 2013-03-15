@@ -1,5 +1,5 @@
 {
-  "id": "point",
+  "id": "https://raw.github.com/spidasoftware/schema/master/v1/calc/point.schema",
   "type": "object",
   "description": "An object a certain distance and direction from the pole.",
   "properties": {

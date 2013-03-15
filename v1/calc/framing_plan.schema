@@ -1,6 +1,6 @@
 {
   "type": "object",
-  "id": "framingPlan",
+  "id": "https://raw.github.com/spidasoftware/schema/master/v1/calc/framing_plan.schema",
   "description": "List of end points and code units describing a framing plan.",
   "properties": {
     "customName": {

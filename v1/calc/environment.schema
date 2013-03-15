@@ -1,5 +1,5 @@
 {
-	"id": "environment",
+	"id": "https://raw.github.com/spidasoftware/schema/master/v1/calc/environment.schema",
 	"description": "Environment for poles, span points, and wire end points.",
 	"type": "string",
 	"enum": [

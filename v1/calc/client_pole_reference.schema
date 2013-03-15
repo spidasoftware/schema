@@ -1,5 +1,5 @@
 {
-  "id": "clientPoleReference",
+  "id": "https://raw.github.com/spidasoftware/schema/master/v1/calc/client_pole_reference.schema",
   "type": "object",
   "description": "A reference to a client pole",
   "properties": {
