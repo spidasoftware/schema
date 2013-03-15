@@ -1,28 +1,27 @@
 {
-	"id": "point",
-	"type": "object",
-	"description": "An object a certain distance and direction from the pole.",
-	"properties": {
-		"id": { 
-			"type": "string",
-			"required": true,
-			"description": "A display id for the object. Should be unique to the pole."
-		},
-		"uuid": {
-			"type": "string",
-			"description": "An option UUID."
-		},
-		"distance": {
-			"extends": { "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema" },
-			"required": true,
-			"description" : "Distance from the pole to the point."
-		},
-		"direction": {
-			"extends": { "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/bearing.schema" }, 
-			"required": true,
-			"description": "Direction on the compass from the pole to the point."
-		}
-	}
+  "id": "point",
+  "type": "object",
+  "description": "An object a certain distance and direction from the pole.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "required": true,
+      "description": "A display id for the object. Should be unique to the pole."
+    },
+    "uuid": {
+      "type": "string",
+      "description": "An option UUID."
+    },
+    "distance": {
+      "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+    },
+    "direction": {
+      "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/bearing.schema"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "direction",
+    "distance"
+  ]
 }
-			
-	

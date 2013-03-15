@@ -1,71 +1,72 @@
 {
-	"type":"object",
-	"id": "framingPlan",
-	"description": "List of end points and code units describing a framing plan.",
-	"properties":{
-		"customName": {
-			"type":"string",
-			"id": "customName"
-		},
-		"framingEndPoints": {
-			"type":"array",
-			"id": "framingEndPoints",
-			"items": {
-				"type":"object",
-				"id": "framingEndPoint",
-				"description": "Description of an end point for the framer. End points are anything that a wire can go to.",
-				"properties":{
-					"direction": {
-						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/bearing.schema" },
-						"required": true
-					},
-					"distance": {
-						"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema" },
-						"required": true
-					},
-					"framingWireItems": {
-						"type":"array",
-						"id": "framingWireItems",
-						"required":true,
-						"items":{
-							"type":"object",
-							"id": "framingWireItem",
-							"description": "A wire that goes to this wire end point.",
-							"properties":{
-								"code": {
-									"type":"string",
-									"required":true,
-									"description": "Code to use to look up this wire's properties."
-								},
-								"owner": {
-									"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/owner.schema"}
-								},
-								"tensionGroupOverride": {
-									"type":"string",
-									"description": "Force the wire to use a different tension group than the default."
-								},
-								"usageGroup": {
-									"extends": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/usage_group.schema"},
-									"required": true
-								}
-							}
-						}
-
-
-					}
-				}
-			}
-
-
-		},
-		"framingUnitItems": {
-			"type":"array",
-			"id": "framingUnitItems",
-			"description": "The list of framing Units that are to be applied to this pole.",
-			"items": {
-					"type":"string",
-					"id": "framingUnitItem"
-				}
-		}
-	}
+  "type": "object",
+  "id": "framingPlan",
+  "description": "List of end points and code units describing a framing plan.",
+  "properties": {
+    "customName": {
+      "type": "string",
+      "id": "customName"
+    },
+    "framingEndPoints": {
+      "type": "array",
+      "id": "framingEndPoints",
+      "items": {
+        "type": "object",
+        "id": "framingEndPoint",
+        "description": "Description of an end point for the framer. End points are anything that a wire can go to.",
+        "properties": {
+          "direction": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/bearing.schema"
+          },
+          "distance": {
+            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+          },
+          "framingWireItems": {
+            "type": "array",
+            "id": "framingWireItems",
+            "required": true,
+            "items": {
+              "type": "object",
+              "id": "framingWireItem",
+              "description": "A wire that goes to this wire end point.",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "required": true,
+                  "description": "Code to use to look up this wire's properties."
+                },
+                "owner": {
+                  "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/owner.schema"
+                },
+                "tensionGroupOverride": {
+                  "type": "string",
+                  "description": "Force the wire to use a different tension group than the default."
+                },
+                "usageGroup": {
+                  "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/usage_group.schema"
+                }
+              },
+              "required": [
+                "usageGroup",
+                "owner"
+              ]
+            }
+          }
+        },
+        "required": [
+          "distance",
+          "direction"
+        ]
+      }
+    },
+    "framingUnitItems": {
+      "type": "array",
+      "id": "framingUnitItems",
+      "description": "The list of framing Units that are to be applied to this pole.",
+      "items": {
+        "type": "string",
+        "id": "framingUnitItem"
+      }
+    }
+  }
 }

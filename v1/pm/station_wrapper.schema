@@ -4,32 +4,26 @@
   "type": "object",
   "properties": {
     "id": {
-      "type": "number",
-      "required": false
+      "type": "number"
     },
     "amStationId": {
-      "type": ["string","null"],
-      "required": false
+      "type": ["string","null"]
     },
     "spotted": {
       "type": "boolean",
-      "description": "true if station does not exist in assetmaster",
-      "required": false
-    },
+      "description": "true if station does not exist in assetmaster"
+          },
     "deleted": {
       "type": "boolean",
       "description": "true if station is marked as deleted (NOTE: value is not writable, only readable through API)",
-      "required": false
     },
     "display": {
       "type": "string",
       "description": "Defaults to assetmaster tag.  If spotted, this value should be set.",
-      "required": false
     },
     "geometry": {
       "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/geometry.schema",
       "description": "required if spotted and not in assetmaster",
-      "required": false
     }
   }
 }
