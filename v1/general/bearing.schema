@@ -1,5 +1,5 @@
 {
-  "id":"bearing",
+  "id":"https://raw.github.com/spidasoftware/schema/master/v1/general/bearing.schema",
 	"type": "integer",
 	"maximum": 360,
 	"minimum": 0,

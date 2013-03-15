@@ -13,15 +13,16 @@
       "description": "An option UUID."
     },
     "distance": {
-      "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+      "extends": {
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+      },
+      "required": true
     },
     "direction": {
-      "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/bearing.schema"
+      "extends": {
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/bearing.schema"
+      },
+      "required": true
     }
-  },
-  "additionalProperties": false,
-  "required": [
-    "direction",
-    "distance"
-  ]
+  }
 }

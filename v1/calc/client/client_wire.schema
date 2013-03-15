@@ -4,7 +4,7 @@
   "properties": {
     "calculation": {
       "extends": {
-        "$ref": "calculation"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/client/calculation.schema"
       }, 
       "required": true
     }, 
@@ -18,7 +18,7 @@
     }, 
     "crossArea": {
       "extends": {
-        "$ref": "measurable"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }, 
@@ -28,19 +28,19 @@
     }, 
     "diameter": {
       "extends": {
-        "$ref": "measurable"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }, 
     "expansionCoefficient": {
       "extends": {
-        "$ref": "measurable"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }, 
     "modulus": {
       "extends": {
-        "$ref": "measurable"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }, 
@@ -54,13 +54,13 @@
     }, 
     "strength": {
       "extends": {
-        "$ref": "measurable"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }, 
     "tensionGroups": {
       "items": {
-        "$ref": "tension_group"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/client/tension_group.schema"
       }, 
       "required": true, 
       "type": "array"
@@ -74,7 +74,7 @@
     }, 
     "weight": {
       "extends": {
-        "$ref": "measurable"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }

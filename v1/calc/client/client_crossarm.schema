@@ -4,7 +4,7 @@
   "properties": {
     "density": {
       "extends": {
-        "$ref": "measurable"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }, 
@@ -14,24 +14,24 @@
     }, 
     "height": {
       "extends": {
-        "$ref": "measurable"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }, 
     "length": {
       "extends": {
-        "$ref": "measurable"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }, 
     "materialCategory": {
       "extends": {
-        "$ref": "material_category"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/client/material_category.schema"
       }
     }, 
     "modulus": {
       "extends": {
-        "$ref": "measurable"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }, 
@@ -41,7 +41,7 @@
     }, 
     "shape": {
       "extends": {
-        "$ref": "shape"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/client/shape.schema"
       }
     }, 
     "size": {
@@ -50,24 +50,24 @@
     }, 
     "stressAllow": {
       "extends": {
-        "$ref": "measurable"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }, 
     "throughHoleDiameter": {
       "extends": {
-        "$ref": "measurable"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }
     }, 
     "wallThickness": {
       "extends": {
-        "$ref": "measurable"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }, 
     "width": {
       "extends": {
-        "$ref": "measurable"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }

@@ -1,58 +1,54 @@
-JaySchema = require('jayschema')
-js = new JaySchema(JaySchema.loaders.http)
-
-describe 'client', ->
+describe 'in the client folder', ->
 
   #Include some stuff.
   log4js = require('log4js')
   logger = log4js.getLogger()
+  logger.setLevel('INFO')
+
   fs = require('fs')
-  designSchema = "./public/v1/calc/design.schema"
+  designSchema = "./v1/calc/design.schema"
+  testUtils = require "./test_utils"
+  testUtils.loadSchemasInFolder("/v1/general")
+  testUtils.loadSchemasInFolder("/v1/calc")
+  testUtils.loadSchemasInFolder("/v1/calc/client")
 
-  #js.supportedSchemas(["./v1/general", "./v1/calc"])
-  #js.supportedSchemas([])
-
-  it 'check anchor', ->
-    logger.info "check anchor"
+  it 'should validate a simple anchor', ->
     jsonString = fs.readFileSync("./examples/client/client_anchor_example.json").toString()
     json = JSON.parse(jsonString)
-    js.validate(json, "./public/v1/calc/client/client_anchor.schema")
+    testUtils.validate(json, "./v1/calc/client/client_anchor.schema", true)
 
-  it 'check crossarm', ->
-    logger.info "check crossarm"
+  it 'should validate a simple crossarm', ->
     jsonString = fs.readFileSync("./examples/client/client_xarm_example.json").toString()
     json = JSON.parse(jsonString)
-    js.validate(json, "./public/v1/calc/client/client_crossarm.schema")
+    testUtils.validate(json, "./v1/calc/client/client_crossarm.schema", true)
 
-  it 'check equipment', ->
-    logger.info "check equipment"
+  it 'should validate a simple equipment', ->
     jsonString = fs.readFileSync("./examples/client/client_equipment_example.json").toString()
     json = JSON.parse(jsonString)
-    js.validate(json, "./public/v1/calc/client/client_equipment.schema")
+    testUtils.validate(json, "./v1/calc/client/client_equipment.schema", true)
 
-  it 'check insulator', ->
-    logger.info "check insulator"
+  it 'should validate a simple insulator', ->
     jsonString = fs.readFileSync("./examples/client/client_insulator_example.json").toString()
     json = JSON.parse(jsonString)
-    js.validate(json, "./public/v1/calc/client/client_insulator.schema")
+    testUtils.validate(json, "./v1/calc/client/client_insulator.schema", true)
 
-  it 'check pole', ->
-    logger.info "check pole in client spec"
+  it 'should validate a simple pole', ->
     jsonString = fs.readFileSync("./examples/client/client_pole_example.json").toString()
     json = JSON.parse(jsonString)
-    js.validate(json, "./public/v1/calc/client/client_pole.schema")
+    testUtils.validate(json, "./v1/calc/client/client_pole.schema", true)
 
-  it 'check wire', ->
-    logger.info "check wire"
+  it 'should validate a simple wire', ->
     jsonString = fs.readFileSync("./examples/client/client_wire_example.json").toString()
     json = JSON.parse(jsonString)
-    js.validate(json, "./public/v1/calc/client/client_wire.schema")
+    testUtils.validate(json, "./v1/calc/client/client_wire.schema", true)
     
-  it 'check wire bundle', ->
-    logger.info "check wire bundle"
+  it 'should validate a simple wire bundle', ->
     jsonString = fs.readFileSync("./examples/client/client_bundle_example.json").toString()
     json = JSON.parse(jsonString)
-    js.validate(json, "./public/v1/calc/client/client_bundle.schema")
-    json.messenger = null
-    js.validate(json, "./public/v1/calc/client/client_bundle.schema", false)
+    testUtils.validate(json, "./v1/calc/client/client_bundle.schema", true)
+
+  it 'should not validate a simple invalid wire bundle', ->
+    jsonString = fs.readFileSync("./examples/client/client_bundle_invalid_example.json").toString()
+    json = JSON.parse(jsonString)
+    testUtils.validate(json, "./v1/calc/client/client_bundle.schema", false)
 

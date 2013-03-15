@@ -4,25 +4,25 @@
   "properties": {
     "horizontalOffset": {
       "extends": {
-        "$ref": "measurable"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }, 
     "lateralArea": {
       "extends": {
-        "$ref": "measurable"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }, 
     "poleSideArea": {
       "extends": {
-        "$ref": "measurable"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }, 
     "shape": {
       "extends": {
-        "$ref": "shape"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/client/shape.schema"
       }
     }, 
     "size": {
@@ -31,31 +31,31 @@
     }, 
     "strength": {
       "extends": {
-        "$ref": "measurable"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }, 
     "throughHoleDiameter": {
       "extends": {
-        "$ref": "measurable"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }, 
     "type": {
       "extends": {
-        "$ref": "insulator_type"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/client/insulator_type.schema"
       }, 
       "required": true
     }, 
     "verticalOffset": {
       "extends": {
-        "$ref": "measurable"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }, 
     "weight": {
       "extends": {
-        "$ref": "measurable"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }

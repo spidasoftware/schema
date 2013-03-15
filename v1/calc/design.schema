@@ -119,7 +119,7 @@
           },
           "environment": {
             "extends": {
-              "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/environment.schema"
+              "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/environment.schema"
             },
             "required": true
           },
@@ -311,7 +311,7 @@
           },
           "damageType": {
             "extends": {
-              "$ref": "damage_type"
+              "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/damage_type.schema"
             },
             "required": true
           },

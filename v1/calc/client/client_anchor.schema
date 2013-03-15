@@ -1,6 +1,6 @@
 {
   "description": "Engineering properties for an anchor", 
-  "id": "client_anchor", 
+  "id": "https://raw.github.com/spidasoftware/schema/master/v1/calc/client/client_anchor.schema", 
   "properties": {
     "size": {
       "required": true, 
@@ -8,7 +8,7 @@
     }, 
     "strength": {
       "extends": {
-        "$ref": "measurable"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }

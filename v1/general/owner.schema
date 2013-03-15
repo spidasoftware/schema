@@ -1,5 +1,5 @@
 {
-    "id"         : "owner",
+    "id"         : "https://raw.github.com/spidasoftware/schema/master/v1/general/owner.schema",
     "type"       : "object",
     "description": "A company that owns components at a location.",
     "properties" : {

@@ -42,43 +42,44 @@ The second type of services are "REST" services.  These services differ from the
 * Response: the response will always be formated in the generic "method_response", this allows for passing error codes and the result. Example: {"error":"Object not found"} 
 
 ### Schema Parts
-1. [Asset](https://github.com/spidasoftware/schema/tree/master/v1/asset)
 2. [General](https://github.com/spidasoftware/schema/tree/master/v1/general)
+2. [SPIDACalc](https://github.com/spidasoftware/schema/tree/master/v1/calc)
+2. [SPIDAMin - projects](https://github.com/spidasoftware/schema/tree/master/v1/pm)
+1. [SPIDAMin - assets](https://github.com/spidasoftware/schema/tree/master/v1/asset)
 
-### Tools
-
-#### Validation
-
-1. Java - We have used the excellent library by [fge](https://github.com/fge/json-schema-validator) in our java environments.  It gives very good validation errors and also does all the references for you, so there is no need to load all the linked schemas.
-2. javascript - [JSV](https://github.com/garycourt/JSV) is what we have used in our javascript tests here in this package.  The references are harder to handle, but still good.
-
-#### Script Dereference
-
-There is a coffee script in the utils/scripts that will combine all the schemas into a fewer number of really large files.  This is useful in test and validating entire project structures.
-
-To Run:
-
-	coffee utils/scripts/dereference.coffee
-
-This is also run on each test from:
-
-    npm test
+Testing
+-------
 
 #### Javascript Testing
 
-We have included jasmine tests using nodejs.  
+The general testing of the schema itself is written in coffeescript and uses nodejs and jasmine to run the test suite. 
 
-To Install:
+1. spec\ contains all the jasmine tests.  
+1. examples\ contains the test fixtures used in the tests.
 
-	npm install jasmine-node -g
+To be able to run tests:
 
-Run you tests:
+1. Install nodejs
+2. Install npm for node.
+3. Install jasmine node ```npm install jasmine-node -g```
 
-	jasmine-node --coffee spec
+To run test suite:
+
+``` npm test ```
 
 Or a specific test:
 
-  jasmine-node --coffee -m Calc spec/
+``` jasmine-node --coffee -m Calc spec/ ```
+
+Tools
+-----
+
+#### Validation
+
+If you are in need of actually validating some JSON data against the schema there are two options that we have used and found to be pretty good for Java and javascript.
+
+1. Java - We have used the excellent library by [fge](https://github.com/fge/json-schema-validator) in our java environments.  It gives very good validation errors and also does all the references for you, so there is no need to load all the linked schemas.
+2. javascript - [JSV](https://github.com/garycourt/JSV) is what we have used in our javascript tests here in this package.  The references are harder to handle, but still good.
 
 For Debugging: [JSON Tools](https://github.com/ddopson/underscore-cli)
 	

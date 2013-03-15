@@ -8,29 +8,29 @@
     }, 
     "density": {
       "extends": {
-        "$ref": "measurable"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }, 
     "height": {
       "extends": {
-        "$ref": "measurable"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }, 
     "materialCategory": {
       "extends": {
-        "$ref": "material_category"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/client/material_category.schema"
       }
     }, 
     "modulus": {
       "extends": {
-        "$ref": "measurable"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }
     }, 
     "momentAllow": {
       "extends": {
-        "$ref": "measurable"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }
     }, 
     "poissonRatio": {
@@ -39,12 +39,12 @@
     }, 
     "ptc": {
       "extends": {
-        "$ref": "measurable"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }
     }, 
     "shape": {
       "extends": {
-        "$ref": "shape"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/client/shape.schema"
       }
     },
     "species": {
@@ -53,7 +53,7 @@
     }, 
     "stressAllow": {
       "extends": {
-        "$ref": "measurable"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }
     }, 
     "taper": {
@@ -62,7 +62,7 @@
     }, 
     "wallThickness": {
       "extends": {
-        "$ref": "measurable"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }

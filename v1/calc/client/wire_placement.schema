@@ -5,19 +5,19 @@
   "properties": {
     "x": {
       "extends": {
-        "$ref": "measurable"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       },
       "required": true
     },
     "y": {
       "extends": {
-        "$ref": "measurable"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       },
       "required": true
     },
     "clientWire": {
       "extends": {
-        "$ref": "client_wire"
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/client/client_wire.schema"
       },
       "required": true
     }

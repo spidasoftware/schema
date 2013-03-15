@@ -1,6 +1,6 @@
 {
     "type": "object",
-    "id": "method_response",
+    "id": "https://raw.github.com/spidasoftware/schema/master/v1/general/method_response.schema",
     "description": "The response wrapper for all SPIDA API methods.  Result OR Error will be set but not both.",
     "properties": {
         "result": {

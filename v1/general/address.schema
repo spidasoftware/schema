@@ -1,5 +1,5 @@
 {
-    "id":"address",
+    "id":"https://raw.github.com/spidasoftware/schema/master/v1/general/address.schema",
     "type": "object",
     "optional": true,
     "description": "A street address.",

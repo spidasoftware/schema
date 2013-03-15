@@ -10,28 +10,28 @@
         },
         "windPressure": {
             "extends": {
-                "$ref": "measurable"
+                "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
             },
             "required": false,
             "description": "The wind force that is acting on this wire. In force per length."
         },
         "iceThickness": {
             "extends": {
-                "$ref": "measurable"
+                "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
             },
             "required": false,
             "description": "The weight force that is acting on this wire. In force per length."
         },
         "linearConstant": {
             "extends": {
-                "$ref": "measurable"
+                "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
             },
             "required": false,
             "description": "The addtional linear force that is acting on this wire. In force per length."
         },
         "temperature": {
             "extends": {
-                "$ref": "measurable"
+                "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
             },
             "required": true,
             "description": "The temperature at which to analyze this wire."

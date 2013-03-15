@@ -1,5 +1,5 @@
 {
-  "id": "id",
+  "id": "https://raw.github.com/spidasoftware/schema/master/v1/general/id.schema",
   "type": "object",
   "description": "General id holder for success responses",
   "properties": {

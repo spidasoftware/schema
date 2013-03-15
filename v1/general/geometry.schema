@@ -1,6 +1,6 @@
 {
     "type": "object",
-    "id": "geometry",
+    "id": "https://raw.github.com/spidasoftware/schema/master/v1/general/geometry.schema",
     "properties": {
         "coordinates": {
             "type": "array",

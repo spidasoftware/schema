@@ -16,10 +16,16 @@
         "description": "Description of an end point for the framer. End points are anything that a wire can go to.",
         "properties": {
           "direction": {
-            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/bearing.schema"
+            "extends": {
+              "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/bearing.schema"
+            },
+            "required": true
           },
           "distance": {
-            "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+            "extends": {
+              "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+            },
+            "required": true
           },
           "framingWireItems": {
             "type": "array",
@@ -38,7 +44,8 @@
                 "owner": {
                   "extends": {
                     "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/owner.schema"
-                  }
+                  },
+                  "required":true
                 },
                 "tensionGroupOverride": {
                   "type": "string",
@@ -47,21 +54,14 @@
                 "usageGroup": {
                   "extends": {
                     "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/usage_group.schema"
-                  }
+                  },
+                  "required":true
                 }
               },
-              "required": [
-                "usageGroup",
-                "owner"
-              ],
               "additionalProperties": false
             }
           }
-        },
-        "required": [
-          "distance",
-          "direction"
-        ]
+        }
       }
     },
     "framingUnitItems": {
