@@ -3,25 +3,25 @@
   "id": "client_insulator", 
   "properties": {
     "horizontalOffset": {
-      "extends": {
+      "allOf": {
         "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }, 
     "lateralArea": {
-      "extends": {
+      "allOf": {
         "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }, 
     "poleSideArea": {
-      "extends": {
+      "allOf": {
         "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }, 
     "shape": {
-      "extends": {
+      "allOf": {
         "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/client/shape.schema"
       }
     }, 
@@ -30,31 +30,31 @@
       "type": "string"
     }, 
     "strength": {
-      "extends": {
+      "allOf": {
         "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }, 
     "throughHoleDiameter": {
-      "extends": {
+      "allOf": {
         "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }, 
     "type": {
-      "extends": {
+      "allOf": {
         "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/client/insulator_type.schema"
       }, 
       "required": true
     }, 
     "verticalOffset": {
-      "extends": {
+      "allOf": {
         "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }, 
     "weight": {
-      "extends": {
+      "allOf": {
         "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true

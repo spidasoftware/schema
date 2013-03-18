@@ -3,7 +3,7 @@
   "id": "client_cross_arm", 
   "properties": {
     "density": {
-      "extends": {
+      "allOf": {
         "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
@@ -13,24 +13,24 @@
       "type": "boolean"
     }, 
     "height": {
-      "extends": {
+      "allOf": {
         "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }, 
     "length": {
-      "extends": {
+      "allOf": {
         "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }, 
     "materialCategory": {
-      "extends": {
+      "allOf": {
         "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/client/material_category.schema"
       }
     }, 
     "modulus": {
-      "extends": {
+      "allOf": {
         "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
@@ -40,7 +40,7 @@
       "type": "number"
     }, 
     "shape": {
-      "extends": {
+      "allOf": {
         "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/client/shape.schema"
       }
     }, 
@@ -49,24 +49,24 @@
       "type": "string"
     }, 
     "stressAllow": {
-      "extends": {
+      "allOf": {
         "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }, 
     "throughHoleDiameter": {
-      "extends": {
+      "allOf": {
         "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }
     }, 
     "wallThickness": {
-      "extends": {
+      "allOf": {
         "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true
     }, 
     "width": {
-      "extends": {
+      "allOf": {
         "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true

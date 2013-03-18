@@ -6,13 +6,13 @@
       "items": {
         "properties": {
           "distance": {
-            "extends": {
+            "allOf": {
               "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
             }, 
             "required": true
           }, 
           "tension": {
-            "extends": {
+            "allOf": {
               "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
             }, 
             "required": true
@@ -28,7 +28,7 @@
       "type": "string"
     }, 
     "temperature": {
-      "extends": {
+      "allOf": {
         "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       }, 
       "required": true

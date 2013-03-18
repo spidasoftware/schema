@@ -16,13 +16,13 @@
         "description": "Description of an end point for the framer. End points are anything that a wire can go to.",
         "properties": {
           "direction": {
-            "extends": {
+            "allOf": {
               "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/bearing.schema"
             },
             "required": true
           },
           "distance": {
-            "extends": {
+            "allOf": {
               "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
             },
             "required": true
@@ -42,7 +42,7 @@
                   "description": "Code to use to look up this wire's properties."
                 },
                 "owner": {
-                  "extends": {
+                  "allOf": {
                     "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/owner.schema"
                   },
                   "required":true
@@ -52,7 +52,7 @@
                   "description": "Force the wire to use a different tension group than the default."
                 },
                 "usageGroup": {
-                  "extends": {
+                  "allOf": {
                     "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/usage_group.schema"
                   },
                   "required":true

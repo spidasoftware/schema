@@ -41,6 +41,15 @@ The second type of services are "REST" services.  These services differ from the
 * Params: parameters for the procedure are included in the http params list after the method name i.e. project/1?
 * Response: the response will always be formated in the generic "method_response", this allows for passing error codes and the result. Example: {"error":"Object not found"} 
 
+Versions
+--------
+
+The V1 of the schema is currently in a "alpha" state it is complete in some areas, please contact us about which pieces are stable enough to use.  
+
+*We of course will be working on this further in the future and until we reach V1, there may be breaking changes.*
+
+Our schema's currently conform to the "json-schema-draft-03" version, but we are looking to always keep that current until the official release of that standard.
+
 ### Schema Parts
 2. [General](https://github.com/spidasoftware/schema/tree/master/v1/general)
 2. [SPIDACalc](https://github.com/spidasoftware/schema/tree/master/v1/calc)

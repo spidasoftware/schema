@@ -4,19 +4,19 @@
   "id": "wire_placement",
   "properties": {
     "x": {
-      "extends": {
+      "allOf": {
         "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       },
       "required": true
     },
     "y": {
-      "extends": {
+      "allOf": {
         "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
       },
       "required": true
     },
     "clientWire": {
-      "extends": {
+      "allOf": {
         "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/client/client_wire.schema"
       },
       "required": true
