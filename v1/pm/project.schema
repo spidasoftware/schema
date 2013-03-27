@@ -18,6 +18,11 @@
       "description": "true if project is marked as deleted (NOTE: value is not writable, only readable through API)",
       "required": false
     },
+    "editable": {
+      "type": "boolean",
+      "description": "true if project is editble by requesting authorized user (NOTE: value is not writable, only readable through API)",
+      "required": false
+    },
     "flowId": {
       "type": "number",
       "required": true,
