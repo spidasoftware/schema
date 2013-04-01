@@ -16,14 +16,6 @@
       "type": "string",
       "description": "Date the project was created."
     },
-    "forms": {
-      "type": "array",
-      "id": "projectForms",
-      "description": "All custom project forms.",
-      "items": {
-        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/pm/data_form.schema"
-      }
-    },
     "leads": {
       "type": "array",
       "required": true,
@@ -151,28 +143,16 @@
                     }
                   }
                 },
-                "forms": {
-                  "type": "array",
-                  "id": "forms",
-                  "description": "All custom location forms.",
-                  "items": {
-                    "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/pm/data_form.schema"
-                  }
-                },
                 "images": {
                   "type": "array",
                   "id": "images",
-                  "description": "Base64 encoded images for this location.",
+                  "description": "Photos/images for this location.",
                   "items": {
                     "type": "object",
                     "properties": {
-                      "data": {
-                        "type": "string",
-                        "description": "A Base64 encoded image"
-                      },
                       "url": {
                         "type": "string",
-                        "description": "A URL pointing to the image"
+                        "description": "Path to the image file."
                       }
                     }
                   }

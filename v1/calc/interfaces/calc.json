@@ -72,12 +72,12 @@
    		]
    	},
 	"generateReport": {
-		"description": "Generate a report for the current project.",
+		"description": "Generate a report for the current project. Returns file location of report",
 		"returns": "object",
 		"params": [
 			{
 				"type": "string",
-				"name": "reportFile",
+				"name": "outputDirectory",
 				"required": false,
 				"description": "Location to save the report."
 			},
@@ -86,6 +86,11 @@
 				"name": "reportName",
 				"required": false,
 				"description": "The preset custom report to generate."
+			},
+			{
+			  "type": "string",
+			  "name": "format",
+			  "description": "PDF or HTML"
 			}
 		]
 	},
