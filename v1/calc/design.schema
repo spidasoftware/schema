@@ -581,7 +581,7 @@
           },
           "direction": {
             "extends": {
-              "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+              "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/bearing.schema"
             },
             "required": true
           },

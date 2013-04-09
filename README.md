@@ -12,7 +12,7 @@ There will be two types of services "remote procedures" and "stateful services".
 
 To address these two types of services we will be implementing two different service types "RPC" and "REST" services.  These two types of services address different needs within the service environment.
 
-Each of the services will have discriptors to allow for testing, and the objects that are passed will have schemas provided here for validating.
+Each of the services will have descriptors to allow for testing, and the objects that are passed will have schemas provided here for validating.
 
 
 General proces for using a service definded here:
@@ -29,17 +29,17 @@ General process for implementing a service:
 
 An example of the "RPC" type would be something that would in java have a service interface, a defined set of methods that can be replaced with any service that conforms to that interface.  This would be for example a "math" service with methods like "add" and "subtract", not that this example would have different implementations, a more complex math service certainly could.  We have based it on the example found [here](http://www.simple-is-better.org/json-rpc/jsonrpc20-schema-service-descriptor.html).
 
-* Request: RPC type methods will be done agains a url that ends with the method name.  
+* Request: RPC type methods will be done against a url that ends with the method name.
 * Params: parameters for the procedure are included in the http params list after the method name i.e. add?n1=1,n2=4
-* Response: the response will always be formated in the generic "method_response", this allows for passing error codes and the result. Example: {"result":5}
+* Response: the response will always be formatted in the generic "method_response", this allows for passing error codes and the result. Example: {"result":5}
 
 ### REST
 
 The second type of services are "REST" services.  These services differ from the first in that they need to retain and store the state of some objects in the server.  A user service would be an example of this type of service, where you can create, modify, update and delete these users on the server.  With this type of service you generally won't need to define the methods to the same degree, but we will still use defined object within this service.
 
-* Request: REST type methods will be done agains a url that ends with the id or object name.  
+* Request: REST type methods will be done against a url that ends with the id or object name.
 * Params: parameters for the procedure are included in the http params list after the method name i.e. project/1?
-* Response: the response will always be formated in the generic "method_response", this allows for passing error codes and the result. Example: {"error":"Object not found"} 
+* Response: the response will always be formatted in the generic "method_response", this allows for passing error codes and the result. Example: {"error":"Object not found"}
 
 ### Schema Parts
 2. [General](https://github.com/spidasoftware/schema/tree/master/v1/general)
