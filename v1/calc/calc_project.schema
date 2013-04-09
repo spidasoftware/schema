@@ -158,7 +158,7 @@
                               "description": "Result summaries for all components.",
                               "required": true,
                               "items": {
-                                "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/asset/standard_details/pole_asset.schema"
+                                "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/asset/standard_details/analysis_asset.schema"
                               }
                             }
                           }
