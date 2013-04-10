@@ -58,6 +58,10 @@ public class LocalServiceServlet extends LocalJSONProcedure {
       throw new JSONServletException("MISSING_RESOURCE", "The specied service descriptor isn't available in the jar.")
       return
     }
+    
+    if (action == "") {
+      return serviceDescriptor 
+    }
     def jsonAction = JSONSerializer.toJSON(serviceDescriptor).get(action)
     if(!jsonAction){
       throw new JSONServletException("MISSING_METHOD", "The method ${action} is not defined in this interface.")
