@@ -1,0 +1,17 @@
+{
+  "id": "https://raw.github.com/spidasoftware/schema/master/v1/user/company.schema",
+  "description": "A SPIDAMin company",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number",
+      "required": false,
+      "description": "ID for project model in project manager database"
+    },
+    "name": {
+      "type": "string",
+      "required": false,
+      "description": "First name of user"
+    }
+  }
+}

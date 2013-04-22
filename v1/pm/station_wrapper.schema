@@ -20,6 +20,8 @@
     "display": {
       "type": "string",
       "description": "Defaults to assetmaster tag.  If spotted, this value should be set.",
+      "minLength":2,
+      "maxLength":72
     },
     "geometry": {
       "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/geometry.schema",

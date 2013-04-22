@@ -17,7 +17,9 @@
     },
     "value": {
       "type": "string",
-      "required": true
+      "required": true,
+      "minLength": 2,
+      "maxLength": 72
     }
   }
 }

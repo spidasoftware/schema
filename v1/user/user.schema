@@ -1,0 +1,28 @@
+{
+  "id": "https://raw.github.com/spidasoftware/schema/master/v1/user/user.schema",
+  "description": "A SPIDAMin user",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number",
+      "required": false,
+      "description": "ID for project model in project manager database"
+    },
+    "firstName": {
+      "type": "string",
+      "required": false,
+      "description": "First name of user"
+    },
+    "lastName": {
+      "type": "string",
+      "required": false,
+      "description": "Last name of user"
+    },
+    "email": {
+      "type": "email",
+      "required": false,
+      "description": "Last name of user"
+    },
+    "company": {"$ref": "https://raw.github.com/spidasoftware/schema/master/v1/company/company.schema"}
+  }
+}
