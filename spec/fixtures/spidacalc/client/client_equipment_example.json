@@ -1,0 +1,37 @@
+{
+  "distanceToBottom": {
+    "unit": "INCH", 
+    "value": 2.5599599999999998
+  }, 
+  "distanceToTop": {
+    "unit": "INCH", 
+    "value": 15.359999999999999
+  }, 
+  "lateralArea": {
+    "unit": "SQUARE_FOOT", 
+    "value": 1.363
+  }, 
+  "offset": {
+    "unit": "INCH", 
+    "value": 9.9599999999999991
+  }, 
+  "poleSideArea": {
+    "unit": "SQUARE_FOOT", 
+    "value": 2.7029999999999998
+  }, 
+  "shape": "SQUARE", 
+  "size": "3-Unit Rack 300 Kvar (Fixed)", 
+  "throughHoleDiameter": {
+    "unit": "SIXTEENTH_INCH", 
+    "value": -1
+  }, 
+  "type": "CAPACITOR", 
+  "valuePerLength": {
+    "unit": "FOOT", 
+    "value": 0
+  }, 
+  "weight": {
+    "unit": "POUND_FORCE", 
+    "value": 211
+  }
+}

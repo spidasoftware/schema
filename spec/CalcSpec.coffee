@@ -36,7 +36,7 @@ describe 'in the calc folder', ->
 
     it 'should validate an framing plan', ->
       logger.debug ("check framing plan schema")
-      jsonString = fs.readFileSync("./spec/fixtures/calc/designs/simple_framing_plan.json").toString()
+      jsonString = fs.readFileSync("./spec/fixtures/spidacalc/designs/simple_framing_plan.json").toString()
       json = JSON.parse(jsonString)
       framingSchema = "./v1/spidacalc/framing_plan.schema"
       testUtils.validate(json, framingSchema, true)
@@ -44,64 +44,64 @@ describe 'in the calc folder', ->
   describe 'and the design schema base', ->
     it 'should validate an empty design', ->
       logger.debug("Checking empty pole")
-      jsonString = fs.readFileSync("./spec/fixtures/calc/designs/empty_pole.json").toString()
+      jsonString = fs.readFileSync("./spec/fixtures/spidacalc/designs/empty_pole.json").toString()
       json = JSON.parse(jsonString)
       testUtils.validate(json, designSchema, true)
 
     it 'should validate an everything pole', ->
       logger.debug("Checking pole with everything")
-      jsonString = fs.readFileSync("./spec/fixtures/calc/designs/one_of_everything.json", "utf8")
+      jsonString = fs.readFileSync("./spec/fixtures/spidacalc/designs/one_of_everything.json", "utf8")
       json = JSON.parse(jsonString)
       testUtils.validate(json, designSchema, true)
 
     it 'should validate an anchor guy pole', ->
       logger.debug("Checking pole with anchor and guy")
-      jsonString = fs.readFileSync("./spec/fixtures/calc/designs/anchor_guy.json", "utf8")
+      jsonString = fs.readFileSync("./spec/fixtures/spidacalc/designs/anchor_guy.json", "utf8")
       json = JSON.parse(jsonString)
       testUtils.validate(json, designSchema, true)
 
     it 'should validate an bisector pole', ->
       #logger.debug("Checking pole with bisector guy")
-      jsonString = fs.readFileSync("./spec/fixtures/calc/designs/bisector.json", "utf8")
+      jsonString = fs.readFileSync("./spec/fixtures/spidacalc/designs/bisector.json", "utf8")
       json = JSON.parse(jsonString)
       testUtils.validate(json, designSchema, true)
 
     it 'should validate an insulator pole', ->
       logger.debug("Checking pole with insulator")
-      jsonString = fs.readFileSync("./spec/fixtures/calc/designs/insulator.json", "utf8")
+      jsonString = fs.readFileSync("./spec/fixtures/spidacalc/designs/insulator.json", "utf8")
       json = JSON.parse(jsonString)
       testUtils.validate(json, designSchema, true)
 
     it 'should validate an wire pole', ->
       logger.debug("Checking pole with wire")
-      jsonString = fs.readFileSync("./spec/fixtures/calc/designs/wire.json", "utf8")
+      jsonString = fs.readFileSync("./spec/fixtures/spidacalc/designs/wire.json", "utf8")
       json = JSON.parse(jsonString)
       testUtils.validate(json, designSchema, true)
 
     it 'should validate an crossarm pole', ->
       logger.debug("Checking pole with crossarm.")
-      jsonString = fs.readFileSync("./spec/fixtures/calc/designs/xarm.json", "utf8")
+      jsonString = fs.readFileSync("./spec/fixtures/spidacalc/designs/xarm.json", "utf8")
       json = JSON.parse(jsonString)
       testUtils.validate(json, designSchema, true)
 
   describe 'and the project schema base', ->
     it 'should validate an minimal project ', ->
       logger.debug ("check minimal project schema")
-      jsonString = fs.readFileSync("./spec/fixtures/calc/projects/minimal_project_with_gps.json").toString()
+      jsonString = fs.readFileSync("./spec/fixtures/spidacalc/projects/minimal_project_with_gps.json").toString()
       json = JSON.parse(jsonString)
       framingSchema = "./v1/spidacalc/calc_project.schema"
       testUtils.validate(json, framingSchema, true)
 
     it 'should validate an full project ', ->
       logger.debug ("check full project schema")
-      jsonString = fs.readFileSync("./spec/fixtures/calc/projects/full_project.json").toString()
+      jsonString = fs.readFileSync("./spec/fixtures/spidacalc/projects/full_project.json").toString()
       json = JSON.parse(jsonString)
       framingSchema = "./v1/spidacalc/calc_project.schema"
       testUtils.validate(json, framingSchema, true)
 
     it 'should validate an completely minimal project ', ->
       logger.debug ("check completely minimal project schema")
-      jsonString = fs.readFileSync("./spec/fixtures/calc/projects/minimal_project_no_designs.json").toString()
+      jsonString = fs.readFileSync("./spec/fixtures/spidacalc/projects/minimal_project_no_designs.json").toString()
       json = JSON.parse(jsonString)
       framingSchema = "./v1/spidacalc/calc_project.schema"
       testUtils.validate(json, framingSchema, true)
