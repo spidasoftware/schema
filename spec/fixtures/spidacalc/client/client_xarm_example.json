@@ -1,0 +1,39 @@
+{
+  "density": {
+    "unit": "POUND_PER_CUBIC_FOOT", 
+    "value": 36
+  }, 
+  "doubleCrossArm": false, 
+  "height": {
+    "unit": "INCH", 
+    "value": 4.5
+  }, 
+  "length": {
+    "unit": "INCH", 
+    "value": 120
+  }, 
+  "materialCategory": "WOOD", 
+  "modulus": {
+    "unit": "POUND_FORCE_PER_SQUARE_INCH", 
+    "value": 2500000
+  }, 
+  "poisson": 0.29999999999999999, 
+  "shape": "SQUARE", 
+  "size": "10 Foot Cross Arm", 
+  "stressAllow": {
+    "unit": "POUND_FORCE_PER_SQUARE_INCH", 
+    "value": 8000
+  }, 
+  "throughHoleDiameter": {
+    "unit": "SIXTEENTH_INCH", 
+    "value": -1
+  }, 
+  "wallThickness": {
+    "unit": "INCH", 
+    "value": -1
+  }, 
+  "width": {
+    "unit": "INCH", 
+    "value": 3.5
+  }
+}
