@@ -12,8 +12,8 @@
       "type": "string",
       "required": false,
       "description": "project code for project model in project manager database",
-      "minLength":2,
-      "maxLength":72
+      "minLength": 2,
+      "maxLength": 72
     },
     "deleted": {
       "type": "boolean",
@@ -34,13 +34,38 @@
       "type": "boolean",
       "description": "Draft projects do not move through the project manager work flow"
     },
+    "members": {
+      "required": false,
+      "type": "array",
+      "items": {
+        "id": "member",
+        "description": "A project manager member",
+        "items": {
+          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/spidamin/project/member.schema"
+        }
+      }
+    },
+    "projectCodes": {
+      "required": false,
+      "type": "array",
+      "items": {
+        "id": "projectCode",
+        "description": "A project manager project code",
+        "items": {
+          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/spidamin/project/project_code.schema"
+        }
+      }
+    },
     "status": {
       "type": "object",
       "required": false,
       "properties": {
         "current": {
           "required": false,
-          "type": ["string", "null"],
+          "type": [
+            "string",
+            "null"
+          ],
           "description": "Current status of project model in project manager database"
         },
         "possible": {
