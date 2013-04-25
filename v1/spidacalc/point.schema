@@ -1,0 +1,28 @@
+{
+  "id": "https://raw.github.com/spidasoftware/schema/master/v1/spidacalc/point.schema",
+  "type": "object",
+  "description": "An object a certain distance and direction from the pole.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "required": true,
+      "description": "A display id for the object. Should be unique to the pole."
+    },
+    "uuid": {
+      "type": "string",
+      "description": "An option UUID."
+    },
+    "distance": {
+      "allOf": {
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/measurable.schema"
+      },
+      "required": true
+    },
+    "direction": {
+      "allOf": {
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/bearing.schema"
+      },
+      "required": true
+    }
+  }
+}

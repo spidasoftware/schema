@@ -9,7 +9,7 @@ describe 'project', ->
 
   it 'load the external project schema', ->
     logger.debug "load the external project schema"
-    data = fs.readFileSync "./v1/pm/project.schema"
+    data = fs.readFileSync "./v1/spidamin/project/project.schema"
     schema = JSON.parse(data)
     json = {"id":"1","draft":false}
     report = env.validate(json, schema)

@@ -8,10 +8,10 @@ describe 'in the calc folder', ->
   logger.setLevel('INFO')
 
   fs = require('fs')
-  designSchema = "./v1/calc/design.schema"
+  designSchema = "./v1/spidacalc/design.schema"
   testUtils = require "./test_utils"
   testUtils.loadSchemasInFolder("/v1/general")
-  testUtils.loadSchemasInFolder("/v1/calc")
+  testUtils.loadSchemasInFolder("/v1/spidacalc")
 
   describe 'and the general object schemas', ->
     it 'should validate an point object', ->
@@ -24,13 +24,13 @@ describe 'in the calc folder', ->
         }
         "direction": 360
       }
-      testUtils.validate(json, "./v1/calc/point.schema", true)
+      testUtils.validate(json, "./v1/spidacalc/point.schema", true)
 
     it 'should validate an usage group ', ->
       logger.debug("check usage group schema")
       success = "PRIMARY"
       failure = "NONEXISTANT"
-      testSchema = "./v1/calc/usage_group.schema"
+      testSchema = "./v1/spidacalc/usage_group.schema"
       testUtils.validate(success, testSchema, true)
       testUtils.validate(failure, testSchema, false)
 
@@ -38,7 +38,7 @@ describe 'in the calc folder', ->
       logger.debug ("check framing plan schema")
       jsonString = fs.readFileSync("./examples/designs/simple_framing_plan.json").toString()
       json = JSON.parse(jsonString)
-      framingSchema = "./v1/calc/framing_plan.schema"
+      framingSchema = "./v1/spidacalc/framing_plan.schema"
       testUtils.validate(json, framingSchema, true)
 
   describe 'and the design schema base', ->
@@ -89,20 +89,20 @@ describe 'in the calc folder', ->
       logger.debug ("check minimal project schema")
       jsonString = fs.readFileSync("./examples/projects/minimal_project_with_gps.json").toString()
       json = JSON.parse(jsonString)
-      framingSchema = "./v1/calc/calc_project.schema"
+      framingSchema = "./v1/spidacalc/calc_project.schema"
       testUtils.validate(json, framingSchema, true)
 
     it 'should validate an full project ', ->
       logger.debug ("check full project schema")
       jsonString = fs.readFileSync("./examples/projects/full_project.json").toString()
       json = JSON.parse(jsonString)
-      framingSchema = "./v1/calc/calc_project.schema"
+      framingSchema = "./v1/spidacalc/calc_project.schema"
       testUtils.validate(json, framingSchema, true)
 
     it 'should validate an completely minimal project ', ->
       logger.debug ("check completely minimal project schema")
       jsonString = fs.readFileSync("./examples/projects/minimal_project_no_designs.json").toString()
       json = JSON.parse(jsonString)
-      framingSchema = "./v1/calc/calc_project.schema"
+      framingSchema = "./v1/spidacalc/calc_project.schema"
       testUtils.validate(json, framingSchema, true)
 
