@@ -81,8 +81,8 @@ Testing
 
 The general testing of the schema itself is written in coffeescript and uses nodejs and jasmine to run the test suite. 
 
-1. spec\ contains all the jasmine tests.  
-1. examples\ contains the test fixtures used in the tests.
+1. spec - contains all the jasmine tests.  
+1. spec/fixtures - contains the test fixtures used in the tests.
 
 To be able to run tests:
 
