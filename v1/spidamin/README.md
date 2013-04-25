@@ -35,9 +35,11 @@ The reponse from the server this time is:
 
     {"result":{"stations":[]}}
 
+This is a successful message, it just didn't find any stations with that id. 
+
 ### Successful Response with Object
 
-This is a successful message, it just didn't find any stations with that id.  A reponse that found something would look more like:
+A reponse that found something would look more like:
 
     {
       "result": {
