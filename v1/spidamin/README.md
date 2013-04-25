@@ -76,7 +76,7 @@ The project interface works on the same basic principals as the asset interface,
 
 Let assume I have some basic project information that I want to use to create a SPIDAMin project.  What you need at a minimum is a name, and a flowId.  The flowId is used to determine what work process this particular project is going to use.  You either will know this id, or you can use the _getFlows_ method in the spidamin/project/interfaces/pm.json interface to get all the available flow by name and get the id from there.  The project _createOrUpdate_ has a parameter that is a JSON object.  The very basic JSON object we will use is:
 
-    {"name":"New Project", "flowId":1}
+    curl -g 'https://saturn.spidasoftware.com:8443/projectmanager/projectAPI/createOrUpdate?project_json={%22name%22:%22Name%22,%20%22flowId%22:26988}'
 
 This would give me, if the flow was available to my user:
 
