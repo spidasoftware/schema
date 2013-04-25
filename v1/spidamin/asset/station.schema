@@ -1,0 +1,48 @@
+{
+  "id": "https://raw.github.com/spidasoftware/schema/master/v1/spidamin/asset/assets/station.schema",
+  "description": "A SPIDAMin station",
+  "type": "object",
+  "properties": {
+    "stationId": {
+      "type": "string",
+      "required": false
+    },
+    "dataProviderId": {
+      "type": "number",
+      "required": true,
+      "description": "Id of company that provided the asset data"
+    },
+    "primaryAssetOwnerId": {
+      "type": "number", 
+      "required": false,
+      "description": "Id of company that owns the primary asset, not required for creation."
+    },
+    "primaryAssetType": {
+      "required": false,
+      "type": "string",
+      "description": "Type of the primary asset, not required for creation."
+    },
+    "assetTypes": {
+      "required": false,
+      "description": "All available asset types at this station, not required for creation.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "required": true,
+        "choices": [
+          { "value": "POLE" },
+          { "value": "NJUNS" },
+          { "value": "ANALYSIS" }
+        ]
+      }
+    },
+    "geometry": {
+      "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/geometry.schema",
+      "required":true
+    },
+    "stationAssets": {
+      "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/spidamin/asset/assets.schema"
+    }
+  },
+  "additionalProperties" : false
+}

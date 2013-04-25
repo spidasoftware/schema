@@ -1,0 +1,187 @@
+{
+  "id": "https://raw.github.com/spidasoftware/schema/master/v1/spidacalc/calc_project.schema",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "string",
+      "required": true,
+      "description": "Full URL of the calc schema. For version 1 should be --insert URL here-- "
+    },
+    "clientFile": {
+      "type": "string",
+      "required": true,
+      "description": "Filename of the client file with extension. (ex, Demo.client)"
+    },
+    "date": {
+      "type": "string",
+      "description": "Date the project was created."
+    },
+    "forms": {
+      "type": "array",
+      "id": "projectForms",
+      "description": "All custom project forms.",
+      "items": {
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/spidamin/project/data_form.schema"
+      }
+    },
+    "leads": {
+      "type": "array",
+      "required": true,
+      "description": "All of the leads in the project",
+      "items": {
+        "type": "object",
+        "id": "lead",
+        "description": "A lead is a string of poles. It could be a circuit, or just a logical grouping.",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Required display ID for the lead. Must be unique to project."
+          },
+          "uuid": {
+            "type": "string",
+            "description": "Optional UUID for lead."
+          },
+          "locations": {
+            "type": "array",
+            "id": "locations",
+            "required": true,
+            "description": "All locations in lead.",
+            "items": {
+              "id": "location",
+              "type": "object",
+              "description": "A location is single physical location that has a pole",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Optional display ID for location. Should be unique to project."
+                },
+                "uuid": {
+                  "type": "string",
+                  "description": "Optional UUID"
+                },
+                "mapNumber": {
+                  "type": "string",
+                  "description": "Optional map number to align with GIS system."
+                },
+                "comments": {
+                  "type": "string",
+                  "description": "Technician comments about location."
+                },
+                "address": {
+                  "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/address.schema"
+                },
+                "geographicCoordinate": {
+                  "type": "object",
+                  "description": "Latitude and longitude GPS coordinate of the pole.",
+                  "properties": {
+                    "latitude": {
+                      "type": "number",
+                      "required": true
+                    },
+                    "longitude": {
+                      "type": "number",
+                      "required": true
+                    }
+                  }
+                },
+                "remedies": {
+                  "type": "array",
+                  "id": "remedies",
+                  "description": "List of remedies for the location",
+                  "items": {
+                    "type": "object",
+                    "id": "remedy",
+                    "properties": {
+                      "description": {
+                        "type": "string",
+                        "required": true
+                      }
+                    }
+                  }
+                },
+                "poleTags": {
+                  "type": "array",
+                  "id": "poleTags",
+                  "description": "List of physical tags on the pole.",
+                  "items": {
+                    "type": "object",
+                    "id": "poleTag",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "required": true,
+                        "description": "Can be anything, but values known by calc are FIELD, MAP, and FOREIGN"
+                      },
+                      "value": {
+                        "type": "string",
+                        "required": true
+                      }
+                    }
+                  }
+                },
+                "summaryNotes": {
+                  "type": "array",
+                  "id": "summaryNotes",
+                  "description": "List of summary notes for the location",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "designs": {
+                  "type": "array",
+                  "id": "designs",
+                  "description": "All pole structural designs for location",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "Optional display ID"
+                      },
+                      "uuid": {
+                        "type": "string",
+                        "description": "Optional UUID for design"
+                      },
+                      "framingPlan": {
+                          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/spidacalc/framing_plan.schema"
+                      },
+                      "design": {
+                          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/spidacalc/design.schema"
+                      }
+                    }
+                  }
+                },
+                "forms": {
+                  "type": "array",
+                  "id": "forms",
+                  "description": "All custom location forms.",
+                  "items": {
+                    "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/spidamin/project/data_form.schema"
+                  }
+                },
+                "images": {
+                  "type": "array",
+                  "id": "images",
+                  "description": "Base64 encoded images for this location.",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "type": "string",
+                        "description": "A Base64 encoded image"
+                      },
+                      "url": {
+                        "type": "string",
+                        "description": "A URL pointing to the image"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

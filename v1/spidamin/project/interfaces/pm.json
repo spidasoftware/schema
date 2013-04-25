@@ -1,0 +1,83 @@
+{
+  "id": "pm",
+  "description": "Manage Projects in ProjectManager",
+  "createOrUpdate": {
+    "description": "creates or updates a project",
+    "type": "method",
+    "params": [
+      {
+        "type": "https://raw.github.com/spidasoftware/schema/master/v1/spidamin/project/project.schema",
+        "name": "project",
+        "required": false,
+        "description": "The project object to create or update"
+      }
+    ]
+  },
+  "getProjects": {
+    "description": "Return a list of projects",
+    "type": "method",
+    "returns": "https://raw.github.com/spidasoftware/schema/master/v1/pm/projects.schema",
+    "params": [
+      {
+        "type": "array",
+        "name": "project_ids",
+        "required": false,
+        "description": "Get projects by projectmanager ids."
+      },
+      {
+        "type": "array",
+        "name": "project_code_values",
+        "required": false,
+        "description": "Get projects by projectmanager project codes."
+      },
+      {
+        "type": "array",
+        "name": "associated_station_ids",
+        "required": false,
+        "description": "Get projects containing stations with provided assetmaster station ids."
+      },
+      {
+        "type": "boolean",
+        "name": "details",
+        "required": false,
+        "description": "Get projects including all stations."
+      }
+    ]
+  },
+  "delete": {
+    "description": "deletes Members, ProjectCodes, Stations, Projects",
+    "type": "method",
+    "returns": "https://raw.github.com/spidasoftware/schema/master/v1/general/id.schema",
+    "params": [
+      {
+        "type": "array",
+        "name": "project_ids",
+        "required": false,
+        "description": "projectmanager project ids."
+      },
+      {
+        "type": "array",
+        "name": "station_ids",
+        "required": false,
+        "description": "projectmanager station ids."
+      },
+      {
+        "type": "array",
+        "name": "project_code_ids",
+        "required": false,
+        "description": "projectmanager project code ids."
+      },
+      {
+        "type": "array",
+        "name": "member_ids",
+        "required": false,
+        "description": "projectmanager member ids."
+      }
+    ]
+  },
+  "getFlows": {
+    "description": "Return available flows",
+    "type": "method",
+    "returns": "https://raw.github.com/spidasoftware/schema/master/v1/pm/flows.schema"
+  }
+}
