@@ -16,8 +16,6 @@
       "type": "string",
       "description": "Date the project was created."
     },
-<<<<<<< HEAD:v1/calc/calc_project.schema
-=======
     "forms": {
       "type": "array",
       "id": "projectForms",
@@ -26,7 +24,6 @@
         "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/spidamin/project/data_form.schema"
       }
     },
->>>>>>> [#48686277] Organized the schema folders and replaced the values in the schemas:v1/spidacalc/calc_project.schema
     "leads": {
       "type": "array",
       "required": true,
@@ -146,8 +143,7 @@
                         "description": "Optional UUID for design"
                       },
                       "framingPlan": {
-<<<<<<< HEAD:v1/calc/calc_project.schema
-                        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/framing_plan.schema"
+                          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/spidacalc/framing_plan.schema"
                       },
                       "design": {
                         "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/design.schema"
@@ -186,8 +182,6 @@
                     }
                   }
                 },
-<<<<<<< HEAD:v1/calc/calc_project.schema
-=======
                 "forms": {
                   "type": "array",
                   "id": "forms",
@@ -196,7 +190,6 @@
                     "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/spidamin/project/data_form.schema"
                   }
                 },
->>>>>>> [#48686277] Organized the schema folders and replaced the values in the schemas:v1/spidacalc/calc_project.schema
                 "images": {
                   "type": "array",
                   "id": "images",
