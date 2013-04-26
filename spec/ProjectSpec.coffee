@@ -6,11 +6,19 @@ describe 'project', ->
   env = JSV.createEnvironment()
   path = require("path")
   testUtils = require "./test_utils"
+  testUtils.loadSchemasInFolder("/v1/general")
+  testUtils.loadSchemasInFolder("/v1/spidamin/project")
+
+  it 'load the validate a very simple project schema', ->
+    logger.debug "load the external project schema"
+    json = {"id":1,"flowId":1}
+    testSchema = "./v1/spidamin/project/project.schema"
+    testUtils.validate(json, testSchema, true)
 
   it 'load the external project schema', ->
     logger.debug "load the external project schema"
-    data = fs.readFileSync "./v1/pm/project.schema"
-    schema = JSON.parse(data)
-    json = {"id":"1","draft":false}
-    report = env.validate(json, schema)
+    jsonString = fs.readFileSync("./spec/fixtures/spidamin/project.json").toString()
+    testSchema = "./v1/spidamin/project/project.schema"
+    json = JSON.parse(jsonString)
+    testUtils.validate(json, testSchema, true)
     
