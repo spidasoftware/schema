@@ -171,13 +171,9 @@
                             }
                           }
                         }
-
-=======
-                          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/spidacalc/framing_plan.schema"
                       },
                       "design": {
                           "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/spidacalc/design.schema"
->>>>>>> [#48686277] Organized the schema folders and replaced the values in the schemas:v1/spidacalc/calc_project.schema
                       }
                     }
                   }
