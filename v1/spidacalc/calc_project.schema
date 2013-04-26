@@ -5,7 +5,7 @@
     "schema": {
       "type": "string",
       "required": true,
-      "description": "Full URL of the calc schema. For version 1 should be https://raw.github.com/spidasoftware/schema/master/v1/calc/calc_project.schema "
+      "description": "Full URL of the calc schema. For version 1 should be https://raw.github.com/spidasoftware/schema/master/v1/spidacalc/calc_project.schema "
     },
     "clientFile": {
       "type": "string",
@@ -15,14 +15,6 @@
     "date": {
       "type": "string",
       "description": "Date the project was created."
-    },
-    "forms": {
-      "type": "array",
-      "id": "projectForms",
-      "description": "All custom project forms.",
-      "items": {
-        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/spidamin/project/data_form.schema"
-      }
     },
     "leads": {
       "type": "array",
@@ -146,7 +138,7 @@
                           "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/spidacalc/framing_plan.schema"
                       },
                       "design": {
-                        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/design.schema"
+                        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/spidacalc/design.schema"
                       },
                       "analysis": {
                         "type": "array",
@@ -166,24 +158,13 @@
                               "description": "Result summaries for all components.",
                               "required": true,
                               "items": {
-                                "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/asset/standard_details/analysis_asset.schema"
+                                "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/spidamin/asset/standard_details/analysis_asset.schema"
                               }
                             }
                           }
                         }
-                      },
-                      "design": {
-                          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/spidacalc/design.schema"
                       }
                     }
-                  }
-                },
-                "forms": {
-                  "type": "array",
-                  "id": "forms",
-                  "description": "All custom location forms.",
-                  "items": {
-                    "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/spidamin/project/data_form.schema"
                   }
                 },
                 "images": {
