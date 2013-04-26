@@ -1,19 +1,30 @@
-SPIDAMin Example Process
-========================
+SPIDAMin API
+============
+
+Overview
+---------
+
+The sub-folders included in SPIDAMin are:
+1. asset - These objects deal with the assets and asset services.  An example is an asset is a pole.
+1. geo - These are objects related to geo-coding, and the service definitions.
+1. project - SPIDAMin projects and services are defined here. This contains the primary means to interact with SPIDAMin.
+1. user - The definitions of users and user services are in this folder.  
 
 
-We will go through a two very simple examples.  The first we will fetch asset information. The second we will fetch and then update a project.  For these examples we have used a command line tool curl, but any system would work that can make the needed http requests.
+Example Processes 
+----------------
 
-Asset Retrieval 
---------------
+We will go through a two very simple examples.  The first we will fetch asset information. The second we will fetch and then update a project.  For these examples we have used a command line tool curl, but any system would work that can make the needed HTTP requests.  All of these requests are GET requests, but a POST request might be needed depending on how long the parameters are.
+
+### Asset Retrieval 
 
 #### API Token
 
 These examples assume there is a complete SPIDAMin deployed to the url of "https://www.spidasoftware.com" and have an API token with a value of "1a17405f-52ca-4392-b5cf-89df8cc160be"
 
-For most of the calls against a SPIDAMIN service you will need to include your apiToken parameter, this is in addition to any parameters required by the method.  This would be for the service interface if it is implemented on the server.  There are times when we implement the same service in the local environments, and then the apiToken would not be needed.  If you make a service call but get redirect to a security login, then your apiToken was included or was invalid.
+For most of the calls against a SPIDAMIN service you will need to include your apiToken parameter, this is in addition to any parameters required by the method.  This would be for the service interface if it is implemented on the server.  There are times when we implement the same service in the local environments, and then the apiToken would not be needed.  If you make a service call but get redirect to a security login, then your apiToken was included or was invalid. 
 
-### Error Messages
+#### Error Messages
 
 From the spidamin/asset/interfaces/asset.json we will just the _getStations_ method.
 
@@ -25,11 +36,13 @@ The response from the server would be:
 
 Notice this is an error message and it is pretty informative.  The different response codes are found in the response code [schema](https://github.com/spidasoftware/schema/tree/master/v1/general/method_response.schema).
 
-### Successful Response
+#### Successful Response
+
+_NOTE: in the following examples we will leave off the apiToken parameter to make the examples simpler._
 
 As you can see, and error object was returned, and it told us we are missing an required parameter.  _station_ids_ or _bounding_box_ was not included.  One of these is needed because you are either getting assets by location or id.  Lets add the required _stations_id_ parameter and try again:
 
-    curl -g 'https://www.spidasoftware.com/assetmaster/assetAPI/getStations?apiToken=1a17405f-52ca-4392-b5cf-89df8cc160be&station_ids=["1"]'
+    curl -g 'https://www.spidasoftware.com/assetmaster/assetAPI/getStations?station_ids=["1"]'
 
 The reponse from the server this time is:
 
@@ -37,9 +50,9 @@ The reponse from the server this time is:
 
 This is a successful message, it just didn't find any stations with that id. 
 
-### Successful Response with Object
+#### Successful Response with Object
 
-A reponse that found something would look more like:
+A response that found something would look more like:
 
     {
       "result": {
@@ -71,8 +84,7 @@ A reponse that found something would look more like:
       }
     }
 
-Project Updating 
-----------------
+### Project Updating 
 
 The project interface works on the same basic principals as the asset interface, but we will show you how to use the create or update method here.
 
