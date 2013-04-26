@@ -1,0 +1,9 @@
+{
+  "id": "flows",
+  "description": "ProjectManager flows",
+  "type": "array",
+  "required": true,
+  "items": {
+    "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/spidamin/project/flow.schema"
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "id": "project",
+  "description": "A ProjectManager project",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number",
+      "required": false,
+      "description": "ID for project model in project manager database"
+    },
+    "name": {
+      "type": "string",
+      "required": false,
+      "description": "project code for project model in project manager database, required for creation.",
+      "minLength": 2,
+      "maxLength": 72
+    },
+    "flowId": {
+      "type": "number",
+      "required": true,
+      "description": "ID for flow model in project manager database"
+    },
+    "deleted": {
+      "type": "boolean",
+      "description": "true if project is marked as deleted (NOTE: value is not writable, only readable through API)",
+      "required": false
+    },
+    "editable": {
+      "type": "boolean",
+      "description": "true if project can be updated by your user (NOTE: value is not writable, only readable through API)",
+      "required": false
+    },
+    "address": {
+      "required": false,
+      "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/general/address.schema"
+    },
+    "draft": {
+      "required": false,
+      "type": "boolean",
+      "description": "Draft projects do not move through the project manager work flow"
+    },
+    "companyId": {
+      "type": "number",
+      "required": false,
+      "description": "ID for the company this project belongs to"
+    },
+    "members": {
+      "required": false,
+      "type": "array",
+      "items": {
+        "id": "member",
+        "description": "A project manager member",
+        "items": {
+          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/spidamin/project/member.schema"
+        }
+      }
+    },
+    "projectCodes": {
+      "required": false,
+      "type": "array",
+      "items": {
+        "id": "projectCode",
+        "description": "A project manager project code",
+        "items": {
+          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/spidamin/project/project_code.schema"
+        }
+      }
+    },
+    "status": {
+      "type": "object",
+      "required": false,
+      "properties": {
+        "current": {
+          "required": false,
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Current status of project model in project manager database"
+        },
+        "possible": {
+          "required": false,
+          "type": "array",
+          "description": "Every possible next status for project model in project manager database"
+        }
+      }
+    },
+    "stations": {
+      "required": false,
+      "type": "array",
+      "items": {
+        "id": "station",
+        "description": "A project manager station",
+        "items": {
+          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/spidamin/project/station_wrapper.schema"
+        }
+      }
+    }
+  },
+  "additionalProperties" : false
+}
