@@ -5,7 +5,7 @@
     "schema": {
       "type": "string",
       "required": true,
-      "description": "Full URL of the calc schema. For version 1 should be --insert URL here-- "
+      "description": "Full URL of the calc schema. For version 1 should be https://raw.github.com/spidasoftware/schema/master/v1/calc/calc_project.schema "
     },
     "clientFile": {
       "type": "string",
@@ -15,14 +15,6 @@
     "date": {
       "type": "string",
       "description": "Date the project was created."
-    },
-    "forms": {
-      "type": "array",
-      "id": "projectForms",
-      "description": "All custom project forms.",
-      "items": {
-        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/pm/data_form.schema"
-      }
     },
     "leads": {
       "type": "array",
@@ -143,36 +135,49 @@
                         "description": "Optional UUID for design"
                       },
                       "framingPlan": {
-                          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/framing_plan.schema"
+                        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/framing_plan.schema"
                       },
                       "design": {
-                          "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/design.schema"
+                        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/calc/design.schema"
+                      },
+                      "analysis": {
+                        "type": "array",
+                        "description": "List of load cases and their results. Note - these are for export only. They will be ignored on import.",
+                        "required": false,
+                        "items": {
+                          "type": "object",
+                          "description": "A collection of results for a loading or strength case.",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "description": "Case id.",
+                              "required": true
+                            },
+                            "results": {
+                              "type": "array",
+                              "description": "Result summaries for all components.",
+                              "required": true,
+                              "items": {
+                                "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/asset/standard_details/analysis_asset.schema"
+                              }
+                            }
+                          }
+                        }
+
                       }
                     }
-                  }
-                },
-                "forms": {
-                  "type": "array",
-                  "id": "forms",
-                  "description": "All custom location forms.",
-                  "items": {
-                    "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/pm/data_form.schema"
                   }
                 },
                 "images": {
                   "type": "array",
                   "id": "images",
-                  "description": "Base64 encoded images for this location.",
+                  "description": "Photos/images for this location.",
                   "items": {
                     "type": "object",
                     "properties": {
-                      "data": {
-                        "type": "string",
-                        "description": "A Base64 encoded image"
-                      },
                       "url": {
                         "type": "string",
-                        "description": "A URL pointing to the image"
+                        "description": "Path to the image file."
                       }
                     }
                   }

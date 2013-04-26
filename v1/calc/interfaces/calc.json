@@ -23,61 +23,67 @@
  			}
  		]
  	},
-  	"openPole": {
-  		"description": "Create a project from a single pole .",
-  		"returns": "null",
-  		"params": [
-  			{
-  				"type": "object",
-  				"name": "pole",
-  				"required": true,
-  				"description": "JSON description of the pole to be opened"
-  			},
-  			{
-  				"type": "string",
-  				"name": "clientFile",
-  				"required": true,
-  				"description": "name of the client file to use to create the pole"
-  			}
-  		]
-  	},
-  	"saveCurrentProject": {
-  		"description": "Save the currently opened project",
-  		"returns": "null",
-  		"params": [
-  			{
-  				"type": "string",
-  				"name": "projectFile",
-  				"required": false,
-  				"description": "URL of location to save to."
-  			}
-  		]
-  	},
-  	"exit": {
-  		"description": "Exit SPIDACalc. This will shutdown control services",
-  		"returns": "null",
-  		"params": [
-  		]
-  	},
-   	"analyzeCurrentProject": {
-   		"description": "Analyze the currently opened project",
-   		"returns": "null",
-   		"params": [
-   			{
-   				"type": "array",
-   				"name": "loadCases",
-   				"required": true,
-   				"description": "Load cases to include in the analysis"
-   			}
-   		]
-   	},
+  "openPole": {
+    "description": "Create a project from a single pole .",
+    "returns": "null",
+    "params": [
+      {
+        "type": "object",
+        "name": "pole",
+        "required": true,
+        "description": "JSON description of the pole to be opened"
+      },
+      {
+        "type": "string",
+        "name": "clientFile",
+        "required": true,
+        "description": "name of the client file to use to create the pole"
+      }
+    ]
+  },
+  "saveCurrentProject": {
+    "description": "Save the currently opened project",
+    "returns": "null",
+    "params": [
+      {
+        "type": "string",
+        "name": "projectFile",
+        "required": false,
+        "description": "URL of location to save to."
+      }
+    ]
+  },
+  "exit": {
+    "description": "Exit SPIDACalc. This will shutdown control services",
+    "returns": "null",
+    "params": [
+    ]
+  },
+  "analyzeCurrentProject": {
+    "description": "Analyze the currently opened project",
+    "returns": "null",
+    "params": [
+      {
+        "type": "array",
+        "name": "loadCases",
+        "required": false,
+        "description": "Load cases to include in the analysis. If not included it will use the existing load cases"
+      },
+      {
+        "type": "string",
+        "name": "strengthCase",
+        "required": false,
+        "description": "Strength case to include in the analysis"
+      }
+    ]
+  },
 	"generateReport": {
-		"description": "Generate a report for the current project.",
+		"description": "Generate a report for the current project. Returns file location of report",
 		"returns": "object",
 		"params": [
 			{
 				"type": "string",
-				"name": "reportFile",
+				"name": "outputDirectory",
 				"required": false,
 				"description": "Location to save the report."
 			},
@@ -86,6 +92,11 @@
 				"name": "reportName",
 				"required": false,
 				"description": "The preset custom report to generate."
+			},
+			{
+			  "type": "string",
+			  "name": "format",
+			  "description": "PDF or HTML"
 			}
 		]
 	},
