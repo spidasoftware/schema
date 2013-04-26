@@ -41,7 +41,7 @@ The response body will always be formatted in the generic [_method\_response_](h
 Would be a valid response object, that might be returned.
 
 ### Main Schema Parts
-2. [v1](/schema/tree/master/v1) - the version 1 API main folder.
+2. [v1](https://github.com/spidasoftware/schema/tree/master/v1) - the version 1 API main folder.
 2. [spec](https://github.com/spidasoftware/schema/tree/master/spec) - the folder containing our tests against the schema itself, with some test fixtures.
 2. [utils](https://github.com/spidasoftware/schema/tree/master/util) - some utilities that can be used in Java.
 
