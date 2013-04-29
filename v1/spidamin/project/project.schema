@@ -1,5 +1,5 @@
 {
-  "id": "project",
+  "id": "https://raw.github.com/spidasoftware/schema/master/v1/spidamin/project/project.schema",
   "description": "A ProjectManager project",
   "type": "object",
   "properties": {

@@ -1,5 +1,5 @@
 {
-  "id": "dataForm",
+  "id": "https://raw.github.com/spidasoftware/schema/master/v1/spidamin/project/data_form.schema",
   "description": "A SPIDAMin form",
   "type": "object",
   "properties": {

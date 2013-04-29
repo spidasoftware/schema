@@ -1,5 +1,5 @@
 {
-  "id": "flow",
+  "id": "https://raw.github.com/spidasoftware/schema/master/v1/spidamin/project/flow.schema",
   "description": "A ProjectManager flow",
   "type": "object",
   "properties": {
