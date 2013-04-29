@@ -9,7 +9,7 @@
         "url": "https://github.com/spidasoftware/schema.git"
     },
     "scripts": {
-        "test": "jasmine-node --coffee spec/",
+        "test": "jasmine-node --coffee spec/;mvn test",
         "monitor": "jasmine-node --coffee --junitreport --autotest spec/"
     },
     "engines": {
