@@ -6,7 +6,7 @@ SPIDA Software JSON Interfaces
 General Overview of the Schema
 --------------------------------
 
-We will strive for simplicity, and it is still being working on.
+ We will strive for simplicity, and it is still being working on.
 
 ### Services
 
