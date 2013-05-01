@@ -29,52 +29,45 @@
       </dependency>
       <dependency>
          <groupId>net.tjws</groupId>
-         <artifactId>swingx</artifactId>
-         <version>1.99</version>
-         <scope>system</scope>
-         <systemPath>${project.basedir}/utils/lib/webserver.jar</systemPath>
-      </dependency>
-      <dependency>
-         <groupId>net.tjws</groupId>
          <artifactId>app</artifactId>
          <version>1.98</version>
-         <scope>system</scope>
-         <systemPath>${project.basedir}/utils/lib/app.jar</systemPath>
+         <scope>compile</scope>
       </dependency>
       <dependency>
          <groupId>net.tjws</groupId>
          <artifactId>conn_chk</artifactId>
          <version>1.98</version>
-         <scope>system</scope>
-         <systemPath>${project.basedir}/utils/lib/conn_chk.jar</systemPath>
+         <scope>compile</scope>
       </dependency>
       <dependency>
          <groupId>net.tjws</groupId>
          <artifactId>jasper</artifactId>
          <version>1.98</version>
-         <scope>system</scope>
-         <systemPath>${project.basedir}/utils/lib/jasper.jar</systemPath>
+         <scope>compile</scope>
       </dependency>
       <dependency>
          <groupId>net.tjws</groupId>
          <artifactId>jsp</artifactId>
          <version>1.98</version>
-         <scope>system</scope>
-         <systemPath>${project.basedir}/utils/lib/jsp.jar</systemPath>
+         <scope>compile</scope>
       </dependency>
       <dependency>
          <groupId>net.tjws</groupId>
-         <artifactId>servlet-2-3</artifactId>
+         <artifactId>servlet</artifactId>
          <version>1.98</version>
-         <scope>system</scope>
-         <systemPath>${project.basedir}/utils/lib/servlet.jar</systemPath>
+         <scope>compile</scope>
       </dependency>
       <dependency>
          <groupId>net.tjws</groupId>
          <artifactId>war</artifactId>
          <version>1.98</version>
-         <scope>system</scope>
-         <systemPath>${project.basedir}/utils/lib/war.jar</systemPath>
+         <scope>compile</scope>
+      </dependency>
+      <dependency>
+         <groupId>net.tjws</groupId>
+         <artifactId>webserver</artifactId>
+         <version>1.99</version>
+         <scope>compile</scope>
       </dependency>
       <dependency>
          <groupId>org.glassfish</groupId>
@@ -212,6 +205,11 @@
          <id>thirdparty-releases</id>
          <name>JBoss Thirdparty Releases</name>
          <url>https://repository.jboss.org/nexus/content/repositories/thirdparty-releases</url>
+      </repository>
+      <repository>
+         <id>thirdparty-releases</id>
+         <name>JBoss Thirdparty Releases</name>
+         <url>http://www.spidasoftware.com/artifactory/exposed-repo</url>
       </repository>
    </repositories>
 </project>
