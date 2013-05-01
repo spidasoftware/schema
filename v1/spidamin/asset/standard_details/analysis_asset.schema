@@ -1,5 +1,5 @@
 {
-  "id": "analysis_asset",
+  "id": "https://raw.github.com/spidasoftware/schema/master/v1/spidamin/asset/standard_details/analysis_asset.schema",
   "description": "A SPIDA analysis asset",
   "type": "object",
   "properties": {

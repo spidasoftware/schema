@@ -1,5 +1,5 @@
 {
-  "id": "asset",
+  "id": "https://raw.github.com/spidasoftware/schema/master/v1/spidamin/asset/asset.schema",
   "type": "object",
   "properties": {
     "assetId": {
