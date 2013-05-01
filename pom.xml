@@ -207,7 +207,7 @@
          <url>https://repository.jboss.org/nexus/content/repositories/thirdparty-releases</url>
       </repository>
       <repository>
-         <id>thirdparty-releases</id>
+         <id>exposed-releases</id>
          <name>JBoss Thirdparty Releases</name>
          <url>http://www.spidasoftware.com/artifactory/exposed-repo</url>
       </repository>
