@@ -5,6 +5,7 @@ Overview
 ---------
 
 The sub-folders included in SPIDAMin are:
+
 1. asset - These objects deal with the assets and asset services.  An example is an asset is a pole.
 1. geo - These are objects related to geo-coding, and the service definitions.
 1. project - SPIDAMin projects and services are defined here. This contains the primary means to interact with SPIDAMin.
