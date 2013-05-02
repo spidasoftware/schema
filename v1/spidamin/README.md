@@ -23,7 +23,7 @@ We will go through a two very simple examples.  The first we will fetch asset in
 
 These examples assume there is a complete SPIDAMin deployed to the url of "https://www.spidasoftware.com" and have an API token with a value of "1a17405f-52ca-4392-b5cf-89df8cc160be"
 
-For most of the calls against a SPIDAMIN service you will need to include your apiToken parameter, this is in addition to any parameters required by the method.  This would be for the service interface if it is implemented on the server.  There are times when we implement the same service in the local environments, and then the apiToken would not be needed.  If you make a service call but get redirect to a security login, then your apiToken was included or was invalid. 
+For most of the calls against a SPIDAMIN service you will need to include your apiToken parameter, this is in addition to any parameters required by the method.  This would be for the service interface if it is implemented on a server environment.  There are times when we implement the same service in the local environments, and then the apiToken would not be needed, but in most cases it will be required.  If you make a service call but get redirect to a security login, then your apiToken was not included or was invalid. 
 
 #### Error Messages
 
