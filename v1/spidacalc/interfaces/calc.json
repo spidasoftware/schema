@@ -65,8 +65,14 @@
       {
         "type": "array",
         "name": "loadCases",
-        "required": true,
-        "description": "Load cases to include in the analysis"
+        "required": false,
+        "description": "Load cases to include in the analysis. If not included it will use the existing load cases."
+      },
+      {
+        "type": "string",
+        "name": "strengthCase",
+        "required": false,
+        "description": "Strength case to include in the analysis. If not included it will use the existing strength case."
       }
     ]
   },
