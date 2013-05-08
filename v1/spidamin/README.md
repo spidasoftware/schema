@@ -101,9 +101,8 @@ This result gives you the id of the newly created project and that can be used i
 
 ### Project Updating
 
-Let say we want to update a project from the id that was returned previously.  The first thing we need is a project JSON that validates against the schema.  There are a couple caveats that you would have to know outside the strict schema validation, but should specifics all be enumerated in the service.json descriptions. An example would be the project.id, it's inclusion would change how the createOrUpdate method works.
+Let say we want to update a project from the id that was returned previously.  The first thing we need is a project JSON that validates against the schema.  There are a couple caveats that you would have to know outside the strict schema validation, but these considerations should be enumerated in the service .json method description. An example would be the project.id, it's inclusion would change how the createOrUpdate method works.
 
-That is a very basic overview of how these services can be used to get stations and create projects.
-
+Once you have the JSON object, you would submit that JSON to the createOrUpdate method.
 
 
