@@ -9,7 +9,7 @@
         "type": "https://raw.github.com/spidasoftware/schema/master/v1/spidamin/project/project.schema",
         "name": "project_json",
         "required": false,
-        "description": "The project object to create or update"
+        "description": "The project object to create or update. It is update if the project.id is present, and and create if not."
       }
     ]
   },

@@ -85,19 +85,23 @@ A response that found something would look more like:
       }
     }
 
-### Project Updating 
+### Project Creating 
 
-The project interface works on the same basic principals as the asset interface, but we will show you how to use the create or update method here.
+The project interface works on the same basic principals as the asset interface, but we will show you how to use the createOrUpdate method here.
 
 Let assume I have some basic project information that I want to use to create a SPIDAMin project.  What you need at a minimum is a name, and a flowId.  The flowId is used to determine what work process this particular project is going to use.  You either will know this id, or you can use the _getFlows_ method in the spidamin/project/interfaces/pm.json interface to get all the available flow by name and get the id from there.  The project _createOrUpdate_ has a parameter that is a JSON object.  The very basic JSON object we will use is:
 
     curl -g 'https://saturn.spidasoftware.com:8443/projectmanager/projectAPI/createOrUpdate?project_json={%22name%22:%22Name%22,%20%22flowId%22:26988}'
 
-This would give me, if the flow was available to my user:
+This would give me the following, if the flow was available to my user:
 
     {"result":{"id":55485}}
 
-This result gives you the id of the newly created project and that can be used in various other methods to add/remove stations, members, files etc. to/from this project.
+This result gives you the id of the newly created project and that can be used in the future to add/remove stations, members, files etc. to/from this project.
+
+### Project Updating
+
+Let say we want to update a project from the id that was returned previously.  The first thing we need is a project JSON that validates against the schema.  There are a couple caveats that you would have to know outside the strict schema validation, but should specifics all be enumerated in the service.json descriptions. An example would be the project.id, it's inclusion would change how the createOrUpdate method works.
 
 That is a very basic overview of how these services can be used to get stations and create projects.
 
