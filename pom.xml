@@ -208,8 +208,8 @@
       </repository>
       <repository>
          <id>exposed-releases</id>
-         <name>JBoss Thirdparty Releases</name>
-         <url>http://www.spidasoftware.com/artifactory/exposed-repo</url>
+         <name>SPIDA Exposed Repo</name>
+         <url>https://www.spidasoftware.com/artifactory/exposed-repo</url>
       </repository>
    </repositories>
 </project>
