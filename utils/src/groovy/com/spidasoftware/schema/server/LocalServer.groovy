@@ -54,7 +54,9 @@ public class LocalServer implements Runnable {
 		this.port = port;
 		properties.put("port", port);
 		properties.setProperty(Acme.Serve.Serve.ARG_NOHUP, "nohup");
+		properties.setProperty(Acme.Serve.Serve.ARG_BINDADDRESS, "127.0.0.1");
 		tjws.arguments = properties;
+
 
 //		jetty = new Server(port);
 //		context = new ServletContextHandler(ServletContextHandler.SESSIONS);
