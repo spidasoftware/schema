@@ -40,6 +40,11 @@ The response body will always be formatted in the generic [_method\_response_](h
 
 Would be a valid response object, that might be returned.
 
+### Allowed Methods
+
+HTTP says that GET calls should not modify data.  So if you are making a call with our API and it is a modification or creation of the object stored in the application, you will need to do a POST. 
+
+
 ### Schema Structure
 1. [v1](https://github.com/spidasoftware/schema/tree/master/v1) - the version 1 API main folder.
   1. [v1/spidacalc](https://github.com/spidasoftware/schema/tree/master/v1/spidacalc) - the main SPIDACalc folder.
