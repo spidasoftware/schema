@@ -21,7 +21,7 @@ We will go through a two very simple examples.  The first we will fetch asset in
 
 #### API Token
 
-These examples assume there is a complete SPIDAMin deployed to the url of "https://www.spidasoftware.com" and have an API token with a value of "1a17405f-52ca-4392-b5cf-89df8cc160be"
+These examples assume there is a complete SPIDAMin deployed to the url of "https://test.spidasoftware.com" and have an API token with a value of "1a17405f-52ca-4392-b5cf-89df8cc160be"
 
 For most of the calls against a SPIDAMIN service you will need to include your apiToken parameter, this is in addition to any parameters required by the method.  This would be for the service interface if it is implemented on a server environment.  There are times when we implement the same service in the local environments, and then the apiToken would not be needed, but in most cases it will be required.  If you make a service call but get redirect to a security login, then your apiToken was not included or was invalid. 
 
@@ -29,7 +29,7 @@ For most of the calls against a SPIDAMIN service you will need to include your a
 
 From the spidamin/asset/interfaces/asset.json we will just the _getStations_ method.
 
-    curl -g 'https://www.spidasoftware.com/assetmaster/assetAPI/getStations?apiToken=1a17405f-52ca-4392-b5cf-89df8cc160be'
+    curl -g 'https://test.spidasoftware.com/assetmaster/assetAPI/getStations?apiToken=1a17405f-52ca-4392-b5cf-89df8cc160be'
 
 The response from the server would be:
 
@@ -43,7 +43,7 @@ _NOTE: in the following examples we will leave off the apiToken parameter to mak
 
 As you can see, and error object was returned, and it told us we are missing an required parameter.  _station_ids_ or _bounding_box_ was not included.  One of these is needed because you are either getting assets by location or id.  Lets add the required _stations_id_ parameter and try again:
 
-    curl -g 'https://www.spidasoftware.com/assetmaster/assetAPI/getStations?station_ids=["1"]'
+    curl -g 'https://test.spidasoftware.com/assetmaster/assetAPI/getStations?station_ids=["1"]'
 
 The reponse from the server this time is:
 
@@ -91,7 +91,7 @@ The project interface works on the same basic principals as the asset interface,
 
 Let assume I have some basic project information that I want to use to create a SPIDAMin project.  What you need at a minimum is a name, and a flowId.  The flowId is used to determine what work process this particular project is going to use.  You either will know this id, or you can use the _getFlows_ method in the spidamin/project/interfaces/pm.json interface to get all the available flow by name and get the id from there.  The project _createOrUpdate_ has a parameter that is a JSON object.  The very basic JSON object we will use is:
 
-    curl -g 'https://saturn.spidasoftware.com:8443/projectmanager/projectAPI/createOrUpdate?project_json={%22name%22:%22Name%22,%20%22flowId%22:26988}'
+    curl -g -d 'project_json={%22name%22:%22Name%22,%20%22flowId%22:26988}' 'https://test.spidasoftware.com/projectmanager/projectAPI/createOrUpdate'
 
 This would give me the following, if the flow was available to my user:
 
