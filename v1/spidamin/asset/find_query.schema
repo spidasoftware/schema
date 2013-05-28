@@ -1,0 +1,23 @@
+{
+  "id": "https://raw.github.com/spidasoftware/schema/master/v1/spidamin/asset/find_query.schema",
+  "type": "object",
+  "properties": {
+    "max": {
+      "type": "number",
+      "required": false
+    },
+    "onlyIds": {
+      "type": "boolean",
+      "required": false
+    },
+    "find_params": {
+      "type": "array",
+      "required": true,
+      "description": "Operator to be used in the search. If not provided then it defaults to equals.",
+      "items": {
+        "$ref": "https://raw.github.com/spidasoftware/schema/master/v1/spidamin/asset/find_params.schema"
+      }
+    }
+  },
+  "additionalProperties": false
+}

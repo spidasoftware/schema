@@ -28,8 +28,8 @@
     "returns": "https://raw.github.com/spidasoftware/schema/master/v1/spidamin/asset/stations.schema",
     "params": [
       {
-        "type": "https://raw.github.com/spidasoftware/schema/master/v1/spidamin/asset/find_params.schema",
-        "name": "find_params",
+        "type": "https://raw.github.com/spidasoftware/schema/master/v1/spidamin/asset/find_query.schema",
+        "name": "find_query",
         "required": true,
         "description": "A formatted advanced search JSON object."
       },
