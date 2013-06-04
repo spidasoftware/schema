@@ -190,12 +190,12 @@
    </properties>
    <distributionManagement>
       <snapshotRepository>
-         <id>ubuntu</id>
+         <id>spida</id>
          <uniqueVersion>false</uniqueVersion>
          <url>${snapshotsLocation}</url>
       </snapshotRepository>
       <repository>
-         <id>ubuntu</id>
+         <id>spida</id>
          <uniqueVersion>false</uniqueVersion>
          <url>${releasesLocation}</url>
       </repository>
