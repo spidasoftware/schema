@@ -95,6 +95,7 @@
       {
         "type": "string",
         "name": "format",
+        "required": "false",
         "description": "PDF or HTML"
       }
     ]
