@@ -107,7 +107,7 @@ Once you have the JSON object, you would submit that JSON to the createOrUpdate 
 
 ### Sessions
 
-When a call is made to SPIDAMin and the API Token is successfully authenticated a session is created.  A new session is created for each different application, a call to AssetMaster and a call to Project Manager will create two sessions.  Each session will have to be expired in separate calls, there is two ways to expire a session. Here is an example of expiring an AssetMaster session by calling logout:
+When a call is made to SPIDAMin and the API Token is successfully authenticated a session is created.  A new session is created for each different application, a call to AssetMaster and a call to Project Manager will create two sessions.  Each session will have to be expired in separate calls, there are two ways to expire a session. Here is an example of expiring an AssetMaster session by calling logout:
 
     curl -g 'https://test.spidasoftware.com/assetmaster/j_spring_security_logout'
 
