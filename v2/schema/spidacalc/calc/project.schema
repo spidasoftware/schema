@@ -2,6 +2,7 @@
   "id": "#/spidacalc/calc/project.schema",
   "type": "object",
   "required": [
+    "name",
     "schema",
     "clientFile",
     "leads"
@@ -22,7 +23,7 @@
     "maxPhotoSize": {
       "type": "string",
       "enum": ["320x200", "640x480", "1024x768", "1920x1200", "2048x1536", "2592x1944", "3648x2736"],
-      "description": "The maximum size of photos.  Larger photos will be scaled."
+      "description": "The maximum size of photos.  Larger photos will be scaled down."
     },
     "date": {
       "type": "string",
