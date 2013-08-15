@@ -1,0 +1,20 @@
+{
+    "id"         : "#/general/owner.schema",
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "type"       : "object",
+    "description": "A company that owns components at a location.",
+    "properties" : {
+    	"uuid"     : { "type" : "string" },
+        "name"     : {
+        	 "type" : "string"
+    	},
+        "industry" : {
+            "type" : "string",
+            "enum" : [
+                "COMMUNICATION",
+                "UTILITY",
+                "BOTH"
+            ]
+        }
+    }, "required": ["industry", "name"]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "#/spidamin/user/user.schema",
+  "description": "A SPIDAMin user",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number",
+      "description": "ID for project model in project manager database"
+    },
+    "firstName": {
+      "type": "string",
+      "description": "First name of user"
+    },
+    "lastName": {
+      "type": "string",
+      "description": "Last name of user"
+    },
+    "email": {
+      "type": "email",
+      "description": "Last name of user"
+    },
+    "company": {
+      "$ref": "../../spidamin/user/company.schema"
+    }
+  }
+}

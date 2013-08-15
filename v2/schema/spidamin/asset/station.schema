@@ -1,0 +1,53 @@
+{
+  "id": "#/spidamin/asset/assets/station.schema",
+  "description": "A SPIDAMin station",
+  "type": "object",
+  "required": [
+    "dataProviderId",
+    "geometry"
+  ],
+  "properties": {
+    "stationId": {
+      "type": "string",
+      "required": false
+    },
+    "dataProviderId": {
+      "type": "number",
+      "description": "Id of company that provided the asset data"
+    },
+    "primaryAssetOwnerId": {
+      "type": "number",
+      "description": "Id of company that owns the primary asset, not required for creation."
+    },
+    "primaryAssetType": {
+      "type": "string",
+      "description": "Type of the primary asset, not required for creation."
+    },
+    "assetTypes": {
+      "description": "All available asset types at this station, not required for creation.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "required": true,
+        "choices": [
+          {
+            "value": "POLE"
+          },
+          {
+            "value": "NJUNS"
+          },
+          {
+            "value": "ANALYSIS"
+          }
+        ]
+      }
+    },
+    "geometry": {
+      "$ref": "../../general/geometry.schema"
+    },
+    "stationAssets": {
+      "$ref": "../../spidamin/asset/assets.schema"
+    }
+  },
+  "additionalProperties": false
+}

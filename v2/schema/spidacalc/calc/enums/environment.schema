@@ -1,0 +1,22 @@
+{
+	"id": "#/spidacalc/environment.schema",
+	"description": "Environment for poles, span points, and wire end points.",
+	"type": "string",
+	"enum": [
+		"STREET",
+		"HIGHWAY",
+		"PEDESTRIAN",
+		"PARALLEL_TO_STREET",
+		"OBSTRUCTED_PARALLEL_TO_STREET",
+		"UNLIKELY_PARALLEL_TO_STREET",
+		"RESIDENTIAL_DRIVEWAY",
+		"COMMERCIAL_DRIVEWAY",
+		"PARKING_LOT",
+		"ALLEY",
+		"RAILROAD",
+		"RURAL",
+		"FARM",
+		"WATER_WITH_SAILBOATS",
+		"WATER_WITHOUT_SAILBOATS"
+	]
+}

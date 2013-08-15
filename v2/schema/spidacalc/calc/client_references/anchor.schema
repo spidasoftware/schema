@@ -1,0 +1,13 @@
+{
+  "id": "#/spidacalc/calc/client_references/anchor.schema",
+  "type": "object",
+  "description": "A reference to a client anchor",
+  "required": [
+    "size"
+  ],
+  "properties": {
+    "size": {
+      "type": "string"
+    }
+  }
+}

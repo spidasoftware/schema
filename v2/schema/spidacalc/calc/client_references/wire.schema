@@ -1,0 +1,21 @@
+{
+  "id": "#/spidacalc/calc/client_references/wire.schema",
+  "type": "object",
+  "description": "A reference to a client wire",
+  "required": [
+    "size",
+    "coreStrands",
+    "conductorStrands"
+  ],
+  "properties": {
+    "size": {
+      "type": "string"
+    },
+    "coreStrands": {
+      "type": "integer"
+    },
+    "conductorStrands": {
+      "type": "integer"
+    }
+  }
+}

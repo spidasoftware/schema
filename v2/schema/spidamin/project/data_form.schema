@@ -1,0 +1,10 @@
+{
+  "id": "#/spidamin/project/data_form.schema",
+  "description": "A SPIDAMin form",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number"
+    }
+  }
+}

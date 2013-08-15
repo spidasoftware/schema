@@ -1,0 +1,15 @@
+{
+  "id": "#/spidacalc/analysis/anchor.schema",
+  "description": "Structural Description of a calc Design",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "../../spidacalc/calc/anchor.schema"
+    }
+  ],
+  "properties": {
+    "clientItem": {
+      "$ref": "../../spidacalc/client/anchor.schema"
+    }
+  }
+}

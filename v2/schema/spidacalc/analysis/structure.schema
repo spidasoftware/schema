@@ -1,0 +1,32 @@
+{
+  "id": "#/spidacalc/analysis/structure.schema",
+  "description": "Structural Description of a calc Design",
+  "type": "object",
+  "required": [
+    "pole"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "pole": {
+      "allOf": [
+        {
+          "$ref": "../../spidacalc/calc/pole.schema"
+        }
+      ],
+      "properties": {
+        "clientItem": {
+          "$ref": "../../spidacalc/client/pole.schema"
+        }
+      }
+    },
+    "anchors": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/analysis/anchor.schema"
+      }
+    }
+  },
+  "additionalProperties": false
+}

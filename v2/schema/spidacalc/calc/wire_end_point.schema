@@ -1,0 +1,45 @@
+{
+  "id": "#/spidacalc/calc/wire_end_point.schema",
+  "type": "object",
+  "required": [
+    "type",
+    "inclination",
+    "wires",
+    "spanGuys",
+    "spanPoints"
+  ],
+  "allOf": [
+    {
+      "$ref": "../../spidacalc/calc/point.schema"
+    }
+  ],
+  "properties": {
+    "inclination": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "type": {
+      "$ref": "../../spidacalc/calc/enums/wep_type.schema"
+    },
+    "comments": {
+      "type": "string"
+    },
+    "wires": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "spanGuys": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "spanPoints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

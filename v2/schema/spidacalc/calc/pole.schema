@@ -1,0 +1,34 @@
+{
+  "id": "#/spidacalc/calc/pole.schema",
+  "type": "object",
+  "required": [
+    "clientItem",
+    "owner"
+  ],
+  "properties": {
+    "uuid": {
+      "type": "string"
+    },
+    "glc": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "agl": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "environment": {
+      "$ref": "../../spidacalc/calc/enums/environment.schema"
+    },
+    "temperature": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "stressRatio": {
+      "type": "number"
+    },
+    "clientItem": {
+      "$ref": "../../spidacalc/calc/client_references/pole.schema"
+    },
+    "owner": {
+      "$ref": "../../general/owner.schema"
+    }
+  }
+}

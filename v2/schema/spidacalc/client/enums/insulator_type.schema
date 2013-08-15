@@ -1,0 +1,12 @@
+{
+  "enum": [
+    "RUNNING_ANGLE", 
+    "POLE_TOP", 
+    "BRACKET", 
+    "PIN", 
+    "SUSPENSION", 
+    "DEADEND", 
+    "CLAMP"
+  ], 
+  "type": "string"
+}
