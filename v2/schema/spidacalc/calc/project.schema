@@ -9,7 +9,7 @@
   "properties": {
     "schema": {
       "type": "string",
-      "description": "Full URL of the calc schema. For version 1 should be ../../spidacalc/calc/project.schema "
+      "description": "Full URL of the calc schema. For version 2 should be v2/schema/spidacalc/calc/project.schema"
     },
     "clientFile": {
       "type": "string",

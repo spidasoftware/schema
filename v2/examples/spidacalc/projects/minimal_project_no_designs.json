@@ -27,5 +27,5 @@
       ]
     }
   ], 
-   "schema": "https://www.spidasoftware.com/schema/v1/calc/calc_project.schema"
+   "schema": "https://raw.github.com/spidasoftware/schema/master/v2/spidacalc/calc/project.schema"
 }

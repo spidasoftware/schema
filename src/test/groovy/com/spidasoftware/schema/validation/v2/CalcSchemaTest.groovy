@@ -47,7 +47,7 @@ class CalcSchemaTest extends GroovyTestCase {
 		report.each{
 			log.info "${this.class} using file: "+it.toString()
 		}
-		assertTrue "the intance itself should be true against a schema", report.isSuccess()		
+		assertTrue "this instance should be valid against the schema", report.isSuccess()		
 	}
 
 	void testClientPoleObject(){
@@ -57,7 +57,7 @@ class CalcSchemaTest extends GroovyTestCase {
 		report.each{
 			log.info "${this.class} using file: "+it.toString()
 		}
-		assertTrue "the intance itself should be true against a schema", report.isSuccess()		
+		assertTrue "this instance should be valid against the schema", report.isSuccess()		
 	}
 
 	void testBasicDesignObject(){
@@ -66,7 +66,7 @@ class CalcSchemaTest extends GroovyTestCase {
 		report.each{
 			log.info "${this.class} using file: "+it.toString()
 		}
-		assertTrue "the intance itself should be true against a schema", report.isSuccess()		
+		assertTrue "this instance should be valid against the schema", report.isSuccess()		
 	}
 
 	void testOneOfEverythingObject(){
@@ -75,7 +75,7 @@ class CalcSchemaTest extends GroovyTestCase {
 		report.each{
 			log.info "${this.class} using file: "+it.toString()
 		}
-		assertTrue "the intance itself should be true against a schema", report.isSuccess()		
+		assertTrue "this instance should be valid against the schema", report.isSuccess()		
 	}	
 
 	void testBisectorObject(){
@@ -84,7 +84,7 @@ class CalcSchemaTest extends GroovyTestCase {
 		report.each{
 			log.info "${this.class} using file: "+it.toString()
 		}
-		assertTrue "the intance itself should be true against a schema", report.isSuccess()		
+		assertTrue "this instance should be valid against the schema", report.isSuccess()		
 	}
 	void testInsulatorObject(){
 		def schema = factory.getJsonSchema("spidacalc/calc/structure.schema")
@@ -92,7 +92,7 @@ class CalcSchemaTest extends GroovyTestCase {
 		report.each{
 			log.info "${this.class} using file: "+it.toString()
 		}
-		assertTrue "the intance itself should be true against a schema", report.isSuccess()		
+		assertTrue "this instance should be valid against the schema", report.isSuccess()		
 	}	
 
 	void testWireObject(){
@@ -101,7 +101,7 @@ class CalcSchemaTest extends GroovyTestCase {
 		report.each{
 			log.info "${this.class} using file: "+it.toString()
 		}
-		assertTrue "the intance itself should be true against a schema", report.isSuccess()		
+		assertTrue "this instance should be valid against the schema", report.isSuccess()		
 	}	
 
 	void testXArmObject(){
@@ -110,7 +110,7 @@ class CalcSchemaTest extends GroovyTestCase {
 		report.each{
 			log.info "${this.class} using file: "+it.toString()
 		}
-		assertTrue "the intance itself should be true against a schema", report.isSuccess()		
+		assertTrue "this instance should be valid against the schema", report.isSuccess()		
 	}
 
 	void testProjectWithGPSObject(){
@@ -119,7 +119,7 @@ class CalcSchemaTest extends GroovyTestCase {
 		report.each{
 			log.info "${this.class} using file: "+it.toString()
 		}
-		assertTrue "the intance itself should be true against a schema", report.isSuccess()		
+		assertTrue "this instance should be valid against the schema", report.isSuccess()		
 	}
 
 	void testFullProjectObject(){
@@ -128,7 +128,7 @@ class CalcSchemaTest extends GroovyTestCase {
 		report.each{
 			log.info "${this.class} using file: "+it.toString()
 		}
-		assertTrue "the intance itself should be true against a schema", report.isSuccess()		
+		assertTrue "this instance should be valid against the schema", report.isSuccess()		
 	}
 	
 	void testMinimalProjectObject(){
@@ -137,7 +137,16 @@ class CalcSchemaTest extends GroovyTestCase {
 		report.each{
 			log.info "${this.class} using file: "+it.toString()
 		}
-		assertTrue "the intance itself should be true against a schema", report.isSuccess()		
+		assertTrue "this instance should be valid against the schema", report.isSuccess()		
+	}
+
+	void testMultipleProjects(){
+		def schema = factory.getJsonSchema("spidacalc/calc/projects.schema")
+		report = schema.validate(JsonLoader.fromString(new File("v2/examples/spidacalc/projects/multiple_projects.json").text))
+		report.each{
+			log.info "${this.class} using file: "+it.toString()
+		}
+		assertTrue "this instance should be valid against the schema", report.isSuccess()		
 	}
 
 }
