@@ -30,10 +30,10 @@ class ClientSchemaValidationTest extends GroovyTestCase {
 
 
 	void testClientPoleObject(){
- 		final LoadingConfiguration cfg = LoadingConfiguration.newBuilder().setNamespace(new File("v1").toURI().toString()).freeze();
+ 		final LoadingConfiguration cfg = LoadingConfiguration.newBuilder().setNamespace(new File("v2/schema").toURI().toString()).freeze();
     	final JsonSchemaFactory factory = JsonSchemaFactory.newBuilder().setLoadingConfiguration(cfg).freeze();
 		def schema = factory.getJsonSchema("spidacalc/client/pole.schema")
-		report = schema.validate(JsonLoader.fromString(new File("fixtures/spidacalc/client/client_pole_example.json").text))
+		report = schema.validate(JsonLoader.fromString(new File("v2/examples/spidacalc/client/client_pole_example.json").text))
 		report.each{
 			log.info "${this.class} using file: "+it.toString()
 		}

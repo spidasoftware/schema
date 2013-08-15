@@ -111,11 +111,6 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
             <version>2.5.1</version>
-            <configuration>
-               <includes>
-                  <include>utils/src/java/**/*.java</include>
-               </includes>
-            </configuration>
          </plugin>
          <plugin>
             <groupId>org.codehaus.gmaven</groupId>
@@ -125,13 +120,13 @@
                <providerSelection>2.0</providerSelection>
                <sources>
                   <fileset>
-                     <directory>${pom.basedir}/utils/src/groovy</directory>
+                     <directory>${pom.basedir}/src/main/groovy</directory>
                      <includes>
                         <include>**/*.groovy</include>
                      </includes>
                   </fileset>
                   <fileset>
-                     <directory>${pom.basedir}/utils/test/groovy</directory>
+                     <directory>${pom.basedir}/src/test/groovy</directory>
                      <includes>
                         <include>**/*.groovy</include>
                      </includes>
@@ -186,7 +181,7 @@
       </plugins>
       <resources>
          <resource>
-            <directory>v1</directory>
+            <directory>v2</directory>
          </resource>
       </resources>
    </build>

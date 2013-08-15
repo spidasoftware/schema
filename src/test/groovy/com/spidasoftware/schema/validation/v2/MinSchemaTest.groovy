@@ -31,7 +31,7 @@ class MinSchemaTest extends GroovyTestCase {
 
 	void testBasicProjectObject(){
 		def instance = '{"id":1,"flowId":1}'				
-		def fileUri = new File("v1").toURI().toString()
+		def fileUri = new File("v2/schema").toURI().toString()
  		final LoadingConfiguration cfg = LoadingConfiguration.newBuilder().setNamespace(fileUri).freeze();
     	final JsonSchemaFactory factory = JsonSchemaFactory.newBuilder().setLoadingConfiguration(cfg).freeze();
 		def schema = factory.getJsonSchema("spidamin/project/project.schema")
@@ -43,8 +43,8 @@ class MinSchemaTest extends GroovyTestCase {
 	}	
 
 	void testFullProjectObject(){
-		def instance = new File("fixtures/spidamin/project.json").text				
-		def fileUri = new File("v1").toURI().toString()
+		def instance = new File("v2/examples/spidamin/project.json").text				
+		def fileUri = new File("v2/schema").toURI().toString()
  		final LoadingConfiguration cfg = LoadingConfiguration.newBuilder().setNamespace(fileUri).freeze();
     	final JsonSchemaFactory factory = JsonSchemaFactory.newBuilder().setLoadingConfiguration(cfg).freeze();
 		def schema = factory.getJsonSchema("spidamin/project/project.schema")

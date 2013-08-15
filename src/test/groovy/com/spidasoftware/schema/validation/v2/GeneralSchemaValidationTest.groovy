@@ -24,7 +24,7 @@ class GeneralSchemaValidationTest extends GroovyTestCase {
 	}
 
 	void testThatAddressIsValidSchema(){
-		def schemaNode = JsonLoader.fromPath("v1/general/geometry.schema")
+		def schemaNode = JsonLoader.fromPath("v2/schema/general/geometry.schema")
 		report = schemaValidator.validateSchema(schemaNode)
 		report.each{
 			log.info "Validation message address: "+it.toString()
@@ -33,7 +33,7 @@ class GeneralSchemaValidationTest extends GroovyTestCase {
 	}
 
 	void testThatBearingIsValidSchema(){
-		def schemaNode = JsonLoader.fromPath("v1/general/bearing.schema")
+		def schemaNode = JsonLoader.fromPath("v2/schema/general/bearing.schema")
 		report = schemaValidator.validateSchema(schemaNode)
 		report.each{
 			log.info "Validation message bearing: "+it.toString()
@@ -43,7 +43,7 @@ class GeneralSchemaValidationTest extends GroovyTestCase {
 	void testThatGeometryIsValidSchema(){
 
 		def instance =  '{"type": "POINT", "coordinates": []}'
-		def schemaNode = JsonLoader.fromPath("v1/general/geometry.schema")
+		def schemaNode = JsonLoader.fromPath("v2/schema/general/geometry.schema")
 		report = schemaValidator.validateSchema(schemaNode)
 		report.each{
 			log.info "Validation message geometry: "+it.toString()
@@ -59,7 +59,7 @@ class GeneralSchemaValidationTest extends GroovyTestCase {
 	}
 
 	void testThatIdIsValidSchema(){
-		def schemaNode = JsonLoader.fromPath("v1/general/id.schema")
+		def schemaNode = JsonLoader.fromPath("v2/schema/general/id.schema")
 		report = schemaValidator.validateSchema(schemaNode)
 		report.each{
 			log.info "Validation message id: "+it.toString()
@@ -69,7 +69,7 @@ class GeneralSchemaValidationTest extends GroovyTestCase {
 
 	void testThatMeasurableIsValidSchema(){
 		def instance =  '{"unit": "FOOT", "value": 10}'
-		def schemaNode = JsonLoader.fromPath("v1/general/measurable.schema")
+		def schemaNode = JsonLoader.fromPath("v2/schema/general/measurable.schema")
 		report = schemaValidator.validateSchema(schemaNode)
 		report.each{
 			log.info "Validation message measurable: "+it.toString()
@@ -86,7 +86,7 @@ class GeneralSchemaValidationTest extends GroovyTestCase {
 	}  
 
 	void testThatMethodResponseIsValidSchema(){
-		def schemaNode = JsonLoader.fromPath("v1/general/method_response.schema")
+		def schemaNode = JsonLoader.fromPath("v2/schema/general/method_response.schema")
 		report = schemaValidator.validateSchema(schemaNode)
 		report.each{
 			log.info "Validation message method reponse: "+it.toString()
@@ -95,7 +95,7 @@ class GeneralSchemaValidationTest extends GroovyTestCase {
 	}    
 
 	void testThatOwnerIsValidSchema(){
-		def schemaNode = JsonLoader.fromPath("v1/general/owner.schema")
+		def schemaNode = JsonLoader.fromPath("v2/schema/general/owner.schema")
 		report = schemaValidator.validateSchema(schemaNode)
 		report.each{
 			log.info "Validation message owner: "+it.toString()
@@ -104,7 +104,7 @@ class GeneralSchemaValidationTest extends GroovyTestCase {
 	}  
 
 	void testThatServiceMethodIsValidSchema(){
-		def schemaNode = JsonLoader.fromPath("v1/general/service_method.schema")
+		def schemaNode = JsonLoader.fromPath("v2/schema/general/service_method.schema")
 		report = schemaValidator.validateSchema(schemaNode)
 		report.each{
 			log.info "Validation message service method: "+it.toString()

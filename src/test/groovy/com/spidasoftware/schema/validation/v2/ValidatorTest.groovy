@@ -22,8 +22,8 @@ class ValidatorTest extends TestCase {
 
 	void testOneOfEverythingObject() throws Exception {
 
-		def schema = "/spidacalc/calc/structure.schema"
-		def instance = new File("fixtures/spidacalc/designs/one_of_everything.json").text
+		def schema = "/schema/spidacalc/calc/structure.schema"
+		def instance = new File("v2/examples/spidacalc/designs/one_of_everything.json").text
 		def report = new Validator().validateAndReport(schema, instance)
 		assertTrue "the instance itself should be true against a schema", report.isSuccess()
 
@@ -39,7 +39,7 @@ class ValidatorTest extends TestCase {
 	}
 
 	void testBadObject() throws Exception {
-		def schema = "/spidacalc/calc/structure.schema"
+		def schema = "/schema/spidacalc/calc/structure.schema"
 		def instance = '{"id":"uuid", "distance":{"unit":"FOOT", "value":10}, "direction":0}'
 		def report = new Validator().validateAndReport(schema, instance)
 		assertFalse "the instance itself should be true against a schema", report.isSuccess()
@@ -54,7 +54,7 @@ class ValidatorTest extends TestCase {
 
 	void testBadInput() throws Exception {
 		def badSchema = "/"
-		def schema = "/spidacalc/calc/structure.schema"
+		def schema = "/schema/spidacalc/calc/structure.schema"
 		def instance = '{"id":"uuid", "distance":{"unit":"FOOT", "value":10}, "direction":0}'
 		def exception = null
 		try {

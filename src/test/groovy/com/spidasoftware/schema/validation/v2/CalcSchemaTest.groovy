@@ -22,7 +22,7 @@ class CalcSchemaTest extends GroovyTestCase {
 
 	def log = Logger.getLogger(this.class);
 	def report
-	final LoadingConfiguration cfg = LoadingConfiguration.newBuilder().setNamespace(new File("v1").toURI().toString()).freeze();
+	final LoadingConfiguration cfg = LoadingConfiguration.newBuilder().setNamespace(new File("v2/schema").toURI().toString()).freeze();
     final JsonSchemaFactory factory = JsonSchemaFactory.newBuilder().setLoadingConfiguration(cfg).freeze();
 
 	void setUp() {
@@ -62,7 +62,7 @@ class CalcSchemaTest extends GroovyTestCase {
 
 	void testBasicDesignObject(){
 		def schema = factory.getJsonSchema("spidacalc/calc/structure.schema")
-		report = schema.validate(JsonLoader.fromString(new File("fixtures/spidacalc/designs/empty_pole.json").text))
+		report = schema.validate(JsonLoader.fromString(new File("v2/examples/spidacalc/designs/empty_pole.json").text))
 		report.each{
 			log.info "${this.class} using file: "+it.toString()
 		}
@@ -71,7 +71,7 @@ class CalcSchemaTest extends GroovyTestCase {
 
 	void testOneOfEverythingObject(){
 		def schema = factory.getJsonSchema("spidacalc/calc/structure.schema")
-		report = schema.validate(JsonLoader.fromString(new File("fixtures/spidacalc/designs/one_of_everything.json").text))
+		report = schema.validate(JsonLoader.fromString(new File("v2/examples/spidacalc/designs/one_of_everything.json").text))
 		report.each{
 			log.info "${this.class} using file: "+it.toString()
 		}
@@ -80,7 +80,7 @@ class CalcSchemaTest extends GroovyTestCase {
 
 	void testBisectorObject(){
 		def schema = factory.getJsonSchema("spidacalc/calc/structure.schema")
-		report = schema.validate(JsonLoader.fromString(new File("fixtures/spidacalc/designs/bisector.json").text))
+		report = schema.validate(JsonLoader.fromString(new File("v2/examples/spidacalc/designs/bisector.json").text))
 		report.each{
 			log.info "${this.class} using file: "+it.toString()
 		}
@@ -88,7 +88,7 @@ class CalcSchemaTest extends GroovyTestCase {
 	}
 	void testInsulatorObject(){
 		def schema = factory.getJsonSchema("spidacalc/calc/structure.schema")
-		report = schema.validate(JsonLoader.fromString(new File("fixtures/spidacalc/designs/insulator.json").text))
+		report = schema.validate(JsonLoader.fromString(new File("v2/examples/spidacalc/designs/insulator.json").text))
 		report.each{
 			log.info "${this.class} using file: "+it.toString()
 		}
@@ -97,7 +97,7 @@ class CalcSchemaTest extends GroovyTestCase {
 
 	void testWireObject(){
 		def schema = factory.getJsonSchema("spidacalc/calc/structure.schema")
-		report = schema.validate(JsonLoader.fromString(new File("fixtures/spidacalc/designs/wire.json").text))
+		report = schema.validate(JsonLoader.fromString(new File("v2/examples/spidacalc/designs/wire.json").text))
 		report.each{
 			log.info "${this.class} using file: "+it.toString()
 		}
@@ -106,7 +106,7 @@ class CalcSchemaTest extends GroovyTestCase {
 
 	void testXArmObject(){
 		def schema = factory.getJsonSchema("spidacalc/calc/structure.schema")
-		report = schema.validate(JsonLoader.fromString(new File("fixtures/spidacalc/designs/xarm.json").text))
+		report = schema.validate(JsonLoader.fromString(new File("v2/examples/spidacalc/designs/xarm.json").text))
 		report.each{
 			log.info "${this.class} using file: "+it.toString()
 		}
@@ -115,7 +115,7 @@ class CalcSchemaTest extends GroovyTestCase {
 
 	void testProjectWithGPSObject(){
 		def schema = factory.getJsonSchema("spidacalc/calc/project.schema")
-		report = schema.validate(JsonLoader.fromString(new File("fixtures/spidacalc/projects/minimal_project_with_gps.json").text))
+		report = schema.validate(JsonLoader.fromString(new File("v2/examples/spidacalc/projects/minimal_project_with_gps.json").text))
 		report.each{
 			log.info "${this.class} using file: "+it.toString()
 		}
@@ -124,7 +124,7 @@ class CalcSchemaTest extends GroovyTestCase {
 
 	void testFullProjectObject(){
 		def schema = factory.getJsonSchema("spidacalc/calc/project.schema")
-		report = schema.validate(JsonLoader.fromString(new File("fixtures/spidacalc/projects/full_project.json").text))
+		report = schema.validate(JsonLoader.fromString(new File("v2/examples/spidacalc/projects/full_project.json").text))
 		report.each{
 			log.info "${this.class} using file: "+it.toString()
 		}
@@ -133,7 +133,7 @@ class CalcSchemaTest extends GroovyTestCase {
 	
 	void testMinimalProjectObject(){
 		def schema = factory.getJsonSchema("spidacalc/calc/project.schema")
-		report = schema.validate(JsonLoader.fromString(new File("fixtures/spidacalc/projects/minimal_project_no_designs.json").text))
+		report = schema.validate(JsonLoader.fromString(new File("v2/examples/spidacalc/projects/minimal_project_no_designs.json").text))
 		report.each{
 			log.info "${this.class} using file: "+it.toString()
 		}

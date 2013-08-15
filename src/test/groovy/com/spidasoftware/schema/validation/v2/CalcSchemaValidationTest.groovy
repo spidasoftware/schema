@@ -18,13 +18,13 @@ class CalcSchemaValidationTest extends GroovyTestCase {
 	private static final SyntaxValidator schemaValidator = new SyntaxValidator(ValidationConfiguration.byDefault());
 
 	void setUp() {
-		//org.apache.log4j.BasicConfigurator.configure();
-		//log.setLevel(Level.INFO);
+		org.apache.log4j.BasicConfigurator.configure();
+		log.setLevel(Level.INFO);
 	}
 
 
   	void testThatAllCalcItemsAreValidSchema(){
-  		for(schemaFile in new File("v1/spidacalc/calc").listFiles()){
+  		for(schemaFile in new File("v2/schema/spidacalc/calc").listFiles()){
   			if(schemaFile.absolutePath.endsWith(".schema")){
 				def schemaNode = JsonLoader.fromPath(schemaFile.absolutePath)
 				report = schemaValidator.validateSchema(schemaNode)
@@ -37,7 +37,7 @@ class CalcSchemaValidationTest extends GroovyTestCase {
 	}
 
   	void testThatAllCalcClientReferencesItemsAreValidSchema(){
-  		for(schemaFile in new File("v1/spidacalc/calc/client_references").listFiles()){
+  		for(schemaFile in new File("v2/schema/spidacalc/calc/client_references").listFiles()){
   			if(schemaFile.absolutePath.endsWith(".schema")){
 				def schemaNode = JsonLoader.fromPath(schemaFile.absolutePath)
 				report = schemaValidator.validateSchema(schemaNode)
@@ -50,7 +50,7 @@ class CalcSchemaValidationTest extends GroovyTestCase {
 	}
 
 	void testThatAllCalcEnumsItemsAreValidSchema(){
-  		for(schemaFile in new File("v1/spidacalc/calc/enums").listFiles()){
+  		for(schemaFile in new File("v2/schema/spidacalc/calc/enums").listFiles()){
   			if(schemaFile.absolutePath.endsWith(".schema")){
 				def schemaNode = JsonLoader.fromPath(schemaFile.absolutePath)
 				report = schemaValidator.validateSchema(schemaNode)
