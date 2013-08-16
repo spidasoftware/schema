@@ -34,10 +34,8 @@ class AnalysisSchemaTest extends GroovyTestCase {
     	final JsonSchemaFactory factory = JsonSchemaFactory.newBuilder().setLoadingConfiguration(cfg).freeze();
 		def schema = factory.getJsonSchema("spidacalc/analysis/structure.schema")
 		report = schema.validate(JsonLoader.fromString(new File("v2/examples/spidacalc/analysis/empty_pole.json").text))
-		report.each{
-			log.info "${this.class} using file: "+it.toString()
-		}
-		assertTrue "the intance itself should be true against a schema", report.isSuccess()		
+		report.each{ log.info "validation report "+it.toString() }
+		assertTrue "this instance should be valid against the schema", report.isSuccess()		
 	}
 
 //NEED TO FIX THIS ONE

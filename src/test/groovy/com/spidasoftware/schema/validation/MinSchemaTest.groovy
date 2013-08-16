@@ -22,36 +22,32 @@ class MinSchemaTest extends GroovyTestCase {
 
 	def log = Logger.getLogger(this.class);
 	def report
-	//private static final SyntaxValidator schemaValidator = new SyntaxValidator(ValidationConfiguration.byDefault());
+	def fileUri = new File("v2/schema").toURI().toString()
+	final LoadingConfiguration cfg = LoadingConfiguration.newBuilder().setNamespace(fileUri).freeze();
+	final JsonSchemaFactory factory = JsonSchemaFactory.newBuilder().setLoadingConfiguration(cfg).freeze();
 
 	void setUp() {
 		// org.apache.log4j.BasicConfigurator.configure();
 		// log.setLevel(Level.INFO);
 	}
 
-	void testBasicProjectObject(){
+	void testUser(){
+		def instance = '{"id":1, "firstName":"bob", "lastName":"smith", "email":"bob@test.com", "company":{"id":1, "name":"test"}}'				
+		def schema = factory.getJsonSchema("spidamin/user/user.schema")
+		report = schema.validate(JsonLoader.fromString(instance))
+		report.each{ log.info "validation report "+it.toString() }
+		assertTrue "should be a valid instance against the schema", report.isSuccess()
+	}	
+
+	void testBasicProject(){
 		def instance = '{"id":1,"flowId":1}'				
-		def fileUri = new File("v2/schema").toURI().toString()
- 		final LoadingConfiguration cfg = LoadingConfiguration.newBuilder().setNamespace(fileUri).freeze();
-    	final JsonSchemaFactory factory = JsonSchemaFactory.newBuilder().setLoadingConfiguration(cfg).freeze();
 		def schema = factory.getJsonSchema("spidamin/project/project.schema")
 		report = schema.validate(JsonLoader.fromString(instance))
-		report.each{
-			log.info "point using url: "+it.toString()
-		}
+		report.each{ log.info "validation report "+it.toString() }
 		assertTrue "the intance itself should be true against a file namespace", report.isSuccess()
 	}	
 
-	void testFullProjectObject(){
-		def instance = new File("v2/examples/spidamin/project.json").text				
-		def fileUri = new File("v2/schema").toURI().toString()
- 		final LoadingConfiguration cfg = LoadingConfiguration.newBuilder().setNamespace(fileUri).freeze();
-    	final JsonSchemaFactory factory = JsonSchemaFactory.newBuilder().setLoadingConfiguration(cfg).freeze();
-		def schema = factory.getJsonSchema("spidamin/project/project.schema")
-		report = schema.validate(JsonLoader.fromString(instance))
-		report.each{
-			log.info "point using url: "+it.toString()
-		}
-		assertTrue "the intance itself should be true against a file namespace", report.isSuccess()
+	void testFullProject(){
+		//TODO
 	}
 }

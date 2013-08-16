@@ -1,4 +1,4 @@
-package utils.src.groovy.com.spidasoftware.schema.validation
+package com.spidasoftware.schema.validation
 
 import com.fasterxml.jackson.databind.JsonNode
 import com.github.fge.jackson.JsonLoader
@@ -31,6 +31,7 @@ class Validator {
 
 			String namespace = new File(schemaPath).getParentFile().getCanonicalPath();
 			String namespaceString = "resource:" + namespace + "/";
+			log.debug("namespaceString = " + namespaceString)
 			LoadingConfiguration cfg = LoadingConfiguration.newBuilder().setNamespace(namespaceString).freeze();
 			JsonSchemaFactory factory = JsonSchemaFactory.newBuilder().setLoadingConfiguration(cfg).freeze();
 			JsonNode instance = JsonLoader.fromString(json);

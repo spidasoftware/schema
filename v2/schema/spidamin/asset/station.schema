@@ -4,12 +4,12 @@
   "type": "object",
   "required": [
     "dataProviderId",
-    "geometry"
+    "geometry",
+    "assetTypes"
   ],
   "properties": {
     "stationId": {
-      "type": "string",
-      "required": false
+      "type": "string"
     },
     "dataProviderId": {
       "type": "number",
@@ -28,18 +28,7 @@
       "type": "array",
       "items": {
         "type": "string",
-        "required": true,
-        "choices": [
-          {
-            "value": "POLE"
-          },
-          {
-            "value": "NJUNS"
-          },
-          {
-            "value": "ANALYSIS"
-          }
-        ]
+        "enum": ["POLE", "NJUNS", "ANALYSIS"]
       }
     },
     "geometry": {

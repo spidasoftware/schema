@@ -2,38 +2,37 @@
     "id": "wire_load_case",
     "type": "object",
     "description": "An object with the needed information for analyzing a wire for sag and tension.",
+    "required":[
+      "name",
+      "temperature"
+    ],
     "properties": {
         "name": {
-            "type":"string"
-            "required": true,
+            "type":"string",
             "description": "Name of this wire load case."
         },
         "windPressure": {
-            "allOf": {
+            "allOf": [{
                 "$ref": "../../general/measurable.schema"
-            },
-            "required": false,
+            }],
             "description": "The wind force that is acting on this wire. In force per length."
         },
         "iceThickness": {
-            "allOf": {
+            "allOf": [{
                 "$ref": "../../general/measurable.schema"
-            },
-            "required": false,
+            }],
             "description": "The weight force that is acting on this wire. In force per length."
         },
         "linearConstant": {
-            "allOf": {
+            "allOf": [{
                 "$ref": "../../general/measurable.schema"
-            },
-            "required": false,
+            }],
             "description": "The addtional linear force that is acting on this wire. In force per length."
         },
         "temperature": {
-            "allOf": {
+            "allOf": [{
                 "$ref": "../../general/measurable.schema"
-            },
-            "required": true,
+            }],
             "description": "The temperature at which to analyze this wire."
         }
     }

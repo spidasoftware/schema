@@ -1,7 +1,9 @@
 {
-    "id": "wire_load_case",
+    "id": "load_case",
     "type": "object",
-    "allOf" : {"$ref":"wire_load_case"},
+    "allOf" : [{
+      "$ref":"wire_load_case"
+    }],
     "description": "An object with the needed information for analyzing pole.",
     "properties": { }
 }

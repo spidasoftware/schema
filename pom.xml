@@ -168,7 +168,6 @@
                   <phase>install</phase>
                   <configuration>
                      <tasks>
-                        <delete dir="${user.home}/.ivy2/cache/com.spidasoftware/schema" />
                         <delete dir="${user.home}/.grails/ivy-cache/com.spidasoftware/schema" />
                      </tasks>
                   </configuration>
@@ -181,7 +180,7 @@
       </plugins>
       <resources>
          <resource>
-            <directory>v2</directory>
+            <directory>v2/schema</directory>
          </resource>
       </resources>
    </build>

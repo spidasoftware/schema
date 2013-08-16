@@ -29,7 +29,7 @@ class GeneralSchemaValidationTest extends GroovyTestCase {
 		report.each{
 			log.info "Validation message address: "+it.toString()
 		}
-		assertTrue "the schema itself should be true", report.isSuccess()
+		assertTrue "this schema should be valid", report.isSuccess()
 	}
 
 	void testThatBearingIsValidSchema(){
@@ -38,7 +38,7 @@ class GeneralSchemaValidationTest extends GroovyTestCase {
 		report.each{
 			log.info "Validation message bearing: "+it.toString()
 		}
-		assertTrue "the schema itself should be true", report.isSuccess()
+		assertTrue "this schema should be valid", report.isSuccess()
 	}
 	void testThatGeometryIsValidSchema(){
 
@@ -48,14 +48,14 @@ class GeneralSchemaValidationTest extends GroovyTestCase {
 		report.each{
 			log.info "Validation message geometry: "+it.toString()
 		}
-		assertTrue "the schema itself should be true", report.isSuccess()
+		assertTrue "this schema should be valid", report.isSuccess()
 
 		def schema = JsonSchemaFactory.byDefault().getJsonSchema(schemaNode)
 		report = schema.validate(JsonLoader.fromString(instance))
 		report.each{
 			log.info "Validation message geometry: "+it.toString()
 		}    
-		assertTrue "test item should assert true against schema", report.isSuccess()
+		assertTrue "test item should be valid against schema", report.isSuccess()
 	}
 
 	void testThatIdIsValidSchema(){
@@ -64,7 +64,7 @@ class GeneralSchemaValidationTest extends GroovyTestCase {
 		report.each{
 			log.info "Validation message id: "+it.toString()
 		}
-		assertTrue "the schema itself should be true", report.isSuccess()
+		assertTrue "this schema should be valid", report.isSuccess()
 	}
 
 	void testThatMeasurableIsValidSchema(){
@@ -74,7 +74,7 @@ class GeneralSchemaValidationTest extends GroovyTestCase {
 		report.each{
 			log.info "Validation message measurable: "+it.toString()
 		}
-		assertTrue "the schema itself should be true", report.isSuccess()
+		assertTrue "this schema should be valid", report.isSuccess()
 
 		def schema = JsonSchemaFactory.byDefault().getJsonSchema(schemaNode)
 
@@ -82,7 +82,7 @@ class GeneralSchemaValidationTest extends GroovyTestCase {
 		report.each{
 			log.info "Validation message measurable: "+it.toString()
 		}
-		assertTrue "test item should assert true against schema", report.isSuccess()
+		assertTrue "test item should be valid against schema", report.isSuccess()
 	}  
 
 	void testThatMethodResponseIsValidSchema(){
@@ -91,7 +91,7 @@ class GeneralSchemaValidationTest extends GroovyTestCase {
 		report.each{
 			log.info "Validation message method reponse: "+it.toString()
 		}
-		assertTrue "the schema itself should be true", report.isSuccess()
+		assertTrue "this schema should be valid", report.isSuccess()
 	}    
 
 	void testThatOwnerIsValidSchema(){
@@ -100,7 +100,7 @@ class GeneralSchemaValidationTest extends GroovyTestCase {
 		report.each{
 			log.info "Validation message owner: "+it.toString()
 		}
-		assertTrue "the schema itself should be true", report.isSuccess()
+		assertTrue "this schema should be valid", report.isSuccess()
 	}  
 
 	void testThatServiceMethodIsValidSchema(){
@@ -109,7 +109,7 @@ class GeneralSchemaValidationTest extends GroovyTestCase {
 		report.each{
 			log.info "Validation message service method: "+it.toString()
 		}
-		assertTrue "the schema itself should be true", report.isSuccess()
+		assertTrue "this schema should be valid", report.isSuccess()
 	}
 
 }

@@ -1,22 +1,20 @@
 {
   "type": "array",
   "id": "#/spidamin/asset/find_params.schema",
-  "required": false,
+  "required": ["items"],
   "items": {
     "type": "array",
     "id": "find_params_group",
-    "required": false,
+    "required": ["key", "value"],
     "items": {
       "type": "object",
       "id": "find_params_entry",
       "properties": {
         "key": {
-          "type": "string",
-          "required": true
+          "type": "string"
         },
         "operator": {
           "type": "string",
-          "required": false,
           "description": "Operator to be used in the search. If not provided then it defaults to equals.",
           "enum": [
             "equals",
@@ -37,8 +35,7 @@
           ]
         },
         "value": {
-          "type": "string",
-          "required": true
+          "type": "string"
         }
       },
       "additionalProperties": false

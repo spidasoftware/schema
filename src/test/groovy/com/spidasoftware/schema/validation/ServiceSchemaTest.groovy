@@ -40,7 +40,7 @@ class ServiceSchemaTest extends GroovyTestCase {
 				report.each{
 					log.info "${this.class} using file: "+it.toString()
 				}
-				assertTrue "${k} should be true against a schema", report.isSuccess()		
+				assertTrue "${k} should be valid against a schema", report.isSuccess()		
 			}
 		}
 	}
@@ -53,7 +53,7 @@ class ServiceSchemaTest extends GroovyTestCase {
 				report.each{
 					log.info "${this.class} using file: "+it.toString()
 				}
-				assertTrue "${k} should be true against a schema", report.isSuccess()		
+				assertTrue "${k} should be valid against a schema", report.isSuccess()		
 			}
 		}
 	}	
@@ -65,7 +65,7 @@ class ServiceSchemaTest extends GroovyTestCase {
 				report.each{
 					log.info "${this.class} using file: "+it.toString()
 				}
-				assertTrue "${k} should be true against a schema", report.isSuccess()		
+				assertTrue "${k} should be valid against a schema", report.isSuccess()		
 			}
 		}
 	}
@@ -77,7 +77,7 @@ class ServiceSchemaTest extends GroovyTestCase {
 				report.each{
 					log.info "${this.class} using file: "+it.toString()
 				}
-				assertTrue "${k} should be true against a schema", report.isSuccess()		
+				assertTrue "${k} should be valid against a schema", report.isSuccess()		
 			}
 		}
 	}
@@ -89,7 +89,7 @@ class ServiceSchemaTest extends GroovyTestCase {
 				report.each{
 					log.info "${this.class} using file: "+it.toString()
 				}
-				assertTrue "${k} should be true against a schema", report.isSuccess()		
+				assertTrue "${k} should be valid against a schema", report.isSuccess()		
 			}
 		}
 	}	
@@ -101,7 +101,7 @@ class ServiceSchemaTest extends GroovyTestCase {
 				report.each{
 					log.info "${this.class} using file: "+it.toString()
 				}
-				assertTrue "${k} should be true against a schema", report.isSuccess()		
+				assertTrue "${k} should be valid against a schema", report.isSuccess()		
 			}
 		}
 	}	
@@ -113,7 +113,7 @@ class ServiceSchemaTest extends GroovyTestCase {
 				report.each{
 					log.info "${this.class} using file: "+it.toString()
 				}
-				assertTrue "${k} should be true against a schema", report.isSuccess()		
+				assertTrue "${k} should be valid against a schema", report.isSuccess()		
 			}
 		}
 	}
@@ -125,7 +125,7 @@ class ServiceSchemaTest extends GroovyTestCase {
 				report.each{
 					log.info "${this.class} using file: "+it.toString()
 				}
-				assertTrue "${k} should be true against a schema", report.isSuccess()		
+				assertTrue "${k} should be valid against a schema", report.isSuccess()		
 			}
 		}
 	}

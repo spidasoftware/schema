@@ -25,17 +25,7 @@
     "assetType": {
       "id": "assetType",
       "type": "string",
-      "choices": [
-        {
-          "value": "POLE"
-        },
-        {
-          "value": "NJUNS"
-        },
-        {
-          "value": "ANALYSIS"
-        }
-      ]
+      "enum": ["POLE", "NJUNS", "ANALYSIS"]
     },
     "assetAttachments": {
       "id": "assetAttachments",

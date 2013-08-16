@@ -9,15 +9,15 @@
     },
     "firstName": {
       "type": "string",
-      "description": "First name of user"
+      "description": "The user's first name"
     },
     "lastName": {
       "type": "string",
-      "description": "Last name of user"
+      "description": "The user's last name"
     },
     "email": {
-      "type": "email",
-      "description": "Last name of user"
+      "type": "string",
+      "description": "The user's email address"
     },
     "company": {
       "$ref": "../../spidamin/user/company.schema"
