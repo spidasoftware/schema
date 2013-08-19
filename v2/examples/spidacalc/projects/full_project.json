@@ -25,6 +25,10 @@
                         "latitude": 40.609780700000002,
                         "longitude": -81.3688492
                     },
+                    "userDefinedValues": [{
+                        "key": "some_other_system_id",
+                        "value": "123-987"
+                    }],
                     "remedies": [],
                     "poleTags": [],
                     "summaryNotes": [],

@@ -92,6 +92,28 @@
                     }
                   }
                 },
+                "userDefinedValues": {
+                  "type": "array",
+                  "id": "userDefinedValues",
+                  "description": "User defined key-value pairs that we store.  For example, this could be used for an outside system id.",
+                  "items": {
+                    "type": "object",
+                    "id": "keyValue",
+                    "required": [
+                      "key",
+                      "value"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string",
+                        "description": "user-defined lookup value"
+                      },
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
                 "remedies": {
                   "type": "array",
                   "id": "remedies",

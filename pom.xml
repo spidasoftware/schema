@@ -118,20 +118,6 @@
             <version>1.4</version>
             <configuration>
                <providerSelection>2.0</providerSelection>
-               <sources>
-                  <fileset>
-                     <directory>${pom.basedir}/src/main/groovy</directory>
-                     <includes>
-                        <include>**/*.groovy</include>
-                     </includes>
-                  </fileset>
-                  <fileset>
-                     <directory>${pom.basedir}/src/test/groovy</directory>
-                     <includes>
-                        <include>**/*.groovy</include>
-                     </includes>
-                  </fileset>
-               </sources>
             </configuration>
             <executions>
                <execution>

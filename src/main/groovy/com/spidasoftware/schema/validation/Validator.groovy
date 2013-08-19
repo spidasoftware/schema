@@ -12,10 +12,11 @@ import com.spidasoftware.schema.server.*
 
 /**
  * Class to validate against our json schemas. Will references the schemas locally as a jar resource.
+ * The resources directory is specified in pom.xml.
+ * 
  * User: mford
  * Date: 7/24/13
  * Time: 2:34 PM
- * To change this template use File | Settings | File Templates.
  */
 class Validator {
 	Logger log = Logger.getLogger(Validator.class);
@@ -31,7 +32,6 @@ class Validator {
 
 			String namespace = new File(schemaPath).getParentFile().getCanonicalPath();
 			String namespaceString = "resource:" + namespace + "/";
-			log.debug("namespaceString = " + namespaceString)
 			LoadingConfiguration cfg = LoadingConfiguration.newBuilder().setNamespace(namespaceString).freeze();
 			JsonSchemaFactory factory = JsonSchemaFactory.newBuilder().setLoadingConfiguration(cfg).freeze();
 			JsonNode instance = JsonLoader.fromString(json);
