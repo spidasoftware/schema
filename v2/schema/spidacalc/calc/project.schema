@@ -92,28 +92,6 @@
                     }
                   }
                 },
-                "userDefinedValues": {
-                  "type": "array",
-                  "id": "userDefinedValues",
-                  "description": "User defined key-value pairs that we store.  For example, this could be used for an outside system id.",
-                  "items": {
-                    "type": "object",
-                    "id": "keyValue",
-                    "required": [
-                      "key",
-                      "value"
-                    ],
-                    "properties": {
-                      "key": {
-                        "type": "string",
-                        "description": "user-defined lookup value"
-                      },
-                      "value": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                },
                 "remedies": {
                   "type": "array",
                   "id": "remedies",
@@ -153,12 +131,48 @@
                     }
                   }
                 },
+                "userDefinedValues": {
+                  "type": "array",
+                  "id": "userDefinedValues",
+                  "description": "User defined key-value pairs that we store.  For example, this could be used for an outside system id.",
+                  "items": {
+                    "type": "object",
+                    "id": "keyValue",
+                    "required": [
+                      "key",
+                      "value"
+                    ],
+                    "properties": {
+                      "key": {
+                        "type": "string",
+                        "description": "user-defined lookup value"
+                      },
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
                 "summaryNotes": {
                   "type": "array",
                   "id": "summaryNotes",
                   "description": "List of summary notes for the location",
                   "items": {
                     "type": "string"
+                  }
+                },
+                "images": {
+                  "type": "array",
+                  "id": "images",
+                  "description": "Photos/images for this location.",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "url": {
+                        "type": "string",
+                        "description": "Path to the image file."
+                      }
+                    }
                   }
                 },
                 "designs": {
@@ -210,20 +224,6 @@
                             }
                           }
                         }
-                      }
-                    }
-                  }
-                },
-                "images": {
-                  "type": "array",
-                  "id": "images",
-                  "description": "Photos/images for this location.",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "url": {
-                        "type": "string",
-                        "description": "Path to the image file."
                       }
                     }
                   }

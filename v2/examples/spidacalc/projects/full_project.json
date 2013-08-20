@@ -1,6 +1,7 @@
 {
     "schema": "https://raw.github.com/spidasoftware/schema/master/v2/spidacalc/calc/project.schema",
     "name": "project-1",
+    "maxPhotoSize": "320x200",
     "clientFile": "Demo.client",
     "date": "2011-02-21",
     "leads": [
@@ -25,12 +26,12 @@
                         "latitude": 40.609780700000002,
                         "longitude": -81.3688492
                     },
+                    "remedies": [],
+                    "poleTags": [],
                     "userDefinedValues": [{
                         "key": "some_other_system_id",
                         "value": "123-987"
                     }],
-                    "remedies": [],
-                    "poleTags": [],
                     "summaryNotes": [],
                     "images": [],
                     "designs": [
