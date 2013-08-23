@@ -14,7 +14,7 @@ class LocalServerTest extends GroovyTestCase {
   void testServer(){
 	def server = new LocalServer(7890);
 	def service = ["analyzeWire": {one, two, three -> return "{'analysis':true}"}]
-	server.addServlet(new LocalServiceServlet("/local/path", "/spidacalc/analysis/interfaces/wire_analysis.json", service))
+	server.addServlet(new LocalServiceServlet("/local/path", "/v1/schema/spidacalc/analysis/interfaces/wire_analysis.json", service))
 	new Thread(server).start();
 	int timeout = 0;
 	try {

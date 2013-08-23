@@ -166,7 +166,7 @@
       </plugins>
       <resources>
          <resource>
-            <directory>v2/schema</directory>
+            <directory>resources</directory>
          </resource>
       </resources>
    </build>

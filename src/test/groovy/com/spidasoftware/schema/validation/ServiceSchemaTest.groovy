@@ -22,7 +22,7 @@ class ServiceSchemaTest extends GroovyTestCase {
 
 	def log = Logger.getLogger(this.class);
 	def report
-	final LoadingConfiguration cfg = LoadingConfiguration.newBuilder().setNamespace(new File("v2/schema").toURI().toString()).freeze();
+	final LoadingConfiguration cfg = LoadingConfiguration.newBuilder().setNamespace(new File("resources/v1/schema").toURI().toString()).freeze();
   	final JsonSchemaFactory factory = JsonSchemaFactory.newBuilder().setLoadingConfiguration(cfg).freeze();
 	def schema = factory.getJsonSchema("general/service_method.schema")
 	def slurper = new JsonSlurper()
@@ -33,7 +33,7 @@ class ServiceSchemaTest extends GroovyTestCase {
 	}
 
 	void testAssetInterfaceMethodsAgainstServiceMethod(){
-		def instance = slurper.parseText(new File("v2/schema/spidamin/asset/interfaces/asset.json").text)
+		def instance = slurper.parseText(new File("resources/v1/schema/spidamin/asset/interfaces/asset.json").text)
 		instance.each{k,v->
 			if(k!="id" && k!="description"){
 				report = schema.validate(JsonLoader.fromString(JsonOutput.toJson(v)))
@@ -46,7 +46,7 @@ class ServiceSchemaTest extends GroovyTestCase {
 	}
 
 	void testAssetSearchInterfaceMethodsAgainstServiceMethod(){
-		def instance = slurper.parseText(new File("v2/schema/spidamin/asset/interfaces/asset_search.json").text)
+		def instance = slurper.parseText(new File("resources/v1/schema/spidamin/asset/interfaces/asset_search.json").text)
 		instance.each{k,v->
 			if(k!="id" && k!="description"){
 				report = schema.validate(JsonLoader.fromString(JsonOutput.toJson(v)))
@@ -58,7 +58,7 @@ class ServiceSchemaTest extends GroovyTestCase {
 		}
 	}	
 	void testGeoCoderInterfaceMethodsAgainstServiceMethod(){
-		def instance = slurper.parseText(new File("v2/schema/spidamin/geo/interfaces/geo_coder.json").text)
+		def instance = slurper.parseText(new File("resources/v1/schema/spidamin/geo/interfaces/geo_coder.json").text)
 		instance.each{k,v->
 			if(k!="id" && k!="description"){
 				report = schema.validate(JsonLoader.fromString(JsonOutput.toJson(v)))
@@ -70,7 +70,7 @@ class ServiceSchemaTest extends GroovyTestCase {
 		}
 	}
 	void testUsersInterfaceMethodsAgainstServiceMethod(){
-		def instance = slurper.parseText(new File("v2/schema/spidamin/user/interfaces/users.json").text)
+		def instance = slurper.parseText(new File("resources/v1/schema/spidamin/user/interfaces/users.json").text)
 		instance.each{k,v->
 			if(k!="id" && k!="description"){
 				report = schema.validate(JsonLoader.fromString(JsonOutput.toJson(v)))
@@ -82,7 +82,7 @@ class ServiceSchemaTest extends GroovyTestCase {
 		}
 	}
 	void testUsersSecurityInterfaceMethodsAgainstServiceMethod(){
-		def instance = slurper.parseText(new File("v2/schema/spidamin/user/interfaces/users_security.json").text)
+		def instance = slurper.parseText(new File("resources/v1/schema/spidamin/user/interfaces/users_security.json").text)
 		instance.each{k,v->
 			if(k!="id" && k!="description"){
 				report = schema.validate(JsonLoader.fromString(JsonOutput.toJson(v)))
@@ -94,7 +94,7 @@ class ServiceSchemaTest extends GroovyTestCase {
 		}
 	}	
 	void testWireAnalysisInterfaceMethodsAgainstServiceMethod(){
-		def instance = slurper.parseText(new File("v2/schema/spidacalc/analysis/interfaces/wire_analysis.json").text)
+		def instance = slurper.parseText(new File("resources/v1/schema/spidacalc/analysis/interfaces/wire_analysis.json").text)
 		instance.each{k,v->
 			if(k!="id" && k!="description"){
 				report = schema.validate(JsonLoader.fromString(JsonOutput.toJson(v)))
@@ -106,7 +106,7 @@ class ServiceSchemaTest extends GroovyTestCase {
 		}
 	}	
 	void testLoadingAnalysisInterfaceMethodsAgainstServiceMethod(){
-		def instance = slurper.parseText(new File("v2/schema/spidacalc/analysis/interfaces/loading_analysis.json").text)
+		def instance = slurper.parseText(new File("resources/v1/schema/spidacalc/analysis/interfaces/loading_analysis.json").text)
 		instance.each{k,v->
 			if(k!="id" && k!="description"){
 				report = schema.validate(JsonLoader.fromString(JsonOutput.toJson(v)))
@@ -118,7 +118,7 @@ class ServiceSchemaTest extends GroovyTestCase {
 		}
 	}
 	void testClientDataInterfaceMethodsAgainstServiceMethod(){
-		def instance = slurper.parseText(new File("v2/schema/spidacalc/client/interfaces/client_data.json").text)
+		def instance = slurper.parseText(new File("resources/v1/schema/spidacalc/client/interfaces/client_data.json").text)
 		instance.each{k,v->
 			if(k!="id" && k!="description"){
 				report = schema.validate(JsonLoader.fromString(JsonOutput.toJson(v)))

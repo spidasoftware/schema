@@ -22,7 +22,7 @@ class CalcSchemaTest extends GroovyTestCase {
 
 	def report
 	def log = Logger.getLogger(this.class)
-	final LoadingConfiguration cfg = LoadingConfiguration.newBuilder().setNamespace(new File("v2/schema").toURI().toString()).freeze()
+	final LoadingConfiguration cfg = LoadingConfiguration.newBuilder().setNamespace(new File("resources").toURI().toString()).freeze()
     final JsonSchemaFactory factory = JsonSchemaFactory.newBuilder().setLoadingConfiguration(cfg).freeze()
 
 	void setUp() {
@@ -32,7 +32,7 @@ class CalcSchemaTest extends GroovyTestCase {
 
 	void testBasicPointObject(){
 		def instance = '{"id":"uuid", "distance":{"unit":"FOOT", "value":10}, "direction":0}'				
-		def schema = factory.getJsonSchema("spidacalc/calc/point.schema")
+		def schema = factory.getJsonSchema("v1/schema/spidacalc/calc/point.schema")
 		report = schema.validate(JsonLoader.fromString(instance))
 		report.each{ log.info "validation report "+it.toString() }
 		assertTrue "this instance should be valid against the schema", report.isSuccess()		
@@ -40,7 +40,7 @@ class CalcSchemaTest extends GroovyTestCase {
 	
 	void testBasicAttachmentObject(){
 		def instance = '{"id":"uuid", "attachmentHeight":{"unit":"FOOT", "value":10}, "owner":{"name":"company", "industry":"COMMUNICATION"}}'				
-		def schema = factory.getJsonSchema("spidacalc/calc/attachment.schema")
+		def schema = factory.getJsonSchema("v1/schema/spidacalc/calc/attachment.schema")
 		report = schema.validate(JsonLoader.fromString(instance))
 		report.each{ log.info "validation report "+it.toString() }
 		assertTrue "this instance should be valid against the schema", report.isSuccess()		
@@ -48,77 +48,77 @@ class CalcSchemaTest extends GroovyTestCase {
 
 	void testClientPoleObject(){
 		def instance = '{"species":"pine", "height":{"unit":"FOOT", "value":100}, "classOfPole":"h2"}'				
-		def schema = factory.getJsonSchema("spidacalc/calc/client_references/pole.schema")
+		def schema = factory.getJsonSchema("v1/schema/spidacalc/calc/client_references/pole.schema")
 		report = schema.validate(JsonLoader.fromString(instance))
 		report.each{ log.info "validation report "+it.toString() }
 		assertTrue "this instance should be valid against the schema", report.isSuccess()		
 	}
 
 	void testBasicDesignObject(){
-		def schema = factory.getJsonSchema("spidacalc/calc/structure.schema")
-		report = schema.validate(JsonLoader.fromString(new File("v2/examples/spidacalc/designs/empty_pole.json").text))
+		def schema = factory.getJsonSchema("v1/schema/spidacalc/calc/structure.schema")
+		report = schema.validate(JsonLoader.fromString(new File("resources/v1/examples/spidacalc/designs/empty_pole.json").text))
 		report.each{ log.info "validation report "+it.toString() }
 		assertTrue "this instance should be valid against the schema", report.isSuccess()		
 	}
 
 	void testOneOfEverythingObject(){
-		def schema = factory.getJsonSchema("spidacalc/calc/structure.schema")
-		report = schema.validate(JsonLoader.fromString(new File("v2/examples/spidacalc/designs/one_of_everything.json").text))
+		def schema = factory.getJsonSchema("v1/schema/spidacalc/calc/structure.schema")
+		report = schema.validate(JsonLoader.fromString(new File("resources/v1/examples/spidacalc/designs/one_of_everything.json").text))
 		report.each{ log.info "validation report "+it.toString() }
 		assertTrue "this instance should be valid against the schema", report.isSuccess()		
 	}	
 
 	void testBisectorObject(){
-		def schema = factory.getJsonSchema("spidacalc/calc/structure.schema")
-		report = schema.validate(JsonLoader.fromString(new File("v2/examples/spidacalc/designs/bisector.json").text))
+		def schema = factory.getJsonSchema("v1/schema/spidacalc/calc/structure.schema")
+		report = schema.validate(JsonLoader.fromString(new File("resources/v1/examples/spidacalc/designs/bisector.json").text))
 		report.each{ log.info "validation report "+it.toString() }
 		assertTrue "this instance should be valid against the schema", report.isSuccess()		
 	}
 	void testInsulatorObject(){
-		def schema = factory.getJsonSchema("spidacalc/calc/structure.schema")
-		report = schema.validate(JsonLoader.fromString(new File("v2/examples/spidacalc/designs/insulator.json").text))
+		def schema = factory.getJsonSchema("v1/schema/spidacalc/calc/structure.schema")
+		report = schema.validate(JsonLoader.fromString(new File("resources/v1/examples/spidacalc/designs/insulator.json").text))
 		report.each{ log.info "validation report "+it.toString() }
 		assertTrue "this instance should be valid against the schema", report.isSuccess()		
 	}	
 
 	void testWireObject(){
-		def schema = factory.getJsonSchema("spidacalc/calc/structure.schema")
-		report = schema.validate(JsonLoader.fromString(new File("v2/examples/spidacalc/designs/wire.json").text))
+		def schema = factory.getJsonSchema("v1/schema/spidacalc/calc/structure.schema")
+		report = schema.validate(JsonLoader.fromString(new File("resources/v1/examples/spidacalc/designs/wire.json").text))
 		report.each{ log.info "validation report "+it.toString() }
 		assertTrue "this instance should be valid against the schema", report.isSuccess()		
 	}	
 
 	void testXArmObject(){
-		def schema = factory.getJsonSchema("spidacalc/calc/structure.schema")
-		report = schema.validate(JsonLoader.fromString(new File("v2/examples/spidacalc/designs/xarm.json").text))
+		def schema = factory.getJsonSchema("v1/schema/spidacalc/calc/structure.schema")
+		report = schema.validate(JsonLoader.fromString(new File("resources/v1/examples/spidacalc/designs/xarm.json").text))
 		report.each{ log.info "validation report "+it.toString() }
 		assertTrue "this instance should be valid against the schema", report.isSuccess()		
 	}
 
 	void testProjectWithGPSObject(){
-		def schema = factory.getJsonSchema("spidacalc/calc/project.schema")
-		report = schema.validate(JsonLoader.fromString(new File("v2/examples/spidacalc/projects/minimal_project_with_gps.json").text))
+		def schema = factory.getJsonSchema("v1/schema/spidacalc/calc/project.schema")
+		report = schema.validate(JsonLoader.fromString(new File("resources/v1/examples/spidacalc/projects/minimal_project_with_gps.json").text))
 		report.each{ log.info "validation report "+it.toString() }
 		assertTrue "this instance should be valid against the schema", report.isSuccess()		
 	}
 
 	void testFullProjectObject(){
-		def schema = factory.getJsonSchema("spidacalc/calc/project.schema")
-		report = schema.validate(JsonLoader.fromString(new File("v2/examples/spidacalc/projects/full_project.json").text))
+		def schema = factory.getJsonSchema("v1/schema/spidacalc/calc/project.schema")
+		report = schema.validate(JsonLoader.fromString(new File("resources/v1/examples/spidacalc/projects/full_project.json").text))
 		report.each{ log.info "validation report "+it.toString() }
 		assertTrue "this instance should be valid against the schema", report.isSuccess()		
 	}
 	
 	void testMinimalProjectObject(){
-		def schema = factory.getJsonSchema("spidacalc/calc/project.schema")
-		report = schema.validate(JsonLoader.fromString(new File("v2/examples/spidacalc/projects/minimal_project_no_designs.json").text))
+		def schema = factory.getJsonSchema("v1/schema/spidacalc/calc/project.schema")
+		report = schema.validate(JsonLoader.fromString(new File("resources/v1/examples/spidacalc/projects/minimal_project_no_designs.json").text))
 		report.each{ log.info "validation report "+it.toString() }
 		assertTrue "this instance should be valid against the schema", report.isSuccess()		
 	}
 
 	void testMultipleProjects(){
-		def schema = factory.getJsonSchema("spidacalc/calc/projects.schema")
-		report = schema.validate(JsonLoader.fromString(new File("v2/examples/spidacalc/projects/multiple_projects.json").text))
+		def schema = factory.getJsonSchema("v1/schema/spidacalc/calc/projects.schema")
+		report = schema.validate(JsonLoader.fromString(new File("resources/v1/examples/spidacalc/projects/multiple_projects.json").text))
 		report.each{ log.info "validation report "+it.toString() }
 		assertTrue "this instance should be valid against the schema", report.isSuccess()		
 	}

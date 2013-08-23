@@ -1,6 +1,0 @@
-{
-    "id": "https://raw.github.com/spidasoftware/schema/master/v1/spidamin/asset/assets.schema",
-    "description": "A SPIDAMin assets, not required on return, but required for creation",
-    "type": "array",
-    "items": {"$ref":"https://raw.github.com/spidasoftware/schema/master/v1/spidamin/asset/asset.schema"}
-}

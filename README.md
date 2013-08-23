@@ -51,13 +51,9 @@ All users must accept the License Agreement.  If this has not been accepted, all
 
 ### Folder Structure
 1. [v1](v1) - the version 1 API
-  1. [v1/schema/spidacalc](v1/schema/spidacalc) - schemas for communication with spidacalc version 4.4.2.0 and future versions
-  1. [v1/schema/spidamin](v1/schema/spidamin) - schemas for communication with spidamin
-  1. [v1/spec](v1/spec) - used in tests, good example objects
-1. [v2](v2) - the version 2 API
-  1. [v2/schema/spidacalc](v2/schema/spidacalc) - schemas for communication with spidacalc version 4.4.3.0 and future versions
-  1. [v2/schema/spidamin](v2/schema/spidamin) - schemas for communication with spidamin
-  1. [v2/examples](v2/examples) - used in tests, good example objects
+  1. [resources/v1/schema/schema/spidacalc](resources/v1/schema/schema/spidacalc) - schemas for communication with spidacalc version 4.4.3.0 and future versions
+  1. [resources/v1/schema/schema/spidamin](resources/v1/schema/schema/spidamin) - schemas for communication with spidamin
+  1. [resources/v1/schema/examples](resources/v1/schema/examples) - used in tests, good example objects
 1. [src](src) - some utilities that can be used in Java as well as the tests.
 
 ### Consume a Service

@@ -17,7 +17,7 @@ import com.github.fge.jsonschema.main.JsonSchemaFactory;
 import com.github.fge.jsonschema.main.JsonSchemaFactoryBuilder;
 import com.github.fge.jsonschema.report.ProcessingReport;
 
-class ClientSchemaValidationTest extends GroovyTestCase { 
+class ClientSchemaTest extends GroovyTestCase { 
 
 
 	def log = Logger.getLogger(this.class)
@@ -30,10 +30,10 @@ class ClientSchemaValidationTest extends GroovyTestCase {
 
 
 	void testClientPoleObject(){
- 		final LoadingConfiguration cfg = LoadingConfiguration.newBuilder().setNamespace(new File("v2/schema").toURI().toString()).freeze();
+ 		final LoadingConfiguration cfg = LoadingConfiguration.newBuilder().setNamespace(new File("resources").toURI().toString()).freeze();
     	final JsonSchemaFactory factory = JsonSchemaFactory.newBuilder().setLoadingConfiguration(cfg).freeze();
-		def schema = factory.getJsonSchema("spidacalc/client/pole.schema")
-		report = schema.validate(JsonLoader.fromString(new File("v2/examples/spidacalc/client/client_pole_example.json").text))
+		def schema = factory.getJsonSchema("v1/schema/spidacalc/client/pole.schema")
+		report = schema.validate(JsonLoader.fromString(new File("resources/v1/examples/spidacalc/client/client_pole_example.json").text))
 		report.each{ log.info "validation report "+it.toString() }
 		assertTrue "the instance should be valid against a schema", report.isSuccess()		
 	}

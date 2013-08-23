@@ -30,10 +30,10 @@ class AnalysisSchemaTest extends GroovyTestCase {
 
 	void testBasicAnalysisDesignObject(){
 		org.apache.log4j.BasicConfigurator.configure();
- 		final LoadingConfiguration cfg = LoadingConfiguration.newBuilder().setNamespace(new File("v2/schema").toURI().toString()).freeze();
+ 		final LoadingConfiguration cfg = LoadingConfiguration.newBuilder().setNamespace(new File("resources/v1/schema").toURI().toString()).freeze();
     	final JsonSchemaFactory factory = JsonSchemaFactory.newBuilder().setLoadingConfiguration(cfg).freeze();
 		def schema = factory.getJsonSchema("spidacalc/analysis/structure.schema")
-		report = schema.validate(JsonLoader.fromString(new File("v2/examples/spidacalc/analysis/empty_pole.json").text))
+		report = schema.validate(JsonLoader.fromString(new File("resources/v1/examples/spidacalc/analysis/empty_pole.json").text))
 		report.each{ log.info "validation report "+it.toString() }
 		assertTrue "this instance should be valid against the schema", report.isSuccess()		
 	}
@@ -44,7 +44,7 @@ class AnalysisSchemaTest extends GroovyTestCase {
 //	void testAnalysisAnchorObject(){
 //
 //		def instance = '{"clientItem": {"size": "Big Anchor", "strength": {"unit": "POUND_FORCE", "value": 6000 } }, "direction": 81, "distance": {"unit": "FOOT", "value": 10 }, "guys": [], "height": {"unit": "FOOT", "value": 0 }, "id": "Anchor#1", "owner": {"industry": "UTILITY", "name": "Acme Power", "uuid": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"}, "supportType": "Other", "uuid": "32850af8-5aa8-4292-a638-41406877609c"}'
-// 		final LoadingConfiguration cfg = LoadingConfiguration.newBuilder().setNamespace(new File("v2/schema").toURI().toString()).freeze();
+// 		final LoadingConfiguration cfg = LoadingConfiguration.newBuilder().setNamespace(new File("resources/v1/schema/schema").toURI().toString()).freeze();
 //    	final JsonSchemaFactory factory = JsonSchemaFactory.newBuilder().setLoadingConfiguration(cfg).freeze();
 //		def schema = factory.getJsonSchema("spidacalc/analysis/anchor.schema")
 //		report = schema.validate(JsonLoader.fromString(instance))
@@ -55,10 +55,10 @@ class AnalysisSchemaTest extends GroovyTestCase {
 //	}
 
 //	void testAnalysisDesignWithAnchorObject(){
-// 		final LoadingConfiguration cfg = LoadingConfiguration.newBuilder().setNamespace(new File("v2/schema").toURI().toString()).freeze();
+// 		final LoadingConfiguration cfg = LoadingConfiguration.newBuilder().setNamespace(new File("resources/v1/schema/schema").toURI().toString()).freeze();
 //    	final JsonSchemaFactory factory = JsonSchemaFactory.newBuilder().setLoadingConfiguration(cfg).freeze();
 //		def schema = factory.getJsonSchema("spidacalc/analysis/structure.schema")
-//		report = schema.validate(JsonLoader.fromString(new File("v2/examples/spidacalc/analysis/pole_with_anchor.json").text))
+//		report = schema.validate(JsonLoader.fromString(new File("resources/v1/examples/spidacalc/analysis/pole_with_anchor.json").text))
 //		report.each{
 //			log.info "${this.class} using file: "+it.toString()
 //		}
