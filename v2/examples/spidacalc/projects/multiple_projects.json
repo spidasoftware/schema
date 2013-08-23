@@ -7,25 +7,52 @@
       {
         "locations": [
           {
+            "id": "00P1-L100",
             "geographicCoordinate": {
               "latitude": 40.609780700000002, 
               "longitude": -81.3688492
             }, 
-            "id": "41811012B10002"
+            "images":[{
+              "url":"http://spidasoftware.com/images/1900741739155-1.jpg"  
+            },{
+              "url":"http://spidasoftware.com/images/1900741739155-2.jpg"  
+            }]
           }, 
           {
+            "id": "00P1-L200",
             "geographicCoordinate": {
               "latitude": 40.608959300000002, 
               "longitude": -81.367613500000004
             }, 
-            "id": "41811012B10003"
+            "images":[{
+              "url":"file:///schema/v2/examples/spidacalc/photos/1900600739100-1.jpg"  
+            },{
+              "url":"file:///schema/v2/examples/spidacalc/photos/1900600739100-2.jpg"  
+            }]
           }, 
           {
+            "id": "00P1-L300",
             "geographicCoordinate": {
               "latitude": 40.599708300000003, 
               "longitude": -81.359838999999994
             }, 
-            "id": "41811036A30117"
+            "images":[{
+              "url":"../photos/1900948739239-1.jpg"  
+            },{
+              "url":"../photos/1900948739239-2.jpg"  
+            }]
+          }, 
+          {
+            "id": "00P1-L400",
+            "geographicCoordinate": {
+              "latitude": 40.599708300000003, 
+              "longitude": -81.359838999999994
+            }, 
+            "images":[{
+              "url":"1900948739239-1.jpg"  
+            },{
+              "url":"1900948739239-2.jpg"  
+            }]
           }
         ]
       }
@@ -39,25 +66,25 @@
       {
         "locations": [
           {
+            "id": "00P2-L100",
             "geographicCoordinate": {
               "latitude": 40.609780700000002, 
               "longitude": -81.3688492
-            }, 
-            "id": "41811012B10002"
+            }
           }, 
           {
+            "id": "00P2-L200",
             "geographicCoordinate": {
               "latitude": 40.608959300000002, 
               "longitude": -81.367613500000004
-            }, 
-            "id": "41811012B10003"
+            }
           }, 
           {
+            "id": "00P2-L300",
             "geographicCoordinate": {
               "latitude": 40.599708300000003, 
               "longitude": -81.359838999999994
-            }, 
-            "id": "41811036A30117"
+            }
           }
         ]
       }
