@@ -1,0 +1,8 @@
+{
+  "id": "#/spidacalc/calc/projects.schema",
+  "description": "An set of SPIDACalc projects",
+  "type": "array",
+  "items": {
+    "$ref": "../../spidacalc/calc/project.schema"
+  }
+}

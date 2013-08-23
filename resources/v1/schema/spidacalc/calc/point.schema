@@ -1,0 +1,27 @@
+{
+  "id": "#/spidacalc/calc/point.schema",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "type": "object",
+  "description": "An object a certain distance and direction from the pole.",
+  "required": [
+    "id",
+    "distance",
+    "direction"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "A display id for the object. Should be unique to the pole."
+    },
+    "uuid": {
+      "type": "string",
+      "description": "An option UUID."
+    },  
+    "distance": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "direction": {
+      "$ref": "../../general/bearing.schema"
+    }
+  }
+}

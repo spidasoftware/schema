@@ -1,0 +1,32 @@
+{
+  "name": "project-1",
+  "clientFile": "Demo.client", 
+  "leads": [
+    {
+      "locations": [
+        {
+          "geographicCoordinate": {
+            "latitude": 40.609780700000002, 
+            "longitude": -81.3688492
+          }, 
+          "id": "41811012B10002"
+        }, 
+        {
+          "geographicCoordinate": {
+            "latitude": 40.608959300000002, 
+            "longitude": -81.367613500000004
+          }, 
+          "id": "41811012B10003"
+        }, 
+        {
+          "geographicCoordinate": {
+            "latitude": 40.599708300000003, 
+            "longitude": -81.359838999999994
+          }, 
+          "id": "41811036A30117"
+        }
+      ]
+    }
+  ], 
+   "schema": "https://raw.github.com/spidasoftware/schema/master/resources/v1/schema/spidacalc/calc/project.schema"
+}

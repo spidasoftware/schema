@@ -1,0 +1,8 @@
+{
+  "id": "#/spidamin/project/flows.schema",
+  "description": "ProjectManager flows",
+  "type": "array",
+  "items": {
+    "$ref": "../../spidamin/project/flow.schema"
+  }
+}

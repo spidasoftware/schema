@@ -1,0 +1,13 @@
+{
+  "id": "#/spidamin/project/flow.schema",
+  "description": "A ProjectManager flow",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

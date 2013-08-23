@@ -1,0 +1,59 @@
+{
+  "description": "Engineering properties for a cross arm",
+  "id": "#/spidacalc/client/cross_arm.schema",
+  "type": "object",
+  "required": [
+    "density",
+    "doubleCrossArm",
+    "height",
+    "length",
+    "modulus",
+    "poisson",
+    "size",
+    "stressAllow",
+    "wallThickness",
+    "width"
+  ],
+  "properties": {
+    "poisson": {
+      "type": "number"
+    },
+    "doubleCrossArm": {
+      "type": "boolean"
+    },
+    "size": {
+      "type": "string"
+    },
+    "density": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "height": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "length": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "materialCategory": {
+      "$ref": "../../spidacalc/client/material_category.schema"
+    },
+    "modulus": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "shape": {
+      "$ref": "../../spidacalc/client/shape.schema"
+    },
+    "stressAllow": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "throughHoleDiameter": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "wallThickness": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "width": {
+      "$ref": "../../general/measurable.schema"
+    }
+  },
+  "additionalProperties": false
+}

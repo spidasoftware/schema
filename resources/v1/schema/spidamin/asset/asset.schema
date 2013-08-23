@@ -1,0 +1,103 @@
+{
+  "id": "#/spidamin/asset/asset.schema",
+  "type": "object",
+  "required": [
+    "ownerId",
+    "primaryAsset",
+    "assetType"
+  ],
+  "properties": {
+    "assetId": {
+      "id": "assetId",
+      "type": "string"
+    },
+    "stationId": {
+      "id": "assetId",
+      "type": "string"
+    },
+    "ownerId": {
+      "id": "ownerId",
+      "type": "number"
+    },
+    "primaryAsset": {
+      "type": "boolean"
+    },
+    "assetType": {
+      "id": "assetType",
+      "type": "string",
+      "enum": ["POLE", "NJUNS", "ANALYSIS"]
+    },
+    "assetAttachments": {
+      "id": "assetAttachments",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "companyId",
+          "quantity",
+          "type"
+        ],
+        "properties": {
+          "companyId": {
+            "type": "number"
+          },
+          "quantity": {
+            "type": "number"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "assetDetails": {
+      "id": "assetDetails",
+      "type": "array",
+      "items": {
+        "id": "assetDetailsItem",
+        "type": "object",
+        "required": [
+          "name",
+          "value"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": [
+              "string",
+              "number",
+              "boolean"
+            ]
+          }
+        }
+      }
+    },
+    "assetTags": {
+      "id": "assetTags",
+      "type": "array",
+      "items": {
+        "id": "assetTagsItem",
+        "type": "object",
+        "required": [
+          "name",
+          "primary",
+          "value"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "primary": {
+            "type": "boolean"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

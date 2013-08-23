@@ -1,0 +1,26 @@
+{
+  "id": "#/spidacalc/calc/attachment.schema",
+  "type": "object",
+  "description": "An item that can be attached to the pole.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The display ID for the attachment. Must be unique within the pole."
+    },
+    "uuid": {
+      "type": "string",
+      "description": "An optional UUID for the item."
+    },
+    "owner": {
+      "$ref": "../../general/owner.schema"
+    },
+    "attachmentHeight": {
+      "$ref": "../../general/measurable.schema"
+    }
+  },
+  "required": [
+    "id",
+    "attachmentHeight",
+    "owner"
+  ]
+}

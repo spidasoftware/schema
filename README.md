@@ -3,10 +3,11 @@ SPIDA Software JSON Interfaces
 
 [![Build Status](https://secure.travis-ci.org/spidasoftware/schema.png)](http://travis-ci.org/spidasoftware/schema)
 
+* LAST RELEASED VERSION: 0.1
+* CURRENT DEV VERSION:   0.2-SNAPSHOT
+
 General Overview of the Schema
 --------------------------------
-
- We will strive for simplicity, and it is still being working on.
 
 ### Services
 
@@ -34,7 +35,7 @@ would contain the parameter of projectCodeValues.
 
 #### Response 
 
-The response body will always be formatted in the generic [_method\_response_](https://github.com/spidasoftware/schema/tree/master/v1/general/method_response.schema), this allows for passing error codes and the result. 
+The response body will always be formatted in the generic [_method\_response_](resources/v1/general/method_response.schema), this allows for passing error codes and the result. 
 
     {"result":5}
 
@@ -44,14 +45,16 @@ Would be a valid response object, that might be returned.
 
 HTTP says that GET calls should not modify data.  So if you are making a call with our API and it is a modification or creation of the object stored in the application, you will need to do a POST. 
 
+### License Agreement
 
-### Schema Structure
-1. [v1](https://github.com/spidasoftware/schema/tree/master/v1) - the version 1 API main folder.
-  1. [v1/spidacalc](https://github.com/spidasoftware/schema/tree/master/v1/spidacalc) - the main SPIDACalc folder.
-  1. [v1/spidamin](https://github.com/spidasoftware/schema/tree/master/v1/spidamin) - the main SPIDAmin folder.
-1. [spec](https://github.com/spidasoftware/schema/tree/master/spec) - the folder containing our tests against the schema itself.
-  1. [spec/fixtures](https://github.com/spidasoftware/schema/tree/master/spec) - Fixtures used in tests, good example objects.
-1. [utils](https://github.com/spidasoftware/schema/tree/master/util) - some utilities that can be used in Java.
+All users must accept the License Agreement.  If this has not been accepted, all HTTP requests will be redirected to usersmaster/agreement.  Login to SPIDAMin and you will be redirected to the License Agreeement.  Click the 'Accept' button at the bottom of the page.
+
+### Folder Structure
+1. [v1](v1) - the version 1 API
+  1. [resources/v1/schema/spidacalc](resources/v1/schema/spidacalc) - schemas for communication with spidacalc version 4.4.2.0 and future versions
+  1. [resources/v1/schema/spidamin](resources/v1/schema/spidamin) - schemas for communication with spidamin 3.0
+  1. [resources/v1/examples](resources/v1/examples) - used in tests, good example objects
+1. [src](src) - some utilities that can be used in Java as well as the tests.
 
 ### Consume a Service
 
@@ -85,40 +88,18 @@ Our schema's currently conform to the "json-schema-draft-03" version, but we are
 Testing
 -------
 
-#### Javascript Testing
+The tests are run using maven:
 
-The general testing of the schema itself is written in coffeescript and uses nodejs and jasmine to run the test suite. 
-
-1. spec - contains all the jasmine tests.  
-1. spec/fixtures - contains the test fixtures used in the tests.
-
-To be able to run tests:
-
-1. Install nodejs
-2. Install npm for node.
-3. Install jasmine node ```npm install jasmine-node -g```
-
-To run test suite:
-
-``` npm test ```
-
-Or a specific test:
-
-``` jasmine-node --coffee -m Calc spec/ ```
+```
+mvn test
+```
 
 Tools
 -----
 
-#### Validation
+#### Schema Validation
 
-If you are in need of actually validating some JSON data against the schema there are two options that we have used and found to be pretty good for Java and javascript.
-
-1. Java - We have used the excellent library by [fge](https://github.com/fge/json-schema-validator) in our java environments.  It gives very good validation errors and also does all the references for you, so there is no need to load all the linked schema.
-2. javascript - [JSV](https://github.com/garycourt/JSV) is what we have used in our javascript tests here in this package.  The references are harder to handle, but still good.
-
-For Debugging: [JSON Tools](https://github.com/ddopson/underscore-cli)
-	
-	echo "{'some':'json'}" | underscore pretty --color
+If you are in need of actually validating some JSON data against the schema there several options depending on your language.  The one we use in our tests is the excellent library by [fge](https://github.com/fge/json-schema-validator).  It gives very good validation errors and also does all the references for you, so there is no need to load all the linked schema.  You will also notice in our tests we use a namespace of a file system.  This could be any location you put the file, you could even use a "resource:/" uri for referencing in a jar.
 
 #### Java Tools
 

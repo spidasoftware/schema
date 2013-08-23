@@ -1,0 +1,440 @@
+{
+  "id": "#/spidacalc/calc/structure.schema",
+  "description": "Structural Description of a calc Design",
+  "type": "object",
+  "required": [
+    "pole"
+  ],
+  "properties": {
+     "id": {
+      "type": "string"
+    },
+    "pole": {
+      "$ref": "../../spidacalc/calc/pole.schema"
+    },
+    "anchors": {
+      "type": "array",
+      "items": {
+        "$ref":"../../spidacalc/calc/anchor.schema"
+      }
+    },
+    "wireEndPoints": {
+      "type": "array",
+      "items": {
+        "$ref":"../../spidacalc/calc/wire_end_point.schema"
+      }
+    },
+    "spanPoints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "spanPoint",
+        "required": [
+          "id",
+          "distance",
+          "environment",
+          "heights"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "uuid": {
+            "type": "string"
+          },
+          "distance": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "environment": {
+            "$ref": "../../spidacalc/calc/enums/environment.schema"
+          },
+          "heights": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "id": "height",
+              "required": [
+                "wireId",
+                "height"
+              ],
+              "properties": {
+                "wireId": {
+                  "type": "string"
+                },
+                "height": {
+                  "$ref": "../../general/measurable.schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "notePoints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "notePoint",
+        "allOf": [
+          {
+            "$ref": "../../spidacalc/calc/point.schema"
+          }
+        ],
+        "required": [
+          "height",
+          "note"
+        ],
+        "properties": {
+          "note": {
+            "type": "string"
+          },
+          "height": {
+            "$ref": "../../general/measurable.schema"
+          }
+        }
+      }
+    },
+    "pointLoads": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "pointLoad",
+        "allOf": [
+          {
+            "$ref": "../../spidacalc/calc/attachment.schema"
+          }
+        ],
+        "required": [
+          "id",
+          "elevation",
+          "rotation",
+          "x",
+          "y",
+          "z",
+          "fx",
+          "fy",
+          "fz",
+          "mx",
+          "my",
+          "mz"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "uuid": {
+            "type": "string"
+          },
+          "owner": {
+            "$ref": "../../general/owner.schema"
+          },
+          "elevation": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "rotation": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "x": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "y": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "z": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "fx": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "fy": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "fz": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "mx": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "my": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "mz": {
+            "$ref": "../../general/measurable.schema"
+          }
+        }
+      }
+    },
+    "damages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "attachHeight",
+          "damageType",
+          "damageHeight"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "uuid": {
+            "type": "string"
+          },
+          "damageType": {
+            "$ref": "../../spidacalc/calc/enums/damage_type.schema"
+          },
+          "attachHeight": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "damageHeight": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "direction": {
+            "$ref": "../../general/bearing.schema"
+          },
+          "arc": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "depth": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "shellThickness": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "neckDepth": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "neckDiameter": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "neckOffset": {
+            "$ref": "../../general/measurable.schema"
+          }
+        }
+      }
+    },
+    "wires": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "wire",
+        "allOf": [
+          {
+            "$ref": "../../spidacalc/calc/attachment.schema"
+          }
+        ],
+        "required": [
+          "clientItem",
+          "usageGroup"
+        ],
+        "properties": {
+          "usageGroup": {
+            "type": "string"
+          },
+          "tensionGroup": {
+            "type": "string"
+          },
+          "midspanHeight": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "tensionAdjustment": {
+            "type": "number"
+          },
+          "clientItem": {
+            "$ref": "../../spidacalc/calc/client_references/wire.schema"
+          }
+        }
+      }
+    },
+    "spanGuys": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "spanGuy",
+        "allOf": [
+          {
+            "$ref": "../../spidacalc/calc/attachment.schema"
+          }
+        ],
+        "required": [
+          "clientItem",
+          "height"
+        ],
+        "properties": {
+          "midspanHeight": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "height": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "clientItem": {
+            "$ref": "../../spidacalc/calc/client_references/wire.schema"
+          }
+        }
+      }
+    },
+    "guys": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "guy",
+        "allOf": [
+          {
+            "$ref": "../../spidacalc/calc/attachment.schema"
+          }
+        ],
+        "required": [
+          "clientItem"
+        ],
+        "properties": {
+          "braceHeight": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "braceLength": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "clientItem": {
+            "$ref": "../../spidacalc/calc/client_references/wire.schema"
+          }
+        }
+      }
+    },
+    "equipments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "equipment",
+        "allOf": [
+          {
+            "$ref": "../../spidacalc/calc/attachment.schema"
+          }
+        ],
+        "required": [
+          "clientItem",
+          "direction",
+          "bottomHeight"
+        ],
+        "properties": {
+          "bottomHeight": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "direction": {
+            "$ref": "../../general/bearing.schema"
+          },
+          "clientItem": {
+            "$ref": "../../spidacalc/calc/client_references/equipment.schema"
+          }
+        }
+      }
+    },
+    "crossArms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "crossArm",
+        "allOf": [
+          {
+            "$ref": "../../spidacalc/calc/attachment.schema"
+          }
+        ],
+        "required": [
+          "associatedBacking",
+          "clientItem",
+          "direction",
+          "offset"
+        ],
+        "properties": {
+          "offset": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "direction": {
+            "$ref": "../../general/bearing.schema"
+          },
+          "associatedBacking": {
+            "type": "string"
+          },
+          "insulators": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "clientItem": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "insulators": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "insulator",
+        "required": [
+          "doubleInsulator",
+          "clientItem",
+          "direction",
+          "offset"
+        ],
+        "allOf": [
+          {
+            "$ref": "../../spidacalc/calc/attachment.schema"
+          }
+        ],
+        "properties": {
+          "offset": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "direction": {
+            "$ref": "../../general/bearing.schema"
+          },
+          "doubleInsulator": {
+            "type": "boolean"
+          },
+          "wires": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "clientItem": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "pushBraces": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "pushBrace",
+        "allOf": [
+          {
+            "$ref": "../../spidacalc/calc/attachment.schema"
+          }
+        ],
+        "properties": {
+          "glc": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "direction": {
+            "$ref": "../../general/bearing.schema"
+          },
+          "distance": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "clientItem": {
+            "$ref": "../../spidacalc/calc/client_references/pole.schema"
+          }
+        },
+        "required": [
+          "clientItem",
+          "distance",
+          "direction",
+          "glc"
+        ]
+      }
+    }
+  }
+}
