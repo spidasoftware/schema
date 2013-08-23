@@ -57,6 +57,7 @@ class ServiceSchemaTest extends GroovyTestCase {
 			}
 		}
 	}	
+	
 	void testGeoCoderInterfaceMethodsAgainstServiceMethod(){
 		def instance = slurper.parseText(new File("resources/v1/schema/spidamin/geo/interfaces/geo_coder.json").text)
 		instance.each{k,v->
@@ -69,6 +70,7 @@ class ServiceSchemaTest extends GroovyTestCase {
 			}
 		}
 	}
+
 	void testUsersInterfaceMethodsAgainstServiceMethod(){
 		def instance = slurper.parseText(new File("resources/v1/schema/spidamin/user/interfaces/users.json").text)
 		instance.each{k,v->
@@ -81,6 +83,7 @@ class ServiceSchemaTest extends GroovyTestCase {
 			}
 		}
 	}
+
 	void testUsersSecurityInterfaceMethodsAgainstServiceMethod(){
 		def instance = slurper.parseText(new File("resources/v1/schema/spidamin/user/interfaces/users_security.json").text)
 		instance.each{k,v->
@@ -93,30 +96,7 @@ class ServiceSchemaTest extends GroovyTestCase {
 			}
 		}
 	}	
-	void testWireAnalysisInterfaceMethodsAgainstServiceMethod(){
-		def instance = slurper.parseText(new File("resources/v1/schema/spidacalc/analysis/interfaces/wire_analysis.json").text)
-		instance.each{k,v->
-			if(k!="id" && k!="description"){
-				report = schema.validate(JsonLoader.fromString(JsonOutput.toJson(v)))
-				report.each{
-					log.info "${this.class} using file: "+it.toString()
-				}
-				assertTrue "${k} should be valid against a schema", report.isSuccess()		
-			}
-		}
-	}	
-	void testLoadingAnalysisInterfaceMethodsAgainstServiceMethod(){
-		def instance = slurper.parseText(new File("resources/v1/schema/spidacalc/analysis/interfaces/loading_analysis.json").text)
-		instance.each{k,v->
-			if(k!="id" && k!="description"){
-				report = schema.validate(JsonLoader.fromString(JsonOutput.toJson(v)))
-				report.each{
-					log.info "${this.class} using file: "+it.toString()
-				}
-				assertTrue "${k} should be valid against a schema", report.isSuccess()		
-			}
-		}
-	}
+
 	void testClientDataInterfaceMethodsAgainstServiceMethod(){
 		def instance = slurper.parseText(new File("resources/v1/schema/spidacalc/client/interfaces/client_data.json").text)
 		instance.each{k,v->
