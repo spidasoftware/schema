@@ -35,7 +35,7 @@ would contain the parameter of projectCodeValues.
 
 #### Response 
 
-The response body will always be formatted in the generic [_method\_response_](v1/general/method_response.schema), this allows for passing error codes and the result. 
+The response body will always be formatted in the generic [_method\_response_](resources/v1/general/method_response.schema), this allows for passing error codes and the result. 
 
     {"result":5}
 
@@ -51,9 +51,9 @@ All users must accept the License Agreement.  If this has not been accepted, all
 
 ### Folder Structure
 1. [v1](v1) - the version 1 API
-  1. [resources/v1/schema/schema/spidacalc](resources/v1/schema/schema/spidacalc) - schemas for communication with spidacalc version 4.4.3.0 and future versions
-  1. [resources/v1/schema/schema/spidamin](resources/v1/schema/schema/spidamin) - schemas for communication with spidamin
-  1. [resources/v1/schema/examples](resources/v1/schema/examples) - used in tests, good example objects
+  1. [resources/v1/schema/spidacalc](resources/v1/schema/spidacalc) - schemas for communication with spidacalc version 4.4.2.0 and future versions
+  1. [resources/v1/schema/spidamin](resources/v1/schema/spidamin) - schemas for communication with spidamin 3.0
+  1. [resources/v1/examples](resources/v1/examples) - used in tests, good example objects
 1. [src](src) - some utilities that can be used in Java as well as the tests.
 
 ### Consume a Service
