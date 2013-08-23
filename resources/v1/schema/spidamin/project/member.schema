@@ -1,0 +1,20 @@
+{
+  "id": "#/spidamin/project/member.schema",
+  "description": "A ProjectManager member",
+  "type": "object",
+  "required": [
+    "userId",
+    "type"
+  ],
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "userId": {
+      "type": "number"
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}

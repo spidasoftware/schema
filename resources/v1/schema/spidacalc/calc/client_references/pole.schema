@@ -1,0 +1,21 @@
+{
+  "id": "#/spidacalc/calc/client_references/pole.schema",
+  "type": "object",
+  "description": "A reference to a client pole",
+  "required": [
+    "height",
+    "species",
+    "classOfPole"
+  ],
+  "properties": {
+    "species": {
+      "type": "string"
+    },
+    "classOfPole": {
+      "type": "string"
+    },
+    "height": {
+      "$ref": "../../../general/measurable.schema"
+    }
+  }
+}

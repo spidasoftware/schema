@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "id": "#/spidacalc/calc/anchor.schema",
+  "allOf": [
+    {
+      "$ref": "../../spidacalc/calc/point.schema"
+    }
+  ],
+  "required": [
+    "height",
+    "owner",
+    "supportType",
+    "clientItem",
+    "guys"
+  ],
+  "properties": {
+    "owner": {
+      "$ref": "../../general/owner.schema"
+    },
+    "height": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "supportType": {
+      "type": "string"
+    },
+    "clientItem": {
+      "type": "string"
+    },
+    "guys": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

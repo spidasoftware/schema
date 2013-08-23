@@ -1,0 +1,15 @@
+{
+	"id": "#/spidacalc/damage_type.schema",
+	"description": "Type of damage applied - shell, heart rot, etc",
+	"type": "string",
+	"enum": [
+		"ARC",
+		"HEART",
+		"POCKET",
+		"SHELL",
+		"SLICE",
+		"THROUGH_BOLT",
+		"WEDGE",
+		"WOODPECKER"
+	]
+}

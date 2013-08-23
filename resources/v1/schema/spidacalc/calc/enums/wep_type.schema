@@ -1,0 +1,11 @@
+{
+	"id": "#/spidacalc/wep_type.schema",
+	"type": "string",
+	"description": "Enumeration of the accepted types of wire end points.",
+	"enum": [
+		"NEXT_POLE",
+		"PREVIOUS_POLE",
+		"OTHER_POLE",
+		"BUILDING"
+	]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "#/user/company.schema",
+  "description": "A SPIDAMin company",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number",
+      "description": "ID for project model in project manager database"
+    },
+    "name": {
+      "type": "string",
+      "description": "First name of user"
+    }
+  }
+}

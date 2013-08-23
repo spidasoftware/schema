@@ -1,0 +1,48 @@
+{
+  "id": "asset_search_service",
+  "description": "This extention of the asset service allow for advanced searching",
+  "getName": {
+    "description": "Get name of this service.",
+    "returns": "string"
+  },
+  "quickFind": {
+    "description": "Find stations based string.",
+    "returns": "../../spidamin/asset/stations.schema",
+    "params": [
+      {
+        "type": "string",
+        "name": "find_param",
+        "required": true,
+        "description": "A formatted advanced search JSON object."
+      },
+      {
+        "type": "number",
+        "name": "companyId",
+        "required": false,
+        "description": "Company to get the stations for."
+      }
+    ]
+  },
+  "advancedFind": {
+    "description": "Find stations based on the given params.",
+    "returns": "../../spidamin/asset/stations.schema",
+    "params": [
+      {
+        "type": "../../spidamin/asset/find_query.schema",
+        "name": "find_query",
+        "required": true,
+        "description": "A formatted advanced search JSON object."
+      },
+      {
+        "type": "number",
+        "name": "companyId",
+        "required": false,
+        "description": "Company to get the stations for."
+      }
+    ]
+  },
+  "getAdvancedFindOptions": {
+    "description": "Get the options for searching on this service",
+    "returns": "../../spidamin/asset/find_options.schema"
+  }
+}

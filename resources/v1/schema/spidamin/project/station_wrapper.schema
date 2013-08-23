@@ -1,0 +1,34 @@
+{
+  "id": "station_wrapper",
+  "description": "A project manager station which points to an asset service station",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "assetServiceRefId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "spotted": {
+      "type": "boolean",
+      "description": "true if station does not exist in any asset service"
+    },
+    "deleted": {
+      "type": "boolean",
+      "description": "true if station is marked as deleted (NOTE: value is not writable, only readable through API)"
+    },
+    "display": {
+      "type": "string",
+      "description": "Defaults to primary asset's primary tag.  If spotted, this value should be set.",
+      "minLength": 2,
+      "maxLength": 72
+    },
+    "geometry": {
+      "$ref": "../../general/geometry.schema",
+      "description": "required if spotted and not in external asset store"
+    }
+  }
+}
