@@ -73,7 +73,7 @@ class PoleCSVStationConverter {
 				def longitude
 				fileHeaderToSchemaPropertyMap.each{k,v->
 					def value = values.get(k).toString().trim()
-					if(v=="s"){
+					if(v=="s" || value=="" || value==null){
 						//Do nothing
 					}else if(v=="i"){
 						poleTags.add JSONObject.fromObject(["value":value, "name":headers.get(k), "primary":true])
