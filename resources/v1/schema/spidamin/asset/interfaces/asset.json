@@ -18,7 +18,7 @@
         ]
     },
     "getStations": {
-        "description": "Analyze given pole and wait for results",
+        "description": "Get a set of Stations based on parameters provided",
         "returns": "../../spidamin/asset/stations.schema",
         "params": [
             {
@@ -48,7 +48,7 @@
         ]
     },
     "getAssets": {
-        "description": "Analyze given pole and wait for results",
+        "description": "Get a set of Assets based on parameters provided",
         "returns": "../../spidamin/asset/assets.schema",
         "params": [
             {
