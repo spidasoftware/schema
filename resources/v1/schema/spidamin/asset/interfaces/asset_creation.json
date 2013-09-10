@@ -35,21 +35,21 @@
         ]
     },
     "delete": {
-        "description": "Deletes a station or asset",
+        "description": "Deletes stations or assets",
         "type": "method",
-        "returns": "../../general/id.schema",
+        "returns": "../../general/method_response.schema",
         "params": [
             {
-                "type": "string",
-                "name": "asset_id",
+                "type": "array",
+                "name": "asset_ids",
                 "required": false,
-                "description": "The asset object id to delete"
+                "description": "The asset object ids to delete"
             },
             {
-                "type": "string",
-                "name": "station_id",
+                "type": "array",
+                "name": "station_ids",
                 "required": false,
-                "description": "The station object id to delete"
+                "description": "The station object ids to delete"
             }
         ]
     }
