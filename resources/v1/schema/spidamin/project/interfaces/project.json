@@ -47,7 +47,7 @@
   "delete": {
     "description": "deletes Members, ProjectCodes, Stations, Projects",
     "type": "method",
-    "returns": "../../general/id.schema",
+    "returns": "../../general/method_response.schema",
     "params": [
       {
         "type": "array",
