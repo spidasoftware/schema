@@ -1,5 +1,5 @@
 {
-  "id": "stations",
+  "id": "#/spidamin/asset/asset/stations.schema",
   "description": "A SPIDAMin stations",
   "type": "object",
   "required": [
