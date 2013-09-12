@@ -24,6 +24,9 @@
     },
     "unit": {
       "type": "string"
+    },
+    "designType": {
+      "type":"string"
     }
   }
 }
