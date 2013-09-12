@@ -14,3 +14,5 @@ dump.rdb
 target
 *.sha1
 reports
+*.idea
+*.imlgit 

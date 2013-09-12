@@ -110,7 +110,7 @@ public class LocalServer implements Runnable {
 
 	public void addServlet(LocalServiceServlet servlet){
 		def url = servlet.baseURL.endsWith("/") ? servlet.baseURL+"*" : servlet.baseURL+"/*"
-		println "Adding server at $url"
+		log.info "Adding server at $url"
 		tjws.addServlet(url, servlet)
 	}
 
