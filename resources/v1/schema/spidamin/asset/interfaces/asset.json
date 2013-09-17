@@ -35,7 +35,7 @@
             },
             {
                 "type": "array",
-                "name": "foreign_company_ids",
+                "name": "company_ids",
                 "required": false,
                 "description": "Company ids from the foreign companies."
             },
