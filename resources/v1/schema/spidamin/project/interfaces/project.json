@@ -79,5 +79,37 @@
     "description": "Return available flows",
     "type": "method",
     "returns": "../../spidamin/project/flows.schema"
+  },
+  "getStations": {
+    "description": "Return a list of found stations",
+    "type": "method",
+    "returns": "../../spidamin/project/stations_to_projects.schema",
+    "params": [
+      {
+        "type": "array",
+        "name": "station_ids",
+        "required": true,
+        "description": "assetmaster station ids"
+      },
+      {
+        "type": "boolean",
+        "name": "include_finished_projects",
+        "required": false,
+        "description": "if true then finished projects are included with their associated stations, if false then finished projects are not included. If not provided defaults to true."
+      }
+    ]
+  },
+  "validateProjectName": {
+    "description": "Checks if the project name that is passed in is valid",
+    "type": "method",
+    "returns": "../../general/method_response.schema",
+    "params": [
+      {
+        "type": "string",
+        "name": "name",
+        "required": true,
+        "description": "project name that is being checked."
+      },
+    ]
   }
 }

@@ -1,0 +1,8 @@
+{
+  "id": "#/spidamin/project/stations_to_projects.schema",
+  "description": "Stations which have the projects that they are in",
+  "type": "array",
+  "items": {
+    "$ref": "../../spidamin/project/station_to_projects.schema"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "station_to_projects",
+  "description": "A project manager station which includes the projects that it is associated with",
+  "type": "object",
+  "properties": {
+    "stationId": {
+      "type": "string",
+      "description": "An assetmaster stationId"
+    },
+    "projectCount": {
+      "type": "number",
+      "description": "The number of projects that this station is in"
+    },
+    "projects": {
+      "type" : "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "An array of project codes that the station is in and are viewable by the user"
+    }
+  }
+}
