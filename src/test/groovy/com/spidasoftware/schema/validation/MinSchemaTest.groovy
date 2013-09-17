@@ -66,11 +66,7 @@ class MinSchemaTest extends GroovyTestCase {
 		                ]'''
         def schema = factory.getJsonSchema("v1/schema/spidamin/project/stations_to_projects.schema")
 		report = schema.validate(JsonLoader.fromString(instance))
-		def errors = new StringBuilder()
 		report.each{ errors << "validation report "+it.toString() }
-		def file = new File("/Users/astrominger/code/errors.txt")
-		file.createNewFile()
-		file << errors.toString()
 		assertTrue "the intance itself should be true against a file namespace", report.isSuccess()
 	}
 }
