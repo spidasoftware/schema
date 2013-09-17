@@ -3,9 +3,6 @@
   "description": "A project manager station which points to an asset service station and also includes the projects that it is associated with",
   "type": "object",
   "properties": {
-    "station": {
-      "$ref": "../../project/station_wrapper.schema"
-    },
     "projectCount": {
       "type": "number",
       "description": "The number of projects that this station is in"
