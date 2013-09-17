@@ -1,6 +1,6 @@
 {
   "id": "station_and_projects_wrapper",
-  "description": "A project manager station which points to an asset service station and also includes the projects that it is associated with",
+  "description": "A project manager station which includes the projects that it is associated with",
   "type": "object",
   "properties": {
     "projectCount": {
