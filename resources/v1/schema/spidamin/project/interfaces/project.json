@@ -83,7 +83,7 @@
   "getStations": {
     "description": "Return a list of found stations",
     "type": "method",
-    "returns": "../../spidamin/project/station_and_projects_wrapper.schema",
+    "returns": "../../spidamin/project/stations_to_projects.schema",
     "params": [
       {
         "type": "array",
