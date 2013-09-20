@@ -32,7 +32,7 @@ class MinSchemaTest extends GroovyTestCase {
 	}
 
 	void testUser(){
-		def instance = '{"id":1, "firstName":"bob", "lastName":"smith", "email":"bob@test.com", "company":{"id":1, "name":"test"}}'				
+		def instance = '{"id":1, "firstName":"bob", "lastName":"smith", "email":"bob@test.com", "company":{"id":1, "name":"test"}, "foreignCompanies":[{"id":2, "name":"SPIDA"}]}'				
 		def schema = factory.getJsonSchema("v1/schema/spidamin/user/user.schema")
 		report = schema.validate(JsonLoader.fromString(instance))
 		report.each{ log.info "validation report "+it.toString() }
