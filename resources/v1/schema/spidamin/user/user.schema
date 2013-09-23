@@ -21,6 +21,12 @@
     },
     "company": {
       "$ref": "../../spidamin/user/company.schema"
+    },
+    "foreignCompanies": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidamin/user/company.schema"
+      }
     }
   }
 }
