@@ -22,8 +22,8 @@
                         "zipCode": "44656"
                     },
                     "geographicCoordinate": {
-                        "latitude": 40.609780700000002,
-                        "longitude": -81.3688492
+                        "type":"Point",
+                        "coordinates":[40.683, -82.876]
                     },
                     "remedies": [],
                     "poleTags": [],
@@ -534,8 +534,8 @@
                         "zipCode": "44656"
                     },
                     "geographicCoordinate": {
-                        "latitude": 40.608959300000002,
-                        "longitude": -81.367613500000004
+                        "type":"Point",
+                        "coordinates":[40.683547457, -82.87623466]
                     },
                     "remedies": [],
                     "poleTags": [],
@@ -945,8 +945,8 @@
                         "zipCode": "44656"
                     },
                     "geographicCoordinate": {
-                        "latitude": 40.599708300000003,
-                        "longitude": -81.359838999999994
+                        "type":"Point",
+                        "coordinates":[40.89237598023, -82.3215978657]
                     },
                     "remedies": [],
                     "poleTags": [],
@@ -1158,8 +1158,8 @@
                         "zipCode": "44656"
                     },
                     "geographicCoordinate": {
-                        "latitude": 40.605208699999999,
-                        "longitude": -81.363178300000001
+                        "type":"Point",
+                        "coordinates":[40.1023985762, -82.123567678]
                     },
                     "remedies": [],
                     "poleTags": [],
