@@ -71,20 +71,7 @@
                   "$ref": "../../general/address.schema"
                 },
                 "geographicCoordinate": {
-                  "type": "object",
-                  "description": "Latitude and longitude GPS coordinate of the pole.",
-                  "required": [
-                    "longitude",
-                    "latitude"
-                  ],
-                  "properties": {
-                    "latitude": {
-                      "type": "number"
-                    },
-                    "longitude": {
-                      "type": "number"
-                    }
-                  }
+                  "$ref": "../../general/geometry.schema"
                 },
                 "remedies": {
                   "type": "array",
