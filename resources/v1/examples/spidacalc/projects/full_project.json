@@ -36,7 +36,7 @@
                     "designs": [
                         {
                             "id": "Measured",
-                            "design": {
+                            "structure": {
                                 "pole": {
                                     "glc": {
                                         "unit": "FOOT",
@@ -544,7 +544,7 @@
                     "designs": [
                         {
                             "id": "Measured",
-                            "design": {
+                            "structure": {
                                 "pole": {
                                     "glc": {
                                         "unit": "FOOT",
@@ -955,7 +955,7 @@
                     "designs": [
                         {
                             "id": "Measured",
-                            "design": {
+                            "structure": {
                                 "pole": {
                                     "glc": {
                                         "unit": "FOOT",
@@ -1168,7 +1168,7 @@
                     "designs": [
                         {
                             "id": "Measured",
-                            "design": {
+                            "structure": {
                                 "pole": {
                                     "glc": {
                                         "unit": "FOOT",
