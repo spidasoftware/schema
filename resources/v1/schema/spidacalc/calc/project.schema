@@ -177,7 +177,7 @@
                     "type": "object",
                     "id":"design",
                     "required": [
-                      "design"
+                      "structure"
                     ],
                     "properties": {
                       "id": {
