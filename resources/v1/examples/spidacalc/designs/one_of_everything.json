@@ -251,7 +251,7 @@
         "unit": "INCH",
         "value": 2.25
       },
-      "nestDepth": {
+      "neckDepth": {
         "unit": "INCH",
         "value": 5
       },

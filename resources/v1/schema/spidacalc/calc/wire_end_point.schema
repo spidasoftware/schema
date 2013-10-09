@@ -2,18 +2,30 @@
   "id": "#/spidacalc/calc/wire_end_point.schema",
   "type": "object",
   "required": [
+    
+    "distance",
+    "direction",
     "type",
     "inclination",
     "wires",
     "spanGuys",
     "spanPoints"
   ],
-  "allOf": [
-    {
-      "$ref": "../../spidacalc/calc/point.schema"
-    }
-  ],
   "properties": {
+    "id": {
+      "type": "string",
+      "description": "A display id for the object. Should be unique to the pole."
+    },
+    "uuid": {
+      "type": "string",
+      "description": "An option UUID."
+    },  
+    "distance": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "direction": {
+      "$ref": "../../general/bearing.schema"
+    },
     "inclination": {
       "$ref": "../../general/measurable.schema"
     },
@@ -41,5 +53,6 @@
         "type": "string"
       }
     }
-  }
+  },
+  "additionalProperties": false
 }

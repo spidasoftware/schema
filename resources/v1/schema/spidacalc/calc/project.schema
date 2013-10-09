@@ -6,6 +6,7 @@
     "clientFile",
     "leads"
   ],
+  "additionalProperties": false,
   "properties": {
     "schema": {
       "type": "string",
@@ -33,6 +34,7 @@
         "required": [
           "locations"
         ],
+        "additionalProperties": false,
         "properties": {
           "id": {
             "type": "string",
@@ -50,6 +52,7 @@
               "id": "location",
               "type": "object",
               "description": "A location is single physical location that has a pole",
+              "additionalProperties": false,
               "properties": {
                 "id": {
                   "type": "string",
@@ -77,6 +80,7 @@
                     "longitude",
                     "latitude"
                   ],
+                  "additionalProperties": false,
                   "properties": {
                     "latitude": {
                       "type": "number"
@@ -96,6 +100,7 @@
                     "required": [
                       "description"
                     ],
+                    "additionalProperties": false,
                     "properties": {
                       "description": {
                         "type": "string"
@@ -114,6 +119,7 @@
                       "type",
                       "value"
                     ],
+                    "additionalProperties": false,
                     "properties": {
                       "type": {
                         "type": "string",
@@ -136,6 +142,7 @@
                       "key",
                       "value"
                     ],
+                    "additionalProperties": false,
                     "properties": {
                       "key": {
                         "type": "string",
@@ -161,6 +168,7 @@
                   "description": "Photos/images for this location.",
                   "items": {
                     "type": "object",
+                    "additionalProperties": false,
                     "properties": {
                       "url": {
                         "type": "string",
@@ -179,6 +187,7 @@
                     "required": [
                       "structure"
                     ],
+                    "additionalProperties": false,
                     "properties": {
                       "id": {
                         "type": "string",
@@ -204,6 +213,7 @@
                             "id",
                             "results"
                           ],
+                          "additionalProperties": false,
                           "properties": {
                             "id": {
                               "type": "string",

@@ -17,5 +17,6 @@
     "clientWire": {
       "$ref": "../../spidacalc/client/wire.schema"
     }
-  }
+  },
+  "additionalProperties": false
 }

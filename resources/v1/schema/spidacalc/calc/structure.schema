@@ -5,6 +5,7 @@
   "required": [
     "pole"
   ],
+  "additionalProperties": false,
   "properties": {
      "id": {
       "type": "string"
@@ -35,6 +36,7 @@
           "environment",
           "heights"
         ],
+        "additionalProperties": false,
         "properties": {
           "id": {
             "type": "string"
@@ -57,6 +59,7 @@
                 "wireId",
                 "height"
               ],
+              "additionalProperties": false,
               "properties": {
                 "wireId": {
                   "type": "string"
@@ -75,16 +78,29 @@
       "items": {
         "type": "object",
         "id": "notePoint",
-        "allOf": [
-          {
-            "$ref": "../../spidacalc/calc/point.schema"
-          }
-        ],
         "required": [
+          "id",
+          "distance",
+          "direction",
           "height",
           "note"
         ],
+        "additionalProperties": false,
         "properties": {
+          "id": {
+            "type": "string",
+            "description": "A display id for the object. Should be unique to the pole."
+          },
+          "uuid": {
+            "type": "string",
+            "description": "An option UUID."
+          },  
+          "distance": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "direction": {
+            "$ref": "../../general/bearing.schema"
+          },
           "note": {
             "type": "string"
           },
@@ -99,13 +115,10 @@
       "items": {
         "type": "object",
         "id": "pointLoad",
-        "allOf": [
-          {
-            "$ref": "../../spidacalc/calc/attachment.schema"
-          }
-        ],
         "required": [
           "id",
+          "attachmentHeight",
+          "owner",
           "elevation",
           "rotation",
           "x",
@@ -118,15 +131,21 @@
           "my",
           "mz"
         ],
+        "additionalProperties": false,
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "The display ID for the attachment. Must be unique within the pole."
           },
           "uuid": {
-            "type": "string"
+            "type": "string",
+            "description": "An optional UUID for the item."
           },
           "owner": {
             "$ref": "../../general/owner.schema"
+          },
+          "attachmentHeight": {
+            "$ref": "../../general/measurable.schema"
           },
           "elevation": {
             "$ref": "../../general/measurable.schema"
@@ -174,6 +193,7 @@
           "damageType",
           "damageHeight"
         ],
+        "additionalProperties": false,
         "properties": {
           "id": {
             "type": "string"
@@ -196,7 +216,13 @@
           "arc": {
             "$ref": "../../general/measurable.schema"
           },
+          "width": {
+            "$ref": "../../general/measurable.schema"
+          },
           "depth": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "circumference": {
             "$ref": "../../general/measurable.schema"
           },
           "shellThickness": {
@@ -219,16 +245,29 @@
       "items": {
         "type": "object",
         "id": "wire",
-        "allOf": [
-          {
-            "$ref": "../../spidacalc/calc/attachment.schema"
-          }
-        ],
         "required": [
+          "id",
+          "attachmentHeight",
+          "owner",
           "clientItem",
           "usageGroup"
         ],
+        "additionalProperties": false,
         "properties": {
+          "id": {
+            "type": "string",
+            "description": "The display ID for the attachment. Must be unique within the pole."
+          },
+          "uuid": {
+            "type": "string",
+            "description": "An optional UUID for the item."
+          },
+          "owner": {
+            "$ref": "../../general/owner.schema"
+          },
+          "attachmentHeight": {
+            "$ref": "../../general/measurable.schema"
+          },
           "usageGroup": {
             "type": "string"
           },
@@ -252,16 +291,29 @@
       "items": {
         "type": "object",
         "id": "spanGuy",
-        "allOf": [
-          {
-            "$ref": "../../spidacalc/calc/attachment.schema"
-          }
-        ],
         "required": [
+          "id",
+          "attachmentHeight",
+          "owner",
           "clientItem",
           "height"
         ],
+        "additionalProperties": false,
         "properties": {
+          "id": {
+            "type": "string",
+            "description": "The display ID for the attachment. Must be unique within the pole."
+          },
+          "uuid": {
+            "type": "string",
+            "description": "An optional UUID for the item."
+          },
+          "owner": {
+            "$ref": "../../general/owner.schema"
+          },
+          "attachmentHeight": {
+            "$ref": "../../general/measurable.schema"
+          },
           "midspanHeight": {
             "$ref": "../../general/measurable.schema"
           },
@@ -279,15 +331,28 @@
       "items": {
         "type": "object",
         "id": "guy",
-        "allOf": [
-          {
-            "$ref": "../../spidacalc/calc/attachment.schema"
-          }
-        ],
         "required": [
+          "id",
+          "attachmentHeight",
+          "owner",
           "clientItem"
         ],
+        "additionalProperties": false,
         "properties": {
+          "id": {
+            "type": "string",
+            "description": "The display ID for the attachment. Must be unique within the pole."
+          },
+          "uuid": {
+            "type": "string",
+            "description": "An optional UUID for the item."
+          },
+          "owner": {
+            "$ref": "../../general/owner.schema"
+          },
+          "attachmentHeight": {
+            "$ref": "../../general/measurable.schema"
+          },
           "braceHeight": {
             "$ref": "../../general/measurable.schema"
           },
@@ -305,17 +370,30 @@
       "items": {
         "type": "object",
         "id": "equipment",
-        "allOf": [
-          {
-            "$ref": "../../spidacalc/calc/attachment.schema"
-          }
-        ],
         "required": [
+          "id",
+          "attachmentHeight",
+          "owner",
           "clientItem",
           "direction",
           "bottomHeight"
         ],
+        "additionalProperties": false,
         "properties": {
+          "id": {
+            "type": "string",
+            "description": "The display ID for the attachment. Must be unique within the pole."
+          },
+          "uuid": {
+            "type": "string",
+            "description": "An optional UUID for the item."
+          },
+          "owner": {
+            "$ref": "../../general/owner.schema"
+          },
+          "attachmentHeight": {
+            "$ref": "../../general/measurable.schema"
+          },
           "bottomHeight": {
             "$ref": "../../general/measurable.schema"
           },
@@ -333,18 +411,31 @@
       "items": {
         "type": "object",
         "id": "crossArm",
-        "allOf": [
-          {
-            "$ref": "../../spidacalc/calc/attachment.schema"
-          }
-        ],
         "required": [
+          "id",
+          "attachmentHeight",
+          "owner",
           "associatedBacking",
           "clientItem",
           "direction",
           "offset"
         ],
+        "additionalProperties": false,
         "properties": {
+          "id": {
+            "type": "string",
+            "description": "The display ID for the attachment. Must be unique within the pole."
+          },
+          "uuid": {
+            "type": "string",
+            "description": "An optional UUID for the item."
+          },
+          "owner": {
+            "$ref": "../../general/owner.schema"
+          },
+          "attachmentHeight": {
+            "$ref": "../../general/measurable.schema"
+          },
           "offset": {
             "$ref": "../../general/measurable.schema"
           },
@@ -372,17 +463,30 @@
         "type": "object",
         "id": "insulator",
         "required": [
+          "id",
+          "attachmentHeight",
+          "owner",
           "doubleInsulator",
           "clientItem",
           "direction",
           "offset"
         ],
-        "allOf": [
-          {
-            "$ref": "../../spidacalc/calc/attachment.schema"
-          }
-        ],
+        "additionalProperties": false,
         "properties": {
+          "id": {
+            "type": "string",
+            "description": "The display ID for the attachment. Must be unique within the pole."
+          },
+          "uuid": {
+            "type": "string",
+            "description": "An optional UUID for the item."
+          },
+          "owner": {
+            "$ref": "../../general/owner.schema"
+          },
+          "attachmentHeight": {
+            "$ref": "../../general/measurable.schema"
+          },
           "offset": {
             "$ref": "../../general/measurable.schema"
           },
@@ -409,12 +513,31 @@
       "items": {
         "type": "object",
         "id": "pushBrace",
-        "allOf": [
-          {
-            "$ref": "../../spidacalc/calc/attachment.schema"
-          }
+        "required": [
+          "id",
+          "attachmentHeight",
+          "owner",
+          "clientItem",
+          "distance",
+          "direction",
+          "glc"
         ],
+        "additionalProperties": false,
         "properties": {
+          "id": {
+            "type": "string",
+            "description": "The display ID for the attachment. Must be unique within the pole."
+          },
+          "uuid": {
+            "type": "string",
+            "description": "An optional UUID for the item."
+          },
+          "owner": {
+            "$ref": "../../general/owner.schema"
+          },
+          "attachmentHeight": {
+            "$ref": "../../general/measurable.schema"
+          },
           "glc": {
             "$ref": "../../general/measurable.schema"
           },
@@ -427,13 +550,7 @@
           "clientItem": {
             "$ref": "../../spidacalc/calc/client_references/pole.schema"
           }
-        },
-        "required": [
-          "clientItem",
-          "distance",
-          "direction",
-          "glc"
-        ]
+        }
       }
     }
   }
