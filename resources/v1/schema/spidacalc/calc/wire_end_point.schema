@@ -2,7 +2,7 @@
   "id": "#/spidacalc/calc/wire_end_point.schema",
   "type": "object",
   "required": [
-    
+    "id",
     "distance",
     "direction",
     "type",

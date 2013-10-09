@@ -88,12 +88,10 @@ class CalcSchemaTest extends GroovyTestCase {
 	}
 
 	void testFullProjectObject(){
-		try{
 		def schema = factory.getJsonSchema("v1/schema/spidacalc/calc/project.schema")
 		report = schema.validate(JsonLoader.fromString(new File("resources/v1/examples/spidacalc/projects/full_project.json").text))
 		report.each{ log.info "testFullProjectObject validation report "+it.toString() }
 		assertTrue "this instance should be valid against the schema", report.isSuccess()	
-		} catch(e) {log.error(e,e)}	
 	}
 	
 	void testMinimalProjectObject(){
