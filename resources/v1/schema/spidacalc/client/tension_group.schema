@@ -23,7 +23,8 @@
           "tension": {
             "$ref": "../../general/measurable.schema"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "type": "array"
     },
@@ -36,5 +37,6 @@
     "tension": {
       "$ref": "../../general/measurable.schema"
     }
-  }
+  },
+  "additionalProperties": false
 }
