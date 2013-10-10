@@ -225,6 +225,9 @@
           "circumference": {
             "$ref": "../../general/measurable.schema"
           },
+          "nestDepth": {
+            "$ref": "../../general/measurable.schema"
+          },
           "shellThickness": {
             "$ref": "../../general/measurable.schema"
           },
