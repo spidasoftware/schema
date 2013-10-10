@@ -184,9 +184,6 @@
                   "items": {
                     "type": "object",
                     "id":"design",
-                    "required": [
-                      "structure"
-                    ],
                     "additionalProperties": false,
                     "properties": {
                       "id": {
