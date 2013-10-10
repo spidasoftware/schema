@@ -9,5 +9,6 @@
     "size": {
       "type": "string"
     }
-  }
+  },
+  "additionalProperties": false
 }

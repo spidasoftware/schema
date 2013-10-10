@@ -25,17 +25,34 @@
                         "latitude": 40.609780700000002,
                         "longitude": -81.3688492
                     },
-                    "remedies": [],
-                    "poleTags": [],
+                    "remedies": [{"description": "Remedy"}],
+                    "poleTags": [{"type":"FIELD", "value":"poleTag"}],
                     "userDefinedValues": [{
                         "key": "some_other_system_id",
                         "value": "123-987"
                     }],
                     "summaryNotes": [],
-                    "images": [],
+                    "images": [{"url":"http://fake-url-image"}],
                     "designs": [
                         {
                             "id": "Measured",
+                            "analysis": [
+                                {
+                                    "id":"NESC Heavy",
+                                    "results": [
+                                        {
+                                            "actual":1000,
+                                            "allowable":2000,
+                                            "analysisDate":101010343343,
+                                            "component":"Pole",
+                                            "loadInfo":"NESC Heavy",
+                                            "passes":true,
+                                            "unit":"lb/in^2",
+                                            "designType":"Measured"
+                                        }
+                                    ]
+                                }
+                            ],
                             "structure": {
                                 "pole": {
                                     "glc": {
@@ -537,13 +554,34 @@
                         "latitude": 40.608959300000002,
                         "longitude": -81.367613500000004
                     },
-                    "remedies": [],
-                    "poleTags": [],
+                    "remedies": [{"description": "Remedy"}],
+                    "poleTags": [{"type":"FIELD", "value":"poleTag"}],
+                    "userDefinedValues": [{
+                        "key": "some_other_system_id",
+                        "value": "123-987"
+                    }],
                     "summaryNotes": [],
-                    "images": [],
+                    "images": [{"url":"http://fake-url-image"}],
                     "designs": [
                         {
                             "id": "Measured",
+                            "analysis": [
+                                {
+                                    "id":"NESC Heavy",
+                                    "results": [
+                                        {
+                                            "actual":1000,
+                                            "allowable":2000,
+                                            "analysisDate":101010343343,
+                                            "component":"Pole",
+                                            "loadInfo":"NESC Heavy",
+                                            "passes":true,
+                                            "unit":"lb/in^2",
+                                            "designType":"Measured"
+                                        }
+                                    ]
+                                }
+                            ],
                             "structure": {
                                 "pole": {
                                     "glc": {
@@ -948,13 +986,34 @@
                         "latitude": 40.599708300000003,
                         "longitude": -81.359838999999994
                     },
-                    "remedies": [],
-                    "poleTags": [],
+                    "remedies": [{"description": "Remedy"}],
+                    "poleTags": [{"type":"FIELD", "value":"poleTag"}],
+                    "userDefinedValues": [{
+                        "key": "some_other_system_id",
+                        "value": "123-987"
+                    }],
                     "summaryNotes": [],
-                    "images": [],
+                    "images": [{"url":"http://fake-url-image"}],
                     "designs": [
                         {
                             "id": "Measured",
+                            "analysis": [
+                                {
+                                    "id":"NESC Heavy",
+                                    "results": [
+                                        {
+                                            "actual":1000,
+                                            "allowable":2000,
+                                            "analysisDate":101010343343,
+                                            "component":"Pole",
+                                            "loadInfo":"NESC Heavy",
+                                            "passes":true,
+                                            "unit":"lb/in^2",
+                                            "designType":"Measured"
+                                        }
+                                    ]
+                                }
+                            ],
                             "structure": {
                                 "pole": {
                                     "glc": {
@@ -1161,13 +1220,34 @@
                         "latitude": 40.605208699999999,
                         "longitude": -81.363178300000001
                     },
-                    "remedies": [],
-                    "poleTags": [],
+                    "remedies": [{"description": "Remedy"}],
+                    "poleTags": [{"type":"FIELD", "value":"poleTag"}],
+                    "userDefinedValues": [{
+                        "key": "some_other_system_id",
+                        "value": "123-987"
+                    }],
                     "summaryNotes": [],
-                    "images": [],
+                    "images": [{"url":"http://fake-url-image"}],
                     "designs": [
                         {
                             "id": "Measured",
+                            "analysis": [
+                                {
+                                    "id":"NESC Heavy",
+                                    "results": [
+                                        {
+                                            "actual":1000,
+                                            "allowable":2000,
+                                            "analysisDate":101010343343,
+                                            "component":"Pole",
+                                            "loadInfo":"NESC Heavy",
+                                            "passes":true,
+                                            "unit":"lb/in^2",
+                                            "designType":"Measured"
+                                        }
+                                    ]
+                                }
+                            ],
                             "structure": {
                                 "pole": {
                                     "glc": {

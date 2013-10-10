@@ -57,7 +57,8 @@
               "additionalProperties": false
             }
           }
-        }
+        },
+        "additionalProperties": false
       }
     },
     "framingUnitItems": {
@@ -69,5 +70,6 @@
         "id": "framingUnitItem"
       }
     }
-  }
+  },
+  "additionalProperties": false
 }

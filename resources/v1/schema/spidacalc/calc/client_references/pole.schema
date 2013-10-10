@@ -17,5 +17,6 @@
     "height": {
       "$ref": "../../../general/measurable.schema"
     }
-  }
+  },
+  "additionalProperties": false
 }
