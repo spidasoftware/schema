@@ -30,5 +30,6 @@
     "owner": {
       "$ref": "../../general/owner.schema"
     }
-  }
+  },
+  "additionalProperties": false
 }

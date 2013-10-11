@@ -7,7 +7,7 @@ These are the Integration API descriptions for SPIDACalc. There are two types of
 
 This describes the data format  supported by calc. It is available broken into logical units in v1/calc or as a single file for simpler validation in public/v1/calc. Example data files are in the examples directory. The format is best approached after learning basic calc functionality. All properties mirror the calc user interface pretty closely.
 
-####design.schema
+####structure.schema
 
 Schema for an individual detailed pole structure. It will define individual attachments, end points, and other physical components. This is for import from another data collection or pole design tool.
 
@@ -48,10 +48,6 @@ The example data files are json files that can be opened in any text editor. The
 ###UUIDs
 
 Calc stores UUIDs for all components on the pole. They aren't used as identifiers by the program - they are for interfacing with other applications. You may include them if you have track them, but the id field is the one that is important for building the pole.
-
-###Validating JSON
-
-There are several libraries available for validating your output against the schema. JSV is included with this distribution. The CalcSpec tests show how to use it, or there is a validation web page in node_modules/JSV/examples/index.html.
 
 ###Useful JSON Development tools:
 

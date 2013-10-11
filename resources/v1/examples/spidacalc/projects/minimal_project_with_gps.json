@@ -8,7 +8,7 @@
         {
           "designs": [
             {
-              "design": {
+              "structure": {
                 "pole": {
                   "agl": {
                     "unit": "FOOT", 

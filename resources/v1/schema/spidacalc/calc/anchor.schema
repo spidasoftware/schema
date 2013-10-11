@@ -1,12 +1,10 @@
 {
   "type": "object",
   "id": "#/spidacalc/calc/anchor.schema",
-  "allOf": [
-    {
-      "$ref": "../../spidacalc/calc/point.schema"
-    }
-  ],
   "required": [
+    "id",
+    "distance",
+    "direction",
     "height",
     "owner",
     "supportType",
@@ -14,6 +12,20 @@
     "guys"
   ],
   "properties": {
+    "id": {
+      "type": "string",
+      "description": "A display id for the object. Should be unique to the pole."
+    },
+    "uuid": {
+      "type": "string",
+      "description": "An option UUID."
+    },  
+    "distance": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "direction": {
+      "$ref": "../../general/bearing.schema"
+    },
     "owner": {
       "$ref": "../../general/owner.schema"
     },
@@ -32,5 +44,6 @@
         "type": "string"
       }
     }
-  }
+  },
+  "additionalProperties": false
 }

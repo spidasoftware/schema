@@ -4,6 +4,7 @@
   "createOrUpdate": {
     "description": "creates or updates a project",
     "type": "method",
+    "returns": "../../general/id.schema",
     "params": [
       {
         "type": "../../spidamin/project/project.schema",
