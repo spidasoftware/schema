@@ -7,7 +7,7 @@ These are the Integration API descriptions for SPIDACalc. There are two types of
 
 This describes the data format  supported by calc. It is available broken into logical units in v1/calc or as a single file for simpler validation in public/v1/calc. Example data files are in the examples directory. The format is best approached after learning basic calc functionality. All properties mirror the calc user interface pretty closely.
 
-####design.schema
+####structure.schema
 
 Schema for an individual detailed pole structure. It will define individual attachments, end points, and other physical components. This is for import from another data collection or pole design tool.
 
