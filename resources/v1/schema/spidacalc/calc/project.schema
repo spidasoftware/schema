@@ -75,7 +75,6 @@
                 },
                 "geographicCoordinate": {
                   "$ref": "../../general/geometry.schema"
-                  "additionalProperties": false,
                 },
                 "remedies": {
                   "type": "array",
