@@ -15,6 +15,10 @@
       "type": "string",
       "description": "Filename of the client file with extension. (ex, Demo.client)"
     },
+    "clientFileVersion": {
+       "type":"string",
+       "description": "version identifier for a specific client file"
+    },
     "name": {
       "type": "string",
       "description": "The name of this project.  If creating a project, this will become the file name."
@@ -22,6 +26,13 @@
     "date": {
       "type": "string",
       "description": "Date the project was created."
+    },
+    "projectForms": {
+      "type": "array",
+      "desctiption": "An optional array of Project forms.",
+      "items": {
+        "$ref": "../../general/form.schema"
+      }
     },
     "leads": {
       "type": "array",
@@ -142,6 +153,13 @@
                     "type": "string"
                   }
                 },
+                "locationForms": {
+                  "type": "array",
+                  "desctiption": "An optional array of location forms for this location",
+                  "items": {
+                    "$ref": "../../general/form.schema"
+                  }
+                },
                 "images": {
                   "type": "array",
                   "id": "images",
@@ -174,6 +192,9 @@
                       "uuid": {
                         "type": "string",
                         "description": "Optional UUID for design"
+                      },
+                      "geographicCoordinate": {
+                        "$ref": "../../general/geometry.schema"
                       },
                       "framingPlan": {
                         "$ref": "framing_plan.schema"
