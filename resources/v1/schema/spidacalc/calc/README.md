@@ -49,10 +49,6 @@ The example data files are json files that can be opened in any text editor. The
 
 Calc stores UUIDs for all components on the pole. They aren't used as identifiers by the program - they are for interfacing with other applications. You may include them if you have track them, but the id field is the one that is important for building the pole.
 
-###Validating JSON
-
-There are several libraries available for validating your output against the schema. JSV is included with this distribution. The CalcSpec tests show how to use it, or there is a validation web page in node_modules/JSV/examples/index.html.
-
 ###Useful JSON Development tools:
 
 - [jsonlint.com] - validates that your json is correctly formed with more useful errors.
