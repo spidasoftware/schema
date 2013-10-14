@@ -91,11 +91,15 @@ Testing
 The tests are run using maven:
 
 ```
-mvn test
+gradlew test
 ```
 
 Tools
 -----
+
+#### Utilities
+
+We have included some utilities in the [utils](src/main/groovy/com/spidasoftware/schema/utils) package, if we needed them maybe they can be of use to you.
 
 #### Schema Validation
 
@@ -107,7 +111,7 @@ In the utils/src/* folders are some java classes that can be helpful when integr
 
 The jar can be compiled with:
     
-    mvn install
+    gradlew install
 
 ***
 

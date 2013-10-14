@@ -12,25 +12,36 @@ class PoleCSVStationConverter {
 
 	private static defaultMapping = ["s", "i", "n", "t", "g"]
 
+	public static gets = {
+		println it
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in))
+		String readInput = br.readLine()
+		return readInput
+	}
+
 	public static void main(String[] args) {
 		Random generator = new Random()
 		if(args==null || args.length==0){
 			println "usage: 'java -cp schema.jar com.spidasoftware.schema.utils.PoleCSVStationConverter path/to/import/file"
 			return
 		}
-		if(this.console==null) this.console = System.console()
 
 		def poleSchema = JSONObject.fromObject(new File("resources/v1/schema/spidamin/asset/standard_details/pole_asset.schema").text)
 		for(p in poleSchema.get("properties")){
 			schemaProperties.add p.key
 		}
+
+
 		schemaProperties = schemaProperties.sort()
 		File input = new File(args[0])
 		File jsonFile = new File(input.parentFile, input.name+".json")
 		if(!jsonFile.exists()) jsonFile.createNewFile()
 		jsonFile.text = ""
+		println ""
 
-		def companyId = this.console.readLine("What is the company id these poles are associated with? : ")
+		def companyId = gets("What is the company id these poles are associated with? : ")
+
+		// def companyId = this.console.readLine("What is the company id these poles are associated with? : ")
 		try {
 			companyId = Integer.parseInt(companyId)
 		} catch(Exception e) {
@@ -144,7 +155,7 @@ class PoleCSVStationConverter {
 					options.add ""+(index+1)
 				}
 			}
-			output = this.console.readLine(completeLine+" : ")
+			output = gets(completeLine+" : ")
 			if(output=="") output = "s"
 			if(output!="" && options.contains(output)){
 				invalid=false
@@ -155,6 +166,7 @@ class PoleCSVStationConverter {
 		return output
 	}
 }
+
 
 
 
