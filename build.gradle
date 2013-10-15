@@ -46,14 +46,12 @@ dependencies {
 }
 
 task(csv, dependsOn: 'classes', type: JavaExec) {
-    if(!csvFile){
-        println " >> File parameter needs to be specified: '-Pfile=/path/to/file.csv' "
-    }else{
+    if(csvFile){
         def file = new File("$csvFile")
-        main = 'com.spidasoftware.schema.utils.PoleCSVStationConverter'
-        classpath = sourceSets.main.runtimeClasspath
-        standardInput = System.in
-        standardOutput = System.out
         args file.absolutePath
     }
+    main = 'com.spidasoftware.schema.utils.PoleCSVStationConverter'
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+    standardOutput = System.out
 }
