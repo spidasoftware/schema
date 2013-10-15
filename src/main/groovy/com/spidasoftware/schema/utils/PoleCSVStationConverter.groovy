@@ -23,6 +23,8 @@ class PoleCSVStationConverter {
 		Random generator = new Random()
 		if(args==null || args.length==0){
 			println "usage: 'java -cp schema.jar com.spidasoftware.schema.utils.PoleCSVStationConverter path/to/import/file"
+			println "   or"
+			println "usage: 'gradlew csv -Pfile=path/to/import/file"
 			return
 		}
 
@@ -34,6 +36,11 @@ class PoleCSVStationConverter {
 
 		schemaProperties = schemaProperties.sort()
 		File input = new File(args[0])
+		if(!input.exists()){
+			println "Input file (${input.absolutePath}) does not exist."
+			return 
+		}
+
 		File jsonFile = new File(input.parentFile, input.name+".json")
 		if(!jsonFile.exists()) jsonFile.createNewFile()
 		jsonFile.text = ""
