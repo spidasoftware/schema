@@ -33,6 +33,12 @@ Parameters for the procedure are included in the http params list after the meth
 
 would contain the parameter of projectCodeValues.
 
+If you are using POST, the parameters must still be in the POST params if they are too large for the params list in the request string. You will need to set the request content type to:
+
+     application/x-www-form-urlencoded
+
+And the charset to `UTF-8`
+
 #### Response 
 
 The response body will always be formatted in the generic [_method\_response_](resources/v1/general/method_response.schema), this allows for passing error codes and the result. 
