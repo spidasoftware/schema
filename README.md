@@ -88,7 +88,7 @@ Our schema's currently conform to the "json-schema-draft-03" version, but we are
 Testing
 -------
 
-The tests are run using maven:
+The tests are run using the gradle task:
 
 ```
 gradlew test
