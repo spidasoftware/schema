@@ -12,6 +12,8 @@ dump.rdb
 ._redcar
 *.iws
 target
+build
+.gradle
 *.sha1
 reports
 *.idea
