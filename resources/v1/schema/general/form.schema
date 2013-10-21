@@ -1,7 +1,7 @@
 {
 	"id": "#/general/form.schema",
 	"type":"object",
-	"description": "Either a Location or a Project form, with field and values stored as 'fieldName':'value'",
+	"description": "Either a Location or a Project form, with field and values stored as <fieldName>: <value>",
 	"required" : [
 		"title"
 	],
@@ -13,30 +13,30 @@
 		"templateId": {
 			"type": "string",
 			"description": "The template associated with this form - needed in order to recreate a form"
-		}
+		},
 		"templateVersion": {
 			"type": "string",
 			"desctiption": "optional template version"
-		},
-
-		/*
-		properties include each field in the form like so:
-
-		"<fieldName>":"<inputValue>",
-		"<fieldName>":"<inputValue>",
-
-		Tables are stored in the following format:
-		"<tableName>": [
-			{
-				"id": {
-					"type": "number",
-					"description": "an integer to indicate the row's position in the table"
-				}
-				"<fieldName>":"<inputValue>",
-				"<fieldName>":"<inputValue>",
-			}
-		]
-		*/
+		}	
+		
 	}
 
 }
+
+//properties include each field in the form like so:
+//
+//"<fieldName>":"<inputValue>",
+//"<fieldName>":"<inputValue>",
+//
+//Tables are stored in the following format:
+//"<tableName>": [
+//	{
+//		"id": {
+//			"type": "number",
+//			"description": "an integer to indicate the row's position in the table"
+//		},
+//		"<fieldName>":"<inputValue>",
+//		"<fieldName>":"<inputValue>",
+//	}
+//]
+//Additional properties must be allowed in order for this to validate

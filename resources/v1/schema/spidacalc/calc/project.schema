@@ -161,7 +161,7 @@
                 },
                 "locationForms": {
                   "type": "array",
-                  "desctiption": "An optional array of location forms for this location",
+                  "description": "An optional array of location forms for this location",
                   "items": {
                     "$ref": "../../general/form.schema"
                   }
