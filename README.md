@@ -8,7 +8,7 @@ SPIDA Software JSON Interfaces
 
 License
 -------
-This repository is governed by the terms of use located [here.](./2013_10_25%20SPIDA%20API%20Terms%20of%20Service.pdf)
+This repository is governed by the terms of use located [here.](https://github.com/spidasoftware/schema/raw/master/2013_10_25%20SPIDA%20API%20Terms%20of%20Service.pdf)
 
 General Overview of the Schema
 --------------------------------
