@@ -6,6 +6,10 @@ SPIDA Software JSON Interfaces
 * LAST RELEASED VERSION: 0.1
 * CURRENT DEV VERSION:   0.2-SNAPSHOT
 
+License
+-------
+This repository is governed by the terms of use located [here.](./2013_10_25%20SPIDA%20API%20Terms%20of%20Service.pdf)
+
 General Overview of the Schema
 --------------------------------
 
