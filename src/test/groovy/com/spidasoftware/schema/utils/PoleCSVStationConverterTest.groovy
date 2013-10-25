@@ -15,7 +15,7 @@ class PoleCSVStationConverterTest {
 
 	@Test
 	public void toJSON() throws Exception {
-		File file = new File("target/test.csv");
+		File file = new File("build/test.csv");
 		if(!file.exists()) file.createNewFile()
 		file.text = "POLEID,LAT,LNG,HEIGHT,CLASS\n"
 		file.append("2,40.00,100.00,40,4\n")
@@ -36,7 +36,7 @@ class PoleCSVStationConverterTest {
 			}
 		}]
 		PoleCSVStationConverter.main(file.absolutePath)
-		def output = new File("target/test.csv.json").text
+		def output = new File("build/test.csv.json").text
 		file.delete()
 		assert output!=null
 	}

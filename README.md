@@ -33,6 +33,12 @@ Parameters for the procedure are included in the http params list after the meth
 
 would contain the parameter of projectCodeValues.
 
+If you are using POST, the parameters must still be in the POST params if they are too large for the params list in the request string. You will need to set the request content type to:
+
+     application/x-www-form-urlencoded
+
+And the charset to `UTF-8`
+
 #### Response 
 
 The response body will always be formatted in the generic [_method\_response_](resources/v1/general/method_response.schema), this allows for passing error codes and the result. 
@@ -88,14 +94,18 @@ Our schema's currently conform to the "json-schema-draft-03" version, but we are
 Testing
 -------
 
-The tests are run using maven:
+The tests are run using the gradle task:
 
 ```
-mvn test
+gradlew test
 ```
 
 Tools
 -----
+
+#### Utilities
+
+We have included some utilities in the [utils](src/main/groovy/com/spidasoftware/schema/utils) package, if we needed them maybe they can be of use to you.
 
 #### Schema Validation
 
@@ -107,7 +117,7 @@ In the utils/src/* folders are some java classes that can be helpful when integr
 
 The jar can be compiled with:
     
-    mvn install
+    gradlew install
 
 ***
 
