@@ -28,7 +28,7 @@
       "type": "string",
       "description": "Date the project was created."
     },
-    "projectForms": {
+    "forms": {
       "type": "array",
       "desctiption": "An optional array of Project forms.",
       "items": {
@@ -159,7 +159,7 @@
                     "type": "string"
                   }
                 },
-                "locationForms": {
+                "forms": {
                   "type": "array",
                   "description": "An optional array of location forms for this location",
                   "items": {
