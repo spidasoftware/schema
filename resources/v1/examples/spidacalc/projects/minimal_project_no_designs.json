@@ -6,22 +6,22 @@
       "locations": [
         {
           "geographicCoordinate": {
-            "latitude": 40.609780700000002, 
-            "longitude": -81.3688492
+             "type":"Point",
+             "coordinates":[40.1290863927813, -82.12352134905786]
           }, 
           "id": "41811012B10002"
         }, 
         {
           "geographicCoordinate": {
-            "latitude": 40.608959300000002, 
-            "longitude": -81.367613500000004
+              "type":"Point",
+              "coordinates":[40.01982364, -82.012987562]
           }, 
           "id": "41811012B10003"
         }, 
         {
           "geographicCoordinate": {
-            "latitude": 40.599708300000003, 
-            "longitude": -81.359838999999994
+              "type":"Point",
+              "coordinates":[40.90861238756, -82.76547632]
           }, 
           "id": "41811036A30117"
         }

@@ -9,8 +9,8 @@
           {
             "id": "00P1-L100",
             "geographicCoordinate": {
-              "latitude": 40.609780700000002, 
-              "longitude": -81.3688492
+               "type":"Point",
+               "coordinates":[40.09182756, -82.43565482]
             }, 
             "images":[{
               "url":"http://spidasoftware.com/images/1900741739155-1.jpg"  
@@ -21,8 +21,8 @@
           {
             "id": "00P1-L200",
             "geographicCoordinate": {
-              "latitude": 40.608959300000002, 
-              "longitude": -81.367613500000004
+                "type":"Point",
+                "coordinates":[40.1287956, -82.123453476]
             }, 
             "images":[{
               "url":"file:///schema/resources/v1/schema/examples/spidacalc/photos/1900600739100-1.jpg"  
@@ -33,8 +33,8 @@
           {
             "id": "00P1-L300",
             "geographicCoordinate": {
-              "latitude": 40.599708300000003, 
-              "longitude": -81.359838999999994
+                "type":"Point",
+                "coordinates":[40.0981236079, -82.0981236576]
             }, 
             "images":[{
               "url":"../photos/1900948739239-1.jpg"  
@@ -45,9 +45,9 @@
           {
             "id": "00P1-L400",
             "geographicCoordinate": {
-              "latitude": 40.599708300000003, 
-              "longitude": -81.359838999999994
-            }, 
+               "type":"Point",
+               "coordinates":[40.346267, -82.324577]
+            },
             "images":[{
               "url":"1900948739239-1.jpg"  
             },{
@@ -68,22 +68,22 @@
           {
             "id": "00P2-L100",
             "geographicCoordinate": {
-              "latitude": 40.609780700000002, 
-              "longitude": -81.3688492
+               "type":"Point",
+               "coordinates":[40.234787, -82.683568456423465]
             }
           }, 
           {
             "id": "00P2-L200",
             "geographicCoordinate": {
-              "latitude": 40.608959300000002, 
-              "longitude": -81.367613500000004
+               "type":"Point",
+               "coordinates":[40.234677, -82.2345237]
             }
           }, 
           {
             "id": "00P2-L300",
             "geographicCoordinate": {
-              "latitude": 40.599708300000003, 
-              "longitude": -81.359838999999994
+                "type":"Point",
+                "coordinates":[40.326457457, -82.2345234778]
             }
           }
         ]
