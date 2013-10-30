@@ -75,11 +75,9 @@
                 },
                 "geographicCoordinate": {
                   "$ref": "../../general/geometry.schema"
-                  "additionalProperties": false,
                 },
                 "remedies": {
                   "type": "array",
-                  "id": "remedies",
                   "description": "List of remedies for the location",
                   "items": {
                     "type": "object",
@@ -97,7 +95,6 @@
                 },
                 "poleTags": {
                   "type": "array",
-                  "id": "poleTags",
                   "description": "List of physical tags on the pole.",
                   "items": {
                     "type": "object",
