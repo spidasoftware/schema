@@ -11,6 +11,8 @@ sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
 def csvFile = hasProperty('file') ? file : null
+def schema = hasProperty('schema') ? schema: null
+def jsonFile = hasProperty('jsonFile') ? jsonFile: null
 
 sourceSets {
     main {
@@ -51,6 +53,19 @@ task(csv, dependsOn: 'classes', type: JavaExec) {
         args file.absolutePath
     }
     main = 'com.spidasoftware.schema.utils.PoleCSVStationConverter'
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+    standardOutput = System.out
+}
+
+task(validateJson, dependsOn: 'classes', type: JavaExec) {
+	if (jsonFile && schema) {
+
+		def jFile = new File("$jsonFile")
+		args schema
+		args jFile.absolutePath
+	}
+	main = 'com.spidasoftware.schema.validation.CommandLineValidator'
     classpath = sourceSets.main.runtimeClasspath
     standardInput = System.in
     standardOutput = System.out

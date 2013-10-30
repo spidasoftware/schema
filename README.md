@@ -115,6 +115,20 @@ We have included some utilities in the [utils](src/main/groovy/com/spidasoftware
 
 If you are in need of actually validating some JSON data against the schema there several options depending on your language.  The one we use in our tests is the excellent library by [fge](https://github.com/fge/json-schema-validator).  It gives very good validation errors and also does all the references for you, so there is no need to load all the linked schema.  You will also notice in our tests we use a namespace of a file system.  This could be any location you put the file, you could even use a "resource:/" uri for referencing in a jar.
 
+##### Command line validator
+
+We include a command line validator to validate against any of our included schemas. To run the command, use the validateJson gradle task
+
+    gradlew validate -Pschema=schema -PjsonFile=json_file
+    schema - path to schema starting from resources. eg. /v1/schema/spidacalc/calc/structure.schema
+    json - json file to be validated.
+
+For example, to validate the "one of everything" structure example, from the schema directory you would type:
+
+    gradlew validateJson -Pschema=/v1/schema/spidacalc/calc/structure.schema -PjsonFile=resources/v1/examples/spidacalc/designs/one_of_everything.json
+
+The tool uses our included Validator java class.
+
 #### Java Tools
 
 In the utils/src/* folders are some java classes that can be helpful when integrating our stuff into a java world.  This includes a classes that produces a JSON descriptor of a class and validate a service against a JSON descriptor.
