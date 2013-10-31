@@ -1,22 +1,10 @@
 package com.spidasoftware.schema.validation
-
-import groovy.json.*
-import com.github.fge.jsonschema.util.*
-import com.github.fge.jsonschema.main.*
-import com.github.fge.jsonschema.uri.*
-import com.github.fge.jsonschema.cfg.*
-import org.apache.log4j.*
-import com.fasterxml.jackson.databind.JsonNode
-import com.github.fge.jackson.*
-import com.github.fge.jsonschema.exceptions.ProcessingException
-import com.github.fge.jsonschema.load.SchemaLoader
+import com.github.fge.jackson.JsonLoader
 import com.github.fge.jsonschema.load.configuration.LoadingConfiguration
-import com.github.fge.jsonschema.load.configuration.LoadingConfigurationBuilder
-import com.github.fge.jsonschema.main.JsonSchema
 import com.github.fge.jsonschema.main.JsonSchemaFactory
-import com.github.fge.jsonschema.main.JsonSchemaFactoryBuilder
-import com.github.fge.jsonschema.report.ProcessingReport
-import net.sf.json.JSONObject;
+import com.github.fge.jsonschema.uri.*
+import net.sf.json.JSONObject
+import org.apache.log4j.Logger;
 
 class CalcSchemaTest extends GroovyTestCase { 
 
@@ -50,8 +38,15 @@ class CalcSchemaTest extends GroovyTestCase {
 		def schema = factory.getJsonSchema("v1/schema/spidacalc/calc/structure.schema")
 		report = schema.validate(JsonLoader.fromString(new File("resources/v1/examples/spidacalc/designs/one_of_everything.json").text))
 		report.each{ log.info "testOneOfEverythingObject validation report "+it.toString() }
-		assertTrue "this instance should be valid against the schema", report.isSuccess()		
-	}	
+		assertTrue "this instance should be valid against the schema", report.isSuccess()
+	}
+
+	void testDamagesObject(){
+		def schema = factory.getJsonSchema("v1/schema/spidacalc/calc/structure.schema")
+		report = schema.validate(JsonLoader.fromString(new File("resources/v1/examples/spidacalc/designs/damages.json").text))
+		report.each{ log.info "testOneOfEverythingObject validation report "+it.toString() }
+		assertTrue "this instance should be valid against the schema", report.isSuccess()
+	}
 
 	void testBisectorObject(){
 		def schema = factory.getJsonSchema("v1/schema/spidacalc/calc/structure.schema")
