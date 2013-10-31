@@ -3,7 +3,7 @@ apply plugin: 'maven'
 apply plugin: 'groovy'
 
 group = 'com.spidasoftware'
-version = '0.2-SNAPSHOT'
+version = '0.3-SNAPSHOT'
 
 description = "Schema"
 

@@ -30,7 +30,7 @@
     },
     "forms": {
       "type": "array",
-      "desctiption": "An optional array of Project forms.",
+      "description": "An optional array of Project forms.",
       "items": {
         "$ref": "../../general/form.schema"
       }

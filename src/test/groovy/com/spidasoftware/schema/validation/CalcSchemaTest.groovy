@@ -31,6 +31,14 @@ class CalcSchemaTest extends GroovyTestCase {
 		// log.setLevel(Level.INFO);
 	}
 
+	void testProjectWithForms(){
+		def schema = factory.getJsonSchema("v1/schema/spidacalc/calc/project.schema")
+		report = schema.validate(JsonLoader.fromString(new File("resources/v1/examples/spidacalc/projects/minimal_project_with_forms.json").text))
+		report.each{ log.info "testProjectWithGPSObject validation report "+it.toString() }
+		println report.toString()
+		assertTrue "this instance should be valid against the schema", report.isSuccess()
+	}
+
 	void testClientPoleObject(){
 		def instance = '{"species":"pine", "height":{"unit":"FOOT", "value":100}, "classOfPole":"h2"}'				
 		def schema = factory.getJsonSchema("v1/schema/spidacalc/calc/client_references/pole.schema")
