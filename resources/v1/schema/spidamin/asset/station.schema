@@ -38,7 +38,7 @@
       "$ref": "../../spidamin/asset/assets.schema"
     },
     "address": {
-     "$ref": "../../spidamin/asset/address.schema"
+     "$ref": "../../general/address.schema"
     }
   },
   "additionalProperties": false
