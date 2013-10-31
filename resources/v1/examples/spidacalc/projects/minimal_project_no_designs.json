@@ -7,21 +7,21 @@
         {
           "geographicCoordinate": {
              "type":"Point",
-             "coordinates":[40.1290863927813, -82.12352134905786]
+             "coordinates":[-82.12352134905786, 40.1290863927813]
           }, 
           "id": "41811012B10002"
         }, 
         {
           "geographicCoordinate": {
               "type":"Point",
-              "coordinates":[40.01982364, -82.012987562]
+              "coordinates":[-82.012987562, 40.01982364]
           }, 
           "id": "41811012B10003"
         }, 
         {
           "geographicCoordinate": {
               "type":"Point",
-              "coordinates":[40.90861238756, -82.76547632]
+              "coordinates":[-82.76547632, 40.90861238756]
           }, 
           "id": "41811036A30117"
         }

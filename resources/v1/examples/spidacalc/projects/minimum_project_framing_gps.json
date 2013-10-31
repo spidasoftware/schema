@@ -36,8 +36,8 @@
             }
           ], 
           "geographicCoordinate": {
-            "latitude": 40.609780700000002, 
-            "longitude": -81.3688492
+            "type":"point",
+            "coordinates":[-81.3688492, 40.609780700000002]
           }
         }
       ]

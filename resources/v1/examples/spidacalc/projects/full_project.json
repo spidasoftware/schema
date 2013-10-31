@@ -23,7 +23,7 @@
                     },
                     "geographicCoordinate": {
                         "type":"Point",
-                        "coordinates":[40.683, -82.876]
+                        "coordinates":[-82.876, 40.683]
                     },
                     "remedies": [{"description": "Remedy"}],
                     "poleTags": [{"type":"FIELD", "value":"poleTag"}],
@@ -552,7 +552,7 @@
                     },
                     "geographicCoordinate": {
                         "type":"Point",
-                        "coordinates":[40.683547457, -82.87623466]
+                        "coordinates":[-82.87623466, 40.683547457]
                     },
                     "remedies": [{"description": "Remedy"}],
                     "poleTags": [{"type":"FIELD", "value":"poleTag"}],
@@ -984,7 +984,7 @@
                     },
                     "geographicCoordinate": {
                         "type":"Point",
-                        "coordinates":[40.89237598023, -82.3215978657]
+                        "coordinates":[-82.3215978657, 40.89237598023]
                     },
                     "remedies": [{"description": "Remedy"}],
                     "poleTags": [{"type":"FIELD", "value":"poleTag"}],
@@ -1218,7 +1218,7 @@
                     },
                     "geographicCoordinate": {
                         "type":"Point",
-                        "coordinates":[40.1023985762, -82.123567678]
+                        "coordinates":[-82.123567678, 40.1023985762]
                     },
                     "remedies": [{"description": "Remedy"}],
                     "poleTags": [{"type":"FIELD", "value":"poleTag"}],

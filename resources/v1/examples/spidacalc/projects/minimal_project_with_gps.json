@@ -43,7 +43,7 @@
           ], 
           "geographicCoordinate": {
               "type":"Point",
-              "coordinates":[40.01928365, -82.12334677]
+              "coordinates":[-82.12334677, 40.01928365]
           }
         }
       ]

@@ -49,6 +49,14 @@ The example data files are json files that can be opened in any text editor. The
 
 Calc stores UUIDs for all components on the pole. They aren't used as identifiers by the program - they are for interfacing with other applications. You may include them if you have track them, but the id field is the one that is important for building the pole.
 
+###Geographic Coordinates
+
+All geographic coordinates are now in GeoJSON format. This is a very simple format specified here: http://geojson.org/geojson-spec.html  An important note about GeoJSON is that withing the GeoJSON object, lat/lon coordinates are given with the longitude first. example:
+{
+	"type":"point",
+	"coordinates":[(longitude), (latitude), (optional altitude)]
+}
+
 ###Useful JSON Development tools:
 
 - [jsonlint.com] - validates that your json is correctly formed with more useful errors.
@@ -56,7 +64,7 @@ Calc stores UUIDs for all components on the pole. They aren't used as identifier
 
 ###Limitations in this beta version:
 
-Custom form import/export is not yet supported. Support will be added by the release version.
+Custom form import is not yet supported. Support will be added by the release version. Custom forms will export as part of the project.
 Photo import/export is not yet support. Support will be added by the release version using the schema provided.
 
 ###Questions/Support
