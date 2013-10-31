@@ -28,6 +28,8 @@ class CommandLineValidator {
 			report.messages.each { println it }
 			println "JSON does not pass validation against the projects schema.  See Logs."
 			System.exit(-1)
+		} else {
+			println ( "JSON file: " + args[1] + " passes validation against schema: " + args[0])
 		}
 	}
 }
