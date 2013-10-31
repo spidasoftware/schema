@@ -43,7 +43,13 @@ Currently the command line interface only allows for launching calc when it is n
 
 ###Using the examples
 
-The example data files are json files that can be opened in any text editor. The example script is a coffeescript file that can be run using the node-js coffeescript package. http://coffeescript.org/
+The example data files are json files that can be opened in any text editor. They can be found in  The RPC example script is a coffeescript file that can be run using the node-js coffeescript package. http://coffeescript.org/
+
+The JSON examples are in [resources/v1/examples/spidacalc](../../../v1/examples/spidacalc)
+
+###More definition of terms
+
+Some of the schemas use terms that are specific to spidacalc or the utility industry. A basic description of the values is included in the schema itself. For a more complete definition of those terms, please see the help menu in SpidaCalc.
 
 ###UUIDs
 
@@ -54,11 +60,83 @@ Calc stores UUIDs for all components on the pole. They aren't used as identifier
 - [jsonlint.com] - validates that your json is correctly formed with more useful errors.
 - node_modules/JSV/examples/index.html - provides an easy to use interface for schema validation and viewing errors
 
-###Limitations in this beta version:
 
-Custom form import/export is not yet supported. Support will be added by the release version.
-Photo import/export is not yet support. Support will be added by the release version using the schema provided.
+###Limitations and known issues:
+
+- Custom form import/export is not yet supported. Support will be added in later versions.
+- All ID on the structure must conform to the Calc naming conventions. All wires must be named with something starting with "Wire#", all equipment with "Equipment#". This will be fixed in a later version to allow generic labeling.
+- UUIDs must be actual UUIDs and in the canonical form xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx  http://en.wikipedia.org/wiki/Universally_unique_identifier In future versions this will be more generic.
+- parameters sent to RPC interface must be in the order specified in the interface description.
+- Load case names are case-sensitive, to what is in the client file. This can be different from what is shown in calc.
+
+##Calc Project Structure
+
+Calc uses a single pole model of analysis. It offers the ability to organize locations and to pull collected data from other locations, but it is not a connected model. All spans on a pole are defined in terms of that pole alone.
+
+A project has leads, which have locations. Leads can represent a physical line of connected poles, but they do not have to. They can also just be a unit of organization.
+
+A location is a single point on a map where a pole structure is located. It will have the GIS type information for that station - GPS coordinate and address, and any other metadata. A lead has many locations.
+
+A location has many designs. A design is a specific version of the structure at a location. This allows for comparison between multiple design for quality control or remediation work. A design has a single structure.
+
+##Calc Pole Structure
+
+The calc structure is a model of a single pole under analysis and everything directly attached to it.
+
+###Attachments
+
+Components attaching directly to the pole have structure in common
+
+- attachHeight: The height above ground level of the highest bolt attaching this to the structure.
+- direction: The bearing of the object relative to the pole.
+- owner: The company who owns the attachment
+- clientItem: The item in our client file describing the material properties of this attachment.
+
+Components at a distance from the pole have structure in common
+
+- distance: The distance from the pole to the item.
+- direction: The bearing of the object relative to the pole.
+
+###Directions
+
+Directions are in degrees. 0 is North, 90 is East, 180 is South, 270 is west. They are the bearing from the main pole to that item. This matches the display in Calc.
+
+*Note* in the 4.4.2 release, there is a bug in the direction handling. The rotation is reversed. 0 is North, 270 is East, 180 is South, 90 is West.
+
+###Wire End Points
+
+Calc uses the concept of wire end points to describe spans. A Wire End Point is something that the spans on your pole are going to. It could be another pole, it could be a building. It holds the distance and direction and the list of wires going to it.
+
+Each wire has its own information on tension, material properties, attach height, and midspan.
+
+Each span from the main pole is its own wire object, even if they are connected. So on normal line construction, with a single line, you will have two wire end points, and two wires - one running to each wire end point.
+
+Calc has different wire end point types. The generic types are OTHER_POLE and BUILDING. There are also two special types, NEXT_POLE and PREVIOUS_POLE. These indicate the main run in the line of poles. There can only be one of each of them. Anchors whose support type is set to BISECTOR will automatically track the bisector angle between the NEXT_POLE and the PREVIOUS_POLE when edited in Calc.
+
+##FAQ
+
+###I send my request to calc, but it says that I'm missing required parameters?
+
+The individual parameters are passed as URL or POST FORM encoded parameters, even if the parameters themselves are JSON strings. make sure you set the following on your question:
+
+- contenttype = application/x-www-form-urlencoded
+- charset=UTF-8
+
+This design decision was made to make it easy to test basic requests, but it seems to cause some confusion.
+
+###Can I use this to run my own analysis server?
+
+No, it is not supported by the terms of use of calc or the schema.
+
+###What reports are available?
+
+The report ID is any report named in your client file, as well as two of the reports available in the calc menu: "Project Summary Report" and "Project Details Report"
+
 
 ###Questions/Support
 
 For questions about the SPIDACalc API, please contact Mike Ford at mike.ford@spidasoftware.com.
+
+
+
+

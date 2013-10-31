@@ -101,7 +101,7 @@
       "spanPoints": [], 
       "type": "NEXT_POLE", 
       "uuid": "6bdb3562-8bb6-45e3-8c86-14716df6ab6e", 
-      "wires": []
+      "wires": ["Wire#1"]
     }, 
     {
       "comments": "", 
@@ -119,7 +119,7 @@
       "spanPoints": [], 
       "type": "PREVIOUS_POLE", 
       "uuid": "218816f8-004c-4998-8414-a9324375f154", 
-      "wires": []
+      "wires": ["Wire#2"]
     }
   ], 
   "wires": [
