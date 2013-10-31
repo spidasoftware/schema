@@ -36,6 +36,9 @@
     },
     "stationAssets": {
       "$ref": "../../spidamin/asset/assets.schema"
+    },
+    "address": {
+     "$ref": "../../spidamin/asset/address.schema"
     }
   },
   "additionalProperties": false

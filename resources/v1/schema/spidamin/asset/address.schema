@@ -1,0 +1,24 @@
+{
+  "id": "#/spidamin/asset/asset/address.schema",
+  "description": "An address for a SPIDAMin station",
+  "type": "object",
+  "required": [],
+  "properties": {
+    "street": {
+    	type: "string"
+    },
+    "city": {
+    	type: "string"
+    },
+    "county": {
+    	type: "string"
+    },
+    "state": {
+    	type: "string"
+    },
+    "country": {
+    	type: "string"
+    }
+  },
+  "additionalProperties": false
+}
