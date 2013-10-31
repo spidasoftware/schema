@@ -143,7 +143,7 @@
       "damageType": "SHELL",
       "circumference":       {
         "unit": "INCH",
-        "value": 22.94827421759226
+        "value": 18
       }
     },
         {
@@ -177,7 +177,7 @@
       "direction": 45,
       "depth":       {
         "unit": "INCH",
-        "value": 8.196478895250003
+        "value": 6
       }
     }
   ]
