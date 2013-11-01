@@ -39,7 +39,7 @@ Notice this is an error message and it is pretty informative.  The different res
 
 #### Successful Response
 
-_NOTE: in the following examples we will leave off the apiToken parameter to make the examples simpler._
+_NOTE: in the following examples we will leave off the apiToken parameter to make the examples easier to read but don't forget that you will still need to append the token to any other parameter with `&apiToken=yourtoken`._
 
 As you can see, and error object was returned, and it told us we are missing an required parameter.  _station_ids_ or _bounding_box_ was not included.  One of these is needed because you are either getting assets by location or id.  Lets add the required _stations_id_ parameter and try again:
 
