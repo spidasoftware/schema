@@ -1,6 +1,70 @@
 Calc Integration API
 ====================
 
+#SPIDACalc API Capabilities Overview
+
+##There are three parts to the Calc APIs
+
+- A data transfer format for moving project, structure, and results information in and out of spidacalc.
+- A REST-like remote control interface for controlling a running instance of calc.
+- A REST interface for querying calc client engineering data.
+
+##Data Format
+
+Calc defines an open, human readable format for importing pole and project information. It is in JSON, an industry standard that can be written from any source language. The data format is defined by the schemas available in this project, which can also be used to validate files before they are sent to Calc.
+
+Calc supports a project structure and information about locations. It can import and export addresses, GPS points, remedy information, and other expected meta-data surrounding pole collection and analysis.
+
+It also supports the import of what we call framing plans. Framing plans build assemblies on the pole from predefined standards using our best guess as to how the standard would be applied. This is often the best way to integrate with staking and design programs, or to do a quick first pass based on information about pole heads in a GIS or other accounting system where field specific measurements are not available.
+
+It supports detailed information at the level of a data collection program, allowing for the specification of every attachment to the pole at its exact height and direction, with appropriate material properties. This is the level that will give the most specific and reliable analysis results, and is best used by those looking to integrate Calc with their existing data collection programs. It is also how a structure created in calc will be exported, and can be used to generate custom reports or high-level analysis across multiple projects, or to import specific fields back into an accounting or work order system.
+
+Finally, for export only it can include high level analysis results, including loading percentages or safety factors for all analyzed components on a pole.
+
+In short, for pretty much anything you can do in calc, you get it in or out through this simple and readable data format.
+
+
+###Supported Structure Fields
+
+The calc import API supports the following attributes of a structure.
+
+- Pole
+- Wires
+- Cross Arms
+- Insulators
+- Anchors
+- Guys
+- Sidewalk Guys
+- Span Guys
+- Equipment
+- Push Braces
+- Damages
+- Note Points
+- Point Loads
+- Span Points
+
+##Web Services
+
+When calc is running on a client machine, it also starts up a small web server that will only accept requests from the local computer. This is how we intend integrators to work directly with calc. It allows integration from any language on any platform - integrators just need to implement a few web service calls and they can be sending their data in and out of calc very easily.
+
+Currently, even though it is done in a web service style, this is only available as a client integration. Calc will still be running on the local machine, and it does not require an internet connection -- integrations will work fine in the field! But it also means that you cannot set up a single calc server somewhere to handle all of your analysis.
+
+##Calc Service
+
+The Calc service is best thought of as a remote control for a running copy of calc. Once Calc is started, an integrating program can make basic commands that can do the same thing as a user would do in the UI. These options include:
+
+- Opening a pole or project.
+- Saving the project.
+- Analyzing that project.
+- Generating reports.
+- Running custom scripts that SPIDA has provided to the client.
+
+##Client Data Service
+
+The client data service allows querying of our client-specific materials libraries. This should allow data-collection type integrations to show the user the available attachments in their own interface and to select them when building a design to send to calc for analysis.
+
+#Developer Guide
+
 These are the Integration API descriptions for SPIDACalc. There are two types of schemas.
 
 ###Data schemas
