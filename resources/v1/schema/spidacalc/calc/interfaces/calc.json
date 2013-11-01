@@ -66,7 +66,7 @@
         "type": "array",
         "name": "loadCases",
         "required": false,
-        "description": "Load cases to include in the analysis. If not included it will use the existing load cases."
+        "description": "Load cases to include in the analysis. If not included it will use the existing load cases. Load case names must match the names in the client file."
       },
       {
         "type": "string",
@@ -77,7 +77,7 @@
     ]
   },
   "generateReport": {
-    "description": "Generate a report for the current project. Returns file location of report",
+    "description": "Generate a report for the current project. Returns file location of report. ",
     "returns": "object",
     "params": [
       {
@@ -90,7 +90,7 @@
         "type": "string",
         "name": "reportName",
         "required": false,
-        "description": "The preset custom report to generate."
+        "description": "The preset custom report to generate. You can also call pre-existing Project Summary Report and Project Details Report by using that for your report name."
       },
       {
         "type": "string",

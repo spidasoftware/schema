@@ -8,6 +8,7 @@
   ],
   "properties": {
     "type": {
+      "description": "The type of equipment described",
       "type": "string",
       "enum": [
         "CAPACITOR",
@@ -30,6 +31,7 @@
       ]
     },
     "size": {
+      "description": "The client data identifier for this equipment.",
       "type": "string"
     }
   },

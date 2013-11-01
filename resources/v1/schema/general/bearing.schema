@@ -4,5 +4,5 @@
 	"type": "integer",
 	"maximum": 360,
 	"minimum": 0,
-	"description": "The bearing relative to true north fo a component."
+	"description": "The bearing relative to true north of a component. 0 is North, 90 is east, 270 is west."
 }

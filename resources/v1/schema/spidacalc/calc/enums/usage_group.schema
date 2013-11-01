@@ -5,6 +5,7 @@
 	"enum": [
 		"PRIMARY",
 		"NEUTRAL",
+		"SECONDARY",
 		"OPEN_WIRE",
 		"UTILITY_SERVICE",
 		"GUY",
