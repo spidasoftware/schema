@@ -119,6 +119,14 @@ Some of the schemas use terms that are specific to spidacalc or the utility indu
 
 Calc stores UUIDs for all components on the pole. They aren't used as identifiers by the program - they are for interfacing with other applications. You may include them if you have track them, but the id field is the one that is important for building the pole.
 
+###Geographic Coordinates
+
+All geographic coordinates are now in GeoJSON format. This is a very simple format specified here: http://geojson.org/geojson-spec.html  An important note about GeoJSON is that withing the GeoJSON object, lat/lon coordinates are given with the longitude first. example:
+{
+	"type":"point",
+	"coordinates":[(longitude), (latitude), (optional altitude)]
+}
+
 ###Useful JSON Development tools:
 
 - [jsonlint.com] - validates that your json is correctly formed with more useful errors.
@@ -127,7 +135,7 @@ Calc stores UUIDs for all components on the pole. They aren't used as identifier
 
 ###Limitations and known issues:
 
-- Custom form import/export is not yet supported. Support will be added in later versions.
+- Custom form import is not yet supported. Support will be added by the release version. Custom forms will export as part of the project.
 - All ID on the structure must conform to the Calc naming conventions. All wires must be named with something starting with "Wire#", all equipment with "Equipment#". This will be fixed in a later version to allow generic labeling.
 - UUIDs must be actual UUIDs and in the canonical form xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx  http://en.wikipedia.org/wiki/Universally_unique_identifier In future versions this will be more generic.
 - parameters sent to RPC interface must be in the order specified in the interface description.
