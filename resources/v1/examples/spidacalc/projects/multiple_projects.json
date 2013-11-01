@@ -10,7 +10,7 @@
             "id": "00P1-L100",
             "geographicCoordinate": {
                "type":"Point",
-               "coordinates":[40.09182756, -82.43565482]
+               "coordinates":[-82.43565482, 40.09182756]
             }, 
             "images":[{
               "url":"http://spidasoftware.com/images/1900741739155-1.jpg"  
@@ -22,7 +22,7 @@
             "id": "00P1-L200",
             "geographicCoordinate": {
                 "type":"Point",
-                "coordinates":[40.1287956, -82.123453476]
+                "coordinates":[-82.123453476, 40.1287956]
             }, 
             "images":[{
               "url":"file:///schema/resources/v1/schema/examples/spidacalc/photos/1900600739100-1.jpg"  
@@ -34,7 +34,7 @@
             "id": "00P1-L300",
             "geographicCoordinate": {
                 "type":"Point",
-                "coordinates":[40.0981236079, -82.0981236576]
+                "coordinates":[-82.0981236576, 40.0981236079]
             }, 
             "images":[{
               "url":"../photos/1900948739239-1.jpg"  
@@ -46,7 +46,7 @@
             "id": "00P1-L400",
             "geographicCoordinate": {
                "type":"Point",
-               "coordinates":[40.346267, -82.324577]
+               "coordinates":[-82.324577, 40.346267]
             },
             "images":[{
               "url":"1900948739239-1.jpg"  
@@ -69,21 +69,21 @@
             "id": "00P2-L100",
             "geographicCoordinate": {
                "type":"Point",
-               "coordinates":[40.234787, -82.683568456423465]
+               "coordinates":[-82.683568456423465, 40.234787]
             }
           }, 
           {
             "id": "00P2-L200",
             "geographicCoordinate": {
                "type":"Point",
-               "coordinates":[40.234677, -82.2345237]
+               "coordinates":[-82.2345237, 40.234677]
             }
           }, 
           {
             "id": "00P2-L300",
             "geographicCoordinate": {
                 "type":"Point",
-                "coordinates":[40.326457457, -82.2345234778]
+                "coordinates":[-82.2345234778, 40.326457457]
             }
           }
         ]
