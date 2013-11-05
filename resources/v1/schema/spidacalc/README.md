@@ -199,7 +199,7 @@ The report ID is any report named in your client file, as well as two of the rep
 
 ###Questions/Support
 
-For questions about the SPIDACalc API, please contact Mike Ford at mike.ford@spidasoftware.com.
+For questions about the SPIDACalc API, please contact SPIDA support at support@spidasoftware.com.
 
 
 
