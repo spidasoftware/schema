@@ -1,0 +1,130 @@
+{
+    "type": "object",
+    "id": "#/spidacalc/calc/location.schema", 
+    "description": "A location is single physical location that has a pole", 
+    "additionalProperties": false, 
+    "properties": {
+        "address": {
+            "$ref": "../../general/address.schema"
+        }, 
+        "comments": {
+            "description": "Technician comments about location.", 
+            "type": "string"
+        }, 
+        "designs": {
+            "description": "All pole structural designs for location", 
+            "id": "designs", 
+            "items": {
+                "$ref": "../../spidacalc/calc/design.schema"
+            }, 
+            "type": "array"
+        }, 
+        "forms": {
+            "description": "An optional array of location forms for this location", 
+            "items": {
+                "$ref": "../../general/form.schema"
+            }, 
+            "type": "array"
+        }, 
+        "geographicCoordinate": {
+            "$ref": "../../general/geometry.schema"
+        }, 
+        "id": {
+            "description": "Optional display ID for location. Should be unique to project.", 
+            "type": "string"
+        }, 
+        "images": {
+            "description": "Photos/images for this location.", 
+            "id": "images", 
+            "items": {
+                "additionalProperties": false, 
+                "properties": {
+                    "url": {
+                        "description": "Path to the image file.", 
+                        "type": "string"
+                    }
+                }, 
+                "type": "object"
+            }, 
+            "type": "array"
+        }, 
+        "mapNumber": {
+            "description": "Optional map number to align with GIS system.", 
+            "type": "string"
+        }, 
+        "poleTags": {
+            "description": "List of physical tags on the pole.", 
+            "items": {
+                "additionalProperties": false, 
+                "id": "poleTag", 
+                "properties": {
+                    "type": {
+                        "description": "Can be anything, but values known by calc are FIELD, MAP, and FOREIGN", 
+                        "type": "string"
+                    }, 
+                    "value": {
+                        "type": "string"
+                    }
+                }, 
+                "required": [
+                    "type", 
+                    "value"
+                ], 
+                "type": "object"
+            }, 
+            "type": "array"
+        }, 
+        "remedies": {
+            "description": "List of remedies for the location", 
+            "items": {
+                "additionalProperties": false, 
+                "id": "remedy", 
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    }
+                }, 
+                "required": [
+                    "description"
+                ], 
+                "type": "object"
+            }, 
+            "type": "array"
+        }, 
+        "summaryNotes": {
+            "description": "List of summary notes for the location", 
+            "id": "summaryNotes", 
+            "items": {
+                "type": "string"
+            }, 
+            "type": "array"
+        }, 
+        "userDefinedValues": {
+            "description": "User defined key-value pairs that we store.  For example, this could be used for an outside system id.", 
+            "id": "userDefinedValues", 
+            "items": {
+                "additionalProperties": false, 
+                "id": "keyValue", 
+                "properties": {
+                    "key": {
+                        "description": "user-defined lookup value", 
+                        "type": "string"
+                    }, 
+                    "value": {
+                        "type": "string"
+                    }
+                }, 
+                "required": [
+                    "key", 
+                    "value"
+                ], 
+                "type": "object"
+            }, 
+            "type": "array"
+        }, 
+        "uuid": {
+            "description": "Optional UUID", 
+            "type": "string"
+        }
+    } 
+}

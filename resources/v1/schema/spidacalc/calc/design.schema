@@ -1,0 +1,51 @@
+{
+    "type": "object",
+    "id": "#/spidacalc/calc/design.schema", 
+    "additionalProperties": false, 
+    "properties": {
+        "analysis": {
+            "description": "List of load cases and their results. Note - these are for export only. They will be ignored on import.", 
+            "items": {
+                "additionalProperties": false, 
+                "description": "A collection of results for a loading or strength case.", 
+                "properties": {
+                    "id": {
+                        "description": "Case id.", 
+                        "type": "string"
+                    }, 
+                    "results": {
+                        "description": "Result summaries for all components.", 
+                        "items": {
+                            "$ref": "../../spidamin/asset/standard_details/analysis_asset.schema"
+                        }, 
+                        "type": "array"
+                    }
+                }, 
+                "required": [
+                    "id", 
+                    "results"
+                ], 
+                "type": "object"
+            }, 
+            "type": "array"
+        }, 
+        "framingPlan": {
+            "$ref": "framing_plan.schema"
+        }, 
+        "geographicCoordinate": {
+            "$ref": "../../general/geometry.schema"
+        }, 
+        "id": {
+            "description": "Optional display ID", 
+            "type": "string"
+        }, 
+        "structure": {
+            "$ref": "../../spidacalc/calc/structure.schema"
+        }, 
+        "uuid": {
+            "description": "Optional UUID for design", 
+            "type": "string"
+        }
+    }
+    
+}

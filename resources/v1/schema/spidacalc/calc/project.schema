@@ -184,54 +184,7 @@
                   "id": "designs",
                   "description": "All pole structural designs for location",
                   "items": {
-                    "type": "object",
-                    "id":"design",
-                    "additionalProperties": false,
-                    "properties": {
-                      "id": {
-                        "type": "string",
-                        "description": "Optional display ID"
-                      },
-                      "uuid": {
-                        "type": "string",
-                        "description": "Optional UUID for design"
-                      },
-                      "geographicCoordinate": {
-                        "$ref": "../../general/geometry.schema"
-                      },
-                      "framingPlan": {
-                        "$ref": "framing_plan.schema"
-                      },
-                      "structure": {
-                        "$ref": "../../spidacalc/calc/structure.schema"
-                      },
-                      "analysis": {
-                        "type": "array",
-                        "description": "List of load cases and their results. Note - these are for export only. They will be ignored on import.",
-                        "items": {
-                          "type": "object",
-                          "description": "A collection of results for a loading or strength case.",
-                          "required": [
-                            "id",
-                            "results"
-                          ],
-                          "additionalProperties": false,
-                          "properties": {
-                            "id": {
-                              "type": "string",
-                              "description": "Case id."
-                            },
-                            "results": {
-                              "type": "array",
-                              "description": "Result summaries for all components.",
-                              "items": {
-                                "$ref": "../../spidamin/asset/standard_details/analysis_asset.schema"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
+                    "$ref": "../../spidacalc/calc/design.schema"
                   }
                 }
               }
