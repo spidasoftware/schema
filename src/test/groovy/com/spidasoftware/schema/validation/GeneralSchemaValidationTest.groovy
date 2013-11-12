@@ -19,8 +19,6 @@ class GeneralSchemaValidationTest extends GroovyTestCase {
 	private static final SyntaxValidator schemaValidator = new SyntaxValidator(ValidationConfiguration.byDefault())
 
 	void setUp() {
-		//org.apache.log4j.BasicConfigurator.configure();
-		//log.setLevel(Level.INFO);
 	}
 
 	void testThatAddressIsValidSchema(){

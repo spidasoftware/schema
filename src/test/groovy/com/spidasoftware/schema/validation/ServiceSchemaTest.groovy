@@ -28,8 +28,6 @@ class ServiceSchemaTest extends GroovyTestCase {
 	def slurper = new JsonSlurper()
 
 	void setUp() {
-		// org.apache.log4j.BasicConfigurator.configure();
-		// log.setLevel(Level.INFO);
 	}
 
 	void testAssetInterfaceMethodsAgainstServiceMethod(){
