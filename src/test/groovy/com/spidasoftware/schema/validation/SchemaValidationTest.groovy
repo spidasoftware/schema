@@ -6,20 +6,17 @@ import com.github.fge.jsonschema.main.*
 import com.github.fge.jsonschema.uri.*
 import com.github.fge.jsonschema.cfg.*
 import com.github.fge.jsonschema.processors.syntax.*
-import org.apache.log4j.Logger
-import org.apache.log4j.Level
+import org.apache.log4j.*
 import com.github.fge.jackson.*
 
 class SchemaValidationTest extends GroovyTestCase { 
 
 
-	def log = Logger.getLogger(this.class);
+	def log = Logger.getLogger(this.class)
 	def report
-	private static final SyntaxValidator schemaValidator = new SyntaxValidator(ValidationConfiguration.byDefault());
+	private static final SyntaxValidator schemaValidator = new SyntaxValidator(ValidationConfiguration.byDefault())
 
 	void setUp() {
-		org.apache.log4j.BasicConfigurator.configure();
-		log.setLevel(Level.INFO);
 	}
 	
   	void testSchemasAreValid(){

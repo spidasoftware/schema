@@ -24,8 +24,6 @@ class ClientSchemaTest extends GroovyTestCase {
 	def report
 
 	void setUp() {
-		//org.apache.log4j.BasicConfigurator.configure();
-		//log.setLevel(Level.INFO);
 	}
 
 

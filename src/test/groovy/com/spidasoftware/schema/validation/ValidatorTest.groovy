@@ -1,7 +1,6 @@
 package com.spidasoftware.schema.validation
 
 import junit.framework.TestCase
-import org.apache.log4j.BasicConfigurator
 
 /**
  * Created with IntelliJ IDEA.
@@ -14,7 +13,6 @@ class ValidatorTest extends TestCase {
 	@Override
 	public void setUp() throws Exception {
 		super.setUp();
-		BasicConfigurator.configure();
 	}
 
 	void testOneOfEverythingObject() throws Exception {

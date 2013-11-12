@@ -1,6 +1,5 @@
 package com.spidasoftware.schema.utils
 
-import org.apache.log4j.BasicConfigurator
 import com.spidasoftware.schema.utils.*
 import org.junit.Before
 import org.junit.Rule

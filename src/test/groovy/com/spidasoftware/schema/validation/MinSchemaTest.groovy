@@ -27,8 +27,6 @@ class MinSchemaTest extends GroovyTestCase {
 	final JsonSchemaFactory factory = JsonSchemaFactory.newBuilder().setLoadingConfiguration(cfg).freeze();
 
 	void setUp() {
-		// org.apache.log4j.BasicConfigurator.configure();
-		// log.setLevel(Level.INFO);
 	}
 
 	void testUser(){
