@@ -11,11 +11,11 @@ class CommandLineValidator {
 
 	public static void main(String[] args) {
 		if (args.length < 2) {
-			println "usage: 'java -cp schema.jar com.spidasoftware.schema.validation.Validator schema json_file"
+			println "Usage: java -cp schema.jar com.spidasoftware.schema.validation.Validator /path/to/schema /path/to/json"
 			println "   or"
-			println("Usage: gradlew validate -Pschema=schema -PjsonFile=json_file")
-			println("schema - path to schema starting from resources. eg. /v1/schema/spidacalc/calc/structure.schema")
-			println("json - json file to be validated.")
+			println("Usage: gradlew validateJson -Pschema=/path/to/schema -PjsonFile=/path/to/json")
+			println("  schema - path to schema starting from resources. eg. /v1/schema/spidacalc/calc/structure.schema")
+			println("  json - json file to be validated.")
 			System.exit(-2)
 		}
 

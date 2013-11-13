@@ -30,7 +30,7 @@
             "type": "array"
         }, 
         "framingPlan": {
-            "$ref": "framing_plan.schema"
+            "$ref": "../../spidacalc/client/framing_plan.schema"
         }, 
         "geographicCoordinate": {
             "$ref": "../../general/geometry.schema"
