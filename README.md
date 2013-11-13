@@ -119,13 +119,13 @@ If you are in need of actually validating some JSON data against the schema ther
 
 We include a command line validator to validate against any of our included schemas. To run the command, use the validateJson gradle task
 
-    gradlew validate -Pschema=schema -PjsonFile=json_file
+    gradlew :validateJson -Pschema=schema -PjsonFile=json_file
     schema - path to schema starting from resources. eg. /v1/schema/spidacalc/calc/structure.schema
     json - json file to be validated.
 
 For example, to validate the "one of everything" structure example, from the schema directory you would type:
 
-    gradlew validateJson -Pschema=/v1/schema/spidacalc/calc/structure.schema -PjsonFile=resources/v1/examples/spidacalc/designs/one_of_everything.json
+    gradlew :validateJson -Pschema=/v1/schema/spidacalc/calc/structure.schema -PjsonFile=resources/v1/examples/spidacalc/designs/one_of_everything.json
 
 The tool uses our included Validator java class.
 
