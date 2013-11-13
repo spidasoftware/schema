@@ -30,15 +30,14 @@ class Validator {
 	 */
 	public ProcessingReport validateAndReport(String schemaPath, String json) {
 		try {
-			String namespace = new File(schemaPath).getParentFile().getCanonicalPath();
+
+			//FilenameUtils.getPath(filepath) gets the parent folder and removes path prefix (windows drive letter or unix tilde)
+			//More Info: http://commons.apache.org/proper/commons-io/apidocs/org/apache/commons/io/FilenameUtils.html#getPathNoEndSeparator(java.lang.String)
+			String namespace = "/" + FilenameUtils.getPathNoEndSeparator(schemaPath)
 			namespace = FilenameUtils.separatorsToUnix(namespace)
-			
-			//Removes prefix (windows drive letter or unix tilde)
-			//http://commons.apache.org/proper/commons-io/apidocs/org/apache/commons/io/FilenameUtils.html#getPath(java.lang.String)
-			namespace = "/" + FilenameUtils.getPath(namespace)
-			
-			String namespaceString = "resource:" + namespace;
-			log.info("Validation: \nschemaPath=$schemaPath \nnamespace=$namespace \nnamespaceString=$namespaceString")
+
+			String namespaceString = "resource:" + namespace + "/";
+			log.info "Validation: \nschemaPath=$schemaPath \nnamespace=$namespace \nnamespaceString=$namespaceString"
 			
 			LoadingConfiguration cfg = LoadingConfiguration.newBuilder().setNamespace(namespaceString).freeze();
 			JsonSchemaFactory factory = JsonSchemaFactory.newBuilder().setLoadingConfiguration(cfg).freeze();
