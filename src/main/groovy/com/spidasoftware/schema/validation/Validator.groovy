@@ -9,6 +9,7 @@ import com.github.fge.jsonschema.main.JsonSchemaFactory
 import com.github.fge.jsonschema.report.ProcessingReport
 import org.apache.log4j.Logger
 import com.spidasoftware.schema.server.*
+import org.apache.commons.io.FilenameUtils
 
 /**
  * Class to validate against our json schemas. Will references the schemas locally as a jar resource.
@@ -23,15 +24,22 @@ class Validator {
 
 	/**
 	 *
-	 * @param schemaPath resource URL to the schema. eg, "/spidacalc/calc/project.schema"
+	 * @param schemaPath resource URL to the schema. eg, "/v1/schema/spidacalc/calc/project.schema"
 	 * @param json string representation of json to be validated.
 	 * @return The fge schema-validator report
 	 */
 	public ProcessingReport validateAndReport(String schemaPath, String json) {
 		try {
-
 			String namespace = new File(schemaPath).getParentFile().getCanonicalPath();
-			String namespaceString = "resource:" + namespace + "/";
+			namespace = FilenameUtils.separatorsToUnix(namespace)
+			
+			//Removes prefix (windows drive letter or unix tilde)
+			//http://commons.apache.org/proper/commons-io/apidocs/org/apache/commons/io/FilenameUtils.html#getPath(java.lang.String)
+			namespace = "/" + FilenameUtils.getPath(namespace)
+			
+			String namespaceString = "resource:" + namespace;
+			log.info("Validation: \nschemaPath=$schemaPath \nnamespace=$namespace \nnamespaceString=$namespaceString")
+			
 			LoadingConfiguration cfg = LoadingConfiguration.newBuilder().setNamespace(namespaceString).freeze();
 			JsonSchemaFactory factory = JsonSchemaFactory.newBuilder().setLoadingConfiguration(cfg).freeze();
 			JsonNode instance = JsonLoader.fromString(json);
