@@ -15,8 +15,31 @@ import groovy.mock.interceptor.*
 
 
 class LocalJSONServletTest extends GroovyTestCase {
-	public void testLocality() throws Exception {
-		
+	
+
+	public void testAddServlet() throws Exception {
+		LocalServer localServer = new LocalServer();
+		LocalServiceServlet localServiceServlet = new LocalServiceServlet("/clientData", "/v1/schema/spidacalc/client/interfaces/client_data.json", [:]);
+		localServer.addServlet(localServiceServlet);
+		Thread serverThread = new Thread(localServer);
+		serverThread.start();
+
+		int timeout = 0;
+		Thread.currentThread().sleep(1000);
+
+		boolean responded = false;
+		while (timeout < 15 && !responded){
+			timeout++;
+			try {
+				"http://localhost:3491/clientData/poles".toURL().text
+				responded = true
+			} catch (InterruptedException ex) {
+				ex.printStackTrace();
+			}
+		}
+	}
+
+	public void testLocality() throws Exception {	
 		def mockRequest = new MockFor(HttpServletRequest)
 		mockRequest.demand.getRemoteAddr(1..100) { "10.0.2.4" } 
 		
