@@ -6,30 +6,34 @@
         "returns": "string"
     },
     "createOrUpdate": {
-        "description": "Creates or Updates a Station or Asset",
+        "description": "Creates or Updates a Station, Asset, or Attachment",
         "type": "method",
-        "returns": "../../general/id.schema",
+        "returns": {
+			"type": "array",
+			"items": {
+				"$ref": "../../general/id.schema"
+			}
+		},
         "params": [
             {
                 "type": "../../spidamin/asset/station.schema",
                 "name": "station",
                 "required": false,
-                "description": "The station object to create or update, station or asset required"
+                "description": "The station object to create or update; station, asset, or attachment required"
             },
             {
                 "type": "../../spidamin/asset/asset.schema",
                 "name": "asset",
                 "required": false,
-                "description": "The station object to create or update, station or asset required"
+                "description": "The asset object to create or update; station, asset, or attachment required"
             },
             {
                 "type": "array",
-                "name": "files",
+                "name": "attachments",
                 "required": false,
-                "description": "The station file to create or update",
+                "description": "The attachment object to create or update; station, asset, or attachment required"
                 "items": {
-                    "type": "string",
-                    "description": "base64 encoded file"
+					"$ref": "../../spdiamin/asset/attachement.schema"
                 }
             }
         ]
