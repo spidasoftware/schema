@@ -41,6 +41,24 @@
       }
     ]
   },
+  "openFraming": {
+    "description": "Create a project from a single framing of a pole.",
+    "returns": "null",
+    "params": [
+      {
+        "type": "object",
+        "name": "framing",
+        "required": true,
+        "description": "JSON description of the framing to be opened"
+      },
+      {
+        "type": "string",
+        "name": "clientFile",
+        "required": true,
+        "description": "name of the client file to use to create the pole"
+      }
+    ]
+  },
   "saveCurrentProject": {
     "description": "Save the currently opened project",
     "returns": "null",
@@ -52,6 +70,11 @@
         "description": "URL of location to save to."
       }
     ]
+  },
+  "getProject": {
+    "description": "Returns the currently open project as a json object following project.schema. Includes results.",
+    "returns": "object",
+    "params": []
   },
   "exit": {
     "description": "Exit SPIDACalc. This will shutdown control services",
