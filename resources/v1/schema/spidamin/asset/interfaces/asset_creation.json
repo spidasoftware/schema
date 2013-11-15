@@ -33,7 +33,7 @@
                 "required": false,
                 "description": "The attachment object to create or update; station, asset, or attachment required"
                 "items": {
-					"$ref": "../../spdiamin/asset/attachement.schema"
+					"$ref": "../../spdiamin/asset/attachment.schema"
                 }
             }
         ]
