@@ -54,6 +54,12 @@
                 "name": "station_ids",
                 "required": false,
                 "description": "The station object ids to delete"
+            },
+			{
+                "type": "array",
+                "name": "attachment_uuids",
+                "required": false,
+                "description": "The attachment object uuids to delete"
             }
         ]
     }
