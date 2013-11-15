@@ -7,7 +7,7 @@ apply plugin: 'maven'
 apply plugin: 'groovy'
 
 group = 'com.spidasoftware'
-version = '0.2-SNAPSHOT'
+version = '0.2'
 description = "Schema"
 
 sourceCompatibility = 1.6
