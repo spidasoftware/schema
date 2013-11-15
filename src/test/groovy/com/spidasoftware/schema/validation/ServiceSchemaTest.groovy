@@ -107,6 +107,18 @@ class ServiceSchemaTest extends GroovyTestCase {
 			}
 		}
 	}
-}
 
-   
+	void testAssetCreationMethodsAgainstServiceMethod() {
+		def instance = slurper.parseText(new File("resources/v1/schema/spidamin/asset/interfaces/asset_creation.json").text)
+		instance.each{k,v->
+			if(k!="id" && k!="description"){
+				report = schema.validate(JsonLoader.fromString(JsonOutput.toJson(v)))
+				log.debug report
+				report.each{
+					log.info "${this.class} using file: "+it.toString()
+				}
+				assertTrue "${k} should be valid against a schema", report.isSuccess()		
+			}
+		}
+	}
+}

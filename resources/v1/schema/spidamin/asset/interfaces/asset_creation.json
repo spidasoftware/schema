@@ -8,12 +8,7 @@
     "createOrUpdate": {
         "description": "Creates or Updates a Station, Asset, or Attachment",
         "type": "method",
-        "returns": {
-			"type": "array",
-			"items": {
-				"$ref": "../../general/id.schema"
-			}
-		},
+        "returns": "../../general/ids.schema",
         "params": [
             {
                 "type": "../../spidamin/asset/station.schema",
@@ -31,9 +26,9 @@
                 "type": "array",
                 "name": "attachments",
                 "required": false,
-                "description": "The attachment object to create or update; station, asset, or attachment required"
+                "description": "The attachment object to create or update; station, asset, or attachment required",
                 "items": {
-					"$ref": "../../spdiamin/asset/attachment.schema"
+                    "$ref": "../../spidiamin/asset/attachment.schema"
                 }
             }
         ]
@@ -55,7 +50,7 @@
                 "required": false,
                 "description": "The station object ids to delete"
             },
-			{
+            {
                 "type": "array",
                 "name": "attachment_uuids",
                 "required": false,
