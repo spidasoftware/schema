@@ -46,6 +46,7 @@ dependencies {
 	compile group: 'net.sf.json-lib', name: 'json-lib', version:'2.3', classifier:'jdk15'
 	compile group: 'log4j', name: 'log4j', version:'1.2.17'
 	compile group: 'org.apache.httpcomponents', name: 'httpclient', version:'4.0'
+	compile group: 'commons-io', name: 'commons-io', version:'2.4'
 	compile group: 'xom', name: 'xom', version:'1.2.5'
 	compile group: 'com.github.fge', name: 'json-schema-validator', version:'2.1.6'
 }
@@ -90,21 +91,25 @@ task(validateJson, dependsOn: 'classes', type: JavaExec) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Read maven settings.xml (gradle does not do this yet)
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-def getMavenSettings = {
+private def getMavenSettings() {
 	String userHome = System.getProperty("user.home");
 	File mavenSettings = new File(userHome, ".m2/settings.xml")
-	def xmlSlurper = new XmlSlurper()
-	def root = xmlSlurper.parse(mavenSettings)
-	def settingsMap = [:]
-	
+	if(mavenSettings.exists()){
+		def xmlSlurper = new XmlSlurper()
+		def root = xmlSlurper.parse(mavenSettings)
+		def settingsMap = [:]
+		
 	def locations = root."profiles"."profile".find{it."id".text() == "artifactory"}."properties"
-	settingsMap.snapshots = locations."snapshotsLocation"
-	settingsMap.releases = locations."releasesLocation"
-	
-	def serverElement = root."servers"."server".find{ it."id".text() == "spida" }
-	settingsMap.username = serverElement.username.text()
-	settingsMap.password = serverElement.password.text()
-	return settingsMap
+		settingsMap.snapshots = locations."snapshotsLocation"
+		settingsMap.releases = locations."releasesLocation"
+		
+		def serverElement = root."servers"."server".find{ it."id".text() == "spida" }
+		settingsMap.username = serverElement.username.text()
+		settingsMap.password = serverElement.password.text()
+		return settingsMap
+	} else {
+		return [:]
+	}
 }
 
 uploadArchives {
