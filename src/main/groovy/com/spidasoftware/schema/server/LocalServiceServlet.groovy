@@ -1,7 +1,7 @@
 package com.spidasoftware.schema.server
 
-import Acme.Serve.Serve
-import Acme.Serve.Serve.PathTreeDictionary
+// import Acme.Serve.Serve
+// import Acme.Serve.Serve.PathTreeDictionary
 import java.io.File
 import org.apache.log4j.Logger
 
@@ -55,7 +55,7 @@ public class LocalServiceServlet extends LocalJSONProcedure {
       parameterMap.put param, httpServletRequest.getParameter(param);
     }
     if(!serviceDescriptor){
-      throw new JSONServletException("MISSING_RESOURCE", "The specied service descriptor isn't available in the jar.")
+      throw new JSONServletException("MISSING_RESOURCE", "The specified service descriptor isn't available in the jar.")
       return
     }
     
