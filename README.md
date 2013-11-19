@@ -13,6 +13,16 @@ This repository is governed by the terms of use located [here.](https://github.c
 General Overview of the Schema
 --------------------------------
 
+This project contains information about the API's for the SPIDA products.  These API's allow specific actions against our products to take place from
+external products or integrations.  This repository contains example information about how to implement those external integrations.  Please read this introductory page, it
+will give you a good overview of how our API's function.
+
+Concepts
+--------
+1. Our services rely heavily on the JSON format.  If you are not familiar with JSON, you will need to be to understand what it is your are submitting to the service.  Try this short [tutorial](http://www.w3schools.com/json/default.asp).
+2. We have two main areas for our services. SPIDACalc and SPIDAMin, don't confuse the two.  They each have some overlap in naming, but fundamentally different structures.  SPIDAMin is an online application that is primarily used to manage assets.  SPIDACalc is a client application for analyzing utility pole structures.  Both have a project, but each is unique and different.  Make sure you are using the correct one.
+3. Schema files end in .schema, and interface definitions end in .json.  The .schema files are used to validate the objects passed. The .json files describe the services to which you pass those objects.
+
 ### Services
 
 Our service definitions are in each folder in a separate folder called _interfaces_.  For example we have a _spidcalc_ folder that contains an _interfaces_ folder.  The spidacalc folder contains all the objects that relate to spidacalc.  The interfaces contains the service interfaces that relate to spidacalc.
@@ -79,12 +89,6 @@ General process for implementing a service:
 * Find the service interface you are implementing.
 * Write a test to make sure you implement all the methods.
 * Write a test to make sure your method respond with correct responses.
-
-Concepts
---------
-1. Our services rely heavily on the JSON format.  If you are not familiar with JSON, you will need to be to understand what it is your are submitting to the service.  Try this short [tutorial](http://www.w3schools.com/json/default.asp).
-2. We have two main areas for our services. SPIDACalc and SPIDAMin, don't confuse the two.  They each have some overlap in naming, but fundamentally different structures.  SPIDAMin is an online application that is primarily used to manage assets.  SPIDACalc is a client application for analyzing utility pole structures.  Both have a project, but each is unique and different.  Make sure you are using the correct one.
-3. Schema files end in .schema, and interface definitions end in .json.  The .schema files are used to validate the objects passed. The .json files describe the services to which you pass those objects.
 
 Versions
 --------
