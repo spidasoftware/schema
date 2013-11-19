@@ -25,7 +25,7 @@ There are few concepts to keep in mind:
 2. We have two main areas for our services. SPIDACalc and SPIDAMin, don't confuse the two.  They each have some overlap in naming, but fundamentally different structures.  SPIDAMin is an online application that is primarily used to manage assets.  SPIDACalc is a client application for analyzing utility pole structures.  Both have a project, but each is unique and different.  Make sure you are using the correct one.
 3. Schema files end in .schema, and interface definitions end in .json.  The .schema files are used to validate the objects passed. The .json files describe the services to which you pass those objects.
 
- Services
+Services
 ------------
 
 Our services provide a set of methods that can be called for a specific product.  Our service definitions are in each folder in a separate folder called _interfaces_.  For example we have a _spidcalc_ folder that contains an _interfaces_ folder.  The spidacalc folder contains all the objects that relate to spidacalc.  The interfaces contains the service interfaces that relate to spidacalc.
@@ -34,7 +34,7 @@ We based our services on the json-rpc that can be found [here](http://www.simple
 
 Each service call has three main pieces, the request url, the request parameters, and the response.
 
-#### Request URL
+### Request URL
 
 Methods will be done against a url that ends with the method name.  The method names are defined in the interfaces.  Example: 
 
@@ -42,7 +42,7 @@ Methods will be done against a url that ends with the method name.  The method n
 
 would be the _getProjects_ method from the spidamin/project/interfaces/pm.json.  The url before the _getProjects_ would be server specific.
 
-#### Request Parameters
+### Request Parameters
 
 Parameters for the procedure are included in the http params list after the method name i.e. 
 
@@ -56,7 +56,7 @@ If you are using POST, the parameters must still be in the POST params if they a
 
 And the charset to `UTF-8`
 
-#### Response 
+### Response 
 
 The response body will always be formatted in the generic [_method\_response_](resources/v1/general/method_response.schema), this allows for passing error codes and the result. 
 
