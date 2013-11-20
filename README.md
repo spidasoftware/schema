@@ -81,7 +81,7 @@ Folder Structure
   1. [resources/v1/examples](resources/v1/examples) - used in tests, good example objects
 1. [src](src) - some utilities that can be used in Java as well as the tests.
 
-General Step Process
+General Process
 ------------------
 
 ### Consume a Service
