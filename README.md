@@ -68,16 +68,21 @@ Would be a valid response object, that might be returned.
 
 HTTP says that GET calls should not modify data.  So if you are making a call with our API and it is a modification or creation of the object stored in the application, you will need to do a POST. 
 
-### License Agreement
+### License Agreement (EULA)
 
 All users must accept the License Agreement.  If this has not been accepted, all HTTP requests will be redirected to usersmaster/agreement.  Login to SPIDAMin and you will be redirected to the License Agreeement.  Click the 'Accept' button at the bottom of the page.
 
-### Folder Structure
+Folder Structure
+--------------------
+
 1. [v1](v1) - the version 1 API
   1. [resources/v1/schema/spidacalc](resources/v1/schema/spidacalc) - schemas for communication with spidacalc version 4.4.2.0 and future versions
   1. [resources/v1/schema/spidamin](resources/v1/schema/spidamin) - schemas for communication with spidamin 3.0
   1. [resources/v1/examples](resources/v1/examples) - used in tests, good example objects
 1. [src](src) - some utilities that can be used in Java as well as the tests.
+
+General Step Process
+------------------
 
 ### Consume a Service
 
