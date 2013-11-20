@@ -8,7 +8,7 @@ class RestParamsTest extends GroovyTestCase {
 	def testApi
 
 	void setUp() {
-		def apiText = getClass().getResourceAsStream("/testAPI.json").getText()
+		def apiText = getClass().getResourceAsStream("/rest/testAPI.json").getText()
 		testApi = JSONObject.fromObject(apiText)
 		restParams = new RestParams(testApi)
 		
