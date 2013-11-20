@@ -12,8 +12,12 @@ class RestParams {
 	private static final def log = Logger.getLogger(RestParams.class)
 	def api
 
+	def apiPath
+
+	RestParams(){}
+
 	RestParams(String pathToSchema){
-		loadApi(pathToSchema)
+		setApiPath(pathToSchema)
 	}
 
 	RestParams(JSONObject api){
@@ -111,8 +115,13 @@ class RestParams {
 
 
 
-	void loadApi(String pathToSchema){
+	void setApiPath(String pathToSchema){
 		def text = getClass().getResourceAsStream(pathToSchema).getText()
 		api = JSONObject.fromObject(text)
+		this.apiPath = pathToSchema
+	}
+
+	String getApiPath(){
+		return this.apiPath
 	}
 }
