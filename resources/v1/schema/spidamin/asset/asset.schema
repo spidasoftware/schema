@@ -25,7 +25,7 @@
     "assetType": {
       "id": "assetType",
       "type": "string",
-      "enum": ["POLE", "NJUNS", "ANALYSIS"]
+      "enum": ["POLE", "NJUNS", "ANALYSIS","PHOTO","FILE"]
     },
     "assetAttachments": {
       "id": "assetAttachments",

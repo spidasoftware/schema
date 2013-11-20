@@ -113,7 +113,19 @@ class ServiceSchemaTest extends GroovyTestCase {
 		instance.each{k,v->
 			if(k!="id" && k!="description"){
 				report = schema.validate(JsonLoader.fromString(JsonOutput.toJson(v)))
-				log.debug report
+				report.each{
+					log.info "${this.class} using file: "+it.toString()
+				}
+				assertTrue "${k} should be valid against a schema", report.isSuccess()		
+			}
+		}
+	}
+	
+	void testAssetFileMethodsAgainstServiceMethod() {
+		def instance = slurper.parseText(new File("resources/v1/schema/spidamin/asset/interfaces/asset_file.json").text)
+		instance.each{k,v->
+			if(k!="id" && k!="description"){
+				report = schema.validate(JsonLoader.fromString(JsonOutput.toJson(v)))
 				report.each{
 					log.info "${this.class} using file: "+it.toString()
 				}
