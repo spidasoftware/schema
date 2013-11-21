@@ -1,0 +1,284 @@
+{
+	"description":"Documents the CalcDB REST API",
+	"resources":{
+		"project":{
+			"list":{
+				"description":"Finds all projects that match the parameters",
+				"allowedMethods":["GET"],
+				"parameters":[
+					{
+						"id":"name",
+						"descritpion":"the name of the project",
+						"required":false,
+						"type":"string"
+					},
+					{
+						"id":"location_id",
+						"description":"the _id of a location contained in the project",
+						"required":false,
+						"type":"string"						
+					},
+					{
+						"id":"uuid",
+						"description":"The uuid (from SpidaCalc) of the project",
+						"required":false,
+						"type":"string"
+					}
+				]
+			},
+			"show":{
+				"path":"/<_id>",
+				"description":"returns a project by unique0 _id",
+				"allowedMethods":["GET"],
+				"parameters":[
+					{
+						"id":"_id",
+						"description":"The unique _id of this project, given in the url",
+						"required":true,
+						"type":"string"
+					}
+				]
+			},
+			"save":{
+				"description":"saves a new project, including locations and designs",
+				"allowedMethods":["POST"],
+				"parameters":[
+					{
+						"id":"project",
+						"description":"The project json to be saved",
+						"schema":"/v1/schema/spidacalc/calc/project.schema",
+						"required":true
+					}
+				]
+			},
+			"update":{
+				"description":"Updates and existing project, including locations and designs",
+				"allowedMethods":["PUT"],
+				"parameters":[
+					{
+						"id":"project",
+						"description":"The project json to be saved",
+						"schema":"/v1/schema/spidacalc/calc/project.schema",
+						"required":true
+					}
+				]
+			},
+			"delete":{
+				"description":"deletes a project AND any locations/designs within it",
+				"allowedMethods":["DELETE"],
+				"parameters":[
+					{
+						"id":"_id",
+						"description":"The unique _id of this project",
+						"type":"string",
+						"required":true
+					}
+				]
+			}
+
+		},
+		"location":{
+			"list":{
+				"description":"Finds all locations that match the parameters",
+				"allowedMethods":["GET"],
+				"parameters":[
+					{
+						"id":"project_name",
+						"description":"The name of the parent Calc project",
+						"required":false,
+						"type":"string"
+					},
+					{
+						"id":"project_id",
+						"description":"the _id of the parent project",
+						"required":false,
+						"type":"string"						
+					},
+					{
+						"id":"design_ids",
+						"description":"the _id of a design contained within the location",
+						"required":false,
+						"type":"string"
+					},
+					{
+						"id":"uuid",
+						"description":"The uuid (from SpidaCalc) of the location",
+						"required":false,
+						"type":"string"
+					},
+					{
+						"id":"id",
+						"description":"The Location name from SpidaCalc (called id for now, but we will be changing this soon)",
+						"required":false,
+						"type":"string"
+					}
+				]
+			},
+			"show":{
+				"path":"/<_id>",
+				"description":"returns a location by unique _id",
+				"allowedMethods":["GET"],
+				"parameters":[
+					{
+						"id":"_id",
+						"description":"The unique _id of this location, given in the url",
+						"required":true,
+						"type":"string"
+					}
+				]
+			},
+			"save":{
+				"description":"saves a new location, inlcuding any designs within it",
+				"allowedMethods":["POST"],
+				"parameters":[
+					{
+						"id":"location",
+						"description":"The location json to be saved",
+						"schema":"/v1/schema/spidacalc/calc/location.schema",
+						"required":true
+					}
+				]
+			},
+			"update":{
+				"path":"<rootPath>/<_id>",
+				"description":"Updates and existing location, including any designs within it",
+				"allowedMethods":["PUT"],
+				"parameters":[
+					{
+						"id":"location",
+						"description":"The location json to be saved",
+						"schema":"/v1/schema/spidacalc/calc/location.schema",
+						"required":true
+					},
+					{
+						"id":"_id",
+						"description":"the unique _id of the location",
+						"type":"string",
+						"required":true
+					}
+				]
+			},
+			"delete":{
+				"description":"deletes a Location AND any designs within it ONLY if the location does not have a parent project",
+				"allowedMethods":["DELETE"],
+				"parameters":[
+					{
+						"id":"_id",
+						"description":"The unique _id of this location",
+						"type":"string",
+						"required":true
+					}
+				]
+			}
+		},
+		"design":{
+			"list":{
+				"description":"Finds all designs that match the parameters",
+				"allowedMethods":["GET"],
+				"parameters":[
+					{
+						"id":"project_name",
+						"description":"The name of the parent Calc project",
+						"required":false,
+						"type":"string"
+					},
+					{
+						"id":"project_id",
+						"description":"the _id of the parent project",
+						"required":false,
+						"type":"string"						
+					},
+					{
+						"id":"location_id",
+						"description":"the _id of the parent location",
+						"required":false,
+						"type":"string"
+					},
+					{
+						"id":"uuid",
+						"description":"The uuid (from SpidaCalc) of the design",
+						"required":false,
+						"type":"string"
+					}
+				]
+			},
+			"show":{
+				"path":"/designs/<_id>",
+				"description":"returns a design by unique _id",
+				"allowedMethods":["GET"],
+				"parameters":[
+					{
+						"id":"_id",
+						"description":"The unique _id of this design, given in the url",
+						"required":true,
+						"type":"string"
+					}
+				]
+			},
+			"save":{
+				"description":"saves a new design without a parent Location or Project",
+				"allowedMethods":["POST"],
+				"parameters":[
+					{
+						"id":"design",
+						"description":"The design json to be saved",
+						"schema":"/v1/schema/spidacalc/calc/design.schema",
+						"required":true
+					}
+				]
+			},
+			"update":{
+				"path":"/designs/<_id>",
+				"description":"Updates and existing design ONLY if it has no parent Location",
+				"allowedMethods":["PUT"],
+				"parameters":[
+					{
+						"id":"design",
+						"description":"The design json to be saved",
+						"schema":"/v1/schema/spidacalc/calc/design.schema",
+						"required":true
+					},
+					{
+						"id":"_id",
+						"description":"the unique _id of the design",
+						"type":"string",
+						"required":true
+					}
+				]
+			},
+			"delete":{
+				"path":"designs/<_id>",
+				"description":"deletes a design ONLY if it has no parent Location",
+				"allowedMethods":["DELETE"],
+				"parameters":[
+					{
+						"id":"_id",
+						"description":"The unique _id of this design, given in the url",
+						"type":"string",
+						"required":true
+					}
+				]
+			}
+		}
+
+	},
+	"projection":{
+		"parameters":[
+			{
+				"id":"skip",
+				"description":"The number of records to skip. Used along with limit to implement pagination",
+				"type":"number",
+				"required":false,
+				"defaultValue":0
+			},
+			{
+				"id":"limit",
+				"description":"Limits the number of items returned - values higher than the default will be ignored",
+				"type":"number",
+				"required":false,
+				"defaultValue":50
+			}
+		]
+	}
+	
+}
