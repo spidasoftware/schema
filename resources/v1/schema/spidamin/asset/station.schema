@@ -28,7 +28,7 @@
       "type": "array",
       "items": {
         "type": "string",
-        "enum": ["POLE", "NJUNS", "ANALYSIS"]
+        "enum": ["POLE", "NJUNS", "ANALYSIS","FILE","PHOTO"]
       }
     },
     "geometry": {

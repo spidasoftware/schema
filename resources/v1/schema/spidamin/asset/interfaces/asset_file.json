@@ -1,0 +1,56 @@
+{
+    "id": "asset_file_service",
+    "description": "Manage Asset Files",
+    "getName": {
+        "description": "Get name of this service.",
+        "returns": "string"
+    },
+    "getVersionCount": {
+        "description": "Get version count of attachment with uuid.",
+        "returns": "number",
+        "params": [
+            {
+                "type": "string",
+                "name": "uuid",
+                "required": true,
+                "description": "UUID of attachment"
+            }
+        ]
+    },
+    "getFile": {
+        "description": "Get path for attachment with uuid",
+        "returns": "string",
+        "params": [
+            {
+                "type": "string",
+                "name": "uuid",
+                "required": true,
+                "description": "UUID of attachment"
+            },
+            {
+                "type": "number",
+                "name": "offset",
+                "required": false,
+                "description": "Offset of file, defaults to 0"
+            }
+        ]
+    },
+    "getBytes": {
+        "description": "Get base64 encoded bytes for attachment with uuid",
+        "returns": "string",
+        "params": [
+            {
+                "type": "string",
+                "name": "uuid",
+                "required": true,
+                "description": "UUID of attachment"
+            },
+            {
+                "type": "number",
+                "name": "offset",
+                "required": false,
+                "description": "Offset of file, defaults to 0"
+            }
+        ]
+    }
+}
