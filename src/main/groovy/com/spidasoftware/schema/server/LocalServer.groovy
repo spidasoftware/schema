@@ -26,7 +26,7 @@ public class LocalServer implements Runnable {
 	private Properties properties = new Properties();
 	private int port = DEFAULT_PORT;
 	boolean running = false;
-	ServletHandler handler;
+	private ServletHandler handler;
 	public LocalServer() {
 		this(DEFAULT_PORT);
 	}
