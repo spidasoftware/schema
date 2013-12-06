@@ -26,13 +26,15 @@ public class LocalServer implements Runnable {
 	private Properties properties = new Properties();
 	private int port = DEFAULT_PORT;
 	boolean running = false;
-
+	ServletHandler handler;
 	public LocalServer() {
 		this(DEFAULT_PORT);
 	}
 
 	public LocalServer(int port) {
 		jetty = new Server(port);
+		handler = new ServletHandler();
+		jetty.setHandler(handler);
 	}
 
 	public void run() {
@@ -58,9 +60,7 @@ public class LocalServer implements Runnable {
 
 	public void addServlet(String path, Servlet servlet) {
 		// tjws.addServlet(path, servlet);
-		ServletHandler handler = new ServletHandler();
 		ServletHolder holder = new ServletHolder(servlet)
-		jetty.setHandler(handler);
 		handler.addServletWithMapping(holder,  "/" + path);
 	}
 
