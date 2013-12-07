@@ -12,10 +12,10 @@ The sub-folders included in SPIDAMin are:
 1. user - The definitions of users and user services are in this folder.  
 
 
-Example Processes 
+Example Services Consumption
 ----------------
 
-We will go through a two very simple examples.  The first we will fetch asset information. The second we will fetch and then update a project.  For these examples we have used a command line tool curl, but any system would work that can make the needed HTTP requests.  All of these requests are GET requests, but a POST request might be needed depending on how long the parameters are.
+The first main way that you would might use our services, is by consuming them.  This would happen if yo have an external system that needs to interact with SPIDAMin.  From this point of view, we will go through a two very simple examples.  The first we will fetch asset information. The second we will fetch and then update a project.  For these examples we have used a command line tool curl, but any system would work that can make the needed HTTP requests.  All of these requests are GET requests, but a POST request might be needed depending on how long the parameters are.
 
 ### Asset Retrieval 
 
@@ -105,4 +105,21 @@ Let say we want to update a project from the id that was returned previously.  T
 
 Once you have the JSON object, you would submit that JSON to the createOrUpdate method.
 
+Example Service Implementation
+---------------------------
 
+The other main way that you may be looking at our services is to implement one or many of them as a replacement or additional for a standard bundled service in SPIDAMin.  An example for this process would be if you had Asset information that you wanted to have show up in SPIDAMin.  This process is probably going to require support a integration work with us to achieve the desired results, but this section will give you an idea of the work required and allow you to scope the level of your internal work.
+
+For this example, lets assume you have identified the need to show your own asset information from some internal service you have, and you would like that asset information to show up on the SPIDAMin map so that you can create projects from those assets.  The first step is to identify the needed service interfaces you would have to implement, this is where SPIDA can assist.  In this case, the service interface that you need to implement it is the [asset.json](asset/interfaces/asset.json).  If you examine that file, it would indicate what methods your service would need to respond to and what the method signatures would be.  Once you have the service methods and have identified what internal data and services you will use to respond to those methods you have to decide how you are going to expose this internal service.
+
+There are two main ways expose your service, Direct JSON URL End Point, and a Service Adapter.
+
+### Direct JSON URL End Point
+
+The first is to implement a service that responds to the JSON interface exactly as defined in the _.json_ file at a specific URL.  This would mirror the approach that we showed in the above "Service Consumption" section.  It would require you to have a URL endpoint that responded exactly in the same manner as above with HTTP GETs and POSTs.  Once you did that then, it would be a configuration setting to add that service to SPIDAMin.  This would require zero to minimal development outside your organization, and we think is a very usable format.
+
+### Service Adapter
+
+Sometimes the above method isn't possible or desirable.  This could be for various reasons, your organization doesn't use JSON, you have specific naming requirements, etc.  Given this, your service will still basically need to implement the same methods, but they might have a different name and/or be in a different service format.  A common example would be an organization to mandate the use of WSDL for service interfaces.  What you would need to do is have a service with a 1-to-1 method signature with our defined interfaces.  Once this was done, you could provide us with that mapping and we could write an adapter to allow SPIDAMin to consume your internal service.  This method does require some development and integration work with us, but does allow for you to remain in control of the specific service and be able to replace/update in the future without required assistance from us.
+
+As an additional note, we have used this technique internally to make use of a variety of sources.  A very good example of this is the [ESRI ArcGIS REST service](http://resources.esri.com/help/9.3/arcgisserver/apis/rest/).  That service is able to provide a 1-to-1 method call for our internal asset service.
