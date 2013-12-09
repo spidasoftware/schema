@@ -12,7 +12,7 @@ The sub-folders included in SPIDAMin are:
 1. user - The definitions of users and user services are in this folder.  
 
 
-Example Services Consumption
+Example Service Consumption
 ----------------
 
 The first main way that you would might use our services, is by consuming them.  This would happen if yo have an external system that needs to interact with SPIDAMin.  From this point of view, we will go through a two very simple examples.  The first we will fetch asset information. The second we will fetch and then update a project.  For these examples we have used a command line tool curl, but any system would work that can make the needed HTTP requests.  All of these requests are GET requests, but a POST request might be needed depending on how long the parameters are.
