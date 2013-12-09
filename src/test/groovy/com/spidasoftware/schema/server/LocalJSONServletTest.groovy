@@ -42,7 +42,6 @@ class LocalJSONServletTest extends GroovyTestCase {
 		assertTrue "Make sure that the clientData servlet responded", responded
 		responded = false
 		timeout = 0
-		responded = false
 		while (timeout < 15 && !responded){
 			timeout++;
 			try {
