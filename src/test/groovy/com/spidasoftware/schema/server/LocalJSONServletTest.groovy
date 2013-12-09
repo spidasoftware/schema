@@ -21,6 +21,8 @@ class LocalJSONServletTest extends GroovyTestCase {
 		LocalServer localServer = new LocalServer();
 		LocalServiceServlet localServiceServlet = new LocalServiceServlet("/clientData", "/v1/schema/spidacalc/client/interfaces/client_data.json", [:]);
 		localServer.addServlet(localServiceServlet);
+		LocalServiceServlet otherLocalServiceServlet = new LocalServiceServlet("/calc", "/v1/schema/spidacalc/calc/interfaces/calc.json", [:])
+		localServer.addServlet(otherLocalServiceServlet);
 		Thread serverThread = new Thread(localServer);
 		serverThread.start();
 
@@ -37,6 +39,19 @@ class LocalJSONServletTest extends GroovyTestCase {
 				ex.printStackTrace();
 			}
 		}
+		assertTrue "Make sure that the clientData servlet responded", responded
+		responded = false
+		timeout = 0
+		while (timeout < 15 && !responded){
+			timeout++;
+			try {
+				"http://localhost:3491/calc/openProject".toURL().text
+				responded = true
+			} catch (InterruptedException ex) {
+				ex.printStackTrace();
+			}
+		}
+		assertTrue "Make sure that the calc servlet responded", responded
 	}
 
 	public void testLocality() throws Exception {	
