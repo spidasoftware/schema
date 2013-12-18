@@ -23,7 +23,7 @@ class RestParamsTest extends GroovyTestCase {
 	}
 
 	void testListParams(){
-		def params = [name:"testName", anotherProperty:"testProp", uuid:"testUuid", skip: 5, limit: 10]
+		def params = [name:"testName", anotherProperty:"testProp", uuid:"testUuid", skip: "5", limit: "10"]
 		def result = restParams.validateAndFormat("thing", "list", params)
 
 		assert result.query.name == "testName"
@@ -73,6 +73,23 @@ class RestParamsTest extends GroovyTestCase {
 			def params = [project: proj.toString()]
 			def result = restParams.validateAndFormat("thing", "save", params)
 		}
+	}
+
+
+	void testProjectionParamTypes(){
+		def api2 = JSONObject.fromObject(getClass().getResourceAsStream("/rest/testParamTypes.json").getText())
+		def restParams2 = new RestParams(api2)
+
+		def params = [name:"testName", anotherProperty:"testProp", uuid:"testUuid", skip: "5", limit: "10", someString:"stringy", someBoolean:"true"]
+
+		def result = restParams2.validateAndFormat("thing", "list", params)
+
+		assert result.query.name == "testName"
+		assert result.query.uuid == "testUuid"
+		assert result.projection.someBoolean == true
+		assert result.projection.someString == "stringy"
+		assert result.projection.skip == 5
+		assert result.projection.limit == 10
 	}
 
 
