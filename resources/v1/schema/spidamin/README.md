@@ -131,6 +131,7 @@ In the [asset.json](asset/interfaces/asset.json) there are several methods signa
 #### params
 
 Each param will give you a set of basic information 
+
 1. type: tell you if it is a basic primitive (number, string etc), array of primitives (array) or a pointer to a more complex object (object.schema).  If the type is a pointer to an object, you can use that referenced relative schema to build and validate your input param.
 2. name: the name of the parameter to pass
 3. required: if the parameter is required on every call
