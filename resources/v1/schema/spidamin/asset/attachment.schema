@@ -53,7 +53,7 @@
                             "ASSET_MASTER",
                             "TICKET_MANAGER",
                             "LICENSE_MANAGER",
-                            "CALCDB"
+                            "CALC_DB"
                         ]
                     },
                     "sourceId": {
