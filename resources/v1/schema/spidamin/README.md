@@ -126,7 +126,7 @@ As an additional note, we have used this technique internally to make use of a v
 
 ### Request and Response Objects
 
-In the [asset.json](asset/interfaces/asset.json) there are several methods signatures.  When ever you are implementing a method for use in SPIDAMin you will need to understand the important features of this description. Each method will  have "params" and a "returns" value.  
+In each of the *.json service files, like the [asset.json](asset/interfaces/asset.json), there are several methods signatures.  Whenever you are implementing a method for use in SPIDAMin you will need to understand the important features of this description. Each method will have "params" and a "returns" value.  
 
 #### params
 
@@ -139,6 +139,6 @@ Each param will give you a set of basic information
 
 #### returns
 
-The return value is type of primitive, array of primitives or object that will be return from the service call.  
+The return value is type of primitive, array of primitives or object that will be return from the service call.  This is the object that you will need to construct or have wrapped, so all those values would need to be present.
 
 
