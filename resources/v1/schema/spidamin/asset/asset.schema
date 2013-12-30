@@ -9,18 +9,22 @@
   "properties": {
     "assetId": {
       "id": "assetId",
-      "type": "string"
+      "type": "string",
+      "description": "Unique id for this asset"
     },
     "stationId": {
       "id": "assetId",
-      "type": "string"
+      "type": "string",
+      "description": "The id of the parent station, used for updating and creation"
     },
     "ownerId": {
       "id": "ownerId",
-      "type": "number"
+      "type": "number",
+      "description": "The id of the company that owns this asset"
     },
     "primaryAsset": {
-      "type": "boolean"
+      "type": "boolean",
+      "description": "Whether this is the primary id at this station.  The primary asset's primary tag is generally displayed."
     },
     "assetType": {
       "id": "assetType",
@@ -30,6 +34,7 @@
     "assetAttachments": {
       "id": "assetAttachments",
       "type": "array",
+      "description": "These represent other obect attached to this asset."
       "items": {
         "type": "object",
         "required": [
@@ -53,6 +58,7 @@
     "assetDetails": {
       "id": "assetDetails",
       "type": "array",
+      "description": "These represent additional information about this asset."
       "items": {
         "id": "assetDetailsItem",
         "type": "object",
@@ -77,6 +83,7 @@
     "assetTags": {
       "id": "assetTags",
       "type": "array",
+      "description": "These represent identifying information about this asset"
       "items": {
         "id": "assetTagsItem",
         "type": "object",
