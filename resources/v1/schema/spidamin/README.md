@@ -123,3 +123,21 @@ The first way is to implement a service that responds to the JSON interface exac
 Sometimes the above method isn't possible or desirable.  This could be for various reasons, your organization doesn't use JSON, you have specific naming requirements, etc.  Given this, your service will still basically need to implement the same methods, but they might have a different name and/or be in a different service format.  A common example would be an organization to mandate the use of WSDL for service interfaces.  What you would need to do is have a service with a 1-to-1 method signature with our defined interfaces.  Once this was done, you could provide us with that mapping and we could write an adapter to allow SPIDAMin to consume your internal service.  This method does require some development and integration work with us, but does allow for you to remain in control of the specific service and be able to replace/update in the future without required assistance from us.
 
 As an additional note, we have used this technique internally to make use of a variety of sources.  A very good example of this is the [ESRI ArcGIS REST service](http://resources.esri.com/help/9.3/arcgisserver/apis/rest/).  That service is able to provide a 1-to-1 method call for our internal asset service.
+
+### Request and Response Objects
+
+In the [asset.json](asset/interfaces/asset.json) there are several methods signatures.  When ever you are implementing a method for use in SPIDAMin you will need to understand the important features of this description. Each method will  have "params" and a "returns" value.  
+
+#### params
+
+Each param will give you a set of basic information 
+1. type: tell you if it is a basic primitive (number, string etc), array of primitives (array) or a pointer to a more complex object (object.schema).  If the type is a pointer to an object, you can use that referenced relative schema to build and validate your input param.
+2. name: the name of the parameter to pass
+3. required: if the parameter is required on every call
+4. description: give you more information about this specific parameter.
+
+#### returns
+
+The return value is type of primitive, array of primitives or object that will be return from the service call.  
+
+
