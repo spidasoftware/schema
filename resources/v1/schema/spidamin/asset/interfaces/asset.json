@@ -5,17 +5,13 @@
         "description": "Get name of this service.",
         "returns": "string"
     },
+    "getPossibleAssetDetails":{
+        "description": "Return the asset detail keys that can be returned by this service.",
+        "returns": "array"
+    },
     "getPossibleAssetTypes": {
         "description": "Return the asset types this service returns.",
-        "returns": "array",
-        "params": [
-            {
-                "type": "number",
-                "name": "company_id",
-                "required": true,
-                "description": "Company to get the asset types for."
-            }
-        ]
+        "returns": "array"
     },
     "getStations": {
         "description": "Get a set of Stations based on parameters provided",
