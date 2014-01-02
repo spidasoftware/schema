@@ -82,7 +82,15 @@ class RestParams {
 				def projectionParams = [:]
 
 				api.projection.parameters.each{
-					projectionParams["${it.id}"] = params["${it.id}"] ?: it.defaultValue
+					def clazz = it.defaultValue.class
+					try {
+						def paramValue = params["${it.id}"] ?: it.defaultValue
+						projectionParams["${it.id}"] = paramValue.asType(clazz)
+						log.debug("Adding projection param: ${paramValue} with class: ${clazz}")
+					} catch (NumberFormatException e){
+						throw new InvalidParameterException(it.id)
+					}
+					
 				}
 				
 				listParams.put("query", newParams)
