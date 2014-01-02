@@ -22,6 +22,7 @@ class SchemaValidationTest extends GroovyTestCase {
   	void testSchemasAreValid(){
   		new File("resources/v1/schema").eachFileRecurse(groovy.io.FileType.FILES){ schemaFile ->
   			if(schemaFile.absolutePath.endsWith(".schema")){
+				log.info "Loading Json from ${schemaFile.absolutePath}"
 				def schemaNode = JsonLoader.fromPath(schemaFile.absolutePath)
 				report = schemaValidator.validateSchema(schemaNode)
 				report.each{ log.info "${schemaFile.absolutePath} validation report "+it.toString() }

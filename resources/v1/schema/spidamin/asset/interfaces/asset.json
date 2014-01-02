@@ -11,7 +11,7 @@
     },
     "getPossibleAssetTypes": {
         "description": "Return the asset types this service returns.",
-        "returns": "array"
+        "returns": "../asset_details.schema"
     },
     "getStations": {
         "description": "Get a set of Stations based on parameters provided",
