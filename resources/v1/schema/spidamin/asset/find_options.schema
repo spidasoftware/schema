@@ -3,21 +3,7 @@
   "id": "find_params",
   "properties": {
     "keys": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "key": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          }
-        }
-      }
+        "$ref": "asset_detail.schema"
     },
     "operators": {
       "type": "array",

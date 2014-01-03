@@ -34,7 +34,7 @@
     "assetAttachments": {
       "id": "assetAttachments",
       "type": "array",
-      "description": "These represent other obect attached to this asset."
+      "description": "These represent other obect attached to this asset.",
       "items": {
         "type": "object",
         "required": [
@@ -58,7 +58,7 @@
     "assetDetails": {
       "id": "assetDetails",
       "type": "array",
-      "description": "These represent additional information about this asset."
+      "description": "These represent additional information about this asset.",
       "items": {
         "id": "assetDetailsItem",
         "type": "object",
@@ -83,7 +83,7 @@
     "assetTags": {
       "id": "assetTags",
       "type": "array",
-      "description": "These represent identifying information about this asset"
+      "description": "These represent identifying information about this asset",
       "items": {
         "id": "assetTagsItem",
         "type": "object",
