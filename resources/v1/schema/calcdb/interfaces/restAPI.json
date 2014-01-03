@@ -259,6 +259,21 @@
 					}
 				]
 			}
+		},
+		"photo": {
+			"show":{
+				"path":"/photos/<uuid>",
+				"description":"returns a design by unique uuid (filefort id)",
+				"allowedMethods":["GET"],
+				"parameters":[
+					{
+						"id":"uuid",
+						"description":"The unique id of this photo, given in the url",
+						"required":true,
+						"type":"string"
+					}
+				]
+			}
 		}
 
 	},
