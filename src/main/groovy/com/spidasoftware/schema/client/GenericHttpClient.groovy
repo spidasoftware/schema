@@ -18,6 +18,7 @@ import org.apache.http.entity.mime.MultipartEntityBuilder
 import org.apache.http.entity.mime.content.ContentBody
 import org.apache.http.entity.mime.content.FileBody
 import org.apache.http.entity.mime.content.StringBody
+import org.apache.http.impl.client.CloseableHttpClient
 import org.apache.http.impl.client.HttpClientBuilder
 import org.apache.http.message.BasicNameValuePair
 import org.apache.http.protocol.BasicHttpContext
@@ -51,7 +52,7 @@ class GenericHttpClient {
     public static String HEAD = "head"
 
 
-    protected HttpClient client
+    protected CloseableHttpClient client
 
     /**
      * Closure for creating the HttpClient to be used for executing the requests.
@@ -59,14 +60,14 @@ class GenericHttpClient {
      * but not on anything else.
      * If you create you own client, you may also need to customize the cleanupClient closure.
      */
-    def createClient = {HttpClientBuilder clientBuilder ->
+    def createClient = {clientBuilder ->
         clientBuilder.build()
     }
 
     /**
      *
      */
-    def cleanupClient = { HttpClient client ->
+    def cleanupClient = {client ->
         if (client.respondsTo("close")) {
             client.close()
         }
@@ -81,7 +82,7 @@ class GenericHttpClient {
      * </code>
      * This will return the response body as a string. If the response status code is >= 300, an HttpResponseException will be thrown.
      */
-    def getBodyAsString = { HttpResponse response ->
+    def getBodyAsString = {response ->
         if (response.getStatusLine().getStatusCode() >= 300) {
             log.error("Received error response from server. Code: ${response.getStatusLine().getStatusCode()}, Reason: ${response.getStatusLine().getReasonPhrase()}")
             throw new HttpResponseException(response.getStatusLine().getStatusCode(), response.getStatusLine().reasonPhrase)
@@ -96,7 +97,7 @@ class GenericHttpClient {
      * If you're using a custom ConnectionManager, you may want to set your own cleanupRequest closure
      * to allow connections to remain open and be reused
      */
-    def cleanupRequest = { HttpRequestBase request ->
+    def cleanupRequest = {request ->
         request.releaseConnection()
 
     }
@@ -105,67 +106,78 @@ class GenericHttpClient {
      *  Closure for performing cleanup operations on an HttpRepsonse.
      *  Default will just close the inputStream, if it has one.
      */
-    def cleanupResponse = {HttpResponse response ->
+    def cleanupResponse = {response ->
         response?.getEntity()?.getContent()?.close()
     }
 
-    HttpResponse get(URI uri, Map<String, Object> parameters, Closure responseHandler){
+    /**
+     * Called when the protocol is https.
+     */
+    def setupSSL = {request ->
+        SSLUtils.setupSSL(request.getURI().toURL())
+    }
+
+    def get(URI uri, Map<String, Object> parameters, Closure responseHandler = getBodyAsString){
         URIBuilder builder = new URIBuilder(uri)
         if (parameters && !parameters.isEmpty()) {
             builder.setParameters(createBasicNameValuePairs(parameters))
         }
         HttpGet httpGet = new HttpGet(builder.build())
 
-        return executeHttpUriRequest(httpGet, responseHandler)
+        return executeHttpRequest(httpGet, responseHandler)
     }
 
-    HttpResponse put(URI uri, Map<String, Object> parameters, Closure responseHandler){
+    def put(URI uri, Map<String, Object> parameters, Closure responseHandler = getBodyAsString){
         HttpPut put = new HttpPut(uri)
         if (parameters && !parameters.isEmpty()) {
             put.setEntity(createMultipartEntity(parameters))
         }
-        return executeHttpUriRequest(put, responseHandler)
+        return executeHttpRequest(put, responseHandler)
     }
 
-    HttpResponse post(URI uri, Map<String, Object> parameters, Closure responseHandler) {
+    def post(URI uri, Map<String, Object> parameters, Closure responseHandler = getBodyAsString) {
         HttpPost post = new HttpPost(uri)
         if (parameters && !parameters.isEmpty()) {
             post.setEntity(createMultipartEntity(parameters))
         }
-        return executeHttpUriRequest(post, responseHandler)
+        return executeHttpRequest(post, responseHandler)
     }
 
-    HttpResponse delete(URI uri, Map<String, Object> parameters, Closure responseHandler){
+    def delete(URI uri, Map<String, Object> parameters, Closure responseHandler = getBodyAsString){
         URIBuilder builder = new URIBuilder(uri)
         if (parameters && !parameters.isEmpty()) {
             builder.addParameters(createBasicNameValuePairs(parameters))
         }
         HttpDelete delete = new HttpDelete(builder.build())
-        return executeHttpUriRequest(delete, responseHandler)
+        return executeHttpRequest(delete, responseHandler)
     }
 
-    HttpResponse head(URI uri, Map<String, Object> parameters, Closure responseHandler){
+    def head(URI uri, Map<String, Object> parameters, Closure responseHandler = getBodyAsString){
         URIBuilder builder = new URIBuilder(uri)
         if (parameters && !parameters.isEmpty()) {
             builder.addParameters(createBasicNameValuePairs(parameters))
         }
         HttpHead head = new HttpHead(builder.build())
-        return executeHttpUriRequest(head, responseHandler)
+        return executeHttpRequest(head, responseHandler)
     }
 
-    protected HttpResponse executeHttpUriRequest(HttpRequestBase request, Closure responseHandler) throws Exception{
+    protected def executeHttpRequest(HttpRequestBase request, Closure responseHandler) throws Exception{
         URI uri = request.getURI()
         log.debug("Executing request: ${request.getMethod()} to URI: ${uri.toString()}")
-        if(uri.toURL().getProtocol() == "https") {
-            SSLUtils.setupSSL(uri.toURL())
+
+        if (!client) {
+            this.client = createClient(HttpClientBuilder.create())
         }
 
-        HttpContext localContext
+        if(uri.toURL().getProtocol() == "https") {
+            setupSSL(request)
+        }
+
         def response
         def returnValue
         Throwable error
         try {
-            localContext = new BasicHttpContext();
+            HttpContext localContext = new BasicHttpContext()
             response = this.client.execute(request, localContext)
             returnValue = responseHandler(response)
 
@@ -174,7 +186,9 @@ class GenericHttpClient {
             log.error(e, e)
         } finally {
             try {
-                cleanupResponse(response)
+                if (response) {
+                    cleanupResponse(response)
+                }
                 cleanupRequest(request)
             } catch (Exception ex) {
                 log.debug(ex, ex)
