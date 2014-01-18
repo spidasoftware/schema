@@ -22,7 +22,7 @@ class RestAPI {
 
     List<RestAPIResource> resources = []
 
-	def defaults
+	ConfigObject defaults
 
 
 
@@ -39,6 +39,7 @@ class RestAPI {
 	}
 
 	void loadDefaults(){
+		this.defaults = getDefaultConfigFromResources()
 		log.debug("Loading configuration for RestAPI for: ${this.baseUrl}")
 		if (loadOverrides) {
 			File defaultConfigFile = getOverrideConfigFile()
@@ -47,7 +48,7 @@ class RestAPI {
 
 					def config = new ConfigSlurper().parse(defaultConfigFile.toURI().toURL())
 					log.info("RestAPI defaults have been overridden by ${defaultConfigFile.getCanonicalPath()}")
-					this.defaults = config
+					this.defaults.merge(config)
 					return
 
 				} catch (Exception e) {
@@ -57,7 +58,6 @@ class RestAPI {
 				log.warn("RestAPI config directory was specified, but no config file was found! Using built-in defaults instead.")
 			}
 		}
-		this.defaults = getDefaultConfigFromResources()
 	}
 
 	/**
