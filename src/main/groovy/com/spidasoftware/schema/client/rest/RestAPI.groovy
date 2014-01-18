@@ -40,7 +40,7 @@ class RestAPI {
 		URI uri = new URI(baseUrl + config.path + "/" + id)
 		Map headers = config.headers
 		def result = client.executeRequest("GET", uri, config.additionalParams, headers, config.doWithResponse)
-		return config.doWithFindResult(result)
+		return config.doWithFindResult.call(result)
 	}
 
 	def list(ConfigObject settings, Map params) {
@@ -48,7 +48,7 @@ class RestAPI {
 		URI uri = new URI(baseUrl + config.path)
 		Map headers = config.headers
 		def result = client.executeRequest("GET", uri, mergeParams(params, config.additionialParams), headers, config.doWithResponse)
-		return config.doWithListResult(result)
+		return config.doWithListResult.call(result)
 	}
 
 	def update(ConfigObject settings, Map params, String id) {
@@ -57,7 +57,7 @@ class RestAPI {
 		Map headers = config.headers
 		def result = client.executeRequest("PUT", uri, mergeParams(params, config.additionalParams), headers, config.doWithResponse)
 
-		return config.doWithUpdateResult(result)
+		return config.doWithUpdateResult.call(result)
 	}
 
 	def save(ConfigObject settings, Map params) {
@@ -67,7 +67,7 @@ class RestAPI {
 
 		def result = client.executeRequest("POST", uri, mergeParams(params, config.additionalParams), headers, config.doWithResponse)
 
-		return config.doWithSaveResult(result)
+		return config.doWithSaveResult.call(result)
 	}
 
 	def delete(ConfigObject settings, String id) {
@@ -76,7 +76,7 @@ class RestAPI {
 		Map headers = config.headers
 		def result = client.executeRequest("DELETE", uri, config.additionalParams, headers, config.doWithResponse)
 
-		return config.doWithDeleteResult(result)
+		return config.doWithDeleteResult.call(result)
 
 	}
 

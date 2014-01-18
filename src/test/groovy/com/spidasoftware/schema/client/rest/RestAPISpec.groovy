@@ -20,9 +20,11 @@ class RestAPISpec extends Specification {
 	void "the find method should call the correct client method"() {
 		setup: "create dummy config values"
 		def respClosure = Mock(Closure)
+		def findClosure = Mock(Closure)
 		def config = new ConfigObject()
-		config.additionalParams = [apiToken: "7777777"]
 		config.doWithResponse = respClosure
+		config.doWithFindResult = findClosure
+		config.additionalParams = [apiToken: "7777777"]
 		config.path = "/tests"
 		config.name = "tests"
 		config.headers = ["Accept": "application/json"]
@@ -31,16 +33,18 @@ class RestAPISpec extends Specification {
 		def result = api.find(config, "123")
 
 		then: "the correct methods should be called"
-		1*client.executeRequest("GET", new URI(baseUrl + "/tests/123"), config.additionalParams, config.headers, respClosure)
-
+		1*client.executeRequest("GET", new URI(baseUrl + "/tests/123"), config.additionalParams, config.headers, respClosure) >> "response"
+		1*findClosure.call("response")
 	}
 
 	void "the save method should call the correct client method"() {
 		setup: "create dummy config values and params"
 		def respClosure = Mock(Closure)
+		def saveClosure = Mock(Closure)
 		def config = new ConfigObject()
 		config.additionalParams = [apiToken: "7777777"]
 		config.doWithResponse = respClosure
+		config.doWithSaveResult = saveClosure
 		config.path = "/tests"
 		config.name = "tests"
 		config.headers = ["Accept": "application/json"]
@@ -49,8 +53,9 @@ class RestAPISpec extends Specification {
 		when: "call the save method"
 		def result = api.save(config, params)
 
-
-
+		then: "the correct methods should be called"
+		1*client.executeRequest("POST", new URI(baseUrl + "/tests"), _ as Map, _ as Map, respClosure) >> "result"
+		1*saveClosure.call("result")
 	}
 
 
