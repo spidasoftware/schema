@@ -18,21 +18,84 @@ import org.apache.http.util.EntityUtils
 class RestAPI {
 	HttpClientInterface client
     String baseUrl
+	boolean loadOverrides
 
     List<RestAPIResource> resources = []
 
-	def defaults = new ConfigObject()
+	def defaults
+
+
 
 	RestAPI(String baseUrl, HttpClientInterface client) {
-        this.baseUrl = baseUrl
-		this.client = client
-		this.defaults.doWithResponse = getResultAsJSON
-		this.defaults.doWithFindResult = { return it }
-		this.defaults.doWithListResult = { return it }
-		this.defaults.doWithSaveResult = { return it }
-		this.defaults.doWithUpdateResult = { return it }
-		this.defaults.doWithDeleteResult = { return it }
+        this(baseUrl, client, true)
+
     }
+
+	RestAPI(String baseUrl, HttpClientInterface client, boolean loadOverrides) {
+		this.baseUrl = baseUrl
+		this.client = client
+		this.loadOverrides = loadOverrides
+		loadDefaults()
+	}
+
+	void loadDefaults(){
+		log.debug("Loading configuration for RestAPI for: ${this.baseUrl}")
+		if (loadOverrides) {
+			File defaultConfigFile = getOverrideConfigFile()
+			if (defaultConfigFile && defaultConfigFile.exists()) {
+				try {
+
+					def config = new ConfigSlurper().parse(defaultConfigFile.toURI().toURL())
+					log.info("RestAPI defaults have been overridden by ${defaultConfigFile.getCanonicalPath()}")
+					this.defaults = config
+					return
+
+				} catch (Exception e) {
+					log.error("Error loading default config", e)
+				}
+			} else if (defaultConfigFile) {
+				log.warn("RestAPI config directory was specified, but no config file was found! Using built-in defaults instead.")
+			}
+		}
+		this.defaults = getDefaultConfigFromResources()
+	}
+
+	/**
+	 * Returns the default config file for this api or null if none was specified
+	 * @return the File, whether it exists or not.
+	 */
+	File getOverrideConfigFile(){
+		File configDir = getConfigDirectory()
+		if (configDir) {
+			return new File(configDir, "defaults.groovy")
+		}
+		return null
+	}
+
+	/**
+	 * returns the directory used to store the config files for this api, or null if no system property is set
+	 * @return config dir for this api whether it exists or not, null if no system property is set
+	 */
+	File getConfigDirectory(){
+		def configPath = System.getProperty("spidasoftware.rest.client.config.dir")
+		if (!configPath) {
+			log.debug("RestAPI config override path not specified")
+			return null
+		}
+		File baseConfigDir = new File(configPath)
+
+		String host = new URI(baseUrl).getHost()
+		log.debug("RestAPI config path is: ${baseConfigDir.getCanonicalPath()}/${host}")
+		return  new File(baseConfigDir, host)
+	}
+
+	protected ConfigObject getDefaultConfigFromResources(){
+		log.info("Using default configuration for RestAPI")
+
+		URL configUrl = getClass().getResource("/client/rest/defaults.config")
+		def config = new ConfigSlurper().parse(configUrl)
+		return config
+	}
 
 	def find(ConfigObject settings, String id) {
 		def config = mergeConfig(settings)
@@ -47,7 +110,7 @@ class RestAPI {
 		def config = mergeConfig(settings)
 		URI uri = new URI(baseUrl + config.path)
 		Map headers = config.headers
-		def result = client.executeRequest("GET", uri, mergeParams(params, config.additionialParams), headers, config.doWithResponse)
+		def result = client.executeRequest("GET", uri, mergeParams(params, config.additionalParams), headers, config.doWithResponse)
 		return config.doWithListResult.call(result)
 	}
 

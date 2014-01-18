@@ -1,7 +1,4 @@
 package com.spidasoftware.schema.client.rest
-
-import net.sf.json.JSONObject
-
 /**
  * Created with IntelliJ IDEA.
  * User: pfried

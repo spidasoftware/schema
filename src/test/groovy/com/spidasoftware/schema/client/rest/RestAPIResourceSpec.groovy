@@ -17,7 +17,7 @@ class RestAPIResourceSpec extends Specification {
 	def resource = new RestAPIResource("resource", api)
 
 
-	void "setting resource properties should work fluently"() {
+	void "defining properties in resource settings should work fluently"() {
 		when: "create a new api resource and set it's path"
 		resource.path = "/newPath"
 
@@ -34,16 +34,16 @@ class RestAPIResourceSpec extends Specification {
 	}
 
 	void "Rest crud methods should call the correct api methods"() {
-		setup: "get a reference to the resource's settings"
+		setup: "dummy values for params"
 		def config = resource.settings
-		def saveParams = [name:"value"]
+		def params = [name:"value"]
 		def id = "12345"
 
 		when: "call save"
-		def saveResult = resource.save(saveParams)
+		def saveResult = resource.save(params)
 
 		then: "the api's save method should be called"
-		1*api.save(config, saveParams)
+		1*api.save(config, params)
 
 		when: "call find"
 		def findResult = resource.find(id)
@@ -51,6 +51,23 @@ class RestAPIResourceSpec extends Specification {
 		then: "the api's find method should be called"
 		1*api.find(config, id)
 
+		when: "call list"
+		def listResult = resource.list(params)
+
+		then: "the api's list method should be called"
+		1*api.list(config, params)
+
+		when: "call update"
+		def updateResult = resource.update(id, params)
+
+		then: "the api's update method is called"
+		1*api.update(config, params, id)
+
+		when: "call delete"
+		def deleteResult = resource.delete(id)
+
+		then: "the api's delete method is called"
+		1*api.delete(config, id)
 	}
 
 }

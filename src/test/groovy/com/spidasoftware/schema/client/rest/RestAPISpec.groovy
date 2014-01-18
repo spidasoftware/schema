@@ -1,9 +1,7 @@
 package com.spidasoftware.schema.client.rest
 
 import com.spidasoftware.schema.client.GenericHttpClient
-import net.sf.json.JSONObject
 import spock.lang.*
-import static spock.lang.MockingApi.*
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,26 +13,67 @@ import static spock.lang.MockingApi.*
 class RestAPISpec extends Specification {
 	def baseUrl = "http://www.spidamin.com/calcdb"
 	def client = Mock(GenericHttpClient)
-	def api = new RestAPI(baseUrl, client)
+	def api = new RestAPI(baseUrl, client, false)
 
-	void "the find method should call the correct client method"() {
+	void "config overrides should be loaded properly when specified"() {
+		setup: ""
+	}
+
+
+	void "the rest methods should call the correct client methods"() {
 		setup: "create dummy config values"
-		def respClosure = Mock(Closure)
-		def findClosure = Mock(Closure)
 		def config = new ConfigObject()
-		config.doWithResponse = respClosure
-		config.doWithFindResult = findClosure
+		config.doWithResponse = Mock(Closure)
+		config.doWithFindResult = Mock(Closure)
+		config.doWithListResult = Mock(Closure)
+		config.doWithSaveResult = Mock(Closure)
+		config.doWithUpdateResult = Mock(Closure)
+		config.doWithDeleteResult = Mock(Closure)
+
 		config.additionalParams = [apiToken: "7777777"]
 		config.path = "/tests"
 		config.name = "tests"
 		config.headers = ["Accept": "application/json"]
 
+		def saveParams = ["name":"value"]
+		Map combinedParams = saveParams.plus(config.additionalParams as Map) as Map
+
+
 		when: "call the find method"
 		def result = api.find(config, "123")
 
 		then: "the correct methods should be called"
-		1*client.executeRequest("GET", new URI(baseUrl + "/tests/123"), config.additionalParams, config.headers, respClosure) >> "response"
-		1*findClosure.call("response")
+		1*client.executeRequest("GET", new URI(baseUrl + "/tests/123"), _ as Map, _ as Map, config.doWithResponse) >> "response"
+		1*config.doWithFindResult.call("response")
+
+		when: "call the list method"
+		def listResult = api.list(config, saveParams)
+
+		then:
+		1*client.executeRequest("GET", new URI(baseUrl + "/tests"), _ as Map, _ as Map, config.doWithResponse) >> "response"
+		1*config.doWithListResult.call("response")
+
+		when: "call the update method"
+		api.update(config, saveParams, "123")
+
+		then:
+		1*client.executeRequest("PUT", new URI(baseUrl + "/tests/123"), _ as Map, _ as Map, config.doWithResponse) >> "response"
+		1*config.doWithUpdateResult.call("response")
+
+		when: "call the delete method"
+		api.delete(config, "123")
+
+		then:
+		1*client.executeRequest("DELETE", new URI(baseUrl + "/tests/123"), _ as Map, _ as Map, config.doWithResponse) >> "response"
+		1*config.doWithDeleteResult.call("response")
+
+		when: "call save"
+		api.save(config, saveParams)
+
+		then:
+		1*client.executeRequest("POST", new URI(baseUrl + "/tests"), _ as Map, _ as Map, config.doWithResponse) >> "response"
+		1*config.doWithSaveResult.call("response")
+
 	}
 
 	void "the save method should call the correct client method"() {
@@ -59,18 +98,26 @@ class RestAPISpec extends Specification {
 	}
 
 
+
 	void "RestAPI should merge configObjects properly"() {
 		setup: "new resource and set it's configObject properties"
 		api.project.doWithResponse = {response ->  "success" }
+		api.project.someProperty.someNestedProperty = "nested"
 
-		when: "call a rest method"
+		// also set one of the default properties
+		def heds = ["Accept": "application/json"]
+		api.defaults.headers = heds
+
+		when: "merge the settings from the resource"
 		def settings = api.project.settings
 		def result = api.mergeConfig(settings)
 
-		then:
+		then: "the result should contain the properties from both"
 		result.doWithResponse() == "success"
 		result.path == "/project"
 		result.name == "project"
+		result.someProperty.someNestedProperty == "nested"
+		result.headers == heds
 
 	}
 
@@ -87,7 +134,7 @@ class RestAPISpec extends Specification {
 		// make sure it's added to the resources list
 		api.resources.find{ it.name == "project" }.path == "/projects"
 
-		when: "create a new resource and call get on it"
+		when: "create a new resource and call find on it"
 		api.testResource.find("23455")
 
 		then:
@@ -98,15 +145,15 @@ class RestAPISpec extends Specification {
 	void "parameters should be merged properly"() {
 		setup: "create two maps of params"
 		def params1 = [json: '{"name":"value"}']
-		api.project.additionalParams = [apiToken:"7777777"]
+		api.project.additionalParams = [apiToken:"7777777", json: '{"name":"anotherValue"}']
 
 		when: "merge the two"
 		def result = RestAPI.mergeParams(params1, api.project.additionalParams)
 
-		then: "the result should contain both sets of data"
+		then: "the result should contain both sets of data, with the supplied params taking precedence ofer config.additionalParams"
 		result.json == '{"name":"value"}'
 		result.apiToken == "7777777"
-		!api.project.additionalParams.containsKey("json")
+		api.project.additionalParams.containsKey("json")
 		!params1.containsKey("apiToken")
 	}
 
