@@ -16,7 +16,22 @@ class RestAPISpec extends Specification {
 	def api = new RestAPI(baseUrl, client, false)
 
 	void "config overrides should be loaded properly when specified"() {
-		setup: ""
+		setup: "set system property for config dir"
+		api.loadOverrides = true
+		File configDir = new File(getClass().getResource("/rest/client").toURI())
+		System.setProperty("spidasoftware.rest.client.config.dir", configDir.getCanonicalPath())
+
+		when: "reload the defaults for the api"
+		api.loadDefaults()
+
+		then: "the defaults should be overridden"
+		def heds = api.defaults.headers
+		heds.Accept == "customOverrideValue"
+
+		api.defaults.doWithResponse.call(null) == "overridden doWithResponse Closure"
+
+		cleanup: "unset the system property"
+		System.clearProperty("spidasoftware.rest.client.config.dir")
 	}
 
 

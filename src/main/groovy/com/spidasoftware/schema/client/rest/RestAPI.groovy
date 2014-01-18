@@ -67,7 +67,7 @@ class RestAPI {
 	File getOverrideConfigFile(){
 		File configDir = getConfigDirectory()
 		if (configDir) {
-			return new File(configDir, "defaults.groovy")
+			return new File(configDir, "defaults.config")
 		}
 		return null
 	}
