@@ -94,7 +94,7 @@ class RestAPI {
 	def find(ConfigObject settings, String id) {
 		def config = mergeConfig(settings)
 
-		URI uri = new URI(baseUrl + config.path + "/" + id)
+		URI uri = createURI(config.path, id)
 		Map headers = config.headers
 		def result = client.executeRequest("GET", uri, config.additionalParams, headers, config.doWithResponse)
 		return config.doWithFindResult.call(result)
@@ -102,7 +102,7 @@ class RestAPI {
 
 	def list(ConfigObject settings, Map params) {
 		def config = mergeConfig(settings)
-		URI uri = new URI(baseUrl + config.path)
+		URI uri = createURI(config.path)
 		Map headers = config.headers
 		def result = client.executeRequest("GET", uri, mergeParams(params, config.additionalParams), headers, config.doWithResponse)
 		return config.doWithListResult.call(result)
@@ -110,7 +110,7 @@ class RestAPI {
 
 	def update(ConfigObject settings, Map params, String id) {
 		def config = mergeConfig(settings)
-		URI uri = new URI(baseUrl + config.path + "/" + id)
+		URI uri = createURI(config.path, id)
 		Map headers = config.headers
 		def result = client.executeRequest("PUT", uri, mergeParams(params, config.additionalParams), headers, config.doWithResponse)
 
@@ -119,7 +119,7 @@ class RestAPI {
 
 	def save(ConfigObject settings, Map params) {
 		def config = mergeConfig(settings)
-		URI uri = new URI(baseUrl + config.path)
+		URI uri = createURI(config.path)
 		Map headers = config.headers
 
 		def result = client.executeRequest("POST", uri, mergeParams(params, config.additionalParams), headers, config.doWithResponse)
@@ -129,13 +129,33 @@ class RestAPI {
 
 	def delete(ConfigObject settings, String id) {
 		def config = mergeConfig(settings)
-		URI uri = new URI(baseUrl + config.path + "/" + id)
+		URI uri = createURI(config.path, id)
 		Map headers = config.headers
 		def result = client.executeRequest("DELETE", uri, config.additionalParams, headers, config.doWithResponse)
 
 		return config.doWithDeleteResult.call(result)
 
 	}
+
+	URI createURI(String path, String id = null) {
+		StringBuilder sb = new StringBuilder()
+		String base
+		if (baseUrl.endsWith('/')) {
+			sb.append(baseUrl.substring(0, baseUrl.lastIndexOf('/')))
+		} else {
+			sb.append(baseUrl)
+		}
+		if (path && path != "/") {
+			sb.append(path.startsWith('/')? path : "/"+ path)
+		}
+		if (id) {
+			sb.append("/" + id)
+		}
+
+		return new URI(sb.toString())
+
+	}
+
 
 	protected static Map mergeParams(Map originalParams, Map additional) {
 		if (additional && !additional.isEmpty()) {

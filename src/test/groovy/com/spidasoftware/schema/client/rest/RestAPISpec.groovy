@@ -15,6 +15,22 @@ class RestAPISpec extends Specification {
 	def client = Mock(GenericHttpClient)
 	def api = new RestAPI(baseUrl, client)
 
+	void "uri's should be correctly generated"() {
+		when: "generate the url from the current baseUrl, path and id"
+		api.baseUrl = "http://"+ currentBaseUrl
+		URI uri = api.createURI(currentPath, currentId)
+
+		then: "the generated uri should match the expected"
+		uri.toString() == "http://"+ expectedUri
+
+		where:
+		currentBaseUrl      || currentPath          || currentId    || expectedUri
+		"www.website.com"   || "api/resource"       || "1234567"    || "www.website.com/api/resource/1234567"
+		"spida.min.com"     || "/calcdb/projects"   ||  ""          || "spida.min.com/calcdb/projects"
+		"spida.min.com/"    || "/calcdb/projects"   || "123"        || "spida.min.com/calcdb/projects/123"
+		"www.google.com/"   || "search"             || null         || "www.google.com/search"
+	}
+
 	void "config overrides should be loaded properly when specified"() {
 		setup: "set the config directory for the api"
 		api.configDirectory = new File(getClass().getResource("/rest/client/config").toURI())
