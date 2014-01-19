@@ -13,13 +13,11 @@ import spock.lang.*
 class RestAPISpec extends Specification {
 	def baseUrl = "http://www.spidamin.com/calcdb"
 	def client = Mock(GenericHttpClient)
-	def api = new RestAPI(baseUrl, client, false)
+	def api = new RestAPI(baseUrl, client)
 
 	void "config overrides should be loaded properly when specified"() {
-		setup: "set system property for config dir"
-		api.loadOverrides = true
-		File configDir = new File(getClass().getResource("/rest/client").toURI())
-		System.setProperty("spidasoftware.rest.client.config.dir", configDir.getCanonicalPath())
+		setup: "set the config directory for the api"
+		api.configDirectory = new File(getClass().getResource("/rest/client/config").toURI())
 
 		when: "reload the defaults for the api"
 		api.loadDefaults()
@@ -30,8 +28,6 @@ class RestAPISpec extends Specification {
 
 		api.defaults.doWithResponse.call(null) == "overridden doWithResponse Closure"
 
-		cleanup: "unset the system property"
-		System.clearProperty("spidasoftware.rest.client.config.dir")
 	}
 
 

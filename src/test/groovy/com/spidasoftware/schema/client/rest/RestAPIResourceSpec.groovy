@@ -16,6 +16,18 @@ class RestAPIResourceSpec extends Specification {
 	def api = Mock(RestAPI)
 	def resource = new RestAPIResource("resource", api)
 
+	void "resource setting should be automatically loaded from an external config file if the parent api has one"() {
+		setup: "set the external config directory for the parent api to a directory containing projects.config"
+		api.configDirectory >> new File(getClass().getResource("/rest/client/config").toURI())
+
+		when: "create a new resource called projects"
+		def projects = new RestAPIResource("projects", api)
+
+		then: "the overridden settings should be applied from the projects.config file"
+		projects.settings.doWithFindResult.call(null) == "projects override"
+		projects.settings.headers == ["Accept":"X-projects"]
+
+	}
 
 	void "defining properties in resource settings should work fluently"() {
 		when: "create a new api resource and set it's path"

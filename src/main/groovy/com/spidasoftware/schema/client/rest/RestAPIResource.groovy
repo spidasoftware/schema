@@ -11,7 +11,7 @@ import groovy.util.logging.Log4j
  *     // if you had a resource called books at the path '/books'
  *     api.books.list(["author":"Mark Twain"])  // this will construct and execute the request and return the result as JSON
  * </code>
- * This will create a new resource and set it's path to /projects and call it's list method with the given parameters.
+ * This will create a new resource and set it's path to /books and call it's list method with the given parameters.
  * Many use cases will be covered by this simple one-line approach, but sometimes you will need to override the default
  * settings. There are two simple ways of doing so:
  * First you can just set whatever you want like so:
@@ -31,9 +31,15 @@ import groovy.util.logging.Log4j
  *
  *     }
  * </code>
- * The second way of overriding defaults is by specifying a directory to use for storing configuration files.
- * These files can be written in Groovy's ConfigSlurper syntax. Config files will be loaded from subdirectories
- * with the same host name.
+ * The second way of overriding defaults is by specifying a directory to use for storing configuration files:
+ * <code>
+ *     def externalConfigDirectory = new File("/path/to/directory")
+ *     RestAPI api = new RestAPI(url, httpClient, externalConfigDirectory)
+ *     // alternatively, api.configDirectory = externalConfigDirectory
+ *     api.books.find("12345")  //this will cause the books resource to use the settings found in <api.configDirectory>/books.config
+ * </code>
+ * These files are written using Groovy's ConfigSlurper syntax. Resource config files should have the same name as the
+ * resource plus a '.config' extension
  *
  * All the resource settings, wherever they come from, will get merged with the default settings of the api, so there's
  * typically no need to do a lot of configuration for each individual resource.
@@ -56,45 +62,34 @@ class RestAPIResource {
 	RestAPIResource(String name, RestAPI parent) {
 		this.parent = parent
 		this.name = name
-		settings.setProperty("name", name)
-		settings.setProperty("path", "/" + name)
-
-		if (parent.loadOverrides) {
-			ConfigObject overrides = getOverrideSettings()
-			if (overrides) {
-				this.settings.merge(overrides)
-			}
-		}
+		reloadSettings()
 	}
 
 	/**
 	 * Clears and reloads the settings for this resource. If an external config directory has been specified
-	 * by the system property 'spidasoftware.rest.client.config.dir', then the resource will look in there for the relative
-	 * path: <host name from base url>/<resource name>.config
+	 * for the parent RestAPI, then the resource will look in there for the file <resource_name>.config
 	 * If no config override is found, then it will just clear all the settings and set the name and default path.
 	 */
 	void reloadSettings(){
 		this.settings = new ConfigObject()
 		this.settings.setProperty("name", name)
 		this.settings.setProperty("path", "/"+name)
-		if (parent.loadOverrides) {
-			ConfigObject overrides = getOverrideSettings()
-			if (overrides) {
-				this.settings.merge(overrides)
-				log.info("Reloaded settings for resource: ${name} from external config directory")
-			} else {
-				log.info("Settings for resource: ${name} have been cleared and path has been reset to: ${this.settings.path}")
-			}
+		ConfigObject overrides = getOverrideSettings()
+		if (overrides) {
+			this.settings.merge(overrides)
+			log.info("Loaded settings for resource: ${name} from external config directory")
+		} else {
+			log.info("Settings for resource: ${name} have been set to defaults")
 		}
 	}
 
 	protected ConfigObject getOverrideSettings(){
-		File configDir = parent.getConfigDirectory()
-		if (configDir) {
-			File overrideFile = new File(configDir, "${name}.config")
+		if (parent.configDirectory) {
+			File overrideFile = new File(parent.configDirectory, "${name}.config")
 			if (overrideFile.exists()) {
-
 				return new ConfigSlurper().parse(overrideFile.toURI().toURL())
+			} else {
+				log.warn("Config directory was specified, but no override was found for resource '${name}' at: ${parent.configDirectory.getAbsolutePath() + "/${name}.config"}")
 			}
 
 		}

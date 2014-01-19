@@ -16,34 +16,48 @@ import org.apache.http.util.EntityUtils
  */
 @Log4j
 class RestAPI {
-	HttpClientInterface client
-    String baseUrl
-	boolean loadOverrides
 
+	/**
+	 * The client to use for making http calls.
+	 */
+	HttpClientInterface client
+
+	/**
+	 * The base URI to use for all of the api calls. i.e.- "http://www.website.com"
+	 */
+    String baseUrl
+
+	/**
+	 * The list of resources associated with this RestAPI. Each resource stores it's own settings, which can override the defaults.
+	 */
     List<RestAPIResource> resources = []
 
+	/**
+	 * Default configurations to use for all api calls. Individual resources will inherit from these settings.
+	 * More specifically, each resources settings will be merged into a copy of <code>defaults</code> before each api call.
+	 * Thus allowing only portions of the default config to be overridden.
+	 */
 	ConfigObject defaults
-
-
+	File configDirectory    // Location for external configuration files, may be null
 
 	RestAPI(String baseUrl, HttpClientInterface client) {
-        this(baseUrl, client, true)
+        this(baseUrl, client, null)
 
     }
 
-	RestAPI(String baseUrl, HttpClientInterface client, boolean loadOverrides) {
+	RestAPI(String baseUrl, HttpClientInterface client, File configDirectory) {
 		this.baseUrl = baseUrl
 		this.client = client
-		this.loadOverrides = loadOverrides
+		this.configDirectory = configDirectory
 		loadDefaults()
 	}
 
 	void loadDefaults(){
 		this.defaults = getDefaultConfigFromResources()
-		log.debug("Loading configuration for RestAPI for: ${this.baseUrl}")
-		if (loadOverrides) {
-			File defaultConfigFile = getOverrideConfigFile()
-			if (defaultConfigFile && defaultConfigFile.exists()) {
+		if (this.configDirectory) {
+			log.debug("Loading configuration for RestAPI from: ${this.configDirectory.getCanonicalPath()}")
+			File defaultConfigFile = new File(this.configDirectory, "defaults.config")
+			if (defaultConfigFile.exists()) {
 				try {
 
 					def config = new ConfigSlurper().parse(defaultConfigFile.toURI().toURL())
@@ -52,42 +66,15 @@ class RestAPI {
 					return
 
 				} catch (Exception e) {
-					log.error("Error loading default config", e)
+					log.error("Error loading ${defaultConfigFile.getCanonicalPath()}. Falling back to built-in defaults", e)
 				}
-			} else if (defaultConfigFile) {
+			} else {
 				log.warn("RestAPI config directory was specified, but no config file was found! Using built-in defaults instead.")
 			}
 		}
 	}
 
-	/**
-	 * Returns the default config file for this api or null if none was specified
-	 * @return the File, whether it exists or not.
-	 */
-	File getOverrideConfigFile(){
-		File configDir = getConfigDirectory()
-		if (configDir) {
-			return new File(configDir, "defaults.config")
-		}
-		return null
-	}
 
-	/**
-	 * returns the directory used to store the config files for this api, or null if no system property is set
-	 * @return config dir for this api whether it exists or not, null if no system property is set
-	 */
-	File getConfigDirectory(){
-		def configPath = System.getProperty("spidasoftware.rest.client.config.dir")
-		if (!configPath) {
-			log.debug("RestAPI config override path not specified")
-			return null
-		}
-		File baseConfigDir = new File(configPath)
-
-		String host = new URI(baseUrl).getHost()
-		log.debug("RestAPI config path is: ${baseConfigDir.getCanonicalPath()}/${host}")
-		return  new File(baseConfigDir, host)
-	}
 
 	protected ConfigObject getDefaultConfigFromResources(){
 		log.info("Using default configuration for RestAPI")
