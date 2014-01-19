@@ -8,6 +8,13 @@ import net.sf.json.JSONSerializer
 import org.apache.http.util.EntityUtils
 
 /**
+ * Use for making calls to a rest api. Defaults to a JSON-based api, but can be easily configured to use xml instead.
+ * Most methods in this class should not be called directly, but instead by a child RestAPIResource.
+ *
+ * The only thing to be done with the api directly is setting it's default configuration that get's used by all of it's
+ * child resources. You can access this property directly as <code>api.defaults</code>. You can also externalize
+ * the configuration and pass in a directory containing the .config files to use.
+ *
  * Created with IntelliJ IDEA.
  * User: pfried
  * Date: 1/15/14
