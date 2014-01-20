@@ -56,16 +56,14 @@ class GenericHttpClientSpec extends Specification {
 		def mockClient = Mock(CloseableHttpClient)
 		def mockResponse = Mock(CloseableHttpResponse)
 		mockClient.execute(_ as HttpUriRequest, _ as HttpContext) >> mockResponse
-		client.cleanupRequest = Mock(Closure)
 		client.cleanupResponse = Mock(Closure)
 		client.client = mockClient
 
 		when: "execute a request"
 		def result = client.executeRequest("GET", uri, null, null){ "success" }
 
-		then: "the correct closures are called"
+		then: "the cleanupResponse Closure called"
 		1*client.cleanupResponse.call(mockResponse)
-		1*client.cleanupRequest.call(_ as HttpUriRequest)
 
 
 	}

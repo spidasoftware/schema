@@ -1,6 +1,10 @@
 package com.spidasoftware.schema.client
 
 import groovy.util.logging.Log4j
+import net.sf.json.JSON
+import net.sf.json.JSONException
+import net.sf.json.JSONObject
+import net.sf.json.JSONSerializer
 import org.apache.http.HttpEntity
 import org.apache.http.HttpEntityEnclosingRequest
 import org.apache.http.HttpResponse
@@ -153,23 +157,39 @@ class GenericHttpClient implements HttpClientInterface {
 	}
 
 	/**
-	 * Called by client.shutdown()
-	 * Closure for cleaning up an Http connection after the request has completed.
-	 * Default will release the connection every time.
-	 * If you're using a custom ConnectionManager, you may want to set your own cleanupRequest closure
-	 * to allow connections to remain open and be reused
-	 */
-	def cleanupRequest = { request ->
-		request.releaseConnection()
+	 * Returns a simple json object containing the response status code and the response body.
+	 * The format is:
+	 * {
+	 *   "status":200,
+	 *   "json":*response body as JSON *
+	 * }
+	 *
+	 * Usage: client.executeRequest(method, uri, params, headers, client.getResponseAsJson)
+	 * @return net.sf.json.JSONObject
+   	 */
+	def getResponseAsJson = {response ->
+		JSON body = null
+		def input = response?.getEntity()?.getContent()
+		if (input) {
+			body = JSONSerializer.toJSON(input.getText())
+		}
+		JSONObject json = new JSONObject()
+		json.element("status", response.getStatusLine().getStatusCode())
+		json.elementOpt("json", body)
 
 	}
+
 
 	/**
 	 *  Closure for performing cleanup operations on an HttpRepsonse.
 	 *  Default will just close the inputStream, if it has one.
 	 */
 	def cleanupResponse = { response ->
-		response?.getEntity()?.getContent()?.close()
+		try {
+			response?.getEntity()?.getContent()?.close()
+		} catch (Exception e) {
+			log.error("Error closing response inputstream", e)
+		}
 	}
 
 
@@ -197,7 +217,6 @@ class GenericHttpClient implements HttpClientInterface {
 				if (response) {
 					cleanupResponse(response)
 				}
-				cleanupRequest(request)
 			} catch (Exception ex) {
 				log.debug(ex, ex)
 			}
