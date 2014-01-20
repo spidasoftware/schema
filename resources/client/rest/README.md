@@ -93,7 +93,10 @@ This may cause the server to respond with xml instead of json, but we still need
 
 Once a response is received from the server, the response object is passed to the doWithResponse closure. This closure is passed to the api's http client and get's executed by the client. The client then calls it's cleanupResponse and cleanupRequest closures (by default, these simply close the response entity's inputstream and release the request's connection). Then whatever was returned from doWithResponse is sent back to the RestAPI. At this point, it will be passed through one of five closures defined in the api settings:
 
-    doWithFindResult = { it }
+    doWithFindResult = {result ->
+        // when you call api.books.find(id), the result of doWithResponse is automatically passed to this closure.
+        // You can use these method-specific closures to
+    }
     doWithListResult = { it }
     doWithSaveResult = { it }
     doWithUpdateResult = { it }
@@ -105,7 +108,7 @@ By default, these closures don't modify the data at all, but you can use them to
 Externalizing Configuration
 -----------------------------------
 
-You can easily externalize the configuration of a RestAPI by specifying a configuration directory in the constructor. If you provide such a directory, the api will look for a file there called defaults.config to use for it's defaults. The external config file will actually be merged into the base defaults, so you only have to specify the settings you want to override. RestAPIResources will also be automatically configured, looking for a file named <resource_name>.config. These files are written using Groovy's ConfigSlurper syntax.
+You can easily externalize the configuration of a RestAPI by specifying a configuration directory in the constructor. If you provide such a directory, the api will look for a file there called defaults.config to use for it's defaults. The external config file will actually be merged into the base defaults, so you only have to specify the settings you want to override. RestAPIResources will also be automatically configured, looking for a file named <resource_name>.config. These files are written using Groovy's ConfigSlurper syntax. You may specify as many or as few settings as you like.
 
 
 The HttpClientInterface

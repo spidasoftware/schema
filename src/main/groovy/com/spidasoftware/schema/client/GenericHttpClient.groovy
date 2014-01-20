@@ -8,6 +8,7 @@ import org.apache.http.HttpResponse
 import org.apache.http.NameValuePair
 import org.apache.http.client.HttpClient
 import org.apache.http.client.HttpResponseException
+import org.apache.http.client.RedirectStrategy
 import org.apache.http.client.methods.HttpDelete
 import org.apache.http.client.methods.HttpGet
 import org.apache.http.client.methods.HttpHead
@@ -38,7 +39,7 @@ import java.nio.file.Files
  * avoid leaking connections.
  *
  * <br>
- * By default, the client will follow redirects for GET and HEAD requests only.
+ * By default, the client will not follow any redirects.
  *
  * Created with IntelliJ IDEA.
  * User: pfried
@@ -116,9 +117,14 @@ class GenericHttpClient implements HttpClientInterface {
 	 * Default is a pretty standard implementation that will follow redirects on GET and HEAD requests,
 	 * but not on anything else.
 	 * If you create you own client, you may also need to customize the cleanupClient closure.
+	 *
+	 * NOTE for migrating HttpInterface:
+	 * Part of why the HttpInterface class is so complicated is that it has to deal with proxy authentication issues.
+	 * We should look into using a custom ProxyAuthenticationStrategy in order to deal with these. Then set it using
+	 * clientBuilder.setProxyAuthenticationStrategy(<custom strategy instance>)
 	 */
-	def createClient = { clientBuilder ->
-		clientBuilder.build()
+	def createClient = {HttpClientBuilder clientBuilder ->
+		clientBuilder.disableRedirectHandling().build()
 	}
 
 	/**
@@ -167,13 +173,6 @@ class GenericHttpClient implements HttpClientInterface {
 		response?.getEntity()?.getContent()?.close()
 	}
 
-	/**
-	 * Called when the protocol is https.
-	 */
-	def setupSSL = { request ->
-		SSLUtils.setupSSL(request.getURI().toURL())
-	}
-
 
 	def executeHttpRequest(HttpUriRequest request, Closure responseHandler) throws Exception {
 		URI uri = request.getURI()
@@ -181,10 +180,6 @@ class GenericHttpClient implements HttpClientInterface {
 
 		if (!client) {
 			this.client = createClient(HttpClientBuilder.create())
-		}
-
-		if (uri.toURL().getProtocol() == "https") {
-			setupSSL(request)
 		}
 
 		def response
