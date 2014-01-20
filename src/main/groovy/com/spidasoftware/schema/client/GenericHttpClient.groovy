@@ -1,6 +1,5 @@
 package com.spidasoftware.schema.client
 
-import com.spidasoftware.schema.utils.SSLUtils
 import groovy.util.logging.Log4j
 import org.apache.http.HttpEntity
 import org.apache.http.HttpEntityEnclosingRequest
