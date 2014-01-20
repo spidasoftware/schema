@@ -176,7 +176,7 @@ class GenericHttpClient implements HttpClientInterface {
 		JSONObject json = new JSONObject()
 		json.element("status", response.getStatusLine().getStatusCode())
 		json.elementOpt("json", body)
-
+		return json
 	}
 
 
