@@ -403,14 +403,66 @@
           },
           "braceHeight": {
             "$ref": "../../general/measurable.schema",
-            "description": "If this is a sidewalk guy, attach height of sidewalk brace."
+            "description": "DEPRECATED in Calc 5.1. Use sidewalkBraces instead. If this is a sidewalk guy, attach height of sidewalk brace."
           },
           "braceLength": {
             "$ref": "../../general/measurable.schema",
-            "description": "If this is a sidewalk guy, length of sidewalk brace."
+            "description": "DEPRECATED in Calc 5.1. Use sidewalkBraces instead. If this is a sidewalk guy, length of sidewalk brace."
           },
           "clientItem": {
             "$ref": "../../spidacalc/calc/client_references/wire.schema"
+          }
+        }
+      }
+    },
+    "sidewalkBraces": {
+      "description": "List of all sidewalk braces (AKA queen posts)",
+      "items": {
+        "type": "object",
+        "description": "A single sidewalk brace.",
+        "id": "sidewalkBrace",
+        "required": [
+          "attachHeight",
+          "length",
+          "clientItem",
+          "direction",
+          "id",
+          "owner",
+          "guys"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The display ID for the attachment. Must be unique within the pole."
+          },
+          "uuid": {
+            "type": "string",
+            "description": "An optional UUID for the item."
+          },
+          "owner": {
+            "$ref": "../../general/owner.schema"
+          },
+          "attachmentHeight": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "length": {
+            "description": "Length of the brace from the pole.",
+            "$ref": "../../general/measurable.schema"
+          },
+          "direction": {
+            "$ref": "../../general/bearing.schema"
+          },
+          "clientItem": {
+            "$ref": "../../spidacalc/calc/client_references/equipment.schema"
+          },
+          "guys": {
+            "type": "array",
+            "description": "List of Guy IDs of guys that are attached to this brace.",
+            "items": {
+              "type": "string",
+              "description": "Guy ID"
+            }
           }
         }
       }

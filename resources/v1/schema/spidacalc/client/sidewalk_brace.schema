@@ -1,0 +1,47 @@
+{
+  "description": "Engineering properties for a Sidewalk Brace AKA Queen Post AKA Sidewalk Strut",
+  "id": "#/spidacalc/client/sidewalk_brace.schema",
+  "type": "object",
+  "required": [
+    "density",
+    "modulus",
+    "outerDiameter",
+    "size",
+    "wallThickness"
+  ],
+  "properties": {
+    "size": {
+      "type": "string"
+    },
+    "density": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "modulus": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "outDiameter": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "wallThickness": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "capacities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "An entry in a map of brace lengths to rated strength.",
+        "properties": {
+          "length": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "force": {
+            "$ref": "../../general/measurable.schema"
+          }
+        }
+
+      }
+    }
+
+  },
+  "additionalProperties": false
+}
