@@ -422,7 +422,7 @@
         "description": "A single sidewalk brace.",
         "id": "sidewalkBrace",
         "required": [
-          "attachHeight",
+          "attachmentHeight",
           "length",
           "clientItem",
           "direction",
@@ -454,7 +454,12 @@
             "$ref": "../../general/bearing.schema"
           },
           "clientItem": {
-            "$ref": "../../spidacalc/calc/client_references/equipment.schema"
+            "type": "string",
+            "description": "The size of the client brace to be used."
+          },
+          "associatedBacking": {
+            "type": "string",
+            "description": "The backing wire end point or BISECTOR"
           },
           "guys": {
             "type": "array",
