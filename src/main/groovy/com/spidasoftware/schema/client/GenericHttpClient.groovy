@@ -193,7 +193,7 @@ class GenericHttpClient implements HttpClientInterface {
 	}
 
 
-	def executeHttpRequest(HttpUriRequest request, Closure responseHandler) throws Exception {
+	protected def executeHttpRequest(HttpUriRequest request, Closure responseHandler) throws Exception {
 		URI uri = request.getURI()
 		log.debug("Executing request: ${request.getMethod()} to URI: ${uri.toString()}")
 
