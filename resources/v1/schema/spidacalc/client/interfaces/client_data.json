@@ -223,6 +223,42 @@
             }
         ]
     },
+    "sidewalkBraces": {
+        "description": "Return the client sidewalk braces in the client file.",
+        "returns": "array",
+        "params": [
+            {
+                "type": "string",
+                "name": "clientFile",
+                "required": true,
+                "description": "Client File to be queried"
+            },
+            {
+                "type": "boolean",
+                "name": "details",
+                "required": false,
+                "description": "Should the complete details be returned."
+            }
+        ]
+    },
+    "sidewalkBrace": {
+        "description": "Return a client  sidewalk brace in the client file.",
+        "returns": "object",
+        "params": [
+            {
+                "type": "string",
+                "name": "sidewalkBrace",
+                "required": true,
+                "description": "Sidewalk brace id"
+            },
+            {
+                "type": "string",
+                "name": "clientFile",
+                "required": true,
+                "description": "Client File to be queried"
+            }
+        ]
+    },
     "loadCases": {
         "description": "Return the load cases in the client file.",
         "returns": "array",
