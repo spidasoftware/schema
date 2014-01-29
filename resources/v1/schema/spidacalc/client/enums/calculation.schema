@@ -1,4 +1,5 @@
-{
+{ 
+  "description": "Note: these used to be INITIAL and FINAL. INITIAL is not STATIC, FINAL is now DYNAMIC",
   "enum": [
     "STATIC", 
     "DYNAMIC"
