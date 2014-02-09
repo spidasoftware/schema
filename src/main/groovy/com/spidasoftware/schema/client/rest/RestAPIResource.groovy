@@ -1,6 +1,10 @@
 package com.spidasoftware.schema.client.rest
 
+import groovy.transform.WithReadLock
+import groovy.transform.WithWriteLock
 import groovy.util.logging.Log4j
+
+import java.util.concurrent.locks.ReentrantReadWriteLock
 
 /**
  * This class holds resource-specific settings for a RestAPI and allows you to easily make
@@ -53,10 +57,17 @@ import groovy.util.logging.Log4j
  */
 @Log4j
 class RestAPIResource {
+	ReentrantReadWriteLock settings_lock = new ReentrantReadWriteLock()
+
 	String name
 
 	RestAPI parent
 
+	/**
+	 * Holds the Settings specific to this resource. Note that modifying these settings is not inherently
+	 * thread safe. If you need to change any settings after the initialization of the resource, you'll need to
+	 * manually aquire a write lock on the <code>settings_lock</code> object
+	 */
 	public ConfigObject settings = new ConfigObject()
 
 	RestAPIResource(String name, RestAPI parent) {
@@ -70,6 +81,7 @@ class RestAPIResource {
 	 * for the parent RestAPI, then the resource will look in there for the file <resource_name>.config
 	 * If no config override is found, then it will just clear all the settings and set the name and default path.
 	 */
+	@WithWriteLock("settings_lock")
 	void reloadSettings(){
 		this.settings = new ConfigObject()
 		this.settings.setProperty("name", name)
@@ -107,6 +119,7 @@ class RestAPIResource {
 	 *  or will throw an exception if the response is not valid JSON. This can all be easily overridden by adding
 	 *  or changing the doWithResponse and/or doWithFindResult closures
 	 */
+	@WithReadLock("settings_lock")
 	def find(String id) {
 		def result = parent.find(settings, id)
 		return result
@@ -123,6 +136,7 @@ class RestAPIResource {
 	 *  or will throw an exception if the response is not valid JSON. This can all be easily overridden by adding
 	 *  or changing the doWithResponse and/or doWithListResult closures
 	 */
+	@WithReadLock("settings_lock")
 	def list(Map params) {
 		return parent.list(settings, params)
 	}
@@ -138,6 +152,7 @@ class RestAPIResource {
 	 *  or will throw an exception if the response is not valid JSON. This can all be easily overridden by adding
 	 *  or changing the doWithResponse and/or doWithUpdateResult closures
 	 */
+	@WithReadLock("settings_lock")
 	def update(String id, Map params) {
 		return parent.update(settings, params, id)
 	}
@@ -153,6 +168,7 @@ class RestAPIResource {
 	 *  or will throw an exception if the response is not valid JSON. This can all be easily overridden by adding
 	 *  or changing the doWithResponse and/or doWithSaveResult closures
 	 */
+	@WithReadLock("settings_lock")
 	def save(Map params) {
 		return parent.save(settings, params)
 	}
@@ -167,6 +183,7 @@ class RestAPIResource {
 	 *  or will throw an exception if the response is not valid JSON. This can all be easily overridden by adding
 	 *  or changing the doWithResponse and/or doWithDeleteResult closures
 	 */
+	@WithReadLock("settings_lock")
 	def delete(String id) {
 		return parent.delete(settings, id)
 	}

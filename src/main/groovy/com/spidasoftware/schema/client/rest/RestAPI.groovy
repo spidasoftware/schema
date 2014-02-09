@@ -1,11 +1,15 @@
 package com.spidasoftware.schema.client.rest
 
 import com.spidasoftware.schema.client.HttpClientInterface
+import groovy.transform.WithReadLock
+import groovy.transform.WithWriteLock
 import groovy.util.logging.Log4j
 import net.sf.json.JSON
 import net.sf.json.JSONObject
 import net.sf.json.JSONSerializer
 import org.apache.http.util.EntityUtils
+
+import java.util.concurrent.locks.ReentrantReadWriteLock
 
 /**
  * Use for making calls to a rest api. Defaults to a JSON-based api, but can be easily configured to use xml instead.
@@ -23,6 +27,7 @@ import org.apache.http.util.EntityUtils
  */
 @Log4j
 class RestAPI {
+	ReentrantReadWriteLock defaults_lock = new ReentrantReadWriteLock()
 
 	/**
 	 * The client to use for making http calls.
@@ -37,12 +42,15 @@ class RestAPI {
 	/**
 	 * The list of resources associated with this RestAPI. Each resource stores it's own settings, which can override the defaults.
 	 */
-    List<RestAPIResource> resources = []
+    private List<RestAPIResource> resources = []
 
 	/**
 	 * Default configurations to use for all api calls. Individual resources will inherit from these settings.
 	 * More specifically, each resources settings will be merged into a copy of <code>defaults</code> before each api call.
 	 * Thus allowing only portions of the default config to be overridden.
+	 *
+	 * Setting defaults is NOT thread safe. If you need to change defaults after initializing the RestAPI, then you
+	 * should manually aquire a write lock on the <code>defaults_lock</code> before changing anything, and release afterwards.
 	 */
 	ConfigObject defaults
 	File configDirectory    // Location for external configuration files, may be null
@@ -59,6 +67,7 @@ class RestAPI {
 		loadDefaults()
 	}
 
+	@WithWriteLock("defaults_lock")
 	void loadDefaults(){
 		this.defaults = getDefaultConfigFromResources()
 		if (this.configDirectory) {
@@ -91,6 +100,7 @@ class RestAPI {
 		return config
 	}
 
+	@WithReadLock("defaults_lock")
 	def find(ConfigObject settings, String id) {
 		def config = mergeConfig(settings)
 
@@ -100,6 +110,7 @@ class RestAPI {
 		return config.doWithFindResult.call(result)
 	}
 
+	@WithReadLock("defaults_lock")
 	def list(ConfigObject settings, Map params) {
 		def config = mergeConfig(settings)
 		URI uri = createURI(config.path)
@@ -108,6 +119,7 @@ class RestAPI {
 		return config.doWithListResult.call(result)
 	}
 
+	@WithReadLock("defaults_lock")
 	def update(ConfigObject settings, Map params, String id) {
 		def config = mergeConfig(settings)
 		URI uri = createURI(config.path, id)
@@ -117,6 +129,7 @@ class RestAPI {
 		return config.doWithUpdateResult.call(result)
 	}
 
+	@WithReadLock("defaults_lock")
 	def save(ConfigObject settings, Map params) {
 		def config = mergeConfig(settings)
 		URI uri = createURI(config.path)
@@ -127,6 +140,7 @@ class RestAPI {
 		return config.doWithSaveResult.call(result)
 	}
 
+	@WithReadLock("defaults_lock")
 	def delete(ConfigObject settings, String id) {
 		def config = mergeConfig(settings)
 		URI uri = createURI(config.path, id)
