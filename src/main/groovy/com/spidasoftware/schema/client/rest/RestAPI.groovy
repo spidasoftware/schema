@@ -16,8 +16,8 @@ import java.util.concurrent.locks.ReentrantReadWriteLock
  * Most methods in this class should not be called directly, but instead by a child RestAPIResource.
  *
  * The only thing to be done with the api directly is setting it's default configuration that get's used by all of it's
- * child resources. You can access this property directly as <code>api.defaults</code>. You can also externalize
- * the configuration and pass in a directory containing the .config files to use.
+ * child resources. You can set these properties directly as <code>api.<allowedDefaultProperty> = ...</code>.
+ * You can also externalize the configuration and pass in a directory containing the .config files to use.
  *
  * Created with IntelliJ IDEA.
  * User: pfried
@@ -27,6 +27,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock
  */
 @Log4j
 class RestAPI {
+	static List<String> allowedDefaultsProperties = ["headers", "additionalParams" , "doWithResponse", "doWithFindResult", "doWithSaveResult", "doWithUpdateResult", "doWithDeleteResult", "doWithListResult"]
 	ReentrantReadWriteLock defaultsLock = new ReentrantReadWriteLock()
 
 	/**
@@ -49,10 +50,10 @@ class RestAPI {
 	 * More specifically, each resources settings will be merged into a copy of <code>defaults</code> before each api call.
 	 * Thus allowing only portions of the default config to be overridden.
 	 *
-	 * Setting defaults is NOT thread safe. If you need to change defaults after initializing the RestAPI, then you
-	 * should manually aquire a write lock on the <code>defaultsLock</code> before changing anything, and release afterwards.
+	 * calling <code>getDefaults()</code> (whether directly or using dot notation with groovy) will return a COPY of the configObject to avoid problems with concurrent modification
+	 * by different threads.
 	 */
-	ConfigObject defaults
+	private ConfigObject defaults
 	File configDirectory    // Location for external configuration files, may be null
 
 	RestAPI(String baseUrl, HttpClientInterface client) {
@@ -65,6 +66,26 @@ class RestAPI {
 		this.client = client
 		this.configDirectory = configDirectory
 		loadDefaults()
+	}
+
+	/**
+	 * used to modify any of the default settings for a rest api
+	 * @param config the new configObject to be used as the defaults
+	 */
+	@WithWriteLock("defaultsLock")
+	void setDefaults(ConfigObject config) {
+		this.defaults = config
+	}
+
+	/**
+	 * returns a COPY of the defaults for this api. If you make any changes,
+	 * you must then call setDefaults with the modified configObject in order for
+	 * the changes to take effect
+	 * @return a copy of the defaults
+	 */
+	@WithReadLock("defaultsLock")
+	ConfigObject getDefaults(){
+		return this.defaults.clone()
 	}
 
 	@WithWriteLock("defaultsLock")
@@ -151,6 +172,12 @@ class RestAPI {
 
 	}
 
+	@WithWriteLock("defaultsLock")
+	void setDefaultsProperty(String name, Object value) {
+		this.defaults.setProperty(name, value)
+	}
+
+
 	URI createURI(String path, String id = null) {
 		StringBuilder sb = new StringBuilder()
 		String base
@@ -202,8 +229,19 @@ class RestAPI {
 		return d
 	}
 
+	File getConfigDirectory() {
+		return configDirectory
+	}
+
+	void setConfigDirectory(File configDirectory) {
+		this.configDirectory = configDirectory
+	}
+
 	def propertyMissing(String name) {
-		def res = this.resources.find{ it.name == name }
+		if (allowedDefaultsProperties.contains(name)) {
+			return getDefaults().getProperty(name)
+		}
+		def res = this.resources.find { it.name == name }
 		if (!res) {
 			res = new RestAPIResource(name, this)
 			this.resources.add(res)
@@ -213,11 +251,17 @@ class RestAPI {
 	}
 
 	def propertyMissing(String name, value) {
+
 		if (value instanceof RestAPIResource) {
-			def res = this.resources.find {it.name == name }
-			if (res) { this.resources.remove(res) }
+			def res = this.resources.find { it.name == name }
+			if (res) {
+				this.resources.remove(res)
+			}
 			this.resources.add(res)
 			return res
+		} else if (allowedDefaultsProperties.contains(name)) {
+			setDefaultsProperty(name, value)
+
 		} else {
 			throw new NoSuchFieldException("No such field: $name for class RestAPI")
 		}

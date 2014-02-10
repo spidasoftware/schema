@@ -31,7 +31,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock
  *     }
  *
  *     //you can also set defaults for the whole api
- *     api.defaults.doWithResponse = {response->
+ *     api.doWithResponse = {response->
  *
  *     }
  * </code>
@@ -66,9 +66,9 @@ class RestAPIResource {
 	/**
 	 * Holds the Settings specific to this resource. Note that modifying these settings is not inherently
 	 * thread safe. If you need to change any settings after the initialization of the resource, you'll need to
-	 * manually aquire a write lock on the <code>settingsLock</code> object
+	 * get a copy of the settings by calling getSettings and
 	 */
-	public ConfigObject settings = new ConfigObject()
+	private ConfigObject settings = new ConfigObject()
 
 	RestAPIResource(String name, RestAPI parent) {
 		this.parent = parent
@@ -188,29 +188,38 @@ class RestAPIResource {
 		return parent.delete(settings, id)
 	}
 
+
+	@WithWriteLock("settingsLock")
+	void setSettings(ConfigObject settings) {
+		this.settings = settings;
+	}
+
+	/**
+	 * returns a COPY of this settings object. If you modify anything you'll have to apply the changes by calling
+	 * <code>setSettings()</code> with the modified settings object.
+	 * @return
+	 */
+	@WithReadLock("settingsLock")
+	ConfigObject getSettings(){
+		return this.settings.clone()
+	}
+
 	/**
 	 * allows settings to be added more easily/fluently. Don't call this method directly
 	 */
+	@WithWriteLock
 	def propertyMissing(String name, value) {
 		settings.setProperty(name, value)
 		value
 	}
 
-	/**
-	 * allows settings to be added more easily/fluently. Don't call this method directly
-	 */
+
+	@WithReadLock
 	def propertyMissing(String name) {
-		def prop = settings.getProperty(name)
-		if (!prop) {
-			settings.setProperty(name, new ConfigObject())
-			prop = settings.getProperty(name)
-		}
-		prop
+		this.settingsLock.readLock().lock()
+		ConfigObject o = this.settings.clone()
+		this.settingsLock.readLock().unlock()
+		return o.getProperty(name)
 	}
-
-
-
-
-
 
 }
