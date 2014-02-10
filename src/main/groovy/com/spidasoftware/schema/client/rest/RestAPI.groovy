@@ -27,7 +27,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock
  */
 @Log4j
 class RestAPI {
-	ReentrantReadWriteLock defaults_lock = new ReentrantReadWriteLock()
+	ReentrantReadWriteLock defaultsLock = new ReentrantReadWriteLock()
 
 	/**
 	 * The client to use for making http calls.
@@ -50,7 +50,7 @@ class RestAPI {
 	 * Thus allowing only portions of the default config to be overridden.
 	 *
 	 * Setting defaults is NOT thread safe. If you need to change defaults after initializing the RestAPI, then you
-	 * should manually aquire a write lock on the <code>defaults_lock</code> before changing anything, and release afterwards.
+	 * should manually aquire a write lock on the <code>defaultsLock</code> before changing anything, and release afterwards.
 	 */
 	ConfigObject defaults
 	File configDirectory    // Location for external configuration files, may be null
@@ -67,7 +67,7 @@ class RestAPI {
 		loadDefaults()
 	}
 
-	@WithWriteLock("defaults_lock")
+	@WithWriteLock("defaultsLock")
 	void loadDefaults(){
 		this.defaults = getDefaultConfigFromResources()
 		if (this.configDirectory) {
@@ -100,7 +100,7 @@ class RestAPI {
 		return config
 	}
 
-	@WithReadLock("defaults_lock")
+	@WithReadLock("defaultsLock")
 	def find(ConfigObject settings, String id) {
 		def config = mergeConfig(settings)
 
@@ -110,7 +110,7 @@ class RestAPI {
 		return config.doWithFindResult.call(result)
 	}
 
-	@WithReadLock("defaults_lock")
+	@WithReadLock("defaultsLock")
 	def list(ConfigObject settings, Map params) {
 		def config = mergeConfig(settings)
 		URI uri = createURI(config.path)
@@ -119,7 +119,7 @@ class RestAPI {
 		return config.doWithListResult.call(result)
 	}
 
-	@WithReadLock("defaults_lock")
+	@WithReadLock("defaultsLock")
 	def update(ConfigObject settings, Map params, String id) {
 		def config = mergeConfig(settings)
 		URI uri = createURI(config.path, id)
@@ -129,7 +129,7 @@ class RestAPI {
 		return config.doWithUpdateResult.call(result)
 	}
 
-	@WithReadLock("defaults_lock")
+	@WithReadLock("defaultsLock")
 	def save(ConfigObject settings, Map params) {
 		def config = mergeConfig(settings)
 		URI uri = createURI(config.path)
@@ -140,7 +140,7 @@ class RestAPI {
 		return config.doWithSaveResult.call(result)
 	}
 
-	@WithReadLock("defaults_lock")
+	@WithReadLock("defaultsLock")
 	def delete(ConfigObject settings, String id) {
 		def config = mergeConfig(settings)
 		URI uri = createURI(config.path, id)
