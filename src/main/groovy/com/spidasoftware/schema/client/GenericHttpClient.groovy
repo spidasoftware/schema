@@ -21,6 +21,7 @@ import org.apache.http.client.methods.HttpRequestBase
 import org.apache.http.client.methods.HttpUriRequest
 import org.apache.http.client.methods.RequestBuilder
 import org.apache.http.client.utils.URIBuilder
+import org.apache.http.entity.mime.HttpMultipartMode
 import org.apache.http.entity.mime.MultipartEntityBuilder
 import org.apache.http.entity.mime.content.ContentBody
 import org.apache.http.entity.mime.content.FileBody
@@ -234,6 +235,7 @@ class GenericHttpClient implements HttpClientInterface {
 
 	protected static HttpEntity createMultipartEntity(Map<String, Object> params) {
 		MultipartEntityBuilder builder = MultipartEntityBuilder.create()
+		builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE)
 		params?.each { k, v ->
 			ContentBody bodyPart
 			if (v instanceof File) {
