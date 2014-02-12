@@ -9,6 +9,7 @@ import org.apache.http.HttpEntity
 import org.apache.http.HttpEntityEnclosingRequest
 import org.apache.http.HttpResponse
 import org.apache.http.NameValuePair
+import org.apache.http.ParseException
 import org.apache.http.client.HttpClient
 import org.apache.http.client.HttpResponseException
 import org.apache.http.client.RedirectStrategy
@@ -21,6 +22,7 @@ import org.apache.http.client.methods.HttpRequestBase
 import org.apache.http.client.methods.HttpUriRequest
 import org.apache.http.client.methods.RequestBuilder
 import org.apache.http.client.utils.URIBuilder
+import org.apache.http.entity.ContentType
 import org.apache.http.entity.mime.HttpMultipartMode
 import org.apache.http.entity.mime.MultipartEntityBuilder
 import org.apache.http.entity.mime.content.ContentBody
@@ -233,17 +235,26 @@ class GenericHttpClient implements HttpClientInterface {
 		cleanupClient()
 	}
 
-	protected static HttpEntity createMultipartEntity(Map<String, Object> params) {
+	HttpEntity createMultipartEntity(Map<String, Object> params) {
 		MultipartEntityBuilder builder = MultipartEntityBuilder.create()
+		log.debug("Creating Browser Compatible multipart request")
 		builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE)
 		params?.each { k, v ->
-			ContentBody bodyPart
 			if (v instanceof File) {
-				bodyPart = new FileBody(v, Files.probeContentType(v.toPath()), "UTF-8")
+				ContentType type
+				String mime = Files.probeContentType(v.toPath())
+				try {
+					type = ContentType.parse(mime)
+				} catch (ParseException e){
+					log.error("File parameter: ${k} has unknown/non-standard Content-Type: ${mime}")
+					type = ContentType.DEFAULT_BINARY
+				}
+				log.debug("Adding ${k} as a Binary Body with content type: ${type.getMimeType()}")
+				builder.addBinaryBody(k, (File) v, type, k)
 			} else {
-				bodyPart = new StringBody(v.toString())
+				log.debug("Adding ${k} as a StringBody")
+				builder.addTextBody(k, v)
 			}
-			builder.addPart(k, bodyPart)
 		}
 		return builder.build()
 
