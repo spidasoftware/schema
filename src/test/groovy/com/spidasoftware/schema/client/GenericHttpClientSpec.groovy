@@ -115,4 +115,27 @@ class GenericHttpClientSpec extends Specification {
 		where:
 		currentMethod << ["GET", "PUT", "POST", "DELETE", "HEAD", "TRACE"]
 	}
+
+	void "multipart requests should have files added with the correct content dispositions"() {
+		setup: "Create a parameter map that includes both string and File values"
+		File file = new File(getClass().getResource("/rest/testAPI.json").toURI())
+		String fileName = "testFileName"
+		def params = ["stringParam":"stringValue", (fileName): file]
+		boolean foundCorrectContentDisposion = false
+
+		when: "create the multipart request entity"
+		HttpEntity entity = client.createMultipartEntity(params)
+
+		then: "The file's Content-Disposition must include the filename"
+		def os = new ByteArrayOutputStream()
+		entity.writeTo(os)
+		String content = os.toString()
+		content.eachLine {
+			if (it.startsWith("Content-Disposition: form-data; name=\"testFileName\"; filename=\"testFileName\"")) {
+				foundCorrectContentDisposion = true
+			}
+			return true
+		}
+		foundCorrectContentDisposion
+	}
 }
