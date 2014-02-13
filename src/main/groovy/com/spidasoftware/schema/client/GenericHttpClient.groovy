@@ -235,6 +235,30 @@ class GenericHttpClient implements HttpClientInterface {
 		cleanupClient()
 	}
 
+	/**
+	 * If the parameters map contains any <code>File</code> values AND the Http
+	 * Method is either POST or PUT, then the request Content-Type will be
+	 * "multipart/form-data". In order for files to be received properly by any of our
+	 * Grails applications, any File/Binary request parts must contain the appropriate
+	 * part headers. File parts must contain BOTH a Content-Type and a Content-Disposition
+	 * header, separate from the overall request headers. Furthermore, the Content-Disposition
+	 * header MUST contain the <code>filename</code> field in order for the server to recognize
+	 * it as a file, regardless of what Content-Type is set for that part. A valid part
+	 * containing an image file would look like the following:
+	 * <code>
+	 *     --<multipart-boundary-start>
+	 *     Content-Disposition: form-data; name="testFileName"; filename="testFileName"
+	 *     Content-Type: image/jpeg
+	 * </code>
+	 *
+	 *  This method will take care of all of that for you, including setting the correct mime type.
+	 *  Any param value that  isn't a File will be converted to a Stringby calling toString() on it.
+	 *
+	 *  If you decide to modify this method, don't say you weren't warned!
+	 *
+	 * @param map of all the parameters to be sent with this request
+	 * @return a MultipartFormEntity with the payload all set and ready to go.
+	 */
 	HttpEntity createMultipartEntity(Map<String, Object> params) {
 		MultipartEntityBuilder builder = MultipartEntityBuilder.create()
 		log.debug("Creating Browser Compatible multipart request")
@@ -253,7 +277,7 @@ class GenericHttpClient implements HttpClientInterface {
 				builder.addBinaryBody(k, (File) v, type, k)
 			} else {
 				log.debug("Adding ${k} as a StringBody")
-				builder.addTextBody(k, v)
+				builder.addTextBody(k, v.toString())
 			}
 		}
 		return builder.build()
