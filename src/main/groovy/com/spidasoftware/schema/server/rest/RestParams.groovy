@@ -50,8 +50,7 @@ class RestParams {
 			//remove all the params that aren't actually used for this operation
 			params.each{
 				if (!validParams.contains(it.key)){
-					log.debug("Removing extra parameter: ${it}")
-					it.remove()
+					log.debug("Dropping extra parameter: ${it.key}")
 				}
 			}
 

@@ -1,6 +1,10 @@
 package com.spidasoftware.schema.client.rest
 
+import groovy.transform.WithReadLock
+import groovy.transform.WithWriteLock
 import groovy.util.logging.Log4j
+
+import java.util.concurrent.locks.ReentrantReadWriteLock
 
 /**
  * This class holds resource-specific settings for a RestAPI and allows you to easily make
@@ -27,7 +31,7 @@ import groovy.util.logging.Log4j
  *     }
  *
  *     //you can also set defaults for the whole api
- *     api.defaults.doWithResponse = {response->
+ *     api.doWithResponse = {response->
  *
  *     }
  * </code>
@@ -53,11 +57,18 @@ import groovy.util.logging.Log4j
  */
 @Log4j
 class RestAPIResource {
+	ReentrantReadWriteLock settingsLock = new ReentrantReadWriteLock()
+
 	String name
 
 	RestAPI parent
 
-	public ConfigObject settings = new ConfigObject()
+	/**
+	 * Holds the Settings specific to this resource. Note that modifying these settings is not inherently
+	 * thread safe. If you need to change any settings after the initialization of the resource, you'll need to
+	 * get a copy of the settings by calling getSettings and
+	 */
+	private ConfigObject settings = new ConfigObject()
 
 	RestAPIResource(String name, RestAPI parent) {
 		this.parent = parent
@@ -70,6 +81,7 @@ class RestAPIResource {
 	 * for the parent RestAPI, then the resource will look in there for the file <resource_name>.config
 	 * If no config override is found, then it will just clear all the settings and set the name and default path.
 	 */
+	@WithWriteLock("settingsLock")
 	void reloadSettings(){
 		this.settings = new ConfigObject()
 		this.settings.setProperty("name", name)
@@ -107,6 +119,7 @@ class RestAPIResource {
 	 *  or will throw an exception if the response is not valid JSON. This can all be easily overridden by adding
 	 *  or changing the doWithResponse and/or doWithFindResult closures
 	 */
+	@WithReadLock("settingsLock")
 	def find(String id) {
 		def result = parent.find(settings, id)
 		return result
@@ -123,6 +136,7 @@ class RestAPIResource {
 	 *  or will throw an exception if the response is not valid JSON. This can all be easily overridden by adding
 	 *  or changing the doWithResponse and/or doWithListResult closures
 	 */
+	@WithReadLock("settingsLock")
 	def list(Map params) {
 		return parent.list(settings, params)
 	}
@@ -138,6 +152,7 @@ class RestAPIResource {
 	 *  or will throw an exception if the response is not valid JSON. This can all be easily overridden by adding
 	 *  or changing the doWithResponse and/or doWithUpdateResult closures
 	 */
+	@WithReadLock("settingsLock")
 	def update(String id, Map params) {
 		return parent.update(settings, params, id)
 	}
@@ -153,6 +168,7 @@ class RestAPIResource {
 	 *  or will throw an exception if the response is not valid JSON. This can all be easily overridden by adding
 	 *  or changing the doWithResponse and/or doWithSaveResult closures
 	 */
+	@WithReadLock("settingsLock")
 	def save(Map params) {
 		return parent.save(settings, params)
 	}
@@ -167,33 +183,43 @@ class RestAPIResource {
 	 *  or will throw an exception if the response is not valid JSON. This can all be easily overridden by adding
 	 *  or changing the doWithResponse and/or doWithDeleteResult closures
 	 */
+	@WithReadLock("settingsLock")
 	def delete(String id) {
 		return parent.delete(settings, id)
+	}
+
+
+	@WithWriteLock("settingsLock")
+	void setSettings(ConfigObject settings) {
+		this.settings = settings;
+	}
+
+	/**
+	 * returns a COPY of this settings object. If you modify anything you'll have to apply the changes by calling
+	 * <code>setSettings()</code> with the modified settings object.
+	 * @return
+	 */
+	@WithReadLock("settingsLock")
+	ConfigObject getSettings(){
+		return this.settings.clone()
 	}
 
 	/**
 	 * allows settings to be added more easily/fluently. Don't call this method directly
 	 */
+	@WithWriteLock
 	def propertyMissing(String name, value) {
 		settings.setProperty(name, value)
 		value
 	}
 
-	/**
-	 * allows settings to be added more easily/fluently. Don't call this method directly
-	 */
+
+	@WithReadLock
 	def propertyMissing(String name) {
-		def prop = settings.getProperty(name)
-		if (!prop) {
-			settings.setProperty(name, new ConfigObject())
-			prop = settings.getProperty(name)
-		}
-		prop
+		this.settingsLock.readLock().lock()
+		ConfigObject o = this.settings.clone()
+		this.settingsLock.readLock().unlock()
+		return o.getProperty(name)
 	}
-
-
-
-
-
 
 }

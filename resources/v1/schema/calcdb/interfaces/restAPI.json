@@ -60,6 +60,12 @@
 						"description":"The project json to be saved",
 						"schema":"/v1/schema/spidacalc/calc/project.schema",
 						"required":true
+					},
+					{
+						"id":"_id",
+                        "description":"The unique _id of this project, given in the URL",
+                        "type":"string",
+                        "required":true
 					}
 				]
 			},

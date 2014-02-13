@@ -15,6 +15,17 @@ class RestAPISpec extends Specification {
 	def client = Mock(GenericHttpClient)
 	def api = new RestAPI(baseUrl, client)
 
+	void "getting defaults properties should return a copy of the configobject"() {
+		setup: "get the defaults using both mehtods"
+		def d1 = api.getDefaults()
+		def d2 = api.defaults
+
+		expect: "the two objects should be equal, but not the same object in memory"
+		d1 == d2
+		!d1.is(d2)
+
+	}
+
 	void "uri's should be correctly generated"() {
 		when: "generate the url from the current baseUrl, path and id"
 		api.baseUrl = "http://"+ currentBaseUrl
@@ -33,16 +44,15 @@ class RestAPISpec extends Specification {
 
 	void "config overrides should be loaded properly when specified"() {
 		setup: "set the config directory for the api"
-		api.configDirectory = new File(getClass().getResource("/rest/client/config").toURI())
+		api.setConfigDirectory(new File(getClass().getResource("/rest/client/config").toURI()))
 
 		when: "reload the defaults for the api"
 		api.loadDefaults()
 
 		then: "the defaults should be overridden"
-		def heds = api.defaults.headers
-		heds.Accept == "customOverrideValue"
+		def heds = api.headers.Accept == "customOverrideValue"
 
-		api.defaults.doWithResponse.call(null) == "overridden doWithResponse Closure"
+		api.doWithResponse.call(null) == "overridden doWithResponse Closure"
 
 	}
 
@@ -129,11 +139,11 @@ class RestAPISpec extends Specification {
 	void "RestAPI should merge configObjects properly"() {
 		setup: "new resource and set it's configObject properties"
 		api.project.doWithResponse = {response ->  "success" }
-		api.project.someProperty.someNestedProperty = "nested"
+		api.project.someProperty = "value"
 
 		// also set one of the default properties
-		def heds = ["Accept": "application/json"]
-		api.defaults.headers = heds
+		def heds = ["Accept": "application/xml"]
+		api.headers = heds
 
 		when: "merge the settings from the resource"
 		def settings = api.project.settings
@@ -143,7 +153,7 @@ class RestAPISpec extends Specification {
 		result.doWithResponse() == "success"
 		result.path == "/project"
 		result.name == "project"
-		result.someProperty.someNestedProperty == "nested"
+		result.someProperty == "value"
 		result.headers == heds
 
 	}
@@ -154,9 +164,8 @@ class RestAPISpec extends Specification {
 
 		then:
 		def resource = api.project
-		resource.settings.path == "/projects"
-		resource instanceof RestAPIResource
 		resource.path == "/projects"
+		resource instanceof RestAPIResource
 
 		// make sure it's added to the resources list
 		api.resources.find{ it.name == "project" }.path == "/projects"
