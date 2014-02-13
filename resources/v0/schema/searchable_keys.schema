@@ -1,0 +1,35 @@
+{
+    "type" : "object",
+    "properties" : {
+        "keys" : {
+            "type" : "array",
+            "items" : {
+                "key" : {
+                    "type" : "string",
+                    "description" : "The Pretty-Printed Name for a valid search key on a service"
+                },
+                "type" : {
+                    "type" : "string",
+                    "description" : "Valid types for service search values"
+                }
+            }
+        },
+        "operators" : {
+            "type" : "array",
+            "optional" : true,
+            "items" : {
+                "key" : {
+                    "type" : "string",
+                    "description" : "an operator for modifying search return values"
+                },
+                "type" : {
+                    "type" : "array",
+                    "items" : {
+                        "type" : "string",
+                        "description" : "valid types for operator actions"
+                    }
+                }
+            }
+        }
+    }
+}

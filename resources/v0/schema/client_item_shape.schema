@@ -1,0 +1,10 @@
+{
+    "id" : "shape",
+    "type" : "string",
+    "choices" : [
+        { "value" : "ROUND"          },
+        { "value" : "SQUARE"         },
+        { "value" : "ROUND_LATTICE"  },
+        { "value" : "SQUARE_LATTICE" }
+    ]
+}

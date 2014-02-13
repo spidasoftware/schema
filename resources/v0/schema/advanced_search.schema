@@ -1,0 +1,18 @@
+{
+    "type" : "object",
+    "properties" : {
+        "groups" : {
+            "type" : "array",
+            "items" : {
+                "entries" : {
+                    "type" : "array",
+                    "items" : {
+                        "key"      : { "type" : "string" },
+                        "value"    : { "type" : "any"    },
+                        "operator" : { "type" : "string", "optional":true }
+                    }
+                }
+            }
+        }
+    }
+}

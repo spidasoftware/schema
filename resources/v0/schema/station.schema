@@ -1,0 +1,63 @@
+{
+  "id"          : "station",
+  "description" : "A SPIDAMin2-compatible station",
+  "type"        : "object",
+  "properties"  : {
+    "stationId": { "type" : "string" },
+    "dataProviderId": { "type" : "number", "optional" : true },
+    "stationOwnerId": { "type" : "number", "optional" : true },
+    "lat"      : { "type" : "number", "optional" : true },
+    "lng"      : { "type" : "number", "optional" : true },
+    "address"  : { "type" : "string", "optional" : true },
+    "type"     : { "type" : "string", "description" : "Primary Asset Type" },
+    "assetTypes" : {
+      "type"        : "array",
+      "description" : "List of all asset types at this station",
+      "items"       : { "type" : "string" }
+    },
+    "stationAssets" : {
+      "type" : "array",
+      "optional" : true,
+      "description" : "List of assets at this station, passed when parameters.details = true",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "assetId"   : { "type" : "string" },
+          "assetType" : { "type" : "string" },
+          "assetTags" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "name"    : { "type" : "string" },
+                "value"   : { "type" : "string" },
+                "primary" : { "type" : "boolean", "optional" : true }
+              }
+            }
+          },
+          "assetDetails" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "name"  : { "type" : "string" },
+                "value" : { "type" : "string" }
+              }
+            }
+          },
+          "assetAttachments" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "type"     : { "type" : "string" },
+                "companyId"  : { "type" : "number" },
+                "quantity" : { "type" : "number" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
