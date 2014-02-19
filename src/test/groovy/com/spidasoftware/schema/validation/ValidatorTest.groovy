@@ -64,7 +64,50 @@ class ValidatorTest extends TestCase {
 			exception = jse
 		}
 		assertNotNull("Should have thrown a servlet exception", exception)
-
 	}
 
+	void testFromText() throws Exception {
+		def schemaText=  '''
+{
+  "description": "This is for testing schemas as text instead of as paths to a file.",
+  "type": "object",
+  "required": [
+    "properties"
+  ],
+  "properties": {
+    "uuid": {
+      "description": "Option unique id for tracking within integrator systems.",
+      "type": "string"
+    }
+  }
+}
+'''
+		def instance = '{"properties":{"uuid":"abc123"}}'
+		def report = new Validator().validateAndReportFromJson(schemaText, instance)
+		report.each{println it}
+		assertTrue "the instance should be valid against a schema", report.isSuccess()
+
+		def exception = null
+		try {
+			new Validator().validateFromText(schemaText, instance)
+		} catch (com.spidasoftware.schema.server.JSONServletException jse) {
+			exception = jse
+		}
+		assertNull("Should not have thrown a servlet exception", exception)
+	}
+
+	void testFromFile() {
+		def schemaFile = new File("resources/v1/schema/spidacalc/calc/structure.schema")
+		def instance = new File("resources/v1/examples/spidacalc/designs/one_of_everything.json").text
+		def report = new Validator().validateAndReport(schemaFile, instance)
+		assertTrue "the instance should be valid against a schema", report.isSuccess()
+
+		def exception = null
+		try {
+			new Validator().validate(schemaFile, instance)
+		} catch (com.spidasoftware.schema.server.JSONServletException jse) {
+			exception = jse
+		}
+		assertNull("Should not have thrown a servlet exception", exception)
+	}
 }

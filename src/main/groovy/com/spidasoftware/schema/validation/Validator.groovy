@@ -1,15 +1,18 @@
 package com.spidasoftware.schema.validation
 
 import com.fasterxml.jackson.databind.JsonNode
+
 import com.github.fge.jackson.JsonLoader
 import com.github.fge.jsonschema.exceptions.ProcessingException
 import com.github.fge.jsonschema.load.configuration.LoadingConfiguration
 import com.github.fge.jsonschema.main.JsonSchema
 import com.github.fge.jsonschema.main.JsonSchemaFactory
 import com.github.fge.jsonschema.report.ProcessingReport
-import org.apache.log4j.Logger
+
 import com.spidasoftware.schema.server.*
+
 import org.apache.commons.io.FilenameUtils
+import org.apache.log4j.Logger
 
 /**
  * Class to validate against our json schemas. Will references the schemas locally as a jar resource.
@@ -33,8 +36,8 @@ class Validator {
 
 			//FilenameUtils.getPath(filepath) gets the parent folder and removes path prefix (windows drive letter or unix tilde)
 			//More Info: http://commons.apache.org/proper/commons-io/apidocs/org/apache/commons/io/FilenameUtils.html#getPathNoEndSeparator(java.lang.String)
-			String namespace = "/" + FilenameUtils.getPathNoEndSeparator(schemaPath)
-			namespace = FilenameUtils.separatorsToUnix(namespace)
+			String namespace = "/" + FilenameUtils.getPathNoEndSeparator(schemaPath);
+			namespace = FilenameUtils.separatorsToUnix(namespace);
 
 			String namespaceString = "resource:" + namespace + "/";
 			log.info "Validation: \nschemaPath=$schemaPath \nnamespace=$namespace \nnamespaceString=$namespaceString"
@@ -46,7 +49,41 @@ class Validator {
 
 			JsonSchema schema = factory.getJsonSchema(schemaNode);
 			ProcessingReport report = schema.validate(instance);
-			return report
+			return report;
+		} catch (IOException e) {
+			log.error(e, e);
+		} catch (ProcessingException e) {
+			log.error(e, e);
+		}
+		return null;
+	}
+
+	public ProcessingReport validateAndReport(File schemaFile, String json) {
+		try {
+			String namespaceString = "file:/" + FilenameUtils.getPath(schemaFile.canonicalPath);
+			LoadingConfiguration cfg = LoadingConfiguration.newBuilder().setNamespace(namespaceString).freeze();
+			JsonSchemaFactory factory = JsonSchemaFactory.newBuilder().setLoadingConfiguration(cfg).freeze();
+			JsonNode instance = JsonLoader.fromString(json);
+			JsonNode schemaNode = JsonLoader.fromFile(schemaFile);
+			JsonSchema schema = factory.getJsonSchema(schemaNode);
+			ProcessingReport report = schema.validate(instance);
+			return report;
+		} catch (IOException e) {
+			log.error(e, e);
+		} catch (ProcessingException e) {
+			log.error(e, e);
+		}
+		return null;
+	}
+
+	public ProcessingReport validateAndReportFromText(String schemaText, String json) {
+		try {
+			JsonNode instance = JsonLoader.fromString(json);
+			JsonNode schemaNode = JsonLoader.fromString(schemaJson);
+			JsonSchemaFactory factory = JsonSchemaFactory.byDefault();
+			JsonSchema schema = factory.getJsonSchema(schemaNode);
+			ProcessingReport report = schema.validate(instance);
+			return report;
 		} catch (IOException e) {
 			log.error(e, e);
 		} catch (ProcessingException e) {
@@ -63,14 +100,25 @@ class Validator {
 	 */
 	public void validate(String schemaPath, String json) throws JSONServletException{
 		ProcessingReport report = validateAndReport(schemaPath, json)
+		handleReport(report)
+	}
 
+	public void validate(File schemaFile, String json) throws JSONServletException{
+		ProcessingReport report = validateAndReport(schemaFile, json)
+		handleReport(report)
+	}
+
+	public void validateFromText(String schema, String json) throws JSONServletException{
+		ProcessingReport report = validateAndReportFromText(schema, json)
+		handleReport(report)
+	}
+
+	private void handleReport(ProcessingReport report) throws JSONServletException {
 		if (report == null) {
-			throw new JSONServletException(JSONServletException.INTERNAL_ERROR, "An internal error occurred when validating JSON")
+			throw new JSONServletException(JSONServletException.INTERNAL_ERROR, "An internal error occurred when validating JSON");
 		}
 		if (!report.isSuccess()) {
 			throw new JSONServletException(JSONServletException.INVALID_PARAMETERS, report.toString());
 		}
 	}
-
-
 }
