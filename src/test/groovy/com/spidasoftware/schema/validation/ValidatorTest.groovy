@@ -83,7 +83,7 @@ class ValidatorTest extends TestCase {
 }
 '''
 		def instance = '{"properties":{"uuid":"abc123"}}'
-		def report = new Validator().validateAndReportFromJson(schemaText, instance)
+		def report = new Validator().validateAndReportFromText(schemaText, instance)
 		report.each{println it}
 		assertTrue "the instance should be valid against a schema", report.isSuccess()
 
@@ -105,6 +105,21 @@ class ValidatorTest extends TestCase {
 		def exception = null
 		try {
 			new Validator().validate(schemaFile, instance)
+		} catch (com.spidasoftware.schema.server.JSONServletException jse) {
+			exception = jse
+		}
+		assertNull("Should not have thrown a servlet exception", exception)
+	}
+
+	void testFromURL() {
+		def schemaURL = this.getClass().getResource("/v1/schema/spidacalc/calc/structure.schema")
+		def instance = new File("resources/v1/examples/spidacalc/designs/one_of_everything.json").text
+		def report = new Validator().validateAndReport(schemaURL, instance)
+		assertTrue "the instance should be valid against a schema", report.isSuccess()
+
+		def exception = null
+		try {
+			new Validator().validate(schemaURL, instance)
 		} catch (com.spidasoftware.schema.server.JSONServletException jse) {
 			exception = jse
 		}
