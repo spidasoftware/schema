@@ -9,7 +9,7 @@ apply plugin: 'idea'
 apply plugin: 'project-report'
 
 group = 'com.spidasoftware'
-version = '0.4-SNAPSHOT'
+version = '0.5-SNAPSHOT'
 description = "Schema"
 
 sourceCompatibility = 1.7
