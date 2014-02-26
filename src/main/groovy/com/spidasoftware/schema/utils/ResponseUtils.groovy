@@ -18,7 +18,7 @@ class ResponseUtils {
 		ids.each { id ->
 			result.add(id)
 		}
-		return new JSONObject(result:result.toString())
+		return new JSONObject(result:result).toString()
 	}
 
 	static String error(codeString, messageString){
