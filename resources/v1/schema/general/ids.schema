@@ -6,6 +6,6 @@
     "items"
   ],
   "items": {
-    "$ref": "id.schema"
+    "type": [ "number", "string" ]
   }
 }

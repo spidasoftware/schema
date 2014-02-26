@@ -14,9 +14,11 @@ class ResponseUtils {
 	}
 
 	static String resultIds(ids){
-		def listJSONObjects = ids.collect{ new JSONObject(id:it) }
-		def resultJSONArray = JSONArray.fromObject(listJSONObjects)
-		return new JSONObject(result:resultJSONArray).toString()
+		def result = new JSONArray()
+		ids.each { id ->
+			result.add(id)
+		}
+		return new JSONObject(result:result.toString())
 	}
 
 	static String error(codeString, messageString){
