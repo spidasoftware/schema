@@ -138,4 +138,26 @@ class GenericHttpClientSpec extends Specification {
 		}
 		foundCorrectContentDisposion
 	}
+
+	void "multipart requests should have the correct mime type detected"() {
+		setup: "Create a parameter map that includes both string and File values"
+
+			def params = [:]
+			["rtf", "json", "pdf"].each{
+				File file = new File(getClass().getResource("/rest/mime/test.${it}").toURI())
+				String fileName = "test.${it}"
+				params.put(fileName, file)
+			}
+
+		when: "create the multipart request entity"
+		HttpEntity entity = client.createMultipartEntity(params)
+
+		then: "The file's Content-Disposition must include the filename"
+		def os = new ByteArrayOutputStream()
+		entity.writeTo(os)
+		String content = os.toString()
+		assert content.contains("application/pdf")
+		assert content.contains("application/rtf")
+		assert content.contains("text/plain")
+	}
 }
