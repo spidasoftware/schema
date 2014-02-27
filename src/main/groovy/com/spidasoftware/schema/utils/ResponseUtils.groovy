@@ -15,9 +15,7 @@ class ResponseUtils {
 
 	static String resultIds(ids){
 		def result = new JSONArray()
-		ids.each { id ->
-			result.add(id)
-		}
+		result.addAll(ids)
 		return new JSONObject(result:result).toString()
 	}
 
