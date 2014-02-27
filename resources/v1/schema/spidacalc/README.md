@@ -128,7 +128,7 @@ Calc stores UUIDs for all components on the pole. They aren't used as identifier
 ###Limitations and known issues:
 
 - Custom form import/export is not yet supported. Support will be added in later versions.
-- All ID on the structure must conform to the Calc naming conventions. All wires must be named with something starting with "Wire#", all equipment with "Equipment#". This will be fixed in a later version to allow generic labeling.
+- All ID on the structure must conform to the Calc naming conventions. All wires must be named with something starting with "Wire#", all equipment with "Equipment#". This will be fixed in a later version to allow generic labeling. Correct ID Form is CASE SENSITIVE. EQUIPMENT#1 is not a correct ID. Equipment#1 is.
 - UUIDs must be actual UUIDs and in the canonical form xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx  http://en.wikipedia.org/wiki/Universally_unique_identifier In future versions this will be more generic.
 - parameters sent to RPC interface must be in the order specified in the interface description.
 - Load case names are case-sensitive, to what is in the client file. This can be different from what is shown in calc.
