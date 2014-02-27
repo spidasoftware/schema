@@ -255,10 +255,11 @@ class GenericHttpClient implements HttpClientInterface {
 		params?.each { k, v ->
 			if (v instanceof File) {
 				ContentType type
-				String mime = detectMimeType(v)
+				String mime
 				try {
+					mime = detectMimeType(v)
 					type = ContentType.parse(mime)
-				} catch (ParseException e){
+				} catch (Exception e){
 					log.error("File parameter: ${k} has unknown/non-standard Content-Type: ${mime}")
 					type = ContentType.DEFAULT_BINARY
 				}
