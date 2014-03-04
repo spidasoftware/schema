@@ -457,10 +457,6 @@
             "type": "string",
             "description": "The size of the client brace to be used."
           },
-          "associatedBacking": {
-            "type": "string",
-            "description": "The backing wire end point or BISECTOR"
-          },
           "guys": {
             "type": "array",
             "description": "List of Guy IDs of guys that are attached to this brace.",
