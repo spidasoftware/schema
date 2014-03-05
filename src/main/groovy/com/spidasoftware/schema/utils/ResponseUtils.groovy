@@ -1,6 +1,7 @@
 package com.spidasoftware.schema.utils
 
-import net.sf.json.JSONObject;
+import net.sf.json.JSONObject
+import net.sf.json.JSONArray
 
 class ResponseUtils {
 
@@ -10,6 +11,12 @@ class ResponseUtils {
 
 	static String resultId(id){
 		return new JSONObject(result:new JSONObject(id:id)).toString()
+	}
+
+	static String resultIds(ids){
+		def result = new JSONArray()
+		result.addAll(ids)
+		return new JSONObject(result:result).toString()
 	}
 
 	static String error(codeString, messageString){

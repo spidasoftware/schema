@@ -2,39 +2,28 @@ package com.spidasoftware.schema.client
 
 import groovy.util.logging.Log4j
 import net.sf.json.JSON
-import net.sf.json.JSONException
 import net.sf.json.JSONObject
 import net.sf.json.JSONSerializer
 import org.apache.http.HttpEntity
-import org.apache.http.HttpEntityEnclosingRequest
-import org.apache.http.HttpResponse
-import org.apache.http.NameValuePair
 import org.apache.http.ParseException
-import org.apache.http.client.HttpClient
 import org.apache.http.client.HttpResponseException
-import org.apache.http.client.RedirectStrategy
-import org.apache.http.client.methods.HttpDelete
-import org.apache.http.client.methods.HttpGet
-import org.apache.http.client.methods.HttpHead
-import org.apache.http.client.methods.HttpPost
-import org.apache.http.client.methods.HttpPut
-import org.apache.http.client.methods.HttpRequestBase
 import org.apache.http.client.methods.HttpUriRequest
 import org.apache.http.client.methods.RequestBuilder
-import org.apache.http.client.utils.URIBuilder
 import org.apache.http.entity.ContentType
 import org.apache.http.entity.mime.HttpMultipartMode
 import org.apache.http.entity.mime.MultipartEntityBuilder
-import org.apache.http.entity.mime.content.ContentBody
-import org.apache.http.entity.mime.content.FileBody
-import org.apache.http.entity.mime.content.StringBody
 import org.apache.http.impl.client.CloseableHttpClient
 import org.apache.http.impl.client.HttpClientBuilder
-import org.apache.http.message.BasicNameValuePair
 import org.apache.http.protocol.BasicHttpContext
 import org.apache.http.protocol.HttpContext
 import org.apache.http.util.EntityUtils
+import org.apache.tika.detect.DefaultDetector
+import org.apache.tika.detect.Detector
+import org.apache.tika.io.TikaInputStream
+import org.apache.tika.metadata.Metadata
+import org.apache.tika.mime.MimeTypes
 
+import javax.activation.MimetypesFileTypeMap
 import java.nio.file.Files
 
 /**
@@ -260,16 +249,17 @@ class GenericHttpClient implements HttpClientInterface {
 	 * @return a MultipartFormEntity with the payload all set and ready to go.
 	 */
 	HttpEntity createMultipartEntity(Map<String, Object> params) {
-		MultipartEntityBuilder builder = MultipartEntityBuilder.create()
+		def builder = MultipartEntityBuilder.create()
 		log.debug("Creating Browser Compatible multipart request")
 		builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE)
 		params?.each { k, v ->
 			if (v instanceof File) {
 				ContentType type
-				String mime = Files.probeContentType(v.toPath())
+				String mime
 				try {
+					mime = detectMimeType(v)
 					type = ContentType.parse(mime)
-				} catch (ParseException e){
+				} catch (Exception e){
 					log.error("File parameter: ${k} has unknown/non-standard Content-Type: ${mime}")
 					type = ContentType.DEFAULT_BINARY
 				}
@@ -282,6 +272,30 @@ class GenericHttpClient implements HttpClientInterface {
 		}
 		return builder.build()
 
+	}
+
+	private static final Detector DETECTOR = new DefaultDetector(MimeTypes.getDefaultMimeTypes());
+
+	public static String detectMimeType(final File file) throws IOException {
+		TikaInputStream tikaIS = null;
+		try {
+			tikaIS = TikaInputStream.get(file);
+
+			/*
+			 * You might not want to provide the file's name. If you provide an Excel
+			 * document with a .xls extension, it will get it correct right away; but
+			 * if you provide an Excel document with .doc extension, it will guess it
+			 * to be a Word document
+			 */
+			final Metadata metadata = new Metadata();
+			// metadata.set(Metadata.RESOURCE_NAME_KEY, file.getName());
+
+			return DETECTOR.detect(tikaIS, metadata).toString();
+		} finally {
+			if (tikaIS != null) {
+				tikaIS.close();
+			}
+		}
 	}
 
 
