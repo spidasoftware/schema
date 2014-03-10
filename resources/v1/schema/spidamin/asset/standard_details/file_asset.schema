@@ -4,26 +4,32 @@
   "type": "object",
   "properties": {
     "offset": {
-      "type": "number"
+      "type": "number",
+      "description": "The offset in version of the file, 0 being the most recent."
     },
-    "attachmentType": {
-      "type": "string"
+    "mimeType": {
+      "type": "string",
+      "description": "The mime type of the file in the link"
     },
     "preview": {
       "type": "string",
-      "description": "The long java value for date."
+      "description": "The link to the preview if available."
     },
     "link": {
-      "type": "string"
+      "type": "string",
+      "description": "The link to the file."
     },
     "fileName": {
-      "type": "string"
+      "type": "string",
+      "description": "The name of the file as uploaded."
     },
     "dateCreated": {
-      "type": "number"
+      "type": "number",
+      "description": "The long value of the time the file was created."
     },    
     "dateUpdated": {
-      "type": "number"
+      "type": "number",
+      "description": "The long value of the last time the file was updated."
     }
   }
 }
