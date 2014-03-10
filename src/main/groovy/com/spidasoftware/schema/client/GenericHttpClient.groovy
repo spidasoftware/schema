@@ -1,5 +1,6 @@
 package com.spidasoftware.schema.client
 
+import com.spidasoftware.schema.utils.MimeDetector
 import groovy.util.logging.Log4j
 import net.sf.json.JSON
 import net.sf.json.JSONObject
@@ -257,7 +258,7 @@ class GenericHttpClient implements HttpClientInterface {
 				ContentType type
 				String mime
 				try {
-					mime = detectMimeType(v)
+					mime = MimeDetector.detectMimeType(v)
 					type = ContentType.parse(mime)
 				} catch (Exception e){
 					log.error("File parameter: ${k} has unknown/non-standard Content-Type: ${mime}")
@@ -273,30 +274,5 @@ class GenericHttpClient implements HttpClientInterface {
 		return builder.build()
 
 	}
-
-	private static final Detector DETECTOR = new DefaultDetector(MimeTypes.getDefaultMimeTypes());
-
-	public static String detectMimeType(final File file) throws IOException {
-		TikaInputStream tikaIS = null;
-		try {
-			tikaIS = TikaInputStream.get(file);
-
-			/*
-			 * You might not want to provide the file's name. If you provide an Excel
-			 * document with a .xls extension, it will get it correct right away; but
-			 * if you provide an Excel document with .doc extension, it will guess it
-			 * to be a Word document
-			 */
-			final Metadata metadata = new Metadata();
-			// metadata.set(Metadata.RESOURCE_NAME_KEY, file.getName());
-
-			return DETECTOR.detect(tikaIS, metadata).toString();
-		} finally {
-			if (tikaIS != null) {
-				tikaIS.close();
-			}
-		}
-	}
-
 
 }
