@@ -1,0 +1,29 @@
+{
+  "id": "#/spidamin/asset/standard_details/file_asset.schema",
+  "description": "A SPIDA file asset",
+  "type": "object",
+  "properties": {
+    "offset": {
+      "type": "number"
+    },
+    "attachmentType": {
+      "type": "string"
+    },
+    "preview": {
+      "type": "string",
+      "description": "The long java value for date."
+    },
+    "link": {
+      "type": "string"
+    },
+    "fileName": {
+      "type": "string"
+    },
+    "dateCreated": {
+      "type": "number"
+    },    
+    "dateUpdated": {
+      "type": "number"
+    }
+  }
+}
