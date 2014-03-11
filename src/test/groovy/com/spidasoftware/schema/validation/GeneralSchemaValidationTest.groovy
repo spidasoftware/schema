@@ -1,17 +1,12 @@
 package com.spidasoftware.schema.validation
-
-import groovy.json.*
-import com.github.fge.jsonschema.util.*
-import com.github.fge.jsonschema.main.*
+import com.github.fge.jackson.JsonLoader
+import com.github.fge.jsonschema.cfg.ValidationConfiguration
+import com.github.fge.jsonschema.main.JsonSchemaFactory
+import com.github.fge.jsonschema.processors.syntax.SyntaxValidator
 import com.github.fge.jsonschema.uri.*
 import org.apache.log4j.Logger
-import org.apache.log4j.Level
-import com.github.fge.jsonschema.cfg.ValidationConfiguration
-import com.github.fge.jsonschema.exceptions.ProcessingException
-import com.github.fge.jsonschema.processors.syntax.SyntaxValidator
-import com.github.fge.jackson.*
 
-class GeneralSchemaValidationTest extends GroovyTestCase { 
+class GeneralSchemaValidationTest extends GroovyTestCase {
 
 
 	def log = Logger.getLogger(this.class)
@@ -99,7 +94,21 @@ class GeneralSchemaValidationTest extends GroovyTestCase {
 			log.info "Validation message owner: "+it.toString()
 		}
 		assertTrue "this schema should be valid", report.isSuccess()
-	}  
+	}
+
+	void testOwnerMinLength() {
+		def json = JsonLoader.fromString('{"name":"", "industry":"COMMUNICATION"}')
+		def schemaNode = JsonLoader.fromPath("resources/v1/schema/general/owner.schema")
+
+		def schema = JsonSchemaFactory.byDefault().getJsonSchema(schemaNode)
+		report = schema.validate(json)
+
+		report.each{
+			log.info "Validation message owner: "+it.toString()
+		}
+		assertFalse("Should not validate", report.isSuccess())
+
+	}
 
 	void testThatServiceMethodIsValidSchema(){
 		def schemaNode = JsonLoader.fromPath("resources/v1/schema/general/service_method.schema")
