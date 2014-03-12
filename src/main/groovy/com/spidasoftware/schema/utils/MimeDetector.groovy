@@ -59,8 +59,16 @@ class MimeDetector {
 			 */
 			final Metadata metadata = new Metadata();
 			// metadata.set(Metadata.RESOURCE_NAME_KEY, file.getName());
-
-			return DETECTOR.detect(tikaIS, metadata).toString();
+			String detected = DETECTOR.detect(tikaIS, metadata).toString();
+			if(detected=="application/zip"){
+				def fileName = file.getName().toLowerCase()
+				if(fileName.endsWith(".spida")){
+					return "application/x-spidacalc"
+				}else if(fileName.endsWith(".spida")){
+					return "application/x-spidaclient"
+				}
+			}
+			return detected
 		} finally {
 			if (tikaIS != null) {
 				tikaIS.close();
