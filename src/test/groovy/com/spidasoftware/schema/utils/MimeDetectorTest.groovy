@@ -15,7 +15,7 @@ class MimeDetectorTest {
 	@Test
 	public void testSpida() throws Exception {
 		File file = new File(getClass().getResource("/rest/mime/test.spida").toURI())
-		assert MimeDetector.detectMimeType(file)=="application/x-spida"
+		assert MimeDetector.detectMimeType(file)=="application/x-spidacalc"
 	}
 
 }
