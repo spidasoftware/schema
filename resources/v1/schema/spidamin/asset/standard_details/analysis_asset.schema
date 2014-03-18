@@ -10,8 +10,8 @@
       "type": "number"
     },
     "analysisDate": {
-      "type": "number",
-      "description": "The long java value for date."
+      "description":"The long value of the time when the analysis was performed.",
+      "$ref": "../../../general/long_date.schema"
     },
     "component": {
       "type": "string"
