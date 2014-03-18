@@ -1,7 +1,7 @@
 {
   "id": "#/spidamin/asset/standard_details/pole_asset.schema",
   "description": "A SPIDA pole asset",
-  "type": "array",
+  "type": "object",
   "properties": {
     "poleClass": {
       "type": "string"
@@ -9,16 +9,20 @@
     "construction": {
       "type": "string"
     },
+    "analysisDate": {
+      "description":"The long value of the time when the analysis was performed.",
+      "$ref": "../../../general/long_date.schema"
+    },
     "county": {
       "type": "string"
     },
     "createdDate": {
-      "type": "number",
-      "description": "The java long value for date."
+      "description":"The long value of the time when the asset was created.",
+      "$ref": "../../../general/long_date.schema"
     },
     "dateInspected": {
-      "type": "number",
-      "description": "The java long value for date."
+      "description":"The long value of the time when the inspection occurred.",
+      "$ref": "../../../general/long_date.schema"
     },
     "glc": {
       "type": "string"
@@ -36,8 +40,8 @@
       "type": "string"
     },
     "modifiedDate": {
-      "type": "number",
-      "description": "The java long value for date."
+      "description":"The long value of the time when the asset was last modified.",
+      "$ref": "../../../general/long_date.schema"
     },
     "owner": {
       "type": "string"

@@ -16,12 +16,12 @@
       "description": "an html encodes src string"
     },
     "dateCreated": {
-      "type": "number",
-      "description": "The long value of the time the file was created."
+      "description":"The long value of the time the file was created.",
+      "$ref": "../../../general/long_date.schema"
     },
     "dateUpdated": {
-      "type": "number",
-      "description": "The long value of the last time the file was updated."
+      "description":"The long value of the last time the file was updated.",
+      "$ref": "../../../general/long_date.schema"
     }
   }
 }
