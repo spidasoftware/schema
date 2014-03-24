@@ -7,9 +7,10 @@ apply plugin: 'maven'
 apply plugin: 'groovy'
 apply plugin: 'idea'
 apply plugin: 'project-report'
+apply plugin: 'releaseNotes'
 
 group = 'com.spidasoftware'
-version = '0.5'
+version = '0.6-SNAPSHOT'
 description = "Schema"
 
 sourceCompatibility = 1.7
@@ -31,6 +32,21 @@ sourceSets {
 		resources {
 			srcDir 'src/test/resources'
 		}
+	}
+}
+
+buildscript {
+	repositories{
+		maven{
+			credentials {
+				username 'developer'
+				password '{DESede}dG+RkW6Rzo7BU1y/mn5Yhw=='
+			}
+			url "https://www.spidasoftware.com/artifactory/repo"
+		}
+	}
+	dependencies {
+		classpath (group: 'com.spidasoftware', name:'releaseNotes', version:'0.1-SNAPSHOT', changing:true)
 	}
 }
 
@@ -133,4 +149,10 @@ uploadArchives {
 			authentication(userName: mavenSettings["username"], password: mavenSettings["password"])
 		}
 	}
+}
+
+releaseNotes {
+	start = "v0.3"
+	project = "147173"
+	token = "22ca5f31f85239e3039879981d321dc9"
 }
