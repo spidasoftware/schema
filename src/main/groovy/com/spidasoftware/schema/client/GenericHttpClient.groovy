@@ -68,7 +68,7 @@ class GenericHttpClient implements HttpClientInterface {
 	 *      returns. It will then release the requests connection and then return the result of the responseHandler Closure.
 	 * @return
 	 */
-	def executeRequest(String httpMethod, URI uri, Map<String, Object> parameters, Map<String, String> headers, Closure responseHandler = getBodyAsString) {
+	def executeRequest(String httpMethod, URI uri, Map<String, Object> parameters, Map<String, String> headers, Closure responseHandler = getBodyAsString) throws Exception {
 		def request = createRequest(httpMethod, uri, parameters, headers)
 		logRequest(request)
 		return executeHttpRequest(request, responseHandler)
