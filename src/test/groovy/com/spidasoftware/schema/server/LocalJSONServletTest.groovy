@@ -1,18 +1,9 @@
 package com.spidasoftware.schema.server
 
-import groovy.json.*
-import org.apache.http.HttpResponse
-import org.apache.http.NameValuePair
-import org.apache.http.client.entity.UrlEncodedFormEntity
-import org.apache.http.client.methods.HttpPost
-import org.apache.http.impl.client.DefaultHttpClient
-import org.apache.http.NameValuePair
-import org.apache.http.message.BasicNameValuePair
-import javax.servlet.ServletException
-import javax.servlet.http.HttpServlet
-import javax.servlet.http.HttpServletRequest
-import groovy.mock.interceptor.*
+import groovy.mock.interceptor.MockFor
 
+import javax.servlet.ServletException
+import javax.servlet.http.HttpServletRequest
 
 class LocalJSONServletTest extends GroovyTestCase {
 	
