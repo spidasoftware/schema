@@ -107,18 +107,8 @@ From our previous call we know the project's id is 55485 and we can use this to 
 
     {
       "id":55485,
-      "name": "Name",
-      "flowId": 26988,
       "draft": false,
       "deleted": false,
-      "address": {
-        "number": "",
-        "street": "",
-        "city": "",
-        "county": "",
-        "state": "",
-        "zip_code": ""
-      },
       "stations": [
         {
           "deleted": false,
