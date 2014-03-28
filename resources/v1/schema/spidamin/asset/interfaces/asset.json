@@ -21,7 +21,7 @@
                 "type": "array",
                 "name": "station_ids",
                 "required": false,
-                "description": "Ids of stations to return.  Required if bounding box not provided."
+                "description": "Ids or assetTag values of stations to return.  Required if bounding box not provided."
             },
             {
                 "type": "../../general/geometry.schema",
