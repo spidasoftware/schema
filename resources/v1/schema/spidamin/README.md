@@ -101,9 +101,41 @@ This result gives you the id of the newly created project and that can be used i
 
 ### Project Updating
 
-Let say we want to update a project from the id that was returned previously.  The first thing we need is a project JSON that validates against the schema.  There are a couple caveats that you would have to know outside the strict schema validation, but these considerations should be enumerated in the service .json method description. An example would be the project.id, it's inclusion would change how the createOrUpdate method works.
+Let say we want to update a project from the id that was returned previously.  The first thing we need is a project JSON that validates against the schema.  There are a couple caveats that you would have to know outside the strict schema validation, but these considerations should be enumerated in the service .json method description. An example would be the project.id, it's inclusion would change how the createOrUpdate method works.  This means it isn't strictly required, but is required when updating the project.
 
-Once you have the JSON object, you would submit that JSON to the createOrUpdate method.
+From our previous call we know the project's id is 55485 and we can use this to update the project.  Lets say we want to add a station to this project.  We would construct an object that had an additonal station like below:
+
+    {
+      "id":55485,
+      "name": "Name",
+      "flowId": 26988,
+      "draft": false,
+      "deleted": false,
+      "address": {
+        "number": "",
+        "street": "",
+        "city": "",
+        "county": "",
+        "state": "",
+        "zip_code": ""
+      },
+      "stations": [
+        {
+          "deleted": false,
+          "spotted": false,
+          "amStationId": "ff8081814488add8014488f828fc0c54",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -117.14597,
+              35.114719
+            ]
+          }
+        }
+      ]
+    }
+
+Once you have the JSON object, you would submit that JSON to the createOrUpdate method.  A couple points of note would be the "amStationId" that is the reference to the id in the primary asset service, for example Asset Master.
 
 Example Service Implementation
 ---------------------------
