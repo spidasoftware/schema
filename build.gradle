@@ -42,7 +42,7 @@ buildscript {
 				username 'developer'
 				password '{DESede}dG+RkW6Rzo7BU1y/mn5Yhw=='
 			}
-			url "https://www.spidasoftware.com/artifactory/repo"
+			url "https://dev.spidasoftware.com/artifactory/repo"
 		}
 	}
 	dependencies {
@@ -52,7 +52,7 @@ buildscript {
 
 repositories {
 	mavenCentral()
-	maven { url "https://www.spidasoftware.com/artifactory/exposed-repo" }
+	maven { url "https://dev.spidasoftware.com/artifactory/exposed-repo" }
 }
 
 dependencies {
