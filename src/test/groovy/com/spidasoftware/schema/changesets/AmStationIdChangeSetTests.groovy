@@ -6,6 +6,7 @@ import net.sf.json.JSONObject
 class AmStationIdChangeSetTests extends GroovyTestCase {
 
 	JsonUpdater jsonUpdater
+	String schemaPath = "/v1/schema/spidamin/project/project.schema"
 
 	void setUp(){
 		jsonUpdater = new JsonUpdater()
@@ -28,11 +29,12 @@ class AmStationIdChangeSetTests extends GroovyTestCase {
 			  "geometry": { "type": "Point", "coordinates": [ -1, 2 ] }
 			}]
 		}"""
-		def newJsonString = jsonUpdater.update("/v1/schema/spidamin/project/project.schema", oldJsonString)
+		def newJsonString = jsonUpdater.update(schemaPath, oldJsonString)
 		def newJsonObject = JSONObject.fromObject(newJsonString)
 		assert newJsonObject.version == "0.6"
 		assert newJsonObject.stations[0].assetServiceRefId == "12345"
 		assert !newJsonObject.stations[0].containsKey("amStationId")
+		assert jsonUpdater.isValid(schemaPath, newJsonString)
 	}
 
 	void testAmStationIdChangeNotNeeded(){
@@ -48,11 +50,12 @@ class AmStationIdChangeSetTests extends GroovyTestCase {
 			  "geometry": { "type": "Point", "coordinates": [ -1, 2 ] }
 			}]
 		}"""
-		def newJsonString = jsonUpdater.update("/v1/schema/spidamin/project/project.schema", oldJsonString)
+		def newJsonString = jsonUpdater.update(schemaPath, oldJsonString)
 		def newJsonObject = JSONObject.fromObject(newJsonString)
 		assert newJsonObject.version == "0.6"
 		assert newJsonObject.stations[0].assetServiceRefId == "12345"
 		assert !newJsonObject.stations[0].containsKey("amStationId")
+		assert jsonUpdater.isValid(schemaPath, newJsonString)
 	}
 
 	void testAmStationIdChangeIgnored(){
@@ -67,12 +70,13 @@ class AmStationIdChangeSetTests extends GroovyTestCase {
 			  "geometry": { "type": "Point", "coordinates": [ -1, 2 ] }
 			}]
 		}"""
-		def newJsonString = jsonUpdater.update("/v1/schema/spidamin/project/project.schema", oldJsonString)
+		def newJsonString = jsonUpdater.update(schemaPath, oldJsonString)
 		def newJsonObject = JSONObject.fromObject(newJsonString)
 
 		assert !newJsonObject.containsKey("version") //not valid so not set
 		assert newJsonObject.stations[0].amStationId_OTHER == "12345" //no change to key or value
 		assert !newJsonObject.stations[0].containsKey("assetServiceRefId") //not added because amStationId not found
+		assert !jsonUpdater.isValid(schemaPath, newJsonString)
 	}
 
 }

@@ -6,6 +6,7 @@ import net.sf.json.JSONObject
 class CalcAddressChangeSetTests extends GroovyTestCase {
 
 	JsonUpdater jsonUpdater
+	String schemaPath = "/v1/schema/spidacalc/calc/project.schema"
 
 	void setUp(){
 		jsonUpdater = new JsonUpdater()
@@ -33,7 +34,7 @@ class CalcAddressChangeSetTests extends GroovyTestCase {
 				}
 			  ]
 			}"""
-		def newJsonString = jsonUpdater.update("/v1/schema/spidacalc/calc/project.schema", oldJsonString)
+		def newJsonString = jsonUpdater.update(schemaPath, oldJsonString)
 		def newJsonObject = JSONObject.fromObject(newJsonString)
 
 		assert newJsonObject.version == "0.6"
@@ -42,6 +43,7 @@ class CalcAddressChangeSetTests extends GroovyTestCase {
 
 		assert !newJsonObject.leads[0].locations[0].address.containsKey("zipCode")
 		assert !newJsonObject.leads[0].locations[0].address.containsKey("houseNumber")
+		assert jsonUpdater.isValid(schemaPath, newJsonString)
 	}
 
 	void testAddressChangeNotNeeded(){
@@ -62,7 +64,7 @@ class CalcAddressChangeSetTests extends GroovyTestCase {
 				}
 			  ]
 			}"""
-		def newJsonString = jsonUpdater.update("/v1/schema/spidacalc/calc/project.schema", oldJsonString)
+		def newJsonString = jsonUpdater.update(schemaPath, oldJsonString)
 		def newJsonObject = JSONObject.fromObject(newJsonString)
 
 		assert newJsonObject.version == "0.6"
@@ -71,6 +73,7 @@ class CalcAddressChangeSetTests extends GroovyTestCase {
 
 		assert !newJsonObject.leads[0].locations[0].address.containsKey("zipCode")
 		assert !newJsonObject.leads[0].locations[0].address.containsKey("houseNumber")
+		assert jsonUpdater.isValid(schemaPath, newJsonString)
 	}
 
 	void testAddressChangeIgnored(){
@@ -90,7 +93,7 @@ class CalcAddressChangeSetTests extends GroovyTestCase {
 				}
 			  ]
 			}"""
-		def newJsonString = jsonUpdater.update("/v1/schema/spidacalc/calc/project.schema", oldJsonString)
+		def newJsonString = jsonUpdater.update(schemaPath, oldJsonString)
 		def newJsonObject = JSONObject.fromObject(newJsonString)
 
 		assert !newJsonObject.containsKey("version") //not valid so not set
@@ -99,6 +102,7 @@ class CalcAddressChangeSetTests extends GroovyTestCase {
 
 		assert !newJsonObject.leads[0].locations[0].address.containsKey("zip_code") //not added because zipCode not found
 		assert !newJsonObject.leads[0].locations[0].address.containsKey("number") //not added because houseNumber not found
+		assert !jsonUpdater.isValid(schemaPath, newJsonString)
 
 	}
 
