@@ -4,13 +4,12 @@
   "type": "object",
   "properties": {
     "id": {
-      "type": "number"
+      "type": "number",
+      "description": "This is a database ID created by project manager.  Don't set this value for station creation.  Set this value if you want to update an existing station."
     },
     "assetServiceRefId": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": "string",
+      "description": "The id of the station from an asset service"
     },
     "spotted": {
       "type": "boolean",
@@ -30,5 +29,6 @@
       "$ref": "../../general/geometry.schema",
       "description": "required if spotted and not in external asset store"
     }
-  }
+  },
+  "additionalProperties": false
 }

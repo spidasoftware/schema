@@ -22,5 +22,6 @@
     "zip_code": {
       "type": "string"
     }
-  }
+  },
+  "additionalProperties": false
 }

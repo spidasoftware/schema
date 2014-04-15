@@ -14,6 +14,10 @@
     },
     "geometry": {
       "$ref": "../../general/geometry.schema"
+    },
+    "version": {
+      "type": "string",
+      "description": "This is the release tag and schema jar version number. Example: 0.5.1"
     }
   },
   "additionalProperties": false

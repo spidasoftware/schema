@@ -1,4 +1,5 @@
 package com.spidasoftware.schema.validation
+
 import com.github.fge.jackson.JsonLoader
 import com.github.fge.jsonschema.load.configuration.LoadingConfiguration
 import com.github.fge.jsonschema.main.JsonSchemaFactory

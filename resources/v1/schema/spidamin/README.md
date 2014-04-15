@@ -113,7 +113,7 @@ From our previous call we know the project's id is 55485 and we can use this to 
         {
           "deleted": false,
           "spotted": false,
-          "amStationId": "ff8081814488add8014488f828fc0c54",
+          "assetServiceRefId": "ff8081814488add8014488f828fc0c54",
           "geometry": {
             "type": "Point",
             "coordinates": [

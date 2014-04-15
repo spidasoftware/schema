@@ -5,17 +5,21 @@
   "properties": {
     "id": {
       "type": "number",
-      "description": "ID for project model in project manager database"
+      "description": "This is a database ID created by ProjectManager.  Don't set this value for project creation.  Set this value if you want to update an existing project."
+    },
+    "version": {
+      "type": "string",
+      "description": "This is the release tag and schema jar version number. Example: 0.5.1"
     },
     "name": {
       "type": "string",
-      "description": "project code for project model in project manager database. REQUIRED FOR CREATION",
+      "description": "project code for project model in ProjectManager database. REQUIRED FOR CREATION",
       "minLength": 2,
       "maxLength": 72
     },
     "flowId": {
       "type": "number",
-      "description": "ID for flow model in project manager database. REQUIRED FOR CREATION"
+      "description": "ID for flow model in ProjectManager database. REQUIRED FOR CREATION"
     },
     "deleted": {
       "type": "boolean",
@@ -30,7 +34,7 @@
     },
     "draft": {
       "type": "boolean",
-      "description": "Draft projects do not move through the project manager work flow"
+      "description": "Draft projects do not move through the ProjectManager work flow"
     },
     "companyId": {
       "type": "number",
@@ -38,48 +42,39 @@
     },
     "members": {
       "type": "array",
+      "id": "members",
+      "description": "A ProjectManager member",
       "items": {
-        "id": "member",
-        "description": "A project manager member",
-        "items": {
-          "$ref": "../../spidamin/project/member.schema"
-        }
+        "$ref": "../../spidamin/project/member.schema"
       }
     },
     "projectCodes": {
       "type": "array",
+      "id": "projectCodes",
+      "description": "A ProjectManager project code",
       "items": {
-        "id": "projectCode",
-        "description": "A project manager project code",
-        "items": {
-          "$ref": "../../spidamin/project/project_code.schema"
-        }
+        "$ref": "../../spidamin/project/project_code.schema"
       }
     },
     "status": {
       "type": "object",
       "properties": {
         "current": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "Current status of project model in project manager database"
+          "type": "string",
+          "description": "Current status of project model in ProjectManager database"
         },
         "possible": {
           "type": "array",
-          "description": "Every possible next status for project model in project manager database"
+          "description": "Every possible next status for project model in ProjectManager database"
         }
       }
     },
     "stations": {
       "type": "array",
+      "id": "stations",
+      "description": "A ProjectManager station",
       "items": {
-        "id": "station",
-        "description": "A project manager station",
-        "items": {
-          "$ref": "../../spidamin/project/station_wrapper.schema"
-        }
+        "$ref": "../../spidamin/project/station_wrapper.schema"
       }
     }
   },
