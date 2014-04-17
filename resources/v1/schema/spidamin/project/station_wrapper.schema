@@ -5,7 +5,7 @@
   "properties": {
     "id": {
       "type": "number",
-      "description": "This is a database ID created by project manager.  Don't set this value for station creation.  Set this value if you want to update an existing station."
+      "description": "This is a database ID created by project manager.  Only set this value if you want to update an existing station."
     },
     "assetServiceRefId": {
       "type": "string",

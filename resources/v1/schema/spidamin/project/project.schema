@@ -5,7 +5,7 @@
   "properties": {
     "id": {
       "type": "number",
-      "description": "This is a database ID created by ProjectManager.  Don't set this value for project creation.  Set this value if you want to update an existing project."
+      "description": "This is a database ID created by ProjectManager.  Only set this value if you want to update an existing project."
     },
     "version": {
       "type": "string",

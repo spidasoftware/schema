@@ -2,7 +2,7 @@ package com.spidasoftware.schema.utils
 
 import com.spidasoftware.schema.changesets.ChangeSet
 import com.spidasoftware.schema.validation.Validator
-import net.sf.json.JSONObject
+import net.sf.json.*
 
 /**
  * Created by jeremy on 4/14/14.
@@ -20,39 +20,57 @@ class JsonUpdaterTest extends GroovyTestCase {
 		GroovySystem.metaClassRegistry.removeMetaClass(Validator.class);
 	}
 
-	void testUpdateWithJsonVersion() {
+	void testUpdateWithOlderVersion() {
 		jsonUpdater.metaClass.isValid = { schemaPath, jsonString -> true }
-		jsonUpdater.metaClass.getJarFile = { new File("path/to/schema-2.jar") }
-		jsonUpdater.versionToChangeSetsMap = ["1":[NoChangeSet], "2":[TestChangeSet1], "3":[TestChangeSet2]]
+		jsonUpdater.metaClass.getJarFile = { new File("path/to/schema-3.jar") }
+		jsonUpdater.availableChangeSets = [TestChangeSet2, TestChangeSet3, NoChangeSet]
 		String oldString = '{"version":"1","key1":"123"}'
-		String newString = jsonUpdater.update("/test", oldString)
-		assert newString == '{"version":"2","key2":"123"}' //TestChangeSet1 is run and version is now at current version 2
+
+		JSONObject newObject = JSONObject.fromObject(jsonUpdater.update("/test", oldString))
+		assert newObject.version == "3" //change sets run and version is now at current version 3
+		assert newObject.key3 == "123" //new key name, same value
 	}
 
-	void testUpdateWithoutJsonVersionPassValidation() {
+	void testUpdateWithNoChangeNeeded() {
 		jsonUpdater.metaClass.isValid = { schemaPath, jsonString -> true }
-		jsonUpdater.metaClass.getJarFile = { new File("path/to/schema-2.jar") }
-		jsonUpdater.versionToChangeSetsMap = ["1":[NoChangeSet], "2":[TestChangeSet1], "3":[TestChangeSet2]]
-		String oldString = '{"key1":"123"}'
-		String newString = jsonUpdater.update("/test", oldString)
-		assert newString == '{"key1":"123","version":"2"}' //no changesets are run, but it is valid, so version is added
+		jsonUpdater.metaClass.getJarFile = { new File("path/to/schema-3.jar") }
+		jsonUpdater.availableChangeSets = [TestChangeSet2, TestChangeSet3, NoChangeSet]
+		String oldString = '{"key3":"123","version":"3"}'
+
+		JSONObject newObject = JSONObject.fromObject(jsonUpdater.update("/test", oldString))
+		assert newObject.version == "3" //no change sets run
+		assert newObject.key3 == "123" //same key name, same value
 	}
 
-	void testUpdateWithoutJsonVersionFailValidation() {
+	void testUpdateWithValidJsonNoVersion() {
+		jsonUpdater.metaClass.isValid = { schemaPath, jsonString -> true }
+		jsonUpdater.metaClass.getJarFile = { new File("path/to/schema-3.jar") }
+		jsonUpdater.availableChangeSets = [TestChangeSet2, TestChangeSet3, NoChangeSet]
+		String oldString = '{"key3":"123"}'
+
+		JSONObject newObject = JSONObject.fromObject(jsonUpdater.update("/test", oldString))
+		assert newObject.version == "3" //version added
+		assert newObject.key3 == "123" //change sets run but no change
+	}
+
+	void testUpdateWithNoVersionFailValidation() {
 		jsonUpdater.metaClass.isValid = { schemaPath, jsonString -> false }
-		jsonUpdater.metaClass.getJarFile = { new File("path/to/schema-2.jar") }
-		jsonUpdater.versionToChangeSetsMap = ["1":[NoChangeSet], "2":[TestChangeSet1], "3":[TestChangeSet2]]
-		String oldString = '{"key1":"123"}'
-		String newString = jsonUpdater.update("/test", oldString)
-		assert newString == '{"key3":"123"}' //all changesets are run, but it still doesn't pass validation, so no version is added
+		jsonUpdater.metaClass.getJarFile = { new File("path/to/schema-3.jar") }
+		jsonUpdater.availableChangeSets = [TestChangeSet2, TestChangeSet3, NoChangeSet]
+		String oldString = '{"key1":"123", "extra":"x"}'
+
+		JSONObject newObject = JSONObject.fromObject(jsonUpdater.update("/test", oldString))
+		assert newObject.key3 == "123" //all change sets are run, but it still doesn't pass validation, so no version is added
+		assert newObject.extra == "x" //invalid json object so no change
 	}
 
 	void testGetChangeSetsToRun() {
-		jsonUpdater.versionToChangeSetsMap = ["1":[], "2":[NoChangeSet], "3":[TestChangeSet1], "4":[TestChangeSet2]]
-		jsonUpdater.getChangeSetsToApply("/test", "2", "4") == ["3":[TestChangeSet1], "4":[TestChangeSet2]]
-		jsonUpdater.getChangeSetsToApply("/test", "3", "4") == ["4":[TestChangeSet2]]
-		jsonUpdater.getChangeSetsToApply("/test", "4", "4") == [:] //no changeset apply since it is the current version
-		jsonUpdater.getChangeSetsToApply("/none", "2", "4") == [:] //no changeset apply since no schema paths match
+		jsonUpdater.metaClass.isValid = { schemaPath, jsonString -> true }
+		jsonUpdater.availableChangeSets = [TestChangeSet2, TestChangeSet3, NoChangeSet]
+		jsonUpdater.getChangeSetInstances("{}", "/test", "1", "3") == ["2":[TestChangeSet2], "3":[TestChangeSet3]]
+		jsonUpdater.getChangeSetInstances("{}", "/test", "2", "3") == ["3":[TestChangeSet3]]
+		jsonUpdater.getChangeSetInstances("{}", "/test", "3", "3") == [:] //no changeset apply since it is the current version
+		jsonUpdater.getChangeSetInstances("{}", "/none", "2", "4") == [:] //no changeset apply since no schema paths match
 	}
 
 	void testSortMapByVersionKey() {
@@ -66,11 +84,12 @@ class JsonUpdaterTest extends GroovyTestCase {
 		assert jsonUpdater.getCurrentVersion(new File("path/to/schema-1.jar")) == "1"
 	}
 
-	class TestChangeSet1 implements ChangeSet {
+	class TestChangeSet2 implements ChangeSet {
+		String schemaVersion = "2"
 		String schemaPath = "/test"
 
 		@Override
-		void convert(JSONObject jsonObject) {
+		void convert(JSON jsonObject) {
 			if(jsonObject.containsKey("key1")){
 				jsonObject.key2 = jsonObject.key1
 				jsonObject.key1 = null
@@ -78,11 +97,12 @@ class JsonUpdaterTest extends GroovyTestCase {
 		}
 	}
 
-	class TestChangeSet2 implements ChangeSet {
+	class TestChangeSet3 implements ChangeSet {
+		String schemaVersion = "3"
 		String schemaPath = "/test"
 
 		@Override
-		void convert(JSONObject jsonObject) {
+		void convert(JSON jsonObject) {
 			if(jsonObject.containsKey("key2")){
 				jsonObject.key3 = jsonObject.key2
 				jsonObject.key2 = null
@@ -91,10 +111,12 @@ class JsonUpdaterTest extends GroovyTestCase {
 	}
 
 	class NoChangeSet implements ChangeSet {
+		String schemaVersion = "2"
 		String schemaPath = "/test"
 
 		@Override
-		void convert(JSONObject jsonObject) {
+		void convert(JSON jsonObject) {
+			//Do Nothing
 		}
 	}
 

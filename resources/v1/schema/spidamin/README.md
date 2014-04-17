@@ -127,7 +127,7 @@ From our previous call we know the project's id is 55485 and we can use this to 
 
 Once you have the JSON object, you would submit that JSON to the createOrUpdate method just like above.  
 
-_Note:_ the "amStationId" is the reference to the id in the primary asset service, for example Asset Master.
+_Note:_ the "assetServiceRefId" is the reference to the id in the primary asset service, for example Asset Master.
 
 Example Service Implementation
 ---------------------------

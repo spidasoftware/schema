@@ -9,14 +9,23 @@ import java.util.regex.Pattern
 class VersionUtils {
 
 	/**
+	 * the pattern matcher for versions
+	 * @param version
+	 * @return
+	 */
+	static Matcher getMatcher(String version) {
+		return Pattern.compile(/(\d+)\.?(\d+)?\.?(\d+)?\.?(\d+)?/).matcher(version)
+	}
+
+	/**
 	 * Converts a version string with 4 numbers into a list of 4 numbers
 	 * Example: 1.2.3.4 returns [1, 2, 3, 4]
 	 * Example: 1 returns [1, 0, 0, 0]
 	 * @param ver
 	 * @return
 	 */
-	static List getVersionNumbers(String version) {
-		Matcher matcher = Pattern.compile(/(\d+)\.?(\d+)?\.?(\d+)?\.?(\d+)?/).matcher(version)
+	static List getNumbers(String version) {
+		Matcher matcher = getMatcher(version)
 		if (!matcher.matches()){ throw new IllegalArgumentException("Malformed version:${version} (maximum of 4 different numbers separated by a period)")	}
 
 		def nums = []
@@ -56,8 +65,8 @@ class VersionUtils {
 			return false
 		}
 
-		List versionNums = getVersionNumbers(version);
-		List currentVersionNums = getVersionNumbers(currentVersion);
+		List versionNums = getNumbers(version);
+		List currentVersionNums = getNumbers(currentVersion);
 
 		for (int i = 0; i < versionNums.size(); i++){
 			if (versionNums[i] != currentVersionNums[i]){

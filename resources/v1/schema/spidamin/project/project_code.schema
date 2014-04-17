@@ -10,7 +10,7 @@
   "properties": {
     "id": {
       "type": "number",
-      "description": "This is a database ID.  Don't set this value for project code creation.  Set this value if you want to update an existing project code."
+      "description": "This is a database ID.  Only set this value if you want to update an existing project code."
     },
     "companyId": {
       "type": "number"

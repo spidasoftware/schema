@@ -5,11 +5,11 @@ package com.spidasoftware.schema.utils
  */
 class VersionUtilsTests extends GroovyTestCase {
 
-	void testGetVersionNumbers() {
-		assert VersionUtils.getVersionNumbers("1.2.3.4") == [1, 2, 3, 4]
-		assert VersionUtils.getVersionNumbers("1.2.3") == [1, 2, 3, 0]
-		assert VersionUtils.getVersionNumbers("1.2") == [1, 2, 0, 0]
-		assert VersionUtils.getVersionNumbers("1") == [1, 0, 0, 0]
+	void testGetNumbers() {
+		assert VersionUtils.getNumbers("1.2.3.4") == [1, 2, 3, 4]
+		assert VersionUtils.getNumbers("1.2.3") == [1, 2, 3, 0]
+		assert VersionUtils.getNumbers("1.2") == [1, 2, 0, 0]
+		assert VersionUtils.getNumbers("1") == [1, 0, 0, 0]
 	}
 
 	void testIsNewer() {

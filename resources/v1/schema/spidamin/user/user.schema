@@ -5,7 +5,7 @@
   "properties": {
     "id": {
       "type": "number",
-      "description": "This is a database ID created by users master."
+      "description": "This is a database ID created by UsersMaster."
     },
     "firstName": {
       "type": "string",
