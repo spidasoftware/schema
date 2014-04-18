@@ -13,16 +13,27 @@ class JsonUpdaterTest extends GroovyTestCase {
 
 	void setUp(){
 		jsonUpdater = new JsonUpdater()
+		VersionUtils.metaClass.static.getJarFile = { new File("path/to/schema-3.jar") }
 	}
 
 	void tearDown(){
 		GroovySystem.metaClassRegistry.removeMetaClass(JsonUpdater.class);
 		GroovySystem.metaClassRegistry.removeMetaClass(Validator.class);
+		GroovySystem.metaClassRegistry.removeMetaClass(VersionUtils.class);
 	}
 
-	void testUpdateWithOlderVersion() {
+	void testUpdateJsonObjectWithOlderVersion() {
 		jsonUpdater.metaClass.isValid = { schemaPath, jsonString -> true }
-		jsonUpdater.metaClass.getJarFile = { new File("path/to/schema-3.jar") }
+		jsonUpdater.availableChangeSets = [TestChangeSet2, TestChangeSet3, NoChangeSet]
+		JSONObject oldObject = JSONObject.fromObject('{"version":"1","key1":"123"}')
+
+		JSONObject newObject = JSONObject.fromObject(jsonUpdater.update("/test", oldObject))
+		assert newObject.version == "3" //change sets run and version is now at current version 3
+		assert newObject.key3 == "123" //new key name, same value
+	}
+
+	void testUpdateJsonStringWithOlderVersion() {
+		jsonUpdater.metaClass.isValid = { schemaPath, jsonString -> true }
 		jsonUpdater.availableChangeSets = [TestChangeSet2, TestChangeSet3, NoChangeSet]
 		String oldString = '{"version":"1","key1":"123"}'
 
@@ -33,7 +44,6 @@ class JsonUpdaterTest extends GroovyTestCase {
 
 	void testUpdateWithNoChangeNeeded() {
 		jsonUpdater.metaClass.isValid = { schemaPath, jsonString -> true }
-		jsonUpdater.metaClass.getJarFile = { new File("path/to/schema-3.jar") }
 		jsonUpdater.availableChangeSets = [TestChangeSet2, TestChangeSet3, NoChangeSet]
 		String oldString = '{"key3":"123","version":"3"}'
 
@@ -44,7 +54,6 @@ class JsonUpdaterTest extends GroovyTestCase {
 
 	void testUpdateWithValidJsonNoVersion() {
 		jsonUpdater.metaClass.isValid = { schemaPath, jsonString -> true }
-		jsonUpdater.metaClass.getJarFile = { new File("path/to/schema-3.jar") }
 		jsonUpdater.availableChangeSets = [TestChangeSet2, TestChangeSet3, NoChangeSet]
 		String oldString = '{"key3":"123"}'
 
@@ -55,7 +64,6 @@ class JsonUpdaterTest extends GroovyTestCase {
 
 	void testUpdateWithNoVersionFailValidation() {
 		jsonUpdater.metaClass.isValid = { schemaPath, jsonString -> false }
-		jsonUpdater.metaClass.getJarFile = { new File("path/to/schema-3.jar") }
 		jsonUpdater.availableChangeSets = [TestChangeSet2, TestChangeSet3, NoChangeSet]
 		String oldString = '{"key1":"123", "extra":"x"}'
 
@@ -67,21 +75,17 @@ class JsonUpdaterTest extends GroovyTestCase {
 	void testGetChangeSetsToRun() {
 		jsonUpdater.metaClass.isValid = { schemaPath, jsonString -> true }
 		jsonUpdater.availableChangeSets = [TestChangeSet2, TestChangeSet3, NoChangeSet]
-		jsonUpdater.getChangeSetInstances("{}", "/test", "1", "3") == ["2":[TestChangeSet2], "3":[TestChangeSet3]]
-		jsonUpdater.getChangeSetInstances("{}", "/test", "2", "3") == ["3":[TestChangeSet3]]
-		jsonUpdater.getChangeSetInstances("{}", "/test", "3", "3") == [:] //no changeset apply since it is the current version
-		jsonUpdater.getChangeSetInstances("{}", "/none", "2", "4") == [:] //no changeset apply since no schema paths match
+		def jsonObject = new JSONObject()
+		jsonUpdater.getChangeSetInstances(jsonObject, "/test", "1", "3") == ["2":[TestChangeSet2], "3":[TestChangeSet3]]
+		jsonUpdater.getChangeSetInstances(jsonObject, "/test", "2", "3") == ["3":[TestChangeSet3]]
+		jsonUpdater.getChangeSetInstances(jsonObject, "/test", "3", "3") == [:] //no changeset apply since it is the current version
+		jsonUpdater.getChangeSetInstances(jsonObject, "/none", "2", "4") == [:] //no changeset apply since no schema paths match
 	}
 
 	void testSortMapByVersionKey() {
 		def unsorted = ["1.0.0":[], "0.0.1":[], "0.1.0":[]]
 		def sorted = ["0.0.1":[], "0.1.0":[], "1.0.0":[]]
 		assert jsonUpdater.sortMapByVersionKey(unsorted) == sorted
-	}
-
-	void testGetCurrentVersion() {
-		assert jsonUpdater.getCurrentVersion(new File("path/to/schema-1.2.3.4.jar")) == "1.2.3.4"
-		assert jsonUpdater.getCurrentVersion(new File("path/to/schema-1.jar")) == "1"
 	}
 
 	class TestChangeSet2 implements ChangeSet {

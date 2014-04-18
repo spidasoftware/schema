@@ -10,6 +10,7 @@ class VersionUtilsTests extends GroovyTestCase {
 		assert VersionUtils.getNumbers("1.2.3") == [1, 2, 3, 0]
 		assert VersionUtils.getNumbers("1.2") == [1, 2, 0, 0]
 		assert VersionUtils.getNumbers("1") == [1, 0, 0, 0]
+		shouldFail(IllegalArgumentException, { VersionUtils.getNumbers("1.2.3.4-SNAPSHOT") } )
 	}
 
 	void testIsNewer() {
@@ -27,5 +28,15 @@ class VersionUtilsTests extends GroovyTestCase {
 		assert VersionUtils.isOlder("0.0.0.1", "1") //different lengths
 		assert !VersionUtils.isOlder("1", "0.1") //check false
 	}
-	
+
+	void testGetCurrentVersion() {
+		assert VersionUtils.getVersionFromFileName(new File("path/to/schema-1.2.3.4.jar")) == "1.2.3.4"
+		assert VersionUtils.getVersionFromFileName(new File("path/to/schema-1-SNAPSHOT.jar")) == "1"
+		assert VersionUtils.getVersionFromFileName(new File("path/to/schema-1.jar")) == "1"
+		assert VersionUtils.getVersionFromFileName(new File("path/to/1")) == "1"
+		assert VersionUtils.getVersionFromFileName(new File("1")) == "1"
+		assert VersionUtils.getVersionFromFileName(new File("path/to/.s.c.h.e.m.a-1.2.3.4-ABC.ABC.ABC.jar")) == "1.2.3.4"
+		assert VersionUtils.getVersionFromFileName(new File("path/to/A....B")) == null
+	}
+
 }

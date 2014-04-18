@@ -1,5 +1,7 @@
 package com.spidasoftware.schema.utils
 
+import org.apache.commons.io.FilenameUtils
+
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
@@ -8,17 +10,28 @@ import java.util.regex.Pattern
  */
 class VersionUtils {
 
+	static Pattern pattern = Pattern.compile(/(\d+)(\.\d+)?(\.\d+)?(\.\d+)?/)
+
 	/**
-	 * the pattern matcher for versions
+	 * Pattern matcher for versions strings.
+	 * Accepts up to four numbers separated by a period.
 	 * @param version
 	 * @return
 	 */
 	static Matcher getMatcher(String version) {
-		return Pattern.compile(/(\d+)\.?(\d+)?\.?(\d+)?\.?(\d+)?/).matcher(version)
+		return pattern.matcher(version)
 	}
 
 	/**
-	 * Converts a version string with 4 numbers into a list of 4 numbers
+	 * gets the version string from this schema's jar file name
+	 * @return
+	 */
+	static String getSchemaJarVersion() {
+		getVersionFromFileName(getJarFile())
+	}
+
+	/**
+	 * Converts a version string with 4 numbers into a list of 4 numbers.
 	 * Example: 1.2.3.4 returns [1, 2, 3, 4]
 	 * Example: 1 returns [1, 0, 0, 0]
 	 * @param ver
@@ -26,15 +39,17 @@ class VersionUtils {
 	 */
 	static List getNumbers(String version) {
 		Matcher matcher = getMatcher(version)
-		if (!matcher.matches()){ throw new IllegalArgumentException("Malformed version:${version} (maximum of 4 different numbers separated by a period)")	}
+		if (!matcher.matches()){
+			throw new IllegalArgumentException("Malformed version:${version} (maximum of 4 different numbers separated by a period)")
+		}
 
 		def nums = []
-		for(int i = 0; i < matcher.groupCount(); i++){
+		for(int i = 0; i < 4; i++){
 			def groupVal = matcher.group(i + 1)
 			if(groupVal == null){
 				nums[i] = 0
 			} else {
-				nums[i] = Integer.parseInt(groupVal)
+				nums[i] = Integer.parseInt(groupVal.replace(".",""))
 			}
 		}
 		return nums
@@ -75,6 +90,25 @@ class VersionUtils {
 		}
 
 		return false;
+	}
+
+	/**
+	 * returns the jar file this class is in
+	 * @return
+	 */
+	static File getJarFile(){
+		new File(this.class.getProtectionDomain().getCodeSource().getLocation().path)
+	}
+
+	/**
+	 * Example: build/schema-0.5.1.jar returns 0.5.1
+	 * Example: build/schema-0.5.1-SNAPSHOT.jar returns 0.5.1
+	 * @param jarFile
+	 * @return
+	 */
+	static String getVersionFromFileName(File file){
+		def name = FilenameUtils.removeExtension(file.name)
+		return name.split("-").find { getMatcher(it).matches() }
 	}
 
 }

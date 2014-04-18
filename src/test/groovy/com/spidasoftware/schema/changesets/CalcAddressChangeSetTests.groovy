@@ -1,6 +1,7 @@
 package com.spidasoftware.schema.changesets
 
 import com.spidasoftware.schema.utils.JsonUpdater
+import com.spidasoftware.schema.utils.VersionUtils
 import net.sf.json.JSONObject
 
 class CalcAddressChangeSetTests extends GroovyTestCase {
@@ -10,11 +11,11 @@ class CalcAddressChangeSetTests extends GroovyTestCase {
 
 	void setUp(){
 		jsonUpdater = new JsonUpdater()
-		jsonUpdater.metaClass.getJarFile = { new File("path/to/schema-0.6.jar") }
+		VersionUtils.metaClass.static.getJarFile = { new File("path/to/schema-0.6.jar") }
 	}
 
 	void tearDown(){
-		GroovySystem.metaClassRegistry.removeMetaClass(JsonUpdater.class);
+		GroovySystem.metaClassRegistry.removeMetaClass(VersionUtils.class);
 	}
 
 	void testAddressChange(){

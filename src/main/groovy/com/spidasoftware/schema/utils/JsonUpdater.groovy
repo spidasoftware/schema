@@ -19,17 +19,26 @@ class JsonUpdater {
 	List availableChangeSets = [AmStationIdChangeSet, CalcAddressChangeSet]
 
 	/**
-	 * Updates a json string to the latest version by running changesets
+	 * Updates a json string to the latest version by running change sets
 	 * @param schemaPath
 	 * @param originalJsonString
 	 * @return
 	 */
-	String update(String schemaPath, String originalJsonString){
+	String update(String schemaPath, String originalJsonString) {
 		JSON jsonObject = new JsonSlurper().parseText(originalJsonString)
+		return update(schemaPath, jsonObject)
+	}
+	/**
+	 * Updates a json object to the latest version by running change sets
+	 * @param schemaPath
+	 * @param jsonObject
+	 * @return
+	 */
+	String update(String schemaPath, JSON jsonObject){
 		def jsonVersion = getJsonVersion(jsonObject)
-		def currentVersion = getCurrentVersion(getJarFile())
+		def currentVersion = VersionUtils.getSchemaJarVersion()
 
-		def changeSetsToApply = getChangeSetInstances(originalJsonString, schemaPath, jsonVersion, currentVersion)
+		def changeSetsToApply = getChangeSetInstances(jsonObject, schemaPath, jsonVersion, currentVersion)
 		log.info("${changeSetsToApply.values().flatten().size()} Changesets to apply.")
 
 		//Run all the change sets that apply to this json object.
@@ -62,16 +71,16 @@ class JsonUpdater {
 	 * If the version is specified, find the change sets up to the current one.
 	 * If no version specified, then try to run all of the change sets of the same schema.
 	 *
-	 * @param originalJsonString
+	 * @param jsonObect
 	 * @param jsonSchemaPath
 	 * @param jsonVersion
 	 * @param currentSchemaVersion
 	 * @return
 	 */
-	Map getChangeSetInstances(String originalJsonString, String jsonSchemaPath, String jsonVersion, String currentSchemaVersion){
+	Map getChangeSetInstances(JSON jsonObject, String jsonSchemaPath, String jsonVersion, String currentSchemaVersion){
 		def changeSetsToApply = [:]
 
-		if(VersionUtils.isOlder(jsonVersion, currentSchemaVersion) || !isValid(jsonSchemaPath, originalJsonString)){
+		if(VersionUtils.isOlder(jsonVersion, currentSchemaVersion) || !isValid(jsonSchemaPath, jsonObject.toString())){
 			availableChangeSets.each { Class changeSetClass ->
 				ChangeSet changeSetInstance = changeSetClass.newInstance() as ChangeSet
 
@@ -109,25 +118,6 @@ class JsonUpdater {
 				1
 			}
 		}
-	}
-
-	/**
-	 * returns the jar file this class is in
-	 * @return
-	 */
-	File getJarFile(){
-		def file = new File(this.class.getProtectionDomain().getCodeSource().getLocation().path)
-		log.info "jar file = ${file}"
-		return file
-	}
-
-	/**
-	 * Example: build/schema-0.5.1.jar returns 0.5.1
-	 * @param jarFile
-	 * @return
-	 */
-	String getCurrentVersion(File jarFile){
-		return jarFile.name.toLowerCase().replace(".jar", "").split("-").last()
 	}
 
 	/**
