@@ -1,8 +1,6 @@
-package com.spidasoftware.schema.utils
+package com.spidasoftware.schema.changesets
 
-import com.spidasoftware.schema.changesets.CalcAddressChangeSet
-import com.spidasoftware.schema.changesets.ChangeSet
-import com.spidasoftware.schema.changesets.AmStationIdChangeSet
+import com.spidasoftware.schema.utils.VersionUtils
 import com.spidasoftware.schema.validation.Validator
 import groovy.util.logging.Log4j
 import net.sf.json.JSON
@@ -26,15 +24,16 @@ class JsonUpdater {
 	 */
 	String update(String schemaPath, String originalJsonString) {
 		JSON jsonObject = new JsonSlurper().parseText(originalJsonString)
-		return update(schemaPath, jsonObject)
+		update(schemaPath, jsonObject)
+		return jsonObject.toString()
 	}
 	/**
-	 * Modifies the json object and returns new json string.
+	 * Modifies the json object.
 	 * @param schemaPath
 	 * @param jsonObject
 	 * @return
 	 */
-	String update(String schemaPath, JSON jsonObject){
+	void update(String schemaPath, JSON jsonObject){
 		String jsonVersion = getJsonVersion(jsonObject)
 		String currentVersion = VersionUtils.getSchemaJarVersion()
 		if(!currentVersion){
@@ -54,18 +53,14 @@ class JsonUpdater {
 		}
 
 		//If the json is now valid, set the current version number.
-		String newString = jsonObject.toString()
-		if(isValid(schemaPath, newString)){
+		if(isValid(schemaPath, jsonObject.toString())){
 
 			jsonObject.version = currentVersion
-			newString = jsonObject.toString()
 			log.info("Done running changesets.  JSON now valid against current schema.")
 
 		} else {
 			log.warn("JSON still does not validate against current schema ${schemaPath}")
 		}
-
-		return newString
 	}
 
 	/**

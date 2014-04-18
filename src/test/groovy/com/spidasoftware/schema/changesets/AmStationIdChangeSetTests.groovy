@@ -1,6 +1,5 @@
 package com.spidasoftware.schema.changesets
 
-import com.spidasoftware.schema.utils.JsonUpdater
 import com.spidasoftware.schema.utils.VersionUtils
 import net.sf.json.JSONObject
 

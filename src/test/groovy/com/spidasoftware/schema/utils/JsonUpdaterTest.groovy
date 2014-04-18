@@ -1,6 +1,7 @@
 package com.spidasoftware.schema.utils
 
 import com.spidasoftware.schema.changesets.ChangeSet
+import com.spidasoftware.schema.changesets.JsonUpdater
 import com.spidasoftware.schema.validation.Validator
 import net.sf.json.*
 
@@ -31,11 +32,11 @@ class JsonUpdaterTest extends GroovyTestCase {
 	void testUpdateJsonObjectWithOlderVersion() {
 		jsonUpdater.metaClass.isValid = { schemaPath, jsonString -> true }
 		jsonUpdater.availableChangeSets = [TestChangeSet2, TestChangeSet3, NoChangeSet]
-		JSONObject oldObject = JSONObject.fromObject('{"version":"1","key1":"123"}')
+		JSONObject jsonObject = JSONObject.fromObject('{"version":"1","key1":"123"}')
 
-		JSONObject newObject = JSONObject.fromObject(jsonUpdater.update("/test", oldObject))
-		assert newObject.version == "3" //change sets run and version is now at current version 3
-		assert newObject.key3 == "123" //new key name, same value
+		jsonUpdater.update("/test", jsonObject)
+		assert jsonObject.version == "3" //change sets run and version is now at current version 3
+		assert jsonObject.key3 == "123" //new key name, same value
 	}
 
 	void testUpdateJsonStringWithOlderVersion() {
