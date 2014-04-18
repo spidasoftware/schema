@@ -2,6 +2,10 @@
   "id": "#/spidamin/project/project.schema",
   "description": "A ProjectManager project",
   "type": "object",
+  "required": [
+    "name",
+    "flowId"
+  ],
   "properties": {
     "id": {
       "type": "number",
