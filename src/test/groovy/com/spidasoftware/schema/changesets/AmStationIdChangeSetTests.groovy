@@ -22,6 +22,7 @@ class AmStationIdChangeSetTests extends GroovyTestCase {
 		def oldJsonString = """{
 		  "name": "Project4",
 		  "flowId": 1,
+		  "version": "0.5.1",
 		  "draft": false,
 		  "stations": [{
 			  "deleted": false,
@@ -32,9 +33,29 @@ class AmStationIdChangeSetTests extends GroovyTestCase {
 		}"""
 		def newJsonString = jsonUpdater.update(schemaPath, oldJsonString)
 		def newJsonObject = JSONObject.fromObject(newJsonString)
-		assert newJsonObject.version == "0.6"
-		assert newJsonObject.stations[0].assetServiceRefId == "12345"
-		assert !newJsonObject.stations[0].containsKey("amStationId")
+		assert newJsonObject.version == "0.6" //version is changed
+		assert newJsonObject.stations[0].assetServiceRefId == "12345" //key is changed but value is the same
+		assert !newJsonObject.stations[0].containsKey("amStationId") // old key is removed
+		assert jsonUpdater.isValid(schemaPath, newJsonString)
+	}
+
+	void testAmStationIdChangeWhenNull(){
+		def oldJsonString = """{
+		  "name": "Project4",
+		  "flowId": 1,
+		  "draft": false,
+		  "stations": [{
+			  "deleted": false,
+			  "spotted": true,
+			  "amStationId": null,
+			  "geometry": { "type": "Point", "coordinates": [ -1, 2 ] }
+			}]
+		}"""
+		def newJsonString = jsonUpdater.update(schemaPath, oldJsonString)
+		def newJsonObject = JSONObject.fromObject(newJsonString)
+		assert newJsonObject.version == "0.6" //version is added
+		assert !newJsonObject.stations[0].containsKey("assetServiceRefId") // null so key is removed
+		assert !newJsonObject.stations[0].containsKey("amStationId") // old key is removed
 		assert jsonUpdater.isValid(schemaPath, newJsonString)
 	}
 
@@ -53,9 +74,9 @@ class AmStationIdChangeSetTests extends GroovyTestCase {
 		}"""
 		def newJsonString = jsonUpdater.update(schemaPath, oldJsonString)
 		def newJsonObject = JSONObject.fromObject(newJsonString)
-		assert newJsonObject.version == "0.6"
-		assert newJsonObject.stations[0].assetServiceRefId == "12345"
-		assert !newJsonObject.stations[0].containsKey("amStationId")
+		assert newJsonObject.version == "0.6" //version is unchanged
+		assert newJsonObject.stations[0].assetServiceRefId == "12345" //no change to key or value
+		assert !newJsonObject.stations[0].containsKey("amStationId") // old key is removed
 		assert jsonUpdater.isValid(schemaPath, newJsonString)
 	}
 

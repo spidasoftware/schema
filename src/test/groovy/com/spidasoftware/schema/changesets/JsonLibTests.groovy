@@ -1,5 +1,6 @@
 package com.spidasoftware.schema.changesets
 
+import net.sf.json.JSONNull
 import net.sf.json.JSONObject
 
 /**
@@ -17,6 +18,11 @@ class JsonLibTests extends GroovyTestCase {
 
 		json.put("a", null)
 		assert !json.containsKey("a") // opposite of map
+
+		def parsedNullVal = JSONObject.fromObject('{"test":null}')
+		assert parsedNullVal.test instanceof JSONNull
+		json.a = parsedNullVal
+		assert json.containsKey("a") // setting to JSONNull keeps the key
 	}
 
 	void testMapNull(){

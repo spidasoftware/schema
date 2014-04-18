@@ -1,6 +1,7 @@
 package com.spidasoftware.schema.changesets
 
 import net.sf.json.JSON
+import net.sf.json.JSONNull
 
 /**
  * changes zipCode to zip_code
@@ -15,13 +16,12 @@ class CalcAddressChangeSet implements ChangeSet {
 	void convert(JSON calcProject) {
 		calcProject.leads?.each { lead ->
 			lead.locations?.each { loc ->
-				if(loc.address?.zipCode){
-					loc.address.zip_code = loc.address.zipCode
-					loc.address.zipCode = null //net.sf.json lib removes the key if the value is null
-				}
-				if(loc.address?.houseNumber){
-					loc.address.number = loc.address.houseNumber
-					loc.address.houseNumber = null //net.sf.json lib removes the key if the value is null
+				["zipCode":"zip_code", "houseNumber":"number"].each{ oldKey, newKey ->
+					if(loc.address?.containsKey(oldKey)){
+						def oldVal = loc.address.get(oldKey)
+						loc.address.put(newKey, oldVal && !(oldVal instanceof JSONNull) ? oldVal : null)
+						loc.address.put(oldKey, null) //net.sf.json lib removes the key if the value is null
+					}
 				}
 			}
 		}

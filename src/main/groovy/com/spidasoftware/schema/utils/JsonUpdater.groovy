@@ -19,7 +19,7 @@ class JsonUpdater {
 	List availableChangeSets = [AmStationIdChangeSet, CalcAddressChangeSet]
 
 	/**
-	 * Updates a json string to the latest version by running change sets
+	 * Parses json string, modifies json object, and returns new json string.
 	 * @param schemaPath
 	 * @param originalJsonString
 	 * @return
@@ -29,7 +29,7 @@ class JsonUpdater {
 		return update(schemaPath, jsonObject)
 	}
 	/**
-	 * Updates a json object to the latest version by running change sets
+	 * Modifies the json object and returns new json string.
 	 * @param schemaPath
 	 * @param jsonObject
 	 * @return

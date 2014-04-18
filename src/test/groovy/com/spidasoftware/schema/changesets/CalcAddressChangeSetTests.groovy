@@ -21,13 +21,14 @@ class CalcAddressChangeSetTests extends GroovyTestCase {
 	void testAddressChange(){
 		def oldJsonString = """{
 			  "name": "project-1",
+			  "version": "0.5.1",
 			  "clientFile": "Demo.client",
 			  "schema": "https://raw.github.com/spidasoftware/schema/master/resources/v1/schema/spidacalc/calc/project.schema",
 			  "leads": [
 				{
 				  "locations": [
 					{
-					  "address": {"houseNumber":"123", "street":"a", "city":"b", "county":"c", "state":"d", "zipCode":"12345"},
+					  "address": {"houseNumber":"123", "zipCode":"12345", "street":"a", "city":"b", "county":"c", "state":"d"},
 					  "geographicCoordinate": { "type":"Point", "coordinates":[1, 2] },
 					  "id": "41811012B10002"
 					}
@@ -38,12 +39,40 @@ class CalcAddressChangeSetTests extends GroovyTestCase {
 		def newJsonString = jsonUpdater.update(schemaPath, oldJsonString)
 		def newJsonObject = JSONObject.fromObject(newJsonString)
 
-		assert newJsonObject.version == "0.6"
-		assert newJsonObject.leads[0].locations[0].address.zip_code == "12345"
-		assert newJsonObject.leads[0].locations[0].address.number == "123"
+		assert newJsonObject.leads[0].locations[0].address.zip_code == "12345" // key is renamed and value is unchanged
+		assert newJsonObject.leads[0].locations[0].address.number == "123" // key is renamed and value is unchanged
 
-		assert !newJsonObject.leads[0].locations[0].address.containsKey("zipCode")
-		assert !newJsonObject.leads[0].locations[0].address.containsKey("houseNumber")
+		assert !newJsonObject.leads[0].locations[0].address.containsKey("zipCode") // old key is removed
+		assert !newJsonObject.leads[0].locations[0].address.containsKey("houseNumber") // old key is removed
+		assert newJsonObject.version == "0.6" //version is changed
+		assert jsonUpdater.isValid(schemaPath, newJsonString)
+	}
+
+	void testAddressChangeWithNullAndEmptyStrings(){
+		def oldJsonString = """{
+			  "name": "project-1",
+			  "clientFile": "Demo.client",
+			  "schema": "https://raw.github.com/spidasoftware/schema/master/resources/v1/schema/spidacalc/calc/project.schema",
+			  "leads": [
+				{
+				  "locations": [
+					{
+					  "address": {"houseNumber":"", "zipCode":null, "street":"a", "city":"b", "county":"c", "state":"d"},
+					  "geographicCoordinate": { "type":"Point", "coordinates":[1, 2] },
+					  "id": "41811012B10002"
+					}
+				  ]
+				}
+			  ]
+			}"""
+		def newJsonString = jsonUpdater.update(schemaPath, oldJsonString)
+		def newJsonObject = JSONObject.fromObject(newJsonString)
+
+		assert !newJsonObject.leads[0].locations[0].address.containsKey("number") // key is removed because it is null or empty
+		assert !newJsonObject.leads[0].locations[0].address.containsKey("zip_code") // key is removed because it is null or empty
+		assert !newJsonObject.leads[0].locations[0].address.containsKey("zipCode") // old key is removed
+		assert !newJsonObject.leads[0].locations[0].address.containsKey("houseNumber") // old key is removed
+		assert newJsonObject.version == "0.6" //version is added
 		assert jsonUpdater.isValid(schemaPath, newJsonString)
 	}
 
@@ -57,7 +86,7 @@ class CalcAddressChangeSetTests extends GroovyTestCase {
 				{
 				  "locations": [
 					{
-					  "address": {"number":"123", "street":"a", "city":"b", "county":"c", "state":"d", "zip_code":"12345"},
+					  "address": {"number":"123", "zip_code":"12345", "street":"a", "city":"b", "county":"c", "state":"d"},
 					  "geographicCoordinate": { "type":"Point", "coordinates":[1, 2] },
 					  "id": "41811012B10002"
 					}
@@ -68,12 +97,12 @@ class CalcAddressChangeSetTests extends GroovyTestCase {
 		def newJsonString = jsonUpdater.update(schemaPath, oldJsonString)
 		def newJsonObject = JSONObject.fromObject(newJsonString)
 
-		assert newJsonObject.version == "0.6"
-		assert newJsonObject.leads[0].locations[0].address.zip_code == "12345"
-		assert newJsonObject.leads[0].locations[0].address.number == "123"
+		assert newJsonObject.leads[0].locations[0].address.zip_code == "12345" // key is renamed and value is unchanged
+		assert newJsonObject.leads[0].locations[0].address.number == "123" // key is renamed and value is unchanged
 
-		assert !newJsonObject.leads[0].locations[0].address.containsKey("zipCode")
-		assert !newJsonObject.leads[0].locations[0].address.containsKey("houseNumber")
+		assert !newJsonObject.leads[0].locations[0].address.containsKey("zipCode") // old key is removed
+		assert !newJsonObject.leads[0].locations[0].address.containsKey("houseNumber") // old key is removed
+		assert newJsonObject.version == "0.6" //version is unchanged
 		assert jsonUpdater.isValid(schemaPath, newJsonString)
 	}
 
@@ -86,7 +115,7 @@ class CalcAddressChangeSetTests extends GroovyTestCase {
 				{
 				  "locations": [
 					{
-					  "address": {"houseNumber_OTHER":"123", "street":"a", "city":"b", "county":"c", "state":"d", "zipCode_OTHER":"12345"},
+					  "address": {"houseNumber_OTHER":"123", "zipCode_OTHER":"12345", "street":"a", "city":"b", "county":"c", "state":"d"},
 					  "geographicCoordinate": { "type":"Point", "coordinates":[1, 2] },
 					  "id": "41811012B10002"
 					}
@@ -97,14 +126,13 @@ class CalcAddressChangeSetTests extends GroovyTestCase {
 		def newJsonString = jsonUpdater.update(schemaPath, oldJsonString)
 		def newJsonObject = JSONObject.fromObject(newJsonString)
 
-		assert !newJsonObject.containsKey("version") //not valid so not set
 		assert newJsonObject.leads[0].locations[0].address.houseNumber_OTHER == "123" //no change to key or value
 		assert newJsonObject.leads[0].locations[0].address.zipCode_OTHER == "12345" //no change to key or value
 
 		assert !newJsonObject.leads[0].locations[0].address.containsKey("zip_code") //not added because zipCode not found
 		assert !newJsonObject.leads[0].locations[0].address.containsKey("number") //not added because houseNumber not found
+		assert !newJsonObject.containsKey("version") //not valid so not set
 		assert !jsonUpdater.isValid(schemaPath, newJsonString)
-
 	}
 
 }
