@@ -35,8 +35,11 @@ class JsonUpdater {
 	 * @return
 	 */
 	String update(String schemaPath, JSON jsonObject){
-		def jsonVersion = getJsonVersion(jsonObject)
-		def currentVersion = VersionUtils.getSchemaJarVersion()
+		String jsonVersion = getJsonVersion(jsonObject)
+		String currentVersion = VersionUtils.getSchemaJarVersion()
+		if(!currentVersion){
+			throw new IllegalStateException("Unable to determine the current version.")
+		}
 
 		def changeSetsToApply = getChangeSetInstances(jsonObject, schemaPath, jsonVersion, currentVersion)
 		log.info("${changeSetsToApply.values().flatten().size()} Changesets to apply.")

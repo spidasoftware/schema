@@ -97,7 +97,8 @@ class VersionUtils {
 	 * @return
 	 */
 	static File getJarFile(){
-		new File(this.class.getProtectionDomain().getCodeSource().getLocation().path)
+		def path = this.class.getProtectionDomain()?.getCodeSource()?.getLocation()?.path
+		return path ? new File(path) : null
 	}
 
 	/**
@@ -107,6 +108,7 @@ class VersionUtils {
 	 * @return
 	 */
 	static String getVersionFromFileName(File file){
+		if(!file){ return null }
 		def name = FilenameUtils.removeExtension(file.name)
 		return name.split("-").find { getMatcher(it).matches() }
 	}

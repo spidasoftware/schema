@@ -22,6 +22,12 @@ class JsonUpdaterTest extends GroovyTestCase {
 		GroovySystem.metaClassRegistry.removeMetaClass(VersionUtils.class);
 	}
 
+	void testNullCurrentVersion(){
+		VersionUtils.metaClass.static.getJarFile = { new File("a") }
+		def msg = shouldFail(IllegalStateException, {jsonUpdater.update("/","{}")})
+		assert msg == "Unable to determine the current version."
+	}
+
 	void testUpdateJsonObjectWithOlderVersion() {
 		jsonUpdater.metaClass.isValid = { schemaPath, jsonString -> true }
 		jsonUpdater.availableChangeSets = [TestChangeSet2, TestChangeSet3, NoChangeSet]
