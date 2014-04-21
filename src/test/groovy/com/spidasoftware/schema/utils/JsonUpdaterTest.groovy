@@ -23,10 +23,16 @@ class JsonUpdaterTest extends GroovyTestCase {
 		GroovySystem.metaClassRegistry.removeMetaClass(VersionUtils.class);
 	}
 
-	void testNullCurrentVersion(){
+	void testCurrentVersionFromJarName(){
+		VersionUtils.metaClass.static.getJarFile = { new File("a-5.1.jar") }
+		jsonUpdater.availableChangeSets = [TestChangeSet2, TestChangeSet3]
+		assert jsonUpdater.getCurrentVersion() == "5.1" // version from jar name
+	}
+
+	void testCurrentVersionFromLatestChangeSet(){
 		VersionUtils.metaClass.static.getJarFile = { new File("a") }
-		def msg = shouldFail(IllegalStateException, {jsonUpdater.update("/","{}")})
-		assert msg == "Unable to determine the current version."
+		jsonUpdater.availableChangeSets = [TestChangeSet3, TestChangeSet2]
+		assert jsonUpdater.getCurrentVersion() == "3" // latest changeset
 	}
 
 	void testUpdateJsonObjectWithOlderVersion() {
@@ -83,16 +89,20 @@ class JsonUpdaterTest extends GroovyTestCase {
 		jsonUpdater.metaClass.isValid = { schemaPath, jsonString -> true }
 		jsonUpdater.availableChangeSets = [TestChangeSet2, TestChangeSet3, NoChangeSet]
 		def jsonObject = new JSONObject()
-		jsonUpdater.getChangeSetInstances(jsonObject, "/test", "1", "3") == ["2":[TestChangeSet2], "3":[TestChangeSet3]]
-		jsonUpdater.getChangeSetInstances(jsonObject, "/test", "2", "3") == ["3":[TestChangeSet3]]
-		jsonUpdater.getChangeSetInstances(jsonObject, "/test", "3", "3") == [:] //no changeset apply since it is the current version
-		jsonUpdater.getChangeSetInstances(jsonObject, "/none", "2", "4") == [:] //no changeset apply since no schema paths match
+
+		assert jsonUpdater.getChangeSetsThatApply(jsonObject, "/test", "1", "3")[0] instanceof TestChangeSet2
+		assert jsonUpdater.getChangeSetsThatApply(jsonObject, "/test", "1", "3")[1] instanceof TestChangeSet3
+
+		assert jsonUpdater.getChangeSetsThatApply(jsonObject, "/test", "2", "3")[0] instanceof TestChangeSet3
+		assert jsonUpdater.getChangeSetsThatApply(jsonObject, "/test", "3", "3").isEmpty() //no changeset apply since it is the current version
+		assert jsonUpdater.getChangeSetsThatApply(jsonObject, "/none", "2", "4").isEmpty() //no changeset apply since no schema paths match
 	}
 
-	void testSortMapByVersionKey() {
-		def unsorted = ["1.0.0":[], "0.0.1":[], "0.1.0":[]]
-		def sorted = ["0.0.1":[], "0.1.0":[], "1.0.0":[]]
-		assert jsonUpdater.sortMapByVersionKey(unsorted) == sorted
+	void testInstanceOrder() {
+		jsonUpdater.availableChangeSets = [NoChangeSet, TestChangeSet3, TestChangeSet2]
+		assert jsonUpdater.getChangeSetInstances()[0].schemaVersion == "2"
+		assert jsonUpdater.getChangeSetInstances()[1].schemaVersion == "3"
+		assert jsonUpdater.getChangeSetInstances()[2].schemaVersion == "4"
 	}
 
 	class TestChangeSet2 implements ChangeSet {
@@ -122,7 +132,7 @@ class JsonUpdaterTest extends GroovyTestCase {
 	}
 
 	class NoChangeSet implements ChangeSet {
-		String schemaVersion = "2"
+		String schemaVersion = "4"
 		String schemaPath = "/test"
 
 		@Override

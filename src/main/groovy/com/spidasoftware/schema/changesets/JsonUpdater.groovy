@@ -15,6 +15,7 @@ import net.sf.json.groovy.JsonSlurper
 class JsonUpdater {
 
 	List availableChangeSets = [AmStationIdChangeSet, CalcAddressChangeSet]
+	List changeSetInstances // call getChangeSetInstances()
 
 	/**
 	 * Parses json string, modifies json object, and returns new json string.
@@ -35,26 +36,18 @@ class JsonUpdater {
 	 */
 	void update(String schemaPath, JSON jsonObject){
 		String jsonVersion = getJsonVersion(jsonObject)
-		String currentVersion = VersionUtils.getSchemaJarVersion()
-		if(!currentVersion){
-			throw new IllegalStateException("Unable to determine the current version.")
-		}
-
-		def changeSetsToApply = getChangeSetInstances(jsonObject, schemaPath, jsonVersion, currentVersion)
-		log.info("${changeSetsToApply.values().flatten().size()} Changesets to apply.")
+		String currentVersion = getCurrentVersion()
 
 		//Run all the change sets that apply to this json object.
-		changeSetsToApply = sortMapByVersionKey(changeSetsToApply)
-		changeSetsToApply.each{ String versionKey, List changeSets ->
-			changeSets.each { ChangeSet changeSetInstance ->
-				log.info("Running ${changeSetInstance.class.simpleName}...")
-				changeSetInstance.convert(jsonObject)
-			}
+		def changeSetsThatApply = getChangeSetsThatApply(jsonObject, schemaPath, jsonVersion, currentVersion)
+		log.info("${changeSetsThatApply.size()} Changesets that apply.")
+		changeSetsThatApply.each { ChangeSet changeSetInstance ->
+			log.info("Running ${changeSetInstance.class.simpleName}...")
+			changeSetInstance.convert(jsonObject)
 		}
 
 		//If the json is now valid, set the current version number.
 		if(isValid(schemaPath, jsonObject.toString())){
-
 			jsonObject.version = currentVersion
 			log.info("Done running changesets.  JSON now valid against current schema.")
 
@@ -75,26 +68,18 @@ class JsonUpdater {
 	 * @param currentSchemaVersion
 	 * @return
 	 */
-	Map getChangeSetInstances(JSON jsonObject, String jsonSchemaPath, String jsonVersion, String currentSchemaVersion){
-		def changeSetsToApply = [:]
+	List getChangeSetsThatApply(JSON jsonObject, String jsonSchemaPath, String jsonVersion, String currentSchemaVersion){
+		def changeSetsToApply = []
 
 		if(VersionUtils.isOlder(jsonVersion, currentSchemaVersion) || !isValid(jsonSchemaPath, jsonObject.toString())){
-			availableChangeSets.each { Class changeSetClass ->
-				ChangeSet changeSetInstance = changeSetClass.newInstance() as ChangeSet
-
+			getChangeSetInstances().each { ChangeSet changeSetInstance ->
 				String changeSetVersion = changeSetInstance.schemaVersion
 
 				//json version > version with changesets <= current schema version
-				if(changeSetVersion == currentSchemaVersion ||
-						(VersionUtils.isNewer(changeSetVersion, jsonVersion) && VersionUtils.isOlder(changeSetVersion, currentSchemaVersion))){
+				if(changeSetInstance.schemaPath == jsonSchemaPath && (changeSetVersion == currentSchemaVersion ||
+						(VersionUtils.isNewer(changeSetVersion, jsonVersion) && VersionUtils.isOlder(changeSetVersion, currentSchemaVersion)))){
 
-					if(changeSetInstance.schemaPath == jsonSchemaPath) {
-						if(changeSetsToApply.containsKey(changeSetVersion)){
-							changeSetsToApply.get(changeSetVersion).add(changeSetInstance)
-						} else {
-							changeSetsToApply.put(changeSetVersion, [changeSetInstance])
-						}
-					}
+					changeSetsToApply.add(changeSetInstance)
 				}
 			}
 		}
@@ -102,20 +87,27 @@ class JsonUpdater {
 	}
 
 	/**
-	 * oldest version is the first entry, newest version is the last entry
-	 * @param map
+	 * Creates instances of changeset if they aren't already created
 	 * @return
 	 */
-	Map sortMapByVersionKey(Map map){
-		return map.sort { entry1, entry2 ->
-			if(entry1.key == entry2.key){
-				0
-			} else if(VersionUtils.isOlder(entry1.key, entry2.key)){
-				-1
-			} else {
-				1
+	List getChangeSetInstances() {
+		if(!changeSetInstances){
+			changeSetInstances = availableChangeSets.collect { Class changeSet ->
+
+				changeSet.newInstance() as ChangeSet
+
+			}.sort { ChangeSet changeSet1, ChangeSet changeSet2 ->
+
+				if (changeSet1.schemaVersion == changeSet2.schemaVersion) {
+					0
+				} else if (VersionUtils.isOlder(changeSet1.schemaVersion, changeSet2.schemaVersion)) {
+					-1
+				} else {
+					1
+				}
 			}
 		}
+		return changeSetInstances
 	}
 
 	/**
@@ -128,6 +120,20 @@ class JsonUpdater {
 		def report = new Validator().validateAndReport(schemaPath, jsonString)
 		report.messages.each{ log.error "validation message: ${it}" }
 		return report.isSuccess()
+	}
+
+	/**
+	 * get current version of this schema
+	 * @return
+	 */
+	String getCurrentVersion(){
+		String currentVersion = VersionUtils.getSchemaJarVersion()
+
+		if(!currentVersion){
+			log.debug("Using latest changeset version since version can't be determined from schema jar file name.")
+			currentVersion = getChangeSetInstances().last().schemaVersion
+		}
+		return currentVersion
 	}
 
 	/**
