@@ -129,9 +129,11 @@ class JsonUpdater {
 	String getCurrentVersion(){
 		String currentVersion = VersionUtils.getSchemaJarVersion()
 
-		if(!currentVersion){
-			log.debug("Using latest changeset version since version can't be determined from schema jar file name.")
+		if(currentVersion){
+			log.debug("Current version \"${currentVersion}\" determined from schema jar file name.")
+		} else {
 			currentVersion = getChangeSetInstances().last().schemaVersion
+			log.debug("Using latest change set version \"${currentVersion}\" since version cannot be determined from schema jar file name.")
 		}
 		return currentVersion
 	}

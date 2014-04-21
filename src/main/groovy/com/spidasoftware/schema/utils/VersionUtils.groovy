@@ -1,5 +1,6 @@
 package com.spidasoftware.schema.utils
 
+import groovy.util.logging.Log4j
 import org.apache.commons.io.FilenameUtils
 
 import java.util.regex.Matcher
@@ -8,6 +9,7 @@ import java.util.regex.Pattern
 /**
  * Created by jeremy on 4/15/14.
  */
+@Log4j
 class VersionUtils {
 
 	static Pattern pattern = Pattern.compile(/(\d+)(\.\d+)?(\.\d+)?(\.\d+)?/)
@@ -27,7 +29,7 @@ class VersionUtils {
 	 * @return
 	 */
 	static String getSchemaJarVersion() {
-		getVersionFromFileName(getJarFile())
+		getVersionFromFileName(getSchemaJarFile())
 	}
 
 	/**
@@ -96,9 +98,15 @@ class VersionUtils {
 	 * returns the jar file this class is in
 	 * @return
 	 */
-	static File getJarFile(){
-		def path = this.class.getProtectionDomain()?.getCodeSource()?.getLocation()?.path
-		return path ? new File(path) : null
+	static File getSchemaJarFile(){
+		File file = null
+		try {
+			file = new File(VersionUtils.class.getProtectionDomain().getCodeSource().getLocation().toURI())
+		} catch (ex) {
+			log.error("unable to get jar file path", ex)
+		}
+		log.debug("getSchemaJarFile() returning " + file)
+		return file
 	}
 
 	/**

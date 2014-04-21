@@ -14,7 +14,7 @@ class JsonUpdaterTest extends GroovyTestCase {
 
 	void setUp(){
 		jsonUpdater = new JsonUpdater()
-		VersionUtils.metaClass.static.getJarFile = { new File("path/to/schema-3.jar") }
+		VersionUtils.metaClass.static.getSchemaJarFile = { new File("path/to/schema-3.jar") }
 	}
 
 	void tearDown(){
@@ -24,13 +24,13 @@ class JsonUpdaterTest extends GroovyTestCase {
 	}
 
 	void testCurrentVersionFromJarName(){
-		VersionUtils.metaClass.static.getJarFile = { new File("a-5.1.jar") }
+		VersionUtils.metaClass.static.getSchemaJarFile = { new File("a-5.1.jar") }
 		jsonUpdater.availableChangeSets = [TestChangeSet2, TestChangeSet3]
 		assert jsonUpdater.getCurrentVersion() == "5.1" // version from jar name
 	}
 
 	void testCurrentVersionFromLatestChangeSet(){
-		VersionUtils.metaClass.static.getJarFile = { new File("a") }
+		VersionUtils.metaClass.static.getSchemaJarFile = { new File("a") }
 		jsonUpdater.availableChangeSets = [TestChangeSet3, TestChangeSet2]
 		assert jsonUpdater.getCurrentVersion() == "3" // latest changeset
 	}
