@@ -10,7 +10,7 @@ class CalcAddressChangeSetTests extends GroovyTestCase {
 
 	void setUp(){
 		jsonUpdater = new JsonUpdater()
-		VersionUtils.metaClass.static.getJarFile = { new File("path/to/schema-0.6.jar") }
+		VersionUtils.metaClass.static.getJarFile = { new File("path/to/schema-0.7.jar") }
 	}
 
 	void tearDown(){
@@ -43,7 +43,7 @@ class CalcAddressChangeSetTests extends GroovyTestCase {
 
 		assert !newJsonObject.leads[0].locations[0].address.containsKey("zipCode") // old key is removed
 		assert !newJsonObject.leads[0].locations[0].address.containsKey("houseNumber") // old key is removed
-		assert newJsonObject.version == "0.6" //version is changed
+		assert newJsonObject.version == "0.7" //version is changed
 		assert jsonUpdater.isValid(schemaPath, newJsonString)
 	}
 
@@ -71,14 +71,14 @@ class CalcAddressChangeSetTests extends GroovyTestCase {
 		assert !newJsonObject.leads[0].locations[0].address.containsKey("zip_code") // key is removed because it is null or empty
 		assert !newJsonObject.leads[0].locations[0].address.containsKey("zipCode") // old key is removed
 		assert !newJsonObject.leads[0].locations[0].address.containsKey("houseNumber") // old key is removed
-		assert newJsonObject.version == "0.6" //version is added
+		assert newJsonObject.version == "0.7" //version is added
 		assert jsonUpdater.isValid(schemaPath, newJsonString)
 	}
 
 	void testAddressChangeNotNeeded(){
 		def oldJsonString = """{
 			  "name": "project-1",
-			  "version": "0.6",
+			  "version": "0.7",
 			  "clientFile": "Demo.client",
 			  "schema": "https://raw.github.com/spidasoftware/schema/master/resources/v1/schema/spidacalc/calc/project.schema",
 			  "leads": [
@@ -101,7 +101,7 @@ class CalcAddressChangeSetTests extends GroovyTestCase {
 
 		assert !newJsonObject.leads[0].locations[0].address.containsKey("zipCode") // old key is removed
 		assert !newJsonObject.leads[0].locations[0].address.containsKey("houseNumber") // old key is removed
-		assert newJsonObject.version == "0.6" //version is unchanged
+		assert newJsonObject.version == "0.7" //version is unchanged
 		assert jsonUpdater.isValid(schemaPath, newJsonString)
 	}
 

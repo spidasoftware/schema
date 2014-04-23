@@ -9,7 +9,7 @@ import net.sf.json.JSONNull
  */
 class CalcAddressChangeSet implements ChangeSet {
 
-	String schemaVersion = "0.6"
+	String schemaVersion = "0.7"
 	String schemaPath = "/v1/schema/spidacalc/calc/project.schema"
 
 	@Override
