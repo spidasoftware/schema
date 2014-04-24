@@ -36,38 +36,25 @@ sourceSets {
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Read maven settings.xml (gradle does not do this yet)
+// Dependencies
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 def getMavenSettings() {
-	String userHome = System.getProperty("user.home");
-	File mavenSettings = new File(userHome, ".m2/settings.xml")
+	// Read artifactory username and password from .m2/settings.xml (gradle does not do this)
+	File mavenSettings = new File(System.getProperty("user.home"), ".m2/settings.xml")
+	def settings = [:]
 	if(mavenSettings.exists()){
-		def xmlSlurper = new XmlSlurper()
-		def root = xmlSlurper.parse(mavenSettings)
-		def settingsMap = [:]
-		
-		def locations = root."profiles"."profile".find{it."id".text() == "artifactory"}."properties"
-		settingsMap.snapshots = locations."snapshotsLocation"
-		settingsMap.releases = locations."releasesLocation"
-		
+		def root = new XmlSlurper().parse(mavenSettings)
 		def serverElement = root."servers"."server".find{ it."id".text() == "spida" }
-		settingsMap.username = serverElement.username.text()
-		settingsMap.password = serverElement.password.text()
-		return settingsMap
-	} else {
-		return [:]
+		settings.username = serverElement.username.text()
+		settings.password = serverElement.password.text()
 	}
+	return settings
 }
-
-def mavenSettings = getMavenSettings()
-buildscript.repositories.maven.credentials.username = mavenSettings.username
-buildscript.repositories.maven.credentials.password = mavenSettings.password
 
 buildscript {
 	repositories {
-		maven {
-			url "https://dev.spidasoftware.com/artifactory/repo"
-		}
+		mavenCentral()
+		maven { url "https://dev.spidasoftware.com/artifactory/exposed-repo" }
 	}
 	dependencies {
 		classpath (group: 'com.spidasoftware', name:'releaseNotes', version:'0.1-SNAPSHOT', changing:true)
@@ -80,11 +67,9 @@ repositories {
 }
 
 uploadArchives {
+	def mavenSettings = getMavenSettings()
 	repositories.mavenDeployer {
-		repository(url: mavenSettings["releases"]) {
-			authentication(userName: mavenSettings.username, password: mavenSettings.password)
-		}
-		snapshotRepository(url: mavenSettings["snapshots"]) {
+		repository(url: "https://dev.spidasoftware.com/artifactory/exposed-repo") {
 			authentication(userName: mavenSettings.username, password: mavenSettings.password)
 		}
 	}
