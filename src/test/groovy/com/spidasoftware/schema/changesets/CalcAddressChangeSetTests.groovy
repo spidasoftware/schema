@@ -10,7 +10,7 @@ class CalcAddressChangeSetTests extends GroovyTestCase {
 
 	void setUp(){
 		jsonUpdater = new JsonUpdater()
-		VersionUtils.metaClass.static.getJarFile = { new File("path/to/schema-0.7.jar") }
+		VersionUtils.metaClass.static.getSchemaJarFile = { new File("path/to/schema-0.7.jar") }
 	}
 
 	void tearDown(){

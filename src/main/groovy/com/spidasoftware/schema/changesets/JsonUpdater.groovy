@@ -3,7 +3,6 @@ package com.spidasoftware.schema.changesets
 import com.spidasoftware.schema.utils.VersionUtils
 import com.spidasoftware.schema.validation.Validator
 import groovy.util.logging.Log4j
-import net.sf.json.JSON
 import net.sf.json.JSONObject
 import net.sf.json.groovy.JsonSlurper
 
@@ -14,7 +13,7 @@ import net.sf.json.groovy.JsonSlurper
 @Log4j
 class JsonUpdater {
 
-	List availableChangeSets = [AmStationIdChangeSet, CalcAddressChangeSet]
+	List availableChangeSets = [CalcAddressChangeSet]
 	List changeSetInstances // call getChangeSetInstances()
 
 	/**
@@ -24,7 +23,7 @@ class JsonUpdater {
 	 * @return
 	 */
 	String update(String schemaPath, String originalJsonString) {
-		JSON jsonObject = new JsonSlurper().parseText(originalJsonString)
+		JSONObject jsonObject = JSONObject.fromObject(originalJsonString)
 		update(schemaPath, jsonObject)
 		return jsonObject.toString()
 	}
@@ -34,7 +33,7 @@ class JsonUpdater {
 	 * @param jsonObject
 	 * @return
 	 */
-	void update(String schemaPath, JSON jsonObject){
+	void update(String schemaPath, JSONObject jsonObject){
 		String jsonVersion = getJsonVersion(jsonObject)
 		String currentVersion = getCurrentVersion()
 
@@ -48,7 +47,7 @@ class JsonUpdater {
 
 		//If the json is now valid, set the current version number.
 		if(isValid(schemaPath, jsonObject.toString())){
-			jsonObject.version = currentVersion
+			VersionUtils.addSchemaJarVersion(jsonObject)
 			log.info("Done running changesets.  JSON now valid against current schema.")
 
 		} else {
@@ -68,7 +67,7 @@ class JsonUpdater {
 	 * @param currentSchemaVersion
 	 * @return
 	 */
-	List getChangeSetsThatApply(JSON jsonObject, String jsonSchemaPath, String jsonVersion, String currentSchemaVersion){
+	List getChangeSetsThatApply(JSONObject jsonObject, String jsonSchemaPath, String jsonVersion, String currentSchemaVersion){
 		def changeSetsToApply = []
 
 		if(VersionUtils.isOlder(jsonVersion, currentSchemaVersion) || !isValid(jsonSchemaPath, jsonObject.toString())){

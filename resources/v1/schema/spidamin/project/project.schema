@@ -7,10 +7,6 @@
       "type": "number",
       "description": "This is a database ID created by ProjectManager.  Only set this value if you want to update an existing project."
     },
-    "version": {
-      "type": "string",
-      "description": "This is the release tag and schema jar version number. Example: 0.5.1"
-    },
     "name": {
       "type": "string",
       "description": "project code for project model in ProjectManager database. REQUIRED FOR CREATION",

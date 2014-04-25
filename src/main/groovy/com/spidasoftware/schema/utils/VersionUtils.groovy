@@ -2,6 +2,7 @@ package com.spidasoftware.schema.utils
 
 import groovy.util.logging.Log4j
 import org.apache.commons.io.FilenameUtils
+import net.sf.json.JSONObject
 
 import java.util.regex.Matcher
 import java.util.regex.Pattern
@@ -30,6 +31,24 @@ class VersionUtils {
 	 */
 	static String getSchemaJarVersion() {
 		getVersionFromFileName(getSchemaJarFile())
+	}
+
+	/**
+	 * adds the version string to the json object
+	 * @return
+	 */
+	static String addSchemaJarVersion(String json) {
+		def jsonObject = JSONObject.fromObject(json)
+		addSchemaJarVersion(jsonObject)
+		return jsonObject
+	}
+
+	/**
+	 * adds the version string to the json object
+	 * @return
+	 */
+	static String addSchemaJarVersion(JSONObject jsonObject) {
+		jsonObject.version = getVersionFromFileName(getSchemaJarFile())
 	}
 
 	/**

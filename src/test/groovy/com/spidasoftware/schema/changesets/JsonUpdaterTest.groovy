@@ -1,7 +1,6 @@
-package com.spidasoftware.schema.utils
+package com.spidasoftware.schema.changesets
 
-import com.spidasoftware.schema.changesets.ChangeSet
-import com.spidasoftware.schema.changesets.JsonUpdater
+import com.spidasoftware.schema.utils.VersionUtils
 import com.spidasoftware.schema.validation.Validator
 import net.sf.json.*
 
