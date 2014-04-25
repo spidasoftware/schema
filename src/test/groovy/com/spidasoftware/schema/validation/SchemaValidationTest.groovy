@@ -1,13 +1,10 @@
 package com.spidasoftware.schema.validation
 
-import groovy.json.*
-import com.github.fge.jsonschema.util.*
-import com.github.fge.jsonschema.main.*
+import com.github.fge.jackson.JsonLoader
+import com.github.fge.jsonschema.cfg.ValidationConfiguration
+import com.github.fge.jsonschema.processors.syntax.SyntaxValidator
 import com.github.fge.jsonschema.uri.*
-import com.github.fge.jsonschema.cfg.*
-import com.github.fge.jsonschema.processors.syntax.*
-import org.apache.log4j.*
-import com.github.fge.jackson.*
+import org.apache.log4j.Logger
 
 class SchemaValidationTest extends GroovyTestCase { 
 

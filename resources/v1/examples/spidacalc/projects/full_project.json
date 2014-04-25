@@ -1,5 +1,6 @@
 {
     "schema": "https://raw.github.com/spidasoftware/schema/master/resources/v1/schema/spidacalc/calc/project.schema",
+    "version": "0.7",
     "name": "project-1",
     "clientFile": "Demo.client",
     "date": "2011-02-21",
@@ -14,12 +15,12 @@
                     "mapNumber": "",
                     "comments": "",
                     "address": {
-                        "houseNumber": "9018",
+                        "number": "9018",
                         "street": "Sandyville Rd NE",
                         "city": "Mineral City",
                         "county": "Tuscarawas",
                         "state": "OH",
-                        "zipCode": "44656"
+                        "zip_code": "44656"
                     },
                     "geographicCoordinate": {
                         "type":"Point",
@@ -543,12 +544,12 @@
                     "mapNumber": "",
                     "comments": "",
                     "address": {
-                        "houseNumber": "9072",
+                        "number": "9072",
                         "street": "Sandyville Rd NE",
                         "city": "Mineral City",
                         "county": "Tuscarawas",
                         "state": "OH",
-                        "zipCode": "44656"
+                        "zip_code": "44656"
                     },
                     "geographicCoordinate": {
                         "type":"Point",
@@ -975,12 +976,12 @@
                     "mapNumber": "",
                     "comments": "",
                     "address": {
-                        "houseNumber": "5025",
+                        "number": "5025",
                         "street": "Railroad St.",
                         "city": "Mineral City",
                         "county": "Tuscarawas",
                         "state": "Ohio",
-                        "zipCode": "44656"
+                        "zip_code": "44656"
                     },
                     "geographicCoordinate": {
                         "type":"Point",
@@ -1209,12 +1210,12 @@
                     "mapNumber": "",
                     "comments": "PUSH BRACE POLE...",
                     "address": {
-                        "houseNumber": "8790",
+                        "number": "8790",
                         "street": "1st St NE",
                         "city": "Mineral City",
                         "county": "Tuscarawas",
                         "state": "OH",
-                        "zipCode": "44656"
+                        "zip_code": "44656"
                     },
                     "geographicCoordinate": {
                         "type":"Point",

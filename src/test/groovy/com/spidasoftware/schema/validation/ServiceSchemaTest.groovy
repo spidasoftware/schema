@@ -1,21 +1,12 @@
 package com.spidasoftware.schema.validation
 
-import groovy.json.*
-import com.github.fge.jsonschema.util.*
-import com.github.fge.jsonschema.main.*
+import com.github.fge.jackson.JsonLoader
+import com.github.fge.jsonschema.load.configuration.LoadingConfiguration
+import com.github.fge.jsonschema.main.JsonSchemaFactory
 import com.github.fge.jsonschema.uri.*
-import com.github.fge.jsonschema.cfg.*
-import org.apache.log4j.*
-import com.fasterxml.jackson.databind.JsonNode;
-import com.github.fge.jackson.*
-import com.github.fge.jsonschema.exceptions.ProcessingException;
-import com.github.fge.jsonschema.load.SchemaLoader;
-import com.github.fge.jsonschema.load.configuration.LoadingConfiguration;
-import com.github.fge.jsonschema.load.configuration.LoadingConfigurationBuilder;
-import com.github.fge.jsonschema.main.JsonSchema;
-import com.github.fge.jsonschema.main.JsonSchemaFactory;
-import com.github.fge.jsonschema.main.JsonSchemaFactoryBuilder;
-import com.github.fge.jsonschema.report.ProcessingReport;
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+import org.apache.log4j.Logger;
 
 class ServiceSchemaTest extends GroovyTestCase { 
 
@@ -81,19 +72,6 @@ class ServiceSchemaTest extends GroovyTestCase {
 			}
 		}
 	}
-
-	void testUsersSecurityInterfaceMethodsAgainstServiceMethod(){
-		def instance = slurper.parseText(new File("resources/v1/schema/spidamin/user/interfaces/users_security.json").text)
-		instance.each{k,v->
-			if(k!="id" && k!="description"){
-				report = schema.validate(JsonLoader.fromString(JsonOutput.toJson(v)))
-				report.each{
-					log.info "${this.class} using file: "+it.toString()
-				}
-				assertTrue "${k} should be valid against a schema", report.isSuccess()		
-			}
-		}
-	}	
 
 	void testClientDataInterfaceMethodsAgainstServiceMethod(){
 		def instance = slurper.parseText(new File("resources/v1/schema/spidacalc/client/interfaces/client_data.json").text)

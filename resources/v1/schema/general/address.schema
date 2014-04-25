@@ -10,17 +10,21 @@
     "street": {
       "type": "string"
     },
-    "county": {
+    "city": {
       "type": "string"
     },
-    "city": {
+    "county": {
       "type": "string"
     },
     "state": {
       "type": "string"
     },
+    "country": {
+      "type": "string"
+    },
     "zip_code": {
       "type": "string"
     }
-  }
+  },
+  "additionalProperties": false
 }

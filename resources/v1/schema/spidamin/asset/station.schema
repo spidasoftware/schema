@@ -9,7 +9,8 @@
   ],
   "properties": {
     "stationId": {
-      "type": "string"
+      "type": "string",
+      "description": "This is a database ID created by the asset service. Only set this value if you want to update an existing station."
     },
     "dataProviderId": {
       "type": "number",

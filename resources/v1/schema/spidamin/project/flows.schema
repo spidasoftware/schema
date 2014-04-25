@@ -1,8 +1,17 @@
 {
   "id": "#/spidamin/project/flows.schema",
   "description": "ProjectManager flows",
-  "type": "array",
-  "items": {
-    "$ref": "../../spidamin/project/flow.schema"
-  }
+  "type": "object",
+  "required": [
+    "flows"
+  ],
+  "properties": {
+    "flows": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidamin/project/flow.schema"
+      }
+    }
+  },
+  "additionalProperties": false
 }

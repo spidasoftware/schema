@@ -9,18 +9,26 @@
   ],
   "properties": {
     "id": {
-      "type": "number"
+      "type": "number",
+      "description": "This is a database ID.  Only set this value if you want to update an existing project code."
     },
     "companyId": {
       "type": "number"
     },
     "type": {
-      "type": "string"
+      "type": "string",
+      "enum": [
+        "PROJECT",
+        "WORKORDER",
+        "NJUNS",
+        "AUUID"
+      ]
     },
     "value": {
       "type": "string",
       "minLength": 2,
       "maxLength": 72
     }
-  }
+  },
+  "additionalProperties": false
 }

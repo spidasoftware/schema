@@ -1,4 +1,5 @@
 package com.spidasoftware.schema.validation
+
 import com.github.fge.jackson.JsonLoader
 import com.github.fge.jsonschema.load.configuration.LoadingConfiguration
 import com.github.fge.jsonschema.main.JsonSchemaFactory
@@ -8,14 +9,10 @@ import org.apache.log4j.Logger;
 
 class CalcSchemaTest extends GroovyTestCase { 
 
-
 	def report
 	def log = Logger.getLogger(this.class)
 	final LoadingConfiguration cfg = LoadingConfiguration.newBuilder().setNamespace(new File("resources").toURI().toString()).freeze()
     final JsonSchemaFactory factory = JsonSchemaFactory.newBuilder().setLoadingConfiguration(cfg).freeze()
-
-	void setUp() {
-	}
 
 	void testProjectWithForms(){
 		def schema = factory.getJsonSchema("v1/schema/spidacalc/calc/project.schema")

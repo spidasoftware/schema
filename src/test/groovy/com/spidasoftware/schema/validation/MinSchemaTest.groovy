@@ -1,22 +1,11 @@
 package com.spidasoftware.schema.validation
 
-import groovy.json.*
-import com.github.fge.jsonschema.util.*
-import com.github.fge.jsonschema.main.*
+import com.github.fge.jackson.JsonLoader
+import com.github.fge.jsonschema.load.configuration.LoadingConfiguration
+import com.github.fge.jsonschema.main.JsonSchemaFactory
 import com.github.fge.jsonschema.uri.*
-import com.github.fge.jsonschema.cfg.*
-import org.apache.log4j.*
-import com.fasterxml.jackson.databind.JsonNode;
-import com.github.fge.jackson.*
-import com.github.fge.jsonschema.exceptions.ProcessingException;
-import com.github.fge.jsonschema.load.SchemaLoader;
-import com.github.fge.jsonschema.load.configuration.LoadingConfiguration;
-import com.github.fge.jsonschema.load.configuration.LoadingConfigurationBuilder;
-import com.github.fge.jsonschema.main.JsonSchema;
-import com.github.fge.jsonschema.main.JsonSchemaFactory;
-import com.github.fge.jsonschema.main.JsonSchemaFactoryBuilder;
-import com.github.fge.jsonschema.report.ProcessingReport;
-import net.sf.json.JSONObject;
+import net.sf.json.JSONObject
+import org.apache.log4j.Logger;
 
 class MinSchemaTest extends GroovyTestCase { 
 
@@ -69,31 +58,55 @@ class MinSchemaTest extends GroovyTestCase {
 		assert "None of the json should have validated so the successes list should be empty ${successes}", successes.isEmpty()
 	}
 
-	void testUser(){
-		def instance = '{"id":1, "firstName":"bob", "lastName":"smith", "email":"bob@test.com", "company":{"id":1, "name":"test"}, "foreignCompanies":[{"id":2, "name":"SPIDA"}]}'				
-		def schema = factory.getJsonSchema("v1/schema/spidamin/user/user.schema")
-		report = schema.validate(JsonLoader.fromString(instance))
-		report.each{ log.info "validation report "+it.toString() }
-		assertTrue "should be a valid instance against the schema", report.isSuccess()
-	}	
-
-	void testBasicProject(){
-		def instance = '{"id":1,"flowId":1}'				
-		def schema = factory.getJsonSchema("v1/schema/spidamin/project/project.schema")
-		report = schema.validate(JsonLoader.fromString(instance))
-		report.each{ log.info "validation report "+it.toString() }
-		assertTrue "the intance itself should be true against a file namespace", report.isSuccess()
-	}	
-
 	void testAttachment(){
-		def instance = '{"name":"blah","companyId": 42,"uuid":"blahblah", "bytes":"abc","associations":[{"level":"COMPANY","product": "CALC_DB","sourceId": "42", "latitude": 7, "longitude": 8}]}'				
+		def instance = '{"name":"blah","companyId": 42,"uuid":"blahblah", "bytes":"abc","associations":[{"level":"COMPANY","product": "CALC_DB","sourceId": "42", "latitude": 7, "longitude": 8}]}'
 		def schema = factory.getJsonSchema("v1/schema/spidamin/asset/attachment.schema")
 		report = schema.validate(JsonLoader.fromString(instance))
 		report.each{ log.info "validation report "+it.toString() }
-		assertTrue "the intance itself should be true against a file namespace", report.isSuccess()
-	}	
-	
-	void testFullProject(){
-		//TODO
+		assertTrue "should be a valid instance against the schema", report.isSuccess()
 	}
+
+	void testProjectRequestBadStations(){
+		def schema = factory.getJsonSchema("v1/schema/spidamin/project/project.schema")
+		report = schema.validate(JsonLoader.fromString("""{ "name": "Project4", "flowId": 3359184, "draft": false, "deleted": false, "stations": [ { "other": "val" } ]	}"""))
+		report.each{ log.info "validation report "+it.toString() }
+		assertFalse "should be invalid instance against the schema", report.isSuccess()
+	}
+
+	void testExampleGetStations(){
+		def schema = factory.getJsonSchema("v1/schema/spidamin/asset/stations.schema")
+		report = schema.validate(JsonLoader.fromString(new File("resources/v1/examples/spidamin/asset/getStations_response.json").text))
+		report.each{ log.info "validation report "+it.toString() }
+		assertTrue "should be a valid instance against the schema", report.isSuccess()
+	}		
+
+	void testExampleProjectRequest(){
+		def schema = factory.getJsonSchema("v1/schema/spidamin/project/project.schema")
+		report = schema.validate(JsonLoader.fromString(new File("resources/v1/examples/spidamin/project/createOrUpdate_request.json").text))
+		report.each{ log.info "validation report "+it.toString() }
+		assertTrue "should be a valid instance against the schema", report.isSuccess()
+	}
+
+	void testExampleProjectResponse(){
+		log.info "testExampleProjectResponse()"
+		def schema = factory.getJsonSchema("v1/schema/spidamin/project/projects.schema")
+		report = schema.validate(JsonLoader.fromString(new File("resources/v1/examples/spidamin/project/getProjects_response.json").text))
+		report.each{ log.info "validation report "+it.toString() }
+		assertTrue "should be a valid instance against the schema", report.isSuccess()
+	}
+
+	void testExampleGetFlows(){
+		def schema = factory.getJsonSchema("v1/schema/spidamin/project/flows.schema")
+		report = schema.validate(JsonLoader.fromString(new File("resources/v1/examples/spidamin/project/getFlows_response.json").text))
+		report.each{ log.info "validation report "+it.toString() }
+		assertTrue "should be a valid instance against the schema", report.isSuccess()
+	}
+
+	void testExampleUser(){
+		def schema = factory.getJsonSchema("v1/schema/spidamin/user/user.schema")
+		report = schema.validate(JsonLoader.fromString(new File("resources/v1/examples/spidamin/user/getLoggedInUser_response.json").text))
+		report.each{ log.info "validation report "+it.toString() }
+		assertTrue "should be a valid instance against the schema", report.isSuccess()
+	}
+
 }

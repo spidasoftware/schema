@@ -10,7 +10,7 @@
     "assetId": {
       "id": "assetId",
       "type": "string",
-      "description": "Unique id for this asset"
+      "description": "This is a database ID created by the asset service. Only set this value if you want to update an existing asset."
     },
     "stationId": {
       "id": "assetId",

@@ -23,5 +23,6 @@
       "description":"The long value of the last time the file was updated.",
       "$ref": "../../../general/long_date.schema"
     }
-  }
+  },
+  "additionalProperties": false
 }

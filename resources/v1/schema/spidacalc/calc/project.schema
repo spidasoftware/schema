@@ -12,6 +12,10 @@
       "type": "string",
       "description": "Full URL of the calc schema. For version 2 should be resources/v1/schema/schema/spidacalc/calc/project.schema"
     },
+    "version": {
+      "type": "string",
+      "description": "This is the release tag and schema jar version number. Example: 0.5.1"
+    },
     "clientFile": {
       "type": "string",
       "description": "Filename of the client file with extension. (ex, Demo.client)"

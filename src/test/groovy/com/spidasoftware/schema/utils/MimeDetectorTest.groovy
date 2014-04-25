@@ -1,8 +1,5 @@
 package com.spidasoftware.schema.utils
 
-import com.spidasoftware.schema.utils.*
-import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 /**
  * Created with IntelliJ IDEA.

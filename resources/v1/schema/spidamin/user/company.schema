@@ -5,11 +5,12 @@
   "properties": {
     "id": {
       "type": "number",
-      "description": "ID for project model in project manager database"
+      "description": "This is a database ID created by UsersMaster."
     },
     "name": {
       "type": "string",
       "description": "First name of user"
     }
-  }
+  },
+  "additionalProperties": false
 }

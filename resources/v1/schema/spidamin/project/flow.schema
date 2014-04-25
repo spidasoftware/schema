@@ -4,10 +4,12 @@
   "type": "object",
   "properties": {
     "id": {
-      "type": "number"
+      "type": "number",
+      "description": "This is a database ID created by project manager."
     },
     "name": {
       "type": "string"
     }
-  }
+  },
+  "additionalProperties": false
 }
