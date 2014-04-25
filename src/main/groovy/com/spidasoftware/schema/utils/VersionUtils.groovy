@@ -40,7 +40,7 @@ class VersionUtils {
 	static String addSchemaJarVersion(String json) {
 		def jsonObject = JSONObject.fromObject(json)
 		addSchemaJarVersion(jsonObject)
-		return jsonObject
+		return jsonObject.toString()
 	}
 
 	/**
