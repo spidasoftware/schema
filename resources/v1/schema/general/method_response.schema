@@ -5,7 +5,10 @@
   "description": "The response wrapper for all SPIDA API methods.  Result OR Error will be set but not both.",
   "properties": {
     "result": {
-      "type": ["object", "array"],
+      "type": [
+        "object",
+        "array"
+      ],
       "id": "result"
     },
     "error": {

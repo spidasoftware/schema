@@ -41,12 +41,12 @@
       "mapNumber": "",
       "comments": "",
       "address":       {
-        "houseNumber": "",
+        "number": "",
         "street": "",
         "city": "",
         "county": "",
         "state": "",
-        "zipCode": ""
+        "zip_code": ""
       },
       "remedies": [],
       "poleTags": [],

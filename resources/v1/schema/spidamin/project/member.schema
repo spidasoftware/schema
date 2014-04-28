@@ -8,13 +8,22 @@
   ],
   "properties": {
     "id": {
-      "type": "number"
+      "type": "number",
+      "description": "This is a database ID created by ProjectManager.  Only set this value if you want to update an existing member."
     },
     "userId": {
-      "type": "number"
+      "type": "number",
+      "description": "This is a database ID created by UsersMaster."
     },
     "type": {
-      "type": "string"
+      "type": "string",
+      "enum": [
+        "CREATOR",
+        "WATCHER",
+        "ASSIGNEE",
+        "MANAGER"
+      ]
     }
-  }
+  },
+  "additionalProperties": false
 }

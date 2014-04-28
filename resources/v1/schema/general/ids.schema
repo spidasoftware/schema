@@ -6,6 +6,9 @@
     "items"
   ],
   "items": {
-    "type": [ "number", "string" ]
+    "type": [
+      "number",
+      "string"
+    ]
   }
 }

@@ -28,5 +28,6 @@
     "designType": {
       "type":"string"
     }
-  }
+  },
+  "additionalProperties": false
 }

@@ -1,8 +1,17 @@
 {
   "id": "#/spidamin/project/projects.schema",
   "description": "ProjectManager projects",
-  "type": "array",
-  "items": {
-    "$ref": "../../spidamin/project/project.schema"
-  }
+  "type": "object",
+  "required": [
+    "projects"
+  ],
+  "properties": {
+    "projects": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidamin/project/project.schema"
+      }
+    }
+  },
+  "additionalProperties": false
 }

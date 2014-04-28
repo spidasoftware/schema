@@ -39,7 +39,7 @@ class Validator {
 			namespace = FilenameUtils.separatorsToUnix(namespace);
 
 			String namespaceString = "resource:" + namespace + "/";
-			log.info "Validation: \nschemaPath=$schemaPath \nnamespace=$namespace \nnamespaceString=$namespaceString"
+			log.trace "Validation: \nschemaPath=$schemaPath \nnamespace=$namespace \nnamespaceString=$namespaceString"
 			
 			JsonSchemaFactory factory = getFactoryWithNamespace(namespaceString);
 			JsonNode schemaNode = JsonLoader.fromResource(schemaPath);

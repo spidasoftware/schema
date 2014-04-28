@@ -70,5 +70,6 @@
     "yearSet": {
       "type": "number"
     }
-  }
+  },
+  "additionalProperties": false
 }
