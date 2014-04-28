@@ -40,15 +40,15 @@ sourceSets {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 buildscript {
 	
-	def root = new XmlSlurper().parse(new File(System.getProperty("user.home"), ".m2/settings.xml"))
-	def server = root.servers.server.find{ it.id.text() == "spida" }
-	def repos = root.profiles.profile.find{ it.id.text() == "artifactory" }.properties
+	def m2Root = new XmlSlurper().parse(new File(System.getProperty("user.home"), ".m2/settings.xml"))
+	def m2Spida = m2Root.servers.server.find{ it.id.text() == "spida" }
+	def m2Repos = m2Root.profiles.profile.find{ it.id.text() == "artifactory" }.properties
 	project.ext.m2Settings = [	
-		username: server.username.text(),
-		password: server.password.text(),
-		exposed: repos.exposedLocation.text(),
-		snapshots: repos.snapshotsLocation.text(),
-		releases: repos.releasesLocation.text()		
+		username: m2Spida.username.text(),
+		password: m2Spida.password.text(),
+		exposed: m2Repos.exposedLocation.text(),
+		snapshots: m2Repos.snapshotsLocation.text(),
+		releases: m2Repos.releasesLocation.text()		
 	]
 
 	repositories {
