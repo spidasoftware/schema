@@ -111,23 +111,18 @@ From our previous call we know the project's id is 55485 and we can use this to 
       "deleted": false,
       "stations": [
         {
-          "deleted": false,
-          "spotted": false,
-          "assetServiceRefId": "ff8081814488add8014488f828fc0c54",
-          "geometry": {
-            "type": "Point",
-            "coordinates": [
-              -117.14597,
-              35.114719
-            ]
-          }
+          "assetServiceName": "AssetMaster",
+          "assetServiceStationId": "ff8081814488add8014488f828fc0c54"
         }
       ]
     }
 
 Once you have the JSON object, you would submit that JSON to the createOrUpdate method just like above.  
 
-_Note:_ the "assetServiceRefId" is the reference to the id in the primary asset service, for example Asset Master.
+
+The values for assetServiceName & assetServiceStationId are explained by the following diagram:
+![Linker & Asset Services](https://docs.google.com/drawings/d/1tDv9OEJDpCHqTEdCGpnFeng-IpughLqgyBbWlMxdpkk/pub?w=949&h=666 "Linker & Asset Services")
+
 
 Example Service Implementation
 ---------------------------

@@ -9,15 +9,15 @@
     },
     "assetServiceName": {
       "type": "string",
-      "description": "This value must match the value returned from the asset service getName method.  
-            If the asset is linked to an asset in another asset service, then this value is 'linked'.  
-            If the asset does not exist in any asset service, then do not set this value."
+      "description": "This value must match the value configured by SPIDA before deploying SPIDAMin. If the asset does not exist in any asset service, then do not set this value."
     },
-    "assetServiceId": {
+    "assetServiceStationId": {
       "type": "string",
-      "description": "The id of the station within the asset service specified by the 'assetServiceName' field.  
-            If the asset is linked to an asset in another asset service, then this value is the linkage ID returned from StationLinker.  
-            If the asset does not exist in any asset service, then this value is the pole tag."
+      "description": "The id of the station within the asset service specified by the 'assetServiceName' field. If the asset does not exist in any asset service, then this value is the displayed value. For example, if a new pole was found in the field, this value would be the pole tag."
+    },
+    "linkerId": {
+      "type": "number",
+      "description": "Optional.  If the station is linked to stations in other asset services, this is the linkerId returned by the StationLinker."
     },
     "geometry": {
       "$ref": "../../general/geometry.schema",
