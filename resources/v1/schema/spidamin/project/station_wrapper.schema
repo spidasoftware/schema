@@ -9,15 +9,19 @@
     },
     "assetServiceName": {
       "type": "string",
-      "description": "This value must match the value returned from the asset service getName method.  If asset is linked to an asset in another asset service, this value is 'linked'.  If the asset is found in the field, then this value is 'unlinked'."
+      "description": "This value must match the value returned from the asset service getName method.  
+            If the asset is linked to an asset in another asset service, then this value is 'linked'.  
+            If the asset does not exist in any asset service, then do not set this value."
     },
     "assetServiceId": {
       "type": "string",
-      "description": "The id of the station within the asset service specified by the 'assetServiceName' field.  If asset is linked to an asset in another asset service, this value is the linkage ID.  If the pole is found in the field, then this value is the pole tag."
+      "description": "The id of the station within the asset service specified by the 'assetServiceName' field.  
+            If the asset is linked to an asset in another asset service, then this value is the linkage ID returned from StationLinker.  
+            If the asset does not exist in any asset service, then this value is the pole tag."
     },
     "geometry": {
       "$ref": "../../general/geometry.schema",
-      "description": "Only required if found in the field and not in an asset service."
+      "description": "Only required if found in the field and not in any asset service."
     },
     "deleted": {
       "type": "boolean",
