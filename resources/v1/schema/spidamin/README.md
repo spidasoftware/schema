@@ -118,6 +118,8 @@ From our previous call we know the project's id is 55485 and we can use this to 
 
 Once you have the JSON object, you would submit that JSON to the createOrUpdate method just like above.  
 
+### Project Stations
+
 Each project [station](project/station_wrapper.schema) points to one or more asset service stations.
 ![Linker & Asset Services](https://docs.google.com/drawings/d/1tDv9OEJDpCHqTEdCGpnFeng-IpughLqgyBbWlMxdpkk/pub?w=949&h=666 "Linker & Asset Services")
 _Note: linkerId is not required but can be set if available._
