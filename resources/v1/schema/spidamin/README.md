@@ -108,11 +108,10 @@ From our previous call we know the project's id is 55485 and we can use this to 
     {
       "id":55485,
       "draft": false,
-      "deleted": false,
       "stations": [
         {
-          "assetServiceName": "AssetMaster",
-          "assetServiceStationId": "ff8081814488add8014488f828fc0c54"
+          "source": "Asset_Service_A",
+          "stationId": "ff8081814488add8014488f828fc0c54"
         }
       ]
     }

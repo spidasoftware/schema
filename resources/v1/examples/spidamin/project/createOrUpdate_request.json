@@ -14,11 +14,12 @@
   },
   "stations": [
     {
-      "assetServiceName": "AssetMaster",
-      "assetServiceStationId": "ff8081814488add8014488f828fc0c54"
+      "source": "Asset_Service_A",
+      "stationId": "ff8081814488add8014488f828fc0c54"
     },
     {
-      "assetServiceStationId": "Location-03-28-2014-13-49-36-640",
+      "source": "tag",
+      "stationId": "A1234-B1234",
       "geometry": {
         "coordinates": [
           -118.03490499881522,

@@ -1,19 +1,19 @@
 {
   "id": "station_wrapper",
-  "description": "A ProjectManager station 'wraps' or points to a station in an asset service.",
+  "description": "A ProjectManager station 'wraps' or points to one or more stations in asset services.",
   "type": "object",
   "properties": {
     "id": {
       "type": "number",
       "description": "This is a database ID created by ProjectManager.  Only set this value if you want to update an existing station."
     },
-    "assetServiceName": {
+    "source": {
       "type": "string",
-      "description": "This value must match the value configured by SPIDA before deploying SPIDAMin. If the asset does not exist in any asset service, then do not set this value."
+      "description": "The source of the 'stationId'.  The service name configured by SPIDA or 'tag' if the station does not exist in any asset service."
     },
-    "assetServiceStationId": {
+    "stationId": {
       "type": "string",
-      "description": "The id of the station within the asset service specified by the 'assetServiceName' field. If the asset does not exist in any asset service, then this value is the displayed value. For example, if a new pole was found in the field, this value would be the pole tag."
+      "description": "The id of the station within the asset service specified by the 'source' field.  If the asset does not exist in any asset service, then this value is the tag to display.  For example, if a new pole was found in the field, this value would be the pole tag."
     },
     "linkerId": {
       "type": "number",

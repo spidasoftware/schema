@@ -6,7 +6,8 @@
       "stations": [
         {
           "id": 28614,
-          "assetServiceStationId": "Found-2",
+          "source": "tag",
+          "stationId": "Found-2",
           "deleted": false,
           "geometry": {
             "type": "Point",
@@ -18,16 +19,9 @@
         },
         {
           "id": 28611,
-          "assetServiceName": "AssetMaster",
-          "assetServiceStationId": "ff808181452ce50101452d0578c50194",
-          "deleted": false,
-          "geometry": {
-            "type": "Point",
-            "coordinates": [
-              -118.17253,
-              34.501302
-            ]
-          }
+          "source": "Asset_Service_A",
+          "stationId": "ff808181452ce50101452d0578c50194",
+          "deleted": false
         }
       ],
       "status": {
