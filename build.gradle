@@ -41,7 +41,7 @@ sourceSets {
 buildscript {
 	
 	try {
-		project.ext.m2Settings = [exposed:"https://dev.spidasoftware.com/artifactory/exposed-repo"]
+		project.ext.m2Settings = [exposed:"https://dev.spidasoftware.com/artifactory/exposed-repo"]//default
 		def m2Root = new XmlSlurper().parse(new File(System.getProperty("user.home"), ".m2/settings.xml"))
 		def m2Spida = m2Root.servers.server.find{ it.id.text() == "spida" }
 		def m2Repos = m2Root.profiles.profile.find{ it.id.text() == "artifactory" }.properties
@@ -51,6 +51,8 @@ buildscript {
 	} catch(ex){
 		println ex.message //use ex.printStackTrace() if you want to show the full stacktrace 
 	}
+	
+	//uncomment to print out maven settings
 	//println "m2Settings: ${m2Settings}"
 
 	repositories {
