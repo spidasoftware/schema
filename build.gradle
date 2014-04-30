@@ -47,10 +47,10 @@ buildscript {
 		project.ext.m2Settings = [username: m2Spida.username.text(), password: m2Spida.password.text(), exposed: m2Repos.exposedLocation.text()]
 	} catch(ex){
 		println ex.message //use ex.printStackTrace() if you want to show the full stacktrace 
-		project.ext.m2Settings = [exposed:"https://dev.spidasoftware.com/artifactory/exposed-repo"]
 	}
+	if(!m2Settings.exposed){ project.ext.m2Settings = [exposed:"https://dev.spidasoftware.com/artifactory/exposed-repo"] }
 	println "m2Settings: ${m2Settings}"
-	
+
 	repositories {
 		mavenCentral()
 		maven { url m2Settings.exposed }
