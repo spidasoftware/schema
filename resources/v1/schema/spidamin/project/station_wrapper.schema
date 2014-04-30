@@ -1,33 +1,31 @@
 {
   "id": "station_wrapper",
-  "description": "A project manager station which points to an asset service station",
+  "description": "A ProjectManager station 'wraps' or points to one or more stations in asset services.",
   "type": "object",
   "properties": {
     "id": {
       "type": "number",
-      "description": "This is a database ID created by project manager.  Only set this value if you want to update an existing station."
+      "description": "This is a database ID created by ProjectManager.  Only set this value if you want to update an existing station."
     },
-    "assetServiceRefId": {
+    "source": {
       "type": "string",
-      "description": "The id of the station from an asset service"
+      "description": "The source of the 'stationId'.  The service name configured by SPIDA or 'tag' if the station does not exist in any asset service."
     },
-    "spotted": {
-      "type": "boolean",
-      "description": "true if station does not exist in any asset service"
-    },
-    "deleted": {
-      "type": "boolean",
-      "description": "true if station is marked as deleted (NOTE: value is not writable, only readable through API)"
-    },
-    "display": {
+    "stationId": {
       "type": "string",
-      "description": "Defaults to primary asset's primary tag.  If spotted, this value should be set.",
-      "minLength": 2,
-      "maxLength": 72
+      "description": "The id of the station within the asset service specified by the 'source' field.  If the asset does not exist in any asset service, then this value is the tag to display.  For example, if a new pole was found in the field, this value would be the pole tag."
+    },
+    "linkerId": {
+      "type": "number",
+      "description": "Optional.  If the station is linked to stations in other asset services, this is the linkerId returned by the StationLinker."
     },
     "geometry": {
       "$ref": "../../general/geometry.schema",
-      "description": "required if spotted and not in external asset store"
+      "description": "Only required if found in the field and not in any asset service."
+    },
+    "deleted": {
+      "type": "boolean",
+      "description": "True if station is marked as deleted.  This value is currently read-only."
     }
   },
   "additionalProperties": false
