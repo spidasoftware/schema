@@ -1,0 +1,68 @@
+{
+    "id": "station_linker_service",
+    "description": "Link stations in different services together",
+    "getName": {
+        "description": "Get name of this service.",
+        "returns": "string"
+    },
+    "getPossibleAssetTypes": {
+        "description": "Return the asset types this service returns.",
+        "returns": "../asset_details.schema"
+    },
+    "getStations": {
+        "description": "Get a set of Stations based on parameters provided",
+        "returns": "../../spidamin/asset/stations.schema",
+        "params": [
+            {
+                "type": "array",
+                "name": "station_ids",
+                "required": false,
+                "description": "Ids of stations to return.  Required if bounding box not provided."
+            },
+            {
+                "type": "../../general/geometry.schema",
+                "name": "bounding_box",
+                "required": false,
+                "description": "A polygon that is the south, west, north, east of information to return. Required if no station ids provided."
+            },
+            {
+                "type": "array",
+                "name": "company_ids",
+                "required": false,
+                "description": "Company ids from the foreign companies."
+            },
+            {
+                "type": "boolean",
+                "name": "details",
+                "required": false,
+                "description": "Whether to fetch station asset details with the query."
+            }
+        ]
+    },
+	"linkStations": {
+		"description": "Links stations in different services together",
+		"type": "method",
+		"returns": "../../general/id.schema", //linkerId of linked stations
+		"params": [
+			{
+				"type": "../../spidamin/asset/serviceAndIds.schema",
+				"name": "station_ids",
+				"required": true,
+				"description:" "Services and ids to link together"
+			}
+		]
+	},
+	"unlinkStations": {
+		"description": "Unlinks stations from any other station",
+		"type": "method",
+		"returns": "../../general/ids.schema", //linkerIds of unlinked stations
+		"params": [
+			{
+				"type": "../../spidamin/asset/serviceAndIds.schema",
+				"name": "station_ids",
+				"required": true,
+				"description:" "Services and ids to unlink"
+			}
+		]
+	}
+}
