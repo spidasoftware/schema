@@ -2,12 +2,13 @@
     "id": "asset_creation_service",
     "description": "This service allows for the creation of assets",
     "getName": {
+        "allowedMethods":["GET"],
         "description": "Get name of this service.",
         "returns": "string"
     },
     "createOrUpdate": {
+        "allowedMethods":["POST"],
         "description": "Creates or Updates a Station, Asset, or Attachment",
-        "type": "method",
         "returns": "../../general/ids.schema",
         "params": [
             {
@@ -34,8 +35,8 @@
         ]
     },
     "delete": {
+        "allowedMethods":["POST"],
         "description": "Deletes stations or assets",
-        "type": "method",
         "returns": "../../general/method_response.schema",
         "params": [
             {
