@@ -9,7 +9,7 @@
   "getUser": {
     "allowedMethods": ["GET"],
     "description": "Return the user details.",
-    "returns": "../../spidamin/user/user.schema"
+    "returns": "../../spidamin/user/user.schema",
     "params": [
       {
         "type": "number",
