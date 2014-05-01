@@ -2,18 +2,22 @@
     "id": "asset_service",
     "description": "Manage Assets in AssetManager",
     "getName": {
+        "allowedMethods":["GET"],
         "description": "Get name of this service.",
         "returns": "string"
     },
     "getPossibleAssetDetails":{
+        "allowedMethods":["GET"],
         "description": "Return the asset detail keys that can be returned by this service.",
         "returns": "array"
     },
     "getPossibleAssetTypes": {
+        "allowedMethods":["GET"],
         "description": "Return the asset types this service returns.",
         "returns": "../asset_details.schema"
     },
     "getStations": {
+        "allowedMethods":["GET", "POST"],
         "description": "Get a set of Stations based on parameters provided",
         "returns": "../../spidamin/asset/stations.schema",
         "params": [
@@ -44,6 +48,7 @@
         ]
     },
     "getAssets": {
+        "allowedMethods":["GET"],
         "description": "Get a set of Assets based on parameters provided",
         "returns": "../../spidamin/asset/assets.schema",
         "params": [

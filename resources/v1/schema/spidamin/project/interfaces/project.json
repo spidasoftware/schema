@@ -2,8 +2,8 @@
   "id": "#/spidamin/project.json",
   "description": "Manage Projects in ProjectManager",
   "createOrUpdate": {
+    "allowedMethods":["POST"],
     "description": "creates or updates a project",
-    "type": "method",
     "returns": "../../general/id.schema",
     "params": [
       {
@@ -15,8 +15,8 @@
     ]
   },
   "getProjects": {
+    "allowedMethods":["GET"],
     "description": "Return a list of projects",
-    "type": "method",
     "returns": "../../spidamin/project/projects.schema",
     "params": [
       {
@@ -46,8 +46,8 @@
     ]
   },
   "delete": {
+    "allowedMethods":["POST"],
     "description": "deletes Members, ProjectCodes, Stations, Projects",
-    "type": "method",
     "returns": "../../general/method_response.schema",
     "params": [
       {
@@ -77,8 +77,8 @@
     ]
   },
   "getFlows": {
+    "allowedMethods":["GET"],
     "description": "Return available flows",
-    "type": "method",
     "returns": "../../spidamin/project/flows.schema"
   }
 }

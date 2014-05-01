@@ -2,10 +2,12 @@
     "id": "asset_file_service",
     "description": "Manage Asset Files",
     "getName": {
+        "allowedMethods":["GET"],
         "description": "Get name of this service.",
         "returns": "string"
     },
     "getVersionCount": {
+        "allowedMethods":["GET"],
         "description": "Get version count of attachment with uuid.",
         "returns": "number",
         "params": [
@@ -18,6 +20,7 @@
         ]
     },
     "getFile": {
+        "allowedMethods":["GET"],
         "description": "Get path for attachment with uuid",
         "returns": "string",
         "params": [
