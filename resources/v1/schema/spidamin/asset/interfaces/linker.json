@@ -40,9 +40,9 @@
         ]
     },
 	"linkStations": {
-		"description": "Links stations in different services together",
+		"description": "Links stations in different services together returns the linkerId of the linked stations",
 		"type": "method",
-		"returns": "../../general/id.schema", //linkerId of linked stations
+		"returns": "../../general/id.schema",
 		"params": [
 			{
 				"type": "../../spidamin/asset/serviceAndIds.schema",
@@ -53,9 +53,9 @@
 		]
 	},
 	"unlinkStations": {
-		"description": "Unlinks stations from any other station",
+		"description": "Unlinks stations from any other station, returns the linkerIds of the unlinked stations",
 		"type": "method",
-		"returns": "../../general/ids.schema", //linkerIds of unlinked stations
+		"returns": "../../general/ids.schema",
 		"params": [
 			{
 				"type": "../../spidamin/asset/serviceAndIds.schema",
