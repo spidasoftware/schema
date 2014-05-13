@@ -1,0 +1,8 @@
+{
+  "enum": [
+    "UTILITY", 
+    "COMMUNICATION", 
+    "BOTH"
+  ], 
+  "type": "string"
+}
