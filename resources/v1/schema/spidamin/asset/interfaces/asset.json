@@ -25,13 +25,38 @@
                 "type": "array",
                 "name": "station_ids",
                 "required": false,
-                "description": "Ids or assetTag values of stations to return.  Required if bounding box not provided."
+                "description": "Station ids of stations to return.  Required if bounding box not provided.  If getStationsByTag is not implemented this should search tags as well as station ids"
             },
             {
                 "type": "../../general/geometry.schema",
                 "name": "bounding_box",
                 "required": false,
                 "description": "A polygon that is the south, west, north, east of information to return. Required if no station ids provided."
+            },
+            {
+                "type": "array",
+                "name": "company_ids",
+                "required": false,
+                "description": "Company ids from the foreign companies."
+            },
+            {
+                "type": "boolean",
+                "name": "details",
+                "required": false,
+                "description": "Whether to fetch station asset details with the query."
+            }
+        ]
+    },
+    "getStationsByTag": {
+        "description": "Get a set of Stations based on parameters provided",
+		"required": false,
+        "returns": "../../spidamin/asset/stations.schema",
+        "params": [
+            {
+                "type": "array",
+                "name": "station_ids",
+                "required": false,
+                "description": "Ids or assetTag values of stations to return."
             },
             {
                 "type": "array",
