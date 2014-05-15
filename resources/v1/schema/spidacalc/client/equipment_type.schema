@@ -11,7 +11,12 @@
       "type": "string"
     },
     "industry": {
-      "$ref": "enums/industry.schema"
+      "type": "string",
+      "enum": [
+        "COMMUNICATION",
+        "UTILITY",
+        "BOTH"
+      ]
     }
   },
   "additionalProperties": false
