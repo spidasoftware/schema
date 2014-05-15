@@ -11,7 +11,7 @@
     "shape",
     "size",
     "throughHoleDiameter",
-    "clientEquipmentType",
+    "type",
     "valuePerLength",
     "weight"
   ],
@@ -40,7 +40,7 @@
     "throughHoleDiameter": {
       "$ref": "../../general/measurable.schema"
     },
-    "clientEquipmentType": {
+    "type": {
       "$ref": "../../spidacalc/client/equipment_type.schema"
     },
     "valuePerLength": {
