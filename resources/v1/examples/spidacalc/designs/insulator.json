@@ -21,10 +21,10 @@
       }, 
       "owner": {
         "industry": "UTILITY", 
-        "name": "Acme Power", 
-        "uuid": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+        "id": "Acme Power",
+        "externalId": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
       }, 
-      "uuid": "d403b784-323d-444a-97f8-f07a5f0a7c10", 
+      "externalId": "d403b784-323d-444a-97f8-f07a5f0a7c10",
       "wires": [
         "Wire#1", 
         "Wire#2"
@@ -53,16 +53,15 @@
     }, 
     "owner": {
       "industry": "UTILITY", 
-      "name": "Acme Power", 
-      "uuid": "38260275-c218-4608-8601-21c8544c5253"
+      "id": "Acme Power",
+      "externalId": "38260275-c218-4608-8601-21c8544c5253"
     }, 
     "stressRatio": 1, 
     "temperature": {
       "unit": "FAHRENHEIT", 
       "value": 60
-    }, 
-    "uuid": "25249250-9bd8-4322-be76-8dc4c27134fa"
-  }, 
+    }
+  },
   "pushBraces": [], 
   "spanGuys": [], 
   "spanPoints": [], 
@@ -82,7 +81,7 @@
       "spanGuys": [], 
       "spanPoints": [], 
       "type": "NEXT_POLE", 
-      "uuid": "f15b9cca-50a5-477f-a83f-6e3e9f75309d", 
+      "externalId": "f15b9cca-50a5-477f-a83f-6e3e9f75309d",
       "wires": ["Wire#1"]
     }, 
     {
@@ -100,7 +99,7 @@
       "spanGuys": [], 
       "spanPoints": [], 
       "type": "PREVIOUS_POLE", 
-      "uuid": "c6be6cbf-1d84-43df-b352-17adeef4e0bd", 
+      "externalId": "c6be6cbf-1d84-43df-b352-17adeef4e0bd",
       "wires": ["Wire#2"]
     }
   ], 
@@ -122,13 +121,13 @@
       }, 
       "owner": {
         "industry": "UTILITY", 
-        "name": "Acme Power", 
-        "uuid": "2e784f30-340a-4cfa-9d08-e9a46bbbe2f1"
+        "id": "Acme Power",
+        "externalId": "2e784f30-340a-4cfa-9d08-e9a46bbbe2f1"
       }, 
       "tensionAdjustment": 1, 
       "tensionGroup": "Full", 
       "usageGroup": "PRIMARY", 
-      "uuid": "05f6c911-6a33-467e-b79e-8ce5a6a28045"
+      "externalId": "05f6c911-6a33-467e-b79e-8ce5a6a28045"
     }, 
     {
       "attachmentHeight": {
@@ -147,13 +146,13 @@
       }, 
       "owner": {
         "industry": "UTILITY", 
-        "name": "Acme Power", 
-        "uuid": "b28d047c-9a87-48c5-a034-3d0b4d0665e6"
+        "id": "Acme Power",
+        "externalId": "b28d047c-9a87-48c5-a034-3d0b4d0665e6"
       }, 
       "tensionAdjustment": 1, 
       "tensionGroup": "Full", 
       "usageGroup": "PRIMARY", 
-      "uuid": "554110dc-3827-47da-909e-b53f4e57f1a1"
+      "externalId": "554110dc-3827-47da-909e-b53f4e57f1a1"
     }
   ]
 }

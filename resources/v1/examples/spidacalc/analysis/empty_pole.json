@@ -44,14 +44,14 @@
     },
     "owner": {
       "industry": "UTILITY",
-      "name": "Acme Power",
-      "uuid": "706e1c60-20f6-4447-b381-c9060cb51337"
+      "id": "Acme Power",
+      "externalId": "706e1c60-20f6-4447-b381-c9060cb51337"
     },
     "stressRatio": 1,
     "temperature": {
       "unit": "FAHRENHEIT",
       "value": 60
     },
-    "uuid": "14d247fc-991a-409b-bf29-18ea148a8ef3"
+    "externalId": "14d247fc-991a-409b-bf29-18ea148a8ef3"
   }
 }

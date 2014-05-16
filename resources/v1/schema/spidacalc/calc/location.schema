@@ -4,6 +4,14 @@
     "description": "A location is single physical location that has a pole", 
     "additionalProperties": false, 
     "properties": {
+        "id": {
+            "description": "Primary Key and unique identifier for project component",
+            "type": "string"
+        },
+        "label": {
+            "description": "Display name for project component",
+            "type": "string"
+        },
         "address": {
             "$ref": "../../general/address.schema"
         }, 
@@ -28,11 +36,7 @@
         }, 
         "geographicCoordinate": {
             "$ref": "../../general/geometry.schema"
-        }, 
-        "id": {
-            "description": "Optional display ID for location. Should be unique to project.", 
-            "type": "string"
-        }, 
+        },
         "images": {
             "description": "Photos/images for this location.", 
             "id": "images", 
@@ -121,10 +125,6 @@
                 "type": "object"
             }, 
             "type": "array"
-        }, 
-        "uuid": {
-            "description": "Optional UUID", 
-            "type": "string"
         }
     } 
 }

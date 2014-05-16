@@ -1,6 +1,5 @@
 {
-  "name": "Project",
-  "clientFile": "Demo.client", 
+  "clientFile": "Demo.client",
   "date": "2013-10-30",
   "schema": "/v1/schema/spidacalc/project.schema",
   "clientFileVersion": "b6f0f10b2c459ee17a4cd027980303f7",
@@ -33,11 +32,9 @@
     }
   }],
   "leads": [  {
-    "id": "Lead",
-    "uuid": "e2abdf96-9fb9-4fc2-b14d-aad1c136ff7e",
+    "id": "e2abdf96-9fb9-4fc2-b14d-aad1c136ff7e",
     "locations": [    {
-      "id": "Location-10-30-2013-12-28-56-36",
-      "uuid": "c4f25c99-945f-403a-91a1-8ccf17c2e925",
+      "id": "c4f25c99-945f-403a-91a1-8ccf17c2e925",
       "mapNumber": "",
       "comments": "",
       "address":       {
@@ -107,11 +104,10 @@
                 "value": 80
               }
             },
-            "uuid": "d977c80b-15da-4cca-82d4-f5bc98c88006",
             "owner":             {
-              "name": "AEP",
+              "id": "AEP",
               "industry": "UTILITY",
-              "uuid": "f5a59c7e-e8d9-4b0a-9be2-34765b3cae77"
+              "externalId": "f5a59c7e-e8d9-4b0a-9be2-34765b3cae77"
             }
           },
           "wireEndPoints": [],
@@ -128,8 +124,11 @@
           "insulators": [],
           "pushBraces": []
         },
-        "analysis": []
-      }]
-    }]
+        "analysis": [],
+        "label": "Measured Design"
+      }],
+      "label": "c4f25c99-945f-403a-91a1-8ccf17c2e925"
+    }],
+    "label": "e2abdf96-9fb9-4fc2-b14d-aad1c136ff7e"
   }]
 }

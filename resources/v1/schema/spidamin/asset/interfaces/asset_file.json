@@ -8,27 +8,27 @@
     },
     "getVersionCount": {
         "allowedMethods":["GET"],
-        "description": "Get version count of attachment with uuid.",
+        "description": "Get version count of attachment with externalId.",
         "returns": "number",
         "params": [
             {
                 "type": "string",
-                "name": "uuid",
+                "name": "externalId",
                 "required": true,
-                "description": "UUID of attachment"
+                "description": "externalId of attachment"
             }
         ]
     },
     "getFile": {
         "allowedMethods":["GET"],
-        "description": "Get path for attachment with uuid",
+        "description": "Get path for attachment with externalId",
         "returns": "string",
         "params": [
             {
                 "type": "string",
-                "name": "uuid",
+                "name": "externalId",
                 "required": true,
-                "description": "UUID of attachment"
+                "description": "externalId of attachment"
             },
             {
                 "type": "number",
@@ -39,14 +39,14 @@
         ]
     },
     "getBytes": {
-        "description": "Get base64 encoded bytes for attachment with uuid",
+        "description": "Get base64 encoded bytes for attachment with externalId",
         "returns": "string",
         "params": [
             {
                 "type": "string",
-                "name": "uuid",
+                "name": "externalId",
                 "required": true,
-                "description": "UUID of attachment"
+                "description": "externalId of attachment"
             },
             {
                 "type": "number",

@@ -8,6 +8,14 @@
   ],
   "additionalProperties": false,
   "properties": {
+    "id": {
+        "description": "Primary Key and unique identifier for project component",
+        "type": "string"
+    },
+    "label": {
+        "description": "Display name for project component",
+        "type": "string"
+    },
     "schema": {
       "type": "string",
       "description": "Full URL of the calc schema. For version 2 should be resources/v1/schema/schema/spidacalc/calc/project.schema"
@@ -23,10 +31,6 @@
     "clientFileVersion": {
        "type":"string",
        "description": "version identifier for a specific client file"
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of this project.  If creating a project, this will become the file name."
     },
     "date": {
       "type": "string",
@@ -52,12 +56,12 @@
         "additionalProperties": false,
         "properties": {
           "id": {
-            "type": "string",
-            "description": "Required display ID for the lead. Must be unique to project."
+              "description": "Primary Key and unique identifier for project component",
+              "type": "string"
           },
-          "uuid": {
-            "type": "string",
-            "description": "Optional UUID for lead."
+          "label": {
+              "description": "Display name for project component",
+              "type": "string"
           },
           "locations": {
             "type": "array",
