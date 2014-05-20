@@ -1,6 +1,7 @@
 {
-  "id": "Pole",
   "pole": {
+    "id": "Pole",
+    "externalId": "14d247fc-991a-409b-bf29-18ea148a8ef3"
     "agl": {
       "unit": "FOOT",
       "value": 16
@@ -52,6 +53,5 @@
       "unit": "FAHRENHEIT",
       "value": 60
     },
-    "externalId": "14d247fc-991a-409b-bf29-18ea148a8ef3"
   }
 }

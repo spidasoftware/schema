@@ -4,7 +4,6 @@
   "damages": [], 
   "equipments": [], 
   "guys": [], 
-  "id": "Pole", 
   "insulators": [
     {
       "attachmentHeight": {
@@ -34,6 +33,7 @@
   "notePoints": [], 
   "pointLoads": [], 
   "pole": {
+    "id": "Pole",
     "agl": {
       "unit": "FOOT", 
       "value": 16

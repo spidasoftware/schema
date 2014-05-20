@@ -47,8 +47,7 @@
       "externalId": "9a5cec91-ceda-49f2-885f-d56c92a22362"
     }
   ], 
-  "id": "Pole", 
-  "insulators": [], 
+  "insulators": [],
   "notePoints": [], 
   "pointLoads": [], 
   "pole": {

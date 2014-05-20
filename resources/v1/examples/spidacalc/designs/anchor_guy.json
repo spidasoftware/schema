@@ -49,11 +49,11 @@
       "externalId": "3bfe3675-2bc4-44a1-8346-3d5bd8e6c63a"
     }
   ],
-  "id": "Pole",
   "insulators": [],
   "notePoints": [],
   "pointLoads": [],
   "pole": {
+    "id": "Pole",
     "agl": {
       "unit": "FOOT",
       "value": 16

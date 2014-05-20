@@ -7,6 +7,14 @@
     "owner"
   ],
   "properties": {
+    "id": {
+      "type": "string",
+      "description": "Optional ID"
+    },
+    "externalId": {
+      "description": "Option unique id for tracking within integrator systems.",
+      "type": "string"
+    },
     "glc": {
       "description": "Ground line circumference of pole. If omitted the default NESC embedment will be used.",
       "$ref": "../../general/measurable.schema"

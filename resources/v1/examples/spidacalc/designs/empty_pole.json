@@ -4,11 +4,11 @@
   "damages": [], 
   "equipments": [], 
   "guys": [], 
-  "id": "Pole", 
-  "insulators": [], 
+  "insulators": [],
   "notePoints": [], 
   "pointLoads": [], 
   "pole": {
+    "id": "Pole",
     "agl": {
       "unit": "FOOT", 
       "value": 16
