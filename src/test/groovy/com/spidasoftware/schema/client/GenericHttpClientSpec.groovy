@@ -3,25 +3,17 @@ package com.spidasoftware.schema.client
 import groovy.util.logging.Log4j
 import org.apache.http.HttpEntity
 import org.apache.http.HttpEntityEnclosingRequest
-import org.apache.http.HttpResponse
-import org.apache.http.client.HttpClient
 import org.apache.http.client.methods.CloseableHttpResponse
-import org.apache.http.client.methods.HttpGet
 import org.apache.http.client.methods.HttpUriRequest
-import org.apache.http.entity.mime.MultipartFormEntity
 import org.apache.http.impl.client.CloseableHttpClient
 import org.apache.http.protocol.HttpContext
-import spock.lang.*
-
-import static spock.lang.MockingApi.*
-
+import spock.lang.Specification
 
 /**
  * Created with IntelliJ IDEA.
  * User: pfried
  * Date: 1/16/14
  * Time: 3:48 PM
- * To change this template use File | Settings | File Templates.
  */
 @Log4j
 class GenericHttpClientSpec extends Specification {
@@ -41,7 +33,7 @@ class GenericHttpClientSpec extends Specification {
 		def headers = ["Content-Type":"text/html", "Accept":"application/json", "Content-Length": "768"]
 
 		when: "create the request"
-		def request = client.createRequest("DELETE", uri, null, headers)
+		def request = client.createHttpUriRequest(new Request(httpMethod:"DELETE", uri:uri, parameters:null, headers:headers))
 
 		then: "the request headers should all be present"
 		headers.every{k, v->
@@ -76,7 +68,7 @@ class GenericHttpClientSpec extends Specification {
 		f << testText
 
 		when: "create a request with the file as a parameter"
-		def request = client.createRequest("POST", uri, ["testFile": f], null)
+		def request = client.createHttpUriRequest(new Request(httpMethod:"POST", uri:uri, parameters:["testFile": f], headers:null))
 		GenericHttpClient.logRequest(request)
 
 		then: "the request should be of the correct type and contian the file"
@@ -93,7 +85,7 @@ class GenericHttpClientSpec extends Specification {
 	void "requests parameters should be added to the uri for GET, HEAD, and DELETE requests"() {
 
 		when: "create the request"
-		def request = client.createRequest(currentMethod, uri, currentParams, null)
+		def request = client.createHttpUriRequest(new Request(httpMethod:currentMethod, uri:uri, parameters:currentParams, headers:null))
 
 		then: "the uri should match the expected"
 		def uriString = request.getURI().toString()
@@ -107,7 +99,7 @@ class GenericHttpClientSpec extends Specification {
 
 	void "created requests should be of the correct type"() {
 		when: "create the request"
-		def request = client.createRequest(currentMethod, uri, null, null)
+		def request = client.createHttpUriRequest(new Request(httpMethod:currentMethod, uri:uri, parameters:null, headers:null))
 
 		then: "the created request should have the correct method"
 		request.getMethod() == currentMethod

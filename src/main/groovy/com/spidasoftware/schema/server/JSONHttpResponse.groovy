@@ -7,7 +7,6 @@ import net.sf.json.JSONObject;
  * User: mford
  * Date: 9/20/12
  * Time: 10:35 AM
- * To change this template use File | Settings | File Templates.
  */
 public class JSONHttpResponse {
 

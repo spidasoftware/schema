@@ -14,7 +14,6 @@ import java.io.PrintWriter;
  * User: mford
  * Date: 7/25/12
  * Time: 3:19 PM
- * To change this template use File | Settings | File Templates.
  */
 public abstract class LocalXMLServlet extends HttpServlet {
 
