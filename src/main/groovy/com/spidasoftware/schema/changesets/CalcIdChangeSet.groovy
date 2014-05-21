@@ -33,10 +33,7 @@ class CalcIdChangeSet {
 								}
 							}
 						}
-						replacePoleComponent(structure)
-						if (structure.pole) {
-							removePoleId(structure.pole)
-						}
+						moveStructureId(structure)
 					}
 				}
 			}
@@ -78,10 +75,19 @@ class CalcIdChangeSet {
 		project.remove("name")
 	}
 
-	void removePoleId(JSONObject pole) {
-		if (pole.uuid) {
+	void moveStructureId(JSONObject structure) {
+		def pole = structure.pole
+		def id = structure.id
+		def externalId = structure.uuid
+		structure.remove("id")
+		structure.remove("uuid")
+
+
+		if (pole) {
+			pole.id = id
+			pole.externalId = externalId
 			pole.remove("uuid")
+			replaceOwner(pole)
 		}
-		replaceOwner(pole)
 	}
 }
