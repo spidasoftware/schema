@@ -3,7 +3,6 @@
   "description": "A ProjectManager member",
   "type": "object",
   "required": [
-    "userId",
     "type"
   ],
   "properties": {
@@ -13,7 +12,11 @@
     },
     "userId": {
       "type": "number",
-      "description": "This is a database ID created by UsersMaster."
+      "description": "This is the database ID of the member in UsersMaster. If this value is left blank, email must be set."
+    },
+    "email": {
+      "type":"string",
+      "description":"This is the email address of the member in UsersMaster.  If this value is left blank, userId must be set."
     },
     "type": {
       "type": "string",
