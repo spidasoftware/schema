@@ -56,7 +56,7 @@ class GenericHttpClient implements HttpClientInterface {
 		if(!request.responseHandler){
 			request.responseHandler = getBodyAsString
 		}
-		return executeHttpRequest(httpUriRequest, request.responseHandler)
+		return executeHttpRequest(httpUriRequest, request)
 
 	}
 
@@ -216,9 +216,9 @@ class GenericHttpClient implements HttpClientInterface {
 	 * @return
 	 * @throws Exception
 	 */
-	protected def executeHttpRequest(HttpUriRequest request, Closure responseHandler) throws Exception {
-		URI uri = request.getURI()
-		log.debug("Executing request: ${request.getMethod()} to URI: ${uri.toString()}")
+	protected def executeHttpRequest(HttpUriRequest httpUriRequest, Request request) throws Exception {
+		URI uri = httpUriRequest.getURI()
+		log.debug("Executing request: ${httpUriRequest.getMethod()} to URI: ${uri.toString()}")
 
 		if (!client) {
 			this.client = createClient(HttpClientBuilder.create())
@@ -229,15 +229,16 @@ class GenericHttpClient implements HttpClientInterface {
 		Throwable error
 		try {
 			HttpContext localContext = new BasicHttpContext()
-			response = this.client.execute(request, localContext)
-			returnValue = responseHandler(response)
+			response = this.client.execute(httpUriRequest, localContext)
+			returnValue = request.responseHandler(response)
 
 		} catch (Exception e) {
 			error = e
 			log.error(e, e)
+
 		} finally {
 			try {
-				if (response) {
+				if (response && !request.keepStreamOpen) {
 					cleanupResponse(response)
 				}
 			} catch (Exception ex) {
@@ -248,6 +249,7 @@ class GenericHttpClient implements HttpClientInterface {
 		if (error) {
 			throw error
 		}
+
 		return returnValue
 	}
 

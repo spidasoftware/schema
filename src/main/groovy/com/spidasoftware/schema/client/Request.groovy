@@ -25,6 +25,8 @@ import org.apache.http.client.config.RequestConfig
  * 		     Note that the default behavior is for GenericHttpClient to call consumeContent() on the entity AFTER this closure
  * 		     returns. It will then release the requests connection and then return the result of the responseHandler Closure.
  *
+ * 		keepStreamOpen: should the response input stream be left open (defaults to closing the stream)
+ *
  * Created by jeremy on 5/16/14.
  */
 class Request {
@@ -35,5 +37,6 @@ class Request {
 	Map<String, String> headers 		//not required
 	RequestConfig config 				//not required
 	Closure responseHandler				//not required
+	boolean keepStreamOpen = false		//not required
 }
 
