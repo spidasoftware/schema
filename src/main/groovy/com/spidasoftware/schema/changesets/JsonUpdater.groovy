@@ -9,7 +9,7 @@ import net.sf.json.JSONObject
 @Log4j
 class JsonUpdater {
 
-	List availableChangeSets = [CalcAddressChangeSet, CalcIdChangeSet]
+	List availableChangeSets = [CalcAddressChangeSet, CalcIdChangeSet, GPSAndStructureChangeSet]
 	List changeSetInstances // call getChangeSetInstances()
 
 	/**
