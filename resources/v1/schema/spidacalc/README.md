@@ -24,6 +24,31 @@ Finally, for export only it can include high level analysis results, including l
 In short, for pretty much anything you can do in calc, you get it in or out through this simple and readable data format.
 
 
+### Calc exchange file format ###
+
+The exchange file format allows any valid project JSON to be put into a portable file that includes project photos and can be easily imported by an end user using the normal Calc UI. Creating an exchange file simply involves putting the project JSON and all the photos into a zip file with the extension '.exchange.spida'. The structure of this file, is shown below, relative to the root of the archive:
+
+<pre>
+	my-spida-exchange-project.exchange.spida (archive root)
+	|
+	+--- project.json
+	|
+	+--- Photos
+	    \
+	    +--- photo1.jpg
+	    +--- photo2.jpg
+	    ...
+</pre>
+
+Note that while the file name can be any valid filename (with the .exchange.spida extension), the project json it contains MUST be named 'project.json'. The photos inside the photos directly can be directly referenced by setting the image 'url' property for each image in a location. Image urls will be resolved relative to the 'Photos' directory.
+
+A user can easily import this file into Calc by selecting it in the normal open dialog or by double-clicking it on their desktop. When the project is subsequently saved, it will be saved as a normal .spida file, not in the exchange format.
+
+One thing to note is that the exchange file format is not entirely portable, because it does not itself contain any client data. So, if the project json includes:
+	"clientFile": "Demo.client"
+then the user must have Demo.client in their clients directory in order to properly open the file.
+
+
 ###Supported Structure Fields
 
 The calc import API supports the following attributes of a structure.
@@ -127,7 +152,6 @@ Calc stores UUIDs for all components on the pole. They aren't used as identifier
 
 ###Limitations and known issues:
 
-- Custom form import/export is not yet supported. Support will be added in later versions.
 - All ID on the structure must conform to the Calc naming conventions. All wires must be named with something starting with "Wire#", all equipment with "Equipment#". This will be fixed in a later version to allow generic labeling. Correct ID Form is CASE SENSITIVE. EQUIPMENT#1 is not a correct ID. Equipment#1 is.
 - UUIDs must be actual UUIDs and in the canonical form xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx  http://en.wikipedia.org/wiki/Universally_unique_identifier In future versions this will be more generic.
 - parameters sent to RPC interface must be in the order specified in the interface description.
