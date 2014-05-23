@@ -18,7 +18,7 @@
                 "$ref": "../../spidacalc/calc/design.schema"
             }, 
             "type": "array"
-        }, 
+        },
         "forms": {
             "description": "An optional array of location forms for this location", 
             "items": {
@@ -32,7 +32,19 @@
         "id": {
             "description": "Optional display ID for location. Should be unique to project.", 
             "type": "string"
-        }, 
+        },
+        "technicianName": {
+            "description": "Name of technician that did work at this location.", 
+            "type": "string"
+        },
+        "crossStreet1": {
+            "description": "The first cross street.", 
+            "type": "string"
+        },
+        "crossStreet2": {
+            "description": "The second cross street.", 
+            "type": "string"
+        },
         "images": {
             "description": "Photos/images for this location.", 
             "id": "images", 
