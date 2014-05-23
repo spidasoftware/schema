@@ -25,27 +25,28 @@ class GPSAndStructureChangeSet implements ChangeSet {
 	void convert(JSON jsonObject) {
 		jsonObject.leads?.each {lead ->
 			lead.locations?.each { location ->
-				convertLocationGPS(location)
+				if (location.geographicCoordinate) {
+					convertGeoCoordinate(location.geographicCoordinate)
+				}
 				location.designs?.each {design ->
 					convertStructure(design)
 				}
 			}
 		}
+		log.trace(jsonObject.toString(2))
 	}
 
-	void convertLocationGPS(JSONObject location) {
-		def lat = location.latitude
-		def lon = location.longitude
+	void convertGeoCoordinate(JSONObject geoCoordinate) {
+		def lat = geoCoordinate.latitude
+		def lon = geoCoordinate.longitude
 		if (lat && lon) {
-			JSONObject geoCoordinate = new JSONObject()
 			geoCoordinate.type = "Point"
 			geoCoordinate.coordinates = new JSONArray()
 			geoCoordinate.coordinates[0] = lon
 			geoCoordinate.coordinates[1] = lat
-			location.remove("latitude")
-			location.remove("longitude")
-			location.geographicCoordinate = geoCoordinate
 		}
+		geoCoordinate.remove("latitude")
+		geoCoordinate.remove("longitude")
 	}
 
 	void convertStructure(JSONObject design) {
