@@ -1,5 +1,5 @@
 {
-  "id": "#/spidacalc/calc/client_references/equipment.schema",
+      "id": "#/spidacalc/calc/client_references/equipment.schema",
   "type": "object",
   "description": "A reference to a client equipment",
   "required": [
@@ -9,26 +9,7 @@
   "properties": {
     "type": {
       "description": "The type of equipment described",
-      "type": "string",
-      "enum": [
-        "CAPACITOR",
-        "CUTOUT_ARRESTOR",
-        "DRIP_LOOP",
-        "PRIMARY_METERING",
-        "RECLOSER",
-        "REGULATOR",
-        "RISER",
-        "STREET_LIGHT",
-        "SWITCH",
-        "TERMINATION_BRACKET",
-        "TRANSFORMER",
-        "JOINT_USE_BOX",
-        "APPARATUS_CASE",
-        "CROSS_CONNECT",
-        "LOAD_COIL_CASE",
-        "POWER_SUPPLY",
-        "SPLICE_CASE"
-      ]
+      "type": "string"
     },
     "size": {
       "description": "The client data identifier for this equipment.",
