@@ -110,30 +110,12 @@
                 "type": "string"
             }, 
             "type": "array"
-        }, 
+        },
         "userDefinedValues": {
-            "description": "User defined key-value pairs that we store.  For example, this could be used for an outside system id.", 
-            "id": "userDefinedValues", 
-            "items": {
-                "additionalProperties": false, 
-                "id": "keyValue", 
-                "properties": {
-                    "key": {
-                        "description": "user-defined lookup value", 
-                        "type": "string"
-                    }, 
-                    "value": {
-                        "type": "string"
-                    }
-                }, 
-                "required": [
-                    "key", 
-                    "value"
-                ], 
-                "type": "object"
-            }, 
-            "type": "array"
-        }, 
+            "description": "Any flat JSON object with string fields. This gets stored as user defined key-value pairs. For example, this could be used for an outside system id.", 
+            "id": "userDefinedValues",
+            "type": "object"
+        },
         "uuid": {
             "description": "Optional UUID", 
             "type": "string"

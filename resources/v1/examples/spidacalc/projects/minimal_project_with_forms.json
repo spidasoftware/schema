@@ -50,7 +50,7 @@
       },
       "remedies": [],
       "poleTags": [],
-      "userDefinedValues": [],
+      "userDefinedValues": {},
       "summaryNotes": [],
       "forms": [      {
         "title": "Test Location Form",
