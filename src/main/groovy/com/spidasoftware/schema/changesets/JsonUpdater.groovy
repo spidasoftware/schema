@@ -13,7 +13,7 @@ import net.sf.json.groovy.JsonSlurper
 @Log4j
 class JsonUpdater {
 
-	List availableChangeSets = [CalcAddressChangeSet]
+	List availableChangeSets = [CalcAddressChangeSet, UserDefinedValueChangeSet]
 	List changeSetInstances // call getChangeSetInstances()
 
 	/**
