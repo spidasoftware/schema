@@ -4,6 +4,14 @@
     "description": "A location is single physical location that has a pole", 
     "additionalProperties": false, 
     "properties": {
+        "id": {
+            "description": "Primary Key and unique identifier for project component",
+            "type": "string"
+        },
+        "label": {
+            "description": "Display name for project component",
+            "type": "string"
+        },
         "address": {
             "$ref": "../../general/address.schema"
         }, 
@@ -29,10 +37,6 @@
         "geographicCoordinate": {
             "$ref": "../../general/geometry.schema"
         }, 
-        "id": {
-            "description": "Optional display ID for location. Should be unique to project.", 
-            "type": "string"
-        },
         "technician": {
             "description": "Name of technician that did work at this location.", 
             "type": "string"
@@ -115,10 +119,6 @@
             "description": "Any flat JSON object with string fields. This gets stored as user defined key-value pairs. For example, this could be used for an outside system id.", 
             "id": "userDefinedValues",
             "type": "object"
-        },
-        "uuid": {
-            "description": "Optional UUID", 
-            "type": "string"
         }
     } 
 }

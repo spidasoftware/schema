@@ -7,10 +7,6 @@
   ],
   "additionalProperties": false,
   "properties": {
-     "id": {
-      "type": "string",
-      "description": "Optional ID"
-    },
     "pole": {
       "$ref": "../../spidacalc/calc/pole.schema",
       "description": "The main pole being analyzed."
@@ -47,7 +43,7 @@
             "type": "string",
             "description": "Display ID. Should be unique within structure."
           },
-          "uuid": {
+          "externalId": {
             "type": "string",
             "description": "Optional external ID."
           },
@@ -102,9 +98,9 @@
             "type": "string",
             "description": "A display id for the object. Should be unique to the pole."
           },
-          "uuid": {
+          "externalId": {
             "type": "string",
-            "description": "An option UUID."
+            "description": "An optional id for mapping to external systems. Calc does not use this ID, but does preserve it."
           },  
           "distance": {
             "$ref": "../../general/measurable.schema",
@@ -153,9 +149,9 @@
             "type": "string",
             "description": "The display ID for the attachment. Must be unique within the pole."
           },
-          "uuid": {
+          "externalId": {
             "type": "string",
-            "description": "An optional UUID for the item."
+            "description": "An optional externalId for the item."
           },
           "owner": {
             "$ref": "../../general/owner.schema",
@@ -229,7 +225,7 @@
             "type": "string",
             "description": "Id unique within structure"
           },
-          "uuid": {
+          "externalId": {
             "type": "string",
             "description": "Optional external id"
           },
@@ -298,9 +294,9 @@
             "type": "string",
             "description": "The display ID for the attachment. Must be unique within the pole."
           },
-          "uuid": {
+          "externalId": {
             "type": "string",
-            "description": "An optional UUID for the item."
+            "description": "An optional externalId for the item."
           },
           "owner": {
             "$ref": "../../general/owner.schema",
@@ -351,9 +347,9 @@
             "type": "string",
             "description": "The display ID for the attachment. Must be unique within the pole."
           },
-          "uuid": {
+          "externalId": {
             "type": "string",
-            "description": "An optional UUID for the item."
+            "description": "An optional externalId for the item."
           },
           "owner": {
             "$ref": "../../general/owner.schema"
@@ -391,9 +387,9 @@
             "type": "string",
             "description": "The display ID for the attachment. Must be unique within the pole."
           },
-          "uuid": {
+          "externalId": {
             "type": "string",
-            "description": "An optional UUID for the item."
+            "description": "An optional externalId for the item."
           },
           "owner": {
             "$ref": "../../general/owner.schema"
@@ -436,9 +432,9 @@
             "type": "string",
             "description": "The display ID for the attachment. Must be unique within the pole."
           },
-          "uuid": {
+          "externalId": {
             "type": "string",
-            "description": "An optional UUID for the item."
+            "description": "An optional externalId for the item."
           },
           "owner": {
             "$ref": "../../general/owner.schema"
@@ -488,9 +484,9 @@
             "type": "string",
             "description": "The display ID for the attachment. Must be unique within the pole."
           },
-          "uuid": {
+          "externalId": {
             "type": "string",
-            "description": "An optional UUID for the item."
+            "description": "An optional externalId for the item."
           },
           "owner": {
             "$ref": "../../general/owner.schema"
@@ -532,9 +528,9 @@
             "type": "string",
             "description": "The display ID for the attachment. Must be unique within the pole."
           },
-          "uuid": {
+          "externalId": {
             "type": "string",
-            "description": "An optional UUID for the item."
+            "description": "An optional externalId for the item."
           },
           "owner": {
             "$ref": "../../general/owner.schema"
@@ -589,9 +585,9 @@
             "type": "string",
             "description": "The display ID for the attachment. Must be unique within the pole."
           },
-          "uuid": {
+          "externalId": {
             "type": "string",
-            "description": "An optional UUID for the item."
+            "description": "An optional externalId for the item."
           },
           "owner": {
             "$ref": "../../general/owner.schema"
@@ -644,9 +640,9 @@
             "type": "string",
             "description": "The display ID for the attachment. Must be unique within the pole."
           },
-          "uuid": {
+          "externalId": {
             "type": "string",
-            "description": "An optional UUID for the item."
+            "description": "An optional externalId for the item."
           },
           "owner": {
             "$ref": "../../general/owner.schema"

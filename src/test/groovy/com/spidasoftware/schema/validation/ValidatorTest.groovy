@@ -32,7 +32,7 @@ class ValidatorTest extends TestCase {
 
 	void testBadObject() throws Exception {
 		def schema = "/v1/schema/spidacalc/calc/structure.schema"
-		def instance = '{"id":"uuid", "distance":{"unit":"FOOT", "value":10}, "direction":0}'
+		def instance = '{"id":"externalId", "distance":{"unit":"FOOT", "value":10}, "direction":0}'
 		def report = new Validator().validateAndReport(schema, instance)
 		assertFalse "the instance should be valid against a schema", report.isSuccess()
 
@@ -47,7 +47,7 @@ class ValidatorTest extends TestCase {
 	void testBadInput() throws Exception {
 		def badSchema = "/"
 		def schema = "/v1/schema/spidacalc/calc/structure.schema"
-		def instance = '{"id":"uuid", "distance":{"unit":"FOOT", "value":10}, "direction":0}'
+		def instance = '{"id":"externalId", "distance":{"unit":"FOOT", "value":10}, "direction":0}'
 		def exception = null
 		try {
 			new Validator().validate(schema, instance)
@@ -75,14 +75,14 @@ class ValidatorTest extends TestCase {
     "properties"
   ],
   "properties": {
-    "uuid": {
+    "externalId": {
       "description": "Option unique id for tracking within integrator systems.",
       "type": "string"
     }
   }
 }
 '''
-		def instance = '{"properties":{"uuid":"abc123"}}'
+		def instance = '{"properties":{"externalId":"abc123"}}'
 		def report = new Validator().validateAndReportFromText(schemaText, instance)
 		report.each{println it}
 		assertTrue "the instance should be valid against a schema", report.isSuccess()

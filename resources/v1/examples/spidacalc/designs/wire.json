@@ -4,11 +4,11 @@
   "damages": [], 
   "equipments": [], 
   "guys": [], 
-  "id": "Pole", 
-  "insulators": [], 
+  "insulators": [],
   "notePoints": [], 
   "pointLoads": [], 
   "pole": {
+    "id": "Pole",
     "agl": {
       "unit": "FOOT", 
       "value": 38.5
@@ -28,15 +28,14 @@
     }, 
     "owner": {
       "industry": "UTILITY", 
-      "name": "SCE", 
-      "uuid": "14c8750c-7b8e-4305-8c1e-68b0165567ae"
+      "id": "SCE",
+      "externalId": "14c8750c-7b8e-4305-8c1e-68b0165567ae"
     }, 
     "stressRatio": 1, 
     "temperature": {
       "unit": "FAHRENHEIT", 
       "value": 60
-    }, 
-    "uuid": "80c2be28-05d7-4274-a1bc-564406f88869"
+    }
   }, 
   "pushBraces": [], 
   "spanGuys": [], 
@@ -57,7 +56,7 @@
       "spanGuys": [], 
       "spanPoints": [], 
       "type": "NEXT_POLE", 
-      "uuid": "046db3c5-2ee1-4595-a7cd-13a78c49cb3d", 
+      "externalId": "046db3c5-2ee1-4595-a7cd-13a78c49cb3d",
       "wires": ["Wire#2"]
     }, 
     {
@@ -75,7 +74,7 @@
       "spanGuys": [], 
       "spanPoints": [], 
       "type": "PREVIOUS_POLE", 
-      "uuid": "4f079e81-2740-4e5d-b0c9-0bb88a58446f", 
+      "externalId": "4f079e81-2740-4e5d-b0c9-0bb88a58446f",
       "wires": ["Wire#1"]
     }
   ], 
@@ -97,13 +96,13 @@
       }, 
       "owner": {
         "industry": "UTILITY", 
-        "name": "SCE", 
-        "uuid": "4c060a42-f8d3-4d0d-b802-a8556655ac78"
+        "id": "SCE",
+        "externalId": "4c060a42-f8d3-4d0d-b802-a8556655ac78"
       }, 
       "tensionAdjustment": 1, 
       "tensionGroup": "Full", 
       "usageGroup": "PRIMARY", 
-      "uuid": "72b3a747-e850-4618-a424-ed85f21c6713"
+      "externalId": "72b3a747-e850-4618-a424-ed85f21c6713"
     }, 
     {
       "attachmentHeight": {
@@ -122,13 +121,13 @@
       }, 
       "owner": {
         "industry": "UTILITY", 
-        "name": "SCE", 
-        "uuid": "433d78b4-5af0-4c10-b800-939d5f2dc2aa"
+        "id": "SCE",
+        "externalId": "433d78b4-5af0-4c10-b800-939d5f2dc2aa"
       }, 
       "tensionAdjustment": 1, 
       "tensionGroup": "Full", 
       "usageGroup": "PRIMARY", 
-      "uuid": "aa44a5bd-075e-408d-ba7b-38fb9372a0ab"
+      "externalId": "aa44a5bd-075e-408d-ba7b-38fb9372a0ab"
     }
   ]
 }
