@@ -19,7 +19,7 @@ class CalcAddressChangeSetTests extends GroovyTestCase {
 
 	void testAddressChange(){
 		def oldJsonString = """{
-			  "name": "project-1",
+			  "id": "project-1",
 			  "version": "0.5.1",
 			  "clientFile": "Demo.client",
 			  "schema": "https://raw.github.com/spidasoftware/schema/master/resources/v1/schema/spidacalc/calc/project.schema",
@@ -49,7 +49,7 @@ class CalcAddressChangeSetTests extends GroovyTestCase {
 
 	void testAddressChangeWithNullAndEmptyStrings(){
 		def oldJsonString = """{
-			  "name": "project-1",
+			  "id": "project-1",
 			  "clientFile": "Demo.client",
 			  "schema": "https://raw.github.com/spidasoftware/schema/master/resources/v1/schema/spidacalc/calc/project.schema",
 			  "leads": [
@@ -77,7 +77,7 @@ class CalcAddressChangeSetTests extends GroovyTestCase {
 
 	void testAddressChangeNotNeeded(){
 		def oldJsonString = """{
-			  "name": "project-1",
+			  "id": "project-1",
 			  "version": "0.7",
 			  "clientFile": "Demo.client",
 			  "schema": "https://raw.github.com/spidasoftware/schema/master/resources/v1/schema/spidacalc/calc/project.schema",

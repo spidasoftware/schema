@@ -4,12 +4,14 @@
   "type": "object",
   "description": "A company that owns components at a location.",
   "properties": {
-    "uuid": {
-      "type": "string"
-    },
-    "name": {
+    "id": {
       "type": "string",
-      "minLength": 1
+      "minLength": 1,
+      "description": "The unique id and display name of the owner"
+    },
+    "externalId": {
+      "type": "string",
+      "description": "An id to for this owner in a system external to calc."
     },
     "industry": {
       "type": "string",
@@ -22,7 +24,7 @@
   },
   "required": [
     "industry",
-    "name"
+    "id"
   ],
   "additionalProperties": false
 }

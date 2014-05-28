@@ -7,7 +7,11 @@
     "owner"
   ],
   "properties": {
-    "uuid": {
+    "id": {
+      "type": "string",
+      "description": "Optional ID"
+    },
+    "externalId": {
       "description": "Option unique id for tracking within integrator systems.",
       "type": "string"
     },

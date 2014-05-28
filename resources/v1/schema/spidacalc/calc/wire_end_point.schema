@@ -15,11 +15,11 @@
   "properties": {
     "id": {
       "type": "string",
-      "description": "A display id for the object. Should be unique to the pole."
+      "description": "A display id for the object. Must be unique to the pole."
     },
-    "uuid": {
+    "externalId": {
       "type": "string",
-      "description": "An option UUID."
+      "description": "An optional id for mapping to external systems. Calc does not use this ID, but does preserve it."
     },  
     "distance": {
       "$ref": "../../general/measurable.schema",

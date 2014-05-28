@@ -44,15 +44,15 @@
     },
     "owner": {
       "industry": "UTILITY",
-      "name": "Acme Power",
-      "uuid": "706e1c60-20f6-4447-b381-c9060cb51337"
+      "id": "Acme Power",
+      "externalId": "706e1c60-20f6-4447-b381-c9060cb51337"
     },
     "stressRatio": 1,
     "temperature": {
       "unit": "FAHRENHEIT",
       "value": 60
     },
-    "uuid": "14d247fc-991a-409b-bf29-18ea148a8ef3"
+    "externalId": "14d247fc-991a-409b-bf29-18ea148a8ef3"
   },
   "anchors": [
     {
@@ -76,11 +76,11 @@
       "id": "Anchor#1",
       "owner": {
         "industry": "UTILITY",
-        "name": "Acme Power",
-        "uuid": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+        "id": "Acme Power",
+        "externalId": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
       },
       "supportType": "Other",
-      "uuid": "32850af8-5aa8-4292-a638-41406877609c"
+      "externalId": "32850af8-5aa8-4292-a638-41406877609c"
     }
   ]
 }

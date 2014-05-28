@@ -1,19 +1,15 @@
 package com.spidasoftware.schema.changesets
-
 import com.spidasoftware.schema.utils.VersionUtils
 import com.spidasoftware.schema.validation.Validator
 import groovy.util.logging.Log4j
 import net.sf.json.JSONObject
-import net.sf.json.groovy.JsonSlurper
-
-
 /**
  * Checks json version and runs change sets if needed.
  */
 @Log4j
 class JsonUpdater {
 
-	List availableChangeSets = [CalcAddressChangeSet]
+	List availableChangeSets = [CalcAddressChangeSet, CalcIdChangeSet, GPSAndStructureChangeSet]
 	List changeSetInstances // call getChangeSetInstances()
 
 	/**

@@ -35,7 +35,7 @@
   ],
   "tensionGroups": [
     {
-      "name": "Full",
+      "id": "Full",
       "temperature": {
         "unit": "FAHRENHEIT",
         "value": 60.00000000000006
@@ -54,7 +54,7 @@
       ]
     },
     {
-      "name": "Slack",
+      "id": "Slack",
       "temperature": {
         "unit": "FAHRENHEIT",
         "value": 60.00000000000006
@@ -120,7 +120,7 @@
         ],
         "tensionGroups": [
           {
-            "name": "Full",
+            "id": "Full",
             "temperature": {
               "unit": "FAHRENHEIT",
               "value": 60.00000000000006
@@ -139,7 +139,7 @@
             ]
           },
           {
-            "name": "Slack",
+            "id": "Slack",
             "temperature": {
               "unit": "FAHRENHEIT",
               "value": 60.00000000000006
@@ -206,7 +206,7 @@
         ],
         "tensionGroups": [
           {
-            "name": "Full",
+            "id": "Full",
             "temperature": {
               "unit": "FAHRENHEIT",
               "value": 60.00000000000006
@@ -225,7 +225,7 @@
             ]
           },
           {
-            "name": "Slack",
+            "id": "Slack",
             "temperature": {
               "unit": "FAHRENHEIT",
               "value": 60.00000000000006
