@@ -31,10 +31,9 @@
             "type": "FIELD",
             "value": "poleTag"
           }],
-          "userDefinedValues": [          {
-            "key": "some_other_system_id",
-            "value": "123-987"
-          }],
+          "userDefinedValues": {
+            "some_other_system_id": "123-987"
+          },
           "summaryNotes": [],
           "images": [{"url": "http://fake-url-image"}],
           "designs": [          {
@@ -527,10 +526,9 @@
             "type": "FIELD",
             "value": "poleTag"
           }],
-          "userDefinedValues": [          {
-            "key": "some_other_system_id",
-            "value": "123-987"
-          }],
+          "userDefinedValues": {
+            "some_other_system_id": "123-987"
+          },
           "summaryNotes": [],
           "images": [{"url": "http://fake-url-image"}],
           "designs": [          {
@@ -940,10 +938,9 @@
           "type": "FIELD",
           "value": "poleTag"
         }],
-        "userDefinedValues": [        {
-          "key": "some_other_system_id",
-          "value": "123-987"
-        }],
+        "userDefinedValues": {
+          "some_other_system_id": "123-987"
+        },
         "summaryNotes": [],
         "images": [{"url": "http://fake-url-image"}],
         "designs": [        {
@@ -1156,10 +1153,9 @@
           "type": "FIELD",
           "value": "poleTag"
         }],
-        "userDefinedValues": [        {
-          "key": "some_other_system_id",
-          "value": "123-987"
-        }],
+        "userDefinedValues": {
+          "some_other_system_id": "123-987"
+        },
         "summaryNotes": [],
         "images": [{"url": "http://fake-url-image"}],
         "designs": [        {

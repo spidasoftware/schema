@@ -124,8 +124,8 @@ class CalcSchemaTest extends GroovyTestCase {
 		assertFalse "this instance should be valid against the schema", report.isSuccess()	
 
 		def testFailues = []
-		def locationComponents = ["geographicCoordinate", "remedies", "poleTags", "userDefinedValues", "images"]
-			locationComponents.each { component ->
+		def locationComponents = ["geographicCoordinate", "remedies", "poleTags", "images"]
+		locationComponents.each { component ->
 			json = JSONObject.fromObject(new File("resources/v1/examples/spidacalc/projects/full_project.json").text)
 			if(component == "geographicCoordinate") {
 				json.getJSONArray("leads").getJSONObject(0).getJSONArray("locations").getJSONObject(0).getJSONObject(component).put("an additional property", "shouldn't validate")

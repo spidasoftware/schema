@@ -36,7 +36,27 @@
       "type": "string",
       "description": "Date the project was created."
     },
-    "forms": {
+    "engineer": {
+      "type": "string",
+      "description": "Engineer of the project."
+    },
+    "generalLocation": {
+      "type": "string",
+      "description": "Project's general location on the map."
+    },
+    "address": {
+      "$ref": "../../general/address.schema"
+    },
+    "comments": {
+      "type": "string",
+      "description": "Any comments about the project."
+    },
+    "userDefinedValues": {
+        "description": "Any flat JSON object with string fields. This gets stored as user defined key-value pairs. For example, this could be used for an outside system id.", 
+        "id": "userDefinedValues",
+        "type": "object"
+    },
+	"forms": {
       "type": "array",
       "description": "An optional array of Project forms.",
       "items": {

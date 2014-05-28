@@ -26,7 +26,7 @@
                 "$ref": "../../spidacalc/calc/design.schema"
             }, 
             "type": "array"
-        }, 
+        },
         "forms": {
             "description": "An optional array of location forms for this location", 
             "items": {
@@ -36,6 +36,18 @@
         }, 
         "geographicCoordinate": {
             "$ref": "../../general/geometry.schema"
+        }, 
+        "technician": {
+            "description": "Name of technician that did work at this location.", 
+            "type": "string"
+        },
+        "crossStreet1": {
+            "description": "The first cross street.", 
+            "type": "string"
+        },
+        "crossStreet2": {
+            "description": "The second cross street.", 
+            "type": "string"
         },
         "images": {
             "description": "Photos/images for this location.", 
@@ -102,29 +114,11 @@
                 "type": "string"
             }, 
             "type": "array"
-        }, 
+        },
         "userDefinedValues": {
-            "description": "User defined key-value pairs that we store.  For example, this could be used for an outside system id.", 
-            "id": "userDefinedValues", 
-            "items": {
-                "additionalProperties": false, 
-                "id": "keyValue", 
-                "properties": {
-                    "key": {
-                        "description": "user-defined lookup value", 
-                        "type": "string"
-                    }, 
-                    "value": {
-                        "type": "string"
-                    }
-                }, 
-                "required": [
-                    "key", 
-                    "value"
-                ], 
-                "type": "object"
-            }, 
-            "type": "array"
+            "description": "Any flat JSON object with string fields. This gets stored as user defined key-value pairs. For example, this could be used for an outside system id.", 
+            "id": "userDefinedValues",
+            "type": "object"
         }
     } 
 }
