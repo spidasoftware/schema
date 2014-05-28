@@ -18,7 +18,6 @@ class UserDefinedValueChangeSetTests {
 	@Before
 	void setUp(){
 		jsonUpdater = new JsonUpdater()
-		VersionUtils.metaClass.static.getSchemaJarFile = { new File("path/to/schema-0.8.jar") }
 	}
 
 	@Test
