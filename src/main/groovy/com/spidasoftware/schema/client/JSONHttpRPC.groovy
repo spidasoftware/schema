@@ -21,7 +21,6 @@ import java.util.List
  * User: mford
  * Date: 9/20/12
  * Time: 10:30 AM
- * To change this template use File | Settings | File Templates.
  */
 public class JSONHttpRPC {
 	static Logger log = Logger.getLogger(JSONHttpRPC.class)

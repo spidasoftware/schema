@@ -5,7 +5,6 @@ package com.spidasoftware.schema.client.rest
  * User: pfried
  * Date: 1/17/14
  * Time: 2:55 PM
- * To change this template use File | Settings | File Templates.
  */
 class RestClientException extends RuntimeException {
 

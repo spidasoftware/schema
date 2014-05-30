@@ -20,7 +20,6 @@ import java.net.InetAddress;
  * User: mford
  * Date: 7/31/12
  * Time: 10:21 AM
- * To change this template use File | Settings | File Templates.
  */
 public class LocalJSONServlet extends HttpServlet {
 	protected static Logger log = Logger.getLogger(LocalJSONServlet.class);
