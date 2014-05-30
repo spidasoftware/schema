@@ -25,13 +25,19 @@
                 "type": "array",
                 "name": "station_ids",
                 "required": false,
-                "description": "Ids or assetTag values of stations to return.  Required if bounding box not provided."
+                "description": "Station ids of stations to return.  Required if bounding box or tags is not provided.  If the tag parameter is not implemented this should search tags as well as station ids"
+            },
+            {
+                "type": "array",
+                "name": "tags",
+                "required": false,
+                "description": "Services may optionally implement this parameter.  If this is implemented any stations containing this tags will be returned.  Required if bounding box or station_ids is not provided"
             },
             {
                 "type": "../../general/geometry.schema",
                 "name": "bounding_box",
                 "required": false,
-                "description": "A polygon that is the south, west, north, east of information to return. Required if no station ids provided."
+                "description": "A polygon that is the south, west, north, east of information to return. Required if no station ids or tags are provided."
             },
             {
                 "type": "array",

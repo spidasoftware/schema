@@ -15,7 +15,7 @@ util = require('util')
 # query client data for pole information. I am using "Demo.client" because it is included in teh calc release
 # but that is something you would want to be configurable in your software
 
-# for this method, the only parameter is the name of the client file
+# for this method, the only parameter is the id of the client file
 postParameters = queryString.stringify {
 	'clientFile': 'Demo.client'
 }

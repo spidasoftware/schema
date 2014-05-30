@@ -8,6 +8,14 @@
   ],
   "additionalProperties": false,
   "properties": {
+    "id": {
+        "description": "Primary Key and unique identifier for project component",
+        "type": "string"
+    },
+    "label": {
+        "description": "Display name for project component",
+        "type": "string"
+    },
     "schema": {
       "type": "string",
       "description": "Full URL of the calc schema. For version 2 should be resources/v1/schema/schema/spidacalc/calc/project.schema"
@@ -24,15 +32,31 @@
        "type":"string",
        "description": "version identifier for a specific client file"
     },
-    "name": {
-      "type": "string",
-      "description": "The name of this project.  If creating a project, this will become the file name."
-    },
     "date": {
       "type": "string",
       "description": "Date the project was created."
     },
-    "forms": {
+    "engineer": {
+      "type": "string",
+      "description": "Engineer of the project."
+    },
+    "generalLocation": {
+      "type": "string",
+      "description": "Project's general location on the map."
+    },
+    "address": {
+      "$ref": "../../general/address.schema"
+    },
+    "comments": {
+      "type": "string",
+      "description": "Any comments about the project."
+    },
+    "userDefinedValues": {
+        "description": "Any flat JSON object with string fields. This gets stored as user defined key-value pairs. For example, this could be used for an outside system id.", 
+        "id": "userDefinedValues",
+        "type": "object"
+    },
+	"forms": {
       "type": "array",
       "description": "An optional array of Project forms.",
       "items": {
@@ -52,12 +76,12 @@
         "additionalProperties": false,
         "properties": {
           "id": {
-            "type": "string",
-            "description": "Required display ID for the lead. Must be unique to project."
+              "description": "Primary Key and unique identifier for project component",
+              "type": "string"
           },
-          "uuid": {
-            "type": "string",
-            "description": "Optional UUID for lead."
+          "label": {
+              "description": "Display name for project component",
+              "type": "string"
           },
           "locations": {
             "type": "array",

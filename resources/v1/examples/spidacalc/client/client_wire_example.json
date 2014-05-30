@@ -39,7 +39,7 @@
           }
         }
       ], 
-      "name": "Full", 
+      "id": "Full",
       "temperature": {
         "unit": "FAHRENHEIT", 
         "value": 60
@@ -58,7 +58,7 @@
           }
         }
       ], 
-      "name": "Slack", 
+      "id": "Slack",
       "temperature": {
         "unit": "FAHRENHEIT", 
         "value": 60
