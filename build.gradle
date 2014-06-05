@@ -10,7 +10,7 @@ apply plugin: 'project-report'
 apply plugin: 'releaseNotes'
 
 group = 'com.spidasoftware'
-version = '0.8-SNAPSHOT'
+version = '0.10-SNAPSHOT'
 description = "Schema"
 
 sourceCompatibility = 1.7
@@ -35,16 +35,31 @@ sourceSets {
 	}
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Dependencies
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
 buildscript {
-	repositories{
-		maven{
-			credentials {
-				username 'developer'
-				password '{DESede}dG+RkW6Rzo7BU1y/mn5Yhw=='
-			}
-			url "https://dev.spidasoftware.com/artifactory/repo"
+	
+	try {
+		project.ext.m2Settings = [exposed:"https://dev.spidasoftware.com/artifactory/exposed-repo"]//default
+		def m2Root = new XmlSlurper().parse(new File(System.getProperty("user.home"), ".m2/settings.xml"))
+		def m2Spida = m2Root.servers.server.find{ it.id.text() == "spida" }
+		def m2Repos = m2Root.profiles.profile.find{ it.id.text() == "artifactory" }.properties
+		if(m2Spida && m2Repos){
+			project.ext.m2Settings = [username: m2Spida.username.text(), password: m2Spida.password.text(), exposed: m2Repos.exposedLocation.text()]
 		}
+	} catch(ex){
+		println ex.message //use ex.printStackTrace() if you want to show the full stacktrace 
 	}
+	
+	//uncomment to print out maven settings
+	//println "m2Settings: ${m2Settings}"
+
+	repositories {
+		mavenCentral()
+		maven { url m2Settings.exposed }
+	}
+
 	dependencies {
 		classpath (group: 'com.spidasoftware', name:'releaseNotes', version:'0.1-SNAPSHOT', changing:true)
 	}
@@ -52,7 +67,21 @@ buildscript {
 
 repositories {
 	mavenCentral()
-	maven { url "https://dev.spidasoftware.com/artifactory/exposed-repo" }
+	maven { url m2Settings.exposed }
+}
+
+uploadArchives {
+	repositories.mavenDeployer {
+		repository(url: m2Settings.exposed) {
+			authentication(userName: m2Settings.username, password: m2Settings.password)
+		}
+	}
+}
+
+releaseNotes {
+	start = "v0.3"
+	project = "147173"
+	token = "22ca5f31f85239e3039879981d321dc9"
 }
 
 dependencies {
@@ -126,44 +155,3 @@ task wrapper(type: Wrapper) {
 	distributionUrl = 'http://services.gradle.org/distributions/gradle-1.11-all.zip'
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Read maven settings.xml (gradle does not do this yet)
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-private def getMavenSettings() {
-	String userHome = System.getProperty("user.home");
-	File mavenSettings = new File(userHome, ".m2/settings.xml")
-	if(mavenSettings.exists()){
-		def xmlSlurper = new XmlSlurper()
-		def root = xmlSlurper.parse(mavenSettings)
-		def settingsMap = [:]
-		
-	def locations = root."profiles"."profile".find{it."id".text() == "artifactory"}."properties"
-		settingsMap.snapshots = locations."snapshotsLocation"
-		settingsMap.releases = locations."releasesLocation"
-		
-		def serverElement = root."servers"."server".find{ it."id".text() == "spida" }
-		settingsMap.username = serverElement.username.text()
-		settingsMap.password = serverElement.password.text()
-		return settingsMap
-	} else {
-		return [:]
-	}
-}
-
-uploadArchives {
-	def mavenSettings = getMavenSettings()
-	repositories.mavenDeployer {
-		repository(url: mavenSettings["releases"]) {
-			authentication(userName: mavenSettings["username"], password: mavenSettings["password"])
-		}
-		snapshotRepository(url: mavenSettings["snapshots"]) {
-			authentication(userName: mavenSettings["username"], password: mavenSettings["password"])
-		}
-	}
-}
-
-releaseNotes {
-	start = "v0.3"
-	project = "147173"
-	token = "22ca5f31f85239e3039879981d321dc9"
-}

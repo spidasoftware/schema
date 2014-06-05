@@ -2,30 +2,33 @@
     "id": "asset_file_service",
     "description": "Manage Asset Files",
     "getName": {
+        "allowedMethods":["GET"],
         "description": "Get name of this service.",
         "returns": "string"
     },
     "getVersionCount": {
-        "description": "Get version count of attachment with uuid.",
+        "allowedMethods":["GET"],
+        "description": "Get version count of attachment with externalId.",
         "returns": "number",
         "params": [
             {
                 "type": "string",
-                "name": "uuid",
+                "name": "externalId",
                 "required": true,
-                "description": "UUID of attachment"
+                "description": "externalId of attachment"
             }
         ]
     },
     "getFile": {
-        "description": "Get path for attachment with uuid",
+        "allowedMethods":["GET"],
+        "description": "Get path for attachment with externalId",
         "returns": "string",
         "params": [
             {
                 "type": "string",
-                "name": "uuid",
+                "name": "externalId",
                 "required": true,
-                "description": "UUID of attachment"
+                "description": "externalId of attachment"
             },
             {
                 "type": "number",
@@ -36,14 +39,14 @@
         ]
     },
     "getBytes": {
-        "description": "Get base64 encoded bytes for attachment with uuid",
+        "description": "Get base64 encoded bytes for attachment with externalId",
         "returns": "string",
         "params": [
             {
                 "type": "string",
-                "name": "uuid",
+                "name": "externalId",
                 "required": true,
-                "description": "UUID of attachment"
+                "description": "externalId of attachment"
             },
             {
                 "type": "number",

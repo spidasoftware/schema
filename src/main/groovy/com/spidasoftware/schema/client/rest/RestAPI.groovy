@@ -23,7 +23,6 @@ import java.util.concurrent.locks.ReentrantReadWriteLock
  * User: pfried
  * Date: 1/15/14
  * Time: 7:35 PM
- * To change this template use File | Settings | File Templates.
  */
 @Log4j
 class RestAPI {

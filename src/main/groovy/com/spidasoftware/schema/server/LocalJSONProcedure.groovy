@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
  * User: mford
  * Date: 9/19/12
  * Time: 9:36 PM
- * To change this template use File | Settings | File Templates.
  */
 public abstract class LocalJSONProcedure extends LocalJSONServlet {
 	@Override

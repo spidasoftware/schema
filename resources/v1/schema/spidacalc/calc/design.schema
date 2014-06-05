@@ -3,6 +3,14 @@
     "id": "#/spidacalc/calc/design.schema", 
     "additionalProperties": false, 
     "properties": {
+        "id": {
+            "description": "Primary Key and unique identifier for project component",
+            "type": "string"
+        },
+        "label": {
+            "description": "Display name for project component",
+            "type": "string"
+        },
         "analysis": {
             "description": "List of load cases and their results. Note - these are for export only. They will be ignored on import.", 
             "items": {
@@ -35,16 +43,9 @@
         "geographicCoordinate": {
             "$ref": "../../general/geometry.schema"
         }, 
-        "id": {
-            "description": "Optional display ID", 
-            "type": "string"
-        }, 
+
         "structure": {
             "$ref": "../../spidacalc/calc/structure.schema"
-        }, 
-        "uuid": {
-            "description": "Optional UUID for design", 
-            "type": "string"
         }
     }
     

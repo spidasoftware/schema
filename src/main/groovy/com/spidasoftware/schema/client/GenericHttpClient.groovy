@@ -6,7 +6,6 @@ import net.sf.json.JSON
 import net.sf.json.JSONObject
 import net.sf.json.JSONSerializer
 import org.apache.http.HttpEntity
-import org.apache.http.ParseException
 import org.apache.http.client.HttpResponseException
 import org.apache.http.client.methods.HttpUriRequest
 import org.apache.http.client.methods.RequestBuilder
@@ -18,14 +17,6 @@ import org.apache.http.impl.client.HttpClientBuilder
 import org.apache.http.protocol.BasicHttpContext
 import org.apache.http.protocol.HttpContext
 import org.apache.http.util.EntityUtils
-import org.apache.tika.detect.DefaultDetector
-import org.apache.tika.detect.Detector
-import org.apache.tika.io.TikaInputStream
-import org.apache.tika.metadata.Metadata
-import org.apache.tika.mime.MimeTypes
-
-import javax.activation.MimetypesFileTypeMap
-import java.nio.file.Files
 
 /**
  * Generic http client class for making most of the basic http calls. It is fairly customizable by overriding the
@@ -41,11 +32,9 @@ import java.nio.file.Files
  * User: pfried
  * Date: 1/15/14
  * Time: 3:12 PM
- * To change this template use File | Settings | File Templates.
  */
 @Log4j
 class GenericHttpClient implements HttpClientInterface {
-
 
 	CloseableHttpClient client
 
@@ -53,7 +42,31 @@ class GenericHttpClient implements HttpClientInterface {
 	 * Executes the specified request with the given headers and parameters. After executing the request,
 	 * the responseHandler closure is called with the response, an then the response entity is consumed and
 	 * the request connection is released. All of this default behavior is defined in closures that can be
-	 * easily overridden for a particular instnace without having to define a new subclass.
+	 * easily overridden for a particular instance without having to define a new subclass.
+	 * For a POST or PUT request, all the parameters will be put into a multipart entity, including files.
+	 * For any other request type, the parameters will be added to the URI.
+	 *
+	 * @param request object that holds all request settings
+	 * @return
+	 * @throws Exception
+	 */
+	def executeRequest(Request request) throws Exception {
+		def httpUriRequest = createHttpUriRequest(request)
+		logRequest(httpUriRequest)
+		if(!request.responseHandler){
+			request.responseHandler = getBodyAsString
+		}
+		return executeHttpRequest(httpUriRequest, request)
+
+	}
+
+	/**
+	 * Convenience method which just calls executeRequest(Request request)
+	 *
+	 * Executes the specified request with the given headers and parameters. After executing the request,
+	 * the responseHandler closure is called with the response, an then the response entity is consumed and
+	 * the request connection is released. All of this default behavior is defined in closures that can be
+	 * easily overridden for a particular instance without having to define a new subclass.
 	 * For a POST or PUT request, all the parameters will be put into a multipart entity, including files.
 	 * For any other request type, the parameters will be added to the URI.
 	 *
@@ -69,30 +82,36 @@ class GenericHttpClient implements HttpClientInterface {
 	 * @return
 	 */
 	def executeRequest(String httpMethod, URI uri, Map<String, Object> parameters, Map<String, String> headers, Closure responseHandler = getBodyAsString) throws Exception {
-		def request = createRequest(httpMethod, uri, parameters, headers)
-		logRequest(request)
-		return executeHttpRequest(request, responseHandler)
-
+		executeRequest(new Request(httpMethod:httpMethod, uri:uri, parameters:parameters, headers:headers, responseHandler:responseHandler))
 	}
 
-	def createRequest = {String httpMethod, URI uri, Map<String, Object> parameters, Map<String, String> headers ->
-		def requestBuilder = RequestBuilder.create(httpMethod.toUpperCase())
-		requestBuilder.setUri(uri)
-		if (headers && !headers.isEmpty()) {
-			headers.each { k, v ->
+	/**
+	 * builds an HttpUriRequest for a client to use
+	 */
+	def createHttpUriRequest = { Request request ->
+		def requestBuilder = RequestBuilder.create(request.httpMethod.toUpperCase())
+
+		requestBuilder.setUri(request.uri)
+
+		if (request.headers) {
+			request.headers.each { k, v ->
 				requestBuilder.addHeader(k, v)
 			}
 		}
 
-		if (parameters && !parameters.isEmpty()) {
-			boolean containsFile = parameters.values().any { it instanceof File }
-			boolean canContainFile = httpMethod.equalsIgnoreCase("POST") || httpMethod.equalsIgnoreCase("PUT")
+		if(request.config){
+			requestBuilder.setConfig(request.config)
+		}
+
+		if (request.parameters) {
+			boolean containsFile = request.parameters.values().any { it instanceof File }
+			boolean canContainFile = request.httpMethod.equalsIgnoreCase("POST") || request.httpMethod.equalsIgnoreCase("PUT")
 
 			// If there are files in the request, we'll have to build the entity ourselves
 			if (containsFile && canContainFile) {
-				requestBuilder.setEntity(createMultipartEntity(parameters))
+				requestBuilder.setEntity(createMultipartEntity(request.parameters))
 			} else {
-				parameters.each { k, v ->
+				request.parameters.each { k, v ->
 					requestBuilder.addParameter(k, v.toString())
 				}
 			}
@@ -100,6 +119,10 @@ class GenericHttpClient implements HttpClientInterface {
 		return requestBuilder.build()
 	}
 
+	/**
+	 * logs the http method, uri, and headers
+	 * @param request
+	 */
 	static void logRequest(HttpUriRequest request) {
 		log.info("Http Request: method: ${request.getMethod()}, URI: ${request.getURI().toString()}")
 		request.getAllHeaders().each {
@@ -185,10 +208,17 @@ class GenericHttpClient implements HttpClientInterface {
 		}
 	}
 
-
-	protected def executeHttpRequest(HttpUriRequest request, Closure responseHandler) throws Exception {
-		URI uri = request.getURI()
-		log.debug("Executing request: ${request.getMethod()} to URI: ${uri.toString()}")
+	/**
+	 * Executes an http request given a request and a closure to handle the response.
+	 * Also handles cleanup and catches, logs, and throws exceptions.
+	 * @param request
+	 * @param responseHandler
+	 * @return
+	 * @throws Exception
+	 */
+	protected def executeHttpRequest(HttpUriRequest httpUriRequest, Request request) throws Exception {
+		URI uri = httpUriRequest.getURI()
+		log.debug("Executing request: ${httpUriRequest.getMethod()} to URI: ${uri.toString()}")
 
 		if (!client) {
 			this.client = createClient(HttpClientBuilder.create())
@@ -199,15 +229,16 @@ class GenericHttpClient implements HttpClientInterface {
 		Throwable error
 		try {
 			HttpContext localContext = new BasicHttpContext()
-			response = this.client.execute(request, localContext)
-			returnValue = responseHandler(response)
+			response = this.client.execute(httpUriRequest, localContext)
+			returnValue = request.responseHandler(response)
 
 		} catch (Exception e) {
 			error = e
 			log.error(e, e)
+
 		} finally {
 			try {
-				if (response) {
+				if (response && !request.keepStreamOpen) {
 					cleanupResponse(response)
 				}
 			} catch (Exception ex) {
@@ -218,6 +249,7 @@ class GenericHttpClient implements HttpClientInterface {
 		if (error) {
 			throw error
 		}
+
 		return returnValue
 	}
 

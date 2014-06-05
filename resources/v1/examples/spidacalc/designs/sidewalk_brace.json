@@ -21,17 +21,16 @@
         "unit": "FOOT",
         "value": 45
       }
-    },
-    "uuid": "d613e088-827e-4c0a-afd9-6180ba8ee14a",
+    }
     "owner":     {
-      "name": "Acme Power",
+      "id": "Acme Power",
       "industry": "UTILITY",
-      "uuid": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+      "externalId": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
     }
   },
   "wireEndPoints": [  {
     "id": "WEP#1",
-    "uuid": "b7f13162-e3f5-499e-9248-5a1122b19dc3",
+    "externalId": "b7f13162-e3f5-499e-9248-5a1122b19dc3",
     "distance":     {
       "unit": "FOOT",
       "value": 158
@@ -55,16 +54,16 @@
   "anchors":   [
         {
       "id": "Anchor#1",
-      "uuid": "175ab487-2aa0-423b-8f0c-effbb9d3c56f",
+      "externalId": "175ab487-2aa0-423b-8f0c-effbb9d3c56f",
       "distance":       {
         "unit": "FOOT",
         "value": 15
       },
       "direction": 290,
       "owner":       {
-        "name": "Acme Power",
+        "id": "Acme Power",
         "industry": "UTILITY",
-        "uuid": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+        "externalId": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
       },
       "height":       {
         "unit": "FOOT",
@@ -76,16 +75,16 @@
     },
         {
       "id": "Anchor#2",
-      "uuid": "41bebb1e-cbb1-42db-b488-3bad5da1640b",
+      "externalId": "41bebb1e-cbb1-42db-b488-3bad5da1640b",
       "distance":       {
         "unit": "FOOT",
         "value": 15
       },
       "direction": 250,
       "owner":       {
-        "name": "Acme Power",
+        "id": "Acme Power",
         "industry": "UTILITY",
-        "uuid": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+        "externalId": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
       },
       "height":       {
         "unit": "FOOT",
@@ -102,11 +101,11 @@
   "wires":   [
         {
       "id": "Wire#1",
-      "uuid": "77a37711-8ce1-4be9-9306-163279e5bbd5",
+      "externalId": "77a37711-8ce1-4be9-9306-163279e5bbd5",
       "owner":       {
-        "name": "Acme Power",
+        "id": "Acme Power",
         "industry": "UTILITY",
-        "uuid": "c015b7b4-4f47-4690-9623-c1377a3c4785"
+        "externalId": "c015b7b4-4f47-4690-9623-c1377a3c4785"
       },
       "clientItem":       {
         "size": "1/0 AAAC",
@@ -127,11 +126,11 @@
     },
         {
       "id": "Wire#2",
-      "uuid": "9385562d-b223-4285-abc7-214e0d8ea396",
+      "externalId": "9385562d-b223-4285-abc7-214e0d8ea396",
       "owner":       {
-        "name": "Acme Power",
+        "id": "Acme Power",
         "industry": "UTILITY",
-        "uuid": "c46797c7-18d4-43ae-afe6-760c661dcf61"
+        "externalId": "c46797c7-18d4-43ae-afe6-760c661dcf61"
       },
       "clientItem":       {
         "size": "1/0 AAAC",
@@ -152,11 +151,11 @@
     },
         {
       "id": "Wire#3",
-      "uuid": "441750f1-153e-4c21-abe2-d4d7934591cd",
+      "externalId": "441750f1-153e-4c21-abe2-d4d7934591cd",
       "owner":       {
-        "name": "Acme Power",
+        "id": "Acme Power",
         "industry": "UTILITY",
-        "uuid": "b10a3c99-0d48-4e74-a314-39cb23591d47"
+        "externalId": "b10a3c99-0d48-4e74-a314-39cb23591d47"
       },
       "clientItem":       {
         "size": "1/0 AAAC",
@@ -180,11 +179,11 @@
   "guys":   [
         {
       "id": "Guy#1",
-      "uuid": "1f2f4078-99d7-45cf-8fbc-2a0ddb597d6a",
+      "externalId": "1f2f4078-99d7-45cf-8fbc-2a0ddb597d6a",
       "owner":       {
-        "name": "Acme Power",
+        "id": "Acme Power",
         "industry": "UTILITY",
-        "uuid": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+        "externalId": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
       },
       "clientItem":       {
         "size": "3/8\" EHS",
@@ -198,11 +197,11 @@
     },
         {
       "id": "Guy#2",
-      "uuid": "f4d1f83b-254a-4b37-9768-75932568c425",
+      "externalId": "f4d1f83b-254a-4b37-9768-75932568c425",
       "owner":       {
-        "name": "Acme Power",
+        "id": "Acme Power",
         "industry": "UTILITY",
-        "uuid": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+        "externalId": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
       },
       "clientItem":       {
         "size": "3/8\" EHS",
@@ -222,11 +221,11 @@
   "sidewalkBraces":   [
         {
       "id": "Brace#1",
-      "uuid": "822f323a-580c-465a-b6d5-b9fa533c2135",
+      "externalId": "822f323a-580c-465a-b6d5-b9fa533c2135",
       "owner":       {
-        "name": "Acme Power",
+        "id": "Acme Power",
         "industry": "UTILITY",
-        "uuid": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+        "externalId": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
       },
       "clientItem": "Default 4.4 Brace",
       "attachmentHeight":       {
@@ -245,11 +244,11 @@
     },
         {
       "id": "Brace#2",
-      "uuid": "fc8294c1-e75a-47e0-87f4-c70fb7580741",
+      "externalId": "fc8294c1-e75a-47e0-87f4-c70fb7580741",
       "owner":       {
-        "name": "Acme Power",
+        "id": "Acme Power",
         "industry": "UTILITY",
-        "uuid": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+        "externalId": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
       },
       "clientItem": "Default 4.4 Brace",
       "associatedBacking": "Other",
