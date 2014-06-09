@@ -7,7 +7,7 @@
 				"allowedMethods":["GET"],
 				"parameters":[
 					{
-						"id":"name",
+						"id":"label",
 						"descritpion":"the name of the project",
 						"required":false,
 						"type":"string"
@@ -19,8 +19,8 @@
 						"type":"string"						
 					},
 					{
-						"id":"uuid",
-						"description":"The uuid (from SpidaCalc) of the project",
+						"id":"id",
+						"description":"The id (from SpidaCalc) of the project",
 						"required":false,
 						"type":"string"
 					}
@@ -80,23 +80,6 @@
 						"required":true
 					}
 				]
-			},
-			"getAsFile": {
-				"description": "Creates a new calc file from the specified project",
-				"allowedMethods": ["GET"],
-				"parameters": [
-					{
-						"id": "_id",
-						"description": "The id of the project to use when creating a calc file. Either id or project must be passed, but not both.",
-						"type": "string",
-						"required": false
-					}, {
-						"id": "project",
-						"description":"The project json to be saved. Either id or project must be passed, but not both.",
-						"schema":"/v1/schema/spidacalc/calc/project.schema",
-						"required": false
-					}
-				]
 			}
 		},
 		"location":{
@@ -123,14 +106,14 @@
 						"type":"string"
 					},
 					{
-						"id":"uuid",
-						"description":"The uuid (from SpidaCalc) of the location",
+						"id":"id",
+						"description":"The id (from SpidaCalc) of the location",
 						"required":false,
 						"type":"string"
 					},
 					{
-						"id":"id",
-						"description":"The Location name from SpidaCalc (called id for now, but we will be changing this soon)",
+						"id":"label",
+						"description":"The Location name from SpidaCalc",
 						"required":false,
 						"type":"string"
 					}
@@ -217,8 +200,8 @@
 						"type":"string"
 					},
 					{
-						"id":"uuid",
-						"description":"The uuid (from SpidaCalc) of the design",
+						"id":"id",
+						"description":"The id (from SpidaCalc) of the design",
 						"required":false,
 						"type":"string"
 					}
@@ -285,7 +268,7 @@
 		"photo": {
 			"show":{
 				"path":"/photos/<uuid>",
-				"description":"returns a design by unique uuid (filefort id)",
+				"description":"returns a photo by unique uuid (filefort id). returns as json with base64 encoded photo",
 				"allowedMethods":["GET"],
 				"parameters":[
 					{
