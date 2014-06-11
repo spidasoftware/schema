@@ -116,7 +116,9 @@ class RestParams {
 		if (!report){
 			throw new InvalidParameterException("invalid_json")
 		} else if (!report.isSuccess()){
-			throw new InvalidParameterException(schemaPath.substring(schemaPath.lastIndexOf('/'), schemaPath.lastIndexOf('.schema')))
+			def type = schemaPath.substring(schemaPath.lastIndexOf('/'), schemaPath.lastIndexOf('.schema'))
+			log.warn("$type is not valid against the schema; \n" + report.toString())
+			throw new InvalidParameterException(type + " is not valid:\n${report.toString()}")
 		}
 	}
 
