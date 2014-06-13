@@ -6,8 +6,8 @@
       "stations": [
         {
           "id": 28614,
-          "source": "tag",
-          "stationId": "Found-2",
+          "spotted": true,
+          "display": "Found-2",
           "deleted": false,
           "geometry": {
             "type": "Point",

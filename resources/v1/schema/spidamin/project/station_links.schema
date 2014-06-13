@@ -3,10 +3,10 @@
   "description": "StationLinker Links",
   "type": "object",
   "required": [
-    "linkages"
+    "links"
   ],
   "properties": {
-    "projects": {
+    "links": {
       "type": "array",
       "items": {
         "$ref": "../../spidamin/project/station_link.schema"
