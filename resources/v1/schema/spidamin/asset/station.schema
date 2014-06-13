@@ -8,6 +8,10 @@
     "assetTypes"
   ],
   "properties": {
+    "source": {
+      "type": "string",
+      "description": "The source of the 'stationId'.  The service name configured by SPIDA."
+    },
     "stationId": {
       "type": "string",
       "description": "This is a database ID created by the asset service. Only set this value if you want to update an existing station."
@@ -40,6 +44,18 @@
     },
     "address": {
      "$ref": "../../general/address.schema"
+    },
+    "linkerId": {
+      "type": "number",
+      "description": "Optional.  If the station is linked to stations in other asset services, this is the linkerId returned by the StationLinker."
+    },
+    "servicePriority": {
+      "type": "number",
+      "description": "Optional.  SPIDAMin station linker sets this value."
+    },
+    "originalStationId": {
+      "type": "string",
+      "description": "Optional.  SPIDAMin station linker sets this value."
     }
   },
   "additionalProperties": false

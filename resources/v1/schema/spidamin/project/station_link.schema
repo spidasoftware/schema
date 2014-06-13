@@ -1,0 +1,28 @@
+{
+  "id": "station_link",
+  "description": "A linkage allows stations from different services to be linked/merged by a common linker ID.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number",
+      "description": "This is a database ID created by ProjectManager."
+    },
+    "serviceName": {
+      "type": "string",
+      "description": "The name of the service that owns the stationId."
+    },
+    "servicePriority": {
+      "type": "string",
+      "description": "The priority of the service that owns the stationId.  The lower the number, the higher the priority."
+    },
+    "stationId": {
+      "type": "string",
+      "description": "The id of the station within the service."
+    },
+    "linkerId": {
+      "type": "number",
+      "description": "The common ID among linkages which allows multiple stations to refer to other stations."
+    }
+  },
+  "additionalProperties": false
+}

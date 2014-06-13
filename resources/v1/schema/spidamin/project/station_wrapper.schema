@@ -7,25 +7,35 @@
       "type": "number",
       "description": "This is a database ID created by ProjectManager.  Only set this value if you want to update an existing station."
     },
+    "spotted": {
+      "type": "boolean",
+      "description": "Found in Field.  Set to 'true' if station does NOT exist in any asset service. Set to 'false' or don't set if station exists in an asset service."
+    },
+    "display": {
+      "type": "string",
+      "description": "If spotted (found in field), this value is required for project creation.  If this asset exists in an asset service, you don't need to set this because ProjectManager will set this value to the primary asset's primary tag.",
+      "minLength": 2,
+      "maxLength": 72
+    },
+    "geometry": {
+      "$ref": "../../general/geometry.schema",
+      "description": "If spotted (found in field), this value is required for project creation.  If this asset exists in an assetservice, you don't need to set this because ProjectManager will set this value."
+    },
     "source": {
       "type": "string",
-      "description": "The source of the 'stationId'.  The service name configured by SPIDA or 'tag' if the station does not exist in any asset service."
+      "description": "The source of the 'stationId'.  The service name configured by SPIDA.  Required for project creation if the asset exists in an asset service."
     },
     "stationId": {
       "type": "string",
-      "description": "The id of the station within the asset service specified by the 'source' field.  If the asset does not exist in any asset service, then this value is the tag to display.  For example, if a new pole was found in the field, this value would be the pole tag."
+      "description": "The id of the station within the asset service specified by the 'source' field.  Required for project creation if the asset exists in an asset service."
     },
     "linkerId": {
       "type": "number",
       "description": "Optional.  If the station is linked to stations in other asset services, this is the linkerId returned by the StationLinker."
     },
-    "geometry": {
-      "$ref": "../../general/geometry.schema",
-      "description": "Only required if found in the field and not in any asset service."
-    },
     "deleted": {
       "type": "boolean",
-      "description": "True if station is marked as deleted.  This value is currently read-only."
+      "description": "Optional.  ProjectManager will set this to true if station is marked as deleted."
     }
   },
   "additionalProperties": false
