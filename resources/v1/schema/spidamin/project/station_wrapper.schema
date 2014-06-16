@@ -1,33 +1,41 @@
 {
   "id": "station_wrapper",
-  "description": "A project manager station which points to an asset service station",
+  "description": "A ProjectManager station 'wraps' or points to one or more stations in asset services.",
   "type": "object",
   "properties": {
     "id": {
       "type": "number",
-      "description": "This is a database ID created by project manager.  Only set this value if you want to update an existing station."
-    },
-    "assetServiceRefId": {
-      "type": "string",
-      "description": "The id of the station from an asset service"
+      "description": "This is a database ID created by ProjectManager.  Only set this value if you want to update an existing station."
     },
     "spotted": {
       "type": "boolean",
-      "description": "true if station does not exist in any asset service"
-    },
-    "deleted": {
-      "type": "boolean",
-      "description": "true if station is marked as deleted (NOTE: value is not writable, only readable through API)"
+      "description": "Found in Field.  Set to 'true' if station does NOT exist in any asset service. Set to 'false' or don't set if station exists in an asset service."
     },
     "display": {
       "type": "string",
-      "description": "Defaults to primary asset's primary tag.  If spotted, this value should be set.",
+      "description": "If spotted (found in field), this value is required for project creation.  If this asset exists in an asset service, you don't need to set this because ProjectManager will set this value to the primary asset's primary tag.",
       "minLength": 2,
       "maxLength": 72
     },
     "geometry": {
       "$ref": "../../general/geometry.schema",
-      "description": "required if spotted and not in external asset store"
+      "description": "If spotted (found in field), this value is required for project creation.  If this asset exists in an assetservice, you don't need to set this because ProjectManager will set this value."
+    },
+    "source": {
+      "type": "string",
+      "description": "The source of the 'stationId'.  The service name configured by SPIDA.  Required for project creation if the asset exists in an asset service."
+    },
+    "stationId": {
+      "type": "string",
+      "description": "The id of the station within the asset service specified by the 'source' field.  Required for project creation if the asset exists in an asset service."
+    },
+    "linkerId": {
+      "type": "number",
+      "description": "Optional.  If the station is linked to stations in other asset services, this is the linkerId returned by the StationLinker."
+    },
+    "deleted": {
+      "type": "boolean",
+      "description": "Optional.  ProjectManager will set this to true if station is marked as deleted."
     }
   },
   "additionalProperties": false
