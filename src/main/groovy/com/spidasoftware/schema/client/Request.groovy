@@ -1,6 +1,7 @@
 package com.spidasoftware.schema.client
 
 import org.apache.http.client.config.RequestConfig
+import org.apache.http.protocol.HttpContext
 
 /**
  * Holds settings for an http client interface
@@ -36,6 +37,7 @@ class Request {
 	Map<String, Object> parameters 		//not required
 	Map<String, String> headers 		//not required
 	RequestConfig config 				//not required
+	HttpContext httpContext 			//not required
 	Closure responseHandler				//not required
 	boolean keepStreamOpen = false		//not required
 }
