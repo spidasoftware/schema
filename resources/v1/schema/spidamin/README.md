@@ -161,4 +161,25 @@ Each param will give you a set of basic information
 
 The return value is type of primitive, array of primitives or object that will be return from the service call.  This is the object that you will need to construct or have wrapped, so all those values would need to be present.
 
+### Sessions
+
+When a call is made to SPIDAMin and the API Token is successfully authenticated a session is created.  A new session is created for each different application, a call to AssetMaster and a call to Project Manager will create two sessions.  Each session will have to be expired in separate calls, there are two ways to expire a session. Here is an example of expiring an AssetMaster session by calling logout:
+
+    curl -g 'https://test.spidasoftware.com/assetmaster/j_spring_security_logout'
+
+The parameter expireSession set to true can also be passed with calls in order to expire the session.  An example of this is:
+
+    curl -g 'https://test.spidasoftware.com/assetmaster/assetAPI/getStations?station_ids=["1"]&expireSession=true'
+
+The advantage of passing the expireSession parameter is that it does not require another http request just to expire the session.
+
+### Switching Companies and Users
+
+Once the API Token is successfully authenticated the user will be logged into their home company.  The session can be switched to a different company and/or user assuming the user has the correct role.  If accessing a project in a different company the session should be switched to the company that the project is in.  To switch companies make a call to:
+
+    curl -g 'https://test.spidasoftware.com/assetmaster/switchcompany?coselect=TestCompany'
+
+To switch to a different user make a call to:
+
+    curl -g 'https://test.spidasoftware.com/assetmaster/switchcompany?userId=1' 
 
