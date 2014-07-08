@@ -216,9 +216,6 @@ class GenericHttpClient implements HttpClientInterface {
 	 * @throws Exception
 	 */
 	protected def executeHttpRequest(HttpUriRequest httpUriRequest, Request request) throws Exception {
-		URI uri = httpUriRequest.getURI()
-		log.debug("Executing request: ${httpUriRequest.getMethod()} to URI: ${uri.toString()}")
-
 		if (!client) {
 			this.client = createClient(HttpClientBuilder.create())
 		}

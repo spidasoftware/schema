@@ -21,6 +21,8 @@ import org.apache.http.protocol.HttpContext
  *
  * 		config: config for a specific request
  *
+* 		httpContext: context for a specific request - can be used to set credentials for one request
+ *
  * 		responseHandler: an optional Closure that get's called after the response has been received. The default will
  * 		     simply return the response body as a String, or throw an HttpResponseException if the status code is >= 300.
  * 		     Note that the default behavior is for GenericHttpClient to call consumeContent() on the entity AFTER this closure
