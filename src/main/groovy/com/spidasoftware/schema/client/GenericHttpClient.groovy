@@ -15,7 +15,6 @@ import org.apache.http.entity.mime.MultipartEntityBuilder
 import org.apache.http.impl.client.CloseableHttpClient
 import org.apache.http.impl.client.HttpClientBuilder
 import org.apache.http.protocol.BasicHttpContext
-import org.apache.http.protocol.HttpContext
 import org.apache.http.util.EntityUtils
 
 /**
@@ -217,9 +216,6 @@ class GenericHttpClient implements HttpClientInterface {
 	 * @throws Exception
 	 */
 	protected def executeHttpRequest(HttpUriRequest httpUriRequest, Request request) throws Exception {
-		URI uri = httpUriRequest.getURI()
-		log.debug("Executing request: ${httpUriRequest.getMethod()} to URI: ${uri.toString()}")
-
 		if (!client) {
 			this.client = createClient(HttpClientBuilder.create())
 		}
@@ -228,8 +224,10 @@ class GenericHttpClient implements HttpClientInterface {
 		def returnValue
 		Throwable error
 		try {
-			HttpContext localContext = new BasicHttpContext()
-			response = this.client.execute(httpUriRequest, localContext)
+			if(!request.httpContext){
+				request.httpContext = new BasicHttpContext()
+			}
+			response = this.client.execute(httpUriRequest, request.httpContext)
 			returnValue = request.responseHandler(response)
 
 		} catch (Exception e) {
