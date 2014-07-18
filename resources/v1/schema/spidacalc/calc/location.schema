@@ -52,9 +52,9 @@
         "images": {
             "description": "Photos/images for this location. Images are required to have a url and can have a link.", 
             "id": "images",
-            "required": ["url"], 
             "items": {
                 "additionalProperties": false, 
+                "required": ["url"],
                 "properties": {
                     "url": {
                         "description": "Path to the image file.", 
