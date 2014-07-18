@@ -50,7 +50,7 @@
             "type": "string"
         },
         "images": {
-            "description": "Photos/images for this location.", 
+            "description": "Photos/images for this location. Images can either have a url or a link, not both.", 
             "id": "images", 
             "items": {
                 "additionalProperties": false, 
@@ -58,6 +58,25 @@
                     "url": {
                         "description": "Path to the image file.", 
                         "type": "string"
+                    },
+                    "link": {
+                        "description":"link to the source of the photo along with the id for that source.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                            "source", 
+                            "id"
+                        ], 
+                        "properties": {
+                            "source": {
+                                "type": "string",
+                                "description": "The source of the 'id'.  The service name configured by SPIDA."
+                            },
+                            "id": {
+                                "type": "string",
+                                "description": "This is a database ID for the photo in the service."
+                            }
+                        }
                     }
                 }, 
                 "type": "object"
