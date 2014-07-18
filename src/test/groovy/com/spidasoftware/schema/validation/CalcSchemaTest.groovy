@@ -181,7 +181,7 @@ class CalcSchemaTest extends GroovyTestCase {
 	    assertEquals "The list should be empty", [], testFailues
 	}
 
-	void testLocationImageURL() {
+	void testLocationImageURLAndLink() {
 		def json = JSONObject.fromObject(new File("resources/v1/examples/spidacalc/projects/full_project.json").text)
 		def location = json.getJSONArray("leads").getJSONObject(0).getJSONArray("locations").getJSONObject(0)
 		location.getJSONArray("images").add(new JSONObject(["url":"/some/url"]))
