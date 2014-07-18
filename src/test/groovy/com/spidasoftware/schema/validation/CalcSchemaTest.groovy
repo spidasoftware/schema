@@ -191,6 +191,7 @@ class CalcSchemaTest extends GroovyTestCase {
 		assertTrue "Valid images added, should validate", report.isSuccess() 
 
 		location.getJSONArray("images").add(new JSONObject(["link":["source":"FFF","id":"3432432432"]]))
+		report = schema.validate(JsonLoader.fromString(location.toString()))
 		assertTrue "Invalid image added, url is required should not validate", report.isSuccess() 	
 	}
 }
