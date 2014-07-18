@@ -50,8 +50,9 @@
             "type": "string"
         },
         "images": {
-            "description": "Photos/images for this location. Images can either have a url or a link, not both.", 
-            "id": "images", 
+            "description": "Photos/images for this location. Images are required to have a url and can have a link.", 
+            "id": "images",
+            "required": ["url"], 
             "items": {
                 "additionalProperties": false, 
                 "properties": {
@@ -60,7 +61,7 @@
                         "type": "string"
                     },
                     "link": {
-                        "description":"link to the source of the photo along with the id for that source. NOTE: this is only to be used with CalcDB, Calc will ignore the link.",
+                        "description":"link to the source of the photo along with the id for that source. NOTE: this is only to be used with CalcDB, Calc will currently ignore the link.",
                         "type": "object",
                         "additionalProperties": false,
                         "required": [
