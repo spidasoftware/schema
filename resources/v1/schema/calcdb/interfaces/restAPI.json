@@ -53,7 +53,7 @@
                         "id":"format",
                         "description":"format for return value.",
                         "type": "string",
-                        "enum": ["calc", "exchange"],
+                        "enum": ["calc", "referenced"],
                         "required":false
                     }
 				]
