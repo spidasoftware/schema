@@ -112,11 +112,11 @@ Schema for a calc project. Includes information on GPS positions, street address
 
 RPC interfaces are exposed at http://localhost:4560/ while SPIDACalc is running. They allow control over core operations of SPIDAcalc from another programming running locally via basic HTTP POST requests. There is an example script using these methods in examples/scripts/example_RPC_client.coffee.
 
-####client_data_interface.schema
+####client_data.json
 
 Located at http://localhost:4560/clientData/<method name>. This interface provides basic querying methods for what client items are available in a client file.
 
-####calc_interface.schema
+####calc.json
 
 located at http://localhost:4560/calc/<method name>. Provides stateful control methods to a running instance of SPIDACalc. Includes methods to open a file, run analysis, run a report, etc.
 
@@ -152,7 +152,7 @@ Calc stores UUIDs for all components on the pole. They aren't used as identifier
 
 ###Limitations and known issues:
 
-- All ID on the structure must conform to the Calc naming conventions. All wires must be named with something starting with "Wire#", all equipment with "Equipment#". This will be fixed in a later version to allow generic labeling. Correct ID Form is CASE SENSITIVE. EQUIPMENT#1 is not a correct ID. Equipment#1 is.
+- All ID on the structure must conform to the Calc naming conventions. All wires must be named with something starting with "Wire#", all equipment with "Equip#". This will be fixed in a later version to allow generic labeling. Correct ID Form is CASE SENSITIVE. EQUIP#1 is not a correct ID. Equip#1 is.
 - UUIDs must be actual UUIDs and in the canonical form xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx  http://en.wikipedia.org/wiki/Universally_unique_identifier In future versions this will be more generic.
 - parameters sent to RPC interface must be in the order specified in the interface description.
 - Load case names are case-sensitive, to what is in the client file. This can be different from what is shown in calc.
