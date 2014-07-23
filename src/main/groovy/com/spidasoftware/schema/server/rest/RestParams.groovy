@@ -54,7 +54,11 @@ class RestParams {
 				}
 			}
 
-			def newParams = [:]
+            if(!params.format) {
+                params["format"] = api.defaultFormat
+            }
+
+            def newParams = [:]
 			//make sure that any required parameters are present
 			method.parameters.each{
 				log.debug("Checking parameter: ${it.id}")
@@ -70,6 +74,9 @@ class RestParams {
 						validateAgainstSchema(it.schema, params[key])
 						newParams[key] = JSONSerializer.toJSON(params[key])
 					} else {
+                        if(it.enum && !it.enum.contains(params[key].toString())) {
+                            throw new InvalidParameterException(it.id + " with value: ${params[key]} is not valid:\nMust be one of ${it.enum}")
+                        }
 						newParams[key] = params[key]
 					}
 				}
@@ -83,15 +90,19 @@ class RestParams {
 				api.projection.parameters.each{
 					def clazz = it.defaultValue.class
 					try {
-						def paramValue = params["${it.id}"] ?: it.defaultValue
-						projectionParams["${it.id}"] = paramValue.asType(clazz)
-						log.debug("Adding projection param: ${paramValue} with class: ${clazz}")
+						def paramValue = params["${it.id}"]?.asType(clazz) ?: it.defaultValue
+                        def projectionMaxByType = method.projectionMaxByType?.getInt(newParams.format.toString())
+                        if(projectionMaxByType) {
+                            paramValue = Math.min(paramValue, projectionMaxByType)
+                        }
+						projectionParams["${it.id}"] = paramValue
 					} catch (NumberFormatException e){
 						throw new InvalidParameterException(it.id)
 					}
 					
 				}
-				
+                listParams.put("format", newParams.format)
+				newParams.remove("format")
 				listParams.put("query", newParams)
 				listParams.put("projection", projectionParams)
 				

@@ -1,7 +1,12 @@
 {
+    "defaultFormat":"calc",
 	"resources":{
 		"thing":{
 			"list":{
+                "projectionMaxByType": {
+                    "calc":1,
+                    "referenced": 100
+                },
 				"parameters":[
 					{
 						"id":"name",
@@ -17,7 +22,13 @@
 						"id":"uuid",
 						"required":false,
 						"type":"string"
-					}
+					},
+                    {
+                        "id":"format",
+                        "description":"format type for the project.",
+                        "type": "string",
+                        "enum": ["calc", "referenced"]
+                    }
 				]
 			},
 			"show":{

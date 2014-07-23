@@ -1,10 +1,15 @@
 {
 	"description":"Documents the CalcDB REST API",
+    "defaultFormat":"calc",
 	"resources":{
 		"project":{
 			"list":{
 				"description":"Finds all projects that match the parameters",
 				"allowedMethods":["GET"],
+                "projectionMaxByType": {
+                    "calc":1,
+                    "referenced": 100
+                },
 				"parameters":[
 					{
 						"id":"label",
@@ -23,6 +28,13 @@
 						"description":"The id (from SpidaCalc) of the project",
 						"required":false,
 						"type":"string"
+					},
+					{
+						"id":"format",
+						"description":"fformat for return value. NOTE calc format will limit the results to 1 project",
+                        "type": "string",
+                        "enum": ["calc", "referenced"],
+                        "required":false
 					}
 				]
 			},
@@ -36,7 +48,14 @@
 						"description":"The unique _id of this project, given in the url",
 						"required":true,
 						"type":"string"
-					}
+					},
+                    {
+                        "id":"format",
+                        "description":"format for return value.",
+                        "type": "string",
+                        "enum": ["calc", "exchange"],
+                        "required":false
+                    }
 				]
 			},
 			"save":{
@@ -45,10 +64,17 @@
 				"parameters":[
 					{
 						"id":"project",
-						"description":"The project json to be saved",
+						"description":"The project json to be saved. project is required if format is calc",
 						"schema":"/v1/schema/spidacalc/calc/project.schema",
-						"required":true
-					}
+						"required":false
+					},
+                    {
+                        "id":"format",
+                        "description":"format type for the project. project is required if format is calc",
+                        "type": "string",
+                        "enum": ["calc", "exchange"],
+                        "required":false
+                    }
 				]
 			},
 			"update":{
@@ -57,16 +83,23 @@
 				"parameters":[
 					{
 						"id":"project",
-						"description":"The project json to be saved",
+						"description":"The project json to be saved. project is required if format is calc",
 						"schema":"/v1/schema/spidacalc/calc/project.schema",
-						"required":true
+						"required":false
 					},
 					{
 						"id":"_id",
                         "description":"The unique _id of this project, given in the URL",
                         "type":"string",
                         "required":true
-					}
+					},
+                    {
+                        "id":"format",
+                        "description":"format type for the project. project is required if format is calc",
+                        "type": "string",
+                        "enum": ["calc", "exchange"],
+                        "required":false
+                    }
 				]
 			},
 			"delete":{
@@ -86,6 +119,10 @@
 			"list":{
 				"description":"Finds all locations that match the parameters",
 				"allowedMethods":["GET"],
+                "projectionMaxByType": {
+                    "calc":25,
+                    "referenced": 100
+                },
 				"parameters":[
 					{
 						"id":"project_name",
@@ -116,7 +153,14 @@
 						"description":"The Location name from SpidaCalc",
 						"required":false,
 						"type":"string"
-					}
+					},
+                    {
+                        "id":"format",
+                        "description":"format for return value. NOTE calc format will limit the results to 25 locations",
+                        "type": "string",
+                        "enum": ["calc", "referenced"],
+                        "required":false
+                    }
 				]
 			},
 			"show":{
@@ -127,9 +171,16 @@
 					{
 						"id":"_id",
 						"description":"The unique _id of this location, given in the url",
-						"required":true,
+						"required":false,
 						"type":"string"
-					}
+					},
+                    {
+                        "id":"format",
+                        "description":"format for return value.",
+                        "type": "string",
+                        "enum": ["calc", "referenced"],
+                        "required":false
+                    }
 				]
 			},
 			"save":{
@@ -153,7 +204,7 @@
 						"id":"location",
 						"description":"The location json to be saved",
 						"schema":"/v1/schema/spidacalc/calc/location.schema",
-						"required":true
+						"required":false
 					},
 					{
 						"id":"_id",
@@ -180,6 +231,10 @@
 			"list":{
 				"description":"Finds all designs that match the parameters",
 				"allowedMethods":["GET"],
+                "projectionMaxByType": {
+                    "calc":100,
+                    "referenced": 100
+                },
 				"parameters":[
 					{
 						"id":"project_name",
@@ -204,7 +259,14 @@
 						"description":"The id (from SpidaCalc) of the design",
 						"required":false,
 						"type":"string"
-					}
+					},
+                    {
+                        "id":"format",
+                        "description":"format for return value.",
+                        "type": "string",
+                        "enum": ["calc", "referenced"],
+                        "required":false
+                    }
 				]
 			},
 			"show":{
@@ -217,7 +279,14 @@
 						"description":"The unique _id of this design, given in the url",
 						"required":true,
 						"type":"string"
-					}
+					},
+                    {
+                        "id":"format",
+                        "description":"format for return value.",
+                        "type": "string",
+                        "enum": ["calc", "referenced"],
+                        "required":false
+                    }
 				]
 			},
 			"save":{
@@ -300,5 +369,4 @@
 			}
 		]
 	}
-	
 }
