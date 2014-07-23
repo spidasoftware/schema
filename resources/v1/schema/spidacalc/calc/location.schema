@@ -50,14 +50,34 @@
             "type": "string"
         },
         "images": {
-            "description": "Photos/images for this location.", 
-            "id": "images", 
+            "description": "Photos/images for this location. Images are required to have a url and can have a link.", 
+            "id": "images",
             "items": {
                 "additionalProperties": false, 
+                "required": ["url"],
                 "properties": {
                     "url": {
                         "description": "Path to the image file.", 
                         "type": "string"
+                    },
+                    "link": {
+                        "description":"link to the source of the photo along with the id for that source. NOTE: this is only to be used with CalcDB, Calc will currently ignore the link.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                            "source", 
+                            "id"
+                        ], 
+                        "properties": {
+                            "source": {
+                                "type": "string",
+                                "description": "The source of the 'id'.  The service name configured by SPIDA."
+                            },
+                            "id": {
+                                "type": "string",
+                                "description": "This is a database ID for the photo in the service."
+                            }
+                        }
                     }
                 }, 
                 "type": "object"

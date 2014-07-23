@@ -180,4 +180,18 @@ class CalcSchemaTest extends GroovyTestCase {
 	    }
 	    assertEquals "The list should be empty", [], testFailues
 	}
+
+	void testLocationImageURLAndLink() {
+		def json = JSONObject.fromObject(new File("resources/v1/examples/spidacalc/projects/full_project.json").text)
+		def location = json.getJSONArray("leads").getJSONObject(0).getJSONArray("locations").getJSONObject(0)
+		location.getJSONArray("images").add(new JSONObject(["url":"/some/url"]))
+		location.getJSONArray("images").add(new JSONObject(["url":"/some/url", "link":["source":"FFF","id":"3432432432"]]))	
+		def schema = factory.getJsonSchema("v1/schema/spidacalc/calc/location.schema")
+		report = schema.validate(JsonLoader.fromString(location.toString()))
+		assertTrue "Valid images added, should validate", report.isSuccess() 
+
+		location.getJSONArray("images").add(new JSONObject(["link":["source":"FFF","id":"3432432432"]]))
+		report = schema.validate(JsonLoader.fromString(location.toString()))
+		assertFalse "Invalid image added, url is required should not validate", report.isSuccess() 	
+	}
 }
