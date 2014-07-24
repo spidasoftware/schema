@@ -10,7 +10,7 @@ apply plugin: 'project-report'
 apply plugin: 'releaseNotes'
 
 group = 'com.spidasoftware'
-version = '0.12-SNAPSHOT'
+version = '0.13-SNAPSHOT'
 description = "Schema"
 
 sourceCompatibility = 1.7
@@ -85,7 +85,7 @@ releaseNotes {
 }
 
 dependencies {
-	compile group: 'org.codehaus.groovy', name: 'groovy-all', version:'2.1.7'
+	compile group: 'org.codehaus.groovy', name: 'groovy-all', version:'2.3.2'
 	compile group: 'junit', name: 'junit', version:'4.9'
 	compile group: 'org.glassfish', name: 'javax.servlet', version:'3.0'
 	compile group: "org.eclipse.jetty", name:"jetty-server", version: "9.0.6.v20130930"
@@ -99,7 +99,7 @@ dependencies {
 	compile group: 'xom', name: 'xom', version:'1.2.5'
 	compile group: 'com.github.fge', name: 'json-schema-validator', version:'2.1.6'
 	compile group: 'org.apache.tika', name: 'tika-core', version:'1.4'
-
+    compile group: 'org.mongodb', name:'mongo-java-driver', version:'2.11.1'
 
     testCompile group: 'org.spockframework', name: 'spock-core', version: '0.7-groovy-2.0'
     testCompile group: 'cglib', name: 'cglib-nodep', version: '2.2'

@@ -1,0 +1,1271 @@
+{
+    "clientFile": "AEP.client",
+    "date": "2013-04-23",
+    "schema": "/v1/schema/spidacalc/project.schema",
+    "clientFileVersion": "bd48326e6365bcb7d53f0aa0f964faa0",
+    "forms": [],
+    "leads": [    {
+        "locations": [        {
+            "mapNumber": "",
+            "comments": "",
+            "address":             {
+                "number": "123",
+                "street": "Some St",
+                "city": "Somewhere",
+                "county": "Allen",
+                "state": "Ohio",
+                "zip_code": "44444"
+            },
+            "geographicCoordinate":             {
+                "type": "Point",
+                "coordinates":                 [
+                    -79.13687133789062,
+                    37.40403366088867
+                ]
+            },
+            "remedies":             [
+                {"description": "New Telecom:"},
+                {"description": "- do some stuff"},
+                {"description": "- do some more stuff"},
+                {"description": "Super Power Co:"},
+                {"description": "- Do some other stuff"}
+            ],
+            "poleTags":             [
+                                {
+                    "type": "MAP",
+                    "value": "37790105D16006"
+                },
+                                {
+                    "type": "Pole Number",
+                    "value": "ESSL44210"
+                },
+                                {
+                    "type": "Trans",
+                    "value": "442-10"
+                }
+            ],
+            "summaryNotes":             [
+                "Super Power Co. install bisector guy to the N",
+                "Super Power Co. install span guy for span to the N"
+            ],
+            "forms":             [
+                                {
+                    "title": "Asset Information",
+                    "template": "bd48326e6365bcb7d53f0aa0f964faa0-Asset Information",
+                    "fields":                     {
+                        "Attachment Type Code": "MT - Maintenance",
+                        "Change Flag Code": "E - Existing",
+                        "Pole Location": "na",
+                        "NJUNS": "",
+                        "Engineering Cost": "0",
+                        "MakeReady Cost": "0",
+                        "Lead ID": "0",
+                        "Transmission": "No",
+                        "Lead-Location": "0"
+                    }
+                },
+                                {
+                    "title": "Billing Code",
+                    "template": "bd48326e6365bcb7d53f0aa0f964faa0-Billing Code",
+                    "fields":                     {
+                        "Transmission Pole?": "true",
+                        "Change Flag": "N/A",
+                        "Billing Code": "SE",
+                        "CE Description": "N/A",
+                        "Note": "",
+                        "Existing Attachers with Work": "0",
+                        "Transmission Analysis Not Done (Clearance Violation)": "false"
+                    }
+                }
+            ],
+            "images":             [
+                {"url": "37790105D16006-1.jpg"},
+                {"url": "37790105D16006-2.jpg"},
+                {"url": "37790105D16006-3.jpg"}
+            ],
+            "designs": [            {
+                "structure":                 {
+                    "pole":                     {
+                        "glc":                         {
+                            "unit": "FOOT",
+                            "value": 3.5833333333333335
+                        },
+                        "agl":                         {
+                            "unit": "FOOT",
+                            "value": 43
+                        },
+                        "environment": "STREET",
+                        "temperature":                         {
+                            "unit": "FAHRENHEIT",
+                            "value": 60
+                        },
+                        "stressRatio": 0.93,
+                        "clientItem":                         {
+                            "species": "Southern Pine",
+                            "classOfPole": "3",
+                            "height":                             {
+                                "unit": "FOOT",
+                                "value": 50
+                            }
+                        },
+                        "owner":                         {
+                            "industry": "UTILITY",
+                            "externalId": "37af5e7c-2825-4604-892d-ca268f700bcf",
+                            "id": "Super Power Co."
+                        },
+                        "externalId": "5715d5e1-af51-4279-92f4-211ae3b38ac4"
+                    },
+                    "wireEndPoints":                     [
+                                                {
+                            "id": "WEP#1",
+                            "distance":                             {
+                                "unit": "FOOT",
+                                "value": 152
+                            },
+                            "direction": 220,
+                            "inclination":                             {
+                                "unit": "DEGREE_ANGLE",
+                                "value": 0
+                            },
+                            "type": "PREVIOUS_POLE",
+                            "comments": "",
+                            "wires":                             [
+                                "Wire#1",
+                                "Wire#2",
+                                "Wire#6",
+                                "Wire#17",
+                                "Wire#18",
+                                "Wire#20",
+                                "Wire#23",
+                                "Wire#24",
+                                "Wire#27"
+                            ],
+                            "spanGuys": [],
+                            "spanPoints": [],
+                            "externalId": "d9572914-7752-47b2-a7f2-85d6119ded50"
+                        },
+                                                {
+                            "id": "WEP#2",
+                            "distance":                             {
+                                "unit": "FOOT",
+                                "value": 175
+                            },
+                            "direction": 36,
+                            "inclination":                             {
+                                "unit": "DEGREE_ANGLE",
+                                "value": 0
+                            },
+                            "type": "NEXT_POLE",
+                            "comments": "",
+                            "wires":                             [
+                                "Wire#7",
+                                "Wire#8",
+                                "Wire#12",
+                                "Wire#13",
+                                "Wire#16",
+                                "Wire#19",
+                                "Wire#21",
+                                "Wire#22",
+                                "Wire#25",
+                                "Wire#26"
+                            ],
+                            "spanGuys": [],
+                            "spanPoints": [],
+                            "externalId": "583a7c82-2f91-4bc9-9c00-aa195565a089"
+                        },
+                                                {
+                            "id": "WEP#3",
+                            "distance":                             {
+                                "unit": "FOOT",
+                                "value": 29
+                            },
+                            "direction": 65,
+                            "inclination":                             {
+                                "unit": "DEGREE_ANGLE",
+                                "value": 0
+                            },
+                            "type": "BUILDING",
+                            "comments": "",
+                            "wires": ["Wire#14"],
+                            "spanGuys": [],
+                            "spanPoints": [],
+                            "externalId": "fdfe0f3b-06d4-4682-9da8-f00d81f2667e"
+                        },
+                                                {
+                            "id": "WEP#4",
+                            "distance":                             {
+                                "unit": "FOOT",
+                                "value": 30
+                            },
+                            "direction": 295,
+                            "inclination":                             {
+                                "unit": "DEGREE_ANGLE",
+                                "value": 0
+                            },
+                            "type": "OTHER_POLE",
+                            "comments": "",
+                            "wires": ["Wire#15"],
+                            "spanGuys": [],
+                            "spanPoints": [],
+                            "externalId": "189121eb-ace7-477e-b682-d6ad3a4c1e0d"
+                        }
+                    ],
+                    "spanPoints": [],
+                    "anchors": [                    {
+                        "id": "Anchor#1",
+                        "distance":                         {
+                            "unit": "FOOT",
+                            "value": 17
+                        },
+                        "direction": 128,
+                        "owner":                         {
+                            "industry": "UTILITY",
+                            "externalId": "7329332f-2a05-4161-8051-2d3b24332c56",
+                            "id": "Super Power Co."
+                        },
+                        "height":                         {
+                            "unit": "FOOT",
+                            "value": 0
+                        },
+                        "supportType": "Bisector",
+                        "clientItem": "Triple 1 inch",
+                        "guys": ["Guy#1"],
+                        "externalId": "4e25b9de-a629-4a55-bb9d-89dc6f346501"
+                    }],
+                    "notePoints": [],
+                    "pointLoads": [],
+                    "damages": [],
+                    "wires":                     [
+                                                {
+                            "id": "Wire#1",
+                            "owner":                             {
+                                "industry": "UTILITY",
+                                "externalId": "7329332f-2a05-4161-8051-2d3b24332c56",
+                                "id": "Super Power Co."
+                            },
+                            "clientItem":                             {
+                                "size": "4/0 AAC",
+                                "coreStrands": 0,
+                                "conductorStrands": 7
+                            },
+                            "attachmentHeight":                             {
+                                "unit": "FOOT",
+                                "value": 31.583333333333332
+                            },
+                            "usageGroup": "NEUTRAL",
+                            "tensionGroup": "Full",
+                            "midspanHeight":                             {
+                                "unit": "FOOT",
+                                "value": 25.583333333333332
+                            },
+                            "tensionAdjustment": 1,
+                            "externalId": "c937b9c5-14e4-47e1-bea3-ae3c68167321"
+                        },
+                                                {
+                            "id": "Wire#2",
+                            "owner":                             {
+                                "industry": "COMMUNICATION",
+                                "externalId": "7a741e08-55d1-4b8e-ba64-fbe4474cc4c7",
+                                "id": "Average Joes Cable"
+                            },
+                            "clientItem":                             {
+                                "size": "C6.6M0875",
+                                "coreStrands": 0,
+                                "conductorStrands": 7
+                            },
+                            "attachmentHeight":                             {
+                                "unit": "FOOT",
+                                "value": 18.5
+                            },
+                            "usageGroup": "COMMUNICATION",
+                            "tensionGroup": "Full",
+                            "midspanHeight":                             {
+                                "unit": "FOOT",
+                                "value": 17.5
+                            },
+                            "tensionAdjustment": 1,
+                            "externalId": "d416b2c2-2147-4dc3-83ae-0c529251ce62"
+                        },
+                                                {
+                            "id": "Wire#6",
+                            "owner":                             {
+                                "industry": "UTILITY",
+                                "externalId": "7329332f-2a05-4161-8051-2d3b24332c56",
+                                "id": "Super Power Co."
+                            },
+                            "clientItem":                             {
+                                "size": "1/0 AAC Triplex",
+                                "coreStrands": 0,
+                                "conductorStrands": 9
+                            },
+                            "attachmentHeight":                             {
+                                "unit": "FOOT",
+                                "value": 30.833333333333332
+                            },
+                            "usageGroup": "SECONDARY",
+                            "tensionGroup": "Full",
+                            "midspanHeight":                             {
+                                "unit": "FOOT",
+                                "value": 23.583333333333332
+                            },
+                            "tensionAdjustment": 1,
+                            "externalId": "4b6ba72c-226e-476c-989f-8d4ca2b84a37"
+                        },
+                                                {
+                            "id": "Wire#17",
+                            "owner":                             {
+                                "industry": "UTILITY",
+                                "externalId": "7329332f-2a05-4161-8051-2d3b24332c56",
+                                "id": "Super Power Co."
+                            },
+                            "clientItem":                             {
+                                "size": "336.4 AAC",
+                                "coreStrands": 0,
+                                "conductorStrands": 19
+                            },
+                            "attachmentHeight":                             {
+                                "unit": "FOOT",
+                                "value": 35
+                            },
+                            "usageGroup": "PRIMARY",
+                            "tensionGroup": "Full",
+                            "midspanHeight":                             {
+                                "unit": "FOOT",
+                                "value": 0
+                            },
+                            "tensionAdjustment": 1,
+                            "externalId": "a86cbcf4-9d6a-4e30-a0c9-0093354ade5a"
+                        },
+                                                {
+                            "id": "Wire#18",
+                            "owner":                             {
+                                "industry": "UTILITY",
+                                "externalId": "7329332f-2a05-4161-8051-2d3b24332c56",
+                                "id": "Super Power Co."
+                            },
+                            "clientItem":                             {
+                                "size": "336.4 AAC",
+                                "coreStrands": 0,
+                                "conductorStrands": 19
+                            },
+                            "attachmentHeight":                             {
+                                "unit": "FOOT",
+                                "value": 35
+                            },
+                            "usageGroup": "PRIMARY",
+                            "tensionGroup": "Full",
+                            "midspanHeight":                             {
+                                "unit": "FOOT",
+                                "value": 0
+                            },
+                            "tensionAdjustment": 1,
+                            "externalId": "4edb3927-816d-4ca3-8fda-c9a5e4af60ba"
+                        },
+                                                {
+                            "id": "Wire#20",
+                            "owner":                             {
+                                "industry": "UTILITY",
+                                "externalId": "7329332f-2a05-4161-8051-2d3b24332c56",
+                                "id": "Super Power Co."
+                            },
+                            "clientItem":                             {
+                                "size": "336.4 AAC",
+                                "coreStrands": 0,
+                                "conductorStrands": 19
+                            },
+                            "attachmentHeight":                             {
+                                "unit": "FOOT",
+                                "value": 35
+                            },
+                            "usageGroup": "PRIMARY",
+                            "tensionGroup": "Full",
+                            "midspanHeight":                             {
+                                "unit": "FOOT",
+                                "value": 0
+                            },
+                            "tensionAdjustment": 1,
+                            "externalId": "f9ef0a4d-34cc-410f-9233-6491ba17e2b8"
+                        },
+                                                {
+                            "id": "Wire#23",
+                            "owner":                             {
+                                "industry": "UTILITY",
+                                "externalId": "37af5e7c-2825-4604-892d-ca268f700bcf",
+                                "id": "Super Power Co."
+                            },
+                            "clientItem":                             {
+                                "size": "4/0 HDC - Solid",
+                                "coreStrands": 0,
+                                "conductorStrands": 1
+                            },
+                            "attachmentHeight":                             {
+                                "unit": "FOOT",
+                                "value": 42.666666666666664
+                            },
+                            "usageGroup": "PRIMARY",
+                            "tensionGroup": "Full",
+                            "midspanHeight":                             {
+                                "unit": "FOOT",
+                                "value": 0
+                            },
+                            "tensionAdjustment": 0.75,
+                            "externalId": "ce12dc6d-f17a-44de-a8c6-1838c71655f7"
+                        },
+                                                {
+                            "id": "Wire#24",
+                            "owner":                             {
+                                "industry": "UTILITY",
+                                "externalId": "37af5e7c-2825-4604-892d-ca268f700bcf",
+                                "id": "Super Power Co."
+                            },
+                            "clientItem":                             {
+                                "size": "4/0 HDC - Solid",
+                                "coreStrands": 0,
+                                "conductorStrands": 1
+                            },
+                            "attachmentHeight":                             {
+                                "unit": "FOOT",
+                                "value": 42.666666666666664
+                            },
+                            "usageGroup": "PRIMARY",
+                            "tensionGroup": "Full",
+                            "midspanHeight":                             {
+                                "unit": "FOOT",
+                                "value": 0
+                            },
+                            "tensionAdjustment": 0.75,
+                            "externalId": "afb998bd-e81b-495e-b9a0-4bb07f3d2463"
+                        },
+                                                {
+                            "id": "Wire#27",
+                            "owner":                             {
+                                "industry": "UTILITY",
+                                "externalId": "37af5e7c-2825-4604-892d-ca268f700bcf",
+                                "id": "Super Power Co."
+                            },
+                            "clientItem":                             {
+                                "size": "4/0 HDC - Solid",
+                                "coreStrands": 0,
+                                "conductorStrands": 1
+                            },
+                            "attachmentHeight":                             {
+                                "unit": "FOOT",
+                                "value": 42.666666666666664
+                            },
+                            "usageGroup": "PRIMARY",
+                            "tensionGroup": "Full",
+                            "midspanHeight":                             {
+                                "unit": "FOOT",
+                                "value": 0
+                            },
+                            "tensionAdjustment": 0.75,
+                            "externalId": "fa718207-ed4d-461b-ac94-1d2caee9729a"
+                        },
+                                                {
+                            "id": "Wire#7",
+                            "owner":                             {
+                                "industry": "UTILITY",
+                                "externalId": "7329332f-2a05-4161-8051-2d3b24332c56",
+                                "id": "Super Power Co."
+                            },
+                            "clientItem":                             {
+                                "size": "4/0 AAC",
+                                "coreStrands": 0,
+                                "conductorStrands": 7
+                            },
+                            "attachmentHeight":                             {
+                                "unit": "FOOT",
+                                "value": 31.583333333333332
+                            },
+                            "usageGroup": "NEUTRAL",
+                            "tensionGroup": "Full",
+                            "midspanHeight":                             {
+                                "unit": "FOOT",
+                                "value": 24.666666666666668
+                            },
+                            "tensionAdjustment": 1,
+                            "externalId": "ff63800a-8b9c-480c-9173-d87d635a25b3"
+                        },
+                                                {
+                            "id": "Wire#8",
+                            "owner":                             {
+                                "industry": "COMMUNICATION",
+                                "externalId": "7a741e08-55d1-4b8e-ba64-fbe4474cc4c7",
+                                "id": "Average Joes Cable"
+                            },
+                            "clientItem":                             {
+                                "size": "C6.6M0875",
+                                "coreStrands": 0,
+                                "conductorStrands": 7
+                            },
+                            "attachmentHeight":                             {
+                                "unit": "FOOT",
+                                "value": 18.5
+                            },
+                            "usageGroup": "COMMUNICATION",
+                            "tensionGroup": "Full",
+                            "midspanHeight":                             {
+                                "unit": "FOOT",
+                                "value": 15.25
+                            },
+                            "tensionAdjustment": 1,
+                            "externalId": "b7f1291d-2fbd-4bba-ae56-54dd6254bdbe"
+                        },
+                                                {
+                            "id": "Wire#12",
+                            "owner":                             {
+                                "industry": "UTILITY",
+                                "externalId": "7329332f-2a05-4161-8051-2d3b24332c56",
+                                "id": "Super Power Co."
+                            },
+                            "clientItem":                             {
+                                "size": "1/0 AAC OW",
+                                "coreStrands": 0,
+                                "conductorStrands": 7
+                            },
+                            "attachmentHeight":                             {
+                                "unit": "FOOT",
+                                "value": 30.833333333333332
+                            },
+                            "usageGroup": "OPEN_WIRE",
+                            "tensionGroup": "Full",
+                            "midspanHeight":                             {
+                                "unit": "FOOT",
+                                "value": 20.583333333333332
+                            },
+                            "tensionAdjustment": 1,
+                            "externalId": "16ded224-086c-4e57-a5fc-0d7fd4c8c86c"
+                        },
+                                                {
+                            "id": "Wire#13",
+                            "owner":                             {
+                                "industry": "UTILITY",
+                                "externalId": "7329332f-2a05-4161-8051-2d3b24332c56",
+                                "id": "Super Power Co."
+                            },
+                            "clientItem":                             {
+                                "size": "1/0 AAC OW",
+                                "coreStrands": 0,
+                                "conductorStrands": 7
+                            },
+                            "attachmentHeight":                             {
+                                "unit": "FOOT",
+                                "value": 29.75
+                            },
+                            "usageGroup": "OPEN_WIRE",
+                            "tensionGroup": "Full",
+                            "midspanHeight":                             {
+                                "unit": "FOOT",
+                                "value": 19
+                            },
+                            "tensionAdjustment": 1,
+                            "externalId": "8496700b-5f77-4547-aa04-ff430b4ffd0f"
+                        },
+                                                {
+                            "id": "Wire#16",
+                            "owner":                             {
+                                "industry": "UTILITY",
+                                "externalId": "7329332f-2a05-4161-8051-2d3b24332c56",
+                                "id": "Super Power Co."
+                            },
+                            "clientItem":                             {
+                                "size": "336.4 AAC",
+                                "coreStrands": 0,
+                                "conductorStrands": 19
+                            },
+                            "attachmentHeight":                             {
+                                "unit": "FOOT",
+                                "value": 35
+                            },
+                            "usageGroup": "PRIMARY",
+                            "tensionGroup": "Full",
+                            "midspanHeight":                             {
+                                "unit": "FOOT",
+                                "value": 0
+                            },
+                            "tensionAdjustment": 1,
+                            "externalId": "803bfb4f-a53e-4bf9-a1d3-b07c19e6e8a4"
+                        },
+                                                {
+                            "id": "Wire#19",
+                            "owner":                             {
+                                "industry": "UTILITY",
+                                "externalId": "7329332f-2a05-4161-8051-2d3b24332c56",
+                                "id": "Super Power Co."
+                            },
+                            "clientItem":                             {
+                                "size": "336.4 AAC",
+                                "coreStrands": 0,
+                                "conductorStrands": 19
+                            },
+                            "attachmentHeight":                             {
+                                "unit": "FOOT",
+                                "value": 35
+                            },
+                            "usageGroup": "PRIMARY",
+                            "tensionGroup": "Full",
+                            "midspanHeight":                             {
+                                "unit": "FOOT",
+                                "value": 0
+                            },
+                            "tensionAdjustment": 1,
+                            "externalId": "8a0e9231-f51b-416b-b99c-57ba12fdbc38"
+                        },
+                                                {
+                            "id": "Wire#21",
+                            "owner":                             {
+                                "industry": "UTILITY",
+                                "externalId": "7329332f-2a05-4161-8051-2d3b24332c56",
+                                "id": "Super Power Co."
+                            },
+                            "clientItem":                             {
+                                "size": "336.4 AAC",
+                                "coreStrands": 0,
+                                "conductorStrands": 19
+                            },
+                            "attachmentHeight":                             {
+                                "unit": "FOOT",
+                                "value": 35
+                            },
+                            "usageGroup": "PRIMARY",
+                            "tensionGroup": "Full",
+                            "midspanHeight":                             {
+                                "unit": "FOOT",
+                                "value": 0
+                            },
+                            "tensionAdjustment": 1,
+                            "externalId": "891c222f-f926-4d1e-bbc5-26732cbe7607"
+                        },
+                                                {
+                            "id": "Wire#22",
+                            "owner":                             {
+                                "industry": "UTILITY",
+                                "externalId": "37af5e7c-2825-4604-892d-ca268f700bcf",
+                                "id": "Super Power Co."
+                            },
+                            "clientItem":                             {
+                                "size": "4/0 HDC - Solid",
+                                "coreStrands": 0,
+                                "conductorStrands": 1
+                            },
+                            "attachmentHeight":                             {
+                                "unit": "FOOT",
+                                "value": 42.666666666666664
+                            },
+                            "usageGroup": "PRIMARY",
+                            "tensionGroup": "Full",
+                            "midspanHeight":                             {
+                                "unit": "FOOT",
+                                "value": 0
+                            },
+                            "tensionAdjustment": 0.75,
+                            "externalId": "275d5c0f-acff-49fd-abd9-67008ff948e5"
+                        },
+                                                {
+                            "id": "Wire#25",
+                            "owner":                             {
+                                "industry": "UTILITY",
+                                "externalId": "37af5e7c-2825-4604-892d-ca268f700bcf",
+                                "id": "Super Power Co."
+                            },
+                            "clientItem":                             {
+                                "size": "4/0 HDC - Solid",
+                                "coreStrands": 0,
+                                "conductorStrands": 1
+                            },
+                            "attachmentHeight":                             {
+                                "unit": "FOOT",
+                                "value": 42.666666666666664
+                            },
+                            "usageGroup": "PRIMARY",
+                            "tensionGroup": "Full",
+                            "midspanHeight":                             {
+                                "unit": "FOOT",
+                                "value": 0
+                            },
+                            "tensionAdjustment": 0.75,
+                            "externalId": "ced684f3-11e1-4b14-9c48-839e61e72515"
+                        },
+                                                {
+                            "id": "Wire#26",
+                            "owner":                             {
+                                "industry": "UTILITY",
+                                "externalId": "37af5e7c-2825-4604-892d-ca268f700bcf",
+                                "id": "Super Power Co."
+                            },
+                            "clientItem":                             {
+                                "size": "4/0 HDC - Solid",
+                                "coreStrands": 0,
+                                "conductorStrands": 1
+                            },
+                            "attachmentHeight":                             {
+                                "unit": "FOOT",
+                                "value": 42.666666666666664
+                            },
+                            "usageGroup": "PRIMARY",
+                            "tensionGroup": "Full",
+                            "midspanHeight":                             {
+                                "unit": "FOOT",
+                                "value": 0
+                            },
+                            "tensionAdjustment": 0.75,
+                            "externalId": "5aa2778e-d1dc-497c-8423-1250c5baac93"
+                        },
+                                                {
+                            "id": "Wire#14",
+                            "owner":                             {
+                                "industry": "UTILITY",
+                                "externalId": "7329332f-2a05-4161-8051-2d3b24332c56",
+                                "id": "Super Power Co."
+                            },
+                            "clientItem":                             {
+                                "size": "1/0 AAC Triplex",
+                                "coreStrands": 0,
+                                "conductorStrands": 9
+                            },
+                            "attachmentHeight":                             {
+                                "unit": "FOOT",
+                                "value": 29.75
+                            },
+                            "usageGroup": "SECONDARY",
+                            "tensionGroup": "Slack",
+                            "midspanHeight":                             {
+                                "unit": "FOOT",
+                                "value": 21.5
+                            },
+                            "tensionAdjustment": 1,
+                            "externalId": "c2b2f0f3-6b2d-49ed-be0b-5f6b7b5a75ae"
+                        },
+                                                {
+                            "id": "Wire#15",
+                            "owner":                             {
+                                "industry": "UTILITY",
+                                "externalId": "7329332f-2a05-4161-8051-2d3b24332c56",
+                                "id": "Super Power Co."
+                            },
+                            "clientItem":                             {
+                                "size": "1/0 AAC Triplex",
+                                "coreStrands": 0,
+                                "conductorStrands": 9
+                            },
+                            "attachmentHeight":                             {
+                                "unit": "FOOT",
+                                "value": 31.5
+                            },
+                            "usageGroup": "SECONDARY",
+                            "tensionGroup": "Slack",
+                            "midspanHeight":                             {
+                                "unit": "FOOT",
+                                "value": 28.166666666666668
+                            },
+                            "tensionAdjustment": 1,
+                            "externalId": "ab032cb6-47b8-4c6d-8d5c-92320885fd43"
+                        }
+                    ],
+                    "spanGuys": [],
+                    "guys": [                    {
+                        "id": "Guy#1",
+                        "owner":                         {
+                            "industry": "UTILITY",
+                            "externalId": "7329332f-2a05-4161-8051-2d3b24332c56",
+                            "id": "Super Power Co."
+                        },
+                        "clientItem":                         {
+                            "size": "3/8\" EHS",
+                            "coreStrands": 0,
+                            "conductorStrands": 7
+                        },
+                        "attachmentHeight":                         {
+                            "unit": "FOOT",
+                            "value": 36.08333333333333
+                        },
+                        "externalId": "16639d09-ad92-48c1-b76b-dea4d05e9b44"
+                    }],
+                    "equipments":                     [
+                                                {
+                            "id": "Equip#1",
+                            "owner":                             {
+                                "industry": "UTILITY",
+                                "externalId": "7329332f-2a05-4161-8051-2d3b24332c56",
+                                "id": "Super Power Co."
+                            },
+                            "clientItem":                             {
+                                "type": "STREET_LIGHT",
+                                "size": "Roadway - 10 ft"
+                            },
+                            "attachmentHeight":                             {
+                                "unit": "FOOT",
+                                "value": 25.666666666666668
+                            },
+                            "bottomHeight":                             {
+                                "unit": "FOOT",
+                                "value": 23.083333333333332
+                            },
+                            "direction": 310,
+                            "externalId": "d42ba39b-df4e-438a-a1d3-8ac98b10fb58"
+                        },
+                                                {
+                            "id": "Equip#2",
+                            "owner":                             {
+                                "industry": "UTILITY",
+                                "externalId": "7329332f-2a05-4161-8051-2d3b24332c56",
+                                "id": "Super Power Co."
+                            },
+                            "clientItem":                             {
+                                "type": "TRANSFORMER",
+                                "size": "25 kVA Single Phase"
+                            },
+                            "attachmentHeight":                             {
+                                "unit": "FOOT",
+                                "value": 31.25
+                            },
+                            "bottomHeight":                             {
+                                "unit": "FOOT",
+                                "value": 29.833333333333332
+                            },
+                            "direction": 20,
+                            "externalId": "ae6d6029-f987-4196-be3e-79dd00222873"
+                        },
+                                                {
+                            "id": "Equip#3",
+                            "owner":                             {
+                                "industry": "UTILITY",
+                                "externalId": "7329332f-2a05-4161-8051-2d3b24332c56",
+                                "id": "Super Power Co."
+                            },
+                            "clientItem":                             {
+                                "type": "CUTOUT_ARRESTOR",
+                                "size": "1 Cutout"
+                            },
+                            "attachmentHeight":                             {
+                                "unit": "FOOT",
+                                "value": 34.333333333333336
+                            },
+                            "bottomHeight":                             {
+                                "unit": "FOOT",
+                                "value": 34.33333333333333
+                            },
+                            "direction": 20,
+                            "externalId": "5e1d259f-5d45-4cb7-add0-e58965ff2b75"
+                        }
+                    ],
+                    "crossArms":                     [
+                                                {
+                            "id": "CrossArm#1",
+                            "owner":                             {
+                                "industry": "UTILITY",
+                                "externalId": "7329332f-2a05-4161-8051-2d3b24332c56",
+                                "id": "Super Power Co."
+                            },
+                            "clientItem": "8 Foot Cross Arm",
+                            "attachmentHeight":                             {
+                                "unit": "FOOT",
+                                "value": 34.33333333333333
+                            },
+                            "offset":                             {
+                                "unit": "INCH",
+                                "value": 48
+                            },
+                            "direction": 128,
+                            "associatedBacking": "Bisector",
+                            "insulators":                             [
+                                "Insulator#1",
+                                "Insulator#2",
+                                "Insulator#3"
+                            ],
+                            "externalId": "fb69ee17-5024-4aad-a43d-d077140f0db6"
+                        },
+                                                {
+                            "id": "CrossArm#2",
+                            "owner":                             {
+                                "industry": "UTILITY",
+                                "externalId": "37af5e7c-2825-4604-892d-ca268f700bcf",
+                                "id": "Super Power Co."
+                            },
+                            "clientItem": "9 Foot Cross Arm",
+                            "attachmentHeight":                             {
+                                "unit": "FOOT",
+                                "value": 41.75
+                            },
+                            "offset":                             {
+                                "unit": "INCH",
+                                "value": 54
+                            },
+                            "direction": 128,
+                            "associatedBacking": "Bisector",
+                            "insulators":                             [
+                                "Insulator#4",
+                                "Insulator#5",
+                                "Insulator#6"
+                            ],
+                            "externalId": "be30d921-6424-4391-a803-a61202474230"
+                        }
+                    ],
+                    "insulators":                     [
+                                                {
+                            "id": "Insulator#1",
+                            "owner":                             {
+                                "industry": "UTILITY",
+                                "externalId": "7329332f-2a05-4161-8051-2d3b24332c56",
+                                "id": "Super Power Co."
+                            },
+                            "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
+                            "attachmentHeight":                             {
+                                "unit": "FOOT",
+                                "value": 34.33333333333333
+                            },
+                            "offset":                             {
+                                "unit": "INCH",
+                                "value": 4
+                            },
+                            "direction": 220,
+                            "doubleInsulator": false,
+                            "wires":                             [
+                                "Wire#16",
+                                "Wire#17"
+                            ],
+                            "externalId": "073dcb1d-c6a1-4af7-8f70-aeaf9fca1fb6"
+                        },
+                                                {
+                            "id": "Insulator#2",
+                            "owner":                             {
+                                "industry": "UTILITY",
+                                "externalId": "7329332f-2a05-4161-8051-2d3b24332c56",
+                                "id": "Super Power Co."
+                            },
+                            "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
+                            "attachmentHeight":                             {
+                                "unit": "FOOT",
+                                "value": 34.33333333333333
+                            },
+                            "offset":                             {
+                                "unit": "INCH",
+                                "value": 92
+                            },
+                            "direction": 220,
+                            "doubleInsulator": false,
+                            "wires":                             [
+                                "Wire#20",
+                                "Wire#21"
+                            ],
+                            "externalId": "0271ffc0-d45b-4278-ac9b-61f35d23e9a1"
+                        },
+                                                {
+                            "id": "Insulator#3",
+                            "owner":                             {
+                                "industry": "UTILITY",
+                                "externalId": "7329332f-2a05-4161-8051-2d3b24332c56",
+                                "id": "Super Power Co."
+                            },
+                            "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
+                            "attachmentHeight":                             {
+                                "unit": "FOOT",
+                                "value": 34.33333333333333
+                            },
+                            "offset":                             {
+                                "unit": "INCH",
+                                "value": 52
+                            },
+                            "direction": 220,
+                            "doubleInsulator": false,
+                            "wires":                             [
+                                "Wire#18",
+                                "Wire#19"
+                            ],
+                            "externalId": "d498e515-2065-4a3d-bfdf-5d369d137e0b"
+                        },
+                                                {
+                            "id": "Insulator#4",
+                            "owner":                             {
+                                "industry": "UTILITY",
+                                "externalId": "37af5e7c-2825-4604-892d-ca268f700bcf",
+                                "id": "Super Power Co."
+                            },
+                            "clientItem": "34.5kV Post Insulator (Crossarm)",
+                            "attachmentHeight":                             {
+                                "unit": "FOOT",
+                                "value": 41.75
+                            },
+                            "offset":                             {
+                                "unit": "INCH",
+                                "value": 4
+                            },
+                            "direction": 220,
+                            "doubleInsulator": false,
+                            "wires":                             [
+                                "Wire#24",
+                                "Wire#26"
+                            ],
+                            "externalId": "454e114d-14d5-4bed-b7a6-bae1582629a8"
+                        },
+                                                {
+                            "id": "Insulator#5",
+                            "owner":                             {
+                                "industry": "UTILITY",
+                                "externalId": "37af5e7c-2825-4604-892d-ca268f700bcf",
+                                "id": "Super Power Co."
+                            },
+                            "clientItem": "34.5kV Post Insulator (Crossarm)",
+                            "attachmentHeight":                             {
+                                "unit": "FOOT",
+                                "value": 41.75
+                            },
+                            "offset":                             {
+                                "unit": "INCH",
+                                "value": 104
+                            },
+                            "direction": 220,
+                            "doubleInsulator": false,
+                            "wires":                             [
+                                "Wire#23",
+                                "Wire#25"
+                            ],
+                            "externalId": "0b1b0c0b-7e78-44e9-8b51-71902bf54cac"
+                        },
+                                                {
+                            "id": "Insulator#6",
+                            "owner":                             {
+                                "industry": "UTILITY",
+                                "externalId": "37af5e7c-2825-4604-892d-ca268f700bcf",
+                                "id": "Super Power Co."
+                            },
+                            "clientItem": "34.5kV Post Insulator (Crossarm)",
+                            "attachmentHeight":                             {
+                                "unit": "FOOT",
+                                "value": 41.75
+                            },
+                            "offset":                             {
+                                "unit": "INCH",
+                                "value": 75
+                            },
+                            "direction": 220,
+                            "doubleInsulator": false,
+                            "wires":                             [
+                                "Wire#22",
+                                "Wire#27"
+                            ],
+                            "externalId": "ebc49fa2-4082-488d-b56e-ed963a5d8841"
+                        }
+                    ],
+                    "pushBraces": []
+                },
+                "analysis":                 [
+                                        {
+                        "id": "Heavy Load Case",
+                        "results":                         [
+                                                        {
+                                "actual": 508.9405208616264,
+                                "allowable": 2500,
+                                "unit": "POUND_FORCE",
+                                "analysisDate": 1383595891213,
+                                "component": "Insulator#1",
+                                "loadInfo": "Heavy Load Case: NESC 2007 - Heavy, C",
+                                "passes": true
+                            },
+                                                        {
+                                "actual": 2435.577109688061,
+                                "allowable": 6800,
+                                "unit": "POUND_FORCE_PER_SQUARE_INCH",
+                                "analysisDate": 1383595891214,
+                                "component": "CrossArm#2",
+                                "loadInfo": "Heavy Load Case: NESC 2007 - Heavy, C",
+                                "passes": true
+                            },
+                                                        {
+                                "actual": 3887.8275671229494,
+                                "allowable": 6800,
+                                "unit": "POUND_FORCE_PER_SQUARE_INCH",
+                                "analysisDate": 1383595891214,
+                                "component": "CrossArm#1",
+                                "loadInfo": "Heavy Load Case: NESC 2007 - Heavy, C",
+                                "passes": true
+                            },
+                                                        {
+                                "actual": 508.9405208616264,
+                                "allowable": 2500,
+                                "unit": "POUND_FORCE",
+                                "analysisDate": 1383595891214,
+                                "component": "Insulator#3",
+                                "loadInfo": "Heavy Load Case: NESC 2007 - Heavy, C",
+                                "passes": true
+                            },
+                                                        {
+                                "actual": 2282.5132441127116,
+                                "allowable": 6324,
+                                "unit": "POUND_FORCE_PER_SQUARE_INCH",
+                                "analysisDate": 1383595891214,
+                                "component": "Pole",
+                                "loadInfo": "Heavy Load Case: NESC 2007 - Heavy, C",
+                                "passes": true
+                            },
+                                                        {
+                                "actual": 508.9405208616264,
+                                "allowable": 2500,
+                                "unit": "POUND_FORCE",
+                                "analysisDate": 1383595891214,
+                                "component": "Insulator#2",
+                                "loadInfo": "Heavy Load Case: NESC 2007 - Heavy, C",
+                                "passes": true
+                            },
+                                                        {
+                                "actual": 5757.904246441098,
+                                "allowable": 36000,
+                                "unit": "POUND_FORCE",
+                                "analysisDate": 1383595891214,
+                                "component": "Anchor#1",
+                                "loadInfo": "Heavy Load Case: NESC 2007 - Heavy, C",
+                                "passes": true
+                            },
+                                                        {
+                                "actual": 475.9620132315319,
+                                "allowable": 2500,
+                                "unit": "POUND_FORCE",
+                                "analysisDate": 1383595891214,
+                                "component": "Insulator#5",
+                                "loadInfo": "Heavy Load Case: NESC 2007 - Heavy, C",
+                                "passes": true
+                            },
+                                                        {
+                                "actual": 475.9620132315319,
+                                "allowable": 2500,
+                                "unit": "POUND_FORCE",
+                                "analysisDate": 1383595891215,
+                                "component": "Insulator#4",
+                                "loadInfo": "Heavy Load Case: NESC 2007 - Heavy, C",
+                                "passes": true
+                            },
+                                                        {
+                                "actual": 5757.904246441155,
+                                "allowable": 13859.999999999998,
+                                "unit": "POUND_FORCE",
+                                "analysisDate": 1383595891215,
+                                "component": "Guy#1",
+                                "loadInfo": "Heavy Load Case: NESC 2007 - Heavy, C",
+                                "passes": true
+                            },
+                                                        {
+                                "actual": 475.9620132315319,
+                                "allowable": 2500,
+                                "unit": "POUND_FORCE",
+                                "analysisDate": 1383595891215,
+                                "component": "Insulator#6",
+                                "loadInfo": "Heavy Load Case: NESC 2007 - Heavy, C",
+                                "passes": true
+                            }
+                        ]
+                    },
+                                        {
+                        "id": "Extreme Wind Load Case",
+                        "results":                         [
+                                                        {
+                                "actual": 164.14202540737097,
+                                "allowable": 2500,
+                                "unit": "POUND_FORCE",
+                                "analysisDate": 1383595891216,
+                                "component": "Insulator#1",
+                                "loadInfo": "Extreme Wind Load Case: NESC Extreme Wind 2007 - 90 mph C",
+                                "passes": true
+                            },
+                                                        {
+                                "actual": 765.7830775319908,
+                                "allowable": 6000,
+                                "unit": "POUND_FORCE_PER_SQUARE_INCH",
+                                "analysisDate": 1383595891216,
+                                "component": "CrossArm#2",
+                                "loadInfo": "Extreme Wind Load Case: NESC Extreme Wind 2007 - 90 mph C",
+                                "passes": true
+                            },
+                                                        {
+                                "actual": 1341.2070303124578,
+                                "allowable": 6000,
+                                "unit": "POUND_FORCE_PER_SQUARE_INCH",
+                                "analysisDate": 1383595891216,
+                                "component": "CrossArm#1",
+                                "loadInfo": "Extreme Wind Load Case: NESC Extreme Wind 2007 - 90 mph C",
+                                "passes": true
+                            },
+                                                        {
+                                "actual": 164.14202540737097,
+                                "allowable": 2500,
+                                "unit": "POUND_FORCE",
+                                "analysisDate": 1383595891216,
+                                "component": "Insulator#3",
+                                "loadInfo": "Extreme Wind Load Case: NESC Extreme Wind 2007 - 90 mph C",
+                                "passes": true
+                            },
+                                                        {
+                                "actual": 2334.2057076538213,
+                                "allowable": 5580,
+                                "unit": "POUND_FORCE_PER_SQUARE_INCH",
+                                "analysisDate": 1383595891216,
+                                "component": "Pole",
+                                "loadInfo": "Extreme Wind Load Case: NESC Extreme Wind 2007 - 90 mph C",
+                                "passes": true
+                            },
+                                                        {
+                                "actual": 164.14202540737097,
+                                "allowable": 2500,
+                                "unit": "POUND_FORCE",
+                                "analysisDate": 1383595891216,
+                                "component": "Insulator#2",
+                                "loadInfo": "Extreme Wind Load Case: NESC Extreme Wind 2007 - 90 mph C",
+                                "passes": true
+                            },
+                                                        {
+                                "actual": 2897.26198174524,
+                                "allowable": 36000,
+                                "unit": "POUND_FORCE",
+                                "analysisDate": 1383595891217,
+                                "component": "Anchor#1",
+                                "loadInfo": "Extreme Wind Load Case: NESC Extreme Wind 2007 - 90 mph C",
+                                "passes": true
+                            },
+                                                        {
+                                "actual": 132.49457952011093,
+                                "allowable": 2500,
+                                "unit": "POUND_FORCE",
+                                "analysisDate": 1383595891217,
+                                "component": "Insulator#5",
+                                "loadInfo": "Extreme Wind Load Case: NESC Extreme Wind 2007 - 90 mph C",
+                                "passes": true
+                            },
+                                                        {
+                                "actual": 132.49457952011093,
+                                "allowable": 2500,
+                                "unit": "POUND_FORCE",
+                                "analysisDate": 1383595891217,
+                                "component": "Insulator#4",
+                                "loadInfo": "Extreme Wind Load Case: NESC Extreme Wind 2007 - 90 mph C",
+                                "passes": true
+                            },
+                                                        {
+                                "actual": 2897.2619817451605,
+                                "allowable": 13859.999999999998,
+                                "unit": "POUND_FORCE",
+                                "analysisDate": 1383595891217,
+                                "component": "Guy#1",
+                                "loadInfo": "Extreme Wind Load Case: NESC Extreme Wind 2007 - 90 mph C",
+                                "passes": true
+                            },
+                                                        {
+                                "actual": 132.49457952011093,
+                                "allowable": 2500,
+                                "unit": "POUND_FORCE",
+                                "analysisDate": 1383595891217,
+                                "component": "Insulator#6",
+                                "loadInfo": "Extreme Wind Load Case: NESC Extreme Wind 2007 - 90 mph C",
+                                "passes": true
+                            }
+                        ]
+                    }
+                ],
+                "label": "Existing"
+            }],
+            "label": "37790105D16006",
+            "id": "3c396998-b617-4938-9e99-6681d108397b"
+        }],
+        "label": "Lead",
+        "id": "90d29ee3-f8f0-4c78-bb76-85d1d2b9b62f"
+    }],
+    "label": "exampleProject"
+}
