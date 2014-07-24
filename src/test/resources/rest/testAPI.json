@@ -50,7 +50,7 @@
 				]
 			},
 			"saveMultipleParams":{
-				"atLeastOneParamRequired":["project", "uuid"],
+				"atLeastOneParamRequired":["project", "filefortUuid"],
 				"parameters":[
 					{
 						"id":"project",
@@ -58,8 +58,8 @@
 						"required":false
 					},
 					{
-						"id":"uuid",
-						"description":"The file service uuid for the exchange file.",
+						"id":"filefortUuid",
+						"description":"The uuid of the exchange file in filefort.",
 						"type":"string",
 						"required":false
 					}
