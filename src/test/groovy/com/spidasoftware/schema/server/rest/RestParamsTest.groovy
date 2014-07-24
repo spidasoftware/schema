@@ -113,4 +113,16 @@ class RestParamsTest extends GroovyTestCase {
         assert listResult.projection.limit == 1
     }
 
+    void testAtLeastOneParamRequiredMissing() {
+    	shouldFail(InvalidParameterException) {
+    		restParams.validateAndFormat("thing", "saveMultipleParams", [:])	
+    	}
+    }
+
+    void testAtLeastOneParamRequired() {
+    	def uuid = UUID.randomUUID()
+    	def listResult = restParams.validateAndFormat("thing", "saveMultipleParams", [uuid:uuid])
+    	assert uuid == listResult.uuid
+    }
+
 }

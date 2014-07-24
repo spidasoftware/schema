@@ -54,6 +54,10 @@ class RestParams {
 				}
 			}
 
+			if(method.atLeastOneParamRequired != null && method.atLeastOneParamRequired.every { params[it] == null }) {
+				throw new InvalidParameterException("At least one of ${method.atLeastOneParamRequired} must be specified")	
+			}
+
             if(!params.format) {
                 params["format"] = api.defaultFormat
             }

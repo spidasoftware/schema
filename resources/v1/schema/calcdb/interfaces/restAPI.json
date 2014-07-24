@@ -31,7 +31,7 @@
 					},
 					{
 						"id":"format",
-						"description":"fformat for return value. NOTE calc format will limit the results to 1 project",
+						"description":"format for return value. NOTE calc format will limit the results to 1 project",
                         "type": "string",
                         "enum": ["calc", "referenced"],
                         "required":false
@@ -61,11 +61,18 @@
 			"save":{
 				"description":"saves a new project, including locations and designs",
 				"allowedMethods":["POST"],
+				"atLeastOneParamRequired":["project", "uuid"],
 				"parameters":[
 					{
 						"id":"project",
 						"description":"The project json to be saved. project is required if format is calc",
 						"schema":"/v1/schema/spidacalc/calc/project.schema",
+						"required":false
+					},
+					{
+						"id":"uuid",
+						"description":"The file service uuid for the exchange file.",
+						"type":"string",
 						"required":false
 					},
                     {
@@ -80,6 +87,7 @@
 			"update":{
 				"description":"Updates and existing project, including locations and designs",
 				"allowedMethods":["PUT"],
+				"atLeastOneParamRequired":["project", "uuid"],
 				"parameters":[
 					{
 						"id":"project",
@@ -92,6 +100,12 @@
                         "description":"The unique _id of this project, given in the URL",
                         "type":"string",
                         "required":true
+					},
+					{
+						"id":"uuid",
+						"description":"The file service uuid for the exchange file.",
+						"type":"string",
+						"required":false
 					},
                     {
                         "id":"format",

@@ -49,6 +49,22 @@
 					}
 				]
 			},
+			"saveMultipleParams":{
+				"atLeastOneParamRequired":["project", "uuid"],
+				"parameters":[
+					{
+						"id":"project",
+						"schema":"/v1/schema/spidacalc/calc/project.schema",
+						"required":false
+					},
+					{
+						"id":"uuid",
+						"description":"The file service uuid for the exchange file.",
+						"type":"string",
+						"required":false
+					}
+				]
+			},
 			"update":{
 				"parameters":[
 					{
