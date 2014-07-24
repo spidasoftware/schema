@@ -94,11 +94,20 @@ class RestParams {
 				api.projection.parameters.each{
 					def clazz = it.defaultValue.class
 					try {
-						def paramValue = params["${it.id}"]?.asType(clazz) ?: it.defaultValue
-                        def projectionMaxByType = method.projectionMaxByType?.getInt(newParams.format.toString())
-                        if(projectionMaxByType) {
-                            paramValue = Math.min(paramValue, projectionMaxByType)
-                        }
+						def paramValue = params["${it.id}"]?.asType(clazz)
+						if(paramValue == null) {
+							paramValue = it.defaultValue
+						}
+						if(it.id == "limit") {
+	                        def projectionMaxByType = method.projectionMaxByType?.getInt(newParams.format.toString())
+	                        if(projectionMaxByType != null) {
+	                        	if(paramValue == 0) {
+	                        		paramValue = projectionMaxByType
+	                        	} else if(projectionMaxByType > 0) {
+	                            	paramValue = Math.min(paramValue, projectionMaxByType)
+	                            }
+	                        }
+	                    }
 						projectionParams["${it.id}"] = paramValue
 					} catch (NumberFormatException e){
 						throw new InvalidParameterException(it.id)

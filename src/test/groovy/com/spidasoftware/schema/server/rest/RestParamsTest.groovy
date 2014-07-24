@@ -108,11 +108,6 @@ class RestParamsTest extends GroovyTestCase {
         }
     }
 
-    void testMaxAllowedByType() {
-        def listResult = restParams.validateAndFormat("thing", "list", [limit:1000, format:"calc"])
-        assert listResult.projection.limit == 1
-    }
-
     void testAtLeastOneParamRequiredMissing() {
     	shouldFail(InvalidParameterException) {
     		restParams.validateAndFormat("thing", "saveMultipleParams", [:])	
@@ -125,4 +120,28 @@ class RestParamsTest extends GroovyTestCase {
     	assert uuid == listResult.filefortUuid
     }
 
+    void testZeroMax() {
+    	def originalLimit = testApi.resources.thing.list.projectionMaxByType.getInt("calc")
+    	try {
+    		testApi.resources.thing.list.projectionMaxByType.put("calc", 0)
+    		log.info "testApi.resources.thing.list.projectionMaxByType.toString(2) = ${testApi.resources.thing.list.projectionMaxByType.toString(2)}"	
+	    	def listResult = restParams.validateAndFormat("thing", "list", [limit:0, format:"calc"])
+	        assert listResult.projection.limit == 0	
+
+	        listResult = restParams.validateAndFormat("thing", "list", [limit:1000, format:"calc"])
+        	assert listResult.projection.limit == 1000
+    	}finally {
+    		testApi.resources.thing.list.projectionMaxByType.put("calc", originalLimit)	
+    	}
+    }
+
+    void testZeroLimitParamDefinedMax() {
+    	def listResult = restParams.validateAndFormat("thing", "list", [limit:0, format:"calc"])
+        assert listResult.projection.limit == 1
+    }
+
+    void testDefinedLimitParamDefinedMax() {
+    	def listResult = restParams.validateAndFormat("thing", "list", [limit:1000, format:"calc"])
+        assert listResult.projection.limit == 1
+    }
 }
