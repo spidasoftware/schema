@@ -30,7 +30,7 @@ class CalcDBLocation extends AbstractCalcDBComponent {
         for (Object o : getJSON().getJSONArray("designs")) {
             ids.add((String) o)
         }
-        return ids;
+        return ids
     }
 
     @Override
@@ -48,12 +48,12 @@ class CalcDBLocation extends AbstractCalcDBComponent {
         if (getJSON().containsKey("images")) {
             for (Object image : getJSON().getJSONArray("images")) {
                 JSONObject j = (JSONObject) image
-                if (j.containsKey("uuid")) {
-                    ids.add(j.getString("uuid"))
+                if (j.containsKey("link") && j.getJSONObject("link").containsKey("id")) {
+                    ids.add(j.getJSONObject("link").getString("id"))
                 }
             }
         }
-        return ids;
+        return ids
     }
 
     /**

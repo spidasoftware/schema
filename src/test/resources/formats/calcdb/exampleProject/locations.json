@@ -62,7 +62,11 @@
             "clientFile": "Master_1.1.client",
             "images": [
                 {
-                    "url": "37790105D16006-1.jpg"
+                    "url": "37790105D16006-1.jpg",
+                    "link":{
+                        "source":"File Attachments",
+                        "id":"5c6bd2e1-4cd9-4c45-9c49-07c93ca231c9"
+                    }
                 },
                 {
                     "url": "37790105D16006-2.jpg"

@@ -1,12 +1,14 @@
 package com.spidasoftware.schema.conversion
 
 import com.spidasoftware.schema.validation.Validator
+import groovy.util.logging.Log4j
 import net.sf.json.JSONArray
 import spock.lang.*
 import net.sf.json.JSONObject
 import java.text.SimpleDateFormat
 import static org.junit.Assert.*
 
+@Log4j
 class DefaultFormatConverterTest extends Specification {
     double epsilon = 0.000001
 
@@ -66,7 +68,7 @@ class DefaultFormatConverterTest extends Specification {
             def right = (it.worstPoleResult.actual > 0.0)
             if (!right){
                 // it just ain't right
-                println "***** Incorrect worstPoleResult: design: ${it.locationName} - ${it.label}, result: ${it.worstPoleResult}"
+                log.debug "***** Incorrect worstPoleResult: design: ${it.locationName} - ${it.label}, result: ${it.worstPoleResult}"
             }
             assertTrue("every design should have a proper worstPoleResult", right)
         }

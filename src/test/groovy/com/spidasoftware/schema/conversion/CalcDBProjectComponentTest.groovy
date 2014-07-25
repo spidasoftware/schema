@@ -1,5 +1,6 @@
 package com.spidasoftware.schema.conversion
 
+import groovy.util.logging.Log4j
 import net.sf.json.JSONArray
 import net.sf.json.JSONObject
 import org.junit.Before
@@ -7,6 +8,7 @@ import org.junit.Test
 
 import static org.junit.Assert.*
 
+@Log4j
 public class CalcDBProjectComponentTest {
     JSONObject projectJSON
 
@@ -53,7 +55,7 @@ public class CalcDBProjectComponentTest {
         assertEquals("the project id should be right", "00ff00", location.getParentProjectId())
         assertEquals("the project name should be right", "ImportTestProject", location.getParentProjectName())
         assertEquals("the designs should be right", designIds, location.getDesignIds())
-        println "**** Date= ${location.getDateModified().getTime()}"
+        log.debug "**** Date= ${location.getDateModified().getTime()}"
 
         assertEquals("the date should be right", equivalentDate, location.getDateModified())
     }
