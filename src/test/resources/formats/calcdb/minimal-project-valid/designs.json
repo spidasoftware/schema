@@ -1,0 +1,59 @@
+{
+    "status": "ok",
+    "designs": [{
+        "_id": "52d065f1e4b0576ebf7c3902",
+        "id": "Measured Design",
+        "dateModified": "2014-01-10T21:28:17Z",
+        "structure": {
+            "wires": [],
+            "equipments": [],
+            "crossArms": [],
+            "notePoints": [],
+            "spanGuys": [],
+            "guys": [],
+            "wireEndPoints": [],
+            "anchors": [],
+            "damages": [],
+            "insulators": [],
+            "pushBraces": [],
+            "pole": {
+                "agl": {
+                    "unit": "FOOT",
+                    "value": 43
+                },
+                "environment": "STREET",
+                "clientItem": {
+                    "height": {
+                        "unit": "FOOT",
+                        "value": 50
+                    },
+                    "species": "Southern Pine",
+                    "classOfPole": "3"
+                },
+                "glc": {
+                    "unit": "FOOT",
+                    "value": 3.219697399140523
+                },
+                "owner": {
+                    "id": "AEP",
+                    "externalId": "f5a59c7e-e8d9-4b0a-9be2-34765b3cae77",
+                    "industry": "UTILITY"
+                },
+                "stressRatio": 1,
+                "externalId": "8ad04c26-8050-46d2-8bf3-1cb20fd22f4a",
+                "temperature": {
+                    "unit": "FAHRENHEIT",
+                    "value": 60
+                }
+            },
+            "spanPoints": [],
+            "pointLoads": []
+        },
+        "project_name": "minimal-project-valid",
+        "clientFileVersion": "b6f0f10b2c459ee17a4cd027980303f7",
+        "project_id": "52d065f1e4b0576ebf7c3900",
+        "clientFile": "Master_1.1.client",
+        "locationName": "Location-11-01-2013-08-20-09-157",
+        "location_id": "52d065f1e4b0576ebf7c3901"
+    }]
+}

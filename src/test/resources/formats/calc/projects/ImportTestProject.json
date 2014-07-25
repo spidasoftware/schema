@@ -1,0 +1,501 @@
+{
+  "label": "ImportTestProject",
+  "id": "7e91b650-c301-48ef-892c-0e20cae56223",
+  "clientFile": "Master_1.1.client",
+  "date": "2014-02-05",
+  "schema": "/v1/schema/spidacalc/project.schema",
+  "engineer": "",
+  "comments": "",
+  "generalLocation": "",
+  "address":   {
+    "number": "",
+    "street": "",
+    "city": "",
+    "county": "",
+    "state": "",
+    "zip_code": ""
+  },
+  "userDefinedValues": {},
+  "version": "0.12",
+  "clientFileVersion": "65bd015d7913b2cc4e68479889fc977a",
+  "forms": [],
+  "leads": [  {
+    "label": "Lead",
+    "id": "e3d34784-2548-468d-ba4b-d18e8fad270d",
+    "locations": [    {
+      "label": "ExistingLocation",
+      "id": "72d4e11e-cf08-434b-9d2d-28a660d9a4c9",
+      "mapNumber": "",
+      "comments": "",
+      "address":       {
+        "number": "",
+        "street": "",
+        "city": "",
+        "county": "",
+        "state": "",
+        "zip_code": ""
+      },
+      "technician": "",
+      "crossStreet1": "",
+      "crossStreet2": "",
+      "remedies": [],
+      "poleTags": [],
+      "userDefinedValues": {},
+      "summaryNotes": [],
+      "forms": [],
+      "images": [],
+      "designs": [      {
+        "label": "Measured Design",
+        "structure":         {
+          "pole":           {
+            "glc":             {
+              "unit": "FOOT",
+              "value": 3.219697399140523
+            },
+            "agl":             {
+              "unit": "FOOT",
+              "value": 43
+            },
+            "environment": "STREET",
+            "temperature":             {
+              "unit": "FAHRENHEIT",
+              "value": 60
+            },
+            "stressRatio": 1,
+            "clientItem":             {
+              "species": "Southern Pine",
+              "classOfPole": "3",
+              "height":               {
+                "unit": "FOOT",
+                "value": 50
+              }
+            },
+            "externalId": "8f8fbe02-1512-4292-b243-a2a48d4a705d",
+            "owner":             {
+              "id": "AEP",
+              "industry": "UTILITY",
+              "externalId": "f5a59c7e-e8d9-4b0a-9be2-34765b3cae77"
+            }
+          },
+          "wireEndPoints":           [
+                        {
+              "id": "WEP#1",
+              "externalId": "97c94980-4422-4b56-98aa-8350e7fbf6f8",
+              "distance":               {
+                "unit": "FOOT",
+                "value": 138
+              },
+              "direction": 0,
+              "inclination":               {
+                "unit": "DEGREE_ANGLE",
+                "value": 0
+              },
+              "type": "NEXT_POLE",
+              "comments": "",
+              "wires":               [
+                "Wire#3",
+                "Wire#4",
+                "Wire#6",
+                "Wire#7"
+              ],
+              "spanGuys": [],
+              "spanPoints": []
+            },
+                        {
+              "id": "WEP#2",
+              "externalId": "798c945b-7c5b-40aa-ae7a-88fa6f2e9032",
+              "distance":               {
+                "unit": "FOOT",
+                "value": 150
+              },
+              "direction": 180,
+              "inclination":               {
+                "unit": "DEGREE_ANGLE",
+                "value": 0
+              },
+              "type": "PREVIOUS_POLE",
+              "comments": "",
+              "wires":               [
+                "Wire#1",
+                "Wire#2",
+                "Wire#5",
+                "Wire#8"
+              ],
+              "spanGuys": [],
+              "spanPoints": []
+            }
+          ],
+          "spanPoints": [],
+          "anchors": [],
+          "notePoints": [],
+          "pointLoads": [],
+          "damages": [],
+          "wires":           [
+                        {
+              "id": "Wire#3",
+              "externalId": "895c3da6-c4af-4481-a835-029414a8d578",
+              "owner":               {
+                "id": "AEP",
+                "industry": "UTILITY",
+                "externalId": "5c54ca9b-cc5c-4f10-ae36-79cb488f868a"
+              },
+              "clientItem":               {
+                "size": "1 ACSR",
+                "coreStrands": 1,
+                "conductorStrands": 6
+              },
+              "attachmentHeight":               {
+                "unit": "FOOT",
+                "value": 41.9375
+              },
+              "usageGroup": "PRIMARY",
+              "tensionGroup": "Full",
+              "midspanHeight":               {
+                "unit": "FOOT",
+                "value": 0
+              },
+              "tensionAdjustment": 1
+            },
+                        {
+              "id": "Wire#4",
+              "externalId": "74b7acb4-23d5-41c6-8251-b128c7d08c56",
+              "owner":               {
+                "id": "AEP",
+                "industry": "UTILITY",
+                "externalId": "78be0075-b096-4e88-b41d-04d1b37bb936"
+              },
+              "clientItem":               {
+                "size": "1 ACSR",
+                "coreStrands": 1,
+                "conductorStrands": 6
+              },
+              "attachmentHeight":               {
+                "unit": "FOOT",
+                "value": 41.9375
+              },
+              "usageGroup": "PRIMARY",
+              "tensionGroup": "Full",
+              "midspanHeight":               {
+                "unit": "FOOT",
+                "value": 0
+              },
+              "tensionAdjustment": 1
+            },
+                        {
+              "id": "Wire#6",
+              "externalId": "5febb176-ae76-495d-8bdf-4b2cdcfa3578",
+              "owner":               {
+                "id": "AEP",
+                "industry": "UTILITY",
+                "externalId": "ac3ea9c0-36e0-4255-8763-31c7f3ff21bd"
+              },
+              "clientItem":               {
+                "size": "1 ACSR",
+                "coreStrands": 1,
+                "conductorStrands": 6
+              },
+              "attachmentHeight":               {
+                "unit": "FOOT",
+                "value": 41.9375
+              },
+              "usageGroup": "PRIMARY",
+              "tensionGroup": "Full",
+              "midspanHeight":               {
+                "unit": "FOOT",
+                "value": 0
+              },
+              "tensionAdjustment": 1
+            },
+                        {
+              "id": "Wire#7",
+              "externalId": "b01018f2-89fd-4f42-87c4-28feb03ce3ce",
+              "owner":               {
+                "id": "AT&T",
+                "industry": "COMMUNICATION",
+                "externalId": "af872822-c1e0-4081-ae3e-f4b789a6fdf2"
+              },
+              "clientItem":               {
+                "size": "C11.2M0875",
+                "coreStrands": 0,
+                "conductorStrands": 7
+              },
+              "attachmentHeight":               {
+                "unit": "FOOT",
+                "value": 25.166666666666664
+              },
+              "usageGroup": "COMMUNICATION",
+              "tensionGroup": "Full",
+              "midspanHeight":               {
+                "unit": "FOOT",
+                "value": 0
+              },
+              "tensionAdjustment": 1
+            },
+                        {
+              "id": "Wire#1",
+              "externalId": "669a71ce-0510-45e4-88a1-8734ff1a5e71",
+              "owner":               {
+                "id": "AEP",
+                "industry": "UTILITY",
+                "externalId": "891c83b5-0b9c-460e-8458-a300fcb0f0ca"
+              },
+              "clientItem":               {
+                "size": "1 ACSR",
+                "coreStrands": 1,
+                "conductorStrands": 6
+              },
+              "attachmentHeight":               {
+                "unit": "FOOT",
+                "value": 41.9375
+              },
+              "usageGroup": "PRIMARY",
+              "tensionGroup": "Full",
+              "midspanHeight":               {
+                "unit": "FOOT",
+                "value": 0
+              },
+              "tensionAdjustment": 1
+            },
+                        {
+              "id": "Wire#2",
+              "externalId": "756ab663-3103-442f-b7a9-a061ecf8a8af",
+              "owner":               {
+                "id": "AEP",
+                "industry": "UTILITY",
+                "externalId": "2f9242db-26a0-43e8-bd2a-6301b88d89db"
+              },
+              "clientItem":               {
+                "size": "1 ACSR",
+                "coreStrands": 1,
+                "conductorStrands": 6
+              },
+              "attachmentHeight":               {
+                "unit": "FOOT",
+                "value": 41.9375
+              },
+              "usageGroup": "PRIMARY",
+              "tensionGroup": "Full",
+              "midspanHeight":               {
+                "unit": "FOOT",
+                "value": 0
+              },
+              "tensionAdjustment": 1
+            },
+                        {
+              "id": "Wire#5",
+              "externalId": "6076b8fe-3075-4b56-afbe-1a91078a939c",
+              "owner":               {
+                "id": "AEP",
+                "industry": "UTILITY",
+                "externalId": "97040be0-ca18-43b0-8ef3-9672b71e24eb"
+              },
+              "clientItem":               {
+                "size": "1 ACSR",
+                "coreStrands": 1,
+                "conductorStrands": 6
+              },
+              "attachmentHeight":               {
+                "unit": "FOOT",
+                "value": 41.9375
+              },
+              "usageGroup": "PRIMARY",
+              "tensionGroup": "Full",
+              "midspanHeight":               {
+                "unit": "FOOT",
+                "value": 0
+              },
+              "tensionAdjustment": 1
+            },
+                        {
+              "id": "Wire#8",
+              "externalId": "a5483bf0-3868-44c2-ad99-1b0825029984",
+              "owner":               {
+                "id": "AT&T",
+                "industry": "COMMUNICATION",
+                "externalId": "0dea18a6-96f5-4c91-b9f6-8490bf975635"
+              },
+              "clientItem":               {
+                "size": "C11.2M0875",
+                "coreStrands": 0,
+                "conductorStrands": 7
+              },
+              "attachmentHeight":               {
+                "unit": "FOOT",
+                "value": 25.166666666666664
+              },
+              "usageGroup": "COMMUNICATION",
+              "tensionGroup": "Full",
+              "midspanHeight":               {
+                "unit": "FOOT",
+                "value": 0
+              },
+              "tensionAdjustment": 1
+            }
+          ],
+          "spanGuys": [],
+          "guys": [],
+          "equipments": [],
+          "crossArms": [          {
+            "id": "CrossArm#1",
+            "externalId": "6ac8a728-c8f6-4285-a2da-5be9b089b6f3",
+            "owner":             {
+              "id": "AEP",
+              "industry": "UTILITY",
+              "externalId": "f5a59c7e-e8d9-4b0a-9be2-34765b3cae77"
+            },
+            "clientItem": "10 Foot Double Cross Arm",
+            "attachmentHeight":             {
+              "unit": "FOOT",
+              "value": 41.75
+            },
+            "offset":             {
+              "unit": "INCH",
+              "value": 60
+            },
+            "direction": 90,
+            "associatedBacking": "Other",
+            "insulators":             [
+              "Insulator#1",
+              "Insulator#2",
+              "Insulator#3",
+              "Insulator#4",
+              "Insulator#5",
+              "Insulator#6"
+            ]
+          }],
+          "insulators":           [
+                        {
+              "id": "Insulator#1",
+              "externalId": "2a12db86-6c56-4643-bed2-591ebaaea724",
+              "owner":               {
+                "id": "AEP",
+                "industry": "UTILITY",
+                "externalId": "4c2b12dd-44b3-422e-828d-471068ed6efc"
+              },
+              "clientItem": "15kV Dead End Polymer Insulator",
+              "attachmentHeight":               {
+                "unit": "FOOT",
+                "value": 41.75
+              },
+              "offset":               {
+                "unit": "INCH",
+                "value": 4
+              },
+              "direction": 0,
+              "doubleInsulator": false,
+              "wires": ["Wire#4"]
+            },
+                        {
+              "id": "Insulator#2",
+              "externalId": "f555e757-eed4-456c-bf71-6da25721588c",
+              "owner":               {
+                "id": "AEP",
+                "industry": "UTILITY",
+                "externalId": "41eaafd4-649a-4e94-877f-d780831619e2"
+              },
+              "clientItem": "15kV Dead End Polymer Insulator",
+              "attachmentHeight":               {
+                "unit": "FOOT",
+                "value": 41.75
+              },
+              "offset":               {
+                "unit": "INCH",
+                "value": 4
+              },
+              "direction": 180,
+              "doubleInsulator": false,
+              "wires": ["Wire#5"]
+            },
+                        {
+              "id": "Insulator#3",
+              "externalId": "4507cea3-46e4-41e8-8a67-20864f285dbb",
+              "owner":               {
+                "id": "AEP",
+                "industry": "UTILITY",
+                "externalId": "1ebcc9d4-90d0-4a54-970f-2dbaea3c984c"
+              },
+              "clientItem": "15kV Dead End Polymer Insulator",
+              "attachmentHeight":               {
+                "unit": "FOOT",
+                "value": 41.75
+              },
+              "offset":               {
+                "unit": "INCH",
+                "value": 116
+              },
+              "direction": 0,
+              "doubleInsulator": false,
+              "wires": ["Wire#3"]
+            },
+                        {
+              "id": "Insulator#4",
+              "externalId": "c5a81cb0-5bb8-4149-9ff9-7714bf781f4a",
+              "owner":               {
+                "id": "AEP",
+                "industry": "UTILITY",
+                "externalId": "b49f852b-748c-4267-8d2d-e9168f287beb"
+              },
+              "clientItem": "15kV Dead End Polymer Insulator",
+              "attachmentHeight":               {
+                "unit": "FOOT",
+                "value": 41.75
+              },
+              "offset":               {
+                "unit": "INCH",
+                "value": 116
+              },
+              "direction": 180,
+              "doubleInsulator": false,
+              "wires": ["Wire#1"]
+            },
+                        {
+              "id": "Insulator#5",
+              "externalId": "3fcf9495-dd64-42f8-9716-050bf7b34442",
+              "owner":               {
+                "id": "AEP",
+                "industry": "UTILITY",
+                "externalId": "4bf81996-6929-447e-a2f6-b57483c447e3"
+              },
+              "clientItem": "15kV Dead End Polymer Insulator",
+              "attachmentHeight":               {
+                "unit": "FOOT",
+                "value": 41.75
+              },
+              "offset":               {
+                "unit": "INCH",
+                "value": 60
+              },
+              "direction": 0,
+              "doubleInsulator": false,
+              "wires": ["Wire#6"]
+            },
+                        {
+              "id": "Insulator#6",
+              "externalId": "564f559b-6329-42a1-9268-608e5e36d2dc",
+              "owner":               {
+                "id": "AEP",
+                "industry": "UTILITY",
+                "externalId": "6cccab6d-3365-45f4-92d0-a3cfec33eb4d"
+              },
+              "clientItem": "15kV Dead End Polymer Insulator",
+              "attachmentHeight":               {
+                "unit": "FOOT",
+                "value": 41.75
+              },
+              "offset":               {
+                "unit": "INCH",
+                "value": 60
+              },
+              "direction": 180,
+              "doubleInsulator": false,
+              "wires": ["Wire#2"]
+            }
+          ],
+          "pushBraces": [],
+          "sidewalkBraces": []
+        },
+        "analysis": []
+      }]
+    }]
+  }]
+}

@@ -1,0 +1,23 @@
+{
+	"status": "ok",
+	"projects": [
+		{
+          "version":"0.8",
+        	"_id":"52d065f4e4b0576ebf7c3903",
+        	"dateModified":"2014-01-10T21:28:20Z",
+        	"locations":[
+        		"52d065f4e4b0576ebf7c3904",
+        		"52d065f4e4b0576ebf7c3908",
+        		"52d065f4e4b0576ebf7c390c",
+        		"52d065f4e4b0576ebf7c3910"
+        	],
+        	"clientFileVersion":"bd48326e6365bcb7d53f0aa0f964faa0",
+        	"label":"exampleProject",
+        	"clientFile":"Master_1.1.client",
+        	"id":"feb51d38-c24b-41e4-9b5e-2ebb03232ce5",
+        	"date":"2013-04-23",
+        	"locationCount":4,
+        	"forms":[]
+        }
+    ]
+}

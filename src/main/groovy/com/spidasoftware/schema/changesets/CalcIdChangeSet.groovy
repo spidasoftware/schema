@@ -15,7 +15,6 @@ class CalcIdChangeSet {
 	String schemaVersion = "0.8"
 	String schemaPath = "/v1/schema/spidacalc/calc/project.schema"
 
-	@Override
 	void convert(JSON calcProject) {
 		replaceProject(calcProject)
 		calcProject.leads?.each { lead ->

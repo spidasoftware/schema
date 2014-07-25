@@ -1,0 +1,331 @@
+{
+    "status": "ok",
+    "locations": [
+        {
+            "_id": "52d065f4e4b0576ebf7c3904",
+            "poleTags": [
+                {
+                    "value": "37790105D16006",
+                    "type": "MAP"
+                },
+                {
+                    "value": "ESSL44210",
+                    "type": "Pole Number"
+                },
+                {
+                    "value": "442-10",
+                    "type": "Trans"
+                }
+            ],
+            "dateModified": "2014-01-10T21:28:20Z",
+            "projectName": "exampleProject",
+            "clientFileVersion": "bd48326e6365bcb7d53f0aa0f964faa0",
+            "geographicCoordinate": {
+                "type": "Point",
+                "coordinates": [
+                    -79.13687133789062,
+                    37.40403366088867
+                ]
+            },
+            "label": "37790105D16006",
+            "designs": [
+                "52d065f4e4b0576ebf7c3905",
+                "52d065f4e4b0576ebf7c3906",
+                "52d065f4e4b0576ebf7c3907"
+            ],
+            "address": {
+                "county": "N/A",
+                "zip_code": "44444",
+                "street": "Some St.",
+                "state": "Ohio",
+                "number": "123",
+                "city": "Somewhere"
+            },
+            "remedies": [
+                {
+                    "description": "New Telecom:"
+                },
+                {
+                    "description": "- do some stuff"
+                },
+                {
+                    "description": "- do some more stuff"
+                },
+                {
+                    "description": "Super Power Co:"
+                },
+                {
+                    "description": "- Do some other stuff"
+                }
+            ],
+            "projectId": "52d065f4e4b0576ebf7c3903",
+            "clientFile": "Master_1.1.client",
+            "images": [
+                {
+                    "url": "37790105D16006-1.jpg",
+                    "link":{
+                        "source":"File Attachments",
+                        "id":"5c6bd2e1-4cd9-4c45-9c49-07c93ca231c9"
+                    }
+                },
+                {
+                    "url": "37790105D16006-2.jpg"
+                },
+                {
+                    "url": "37790105D16006-3.jpg"
+                }
+            ],
+            "userDefinedValues": {
+                "stationId": "ff8081813d82ad96013e06ce26eb290d"
+            },
+            "id": "3c396998-b617-4938-9e99-6681d108397b",
+            "summaryNotes": [
+                "Super Power Co. install bisector guy to the N",
+                "Super Power Co. install span guy for span to the N"
+            ],
+            "comments": "",
+            "mapNumber": ""
+        },
+        {
+            "_id": "52d065f4e4b0576ebf7c3908",
+            "poleTags": [
+                {
+                    "value": "37790105D16005",
+                    "type": "MAP"
+                },
+                {
+                    "value": "ESSL4429",
+                    "type": "Pole Number"
+                },
+                {
+                    "value": "442-9",
+                    "type": "Trans"
+                }
+            ],
+            "dateModified": "2014-01-10T21:28:20Z",
+            "projectName": "exampleProject",
+            "clientFileVersion": "bd48326e6365bcb7d53f0aa0f964faa0",
+            "geographicCoordinate": {
+                "type": "Point",
+                "coordinates": [
+                    -79.13653564453125,
+                    37.40439987182617
+                ]
+            },
+            "label": "37790105D16005",
+            "designs": [
+                "52d065f4e4b0576ebf7c3909",
+                "52d065f4e4b0576ebf7c390a",
+                "52d065f4e4b0576ebf7c390b"
+            ],
+            "address": {
+                "county": "N/A",
+                "zip_code": "44444",
+                "street": "Some St.",
+                "state": "Ohio",
+                "number": "123",
+                "city": "Somewhere"
+            },
+            "remedies": [
+                {
+                    "description": "New Telecom:"
+                },
+                {
+                    "description": "- do some stuff"
+                },
+                {
+                    "description": "- do some more stuff"
+                },
+                {
+                    "description": "Super Power Co:"
+                },
+                {
+                    "description": "- Do some other stuff"
+                }
+            ],
+            "projectId": "52d065f4e4b0576ebf7c3903",
+            "clientFile": "Master_1.1.client",
+            "images": [
+                {
+                    "url": "37790105D16005-1.jpg"
+                },
+                {
+                    "url": "37790105D16005-2.jpg"
+                },
+                {
+                    "url": "37790105D16005-3.jpg"
+                }
+            ],
+            "userDefinedValues": {
+                "stationId": "ff8081813d82ad96013e06ce254f28d1"
+            },
+            "id": "04d8a5fe-e39e-41e0-8df9-26fce8e8a5e9",
+            "summaryNotes": [
+                "Make Ready Work Required",
+                "Missing/Damaged Pole Ground"
+            ],
+            "comments": "",
+            "mapNumber": ""
+        },
+        {
+            "_id": "52d065f4e4b0576ebf7c390c",
+            "poleTags": [
+                {
+                    "value": "37790105D16004",
+                    "type": "MAP"
+                },
+                {
+                    "value": "ESSL4428",
+                    "type": "Pole Number"
+                },
+                {
+                    "value": "442-8",
+                    "type": "Trans"
+                }
+            ],
+            "dateModified": "2014-01-10T21:28:20Z",
+            "projectName": "exampleProject",
+            "clientFileVersion": "bd48326e6365bcb7d53f0aa0f964faa0",
+            "geographicCoordinate": {
+                "type": "Point",
+                "coordinates": [
+                    -79.13624572753906,
+                    37.40470886230469
+                ]
+            },
+            "label": "37790105D16004",
+            "designs": [
+                "52d065f4e4b0576ebf7c390d",
+                "52d065f4e4b0576ebf7c390e",
+                "52d065f4e4b0576ebf7c390f"
+            ],
+            "address": {
+                "county": "N/A",
+                "zip_code": "44444",
+                "street": "Some St.",
+                "state": "Ohio",
+                "number": "123",
+                "city": "Somewhere"
+            },
+            "remedies": [
+                {
+                    "description": "New Telecom:"
+                },
+                {
+                    "description": "- do some stuff"
+                },
+                {
+                    "description": "- do some more stuff"
+                },
+                {
+                    "description": "Super Power Co:"
+                },
+                {
+                    "description": "- Do some other stuff"
+                }
+            ],
+            "projectId": "52d065f4e4b0576ebf7c3903",
+            "clientFile": "Master_1.1.client",
+            "images": [
+                {
+                    "url": "37790105D16004-1.jpg"
+                },
+                {
+                    "url": "37790105D16004-2.jpg"
+                },
+                {
+                    "url": "37790105D16004-3.jpg"
+                }
+            ],
+            "userDefinedValues": {
+                "stationId": "ff8081813d82ad96013e06ce252c28cb"
+            },
+            "id": "3504e7a6-0145-4c35-b5cb-9fad675828f5",
+            "summaryNotes": [
+
+            ],
+            "comments": "",
+            "mapNumber": ""
+        },
+        {
+            "_id": "52d065f4e4b0576ebf7c3910",
+            "poleTags": [
+                {
+                    "value": "37790105D16003",
+                    "type": "MAP"
+                },
+                {
+                    "value": "ESSL4427",
+                    "type": "Pole Number"
+                },
+                {
+                    "value": "442-7",
+                    "type": "Trans"
+                }
+            ],
+            "dateModified": "2014-01-10T21:28:20Z",
+            "projectName": "exampleProject",
+            "clientFileVersion": "bd48326e6365bcb7d53f0aa0f964faa0",
+            "geographicCoordinate": {
+                "type": "Point",
+                "coordinates": [
+                    -79.13603973388672,
+                    37.40487289428711
+                ]
+            },
+            "label": "37790105D16003",
+            "designs": [
+                "52d065f4e4b0576ebf7c3911",
+                "52d065f4e4b0576ebf7c3912",
+                "52d065f4e4b0576ebf7c3913"
+            ],
+            "address": {
+                "county": "N/A",
+                "zip_code": "44444",
+                "street": "Some St.",
+                "state": "Ohio",
+                "number": "123",
+                "city": "Somewhere"
+            },
+            "remedies": [
+                {
+                    "description": "New Telecom:"
+                },
+                {
+                    "description": "- do some stuff"
+                },
+                {
+                    "description": "- do some more stuff"
+                },
+                {
+                    "description": "Super Power Co:"
+                },
+                {
+                    "description": "- Do some other stuff"
+                }
+            ],
+            "projectId": "52d065f4e4b0576ebf7c3903",
+            "clientFile": "Master_1.1.client",
+            "images": [
+                {
+                    "url": "37790105D16003-1.jpg"
+                },
+                {
+                    "url": "37790105D16003-2.jpg"
+                },
+                {
+                    "url": "37790105D16003-3.jpg"
+                }
+            ],
+            "userDefinedValues": {
+                "stationId": "ff8081813d82ad96013e06ce25f328e3"
+            },
+            "id": "7a8d1ea7-cd48-4367-aafd-1a895b550bf3",
+            "summaryNotes": [
+
+            ],
+            "comments": "",
+            "mapNumber": ""
+        }
+    ]
+}

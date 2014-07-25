@@ -13,12 +13,12 @@
 				"parameters":[
 					{
 						"id":"label",
-						"descritpion":"the name of the project",
+						"description":"the name of the project",
 						"required":false,
 						"type":"string"
 					},
 					{
-						"id":"location_id",
+						"id":"locationId",
 						"description":"the _id of a location contained in the project",
 						"required":false,
 						"type":"string"						
@@ -139,19 +139,19 @@
                 },
 				"parameters":[
 					{
-						"id":"project_name",
+						"id":"projectName",
 						"description":"The name of the parent Calc project",
 						"required":false,
 						"type":"string"
 					},
 					{
-						"id":"project_id",
+						"id":"projectId",
 						"description":"the _id of the parent project",
 						"required":false,
 						"type":"string"						
 					},
 					{
-						"id":"design_ids",
+						"id":"designIds",
 						"description":"the _id of a design contained within the location",
 						"required":false,
 						"type":"string"
@@ -251,19 +251,19 @@
                 },
 				"parameters":[
 					{
-						"id":"project_name",
+						"id":"projectName",
 						"description":"The name of the parent Calc project",
 						"required":false,
 						"type":"string"
 					},
 					{
-						"id":"project_id",
+						"id":"projectId",
 						"description":"the _id of the parent project",
 						"required":false,
 						"type":"string"						
 					},
 					{
-						"id":"location_id",
+						"id":"locationId",
 						"description":"the _id of the parent location",
 						"required":false,
 						"type":"string"

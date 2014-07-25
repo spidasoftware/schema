@@ -1,0 +1,15 @@
+{
+    "status": "ok",
+    "projects": [{
+        "version":"0.8",
+        "_id": "52d065f1e4b0576ebf7c3900",
+        "dateModified": "2014-01-10T21:28:17Z",
+        "locations": ["52d065f1e4b0576ebf7c3901"],
+        "clientFileVersion": "b6f0f10b2c459ee17a4cd027980303f7",
+        "label": "minimal-project-valid",
+        "clientFile": "Master_1.1.client",
+        "id": "e1ab88d0-928f-44d0-899d-2564e817a3a2",
+        "date": "2013-11-01",
+        "locationCount": 1
+    }]
+}

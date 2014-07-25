@@ -1,0 +1,1504 @@
+{
+    "label": "Existing",
+    "structure":     {
+        "pole":         {
+            "glc":             {
+                "unit": "FOOT",
+                "value": 3.7083333333333335
+            },
+            "agl":             {
+                "unit": "FOOT",
+                "value": 61
+            },
+            "environment": "PARALLEL_TO_STREET",
+            "temperature":             {
+                "unit": "FAHRENHEIT",
+                "value": 60
+            },
+            "stressRatio": 1,
+            "clientItem":             {
+                "species": "Southern Pine",
+                "classOfPole": "2",
+                "height":                 {
+                    "unit": "FOOT",
+                    "value": 70
+                }
+            },
+            "externalId": "1e2cd722-60dc-49f3-a719-96ef15f4d9c3",
+            "owner":             {
+                "id": "PNM",
+                "industry": "UTILITY",
+                "externalId": "f1810377-72b4-4d5b-9d0c-1a3455553122"
+            }
+        },
+        "wireEndPoints":         [
+                        {
+                "id": "WEP#1",
+                "externalId": "b3b4d385-e66c-42dd-92dd-13d78230d800",
+                "distance":                 {
+                    "unit": "FOOT",
+                    "value": 145
+                },
+                "direction": 5,
+                "inclination":                 {
+                    "unit": "DEGREE_ANGLE",
+                    "value": 0
+                },
+                "type": "PREVIOUS_POLE",
+                "comments": "",
+                "wires":                 [
+                    "Wire#1",
+                    "Wire#2",
+                    "Wire#3",
+                    "Wire#4",
+                    "Wire#5",
+                    "Wire#6",
+                    "Wire#7",
+                    "Wire#8"
+                ],
+                "spanGuys": [],
+                "spanPoints": []
+            },
+                        {
+                "id": "WEP#2",
+                "externalId": "057e5312-664b-409d-85a4-da45c139bc08",
+                "distance":                 {
+                    "unit": "FOOT",
+                    "value": 137
+                },
+                "direction": 185,
+                "inclination":                 {
+                    "unit": "DEGREE_ANGLE",
+                    "value": 0
+                },
+                "type": "NEXT_POLE",
+                "comments": "",
+                "wires":                 [
+                    "Wire#9",
+                    "Wire#10",
+                    "Wire#11",
+                    "Wire#12",
+                    "Wire#15",
+                    "Wire#16"
+                ],
+                "spanGuys": ["SpanGuy#1"],
+                "spanPoints": []
+            },
+                        {
+                "id": "WEP#3",
+                "externalId": "23028427-9626-4c0a-a6bd-33b9c3cea461",
+                "distance":                 {
+                    "unit": "FOOT",
+                    "value": 58
+                },
+                "direction": 235,
+                "inclination":                 {
+                    "unit": "DEGREE_ANGLE",
+                    "value": 0
+                },
+                "type": "OTHER_POLE",
+                "comments": "",
+                "wires": ["Wire#20"],
+                "spanGuys": [],
+                "spanPoints": []
+            },
+                        {
+                "id": "WEP#4",
+                "externalId": "9ed2183b-cf24-4943-9596-42c4f368f7f1",
+                "distance":                 {
+                    "unit": "FOOT",
+                    "value": 57
+                },
+                "direction": 306,
+                "inclination":                 {
+                    "unit": "DEGREE_ANGLE",
+                    "value": 0
+                },
+                "type": "OTHER_POLE",
+                "comments": "",
+                "wires": ["Wire#21"],
+                "spanGuys": [],
+                "spanPoints": []
+            },
+                        {
+                "id": "WEP#5",
+                "externalId": "b2f27fce-7b0a-4230-9e99-8e48affd96ad",
+                "distance":                 {
+                    "unit": "FOOT",
+                    "value": 62
+                },
+                "direction": 82,
+                "inclination":                 {
+                    "unit": "DEGREE_ANGLE",
+                    "value": 0
+                },
+                "type": "BUILDING",
+                "comments": "",
+                "wires": ["Wire#19"],
+                "spanGuys": [],
+                "spanPoints": []
+            },
+                        {
+                "id": "WEP#6",
+                "externalId": "66deff33-c4e1-41e7-a897-a04a8a74d71c",
+                "distance":                 {
+                    "unit": "FOOT",
+                    "value": 58
+                },
+                "direction": 100,
+                "inclination":                 {
+                    "unit": "DEGREE_ANGLE",
+                    "value": 0
+                },
+                "type": "BUILDING",
+                "comments": "",
+                "wires": ["Wire#18"],
+                "spanGuys": [],
+                "spanPoints": []
+            },
+                        {
+                "id": "WEP#7",
+                "externalId": "4efc772e-4c63-41f2-a1ae-f2e6e42e8024",
+                "distance":                 {
+                    "unit": "FOOT",
+                    "value": 217
+                },
+                "direction": 185,
+                "inclination":                 {
+                    "unit": "DEGREE_ANGLE",
+                    "value": 0
+                },
+                "type": "OTHER_POLE",
+                "comments": "",
+                "wires":                 [
+                    "Wire#23",
+                    "Wire#25",
+                    "Wire#27",
+                    "Wire#29"
+                ],
+                "spanGuys": [],
+                "spanPoints": []
+            },
+                        {
+                "id": "WEP#8",
+                "externalId": "2bf6c336-88ac-48ef-9b79-d5d2e7f3d4bd",
+                "distance":                 {
+                    "unit": "FOOT",
+                    "value": 262
+                },
+                "direction": 5,
+                "inclination":                 {
+                    "unit": "DEGREE_ANGLE",
+                    "value": 0
+                },
+                "type": "OTHER_POLE",
+                "comments": "",
+                "wires":                 [
+                    "Wire#22",
+                    "Wire#24",
+                    "Wire#26",
+                    "Wire#28"
+                ],
+                "spanGuys": [],
+                "spanPoints": []
+            }
+        ],
+        "spanPoints": [],
+        "anchors": [],
+        "notePoints": [],
+        "pointLoads": [],
+        "damages": [],
+        "wires":         [
+                        {
+                "id": "Wire#1",
+                "externalId": "e395744c-6ae5-497b-8278-d4fb12e84641",
+                "owner":                 {
+                    "id": "PNM",
+                    "industry": "UTILITY",
+                    "externalId": "eaa56160-14cb-4e01-9916-9d0aff2f9240"
+                },
+                "clientItem":                 {
+                    "size": "394.5 AAAC",
+                    "coreStrands": 0,
+                    "conductorStrands": 19
+                },
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 29.916666666666668
+                },
+                "usageGroup": "PRIMARY",
+                "tensionGroup": "Full",
+                "midspanHeight":                 {
+                    "unit": "FOOT",
+                    "value": 0
+                },
+                "tensionAdjustment": 1
+            },
+                        {
+                "id": "Wire#2",
+                "externalId": "b1e51e3b-8bb8-4cbc-aa47-ea77647da437",
+                "owner":                 {
+                    "id": "PNM",
+                    "industry": "UTILITY",
+                    "externalId": "8bd47175-3724-4c28-b217-cb0baa10d73c"
+                },
+                "clientItem":                 {
+                    "size": "394.5 AAAC",
+                    "coreStrands": 0,
+                    "conductorStrands": 19
+                },
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 29.916666666666668
+                },
+                "usageGroup": "PRIMARY",
+                "tensionGroup": "Full",
+                "midspanHeight":                 {
+                    "unit": "FOOT",
+                    "value": 0
+                },
+                "tensionAdjustment": 1
+            },
+                        {
+                "id": "Wire#3",
+                "externalId": "aa71df11-ceb2-44a4-9afd-d3fcb6c5473e",
+                "owner":                 {
+                    "id": "PNM",
+                    "industry": "UTILITY",
+                    "externalId": "1a663f4d-19c7-4922-9eea-f948f9ce7a32"
+                },
+                "clientItem":                 {
+                    "size": "394.5 AAAC",
+                    "coreStrands": 0,
+                    "conductorStrands": 19
+                },
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 29.916666666666668
+                },
+                "usageGroup": "PRIMARY",
+                "tensionGroup": "Full",
+                "midspanHeight":                 {
+                    "unit": "FOOT",
+                    "value": 0
+                },
+                "tensionAdjustment": 1
+            },
+                        {
+                "id": "Wire#4",
+                "externalId": "0f720a17-6de5-4f7d-8381-4217c18d9957",
+                "owner":                 {
+                    "id": "PNM",
+                    "industry": "UTILITY",
+                    "externalId": "efd687ab-fd16-4cca-805c-d60a452f95da"
+                },
+                "clientItem":                 {
+                    "size": "2/0 ACSR",
+                    "coreStrands": 1,
+                    "conductorStrands": 6
+                },
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 25.25
+                },
+                "usageGroup": "NEUTRAL",
+                "tensionGroup": "Full",
+                "midspanHeight":                 {
+                    "unit": "FOOT",
+                    "value": 23.5
+                },
+                "tensionAdjustment": 1
+            },
+                        {
+                "id": "Wire#5",
+                "externalId": "291c8d85-245f-4312-bd76-733888b78e7f",
+                "owner":                 {
+                    "id": "PNM",
+                    "industry": "UTILITY",
+                    "externalId": "cc5a0776-f26a-409b-b275-4415105590d4"
+                },
+                "clientItem":                 {
+                    "size": "6 HDC - Solid",
+                    "coreStrands": 0,
+                    "conductorStrands": 1
+                },
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 24.5
+                },
+                "usageGroup": "OPEN_WIRE",
+                "tensionGroup": "Full",
+                "midspanHeight":                 {
+                    "unit": "FOOT",
+                    "value": 22.666666666666668
+                },
+                "tensionAdjustment": 1
+            },
+                        {
+                "id": "Wire#6",
+                "externalId": "ed0970fd-6b20-4d3c-bc4b-924df246690b",
+                "owner":                 {
+                    "id": "PNM",
+                    "industry": "UTILITY",
+                    "externalId": "a375d11b-4354-426c-a061-17638a4f552a"
+                },
+                "clientItem":                 {
+                    "size": "6 HDC - Solid",
+                    "coreStrands": 0,
+                    "conductorStrands": 1
+                },
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 23.583333333333332
+                },
+                "usageGroup": "OPEN_WIRE",
+                "tensionGroup": "Full",
+                "midspanHeight":                 {
+                    "unit": "FOOT",
+                    "value": 21.583333333333332
+                },
+                "tensionAdjustment": 1
+            },
+                        {
+                "id": "Wire#7",
+                "externalId": "a5cecf63-4fd6-41de-967b-de20c1482a90",
+                "owner":                 {
+                    "id": "TW Telecom",
+                    "industry": "COMMUNICATION",
+                    "externalId": "fcfc5972-826c-46d4-8881-3ea0a5582b31"
+                },
+                "clientItem":                 {
+                    "size": "FSV0625",
+                    "coreStrands": 0,
+                    "conductorStrands": 1
+                },
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 20.25
+                },
+                "usageGroup": "COMMUNICATION",
+                "tensionGroup": "Full",
+                "midspanHeight":                 {
+                    "unit": "FOOT",
+                    "value": 17.333333333333332
+                },
+                "tensionAdjustment": 1
+            },
+                        {
+                "id": "Wire#8",
+                "externalId": "24e654e0-f294-46cd-ba68-02864551818d",
+                "owner":                 {
+                    "id": "Comcast",
+                    "industry": "COMMUNICATION",
+                    "externalId": "d850fd09-168c-4517-9c6a-3fc89c7a5267"
+                },
+                "clientItem":                 {
+                    "size": "C6.6M0625",
+                    "coreStrands": 0,
+                    "conductorStrands": 7
+                },
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 19.083333333333332
+                },
+                "usageGroup": "COMMUNICATION",
+                "tensionGroup": "Full",
+                "midspanHeight":                 {
+                    "unit": "FOOT",
+                    "value": 16.75
+                },
+                "tensionAdjustment": 1
+            },
+                        {
+                "id": "Wire#9",
+                "externalId": "0bd62aaf-4e72-48f1-be99-be45521f7b08",
+                "owner":                 {
+                    "id": "PNM",
+                    "industry": "UTILITY",
+                    "externalId": "bc9f5ed0-7f42-4ae6-863e-84e6ed8fa9ab"
+                },
+                "clientItem":                 {
+                    "size": "394.5 AAAC",
+                    "coreStrands": 0,
+                    "conductorStrands": 19
+                },
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 29.916666666666668
+                },
+                "usageGroup": "PRIMARY",
+                "tensionGroup": "Full",
+                "midspanHeight":                 {
+                    "unit": "FOOT",
+                    "value": 0
+                },
+                "tensionAdjustment": 1
+            },
+                        {
+                "id": "Wire#10",
+                "externalId": "c16f6379-9f79-4036-a728-4607b0d7773e",
+                "owner":                 {
+                    "id": "PNM",
+                    "industry": "UTILITY",
+                    "externalId": "b8bbb2fb-ee2c-4300-a802-d0fbbcfee13c"
+                },
+                "clientItem":                 {
+                    "size": "394.5 AAAC",
+                    "coreStrands": 0,
+                    "conductorStrands": 19
+                },
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 29.916666666666668
+                },
+                "usageGroup": "PRIMARY",
+                "tensionGroup": "Full",
+                "midspanHeight":                 {
+                    "unit": "FOOT",
+                    "value": 0
+                },
+                "tensionAdjustment": 1
+            },
+                        {
+                "id": "Wire#11",
+                "externalId": "e7c85b7e-05e2-4f6a-aa17-028fb03b7f8d",
+                "owner":                 {
+                    "id": "PNM",
+                    "industry": "UTILITY",
+                    "externalId": "cabbb0d4-e084-4943-bed7-8e08e369ef26"
+                },
+                "clientItem":                 {
+                    "size": "394.5 AAAC",
+                    "coreStrands": 0,
+                    "conductorStrands": 19
+                },
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 29.916666666666668
+                },
+                "usageGroup": "PRIMARY",
+                "tensionGroup": "Full",
+                "midspanHeight":                 {
+                    "unit": "FOOT",
+                    "value": 0
+                },
+                "tensionAdjustment": 1
+            },
+                        {
+                "id": "Wire#12",
+                "externalId": "e3a6bec2-4299-4372-8601-9838d5ea69d1",
+                "owner":                 {
+                    "id": "PNM",
+                    "industry": "UTILITY",
+                    "externalId": "59d93f28-4e47-4932-8a94-ff616134719a"
+                },
+                "clientItem":                 {
+                    "size": "2/0 ACSR",
+                    "coreStrands": 1,
+                    "conductorStrands": 6
+                },
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 25.25
+                },
+                "usageGroup": "NEUTRAL",
+                "tensionGroup": "Full",
+                "midspanHeight":                 {
+                    "unit": "FOOT",
+                    "value": 23.916666666666668
+                },
+                "tensionAdjustment": 1
+            },
+                        {
+                "id": "Wire#15",
+                "externalId": "14cb3fdc-68d0-4368-b6bb-c6395108a082",
+                "owner":                 {
+                    "id": "TW Telecom",
+                    "industry": "COMMUNICATION",
+                    "externalId": "f46685c3-cd75-4cc0-99a1-1a4d538c78e4"
+                },
+                "clientItem":                 {
+                    "size": "FSV0625",
+                    "coreStrands": 0,
+                    "conductorStrands": 1
+                },
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 20.25
+                },
+                "usageGroup": "COMMUNICATION",
+                "tensionGroup": "Full",
+                "midspanHeight":                 {
+                    "unit": "FOOT",
+                    "value": 18
+                },
+                "tensionAdjustment": 1
+            },
+                        {
+                "id": "Wire#16",
+                "externalId": "df987da4-92d5-4025-bcc5-cf897ac8bdb7",
+                "owner":                 {
+                    "id": "Comcast",
+                    "industry": "COMMUNICATION",
+                    "externalId": "469625fa-287e-4180-bdbc-b635c5f77ab7"
+                },
+                "clientItem":                 {
+                    "size": "C6.6M1000",
+                    "coreStrands": 0,
+                    "conductorStrands": 7
+                },
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 19.083333333333332
+                },
+                "usageGroup": "COMMUNICATION",
+                "tensionGroup": "Full",
+                "midspanHeight":                 {
+                    "unit": "FOOT",
+                    "value": 16.416666666666668
+                },
+                "tensionAdjustment": 1
+            },
+                        {
+                "id": "Wire#20",
+                "externalId": "a90f25ea-84af-40d8-ae4f-9e79cb2a3632",
+                "owner":                 {
+                    "id": "PNM",
+                    "industry": "UTILITY",
+                    "externalId": "81592c75-8db2-4e01-8594-731b10942a1e"
+                },
+                "clientItem":                 {
+                    "size": "2 AAC Triplex",
+                    "coreStrands": 0,
+                    "conductorStrands": 7
+                },
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 24.583333333333332
+                },
+                "usageGroup": "SECONDARY",
+                "tensionGroup": "Slack",
+                "midspanHeight":                 {
+                    "unit": "FOOT",
+                    "value": 22.25
+                },
+                "tensionAdjustment": 1
+            },
+                        {
+                "id": "Wire#21",
+                "externalId": "f107ae4c-6f8d-4463-8cb3-41bae33b06d2",
+                "owner":                 {
+                    "id": "PNM",
+                    "industry": "UTILITY",
+                    "externalId": "b7a4e35f-3f1a-4538-a524-9f53338e2b1e"
+                },
+                "clientItem":                 {
+                    "size": "2 AAC Triplex",
+                    "coreStrands": 0,
+                    "conductorStrands": 7
+                },
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 24.583333333333332
+                },
+                "usageGroup": "SECONDARY",
+                "tensionGroup": "Slack",
+                "midspanHeight":                 {
+                    "unit": "FOOT",
+                    "value": 23
+                },
+                "tensionAdjustment": 1
+            },
+                        {
+                "id": "Wire#19",
+                "externalId": "acf2eaa1-4dd9-48c0-870b-3d93d24ebe45",
+                "owner":                 {
+                    "id": "PNM",
+                    "industry": "UTILITY",
+                    "externalId": "a914ecac-e705-45dd-b468-0954e7744245"
+                },
+                "clientItem":                 {
+                    "size": "2 AAC Triplex",
+                    "coreStrands": 0,
+                    "conductorStrands": 7
+                },
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 24.583333333333332
+                },
+                "usageGroup": "UTILITY_SERVICE",
+                "tensionGroup": "Slack",
+                "midspanHeight":                 {
+                    "unit": "FOOT",
+                    "value": 18
+                },
+                "tensionAdjustment": 1
+            },
+                        {
+                "id": "Wire#18",
+                "externalId": "a972e256-2c42-48e8-9053-fd31b32c2f21",
+                "owner":                 {
+                    "id": "PNM",
+                    "industry": "UTILITY",
+                    "externalId": "3a39f54e-4f23-4fd2-8eee-34252dd674f9"
+                },
+                "clientItem":                 {
+                    "size": "2 AAC Triplex",
+                    "coreStrands": 0,
+                    "conductorStrands": 7
+                },
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 24.583333333333332
+                },
+                "usageGroup": "UTILITY_SERVICE",
+                "tensionGroup": "Slack",
+                "midspanHeight":                 {
+                    "unit": "FOOT",
+                    "value": 18.166666666666668
+                },
+                "tensionAdjustment": 1
+            },
+                        {
+                "id": "Wire#23",
+                "externalId": "aa0ca9c0-2518-4ce0-8b3b-53d3ce869aa7",
+                "owner":                 {
+                    "id": "PNM Transmission",
+                    "industry": "UTILITY",
+                    "externalId": "7c9391f0-fc2d-4fcc-9c1b-7360c710d28d"
+                },
+                "clientItem":                 {
+                    "size": "3/8\" EHS-PY-Shield",
+                    "coreStrands": 0,
+                    "conductorStrands": 7
+                },
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 60.333333333333336
+                },
+                "usageGroup": "GUY",
+                "tensionGroup": "Full",
+                "midspanHeight":                 {
+                    "unit": "FOOT",
+                    "value": 0
+                },
+                "tensionAdjustment": 1
+            },
+                        {
+                "id": "Wire#25",
+                "externalId": "26350ca5-72c9-4c3d-8098-3c6f712acd83",
+                "owner":                 {
+                    "id": "PNM Transmission",
+                    "industry": "UTILITY",
+                    "externalId": "1b32f7df-b85c-423f-ad3a-eb98a072be67"
+                },
+                "clientItem":                 {
+                    "size": "477 ACSR-PY",
+                    "coreStrands": 7,
+                    "conductorStrands": 26
+                },
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 54.333333333333336
+                },
+                "usageGroup": "PRIMARY",
+                "tensionGroup": "Full",
+                "midspanHeight":                 {
+                    "unit": "FOOT",
+                    "value": 0
+                },
+                "tensionAdjustment": 1
+            },
+                        {
+                "id": "Wire#27",
+                "externalId": "9012b256-1612-4c43-8c00-a787c6daf675",
+                "owner":                 {
+                    "id": "PNM Transmission",
+                    "industry": "UTILITY",
+                    "externalId": "60747240-d021-40a5-b802-2aebf2026a07"
+                },
+                "clientItem":                 {
+                    "size": "477 ACSR-PY",
+                    "coreStrands": 7,
+                    "conductorStrands": 26
+                },
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 48.333333333333336
+                },
+                "usageGroup": "PRIMARY",
+                "tensionGroup": "Full",
+                "midspanHeight":                 {
+                    "unit": "FOOT",
+                    "value": 0
+                },
+                "tensionAdjustment": 1
+            },
+                        {
+                "id": "Wire#29",
+                "externalId": "0e7c3717-3f6e-4747-900d-111faec953f2",
+                "owner":                 {
+                    "id": "PNM Transmission",
+                    "industry": "UTILITY",
+                    "externalId": "4c6db8bf-f5fd-4b1a-ae5f-b5fbc57745dc"
+                },
+                "clientItem":                 {
+                    "size": "477 ACSR-PY",
+                    "coreStrands": 7,
+                    "conductorStrands": 26
+                },
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 42.333333333333336
+                },
+                "usageGroup": "PRIMARY",
+                "tensionGroup": "Full",
+                "midspanHeight":                 {
+                    "unit": "FOOT",
+                    "value": 0
+                },
+                "tensionAdjustment": 1
+            },
+                        {
+                "id": "Wire#22",
+                "externalId": "8b36e7a9-e569-4c38-9312-1021345a78af",
+                "owner":                 {
+                    "id": "PNM Transmission",
+                    "industry": "UTILITY",
+                    "externalId": "240b8c57-1ed1-4453-9255-cee00613cf48"
+                },
+                "clientItem":                 {
+                    "size": "3/8\" EHS-PY-Shield",
+                    "coreStrands": 0,
+                    "conductorStrands": 7
+                },
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 60.33333333333333
+                },
+                "usageGroup": "GUY",
+                "tensionGroup": "Full",
+                "midspanHeight":                 {
+                    "unit": "FOOT",
+                    "value": 0
+                },
+                "tensionAdjustment": 1
+            },
+                        {
+                "id": "Wire#24",
+                "externalId": "1c70524a-6514-4f78-82f5-798dd35b6ed2",
+                "owner":                 {
+                    "id": "PNM Transmission",
+                    "industry": "UTILITY",
+                    "externalId": "1f76d204-88fb-453e-b443-d2f0cb2a78f4"
+                },
+                "clientItem":                 {
+                    "size": "477 ACSR-PY",
+                    "coreStrands": 7,
+                    "conductorStrands": 26
+                },
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 54.333333333333336
+                },
+                "usageGroup": "PRIMARY",
+                "tensionGroup": "Full",
+                "midspanHeight":                 {
+                    "unit": "FOOT",
+                    "value": 0
+                },
+                "tensionAdjustment": 1
+            },
+                        {
+                "id": "Wire#26",
+                "externalId": "40a997d5-811e-415c-bf77-340f687f357b",
+                "owner":                 {
+                    "id": "PNM Transmission",
+                    "industry": "UTILITY",
+                    "externalId": "c995aeb8-84aa-4733-aa51-d2f495a4f487"
+                },
+                "clientItem":                 {
+                    "size": "477 ACSR-PY",
+                    "coreStrands": 7,
+                    "conductorStrands": 26
+                },
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 48.333333333333336
+                },
+                "usageGroup": "PRIMARY",
+                "tensionGroup": "Full",
+                "midspanHeight":                 {
+                    "unit": "FOOT",
+                    "value": 0
+                },
+                "tensionAdjustment": 1
+            },
+                        {
+                "id": "Wire#28",
+                "externalId": "51768874-0f66-461d-8068-a8961ed304ee",
+                "owner":                 {
+                    "id": "PNM Transmission",
+                    "industry": "UTILITY",
+                    "externalId": "30c86706-5855-4e7a-9cfe-acb3239bcecc"
+                },
+                "clientItem":                 {
+                    "size": "477 ACSR-PY",
+                    "coreStrands": 7,
+                    "conductorStrands": 26
+                },
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 42.333333333333336
+                },
+                "usageGroup": "PRIMARY",
+                "tensionGroup": "Full",
+                "midspanHeight":                 {
+                    "unit": "FOOT",
+                    "value": 0
+                },
+                "tensionAdjustment": 1
+            }
+        ],
+        "spanGuys": [        {
+            "id": "SpanGuy#1",
+            "externalId": "c3be65b2-b4c3-4de5-a622-662c57b78533",
+            "owner":             {
+                "id": "PNM",
+                "industry": "UTILITY",
+                "externalId": "0c02ebb2-e431-4b2e-bf83-d35962a7f0b6"
+            },
+            "clientItem":             {
+                "size": "3/8\" EHS",
+                "coreStrands": 0,
+                "conductorStrands": 7
+            },
+            "attachmentHeight":             {
+                "unit": "FOOT",
+                "value": 23
+            },
+            "midspanHeight":             {
+                "unit": "FOOT",
+                "value": 20.25
+            },
+            "height":             {
+                "unit": "FOOT",
+                "value": 24.25
+            }
+        }],
+        "guys": [],
+        "equipments":         [
+                        {
+                "id": "Equip#1",
+                "externalId": "880b5669-c4be-4832-8a7c-8d4e8180dede",
+                "owner":                 {
+                    "id": "PNM",
+                    "industry": "UTILITY",
+                    "externalId": "6f483c01-00e9-4036-bf03-0f3f6f26e8c5"
+                },
+                "clientItem":                 {
+                    "type": "TRANSFORMER",
+                    "size": "25 kVA Single Phase"
+                },
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 27.416666666666668
+                },
+                "bottomHeight":                 {
+                    "unit": "FOOT",
+                    "value": 25.75
+                },
+                "direction": 345
+            },
+                        {
+                "id": "Equip#2",
+                "externalId": "4b5237c8-3901-402b-bae8-376ff4ce791b",
+                "owner":                 {
+                    "id": "PNM",
+                    "industry": "UTILITY",
+                    "externalId": "2804b235-5335-4bae-b02d-eb430bf9f2d5"
+                },
+                "clientItem":                 {
+                    "type": "DRIP_LOOP",
+                    "size": "Secondary"
+                },
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 23.583333333333332
+                },
+                "bottomHeight":                 {
+                    "unit": "FOOT",
+                    "value": 23.583333333333332
+                },
+                "direction": 125
+            }
+        ],
+        "crossArms": [        {
+            "id": "CrossArm#1",
+            "externalId": "43948ab5-bb25-4a1c-9bb6-c376d35471b6",
+            "owner":             {
+                "id": "PNM",
+                "industry": "UTILITY",
+                "externalId": "0039548a-c53e-4874-a364-54320a166272"
+            },
+            "clientItem": "8 Foot Cross Arm",
+            "attachmentHeight":             {
+                "unit": "FOOT",
+                "value": 29.333333333333332
+            },
+            "offset":             {
+                "unit": "INCH",
+                "value": 48
+            },
+            "direction": 275,
+            "associatedBacking": "Other",
+            "insulators":             [
+                "Insulator#1",
+                "Insulator#2",
+                "Insulator#3"
+            ]
+        }],
+        "insulators":         [
+                        {
+                "id": "Insulator#4",
+                "externalId": "6779e902-eee7-48b6-b38d-00672ff9a40e",
+                "owner":                 {
+                    "id": "PNM Transmission",
+                    "industry": "UTILITY",
+                    "externalId": "5b4c6944-b497-4cb2-97f8-8fb52a85a496"
+                },
+                "clientItem": "34.5kV Dead End Insulator",
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 54.333333333333336
+                },
+                "offset":                 {
+                    "unit": "INCH",
+                    "value": 652
+                },
+                "direction": 5,
+                "doubleInsulator": false,
+                "wires": ["Wire#24"]
+            },
+                        {
+                "id": "Insulator#5",
+                "externalId": "8f69b547-4bc7-41dc-b4c9-93b2350558f1",
+                "owner":                 {
+                    "id": "PNM Transmission",
+                    "industry": "UTILITY",
+                    "externalId": "6f846668-290b-47ef-b94d-ffad3e91ff0c"
+                },
+                "clientItem": "34.5kV Dead End Insulator",
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 54.333333333333336
+                },
+                "offset":                 {
+                    "unit": "INCH",
+                    "value": 652
+                },
+                "direction": 185,
+                "doubleInsulator": false,
+                "wires": ["Wire#25"]
+            },
+                        {
+                "id": "Insulator#6",
+                "externalId": "3f2e3dbe-7ce6-47e6-9a51-1225a97736fe",
+                "owner":                 {
+                    "id": "PNM Transmission",
+                    "industry": "UTILITY",
+                    "externalId": "1b379ad8-7302-433c-813a-42fb5734dd12"
+                },
+                "clientItem": "34.5kV Dead End Insulator",
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 48.333333333333336
+                },
+                "offset":                 {
+                    "unit": "INCH",
+                    "value": 580
+                },
+                "direction": 5,
+                "doubleInsulator": false,
+                "wires": ["Wire#26"]
+            },
+                        {
+                "id": "Insulator#7",
+                "externalId": "ad032c0d-58ad-4c96-ac87-861a9b8395f3",
+                "owner":                 {
+                    "id": "PNM Transmission",
+                    "industry": "UTILITY",
+                    "externalId": "336a72fc-ae8d-4727-a62a-9f3b747d98e3"
+                },
+                "clientItem": "34.5kV Dead End Insulator",
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 48.333333333333336
+                },
+                "offset":                 {
+                    "unit": "INCH",
+                    "value": 580
+                },
+                "direction": 185,
+                "doubleInsulator": false,
+                "wires": ["Wire#27"]
+            },
+                        {
+                "id": "Insulator#8",
+                "externalId": "f9b6b71c-7488-4ed3-bbc3-b608c5c71986",
+                "owner":                 {
+                    "id": "PNM Transmission",
+                    "industry": "UTILITY",
+                    "externalId": "f1d8aaff-584f-415d-996f-76677586934d"
+                },
+                "clientItem": "34.5kV Dead End Insulator",
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 42.33333333333333
+                },
+                "offset":                 {
+                    "unit": "INCH",
+                    "value": 507.99999999999994
+                },
+                "direction": 5,
+                "doubleInsulator": false,
+                "wires": ["Wire#28"]
+            },
+                        {
+                "id": "Insulator#9",
+                "externalId": "4b4ef7a4-0e0f-4acb-9dbb-f2e483875e17",
+                "owner":                 {
+                    "id": "PNM Transmission",
+                    "industry": "UTILITY",
+                    "externalId": "c1a18ecf-ec3f-494b-ab86-cfa3060e52b6"
+                },
+                "clientItem": "34.5kV Dead End Insulator",
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 42.333333333333336
+                },
+                "offset":                 {
+                    "unit": "INCH",
+                    "value": 508
+                },
+                "direction": 185,
+                "doubleInsulator": false,
+                "wires": ["Wire#29"]
+            },
+                        {
+                "id": "Insulator#1",
+                "externalId": "8656c004-e42f-4c07-9fad-f45e8d0b1233",
+                "owner":                 {
+                    "id": "PNM",
+                    "industry": "UTILITY",
+                    "externalId": "ac7a3fc9-bad0-47ab-9ab9-2eb5ecabc665"
+                },
+                "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 29.333333333333332
+                },
+                "offset":                 {
+                    "unit": "INCH",
+                    "value": 35
+                },
+                "direction": 5,
+                "doubleInsulator": false,
+                "wires":                 [
+                    "Wire#1",
+                    "Wire#9"
+                ]
+            },
+                        {
+                "id": "Insulator#2",
+                "externalId": "56eee917-eacc-4ffe-b013-53f1de2afc94",
+                "owner":                 {
+                    "id": "PNM",
+                    "industry": "UTILITY",
+                    "externalId": "ef4f779a-144d-4ea8-a517-ad7b285e7aa1"
+                },
+                "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 29.333333333333332
+                },
+                "offset":                 {
+                    "unit": "INCH",
+                    "value": 91
+                },
+                "direction": 5,
+                "doubleInsulator": false,
+                "wires":                 [
+                    "Wire#2",
+                    "Wire#10"
+                ]
+            },
+                        {
+                "id": "Insulator#3",
+                "externalId": "90eb8e21-6ee0-48e2-a831-38cc574af132",
+                "owner":                 {
+                    "id": "PNM",
+                    "industry": "UTILITY",
+                    "externalId": "b7ad7f00-3271-4d01-80d4-d8349dc50ef5"
+                },
+                "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 29.333333333333332
+                },
+                "offset":                 {
+                    "unit": "INCH",
+                    "value": 6
+                },
+                "direction": 5,
+                "doubleInsulator": false,
+                "wires":                 [
+                    "Wire#3",
+                    "Wire#11"
+                ]
+            }
+        ],
+        "pushBraces": []
+    },
+    "analysis":     [
+                {
+            "id": "EXTREME ICE WITH WIND Load Case",
+            "results":             [
+                                {
+                    "actual": 56.424073817678455,
+                    "allowable": 25000,
+                    "unit": "POUND_FORCE",
+                    "analysisDate": 1383916786613,
+                    "component": "Insulator#1",
+                    "loadInfo": "EXTREME ICE WITH WIND Load Case: NESC Extreme Ice 2007 - 30 mph, 0.00\" B",
+                    "passes": true
+                },
+                                {
+                    "actual": 401.19594174915414,
+                    "allowable": 6000,
+                    "unit": "POUND_FORCE_PER_SQUARE_INCH",
+                    "analysisDate": 1383916786613,
+                    "component": "CrossArm#1",
+                    "loadInfo": "EXTREME ICE WITH WIND Load Case: NESC Extreme Ice 2007 - 30 mph, 0.00\" B",
+                    "passes": true
+                },
+                                {
+                    "actual": 978.6354329948216,
+                    "allowable": 12474,
+                    "unit": "POUND_FORCE",
+                    "analysisDate": 1383916786613,
+                    "component": "SpanGuy#1",
+                    "loadInfo": "EXTREME ICE WITH WIND Load Case: NESC Extreme Ice 2007 - 30 mph, 0.00\" B",
+                    "passes": true
+                },
+                                {
+                    "actual": 56.424073817678455,
+                    "allowable": 25000,
+                    "unit": "POUND_FORCE",
+                    "analysisDate": 1383916786613,
+                    "component": "Insulator#3",
+                    "loadInfo": "EXTREME ICE WITH WIND Load Case: NESC Extreme Ice 2007 - 30 mph, 0.00\" B",
+                    "passes": true
+                },
+                                {
+                    "actual": 629.8369560356298,
+                    "allowable": 6000,
+                    "unit": "POUND_FORCE_PER_SQUARE_INCH",
+                    "analysisDate": 1383916786613,
+                    "component": "Pole",
+                    "loadInfo": "EXTREME ICE WITH WIND Load Case: NESC Extreme Ice 2007 - 30 mph, 0.00\" B",
+                    "passes": true
+                },
+                                {
+                    "actual": 56.424073817678455,
+                    "allowable": 25000,
+                    "unit": "POUND_FORCE",
+                    "analysisDate": 1383916786613,
+                    "component": "Insulator#2",
+                    "loadInfo": "EXTREME ICE WITH WIND Load Case: NESC Extreme Ice 2007 - 30 mph, 0.00\" B",
+                    "passes": true
+                },
+                                {
+                    "actual": 5794.739101387403,
+                    "allowable": 25000,
+                    "unit": "POUND_FORCE",
+                    "analysisDate": 1383916786613,
+                    "component": "Insulator#5",
+                    "loadInfo": "EXTREME ICE WITH WIND Load Case: NESC Extreme Ice 2007 - 30 mph, 0.00\" B",
+                    "passes": true
+                },
+                                {
+                    "actual": 5794.946864175526,
+                    "allowable": 25000,
+                    "unit": "POUND_FORCE",
+                    "analysisDate": 1383916786614,
+                    "component": "Insulator#4",
+                    "loadInfo": "EXTREME ICE WITH WIND Load Case: NESC Extreme Ice 2007 - 30 mph, 0.00\" B",
+                    "passes": true
+                },
+                                {
+                    "actual": 5794.739101387403,
+                    "allowable": 25000,
+                    "unit": "POUND_FORCE",
+                    "analysisDate": 1383916786614,
+                    "component": "Insulator#7",
+                    "loadInfo": "EXTREME ICE WITH WIND Load Case: NESC Extreme Ice 2007 - 30 mph, 0.00\" B",
+                    "passes": true
+                },
+                                {
+                    "actual": 5794.946864175526,
+                    "allowable": 25000,
+                    "unit": "POUND_FORCE",
+                    "analysisDate": 1383916786614,
+                    "component": "Insulator#6",
+                    "loadInfo": "EXTREME ICE WITH WIND Load Case: NESC Extreme Ice 2007 - 30 mph, 0.00\" B",
+                    "passes": true
+                },
+                                {
+                    "actual": 5794.946864175526,
+                    "allowable": 25000,
+                    "unit": "POUND_FORCE",
+                    "analysisDate": 1383916786614,
+                    "component": "Insulator#8",
+                    "loadInfo": "EXTREME ICE WITH WIND Load Case: NESC Extreme Ice 2007 - 30 mph, 0.00\" B",
+                    "passes": true
+                },
+                                {
+                    "actual": 5794.739101387403,
+                    "allowable": 25000,
+                    "unit": "POUND_FORCE",
+                    "analysisDate": 1383916786614,
+                    "component": "Insulator#9",
+                    "loadInfo": "EXTREME ICE WITH WIND Load Case: NESC Extreme Ice 2007 - 30 mph, 0.00\" B",
+                    "passes": true
+                }
+            ]
+        },
+                {
+            "id": "EXTREME WIND Load Case",
+            "results":             [
+                                {
+                    "actual": 52.91029524427567,
+                    "allowable": 25000,
+                    "unit": "POUND_FORCE",
+                    "analysisDate": 1383916786614,
+                    "component": "Insulator#1",
+                    "loadInfo": "EXTREME WIND Load Case: NESC Extreme Wind 2007 - 90 mph B",
+                    "passes": true
+                },
+                                {
+                    "actual": 422.47491796659483,
+                    "allowable": 6000,
+                    "unit": "POUND_FORCE_PER_SQUARE_INCH",
+                    "analysisDate": 1383916786614,
+                    "component": "CrossArm#1",
+                    "loadInfo": "EXTREME WIND Load Case: NESC Extreme Wind 2007 - 90 mph B",
+                    "passes": true
+                },
+                                {
+                    "actual": 2313.77989125921,
+                    "allowable": 12474,
+                    "unit": "POUND_FORCE",
+                    "analysisDate": 1383916786615,
+                    "component": "SpanGuy#1",
+                    "loadInfo": "EXTREME WIND Load Case: NESC Extreme Wind 2007 - 90 mph B",
+                    "passes": true
+                },
+                                {
+                    "actual": 52.91029524427567,
+                    "allowable": 25000,
+                    "unit": "POUND_FORCE",
+                    "analysisDate": 1383916786615,
+                    "component": "Insulator#3",
+                    "loadInfo": "EXTREME WIND Load Case: NESC Extreme Wind 2007 - 90 mph B",
+                    "passes": true
+                },
+                                {
+                    "actual": 1586.1460790703654,
+                    "allowable": 6000,
+                    "unit": "POUND_FORCE_PER_SQUARE_INCH",
+                    "analysisDate": 1383916786615,
+                    "component": "Pole",
+                    "loadInfo": "EXTREME WIND Load Case: NESC Extreme Wind 2007 - 90 mph B",
+                    "passes": true
+                },
+                                {
+                    "actual": 52.91029524427567,
+                    "allowable": 25000,
+                    "unit": "POUND_FORCE",
+                    "analysisDate": 1383916786615,
+                    "component": "Insulator#2",
+                    "loadInfo": "EXTREME WIND Load Case: NESC Extreme Wind 2007 - 90 mph B",
+                    "passes": true
+                },
+                                {
+                    "actual": 5797.256365180028,
+                    "allowable": 25000,
+                    "unit": "POUND_FORCE",
+                    "analysisDate": 1383916786615,
+                    "component": "Insulator#5",
+                    "loadInfo": "EXTREME WIND Load Case: NESC Extreme Wind 2007 - 90 mph B",
+                    "passes": true
+                },
+                                {
+                    "actual": 5797.458484444096,
+                    "allowable": 25000,
+                    "unit": "POUND_FORCE",
+                    "analysisDate": 1383916786615,
+                    "component": "Insulator#4",
+                    "loadInfo": "EXTREME WIND Load Case: NESC Extreme Wind 2007 - 90 mph B",
+                    "passes": true
+                },
+                                {
+                    "actual": 5797.133067141316,
+                    "allowable": 25000,
+                    "unit": "POUND_FORCE",
+                    "analysisDate": 1383916786615,
+                    "component": "Insulator#7",
+                    "loadInfo": "EXTREME WIND Load Case: NESC Extreme Wind 2007 - 90 mph B",
+                    "passes": true
+                },
+                                {
+                    "actual": 5797.335190704068,
+                    "allowable": 25000,
+                    "unit": "POUND_FORCE",
+                    "analysisDate": 1383916786615,
+                    "component": "Insulator#6",
+                    "loadInfo": "EXTREME WIND Load Case: NESC Extreme Wind 2007 - 90 mph B",
+                    "passes": true
+                },
+                                {
+                    "actual": 5797.335190704068,
+                    "allowable": 25000,
+                    "unit": "POUND_FORCE",
+                    "analysisDate": 1383916786615,
+                    "component": "Insulator#8",
+                    "loadInfo": "EXTREME WIND Load Case: NESC Extreme Wind 2007 - 90 mph B",
+                    "passes": true
+                },
+                                {
+                    "actual": 5797.133067141316,
+                    "allowable": 25000,
+                    "unit": "POUND_FORCE",
+                    "analysisDate": 1383916786615,
+                    "component": "Insulator#9",
+                    "loadInfo": "EXTREME WIND Load Case: NESC Extreme Wind 2007 - 90 mph B",
+                    "passes": true
+                }
+            ]
+        },
+                {
+            "id": "MEDIUM Load Case",
+            "results":             [
+                                {
+                    "actual": 203.52613856075266,
+                    "allowable": 25000,
+                    "unit": "POUND_FORCE",
+                    "analysisDate": 1383916786616,
+                    "component": "Insulator#1",
+                    "loadInfo": "MEDIUM Load Case: NESC 2007 - Medium, B",
+                    "passes": true
+                },
+                                {
+                    "actual": 1615.8822303897919,
+                    "allowable": 5200,
+                    "unit": "POUND_FORCE_PER_SQUARE_INCH",
+                    "analysisDate": 1383916786616,
+                    "component": "CrossArm#1",
+                    "loadInfo": "MEDIUM Load Case: NESC 2007 - Medium, B",
+                    "passes": true
+                },
+                                {
+                    "actual": 2096.5029666745213,
+                    "allowable": 12474,
+                    "unit": "POUND_FORCE",
+                    "analysisDate": 1383916786616,
+                    "component": "SpanGuy#1",
+                    "loadInfo": "MEDIUM Load Case: NESC 2007 - Medium, B",
+                    "passes": true
+                },
+                                {
+                    "actual": 203.52613856075266,
+                    "allowable": 25000,
+                    "unit": "POUND_FORCE",
+                    "analysisDate": 1383916786616,
+                    "component": "Insulator#3",
+                    "loadInfo": "MEDIUM Load Case: NESC 2007 - Medium, B",
+                    "passes": true
+                },
+                                {
+                    "actual": 3982.12935291787,
+                    "allowable": 5200,
+                    "unit": "POUND_FORCE_PER_SQUARE_INCH",
+                    "analysisDate": 1383916786616,
+                    "component": "Pole",
+                    "loadInfo": "MEDIUM Load Case: NESC 2007 - Medium, B",
+                    "passes": true
+                },
+                                {
+                    "actual": 203.52613856075266,
+                    "allowable": 25000,
+                    "unit": "POUND_FORCE",
+                    "analysisDate": 1383916786616,
+                    "component": "Insulator#2",
+                    "loadInfo": "MEDIUM Load Case: NESC 2007 - Medium, B",
+                    "passes": true
+                },
+                                {
+                    "actual": 9563.148560354926,
+                    "allowable": 25000,
+                    "unit": "POUND_FORCE",
+                    "analysisDate": 1383916786616,
+                    "component": "Insulator#5",
+                    "loadInfo": "MEDIUM Load Case: NESC 2007 - Medium, B",
+                    "passes": true
+                },
+                                {
+                    "actual": 9564.044112160087,
+                    "allowable": 25000,
+                    "unit": "POUND_FORCE",
+                    "analysisDate": 1383916786616,
+                    "component": "Insulator#4",
+                    "loadInfo": "MEDIUM Load Case: NESC 2007 - Medium, B",
+                    "passes": true
+                },
+                                {
+                    "actual": 9563.148560354926,
+                    "allowable": 25000,
+                    "unit": "POUND_FORCE",
+                    "analysisDate": 1383916786616,
+                    "component": "Insulator#7",
+                    "loadInfo": "MEDIUM Load Case: NESC 2007 - Medium, B",
+                    "passes": true
+                },
+                                {
+                    "actual": 9564.044112160087,
+                    "allowable": 25000,
+                    "unit": "POUND_FORCE",
+                    "analysisDate": 1383916786616,
+                    "component": "Insulator#6",
+                    "loadInfo": "MEDIUM Load Case: NESC 2007 - Medium, B",
+                    "passes": true
+                },
+                                {
+                    "actual": 9564.044112160087,
+                    "allowable": 25000,
+                    "unit": "POUND_FORCE",
+                    "analysisDate": 1383916786616,
+                    "component": "Insulator#8",
+                    "loadInfo": "MEDIUM Load Case: NESC 2007 - Medium, B",
+                    "passes": true
+                },
+                                {
+                    "actual": 9563.148560354926,
+                    "allowable": 25000,
+                    "unit": "POUND_FORCE",
+                    "analysisDate": 1383916786616,
+                    "component": "Insulator#9",
+                    "loadInfo": "MEDIUM Load Case: NESC 2007 - Medium, B",
+                    "passes": true
+                }
+            ]
+        }
+    ]
+}
