@@ -95,17 +95,16 @@ class RestParams {
 					def clazz = it.defaultValue.class
 					try {
 						def paramValue = params["${it.id}"]?.asType(clazz)
-						if(paramValue == null) {
-							paramValue = it.defaultValue
-						}
+                        if(paramValue == null){
+                            paramValue = it.defaultValue
+                        }
 						if(it.id == "limit") {
+                            if(paramValue <= 0) {
+                                paramValue = it.defaultValue
+                            }
 	                        def projectionMaxByType = method.projectionMaxByType?.getInt(newParams.format.toString())
 	                        if(projectionMaxByType != null) {
-	                        	if(paramValue == 0) {
-	                        		paramValue = projectionMaxByType
-	                        	} else if(projectionMaxByType > 0) {
-	                            	paramValue = Math.min(paramValue, projectionMaxByType)
-	                            }
+                                paramValue = Math.min(paramValue, projectionMaxByType)
 	                        }
 	                    }
 						projectionParams["${it.id}"] = paramValue
