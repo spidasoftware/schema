@@ -19,11 +19,11 @@ class RestParamsTest extends GroovyTestCase {
 		assert listResult.query instanceof Map
 		assert listResult.query.isEmpty()
 		assert listResult.projection.skip == 0
-		assert listResult.projection.limit == 50
+		assert listResult.projection.limit == 1
 	}
 
 	void testListParams(){
-		def params = [name:"testName", anotherProperty:"testProp", uuid:"testUuid", skip: "5", limit: "10"]
+		def params = [name:"testName", anotherProperty:"testProp", uuid:"testUuid", skip: "5", limit: "10", format: "referenced"]
 		def result = restParams.validateAndFormat("thing", "list", params)
 
 		assert result.query.name == "testName"
@@ -92,5 +92,41 @@ class RestParamsTest extends GroovyTestCase {
 		assert result.projection.limit == 10
 	}
 
+    void testNoFormatInParams() {
+        def listResult = restParams.validateAndFormat("thing", "list", [:])
+        assert listResult.format == "calc"
+    }
 
+    void testFormatInParams() {
+        def listResult = restParams.validateAndFormat("thing", "list", [format: "referenced"])
+        assert listResult.format == "referenced"
+    }
+
+    void testInvalidFormatInParams() {
+        shouldFail(InvalidParameterException) {
+            restParams.validateAndFormat("thing", "list", [format:"exchange"])
+        }
+    }
+
+    void testAtLeastOneParamRequiredMissing() {
+    	shouldFail(InvalidParameterException) {
+    		restParams.validateAndFormat("thing", "saveMultipleParams", [:])	
+    	}
+    }
+
+    void testAtLeastOneParamRequired() {
+    	def uuid = UUID.randomUUID()
+    	def listResult = restParams.validateAndFormat("thing", "saveMultipleParams", [filefortUuid:uuid])
+    	assert uuid == listResult.filefortUuid
+    }
+
+    void testMaxAllowedByType() {
+        def listResult = restParams.validateAndFormat("thing", "list", [limit:1000, format:"calc"])
+        assert listResult.projection.limit == 1 // Should return the max for calc type which is 1
+    }
+
+    void testZeroLimitParam() {
+        def listResult = restParams.validateAndFormat("thing", "list", [limit:0, format:"referenced"])
+        assert listResult.projection.limit == 50 // Should return the defaultValue for limit
+    }
 }

@@ -1,7 +1,12 @@
 {
+    "defaultFormat":"calc",
 	"resources":{
 		"thing":{
 			"list":{
+                "projectionMaxByType": {
+                    "calc":1,
+                    "referenced": 100
+                },
 				"parameters":[
 					{
 						"id":"name",
@@ -17,7 +22,13 @@
 						"id":"uuid",
 						"required":false,
 						"type":"string"
-					}
+					},
+                    {
+                        "id":"format",
+                        "description":"format type for the project.",
+                        "type": "string",
+                        "enum": ["calc", "referenced"]
+                    }
 				]
 			},
 			"show":{
@@ -35,6 +46,22 @@
 						"id":"project",
 						"schema":"/v1/schema/spidacalc/calc/project.schema",
 						"required":true
+					}
+				]
+			},
+			"saveMultipleParams":{
+				"atLeastOneParamRequired":["project", "filefortUuid"],
+				"parameters":[
+					{
+						"id":"project",
+						"schema":"/v1/schema/spidacalc/calc/project.schema",
+						"required":false
+					},
+					{
+						"id":"filefortUuid",
+						"description":"The uuid of the exchange file in filefort.",
+						"type":"string",
+						"required":false
 					}
 				]
 			},
