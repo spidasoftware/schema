@@ -155,9 +155,9 @@ class DefaultFormatConverterTest extends Specification {
         then:
         def projectId = project."_id"
         projectId == locations[0]."projectId"
-        project.label == locations[0]."projectName"
+        project.label == locations[0]."projectLabel"
         projectId == designs[0]."projectId"
-        project.label == designs[0]."projectName"
+        project.label == designs[0]."projectLabel"
         project.locations.contains(locations[0]."_id")
 
         where:

@@ -1076,7 +1076,7 @@
             "pointLoads": []
         },
         "dateModified": "2014-01-10T21:28:20Z",
-        "projectName": "exampleProject",
+        "projectLabel": "exampleProject",
         "worstGuyResult": {
             "unit": "POUND_FORCE",
             "component": "Guy#1",
@@ -1096,7 +1096,7 @@
             "loadInfo": "Extreme Wind Load Case: NESC Extreme Wind 2007 - 90 mph C",
             "analysisDate": 1383596555757
         },
-        "locationName": "37790105D16006",
+        "locationLabel": "37790105D16006",
         "worstInsulatorResult": {
             "unit": "POUND_FORCE",
             "component": "Insulator#1",
@@ -2247,7 +2247,7 @@
             "pointLoads": []
         },
         "dateModified": "2014-01-10T21:28:20Z",
-        "projectName": "exampleProject",
+        "projectLabel": "exampleProject",
         "worstGuyResult": {
             "unit": "POUND_FORCE",
             "component": "Guy#1",
@@ -2267,7 +2267,7 @@
             "loadInfo": "Extreme Wind Load Case: NESC Extreme Wind 2007 - 90 mph C",
             "analysisDate": 1383596555776
         },
-        "locationName": "37790105D16006",
+        "locationLabel": "37790105D16006",
         "worstInsulatorResult": {
             "unit": "POUND_FORCE",
             "component": "Insulator#1",
@@ -3465,7 +3465,7 @@
             "pointLoads": []
         },
         "dateModified": "2014-01-10T21:28:20Z",
-        "projectName": "exampleProject",
+        "projectLabel": "exampleProject",
         "worstGuyResult": {
             "unit": "POUND_FORCE",
             "component": "Guy#2",
@@ -3485,7 +3485,7 @@
             "loadInfo": "Heavy Load Case: NESC 2007 - Heavy, C",
             "analysisDate": 1383596555793
         },
-        "locationName": "37790105D16006",
+        "locationLabel": "37790105D16006",
         "worstInsulatorResult": {
             "unit": "POUND_FORCE",
             "component": "Insulator#1",
@@ -4525,7 +4525,7 @@
             "pointLoads": []
         },
         "dateModified": "2014-01-10T21:28:20Z",
-        "projectName": "exampleProject",
+        "projectLabel": "exampleProject",
         "clientFileVersion": "bd48326e6365bcb7d53f0aa0f964faa0",
         "worstPoleResult": {
             "unit": "POUND_FORCE_PER_SQUARE_INCH",
@@ -4536,7 +4536,7 @@
             "loadInfo": "Heavy Load Case: NESC 2007 - Heavy, C",
             "analysisDate": 1383596555835
         },
-        "locationName": "37790105D16005",
+        "locationLabel": "37790105D16005",
         "worstSpanGuyResult": {
             "unit": "POUND_FORCE",
             "component": "SpanGuy#1",
@@ -5633,7 +5633,7 @@
             "pointLoads": []
         },
         "dateModified": "2014-01-10T21:28:20Z",
-        "projectName": "exampleProject",
+        "projectLabel": "exampleProject",
         "clientFileVersion": "bd48326e6365bcb7d53f0aa0f964faa0",
         "worstPoleResult": {
             "unit": "POUND_FORCE_PER_SQUARE_INCH",
@@ -5644,7 +5644,7 @@
             "loadInfo": "Heavy Load Case: NESC 2007 - Heavy, C",
             "analysisDate": 1383596555851
         },
-        "locationName": "37790105D16005",
+        "locationLabel": "37790105D16005",
         "worstSpanGuyResult": {
             "unit": "POUND_FORCE",
             "component": "SpanGuy#1",
@@ -6741,7 +6741,7 @@
             "pointLoads": []
         },
         "dateModified": "2014-01-10T21:28:20Z",
-        "projectName": "exampleProject",
+        "projectLabel": "exampleProject",
         "clientFileVersion": "bd48326e6365bcb7d53f0aa0f964faa0",
         "worstPoleResult": {
             "unit": "POUND_FORCE_PER_SQUARE_INCH",
@@ -6752,7 +6752,7 @@
             "loadInfo": "Heavy Load Case: NESC 2007 - Heavy, C",
             "analysisDate": 1383596555867
         },
-        "locationName": "37790105D16005",
+        "locationLabel": "37790105D16005",
         "worstSpanGuyResult": {
             "unit": "POUND_FORCE",
             "component": "SpanGuy#1",
@@ -7997,7 +7997,7 @@
             "pointLoads": []
         },
         "dateModified": "2014-01-10T21:28:20Z",
-        "projectName": "exampleProject",
+        "projectLabel": "exampleProject",
         "clientFileVersion": "bd48326e6365bcb7d53f0aa0f964faa0",
         "worstPoleResult": {
             "unit": "POUND_FORCE_PER_SQUARE_INCH",
@@ -8008,7 +8008,7 @@
             "loadInfo": "Extreme Wind Load Case: NESC Extreme Wind 2007 - 90 mph C",
             "analysisDate": 1383596555907
         },
-        "locationName": "37790105D16004",
+        "locationLabel": "37790105D16004",
         "worstSpanGuyResult": {
             "unit": "POUND_FORCE",
             "component": "SpanGuy#1",
@@ -9301,7 +9301,7 @@
             "pointLoads": []
         },
         "dateModified": "2014-01-10T21:28:20Z",
-        "projectName": "exampleProject",
+        "projectLabel": "exampleProject",
         "clientFileVersion": "bd48326e6365bcb7d53f0aa0f964faa0",
         "worstPoleResult": {
             "unit": "POUND_FORCE_PER_SQUARE_INCH",
@@ -9312,7 +9312,7 @@
             "loadInfo": "Extreme Wind Load Case: NESC Extreme Wind 2007 - 90 mph C",
             "analysisDate": 1383596555924
         },
-        "locationName": "37790105D16004",
+        "locationLabel": "37790105D16004",
         "worstSpanGuyResult": {
             "unit": "POUND_FORCE",
             "component": "SpanGuy#1",
@@ -10605,7 +10605,7 @@
             "pointLoads": []
         },
         "dateModified": "2014-01-10T21:28:20Z",
-        "projectName": "exampleProject",
+        "projectLabel": "exampleProject",
         "clientFileVersion": "bd48326e6365bcb7d53f0aa0f964faa0",
         "worstPoleResult": {
             "unit": "POUND_FORCE_PER_SQUARE_INCH",
@@ -10616,7 +10616,7 @@
             "loadInfo": "Extreme Wind Load Case: NESC Extreme Wind 2007 - 90 mph C",
             "analysisDate": 1383596555943
         },
-        "locationName": "37790105D16004",
+        "locationLabel": "37790105D16004",
         "worstSpanGuyResult": {
             "unit": "POUND_FORCE",
             "component": "SpanGuy#1",
@@ -11586,7 +11586,7 @@
             "pointLoads": []
         },
         "dateModified": "2014-01-10T21:28:20Z",
-        "projectName": "exampleProject",
+        "projectLabel": "exampleProject",
         "clientFileVersion": "bd48326e6365bcb7d53f0aa0f964faa0",
         "worstPoleResult": {
             "unit": "POUND_FORCE_PER_SQUARE_INCH",
@@ -11597,7 +11597,7 @@
             "loadInfo": "Heavy Load Case: NESC 2007 - Heavy, C",
             "analysisDate": 1383596555978
         },
-        "locationName": "37790105D16003",
+        "locationLabel": "37790105D16003",
         "worstInsulatorResult": {
             "unit": "POUND_FORCE",
             "component": "Insulator#5",
@@ -12606,7 +12606,7 @@
             "pointLoads": []
         },
         "dateModified": "2014-01-10T21:28:20Z",
-        "projectName": "exampleProject",
+        "projectLabel": "exampleProject",
         "clientFileVersion": "bd48326e6365bcb7d53f0aa0f964faa0",
         "worstPoleResult": {
             "unit": "POUND_FORCE_PER_SQUARE_INCH",
@@ -12617,7 +12617,7 @@
             "loadInfo": "Heavy Load Case: NESC 2007 - Heavy, C",
             "analysisDate": 1383596555993
         },
-        "locationName": "37790105D16003",
+        "locationLabel": "37790105D16003",
         "worstInsulatorResult": {
             "unit": "POUND_FORCE",
             "component": "Insulator#5",
@@ -13626,7 +13626,7 @@
             "pointLoads": []
         },
         "dateModified": "2014-01-10T21:28:20Z",
-        "projectName": "exampleProject",
+        "projectLabel": "exampleProject",
         "clientFileVersion": "bd48326e6365bcb7d53f0aa0f964faa0",
         "worstPoleResult": {
             "unit": "POUND_FORCE_PER_SQUARE_INCH",
@@ -13637,7 +13637,7 @@
             "loadInfo": "Heavy Load Case: NESC 2007 - Heavy, C",
             "analysisDate": 1383596556006
         },
-        "locationName": "37790105D16003",
+        "locationLabel": "37790105D16003",
         "worstInsulatorResult": {
             "unit": "POUND_FORCE",
             "component": "Insulator#5",

@@ -18,7 +18,7 @@
                 }
             ],
             "dateModified": "2014-01-10T21:28:20Z",
-            "projectName": "exampleProject",
+            "projectLabel": "exampleProject",
             "clientFileVersion": "bd48326e6365bcb7d53f0aa0f964faa0",
             "geographicCoordinate": {
                 "type": "Point",
@@ -103,7 +103,7 @@
                 }
             ],
             "dateModified": "2014-01-10T21:28:20Z",
-            "projectName": "exampleProject",
+            "projectLabel": "exampleProject",
             "clientFileVersion": "bd48326e6365bcb7d53f0aa0f964faa0",
             "geographicCoordinate": {
                 "type": "Point",
@@ -184,7 +184,7 @@
                 }
             ],
             "dateModified": "2014-01-10T21:28:20Z",
-            "projectName": "exampleProject",
+            "projectLabel": "exampleProject",
             "clientFileVersion": "bd48326e6365bcb7d53f0aa0f964faa0",
             "geographicCoordinate": {
                 "type": "Point",
@@ -264,7 +264,7 @@
                 }
             ],
             "dateModified": "2014-01-10T21:28:20Z",
-            "projectName": "exampleProject",
+            "projectLabel": "exampleProject",
             "clientFileVersion": "bd48326e6365bcb7d53f0aa0f964faa0",
             "geographicCoordinate": {
                 "type": "Point",
