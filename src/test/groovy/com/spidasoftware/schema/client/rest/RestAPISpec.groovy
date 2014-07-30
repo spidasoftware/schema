@@ -29,17 +29,17 @@ class RestAPISpec extends Specification {
 	void "uri's should be correctly generated"() {
 		when: "generate the url from the current baseUrl, path and id"
 		api.baseUrl = "http://"+ currentBaseUrl
-		URI uri = api.createURI(currentPath, currentId)
+		URI uri = api.createURI(currentPath, currentId, format)
 
 		then: "the generated uri should match the expected"
 		uri.toString() == "http://"+ expectedUri
 
 		where:
-		currentBaseUrl      || currentPath          || currentId    || expectedUri
-		"www.website.com"   || "api/resource"       || "1234567"    || "www.website.com/api/resource/1234567"
-		"spida.min.com"     || "/calcdb/projects"   ||  ""          || "spida.min.com/calcdb/projects"
-		"spida.min.com/"    || "/calcdb/projects"   || "123"        || "spida.min.com/calcdb/projects/123"
-		"www.google.com/"   || "search"             || null         || "www.google.com/search"
+		currentBaseUrl      || currentPath          || currentId  || format 	  || expectedUri
+		"www.website.com"   || "api/resource"       || "1234567"  || null   	  || "www.website.com/api/resource/1234567"
+		"spida.min.com"     || "/calcdb/projects"   ||  ""        || "referenced" || "spida.min.com/calcdb/projects.referenced"
+		"spida.min.com/"    || "/calcdb/projects"   || "123"      || "calc"		  || "spida.min.com/calcdb/projects/123.calc"
+		"www.google.com/"   || "search"             || null       || null  		  || "www.google.com/search"
 	}
 
 	void "config overrides should be loaded properly when specified"() {
@@ -71,6 +71,7 @@ class RestAPISpec extends Specification {
 		config.path = "/tests"
 		config.name = "tests"
 		config.headers = ["Accept": "application/json"]
+		config.format = ""
 
 		def saveParams = ["name":"value"]
 		Map combinedParams = saveParams.plus(config.additionalParams as Map) as Map
@@ -124,6 +125,7 @@ class RestAPISpec extends Specification {
 		config.path = "/tests"
 		config.name = "tests"
 		config.headers = ["Accept": "application/json"]
+		config.format = ""
 		def params = ["name": "value"]
 
 		when: "call the save method"
