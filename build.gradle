@@ -10,7 +10,7 @@ apply plugin: 'project-report'
 apply plugin: 'releaseNotes'
 
 group = 'com.spidasoftware'
-version = '0.13-SNAPSHOT'
+version = '0.14-SNAPSHOT'
 description = "Schema"
 
 sourceCompatibility = 1.7
@@ -85,6 +85,8 @@ releaseNotes {
 }
 
 dependencies {
+	compile group: 'org.apache.ant', name: 'ant', version: '1.9.4'
+	compile group: 'org.apache.ant', name: 'ant-launcher', version: '1.9.4'
 	compile group: 'org.codehaus.groovy', name: 'groovy-all', version:'2.1.9'
 	compile group: 'junit', name: 'junit', version:'4.9'
 	compile group: 'org.glassfish', name: 'javax.servlet', version:'3.0'
