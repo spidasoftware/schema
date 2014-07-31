@@ -44,8 +44,8 @@ public class CalcDBProjectComponentTest {
         locationJson.put('designs', JSONArray.fromObject(designIds))
         locationJson.put("projectLabel", "ImportTestProject")
         locationJson.put("projectId", "00ff00")
-        String dateMod = "2014-03-26T12:42:19.852Z"
-        Date equivalentDate = new Date(1395837739000)
+        long dateMod = 1395837739000
+        Date equivalentDate = new Date(dateMod)
         locationJson.put('dateModified', dateMod)
 
 

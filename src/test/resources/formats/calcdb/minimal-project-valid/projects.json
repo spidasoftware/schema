@@ -3,7 +3,7 @@
     "projects": [{
         "version":"0.8",
         "_id": "52d065f1e4b0576ebf7c3900",
-        "dateModified": "2014-01-10T21:28:17Z",
+        "dateModified": 1383596555754,
         "locations": ["52d065f1e4b0576ebf7c3901"],
         "clientFileVersion": "b6f0f10b2c459ee17a4cd027980303f7",
         "label": "minimal-project-valid",
