@@ -49,7 +49,7 @@ class DefaultFormatConverter implements FormatConverter {
         convertedLocation.remove("designs") //get rid of the old designs
         convertedLocation.put("designs", designList)  //replace with the array of design_id's
         if (calcProject) {
-            convertedLocation.put("projectName", calcProject.getString("label"))
+            convertedLocation.put("projectLabel", calcProject.getString("label"))
             convertedLocation.put("projectId", calcProject.get("_id").toString())
             convertedLocation.put("clientFile", calcProject.getString("clientFile"))
             convertedLocation.put("clientFileVersion", calcProject.getString("clientFileVersion"))
@@ -62,15 +62,13 @@ class DefaultFormatConverter implements FormatConverter {
     CalcDBDesign convertCalcDesign(JSONObject calcDesign, JSONObject calcLocation = null, JSONObject calcProject = null) {
         addDBIdToDesign(calcDesign)
         JSONObject convertedDesign = JSONObject.fromObject(calcDesign)
-        // TODO: copy this over too?
-        JSONObject originalStructure = calcDesign.get("structure")
 
         if (calcLocation){
-            convertedDesign.put("locationName", calcLocation.get("label").toString())
+            convertedDesign.put("locationLabel", calcLocation.get("label").toString())
             convertedDesign.put("locationId", calcLocation.get("_id").toString())
         }
         if (calcProject){
-            convertedDesign.put("projectName", calcProject.getString("label"))
+            convertedDesign.put("projectLabel", calcProject.getString("label"))
             convertedDesign.put("projectId", calcProject.get("_id").toString())
             convertedDesign.put("clientFile", calcProject.getString("clientFile"))
             convertedDesign.put("clientFileVersion", calcProject.get("clientFileVersion"))
@@ -301,7 +299,7 @@ class DefaultFormatConverter implements FormatConverter {
             "clientFileVersion",
             "dateModified",
             "projectId",
-            "projectName"
+            "projectLabel"
         ].each { convertedLocation.remove(it) }
 
         return convertedLocation
@@ -310,7 +308,7 @@ class DefaultFormatConverter implements FormatConverter {
     JSONObject createLocationJsonForDesign(CalcDBDesign calcDBDesign) {
         JSONObject designJson = calcDBDesign.getJSON()
         JSONObject locationObject = new JSONObject()
-        String locationId = designJson.getString("locationName")
+        String locationId = designJson.getString("locationLabel")
         if (locationId != null && !locationId.isEmpty()) {
             locationObject.put("id", locationId)
         }
@@ -336,9 +334,9 @@ class DefaultFormatConverter implements FormatConverter {
             "clientFileVersion",
             "dateModified",
             "locationId",
-            "locationName",
+            "locationLabel",
             "projectId",
-            "projectName",
+            "projectLabel",
             "worstAnchorResult",
             "worstCrossArmResult",
             "worstGuyResult",

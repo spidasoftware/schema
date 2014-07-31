@@ -41,7 +41,7 @@ class CalcDBDesign extends AbstractCalcDBComponent {
      * @return
      */
     public String getParentLocationName() {
-        getStringProperty("locationName")
+        getStringProperty("locationLabel")
     }
 
     /**
@@ -59,7 +59,7 @@ class CalcDBDesign extends AbstractCalcDBComponent {
      * @return
      */
     public String getParentProjectName() {
-        getStringProperty("projectName")
+        getStringProperty("projectLabel")
     }
 
     /**

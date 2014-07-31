@@ -139,7 +139,7 @@
                 },
 				"parameters":[
 					{
-						"id":"projectName",
+						"id":"projectLabel",
 						"description":"The name of the parent Calc project",
 						"required":false,
 						"type":"string"
@@ -251,7 +251,7 @@
                 },
 				"parameters":[
 					{
-						"id":"projectName",
+						"id":"projectLabel",
 						"description":"The name of the parent Calc project",
 						"required":false,
 						"type":"string"
