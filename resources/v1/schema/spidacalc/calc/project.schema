@@ -22,7 +22,7 @@
     },
     "version": {
       "type": "number",
-      "description": "This is the integer"
+      "description": "This is a schema version integer."
     },
     "clientFile": {
       "type": "string",
