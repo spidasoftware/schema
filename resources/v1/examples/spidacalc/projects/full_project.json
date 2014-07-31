@@ -1,6 +1,6 @@
 {
   "schema": "https://raw.github.com/spidasoftware/schema/master/resources/v1/schema/spidacalc/calc/project.schema",
-  "version": "0.7",
+  "version": 1,
   "clientFile": "Demo.client",
   "date": "2011-02-21",
   "leads":   [

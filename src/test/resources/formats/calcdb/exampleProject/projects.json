@@ -2,7 +2,7 @@
 	"status": "ok",
 	"projects": [
 		{
-          "version":"0.8",
+          "version":1,
         	"_id":"52d065f4e4b0576ebf7c3903",
         	"dateModified": 1383596555754,
         	"locations":[
