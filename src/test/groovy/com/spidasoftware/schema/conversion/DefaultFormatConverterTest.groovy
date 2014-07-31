@@ -1,5 +1,6 @@
 package com.spidasoftware.schema.conversion
 
+import com.github.fge.jsonschema.report.ProcessingReport
 import com.spidasoftware.schema.validation.Validator
 import groovy.util.logging.Log4j
 import net.sf.json.JSONArray
@@ -13,6 +14,39 @@ class DefaultFormatConverterTest extends Specification {
     double epsilon = 0.000001
 
     def converter = new DefaultFormatConverter()
+
+	void "test converting calc to referenced and back again"(){
+		setup: "start with a calc project"
+		def calcProject = getCalcProject("four-locations-one-lead-project.json")
+
+		and: "validate json to make sure it's valid before format conversion"
+		assert jsonIsValid(calcProject), "Starting project JSON is valid against schema"
+
+		when: "convert the project to calcdb components"
+		def calcdbComponents = converter.convertCalcProject(calcProject)
+
+		then: "just a quick check to make sure it converted all of the components"
+		calcdbComponents.size() == 17
+
+		when: "convert the project back to calc format"
+		CalcDBProject p = calcdbComponents.find{it instanceof CalcDBProject}
+		List calcdbLocations = calcdbComponents.findAll{ it instanceof CalcDBLocation }
+		List calcdbDesigns = calcdbComponents.findAll{ it instanceof CalcDBDesign }
+		JSONObject reconstitutedCalcProject = converter.convertCalcDBProject(p, calcdbLocations, calcdbDesigns)
+
+		then: "the reconstituted project should be valid against the schema"
+		jsonIsValid(reconstitutedCalcProject)
+
+	}
+
+	boolean jsonIsValid(JSONObject projectJson) {
+		ProcessingReport report = new Validator().validateAndReport("/v1/schema/spidacalc/calc/project.schema", projectJson.toString())
+		if (!report.isSuccess()) {
+			println "JSON does not validate against schema:"
+			println report.toString()
+		}
+		return report.isSuccess()
+	}
 
     void "analysis results should get collected properly by component"(){
         setup: "load the results from a design"
