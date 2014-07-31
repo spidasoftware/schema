@@ -68,7 +68,7 @@ class DefaultFormatConverterTest extends Specification {
             def right = (it.worstPoleResult.actual > 0.0)
             if (!right){
                 // it just ain't right
-                log.debug "***** Incorrect worstPoleResult: design: ${it.locationName} - ${it.label}, result: ${it.worstPoleResult}"
+                log.debug "***** Incorrect worstPoleResult: design: ${it.locationLabel} - ${it.label}, result: ${it.worstPoleResult}"
             }
             assertTrue("every design should have a proper worstPoleResult", right)
         }

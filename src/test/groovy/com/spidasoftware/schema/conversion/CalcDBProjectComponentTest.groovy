@@ -22,9 +22,9 @@ public class CalcDBProjectComponentTest {
         JSONObject location = projectJSON.getJSONArray('leads').getJSONObject(0).getJSONArray('locations').getJSONObject(0)
         JSONObject designJson = location.getJSONArray('designs').getJSONObject(0)
         designJson.put('_id', "ffaa00")
-        designJson.put('locationName', 'ExistingLocation')
+        designJson.put('locationLabel', 'ExistingLocation')
         designJson.put('locationId', '12345')
-        designJson.put('projectName', 'ImportTestProject')
+        designJson.put('projectLabel', 'ImportTestProject')
         designJson.put('projectId', '678910')
 
         CalcDBDesign design = new CalcDBDesign(designJson)
@@ -42,7 +42,7 @@ public class CalcDBProjectComponentTest {
 
         def designIds = ['12345', '678910']
         locationJson.put('designs', JSONArray.fromObject(designIds))
-        locationJson.put("projectName", "ImportTestProject")
+        locationJson.put("projectLabel", "ImportTestProject")
         locationJson.put("projectId", "00ff00")
         String dateMod = "2014-03-26T12:42:19.852Z"
         Date equivalentDate = new Date(1395837739000)
