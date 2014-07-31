@@ -60,15 +60,10 @@ public abstract class AbstractCalcDBComponent implements CalcDBProjectComponent 
     @Override
     public Date getDateModified() {
         try {
-            String s = getJSON().getString("dateModified")
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
-            // this is here because java sucks at parsing ISO Dates and doesn't understand the 'Z' short hand
-            sdf.setTimeZone(TimeZone.getTimeZone("GMT"))
-            return sdf.parse(s)
+            long time = json.getLong('dateModified')
+	        return new Date(time)
         } catch (JSONException e) {
-            log.error("CalcDB Component does not have a dateModified");
-        } catch (ParseException e) {
-            log.error("Could not parse the dateModified field into a Date", e)
+            log.error("CalcDB Component does not have a dateModified", e);
         }
         return null
     }

@@ -15,7 +15,7 @@ class DefaultFormatConverter implements FormatConverter {
         List<CalcDBProjectComponent> components = []
         addDBIdsToProject(calcProject)
         JSONObject convertedProject = JSONObject.fromObject(calcProject)
-        convertedProject.put("dateModified", getFormattedDate(new Date()))
+        convertedProject.put("dateModified", new Date().time)
         if (calcProject.containsKey("projectForms")) {
             convertedProject.put("projectForms", calcProject.get("projectForms"))
         }
@@ -54,7 +54,7 @@ class DefaultFormatConverter implements FormatConverter {
             convertedLocation.put("clientFile", calcProject.getString("clientFile"))
             convertedLocation.put("clientFileVersion", calcProject.getString("clientFileVersion"))
         }
-        convertedLocation.put("dateModified", getFormattedDate(new Date()))
+        convertedLocation.put("dateModified", new Date().time)
         components.add(new CalcDBLocation(convertedLocation))
         return components
     }
@@ -74,7 +74,7 @@ class DefaultFormatConverter implements FormatConverter {
             convertedDesign.put("clientFileVersion", calcProject.get("clientFileVersion"))
         }
 
-        convertedDesign.put("dateModified", getFormattedDate(new Date()))
+        convertedDesign.put("dateModified", new Date().time)
 
         //We're going to rearrange these properties in the new design object, so remove them
         convertedDesign.remove("analysis")
@@ -359,18 +359,6 @@ class DefaultFormatConverter implements FormatConverter {
 
     private String newPrimaryKey() {
         return new ObjectId().toString()
-    }
-
-    private String getFormattedDate(Date date) {
-        try {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
-            // this is here because java sucks at parsing ISO Dates and doesn't understand the 'Z' short hand
-            sdf.setTimeZone(TimeZone.getTimeZone("GMT"))
-            return sdf.format(date)
-        } catch (ParseException e) {
-            log.error("Could not format the date field as a string", e)
-            return null
-        }
     }
 
     private Map<String, CalcDBProjectComponent> buildCalcDBIdMap(Collection<CalcDBProjectComponent> components) {

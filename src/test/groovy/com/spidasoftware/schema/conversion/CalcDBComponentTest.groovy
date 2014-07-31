@@ -44,7 +44,7 @@ public class CalcDBComponentTest {
     @Test
     public void testGetDateModified() throws Exception {
         ["project", "location", "design"].each {
-            log.debug "${it} dateModified= " + this."$it".getDateModified() + ", dateString= ${this."$it".getJSON().getString("dateModified")}"
+            log.debug "${it} dateModified= " + this."$it".getDateModified() + ", dateLong= ${this."$it".getJSON().getLong("dateModified")}"
             assertNotNull("getDateModified should return the Date", this."$it".getDateModified())
         }
     }

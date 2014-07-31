@@ -3,7 +3,7 @@
     "designs": [{
         "_id": "52d065f1e4b0576ebf7c3902",
         "id": "Measured Design",
-        "dateModified": "2014-01-10T21:28:17Z",
+        "dateModified": 1383596555754,
         "structure": {
             "wires": [],
             "equipments": [],

@@ -111,12 +111,10 @@ class DefaultFormatConverterTest extends Specification {
     def "designs should be converted by themselves"(){
         when:
         def design = converter.convertCalcDesign(current, null, null)?.getJSON()
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
-        sdf.setTimeZone(TimeZone.getTimeZone("GMT"))
 
         then:
         design.structure.pole.analysisResults.size() > 0
-        sdf.parse(design.dateModified) instanceof Date
+        design.getLong('dateModified')
         design.worstPoleResult instanceof JSONObject
 
         where:
