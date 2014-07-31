@@ -8,7 +8,6 @@ import net.sf.json.JSONObject
 class VersionUtilsTests extends GroovyTestCase {
 
 	void setUp(){
-		VersionUtils.metaClass.static.getSchemaJarFile = { new File("path/to/schema-3.jar") }
 	}
 
 	void tearDown(){
@@ -47,16 +46,6 @@ class VersionUtilsTests extends GroovyTestCase {
 		assert VersionUtils.getVersionFromFileName(new File("1")) == "1"
 		assert VersionUtils.getVersionFromFileName(new File("path/to/.s.c.h.e.m.a-1.2.3.4-ABC.ABC.ABC.jar")) == "1.2.3.4"
 		assert VersionUtils.getVersionFromFileName(new File("path/to/A....B")) == null
-	}
-
-	void testAddCurrentVersion() {
-		assert VersionUtils.getSchemaJarVersion() == "3"
-		
-		def jsonObject = new JSONObject()
-		VersionUtils.addSchemaJarVersion(jsonObject)
-		assert jsonObject.version == "3"
-		
-		assert VersionUtils.addSchemaJarVersion("{}") == '{"version":"3"}'
 	}
 
 }

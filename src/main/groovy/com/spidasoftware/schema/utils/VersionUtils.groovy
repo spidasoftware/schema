@@ -2,13 +2,12 @@ package com.spidasoftware.schema.utils
 
 import groovy.util.logging.Log4j
 import org.apache.commons.io.FilenameUtils
-import net.sf.json.JSONObject
 
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
 /**
- * Created by jeremy on 4/15/14.
+ * Utilities for dealing with version number strings.
  */
 @Log4j
 class VersionUtils {
@@ -23,32 +22,6 @@ class VersionUtils {
 	 */
 	static Matcher getMatcher(String version) {
 		return pattern.matcher(version)
-	}
-
-	/**
-	 * gets the version string from this schema's jar file name
-	 * @return
-	 */
-	static String getSchemaJarVersion() {
-		getVersionFromFileName(getSchemaJarFile())
-	}
-
-	/**
-	 * adds the version string to the json object
-	 * @return
-	 */
-	static String addSchemaJarVersion(String json) {
-		def jsonObject = JSONObject.fromObject(json)
-		addSchemaJarVersion(jsonObject)
-		return jsonObject.toString()
-	}
-
-	/**
-	 * adds the version string to the json object
-	 * @return
-	 */
-	static String addSchemaJarVersion(JSONObject jsonObject) {
-		jsonObject.version = getVersionFromFileName(getSchemaJarFile())
 	}
 
 	/**
@@ -117,10 +90,10 @@ class VersionUtils {
 	 * returns the jar file this class is in
 	 * @return
 	 */
-	static File getSchemaJarFile(){
+	static File getJarFile(Class clazz){
 		File file = null
 		try {
-			file = new File(VersionUtils.class.getProtectionDomain().getCodeSource().getLocation().toURI())
+			file = new File(clazz.getProtectionDomain().getCodeSource().getLocation().toURI())
 		} catch (ex) {
 			log.error("unable to get jar file path", ex)
 		}
