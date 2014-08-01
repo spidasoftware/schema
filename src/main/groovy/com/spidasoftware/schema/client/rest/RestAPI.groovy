@@ -26,7 +26,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock
  */
 @Log4j
 class RestAPI {
-	static List<String> allowedDefaultsProperties = ["headers", "additionalParams" , "doWithResponse", "doWithFindResult", "doWithSaveResult", "doWithUpdateResult", "doWithDeleteResult", "doWithListResult"]
+	static List<String> allowedDefaultsProperties = ["headers", "additionalParams" , "doWithResponse", "doWithFindResult", "doWithSaveResult", "doWithUpdateResult", "doWithDeleteResult", "doWithListResult", "format"]
 	ReentrantReadWriteLock defaultsLock = new ReentrantReadWriteLock()
 
 	/**
@@ -124,7 +124,7 @@ class RestAPI {
 	def find(ConfigObject settings, String id) {
 		def config = mergeConfig(settings)
 
-		URI uri = createURI(config.path, id)
+		URI uri = createURI(config.path, id, config.format?:"")
 		Map headers = config.headers
 		def result = client.executeRequest("GET", uri, config.additionalParams, headers, config.doWithResponse)
 		return config.doWithFindResult.call(result)
@@ -133,7 +133,7 @@ class RestAPI {
 	@WithReadLock("defaultsLock")
 	def list(ConfigObject settings, Map params) {
 		def config = mergeConfig(settings)
-		URI uri = createURI(config.path)
+		URI uri = createURI(config.path,null, config.format?:"")
 		Map headers = config.headers
 		def result = client.executeRequest("GET", uri, mergeParams(params, config.additionalParams), headers, config.doWithResponse)
 		return config.doWithListResult.call(result)
@@ -142,7 +142,7 @@ class RestAPI {
 	@WithReadLock("defaultsLock")
 	def update(ConfigObject settings, Map params, String id) {
 		def config = mergeConfig(settings)
-		URI uri = createURI(config.path, id)
+		URI uri = createURI(config.path, id, config.format?:"")
 		Map headers = config.headers
 		def result = client.executeRequest("PUT", uri, mergeParams(params, config.additionalParams), headers, config.doWithResponse)
 
@@ -152,7 +152,7 @@ class RestAPI {
 	@WithReadLock("defaultsLock")
 	def save(ConfigObject settings, Map params) {
 		def config = mergeConfig(settings)
-		URI uri = createURI(config.path)
+		URI uri = createURI(config.path, null, config.format?:"")
 		Map headers = config.headers
 
 		def result = client.executeRequest("POST", uri, mergeParams(params, config.additionalParams), headers, config.doWithResponse)
@@ -163,7 +163,7 @@ class RestAPI {
 	@WithReadLock("defaultsLock")
 	def delete(ConfigObject settings, String id) {
 		def config = mergeConfig(settings)
-		URI uri = createURI(config.path, id)
+		URI uri = createURI(config.path, id, config.format?:"")
 		Map headers = config.headers
 		def result = client.executeRequest("DELETE", uri, config.additionalParams, headers, config.doWithResponse)
 
@@ -177,7 +177,7 @@ class RestAPI {
 	}
 
 
-	URI createURI(String path, String id = null) {
+	URI createURI(String path, String id = null, String format = null) {
 		StringBuilder sb = new StringBuilder()
 		String base
 		if (baseUrl.endsWith('/')) {
@@ -190,6 +190,11 @@ class RestAPI {
 		}
 		if (id) {
 			sb.append("/" + id)
+		}
+
+		// rest uses a special standard for format instead of just putting in the parameters
+		if (format) {
+			sb.append(".${format}")
 		}
 
 		return new URI(sb.toString())
