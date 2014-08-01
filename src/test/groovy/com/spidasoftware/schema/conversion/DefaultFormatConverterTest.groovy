@@ -108,6 +108,20 @@ class DefaultFormatConverterTest extends Specification {
         }
     }
 
+	void "format converter should not barf when 'clientFile' and 'clientFileVersion' fields are missing"(){
+		setup: "get calc project json and remove those fields"
+		def projectJson = getCalcProject("18-locations-analyzed.json")
+		projectJson.remove('clientFile')
+		projectJson.remove('clientFileVersion')
+
+		when: "convert the project json into calcdb components"
+		converter.convertCalcProject(projectJson)
+
+		then: "shouldn't throw any exceptions"
+		notThrown(Exception)
+
+	}
+
     def "designs should be converted by themselves"(){
         when:
         def design = converter.convertCalcDesign(current, null, null)?.getJSON()

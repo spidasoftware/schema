@@ -49,10 +49,10 @@ class DefaultFormatConverter implements FormatConverter {
         convertedLocation.remove("designs") //get rid of the old designs
         convertedLocation.put("designs", designList)  //replace with the array of design_id's
         if (calcProject) {
-            convertedLocation.put("projectLabel", calcProject.getString("label"))
+            convertedLocation.put("projectLabel", calcProject.get("label"))
             convertedLocation.put("projectId", calcProject.get("_id").toString())
-            convertedLocation.put("clientFile", calcProject.getString("clientFile"))
-            convertedLocation.put("clientFileVersion", calcProject.getString("clientFileVersion"))
+            convertedLocation.put("clientFile", calcProject.get("clientFile"))
+            convertedLocation.put("clientFileVersion", calcProject.get("clientFileVersion"))
         }
         convertedLocation.put("dateModified", new Date().time)
         components.add(new CalcDBLocation(convertedLocation))
@@ -68,9 +68,9 @@ class DefaultFormatConverter implements FormatConverter {
             convertedDesign.put("locationId", calcLocation.get("_id").toString())
         }
         if (calcProject){
-            convertedDesign.put("projectLabel", calcProject.getString("label"))
+            convertedDesign.put("projectLabel", calcProject.get("label"))
             convertedDesign.put("projectId", calcProject.get("_id").toString())
-            convertedDesign.put("clientFile", calcProject.getString("clientFile"))
+            convertedDesign.put("clientFile", calcProject.get("clientFile"))
             convertedDesign.put("clientFileVersion", calcProject.get("clientFileVersion"))
         }
 
@@ -174,7 +174,7 @@ class DefaultFormatConverter implements FormatConverter {
         analysisList.each { loadCase ->
             loadCase.get("results").each { result ->
                 JSONObject resultObject = (JSONObject) result
-                if (resultObject.getString("component") == componentId) {
+                if (resultObject.get("component") == componentId) {
                     results.add(resultObject)
                 }
             }
@@ -308,7 +308,7 @@ class DefaultFormatConverter implements FormatConverter {
     JSONObject createLocationJsonForDesign(CalcDBDesign calcDBDesign) {
         JSONObject designJson = calcDBDesign.getJSON()
         JSONObject locationObject = new JSONObject()
-        String locationId = designJson.getString("locationLabel")
+        String locationId = designJson.get("locationLabel")
         if (locationId != null && !locationId.isEmpty()) {
             locationObject.put("id", locationId)
         }
