@@ -179,7 +179,6 @@ class RestAPI {
 
 	URI createURI(String path, String id = null, String format = null) {
 		StringBuilder sb = new StringBuilder()
-		String base
 		if (baseUrl.endsWith('/')) {
 			sb.append(baseUrl.substring(0, baseUrl.lastIndexOf('/')))
 		} else {
