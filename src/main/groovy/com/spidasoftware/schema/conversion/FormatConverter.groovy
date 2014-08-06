@@ -14,26 +14,26 @@ class FormatConverter {
     static Collection<CalcDBProjectComponent> convertCalcProject(Map calcProject) {
         List<CalcDBProjectComponent> components = []
         addDBIdsToProject(calcProject)
-        JSONObject convertedProject = JSONObject.fromObject(calcProject)
-        convertedProject.put("dateModified", new Date().time)
-        if (calcProject.containsKey("projectForms")) {
-            convertedProject.put("projectForms", calcProject.get("projectForms"))
-        }
+	    JSONObject referencedProject = new JSONObject()
+	    referencedProject.put("dateModified", new Date().time)
 
-        convertedProject.remove("schema")
-        int locationCount = 0
-        JSONArray newLocations = new JSONArray()
-        calcProject.leads.each { lead ->
-            lead.locations.each { location ->
-                components.addAll(convertCalcLocation(location, calcProject))
-                newLocations.add(location["_id"].toString())
-                locationCount++
-            }
-        }
-        convertedProject.remove("leads")
-        convertedProject.put("locations", newLocations)
-        convertedProject.put("locationCount", locationCount)
-        components.add(new CalcDBProject(convertedProject))
+	    //Project JSON that will get added to the referencedProject
+	    JSONObject convertedProject = JSONObject.fromObject(calcProject)
+	    convertedProject.leads.each{lead->
+		    lead.locations.each{location->
+			    components.addAll(convertCalcLocation(location, calcProject))
+
+			    //clear out everything except the label and id
+			    def locId = location.id
+			    def locLabel = location.label
+			    location.clear()
+			    location.put("id", locId)
+			    location.put("label", locLabel)
+
+		    }
+	    }
+
+        components.add(new CalcDBProject(referencedProject))
         return components
     }
 
@@ -214,8 +214,8 @@ class FormatConverter {
     }
 
     private static Map addDBId(Map thing) {
-        if (!thing.containsKey("_id")){
-            thing."_id" = newPrimaryKey()
+        if (!thing.containsKey("id")){
+            thing.id = newPrimaryKey()
         }
         return thing
     }
