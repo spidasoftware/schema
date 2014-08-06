@@ -163,7 +163,7 @@ class RestAPI {
 	@WithReadLock("defaultsLock")
 	def delete(ConfigObject settings, String id) {
 		def config = mergeConfig(settings)
-		URI uri = createURI(config.path, id, config.format?:"")
+		URI uri = createURI(config.path, id, "")
 		Map headers = config.headers
 		def result = client.executeRequest("DELETE", uri, config.additionalParams, headers, config.doWithResponse)
 

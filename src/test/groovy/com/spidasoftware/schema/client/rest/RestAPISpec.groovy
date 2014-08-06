@@ -71,7 +71,7 @@ class RestAPISpec extends Specification {
 		config.path = "/tests"
 		config.name = "tests"
 		config.headers = ["Accept": "application/json"]
-		config.format = ""
+		config.format = "referenced"
 
 		def saveParams = ["name":"value"]
 		Map combinedParams = saveParams.plus(config.additionalParams as Map) as Map
@@ -81,21 +81,21 @@ class RestAPISpec extends Specification {
 		def result = api.find(config, "123")
 
 		then: "the correct methods should be called"
-		1*client.executeRequest("GET", new URI(baseUrl + "/tests/123"), _ as Map, _ as Map, config.doWithResponse) >> "response"
+		1*client.executeRequest("GET", new URI(baseUrl + "/tests/123.referenced"), _ as Map, _ as Map, config.doWithResponse) >> "response"
 		1*config.doWithFindResult.call("response")
 
 		when: "call the list method"
 		def listResult = api.list(config, saveParams)
 
 		then:
-		1*client.executeRequest("GET", new URI(baseUrl + "/tests"), _ as Map, _ as Map, config.doWithResponse) >> "response"
+		1*client.executeRequest("GET", new URI(baseUrl + "/tests.referenced"), _ as Map, _ as Map, config.doWithResponse) >> "response"
 		1*config.doWithListResult.call("response")
 
 		when: "call the update method"
 		api.update(config, saveParams, "123")
 
 		then:
-		1*client.executeRequest("PUT", new URI(baseUrl + "/tests/123"), _ as Map, _ as Map, config.doWithResponse) >> "response"
+		1*client.executeRequest("PUT", new URI(baseUrl + "/tests/123.referenced"), _ as Map, _ as Map, config.doWithResponse) >> "response"
 		1*config.doWithUpdateResult.call("response")
 
 		when: "call the delete method"
@@ -109,7 +109,7 @@ class RestAPISpec extends Specification {
 		api.save(config, saveParams)
 
 		then:
-		1*client.executeRequest("POST", new URI(baseUrl + "/tests"), _ as Map, _ as Map, config.doWithResponse) >> "response"
+		1*client.executeRequest("POST", new URI(baseUrl + "/tests.referenced"), _ as Map, _ as Map, config.doWithResponse) >> "response"
 		1*config.doWithSaveResult.call("response")
 
 	}
