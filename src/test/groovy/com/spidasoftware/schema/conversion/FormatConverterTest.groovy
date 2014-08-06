@@ -13,6 +13,35 @@ import static org.junit.Assert.*
 class FormatConverterTest extends Specification {
     double epsilon = 0.000001
 
+	void "Referenced components should still be valid against the schema"(){
+		setup: "load calc project json"
+		def calcProject = getCalcProject("four-locations-one-lead-project.json")
+		Validator validator = new Validator()
+
+		when: "convert to a list of referenced components"
+		def refCompList = FormatConverter.convertCalcProject(calcProject)
+
+		then: "the project should validate against the schema"
+		def refProject = refCompList.find{it instanceof CalcDBProject}
+		def projectReport = validator.validateAndReport("/v1/schema/calcdb/referencedProject.schema", refProject.getJSON().toString())
+		projectReport.isSuccess()
+
+		then: "the locations should validate against the schema"
+		def refLocations = refCompList.findAll{ it instanceof CalcDBLocation}
+		refLocations.each{
+			def locationReport = validator.validateAndReport("/v1/schema/calcdb/referencedLocation.schema", it.getJSON().toString())
+			assert locationReport.isSuccess(), "location: ${it.getName()} failed validation"
+		}
+
+		then: "the designs should validate against the schema"
+		def refDesigns = refCompList.findAll{it instanceof CalcDBDesign}
+		refDesigns.each{CalcDBDesign it->
+			def designReport = validator.validateAndReport("/v1/schema/calcdb/referencedDesign.schema", it.getJSON().toString())
+			assert designReport.isSuccess(), "Design: ${it.getName()} at ${it.getParentLocationName()} in invalid"
+		}
+
+	}
+
 	void "test converting calc to referenced and back again"(){
 		setup: "start with a calc project"
 		def calcProject = getCalcProject("four-locations-one-lead-project.json")

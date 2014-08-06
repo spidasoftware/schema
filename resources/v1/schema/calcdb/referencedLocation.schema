@@ -1,0 +1,41 @@
+{
+    "type": "object",
+    "description": "Location data, as it is stored in CalcDB",
+    "required": [
+        "calcLocation",
+        "dateModified",
+        "id"
+    ],
+    "properties": {
+        "id": {
+            "type": "string",
+            "description": "The unique id of this project component"
+        },
+        "calcLocation": {
+            "$ref": "../spidacalc/calc/location.schema"
+        },
+        "projectId": {
+            "type": "string",
+            "description": "The id (in calcdb) of the parent Project"
+        },
+        "projectLabel": {
+            "type": "string",
+            "description": "The label of the parent Project, if there is one"
+        },
+        "clientFile": {
+            "type": "string",
+            "description": "The name of the Client Data file used in the parent project"
+        },
+        "clientFileVersion": {
+            "type": "string",
+            "description": "The version of the Client Data file used in the parent project"
+        },
+        "dateModified": {
+            "$ref": "../general/long_date.schema"
+        },
+        "version": {
+            "type": "number",
+            "description": "This is a schema version integer."
+        }
+    }
+}
