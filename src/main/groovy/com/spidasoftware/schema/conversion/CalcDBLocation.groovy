@@ -26,11 +26,7 @@ class CalcDBLocation extends AbstractCalcDBComponent {
      * @return
      */
     public List<String> getDesignIds() {
-        List<String> ids = new ArrayList<>()
-        for (Object o : getJSON().getJSONArray("designs")) {
-            ids.add((String) o)
-        }
-        return ids
+        getCalcJSON().getJSONArray('designs').collect{JSONObject design-> design.id}
     }
 
 	@Override
@@ -50,8 +46,8 @@ class CalcDBLocation extends AbstractCalcDBComponent {
     public List<String> getPhotoIds() {
         List<String> ids = new ArrayList<>()
 
-        if (getJSON().containsKey("images")) {
-            for (Object image : getJSON().getJSONArray("images")) {
+        if (getCalcJSON().containsKey("images")) {
+            for (Object image : getCalcJSON().getJSONArray("images")) {
                 JSONObject j = (JSONObject) image
                 if (j.containsKey("link") && j.getJSONObject("link").containsKey("id")) {
                     ids.add(j.getJSONObject("link").getString("id"))

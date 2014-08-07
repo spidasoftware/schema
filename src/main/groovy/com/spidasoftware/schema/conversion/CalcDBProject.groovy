@@ -20,8 +20,13 @@ class CalcDBProject extends AbstractCalcDBComponent {
      * @return the SPIDAdb ids of the locations contained in this project
      */
     List<String> getChildLocationIds(){
-        return getJSON().getJSONArray("locations").collect { it.toString() }
+        return getCalcJSON().getJSONArray("leads").collect{JSONObject lead-> lead.locations}.flatten().collect {JSONObject location-> location.id }
     }
+
+	@Override
+	String getClientFileName() {
+		return getCalcJSON().getString('clientFile')
+	}
 
 	@Override
 	JSONObject getCalcJSON() {
