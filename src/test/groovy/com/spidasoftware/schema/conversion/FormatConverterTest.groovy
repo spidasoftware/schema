@@ -30,14 +30,14 @@ class FormatConverterTest extends Specification {
 		def refLocations = refCompList.findAll{ it instanceof CalcDBLocation}
 		refLocations.each{
 			def locationReport = validator.validateAndReport("/v1/schema/calcdb/referencedLocation.schema", it.getJSON().toString())
-			assert locationReport.isSuccess(), "location: ${it.getName()} failed validation"
+			assert locationReport.isSuccess(), "location: ${it.getName()} failed validation: \n${locationReport}"
 		}
 
 		then: "the designs should validate against the schema"
 		def refDesigns = refCompList.findAll{it instanceof CalcDBDesign}
 		refDesigns.each{CalcDBDesign it->
 			def designReport = validator.validateAndReport("/v1/schema/calcdb/referencedDesign.schema", it.getJSON().toString())
-			assert designReport.isSuccess(), "Design: ${it.getName()} at ${it.getParentLocationName()} in invalid"
+			assert designReport.isSuccess(), "Design: ${it.getName()} at ${it.getParentLocationName()} in invalid \n${designReport}"
 		}
 
 	}

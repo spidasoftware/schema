@@ -34,13 +34,13 @@ public abstract class AbstractCalcDBComponent implements CalcDBProjectComponent 
 
     @Override
     public String getName() {
-        return getJSON().getString("label")
+        return getCalcJSON().getString("label")
     }
 
     @Override
     public String getCalcDBId() {
         try {
-            return getJSON().getString("_id")
+            return getJSON().getString("id")
         } catch (JSONException e) {
             log.error("CalcDB Component does not have an _id")
         }
@@ -67,5 +67,7 @@ public abstract class AbstractCalcDBComponent implements CalcDBProjectComponent 
         }
         return null
     }
+
+	abstract JSONObject getCalcJSON()
 
 }

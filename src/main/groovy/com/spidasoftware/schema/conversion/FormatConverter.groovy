@@ -15,6 +15,7 @@ class FormatConverter {
         List<CalcDBProjectComponent> components = []
         addDBIdsToProject(calcProject)
 	    JSONObject referencedProject = new JSONObject()
+	    referencedProject.put('id', calcProject.id)
 	    referencedProject.put("dateModified", new Date().time)
 
 	    //Project JSON that will get added to the referencedProject
@@ -24,6 +25,7 @@ class FormatConverter {
 			    components.addAll(convertCalcLocation(location, calcProject))
 
 			    //clear out everything except the label and id
+			    //These will be kept as references to the child components
 			    def locId = location.id
 			    def locLabel = location.label
 			    location.clear()
@@ -32,7 +34,7 @@ class FormatConverter {
 
 		    }
 	    }
-
+		referencedProject.put("calcProject", convertedProject)
         components.add(new CalcDBProject(referencedProject))
         return components
     }
@@ -44,22 +46,34 @@ class FormatConverter {
     static Collection<CalcDBProjectComponent> convertCalcLocation(Map calcLocation, Map calcProject) {
         ArrayList<CalcDBProjectComponent> components = []
         addDBIdsToLocation(calcLocation)
+
+	    JSONObject referencedLocation = new JSONObject()
+	    referencedLocation.put("dateModified", new Date().time)
+		referencedLocation.put('id', calcLocation.id)
+
+	    if (calcProject) {
+		    referencedLocation.put("projectLabel", calcProject.get("label"))
+		    referencedLocation.put("projectId", calcProject.get("id"))
+		    referencedLocation.put("clientFile", calcProject.get("clientFile"))
+		    referencedLocation.put("clientFileVersion", calcProject.get("clientFileVersion"))
+	    }
+
+	    //the calc location that will get saved as part of the referenced location
         JSONObject convertedLocation = JSONObject.fromObject(calcLocation)
-        JSONArray designList = new JSONArray()
         convertedLocation.get("designs").each { design ->
             components.add(convertCalcDesign(design, calcLocation, calcProject))
-            designList.add(design["_id"].toString())
+
+	        //clear out all the properties of the converted location's design
+	        //except for the id and label, which will be foreign key refs
+	        def desId = design.id
+	        def desLabel = design.label
+	        design.clear()
+	        design.id = desId
+	        design.label = desLabel
         }
-        convertedLocation.remove("designs") //get rid of the old designs
-        convertedLocation.put("designs", designList)  //replace with the array of design_id's
-        if (calcProject) {
-            convertedLocation.put("projectLabel", calcProject.get("label"))
-            convertedLocation.put("projectId", calcProject.get("_id").toString())
-            convertedLocation.put("clientFile", calcProject.get("clientFile"))
-            convertedLocation.put("clientFileVersion", calcProject.get("clientFileVersion"))
-        }
-        convertedLocation.put("dateModified", new Date().time)
-        components.add(new CalcDBLocation(convertedLocation))
+		referencedLocation.put('calcLocation', convertedLocation)
+
+        components.add(new CalcDBLocation(referencedLocation))
         return components
     }
 
@@ -73,34 +87,38 @@ class FormatConverter {
 
     static CalcDBDesign convertCalcDesign(Map calcDesign, Map calcLocation, Map calcProject) {
         addDBIdToDesign(calcDesign)
-        JSONObject convertedDesign = JSONObject.fromObject(calcDesign)
 
-        if (calcLocation){
-            convertedDesign.put("locationLabel", calcLocation.get("label").toString())
-            convertedDesign.put("locationId", calcLocation.get("_id").toString())
-        }
-        if (calcProject){
-            convertedDesign.put("projectLabel", calcProject.get("label"))
-            convertedDesign.put("projectId", calcProject.get("_id").toString())
-            convertedDesign.put("clientFile", calcProject.get("clientFile"))
-            convertedDesign.put("clientFileVersion", calcProject.get("clientFileVersion"))
-        }
+	    JSONObject referencedDesign = new JSONObject()
+	    referencedDesign.put("dateModified", new Date().time)
+		referencedDesign.put('id', calcDesign.id)
 
-        convertedDesign.put("dateModified", new Date().time)
+	    if (calcLocation){
+		    referencedDesign.put("locationLabel", calcLocation.get("label").toString())
+		    referencedDesign.put("locationId", calcLocation.get("id").toString())
+	    }
+	    if (calcProject){
+		    referencedDesign.put("projectLabel", calcProject.get("label"))
+		    referencedDesign.put("projectId", calcProject.get("id").toString())
+		    referencedDesign.put("clientFile", calcProject.get("clientFile"))
+		    referencedDesign.put("clientFileVersion", calcProject.get("clientFileVersion"))
+	    }
 
-        //We're going to rearrange these properties in the new design object, so remove them
-        convertedDesign.remove("analysis")
-        //add analysis results to each component
-        addAnalysisResultsToNewDesign(calcDesign, convertedDesign)
+	    JSONObject convertedDesign = JSONObject.fromObject(calcDesign)
+		referencedDesign.put("calcDesign", convertedDesign)
+        addAnalysisResultsToNewDesign(calcDesign, referencedDesign)
 
-        return new CalcDBDesign(convertedDesign)
+        return new CalcDBDesign(referencedDesign)
     }
 
-    private static void addAnalysisResultsToNewDesign(Map originalDesignObject, Map newDesignObject) {
+    private static void addAnalysisResultsToNewDesign(Map originalDesignObject, Map referencedDesign) {
         if (!originalDesignObject.containsKey("analysis")){
             log.trace("Design: ${originalDesignObject.label} does not contain any analysis results")
             return
         }
+
+	    //create the container for the worst-case results
+	    referencedDesign.worstCaseAnalysisResults = new JSONObject()
+
         List allOriginalAnalysisResults = originalDesignObject.analysis
         // Pole is a special Case, dealt with separately
         def analyzableComponentTypes = [
@@ -113,21 +131,19 @@ class FormatConverter {
                 "sidewalkBraces"
         ]
         analyzableComponentTypes.each { String type ->
-            def componentList = newDesignObject.structure."$type"
+            def componentList = originalDesignObject.structure."$type"
             if (componentList && !componentList.isEmpty()){
 
                 List allResultsForType = []
                 componentList.each { component ->
                     List componentResults = getResultsForComponent(component.id, allOriginalAnalysisResults)
-                    component.put("analysisResults", componentResults)
                     allResultsForType.addAll(componentResults)
                 }
 
                 def worstResultForType = getWorstResult(allResultsForType)
                 if (worstResultForType){
                     // generate the property name for the new design json (i.e. 'worstAnchorResult')
-                    def propName = type[0..-2].capitalize() // take off the "s" at the end, e.g. "anchors" -> "anchor"
-                    newDesignObject.put("worst${propName}Result", worstResultForType)
+                    referencedDesign.worstCaseAnalysisResults.put(type, worstResultForType)
                 }
             }
         }
@@ -136,8 +152,7 @@ class FormatConverter {
         List allPoleResults = collectPoleResults(allOriginalAnalysisResults)
 
         if (!allPoleResults.isEmpty()){
-            newDesignObject.put("worstPoleResult", getWorstResult(allPoleResults))
-            newDesignObject.structure.pole.analysisResults = allPoleResults
+            referencedDesign.worstCaseAnalysisResults.put("pole", getWorstResult(allPoleResults))
         } else {
             log.warn("Design ${originalDesignObject.label} has analysis results, but no results exist for the Pole")
         }

@@ -53,6 +53,11 @@ class CalcDBDesign extends AbstractCalcDBComponent {
         getStringProperty("locationId")
     }
 
+	@Override
+	JSONObject getCalcJSON() {
+		return getJSON().getJSONObject('calcDesign')
+	}
+
     /**
      * returns the name of this design's parent project if it has one.
      * otherwise returns null.

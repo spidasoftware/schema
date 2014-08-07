@@ -33,6 +33,11 @@ class CalcDBLocation extends AbstractCalcDBComponent {
         return ids
     }
 
+	@Override
+	JSONObject getCalcJSON() {
+		return getJSON().getJSONObject('calcLocation')
+	}
+
     @Override
     String toString(){
         return getName()?: "Location"

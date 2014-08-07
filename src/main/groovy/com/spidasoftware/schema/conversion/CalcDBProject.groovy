@@ -23,7 +23,12 @@ class CalcDBProject extends AbstractCalcDBComponent {
         return getJSON().getJSONArray("locations").collect { it.toString() }
     }
 
-    @Override
+	@Override
+	JSONObject getCalcJSON() {
+		return getJSON().getJSONObject('calcProject')
+	}
+
+	@Override
     String toString() {
         return getName()?: "Project"
     }
