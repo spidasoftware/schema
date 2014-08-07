@@ -1,6 +1,5 @@
 package com.spidasoftware.schema.conversion
 
-//import com.spidasoftware.schema.json.CalcDBProjectComponent
 import net.sf.json.JSONObject
 
 /**

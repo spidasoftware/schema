@@ -36,7 +36,7 @@ class CalcDBLocation extends AbstractCalcDBComponent {
 
     @Override
     String toString(){
-        return getName()?: "Location"
+        return getName()?: "Location without a label"
     }
 
     /**
@@ -61,19 +61,13 @@ class CalcDBLocation extends AbstractCalcDBComponent {
      * @return the id of the parent project, if one exists. otherwise null
      */
     public String getParentProjectId() {
-        if (getJSON()?.containsKey("projectId")) {
-            return getJSON().getString("projectId")
-        }
-        return null
+        getJSON().getString("projectId")
     }
 
     /**
      * @return the name of the parent project, if one exists. otherwise null
      */
     public String getParentProjectName(){
-        if (getJSON()?.containsKey("projectLabel")) {
-            return getJSON().getString("projectLabel")
-        }
-        return null
+	    getJSON().getString('projectLabel')
     }
 }

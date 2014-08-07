@@ -39,33 +39,18 @@ public abstract class AbstractCalcDBComponent implements CalcDBProjectComponent 
 
     @Override
     public String getCalcDBId() {
-        try {
-            return getJSON().getString("id")
-        } catch (JSONException e) {
-            log.error("CalcDB Component does not have an _id")
-        }
-        return null
+	    return getJSON().getString("id")
     }
 
     @Override
     public String getClientFileName() {
-        try {
-            return getJSON().getString("clientFile")
-        } catch (JSONException e) {
-            log.error("CalcDB Component does not have a ClientFile")
-        }
-        return null
+	    return getJSON().getString("clientFile")
     }
 
     @Override
     public Date getDateModified() {
-        try {
-            long time = json.getLong('dateModified')
-	        return new Date(time)
-        } catch (JSONException e) {
-            log.error("CalcDB Component does not have a dateModified", e);
-        }
-        return null
+	    long time = json.getLong('dateModified')
+	    return new Date(time)
     }
 
 	abstract JSONObject getCalcJSON()
