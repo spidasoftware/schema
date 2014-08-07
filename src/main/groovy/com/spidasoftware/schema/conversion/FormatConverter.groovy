@@ -243,51 +243,69 @@ class FormatConverter {
 
     static JSONObject convertCalcDBProject(CalcDBProject calcDBProject, Map<String,CalcDBLocation> calcDBLocationMap, Map<String, CalcDBDesign> calcDBDesignMap) {
         // new project json object that we can keep adding to
-        JSONObject convertedProject = JSONObject.fromObject(calcDBProject.getJSON())
-        convertedProject.schema = "/v1/schema/spidacalc/project.schema"
-
-        convertedProject.remove("locations")
-
-        JSONArray locationsArray = new JSONArray()
+        JSONObject convertedProject = JSONObject.fromObject(calcDBProject.getCalcJSON())
+        //TODO: need this?
+        //convertedProject.schema = "/v1/schema/spidacalc/project.schema"
 
         // first match up projects with their child locations and designs
         List<String> locationIds = calcDBProject.getChildLocationIds()
 
-        locationIds.each { String locationId ->
-            CalcDBLocation calcDBLocation = calcDBLocationMap.get(locationId)
-            if (calcDBLocation == null) {
-                log.debug("Skipping CalcDBLocation: " + locationId + " because it was not selected")
-            } else {
-                // remove the location from the map so it doesn't get in there twice
-                calcDBLocationMap.remove(locationId)
-                locationsArray.add(convertCalcDBLocation(calcDBLocation, calcDBDesignMap))
-            }
-        }
+	    JSONArray newLeadsArray = new JSONArray()
 
-        // now go through whatever locations and designs are left (not members of a selected project
-        calcDBLocationMap.values().each { CalcDBLocation location ->
-            JSONObject locationJson = convertCalcDBLocation(location, calcDBDesignMap)
-            locationsArray.add(locationJson)
-        }
+	    //first get all the child locations that are referenced in the project
+	    convertedProject.getJSONArray('leads').each{JSONObject leadStub->
+		    JSONArray calcLocations = new JSONArray()
 
-        // finally, for whatever designs are left without a location, add the design to a new location
-        List<CalcDBDesign> designsToRemove = []
+		    log.trace("iterating through locations in the referenced lead to look for matches in the calcDBLocationMap")
+		    leadStub.getJSONArray('locations').each { JSONObject locationStub ->
+			    if (calcDBLocationMap.containsKey(locationStub.id)) {
+				    log.debug("Adding location: ${locationStub.id} to the converted project")
+				    calcLocations.add(convertCalcDBLocation(calcDBLocationMap.get(locationStub.id), calcDBDesignMap))
+				    //remove the location from the map since it's been used
+				    calcDBLocationMap.remove(locationStub.id)
+			    }
+		    }
+
+		    //If any locations were added, then add the new lead
+		    if (!calcLocations.isEmpty()) {
+			    log.trace("Adding lead to the calc project")
+			    JSONObject calcLead = new JSONObject()
+			    if (leadStub.containsKey('label')) {
+				    calcLead.put('label', leadStub.label)
+			    }
+			    calcLead.put('locations', calcLocations)
+			    newLeadsArray.add(calcLead)
+		    }
+	    }
+
+
+	    // now go through whatever locations and designs are left (not members of a selected project
+	    JSONArray extraCalcLocations = new JSONArray() //will get added as the 'locations' in a lead
+
+	    calcDBLocationMap.values().each { CalcDBLocation location ->
+		    log.debug("adding orphaned CalcDB Location: ${location.getCalcDBId()}")
+	        JSONObject locationJson = convertCalcDBLocation(location, calcDBDesignMap)
+	        extraCalcLocations.add(locationJson)
+		    calcDBLocationMap.remove(location.getCalcDBId())
+	    }
+
+	    // finally, for whatever designs are left without a location, add the design to a new location
         calcDBDesignMap.values().each { CalcDBDesign design ->
             log.debug("Adding orphaned CalcDB Design: " + design.calcDBId)
             JSONObject locationFromDesign = createLocationJsonForDesign(design)
-            designsToRemove.add(design)
             calcDBDesignMap.remove(design.calcDBId)
-            locationsArray.add(locationFromDesign)
+            extraCalcLocations.add(locationFromDesign)
         }
-        JSONObject lead = new JSONObject()
-        lead.put("locations", locationsArray)
-        lead.put("id", "Lead")
 
-        JSONArray leadsArray = new JSONArray()
-        leadsArray.add(lead)
-        convertedProject.put("leads", leadsArray)
+	    if (!extraCalcLocations.isEmpty()) {
+		    JSONObject extLead = new JSONObject()
+		    extLead.put('locations', extraCalcLocations)
+		    newLeadsArray.add(extLead)
+	    }
 
-        ["_id", "dateModified", "locationCount"].each { convertedProject.remove(it) }
+	    convertedProject.put('leads', newLeadsArray)
+
+	    log.debug("Finished Converting CalcDB components to Calc project. Remaining locations: ${calcDBLocationMap.size()}, designs: ${calcDBDesignMap.size()}")
         return convertedProject
     }
 
@@ -296,51 +314,42 @@ class FormatConverter {
         return convertCalcDBLocation(calcDBLocation, calcDBDesignMap)
     }
 
+	/**
+	 * Will convert the calcDBLocation to a calc location. Any Designs that are referenced by the location AND are contained in the
+	 * <code>calcDBDesignMap</code> will be added to the Location and removed from the design map. Any extra designs in the design map
+	 * will be ignored. This behavior is different from how things are handled in the `convertCalcDBProject` method, which will add extra
+	 * locations and designs.
+	 *
+	 * @param calcDBLocation map of calcdbId to CalcDBLocation
+	 * @param calcDBDesignMap map of calcDBId to CalcDBDesign
+	 * @return a calc Location JSONObject that will be valid agians the location schema
+	 */
     static JSONObject convertCalcDBLocation(CalcDBLocation calcDBLocation, Map<String, CalcDBDesign> calcDBDesignMap) {
         log.debug("Adding CalcDBLocation: " + calcDBLocation.getName())
-        JSONObject convertedLocation = JSONObject.fromObject(calcDBLocation.getJSON())
-        convertedLocation.remove("designs")
-        JSONArray designs = new JSONArray()
+        JSONObject convertedLocation = JSONObject.fromObject(calcDBLocation.getCalcJSON())
+
+        JSONArray convertedDesigns = new JSONArray()
         calcDBLocation.getDesignIds().each { String designId ->
             CalcDBDesign calcDBDesign = calcDBDesignMap.get(designId)
             if (calcDBDesign != null) {
                 log.debug("Adding CalcDBDesign: " + designId + " to the Location")
                 calcDBDesignMap.remove(designId)
                 JSONObject convertedDesign = convertCalcDBDesign(calcDBDesign)
-                designs.add(convertedDesign)
+                convertedDesigns.add(convertedDesign)
             } else {
                 log.debug("Could not find a CalcDBDesign with the id: " + designId)
             }
         }
-        convertedLocation.put("designs", designs)
-        String comments = "Location Imported from CalcDB. Date last modified in CalcDB was: " + convertedLocation.get("dateModified").toString()
-        if (convertedLocation.containsKey("comments")) {
-            comments = comments + "\n\n" + convertedLocation.getString("comments")
-        }
-        convertedLocation.put("comments", comments)
-
-        [
-            "_id",
-            "clientFile",
-            "clientFileVersion",
-            "dateModified",
-            "projectId",
-            "projectLabel"
-        ].each { convertedLocation.remove(it) }
+        convertedLocation.put("designs", convertedDesigns)
 
         return convertedLocation
     }
 
     static JSONObject createLocationJsonForDesign(CalcDBDesign calcDBDesign) {
-        JSONObject designJson = calcDBDesign.getJSON()
         JSONObject locationObject = new JSONObject()
-        String locationId = designJson.get("locationLabel")
-        if (locationId != null && !locationId.isEmpty()) {
-            locationObject.put("id", locationId)
-        }
-        JSONObject coord = designJson.getJSONObject("geographicCoordinate")
-        if (coord != null && !coord.isNullObject()) {
-            locationObject.put("geographicCoordinate", coord)
+        String locationLabel = calcDBDesign.getParentLocationName()
+        if (locationLabel != null && !locationLabel.isEmpty()) {
+            locationObject.put("label", locationLabel)
         }
 
         JSONArray designsArray = new JSONArray()
@@ -348,39 +357,12 @@ class FormatConverter {
         designsArray.add(convertedDesign)
         locationObject.put("designs", designsArray)
 
-        locationObject.put("comments", "Generated Location from CalcDB Design: " + calcDBDesign.getCalcDBId() + " uploaded on: " + designJson.get("dateModified").toString())
+        locationObject.put("comments", "Generated Location from CalcDB Design: " + calcDBDesign.getCalcDBId() + " uploaded on: " + calcDBDesign.getDateModified())
         return locationObject
     }
 
     static JSONObject convertCalcDBDesign(CalcDBDesign calcDBDesign) {
-        JSONObject convertedDesign = JSONObject.fromObject(calcDBDesign.getJSON())
-        [
-            "_id",
-            "clientFile",
-            "clientFileVersion",
-            "dateModified",
-            "locationId",
-            "locationLabel",
-            "projectId",
-            "projectLabel",
-            "worstAnchorResult",
-            "worstCrossArmResult",
-            "worstGuyResult",
-            "worstInsulatorResult",
-            "worstPoleResult",
-            "worstSpanGuyResult"
-        ].each { convertedDesign.remove(it) }
-        convertedDesign.structure.keySet().each { String key ->
-            Object structure = convertedDesign.structure.get(key)
-            if (structure instanceof JSONArray) {
-                structure.each { JSONObject instance ->
-                    instance.remove("analysisResults")
-                }
-            } else {
-                structure.remove("analysisResults")
-            }
-        }
-        return convertedDesign
+        return JSONObject.fromObject(calcDBDesign.getCalcJSON())
     }
 
     private static String newPrimaryKey() {

@@ -10,7 +10,7 @@ apply plugin: 'project-report'
 apply plugin: 'releaseNotes'
 
 group = 'com.spidasoftware'
-version = '0.17-SNAPSHOT'
+version = '0.18-SNAPSHOT'
 description = "Schema"
 
 sourceCompatibility = 1.7

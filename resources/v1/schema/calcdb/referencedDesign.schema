@@ -4,7 +4,12 @@
     "required": [
         "calcDesign",
         "dateModified",
-        "id"
+        "id",
+        "projectId",
+        "projectLabel",
+        "locationId",
+        "locationLabel",
+        "clientFile"
     ],
     "properties": {
         "id": {

@@ -4,7 +4,10 @@
     "required": [
         "calcLocation",
         "dateModified",
-        "id"
+        "id",
+        "projectId",
+        "projectLabel",
+        "clientFile"
     ],
     "properties": {
         "id": {

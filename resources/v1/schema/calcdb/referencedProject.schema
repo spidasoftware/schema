@@ -13,6 +13,9 @@
         "id": {
             "type": "string",
             "description": "The unique id of this project component"
+        },
+        "dateModified": {
+            "$ref": "../general/long_date.schema"
         }
     }
 }
