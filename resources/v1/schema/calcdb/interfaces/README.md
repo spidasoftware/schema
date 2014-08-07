@@ -29,13 +29,13 @@ The basic idea is that http verbs are used to indicate what the client wants to 
 | GET    | _List_ resources matching a query. Cannot modify data.  | `<base-url>/<resource-type>.<format>`
 | DELETE | _Delete_ It'll be gone forever, so you better be sure.  | `<base-url>/<resource-type>/<id>`
 
-`<base-url>`      = The url to CalcDB. i.e.- https://www.spidamin.com/calcdb
-`<resource-type>` = One of: "projects", "locations", "designs"
-`<id>`            = The unique calcdb id of a specific resource
-`<format>`        = The format of the data you are sending or requesting. This is not required.
+- `<base-url>`      = The url to CalcDB. i.e.- `https://www.spidamin.com/calcdb`
+- `<resource-type>` = One of: "projects", "locations", "designs"
+- `<id>`            = The unique calcdb id of a specific resource
+- `<format>`        = The format of the data you are sending or requesting. This is not required.
 
 ### Resource Types
-CalcDB deals with three main types of data, projects, locations and designs. These correspond to the same objects in a SPIDACalc project. The API has an endpoint (resource-type) for each type of component. For example, let's say we have CalcDB running at the following base url: `https://www.example.com/calcdb`. In order to deal with projects, we will simply add "/projects" to the base url, resulting in: `https://www.example.com/calcdb/projects`. If we instead with to work with Locations or Designs, then we would simply replace that url segment with... surprise, "/locations" or "/designs".
+CalcDB deals with three main types of data, projects, locations and designs. These correspond to the same objects in a SPIDACalc project. The API has an endpoint (resource-type) for each type of component. For example, let's say we have CalcDB running at the following base url: `https://www.example.com/calcdb`. In order to deal with projects, we will simply add `/projects` to the base url, resulting in: `https://www.example.com/calcdb/projects`. If we instead with to work with Locations or Designs, then we would simply replace that url segment with... surprise, "/locations" or "/designs".
 
 ### id
 Id's can be more confusing than you'd expect, so here's where we set the story straight. CalcDB assigns a unique id to every project component it stores. That's one per each Project, Location, or Design. This is stored in a field called "\_id" (that's underscore-i-d). SPIDACalc also keeps it's own unique id for each component. This is represented in the field called "id" (no underscore). SPIDACalc ids are not used for anything in CalcDB, and there is no guarantee that they will be unique in CalcDB. The CalcDB \_id is the primary key in CalcDB, and IS unique. To make matters more confusing, you can actually search calcdb based on the Calc (no underscore) id and return a _list_ of matching resources. 
@@ -60,7 +60,7 @@ These examples will all use the command-line tool curl, just because of it's ubi
 
 ## Saving a project - POST - `<baseURL>/<resource-type>`
 
-Let's start off by saving a project, by sending a POST request to "<base url>/projects". We will need two parameters. The first is the api token, which is how CalcDB authenticates the user. The second is the project json. The api token parameter can be sent either in the url or the body, but the project json must be sent in the body, and the parameter name must be 'project'. 
+Let's start off by saving a project, by sending a POST request to `<base url>/projects`. We will need two parameters. The first is the api token, which is how CalcDB authenticates the user. The second is the project json. The api token parameter can be sent either in the url or the body, but the project json must be sent in the body, and the parameter name must be 'project'. 
 
 For this example, we'll save the included example project at: v1/examples/spidacalc/projects/full_project.json
 
@@ -97,9 +97,9 @@ If we want to update an existing project instead of saving a new one, we issue a
 
 Send the request:
 
-`curl -X PUT --data apiToken=abc123 \
- --data-urlencode "project@v1/examples/spidacalc/projects/modified_project.json" \
- https://www.example.com/calcdb/projects/53e13203e4b07e53be02f130`
+	curl -X PUT --data apiToken=abc123 \
+	 --data-urlencode "project@v1/examples/spidacalc/projects/modified_project.json" \
+	 https://www.example.com/calcdb/projects/53e13203e4b07e53be02f130
  
 The response will be essentially the save as for a POST (save) request. 
 
@@ -114,13 +114,13 @@ Send the request:
 
 The response (truncated):
 
-    `{
+    {
         "status": "ok",
         "project": {
             "label": "full_project",
             //...
         }
-    }`
+    }
 
 ## List multiple resources - GET - `<baseURL>/<resource-type>`
 
@@ -134,16 +134,16 @@ Send the request (this one lists up to 50 projects with the label, "MyProject"):
 
 The response (truncated):
 
-    `{
+    {
         "status": "ok",
-        "projects": \[
+        "projects": [
             {
                 "label": "MyProject",
                 //...
             },
             //...
-        \]
-    }`
+        ]
+    }
 
 ## Delete the project - DELETE - `<base-url>/<resource-type>/<id>`
 
@@ -162,7 +162,7 @@ We've sort of avoided this topic until now because photos are a bit different th
  
  An example of an image 'link' (the rest of the location is not shown):
  
-    `//in a Location json
+    //in a Location json
     "images": [
         {
             "url": "photo123.jpg",
@@ -171,7 +171,7 @@ We've sort of avoided this topic until now because photos are a bit different th
                 "id": "2af54d11"
             }
         }
-    ]`
+    ]
     
 This shows an example of a location with one photo. The 'url' property will typically just be a filename. This will be resolved when a project in imported into SPIDACalc, but CalcDB simply ignores it. The part that CalcDB is interested in is the 'link'. It contains the id for that photo. 
 
@@ -181,10 +181,10 @@ To request the image from the example:
 
 The response:
 
-    `{
+    {
         "status": "ok",
         "photo": "<base-64 encoded string>..."
-    }`
+    }
     
 The response will include the photo bytes as a base64 encoded string in the body of the JSON response. This would then be decoded by the client and written to a file. There is currently no support for any other request type or options for photos.
 
@@ -200,7 +200,7 @@ The available fields that can be added to requests as parameters are listed in [
 
 There are several possible ways to save/update a project. 
 
-- **Plain old Project JSON**  This is what we did in the example. This would normally just be sent with a ContentType of "multipart/form-data", but "application/X-www-form-urlencoded" is also acceptable (just less efficient). No photos are saved, because none are sent. The request would be sent to "<base-url>/projects.calc" but the '.calc' format is optional since that is the default.
+- **Plain old Project JSON**  This is what we did in the example. This would normally just be sent with a ContentType of "multipart/form-data", but "application/X-www-form-urlencoded" is also acceptable (just less efficient). No photos are saved, because none are sent. The request would be sent to `<base-url>/projects.calc` but the `.calc` format is optional since that is the default.
 
 - **Project JSON and Photos**  This is essentially the same as above, except that all the photos for the project must be sent with the request. This MUST be a 'multipart' request. Each photo file should be added to the request body as it's own 'part', and the 'name' of the part must match the photo name given in the 'url' property of the image. For example, given the image: `{"url":"myPhoto4.jpg"}`, the multipart request would need to have a part with it's name as "myPhoto4.jpg" and the ContentType as "image/jpeg".
 
