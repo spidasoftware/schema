@@ -39,7 +39,7 @@ public enum DataFormat {
 
 
 
-	DataFormat fromString(String str) {
+	static DataFormat fromString(String str) {
 		for (DataFormat df : values()) {
 			if (df.getValue().equalsIgnoreCase(str)) {
 				return df
