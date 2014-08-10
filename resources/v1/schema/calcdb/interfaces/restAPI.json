@@ -15,19 +15,8 @@
 						"id":"label",
 						"description":"the name of the project",
 						"required":false,
-						"type":"string"
-					},
-					{
-						"id":"locationId",
-						"description":"the id of a location contained in the project",
-						"required":false,
-						"type":"string"						
-					},
-					{
-						"id":"id",
-						"description":"The id (from SpidaCalc) of the project",
-						"required":false,
-						"type":"string"
+						"type":"string",
+                        "documentProperty": "calcProject.label"
 					},
 					{
 						"id":"format",
@@ -151,22 +140,11 @@
 						"type":"string"						
 					},
 					{
-						"id":"designIds",
-						"description":"the id of a design contained within the location",
-						"required":false,
-						"type":"string"
-					},
-					{
-						"id":"id",
-						"description":"The id (from SpidaCalc) of the location",
-						"required":false,
-						"type":"string"
-					},
-					{
 						"id":"label",
 						"description":"The Location name from SpidaCalc",
 						"required":false,
-						"type":"string"
+						"type":"string",
+                        "documentProperty": "calcLocation.label"
 					},
                     {
                         "id":"format",
@@ -269,11 +247,18 @@
 						"type":"string"
 					},
 					{
-						"id":"id",
-						"description":"The id (from SpidaCalc) of the design",
+						"id":"locationLabel",
+						"description":"The label of the parent location",
 						"required":false,
 						"type":"string"
 					},
+                    {
+                        "id": "label",
+                        "description": "The label of the design (design layer name)",
+                        "required": false,
+                        "type": "string",
+                        "documentProperty": "calcDesign.label"
+                    },
                     {
                         "id":"format",
                         "description":"format for return value.",

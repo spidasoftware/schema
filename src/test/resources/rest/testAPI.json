@@ -28,6 +28,12 @@
                         "description":"format type for the project.",
                         "type": "string",
                         "enum": ["calc", "referenced"]
+                    },
+                    {
+                        "id":"nestedProperty",
+                        "description": "property that is nested inside the database document",
+                        "type": "string",
+                        "documentProperty": "outer.inner.key"
                     }
 				]
 			},

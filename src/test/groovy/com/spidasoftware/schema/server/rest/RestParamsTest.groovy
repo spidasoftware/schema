@@ -19,6 +19,19 @@ class RestParamsTest extends Specification {
 		
 	}
 
+	void "database property names should be used as the keys for parameters that have them specified"(){
+		setup:
+		def startParams = ['nestedProperty': 'nestedValue']
+
+		when:
+		def listResult = restParams.validateAndFormat('thing', 'list', startParams)
+
+		then:
+		listResult.query.containsKey('outer.inner.key')
+		listResult.query["outer.inner.key"] == 'nestedValue'
+		!listResult.query.containsKey('nestedValue')
+	}
+
 	void testEmptyListParams(){
 		expect:
 		def listResult = restParams.validateAndFormat("thing", "list", [:])
