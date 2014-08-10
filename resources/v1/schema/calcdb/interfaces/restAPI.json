@@ -19,7 +19,7 @@
 					},
 					{
 						"id":"locationId",
-						"description":"the _id of a location contained in the project",
+						"description":"the id of a location contained in the project",
 						"required":false,
 						"type":"string"						
 					},
@@ -39,13 +39,13 @@
 				]
 			},
 			"show":{
-				"path":"/<_id>",
-				"description":"returns a project by unique0 _id",
+				"path":"/<id>",
+				"description":"returns a project by unique0 id",
 				"allowedMethods":["GET"],
 				"parameters":[
 					{
-						"id":"_id",
-						"description":"The unique _id of this project, given in the url",
+						"id":"id",
+						"description":"The unique id of this project, given in the url",
 						"required":true,
 						"type":"string"
 					},
@@ -96,8 +96,8 @@
 						"required":false
 					},
 					{
-						"id":"_id",
-                        "description":"The unique _id of this project, given in the URL",
+						"id":"id",
+                        "description":"The unique id of this project, given in the URL",
                         "type":"string",
                         "required":true
 					},
@@ -121,8 +121,8 @@
 				"allowedMethods":["DELETE"],
 				"parameters":[
 					{
-						"id":"_id",
-						"description":"The unique _id of this project",
+						"id":"id",
+						"description":"The unique id of this project",
 						"type":"string",
 						"required":true
 					}
@@ -146,13 +146,13 @@
 					},
 					{
 						"id":"projectId",
-						"description":"the _id of the parent project",
+						"description":"the id of the parent project",
 						"required":false,
 						"type":"string"						
 					},
 					{
 						"id":"designIds",
-						"description":"the _id of a design contained within the location",
+						"description":"the id of a design contained within the location",
 						"required":false,
 						"type":"string"
 					},
@@ -178,13 +178,13 @@
 				]
 			},
 			"show":{
-				"path":"/<_id>",
-				"description":"returns a location by unique _id",
+				"path":"/<id>",
+				"description":"returns a location by unique id",
 				"allowedMethods":["GET"],
 				"parameters":[
 					{
-						"id":"_id",
-						"description":"The unique _id of this location, given in the url",
+						"id":"id",
+						"description":"The unique id of this location, given in the url",
 						"required":false,
 						"type":"string"
 					},
@@ -210,7 +210,7 @@
 				]
 			},
 			"update":{
-				"path":"<rootPath>/<_id>",
+				"path":"<rootPath>/<id>",
 				"description":"Updates and existing location, including any designs within it",
 				"allowedMethods":["PUT"],
 				"parameters":[
@@ -221,8 +221,8 @@
 						"required":false
 					},
 					{
-						"id":"_id",
-						"description":"the unique _id of the location",
+						"id":"id",
+						"description":"the unique id of the location",
 						"type":"string",
 						"required":true
 					}
@@ -233,8 +233,8 @@
 				"allowedMethods":["DELETE"],
 				"parameters":[
 					{
-						"id":"_id",
-						"description":"The unique _id of this location",
+						"id":"id",
+						"description":"The unique id of this location",
 						"type":"string",
 						"required":true
 					}
@@ -258,13 +258,13 @@
 					},
 					{
 						"id":"projectId",
-						"description":"the _id of the parent project",
+						"description":"the id of the parent project",
 						"required":false,
 						"type":"string"						
 					},
 					{
 						"id":"locationId",
-						"description":"the _id of the parent location",
+						"description":"the id of the parent location",
 						"required":false,
 						"type":"string"
 					},
@@ -284,13 +284,13 @@
 				]
 			},
 			"show":{
-				"path":"/designs/<_id>",
-				"description":"returns a design by unique _id",
+				"path":"/designs/<id>",
+				"description":"returns a design by unique id",
 				"allowedMethods":["GET"],
 				"parameters":[
 					{
-						"id":"_id",
-						"description":"The unique _id of this design, given in the url",
+						"id":"id",
+						"description":"The unique id of this design, given in the url",
 						"required":true,
 						"type":"string"
 					},
@@ -316,7 +316,7 @@
 				]
 			},
 			"update":{
-				"path":"/designs/<_id>",
+				"path":"/designs/<id>",
 				"description":"Updates and existing design ONLY if it has no parent Location",
 				"allowedMethods":["PUT"],
 				"parameters":[
@@ -327,21 +327,21 @@
 						"required":true
 					},
 					{
-						"id":"_id",
-						"description":"the unique _id of the design",
+						"id":"id",
+						"description":"the unique id of the design",
 						"type":"string",
 						"required":true
 					}
 				]
 			},
 			"delete":{
-				"path":"designs/<_id>",
+				"path":"designs/<id>",
 				"description":"deletes a design ONLY if it has no parent Location",
 				"allowedMethods":["DELETE"],
 				"parameters":[
 					{
-						"id":"_id",
-						"description":"The unique _id of this design, given in the url",
+						"id":"id",
+						"description":"The unique id of this design, given in the url",
 						"type":"string",
 						"required":true
 					}
