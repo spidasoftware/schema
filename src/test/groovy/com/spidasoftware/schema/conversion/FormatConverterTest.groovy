@@ -12,13 +12,15 @@ import static org.junit.Assert.*
 class FormatConverterTest extends Specification {
     double epsilon = 0.000001
 
+	FormatConverter converter = new FormatConverter()
+
 	void "Referenced components should be valid against the schema"(){
 		setup: "load calc project json"
 		def calcProject = getCalcProject(currentProject)
 		Validator validator = new Validator()
 
 		when: "convert to a list of referenced components"
-		def refCompList = FormatConverter.convertCalcProject(calcProject)
+		def refCompList = converter.convertCalcProject(calcProject)
 
 		then: "the project should validate against the schema"
 		def refProject = refCompList.find{it instanceof CalcDBProject}
@@ -52,7 +54,7 @@ class FormatConverterTest extends Specification {
 		assert jsonIsValid(calcProject), "Starting project JSON is valid against schema"
 
 		when: "convert the project to calcdb components"
-		def calcdbComponents = FormatConverter.convertCalcProject(calcProject)
+		def calcdbComponents = converter.convertCalcProject(calcProject)
 
 		then: "just a quick check to make sure it converted all of the components"
 		calcdbComponents.size() == 17
@@ -61,7 +63,7 @@ class FormatConverterTest extends Specification {
 		CalcDBProject p = calcdbComponents.find{it instanceof CalcDBProject}
 		List calcdbLocations = calcdbComponents.findAll{ it instanceof CalcDBLocation }
 		List calcdbDesigns = calcdbComponents.findAll{ it instanceof CalcDBDesign }
-		JSONObject reconstitutedCalcProject = FormatConverter.convertCalcDBProject(p, calcdbLocations, calcdbDesigns)
+		JSONObject reconstitutedCalcProject = converter.convertCalcDBProject(p, calcdbLocations, calcdbDesigns)
 
 		then: "the reconstituted project should be valid against the schema"
 		jsonIsValid(reconstitutedCalcProject)
@@ -83,7 +85,7 @@ class FormatConverterTest extends Specification {
         def analysisResultsList = design.analysis
 
         when: "collect the results for the pole"
-        def poleResults = FormatConverter.collectPoleResults(analysisResultsList)
+        def poleResults = converter.collectPoleResults(analysisResultsList)
 
         then: "the list should contain the correct results"
         poleResults.size() == 2
@@ -95,7 +97,7 @@ class FormatConverterTest extends Specification {
         assertEquals("the buckling result should be correct", 3.8975996880018, buckling.actual, epsilon)
 
         when: "collect results for a guy"
-        def guy1Results = FormatConverter.getResultsForComponent("Guy#1", analysisResultsList)
+        def guy1Results = converter.getResultsForComponent("Guy#1", analysisResultsList)
 
         then: "the guy results should be correct"
         guy1Results.size() == 1
@@ -107,7 +109,7 @@ class FormatConverterTest extends Specification {
     void "analysis results should get converted properly"(){
         setup: "load a project with analysis results"
         def project = getCalcProject("18-locations-analyzed.json")
-        def components = FormatConverter.convertCalcProject(project)
+        def components = converter.convertCalcProject(project)
 
         when: "convert the project"
         def designs = components.findAll {it instanceof CalcDBDesign}*.getJSON()
@@ -136,7 +138,7 @@ class FormatConverterTest extends Specification {
 		projectJson.remove('clientFileVersion')
 
 		when: "convert the project json into calcdb components"
-        FormatConverter.convertCalcProject(projectJson)
+        converter.convertCalcProject(projectJson)
 
 		then: "shouldn't throw any exceptions"
 		notThrown(Exception)
@@ -145,7 +147,7 @@ class FormatConverterTest extends Specification {
 
     def "designs should be converted by themselves"(){
         when:
-        def design = FormatConverter.convertCalcDesign(current, null, null)?.getJSON()
+        def design = converter.convertCalcDesign(current, null, null)?.getJSON()
 
         then:
         design.getLong('dateModified')
@@ -161,7 +163,7 @@ class FormatConverterTest extends Specification {
         expect:
         def fourPoles = getCalcProject("four-locations-one-lead-project.json")
         fourPoles != null
-        def components = FormatConverter.convertCalcProject(fourPoles)
+        def components = converter.convertCalcProject(fourPoles)
         def project = components.find {it instanceof CalcDBProject}.getJSON()
         def locations = components.findAll {it instanceof CalcDBLocation}*.getJSON()
         def designs = components.findAll {it instanceof CalcDBDesign}*.getJSON()
@@ -188,7 +190,7 @@ class FormatConverterTest extends Specification {
 
         when: "add analysisResults to the current design"
         def currentDesign = designs.find{ it.label == currentDesignName }
-        def design = FormatConverter.convertCalcDesign(currentDesign, null, null).getJSON()
+        def design = converter.convertCalcDesign(currentDesign, null, null).getJSON()
 
         then: "the correct worst results should be set"
         assertEquals("Worst Pole result should be correct", worstPole, design.worstCaseAnalysisResults.pole.actual, e)
@@ -215,7 +217,7 @@ class FormatConverterTest extends Specification {
 
 
         when:
-        def components = FormatConverter.convertCalcProject(current)
+        def components = converter.convertCalcProject(current)
         project = components.find {it instanceof CalcDBProject}.getJSON()
         locations = components.findAll {it instanceof CalcDBLocation}*.getJSON()
         designs = components.findAll {it instanceof CalcDBDesign}*.getJSON()
@@ -248,7 +250,7 @@ class FormatConverterTest extends Specification {
             calcDBDesigns.put(design."_id", new CalcDBDesign(design as JSONObject))
         }
 
-        JSONObject projectJson = FormatConverter.convertCalcDBProject(calcDBProject, calcDBLocations, calcDBDesigns)
+        JSONObject projectJson = converter.convertCalcDBProject(calcDBProject, calcDBLocations, calcDBDesigns)
         def schema = "/v1/schema/spidacalc/calc/project.schema"
         def report = new Validator().validateAndReport(schema, projectJson.toString())
 

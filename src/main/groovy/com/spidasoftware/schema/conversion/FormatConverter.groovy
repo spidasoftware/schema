@@ -11,7 +11,7 @@ import org.bson.types.ObjectId
 class FormatConverter {
     private static final def log = Logger.getLogger(this)
 
-    static Collection<CalcDBProjectComponent> convertCalcProject(Map calcProject) {
+     Collection<CalcDBProjectComponent> convertCalcProject(Map calcProject) {
         List<CalcDBProjectComponent> components = []
         addDBIdsToProject(calcProject)
 	    JSONObject referencedProject = new JSONObject()
@@ -39,11 +39,11 @@ class FormatConverter {
         return components
     }
 
-    static Collection<CalcDBProjectComponent> convertCalcLocation(Map calcLocation) {
+     Collection<CalcDBProjectComponent> convertCalcLocation(Map calcLocation) {
         return convertCalcLocation(calcLocation, null)
     }
 
-    static Collection<CalcDBProjectComponent> convertCalcLocation(Map calcLocation, Map calcProject) {
+     Collection<CalcDBProjectComponent> convertCalcLocation(Map calcLocation, Map calcProject) {
         ArrayList<CalcDBProjectComponent> components = []
         addDBIdsToLocation(calcLocation)
 
@@ -77,15 +77,15 @@ class FormatConverter {
         return components
     }
 
-    static CalcDBDesign convertCalcDesign(Map calcDesign) {
+     CalcDBDesign convertCalcDesign(Map calcDesign) {
         return convertCalcDesign(calcDesign, null)
     }
 
-    static CalcDBDesign convertCalcDesign(Map calcDesign, Map calcLocation) {
+     CalcDBDesign convertCalcDesign(Map calcDesign, Map calcLocation) {
         return convertCalcDesign(calcDesign, calcLocation, null)
     }
 
-    static CalcDBDesign convertCalcDesign(Map calcDesign, Map calcLocation, Map calcProject) {
+     CalcDBDesign convertCalcDesign(Map calcDesign, Map calcLocation, Map calcProject) {
         addDBIdToDesign(calcDesign)
 
 	    JSONObject referencedDesign = new JSONObject()
@@ -235,13 +235,13 @@ class FormatConverter {
         return thing
     }
 
-    static JSONObject convertCalcDBProject(CalcDBProject calcDBProject, Collection<CalcDBLocation> calcDBLocations, Collection<CalcDBDesign> calcDBDesigns) {
+     JSONObject convertCalcDBProject(CalcDBProject calcDBProject, Collection<CalcDBLocation> calcDBLocations, Collection<CalcDBDesign> calcDBDesigns) {
         Map<String, CalcDBLocation> calcDBLocationMap = buildCalcDBIdMap(calcDBLocations)
         Map<String, CalcDBDesign> calcDBDesignMap = buildCalcDBIdMap(calcDBDesigns)
         return convertCalcDBProject(calcDBProject, calcDBLocationMap, calcDBDesignMap)
     }
 
-    static JSONObject convertCalcDBProject(CalcDBProject calcDBProject, Map<String,CalcDBLocation> calcDBLocationMap, Map<String, CalcDBDesign> calcDBDesignMap) {
+     JSONObject convertCalcDBProject(CalcDBProject calcDBProject, Map<String,CalcDBLocation> calcDBLocationMap, Map<String, CalcDBDesign> calcDBDesignMap) {
         // new project json object that we can keep adding to
         JSONObject convertedProject = JSONObject.fromObject(calcDBProject.getCalcJSON())
         //TODO: need this?
@@ -309,7 +309,7 @@ class FormatConverter {
         return convertedProject
     }
 
-    static JSONObject convertCalcDBLocation(CalcDBLocation calcDBLocation, Collection<CalcDBDesign> calcDBDesigns) {
+     JSONObject convertCalcDBLocation(CalcDBLocation calcDBLocation, Collection<CalcDBDesign> calcDBDesigns) {
         Map<String, CalcDBDesign> calcDBDesignMap = buildCalcDBIdMap(calcDBDesigns)
         return convertCalcDBLocation(calcDBLocation, calcDBDesignMap)
     }
@@ -324,7 +324,7 @@ class FormatConverter {
 	 * @param calcDBDesignMap map of calcDBId to CalcDBDesign
 	 * @return a calc Location JSONObject that will be valid agians the location schema
 	 */
-    static JSONObject convertCalcDBLocation(CalcDBLocation calcDBLocation, Map<String, CalcDBDesign> calcDBDesignMap) {
+     JSONObject convertCalcDBLocation(CalcDBLocation calcDBLocation, Map<String, CalcDBDesign> calcDBDesignMap) {
         log.debug("Adding CalcDBLocation: " + calcDBLocation.getName())
         JSONObject convertedLocation = JSONObject.fromObject(calcDBLocation.getCalcJSON())
 
@@ -345,7 +345,7 @@ class FormatConverter {
         return convertedLocation
     }
 
-    static JSONObject createLocationJsonForDesign(CalcDBDesign calcDBDesign) {
+     JSONObject createLocationJsonForDesign(CalcDBDesign calcDBDesign) {
         JSONObject locationObject = new JSONObject()
         String locationLabel = calcDBDesign.getParentLocationName()
         if (locationLabel != null && !locationLabel.isEmpty()) {
@@ -361,7 +361,7 @@ class FormatConverter {
         return locationObject
     }
 
-    static JSONObject convertCalcDBDesign(CalcDBDesign calcDBDesign) {
+     JSONObject convertCalcDBDesign(CalcDBDesign calcDBDesign) {
         return JSONObject.fromObject(calcDBDesign.getCalcJSON())
     }
 
