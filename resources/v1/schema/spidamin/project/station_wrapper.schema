@@ -29,10 +29,6 @@
       "type": "string",
       "description": "The id of the station within the asset service specified by the 'source' field.  Required for project creation if the asset exists in an asset service."
     },
-    "linkerId": {
-      "type": "number",
-      "description": "Optional.  If the station is linked to stations in other asset services, this is the linkerId returned by the StationLinker."
-    },
     "deleted": {
       "type": "boolean",
       "description": "Optional.  ProjectManager will set this to true if station is marked as deleted."
