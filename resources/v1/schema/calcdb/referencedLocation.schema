@@ -39,6 +39,9 @@
         "version": {
             "type": "number",
             "description": "This is a schema version integer."
+        },
+        "user": {
+            "$ref": "userRef.schema"
         }
     }
 }

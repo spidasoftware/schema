@@ -16,6 +16,9 @@
         },
         "dateModified": {
             "$ref": "../general/long_date.schema"
+        },
+        "user": {
+            "$ref": "userRef.schema"
         }
     }
 }

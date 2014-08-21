@@ -19,6 +19,9 @@
         "calcDesign": {
             "$ref": "../spidacalc/calc/design.schema"
         },
+        "user": {
+            "$ref": "userRef.schema"
+        },
         "projectId": {
             "type": "string",
             "description": "The id (in calcdb) of the parent Project"
