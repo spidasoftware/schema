@@ -74,7 +74,7 @@
       }
     },
     "coreForm": {
-      "$ref": "../../general/form/schema",
+      "$ref": "../../general/form.schema",
       "description": "Values with which to populate core form at creation time"
     }
   },

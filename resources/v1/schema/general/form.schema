@@ -21,13 +21,6 @@
       "description": "all of the data fields in the custom form",
       "additionalProperties": true,
       "properties": {}
-    },
-    "mediaItems": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "description": "Filefort UUID of media item"
-      }
     }
   }
 }
