@@ -28,5 +28,13 @@
         "type": "Point"
       }
     }
-  ]
+  ],
+  "coreForm": {
+    "title": "test core form",
+    "template": "74",
+    "fields": {
+        "field1": "value1",
+        "field2": "value2"
+    }
+  }
 }
