@@ -11,7 +11,7 @@ import spock.lang.*
  * To change this template use File | Settings | File Templates.
  */
 class RestAPISpec extends Specification {
-	def baseUrl = "http://www.spidamin.com/calcdb"
+	def baseUrl = "http://www.spidamin.com/spidadb"
 	def client = Mock(GenericHttpClient)
 	def api = new RestAPI(baseUrl, client)
 
@@ -37,8 +37,8 @@ class RestAPISpec extends Specification {
 		where:
 		currentBaseUrl      || currentPath          || currentId  || format 	  || expectedUri
 		"www.website.com"   || "api/resource"       || "1234567"  || null   	  || "www.website.com/api/resource/1234567"
-		"spida.min.com"     || "/calcdb/projects"   ||  ""        || "referenced" || "spida.min.com/calcdb/projects.referenced"
-		"spida.min.com/"    || "/calcdb/projects"   || "123"      || "calc"		  || "spida.min.com/calcdb/projects/123.calc"
+		"spida.min.com"     || "/spidadb/projects"   ||  ""        || "referenced" || "spida.min.com/spidadb/projects.referenced"
+		"spida.min.com/"    || "/spidadb/projects"   || "123"      || "calc"		  || "spida.min.com/spidadb/projects/123.calc"
 		"www.google.com/"   || "search"             || null       || null  		  || "www.google.com/search"
 	}
 
