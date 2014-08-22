@@ -158,7 +158,7 @@ class GenericHttpClient implements HttpClientInterface {
 	 * default Closure for getting the body of an HttpResponse as a string. Can be passed into
 	 * other methods like:
 	 * <br><code>
-	 *     def responseString = new GenericHttpClient().get(new URI("http://www.spidamin.com/calcdb/projects"), [name: "projectName"], client.getBodyAsString)
+	 *     def responseString = new GenericHttpClient().get(new URI("http://www.spidamin.com/spidadb/projects"), [name: "projectName"], client.getBodyAsString)
 	 * </code>
 	 * This will return the response body as a string. If the response status code is >= 300, an HttpResponseException will be thrown.
 	 */
