@@ -14,6 +14,21 @@ public class CalcDBProjectComponentTest extends Specification {
         projectJSON = getProject("ImportTestProject.json")
     }
 
+	void "components should get and set users"(){
+		setup:
+		JSONObject json = new JSONObject()
+		CalcDBProject project = new CalcDBProject(json)
+		String id = "12345"
+		String email = "test@test.com"
+
+		when:
+		project.setUser(id, email)
+
+		then:
+		project.getUser().id == id
+		project.getUser().email == email
+	}
+
     public void testCalcDBDesign() throws Exception {
 	    setup:
         JSONObject location = projectJSON.getJSONArray('leads').getJSONObject(0).getJSONArray('locations').getJSONObject(0)

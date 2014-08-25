@@ -53,6 +53,32 @@ public abstract class AbstractCalcDBComponent implements CalcDBProjectComponent 
 	    return new Date(time)
     }
 
+	/**
+	 * returns the json object representing the user, if one exists, otherwise null.
+	 * json will have:
+	 *   'id': the user id stored as a string
+	 *   'email': the email address
+	 * these properties may be set to default values if the component was created by an unauthenticated
+	 * source, such as project manager.
+	 *
+	 * @return
+	 */
+	JSONObject getUser(){
+		return (getJSON().containsKey('user')) ? getJSON().getJSONObject('user') : null
+	}
+
+	/**
+	 * sets the 'user' property with the given values
+	 * @param id
+	 * @param email
+	 */
+	void setUser(String id, String email) {
+		JSONObject user = new JSONObject()
+		user.elementOpt('id', id)
+		user.elementOpt('email', email)
+		getJSON().put('user', user)
+	}
+
 	abstract JSONObject getCalcJSON()
 
 }
