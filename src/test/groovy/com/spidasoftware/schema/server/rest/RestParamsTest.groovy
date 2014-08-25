@@ -30,6 +30,7 @@ class RestParamsTest extends Specification {
 		listResult.query.containsKey('outer.inner.key')
 		listResult.query["outer.inner.key"] == 'nestedValue'
 		!listResult.query.containsKey('nestedValue')
+		!listResult.query.containsKey('nestedProperty')
 	}
 
 	void testEmptyListParams(){

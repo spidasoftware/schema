@@ -24,7 +24,14 @@
                         "type": "string",
                         "enum": ["calc", "referenced"],
                         "required":false
-					}
+					},
+                    {
+                        "id": "userEmail",
+                        "description": "the email of the user who last updated the project",
+                        "required": false,
+                        "type": "string",
+                        "documentProperty": "user.email"
+                    }
 				]
 			},
 			"show":{
@@ -152,6 +159,13 @@
                         "type": "string",
                         "enum": ["calc", "referenced"],
                         "required":false
+                    },
+                    {
+                        "id": "userEmail",
+                        "description": "the email of the user who last updated the project",
+                        "required": false,
+                        "type": "string",
+                        "documentProperty": "user.email"
                     }
 				]
 			},
@@ -265,6 +279,13 @@
                         "type": "string",
                         "enum": ["calc", "referenced"],
                         "required":false
+                    },
+                    {
+                        "id": "userEmail",
+                        "description": "the email of the user who last updated the project",
+                        "required": false,
+                        "type": "string",
+                        "documentProperty": "user.email"
                     }
 				]
 			},
