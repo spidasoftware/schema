@@ -34,7 +34,7 @@ public abstract class AbstractCalcDBComponent implements CalcDBProjectComponent 
 
     @Override
     public String getName() {
-        return getCalcJSON().getString("label")
+        return getCalcJSON().optString("label")
     }
 
     @Override
@@ -64,7 +64,7 @@ public abstract class AbstractCalcDBComponent implements CalcDBProjectComponent 
 	 * @return
 	 */
 	JSONObject getUser(){
-		return (getJSON().containsKey('user')) ? getJSON().getJSONObject('user') : null
+		return getJSON().optJSONObject('user')
 	}
 
 	/**

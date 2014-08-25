@@ -28,11 +28,11 @@ class CalcDBDesign extends AbstractCalcDBComponent {
      * @return JSONObject in the format created by ResultJSON class, or null if it's not found
      */
     public JSONObject getWorstPoleLoadingResult() {
-        return getWorstCaseAnalysisResults()?.get('pole') as JSONObject
+        return getWorstCaseAnalysisResults().optJSONObject('pole')
     }
 
 	public JSONObject getWorstCaseAnalysisResults(){
-		return getJSON().get('worstCaseAnalysisResults') as JSONObject
+		return getJSON().optJSONObject('worstCaseAnalysisResults')
 	}
 
     /**
@@ -41,7 +41,7 @@ class CalcDBDesign extends AbstractCalcDBComponent {
      * @return
      */
     public String getParentLocationName() {
-	    getJSON().getString("locationLabel")
+	    getJSON().optString("locationLabel")
     }
 
     /**
@@ -50,7 +50,7 @@ class CalcDBDesign extends AbstractCalcDBComponent {
      * @return
      */
     public String getParentLocationId() {
-	    getJSON().getString("locationId")
+	    getJSON().optString("locationId")
     }
 
 	@Override
@@ -64,7 +64,7 @@ class CalcDBDesign extends AbstractCalcDBComponent {
      * @return
      */
     public String getParentProjectName() {
-	    getJSON().getString("projectLabel")
+	    getJSON().optString("projectLabel")
     }
 
     /**
@@ -72,7 +72,7 @@ class CalcDBDesign extends AbstractCalcDBComponent {
      * @return
      */
     String getParentProjectId() {
-	    getJSON().getString("projectId")
+	    getJSON().optString("projectId")
     }
 
 }

@@ -61,13 +61,13 @@ class CalcDBLocation extends AbstractCalcDBComponent {
      * @return the id of the parent project, if one exists. otherwise null
      */
     public String getParentProjectId() {
-        getJSON().getString("projectId")
+        getJSON().optString("projectId")
     }
 
     /**
      * @return the name of the parent project, if one exists. otherwise null
      */
     public String getParentProjectName(){
-	    getJSON().getString('projectLabel')
+	    getJSON().optString('projectLabel')
     }
 }
