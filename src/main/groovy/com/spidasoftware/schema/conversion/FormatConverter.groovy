@@ -244,8 +244,6 @@ class FormatConverter {
      JSONObject convertCalcDBProject(CalcDBProject calcDBProject, Map<String,CalcDBLocation> calcDBLocationMap, Map<String, CalcDBDesign> calcDBDesignMap) {
         // new project json object that we can keep adding to
         JSONObject convertedProject = JSONObject.fromObject(calcDBProject.getCalcJSON())
-        //TODO: need this?
-        //convertedProject.schema = "/v1/schema/spidacalc/project.schema"
 
         // first match up projects with their child locations and designs
         List<String> locationIds = calcDBProject.getChildLocationIds()
