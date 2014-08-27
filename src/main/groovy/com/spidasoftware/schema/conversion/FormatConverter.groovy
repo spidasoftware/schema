@@ -11,96 +11,114 @@ import org.bson.types.ObjectId
 class FormatConverter {
     private static final def log = Logger.getLogger(this)
 
-    static Collection<CalcDBProjectComponent> convertCalcProject(Map calcProject) {
+     Collection<CalcDBProjectComponent> convertCalcProject(Map calcProject) {
         List<CalcDBProjectComponent> components = []
         addDBIdsToProject(calcProject)
-        JSONObject convertedProject = JSONObject.fromObject(calcProject)
-        convertedProject.put("dateModified", new Date().time)
-        if (calcProject.containsKey("projectForms")) {
-            convertedProject.put("projectForms", calcProject.get("projectForms"))
-        }
+	    JSONObject referencedProject = new JSONObject()
+	    referencedProject.put('id', calcProject.id)
+	    referencedProject.put("dateModified", new Date().time)
 
-        convertedProject.remove("schema")
-        int locationCount = 0
-        JSONArray newLocations = new JSONArray()
-        calcProject.leads.each { lead ->
-            lead.locations.each { location ->
-                components.addAll(convertCalcLocation(location, calcProject))
-                newLocations.add(location["_id"].toString())
-                locationCount++
-            }
-        }
-        convertedProject.remove("leads")
-        convertedProject.put("locations", newLocations)
-        convertedProject.put("locationCount", locationCount)
-        components.add(new CalcDBProject(convertedProject))
+	    //Project JSON that will get added to the referencedProject
+	    JSONObject convertedProject = JSONObject.fromObject(calcProject)
+	    convertedProject.leads.each{lead->
+		    lead.locations.each{location->
+			    components.addAll(convertCalcLocation(location, calcProject))
+
+			    //clear out everything except the label and id
+			    //These will be kept as references to the child components
+			    def locId = location.id
+			    def locLabel = location.label
+			    location.clear()
+			    location.put("id", locId)
+			    location.put("label", locLabel)
+
+		    }
+	    }
+		referencedProject.put("calcProject", convertedProject)
+        components.add(new CalcDBProject(referencedProject))
         return components
     }
 
-    static Collection<CalcDBProjectComponent> convertCalcLocation(Map calcLocation) {
+     Collection<CalcDBProjectComponent> convertCalcLocation(Map calcLocation) {
         return convertCalcLocation(calcLocation, null)
     }
 
-    static Collection<CalcDBProjectComponent> convertCalcLocation(Map calcLocation, Map calcProject) {
+     Collection<CalcDBProjectComponent> convertCalcLocation(Map calcLocation, Map calcProject) {
         ArrayList<CalcDBProjectComponent> components = []
         addDBIdsToLocation(calcLocation)
+
+	    JSONObject referencedLocation = new JSONObject()
+	    referencedLocation.put("dateModified", new Date().time)
+		referencedLocation.put('id', calcLocation.id)
+
+	    if (calcProject) {
+		    referencedLocation.put("projectLabel", calcProject.get("label"))
+		    referencedLocation.put("projectId", calcProject.get("id"))
+		    referencedLocation.put("clientFile", calcProject.get("clientFile"))
+		    referencedLocation.put("clientFileVersion", calcProject.get("clientFileVersion"))
+	    }
+
+	    //the calc location that will get saved as part of the referenced location
         JSONObject convertedLocation = JSONObject.fromObject(calcLocation)
-        JSONArray designList = new JSONArray()
         convertedLocation.get("designs").each { design ->
             components.add(convertCalcDesign(design, calcLocation, calcProject))
-            designList.add(design["_id"].toString())
+
+	        //clear out all the properties of the converted location's design
+	        //except for the id and label, which will be foreign key refs
+	        def desId = design.id
+	        def desLabel = design.label
+	        design.clear()
+	        design.id = desId
+	        design.label = desLabel
         }
-        convertedLocation.remove("designs") //get rid of the old designs
-        convertedLocation.put("designs", designList)  //replace with the array of design_id's
-        if (calcProject) {
-            convertedLocation.put("projectLabel", calcProject.get("label"))
-            convertedLocation.put("projectId", calcProject.get("_id").toString())
-            convertedLocation.put("clientFile", calcProject.get("clientFile"))
-            convertedLocation.put("clientFileVersion", calcProject.get("clientFileVersion"))
-        }
-        convertedLocation.put("dateModified", new Date().time)
-        components.add(new CalcDBLocation(convertedLocation))
+		referencedLocation.put('calcLocation', convertedLocation)
+
+        components.add(new CalcDBLocation(referencedLocation))
         return components
     }
 
-    static CalcDBDesign convertCalcDesign(Map calcDesign) {
+     CalcDBDesign convertCalcDesign(Map calcDesign) {
         return convertCalcDesign(calcDesign, null)
     }
 
-    static CalcDBDesign convertCalcDesign(Map calcDesign, Map calcLocation) {
+     CalcDBDesign convertCalcDesign(Map calcDesign, Map calcLocation) {
         return convertCalcDesign(calcDesign, calcLocation, null)
     }
 
-    static CalcDBDesign convertCalcDesign(Map calcDesign, Map calcLocation, Map calcProject) {
+     CalcDBDesign convertCalcDesign(Map calcDesign, Map calcLocation, Map calcProject) {
         addDBIdToDesign(calcDesign)
-        JSONObject convertedDesign = JSONObject.fromObject(calcDesign)
 
-        if (calcLocation){
-            convertedDesign.put("locationLabel", calcLocation.get("label").toString())
-            convertedDesign.put("locationId", calcLocation.get("_id").toString())
-        }
-        if (calcProject){
-            convertedDesign.put("projectLabel", calcProject.get("label"))
-            convertedDesign.put("projectId", calcProject.get("_id").toString())
-            convertedDesign.put("clientFile", calcProject.get("clientFile"))
-            convertedDesign.put("clientFileVersion", calcProject.get("clientFileVersion"))
-        }
+	    JSONObject referencedDesign = new JSONObject()
+	    referencedDesign.put("dateModified", new Date().time)
+		referencedDesign.put('id', calcDesign.id)
 
-        convertedDesign.put("dateModified", new Date().time)
+	    if (calcLocation){
+		    referencedDesign.put("locationLabel", calcLocation.get("label").toString())
+		    referencedDesign.put("locationId", calcLocation.get("id").toString())
+	    }
+	    if (calcProject){
+		    referencedDesign.put("projectLabel", calcProject.get("label"))
+		    referencedDesign.put("projectId", calcProject.get("id").toString())
+		    referencedDesign.put("clientFile", calcProject.get("clientFile"))
+		    referencedDesign.put("clientFileVersion", calcProject.get("clientFileVersion"))
+	    }
 
-        //We're going to rearrange these properties in the new design object, so remove them
-        convertedDesign.remove("analysis")
-        //add analysis results to each component
-        addAnalysisResultsToNewDesign(calcDesign, convertedDesign)
+	    JSONObject convertedDesign = JSONObject.fromObject(calcDesign)
+		referencedDesign.put("calcDesign", convertedDesign)
+        addAnalysisResultsToNewDesign(calcDesign, referencedDesign)
 
-        return new CalcDBDesign(convertedDesign)
+        return new CalcDBDesign(referencedDesign)
     }
 
-    private static void addAnalysisResultsToNewDesign(Map originalDesignObject, Map newDesignObject) {
+    private static void addAnalysisResultsToNewDesign(Map originalDesignObject, Map referencedDesign) {
         if (!originalDesignObject.containsKey("analysis")){
             log.trace("Design: ${originalDesignObject.label} does not contain any analysis results")
             return
         }
+
+	    //create the container for the worst-case results
+	    referencedDesign.worstCaseAnalysisResults = new JSONObject()
+
         List allOriginalAnalysisResults = originalDesignObject.analysis
         // Pole is a special Case, dealt with separately
         def analyzableComponentTypes = [
@@ -113,21 +131,19 @@ class FormatConverter {
                 "sidewalkBraces"
         ]
         analyzableComponentTypes.each { String type ->
-            def componentList = newDesignObject.structure."$type"
+            def componentList = originalDesignObject.structure."$type"
             if (componentList && !componentList.isEmpty()){
 
                 List allResultsForType = []
                 componentList.each { component ->
                     List componentResults = getResultsForComponent(component.id, allOriginalAnalysisResults)
-                    component.put("analysisResults", componentResults)
                     allResultsForType.addAll(componentResults)
                 }
 
                 def worstResultForType = getWorstResult(allResultsForType)
                 if (worstResultForType){
                     // generate the property name for the new design json (i.e. 'worstAnchorResult')
-                    def propName = type[0..-2].capitalize() // take off the "s" at the end, e.g. "anchors" -> "anchor"
-                    newDesignObject.put("worst${propName}Result", worstResultForType)
+                    referencedDesign.worstCaseAnalysisResults.put(type, worstResultForType)
                 }
             }
         }
@@ -136,8 +152,7 @@ class FormatConverter {
         List allPoleResults = collectPoleResults(allOriginalAnalysisResults)
 
         if (!allPoleResults.isEmpty()){
-            newDesignObject.put("worstPoleResult", getWorstResult(allPoleResults))
-            newDesignObject.structure.pole.analysisResults = allPoleResults
+            referencedDesign.worstCaseAnalysisResults.put("pole", getWorstResult(allPoleResults))
         } else {
             log.warn("Design ${originalDesignObject.label} has analysis results, but no results exist for the Pole")
         }
@@ -214,118 +229,125 @@ class FormatConverter {
     }
 
     private static Map addDBId(Map thing) {
-        if (!thing.containsKey("_id")){
-            thing."_id" = newPrimaryKey()
+        if (!thing.containsKey("id")){
+            thing.id = newPrimaryKey()
         }
         return thing
     }
 
-    static JSONObject convertCalcDBProject(CalcDBProject calcDBProject, Collection<CalcDBLocation> calcDBLocations, Collection<CalcDBDesign> calcDBDesigns) {
+     JSONObject convertCalcDBProject(CalcDBProject calcDBProject, Collection<CalcDBLocation> calcDBLocations, Collection<CalcDBDesign> calcDBDesigns) {
         Map<String, CalcDBLocation> calcDBLocationMap = buildCalcDBIdMap(calcDBLocations)
         Map<String, CalcDBDesign> calcDBDesignMap = buildCalcDBIdMap(calcDBDesigns)
         return convertCalcDBProject(calcDBProject, calcDBLocationMap, calcDBDesignMap)
     }
 
-    static JSONObject convertCalcDBProject(CalcDBProject calcDBProject, Map<String,CalcDBLocation> calcDBLocationMap, Map<String, CalcDBDesign> calcDBDesignMap) {
+     JSONObject convertCalcDBProject(CalcDBProject calcDBProject, Map<String,CalcDBLocation> calcDBLocationMap, Map<String, CalcDBDesign> calcDBDesignMap) {
         // new project json object that we can keep adding to
-        JSONObject convertedProject = JSONObject.fromObject(calcDBProject.getJSON())
-        convertedProject.schema = "/v1/schema/spidacalc/project.schema"
-
-        convertedProject.remove("locations")
-
-        JSONArray locationsArray = new JSONArray()
+        JSONObject convertedProject = JSONObject.fromObject(calcDBProject.getCalcJSON())
 
         // first match up projects with their child locations and designs
         List<String> locationIds = calcDBProject.getChildLocationIds()
 
-        locationIds.each { String locationId ->
-            CalcDBLocation calcDBLocation = calcDBLocationMap.get(locationId)
-            if (calcDBLocation == null) {
-                log.debug("Skipping CalcDBLocation: " + locationId + " because it was not selected")
-            } else {
-                // remove the location from the map so it doesn't get in there twice
-                calcDBLocationMap.remove(locationId)
-                locationsArray.add(convertCalcDBLocation(calcDBLocation, calcDBDesignMap))
-            }
-        }
+	    JSONArray newLeadsArray = new JSONArray()
 
-        // now go through whatever locations and designs are left (not members of a selected project
-        calcDBLocationMap.values().each { CalcDBLocation location ->
-            JSONObject locationJson = convertCalcDBLocation(location, calcDBDesignMap)
-            locationsArray.add(locationJson)
-        }
+	    //first get all the child locations that are referenced in the project
+	    convertedProject.getJSONArray('leads').each{JSONObject leadStub->
+		    JSONArray calcLocations = new JSONArray()
 
-        // finally, for whatever designs are left without a location, add the design to a new location
-        List<CalcDBDesign> designsToRemove = []
+		    log.trace("iterating through locations in the referenced lead to look for matches in the calcDBLocationMap")
+		    leadStub.getJSONArray('locations').each { JSONObject locationStub ->
+			    if (calcDBLocationMap.containsKey(locationStub.id)) {
+				    log.debug("Adding location: ${locationStub.id} to the converted project")
+				    calcLocations.add(convertCalcDBLocation(calcDBLocationMap.get(locationStub.id), calcDBDesignMap))
+				    //remove the location from the map since it's been used
+				    calcDBLocationMap.remove(locationStub.id)
+			    }
+		    }
+
+		    //If any locations were added, then add the new lead
+		    if (!calcLocations.isEmpty()) {
+			    log.trace("Adding lead to the calc project")
+			    JSONObject calcLead = new JSONObject()
+			    if (leadStub.containsKey('label')) {
+				    calcLead.put('label', leadStub.label)
+			    }
+			    calcLead.put('locations', calcLocations)
+			    newLeadsArray.add(calcLead)
+		    }
+	    }
+
+
+	    // now go through whatever locations and designs are left (not members of a selected project
+	    JSONArray extraCalcLocations = new JSONArray() //will get added as the 'locations' in a lead
+
+	    calcDBLocationMap.values().each { CalcDBLocation location ->
+		    log.debug("adding orphaned CalcDB Location: ${location.getCalcDBId()}")
+	        JSONObject locationJson = convertCalcDBLocation(location, calcDBDesignMap)
+	        extraCalcLocations.add(locationJson)
+		    calcDBLocationMap.remove(location.getCalcDBId())
+	    }
+
+	    // finally, for whatever designs are left without a location, add the design to a new location
         calcDBDesignMap.values().each { CalcDBDesign design ->
             log.debug("Adding orphaned CalcDB Design: " + design.calcDBId)
             JSONObject locationFromDesign = createLocationJsonForDesign(design)
-            designsToRemove.add(design)
             calcDBDesignMap.remove(design.calcDBId)
-            locationsArray.add(locationFromDesign)
+            extraCalcLocations.add(locationFromDesign)
         }
-        JSONObject lead = new JSONObject()
-        lead.put("locations", locationsArray)
-        lead.put("id", "Lead")
 
-        JSONArray leadsArray = new JSONArray()
-        leadsArray.add(lead)
-        convertedProject.put("leads", leadsArray)
+	    if (!extraCalcLocations.isEmpty()) {
+		    JSONObject extLead = new JSONObject()
+		    extLead.put('locations', extraCalcLocations)
+		    newLeadsArray.add(extLead)
+	    }
 
-        ["_id", "dateModified", "locationCount"].each { convertedProject.remove(it) }
+	    convertedProject.put('leads', newLeadsArray)
+
+	    log.debug("Finished Converting CalcDB components to Calc project. Remaining locations: ${calcDBLocationMap.size()}, designs: ${calcDBDesignMap.size()}")
         return convertedProject
     }
 
-    static JSONObject convertCalcDBLocation(CalcDBLocation calcDBLocation, Collection<CalcDBDesign> calcDBDesigns) {
+     JSONObject convertCalcDBLocation(CalcDBLocation calcDBLocation, Collection<CalcDBDesign> calcDBDesigns) {
         Map<String, CalcDBDesign> calcDBDesignMap = buildCalcDBIdMap(calcDBDesigns)
         return convertCalcDBLocation(calcDBLocation, calcDBDesignMap)
     }
 
-    static JSONObject convertCalcDBLocation(CalcDBLocation calcDBLocation, Map<String, CalcDBDesign> calcDBDesignMap) {
+	/**
+	 * Will convert the calcDBLocation to a calc location. Any Designs that are referenced by the location AND are contained in the
+	 * <code>calcDBDesignMap</code> will be added to the Location and removed from the design map. Any extra designs in the design map
+	 * will be ignored. This behavior is different from how things are handled in the `convertCalcDBProject` method, which will add extra
+	 * locations and designs.
+	 *
+	 * @param calcDBLocation map of calcdbId to CalcDBLocation
+	 * @param calcDBDesignMap map of calcDBId to CalcDBDesign
+	 * @return a calc Location JSONObject that will be valid agians the location schema
+	 */
+     JSONObject convertCalcDBLocation(CalcDBLocation calcDBLocation, Map<String, CalcDBDesign> calcDBDesignMap) {
         log.debug("Adding CalcDBLocation: " + calcDBLocation.getName())
-        JSONObject convertedLocation = JSONObject.fromObject(calcDBLocation.getJSON())
-        convertedLocation.remove("designs")
-        JSONArray designs = new JSONArray()
+        JSONObject convertedLocation = JSONObject.fromObject(calcDBLocation.getCalcJSON())
+
+        JSONArray convertedDesigns = new JSONArray()
         calcDBLocation.getDesignIds().each { String designId ->
             CalcDBDesign calcDBDesign = calcDBDesignMap.get(designId)
             if (calcDBDesign != null) {
                 log.debug("Adding CalcDBDesign: " + designId + " to the Location")
                 calcDBDesignMap.remove(designId)
                 JSONObject convertedDesign = convertCalcDBDesign(calcDBDesign)
-                designs.add(convertedDesign)
+                convertedDesigns.add(convertedDesign)
             } else {
                 log.debug("Could not find a CalcDBDesign with the id: " + designId)
             }
         }
-        convertedLocation.put("designs", designs)
-        String comments = "Location Imported from CalcDB. Date last modified in CalcDB was: " + convertedLocation.get("dateModified").toString()
-        if (convertedLocation.containsKey("comments")) {
-            comments = comments + "\n\n" + convertedLocation.getString("comments")
-        }
-        convertedLocation.put("comments", comments)
-
-        [
-            "_id",
-            "clientFile",
-            "clientFileVersion",
-            "dateModified",
-            "projectId",
-            "projectLabel"
-        ].each { convertedLocation.remove(it) }
+        convertedLocation.put("designs", convertedDesigns)
 
         return convertedLocation
     }
 
-    static JSONObject createLocationJsonForDesign(CalcDBDesign calcDBDesign) {
-        JSONObject designJson = calcDBDesign.getJSON()
+     JSONObject createLocationJsonForDesign(CalcDBDesign calcDBDesign) {
         JSONObject locationObject = new JSONObject()
-        String locationId = designJson.get("locationLabel")
-        if (locationId != null && !locationId.isEmpty()) {
-            locationObject.put("id", locationId)
-        }
-        JSONObject coord = designJson.getJSONObject("geographicCoordinate")
-        if (coord != null && !coord.isNullObject()) {
-            locationObject.put("geographicCoordinate", coord)
+        String locationLabel = calcDBDesign.getParentLocationName()
+        if (locationLabel != null && !locationLabel.isEmpty()) {
+            locationObject.put("label", locationLabel)
         }
 
         JSONArray designsArray = new JSONArray()
@@ -333,39 +355,12 @@ class FormatConverter {
         designsArray.add(convertedDesign)
         locationObject.put("designs", designsArray)
 
-        locationObject.put("comments", "Generated Location from CalcDB Design: " + calcDBDesign.getCalcDBId() + " uploaded on: " + designJson.get("dateModified").toString())
+        locationObject.put("comments", "Generated Location from CalcDB Design: " + calcDBDesign.getCalcDBId() + " uploaded on: " + calcDBDesign.getDateModified())
         return locationObject
     }
 
-    static JSONObject convertCalcDBDesign(CalcDBDesign calcDBDesign) {
-        JSONObject convertedDesign = JSONObject.fromObject(calcDBDesign.getJSON())
-        [
-            "_id",
-            "clientFile",
-            "clientFileVersion",
-            "dateModified",
-            "locationId",
-            "locationLabel",
-            "projectId",
-            "projectLabel",
-            "worstAnchorResult",
-            "worstCrossArmResult",
-            "worstGuyResult",
-            "worstInsulatorResult",
-            "worstPoleResult",
-            "worstSpanGuyResult"
-        ].each { convertedDesign.remove(it) }
-        convertedDesign.structure.keySet().each { String key ->
-            Object structure = convertedDesign.structure.get(key)
-            if (structure instanceof JSONArray) {
-                structure.each { JSONObject instance ->
-                    instance.remove("analysisResults")
-                }
-            } else {
-                structure.remove("analysisResults")
-            }
-        }
-        return convertedDesign
+     JSONObject convertCalcDBDesign(CalcDBDesign calcDBDesign) {
+        return JSONObject.fromObject(calcDBDesign.getCalcJSON())
     }
 
     private static String newPrimaryKey() {

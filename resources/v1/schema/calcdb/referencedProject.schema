@@ -1,0 +1,24 @@
+{
+    "type": "object",
+    "description": "The project, as it is stored in CalcDB",
+    "required": [
+        "calcProject",
+        "dateModified",
+        "id"
+    ],
+    "properties": {
+        "calcProject": {
+            "$ref": "../spidacalc/calc/project.schema"
+        },
+        "id": {
+            "type": "string",
+            "description": "The unique id of this project component"
+        },
+        "dateModified": {
+            "$ref": "../general/long_date.schema"
+        },
+        "user": {
+            "$ref": "userRef.schema"
+        }
+    }
+}
