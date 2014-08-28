@@ -72,6 +72,10 @@
       "items": {
         "$ref": "../../spidamin/project/station_wrapper.schema"
       }
+    },
+    "coreForm": {
+      "$ref": "../../general/form.schema",
+      "description": "Values with which to populate core form"
     }
   },
   "additionalProperties": false

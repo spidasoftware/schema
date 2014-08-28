@@ -26,16 +26,17 @@ class CalcDBLocation extends AbstractCalcDBComponent {
      * @return
      */
     public List<String> getDesignIds() {
-        List<String> ids = new ArrayList<>()
-        for (Object o : getJSON().getJSONArray("designs")) {
-            ids.add((String) o)
-        }
-        return ids
+        getCalcJSON().getJSONArray('designs').collect{JSONObject design-> design.id}
     }
+
+	@Override
+	JSONObject getCalcJSON() {
+		return getJSON().getJSONObject('calcLocation')
+	}
 
     @Override
     String toString(){
-        return getName()?: "Location"
+        return getName()?: "Location without a label"
     }
 
     /**
@@ -45,8 +46,8 @@ class CalcDBLocation extends AbstractCalcDBComponent {
     public List<String> getPhotoIds() {
         List<String> ids = new ArrayList<>()
 
-        if (getJSON().containsKey("images")) {
-            for (Object image : getJSON().getJSONArray("images")) {
+        if (getCalcJSON().containsKey("images")) {
+            for (Object image : getCalcJSON().getJSONArray("images")) {
                 JSONObject j = (JSONObject) image
                 if (j.containsKey("link") && j.getJSONObject("link").containsKey("id")) {
                     ids.add(j.getJSONObject("link").getString("id"))
@@ -60,19 +61,13 @@ class CalcDBLocation extends AbstractCalcDBComponent {
      * @return the id of the parent project, if one exists. otherwise null
      */
     public String getParentProjectId() {
-        if (getJSON()?.containsKey("projectId")) {
-            return getJSON().getString("projectId")
-        }
-        return null
+        getJSON().optString("projectId")
     }
 
     /**
      * @return the name of the parent project, if one exists. otherwise null
      */
     public String getParentProjectName(){
-        if (getJSON()?.containsKey("projectLabel")) {
-            return getJSON().getString("projectLabel")
-        }
-        return null
+	    getJSON().optString('projectLabel')
     }
 }

@@ -51,17 +51,17 @@ public class ExchangeFile {
 	/**
 	 * directory used to unzip file contents to and to write to prior to zipping. may not be null.
 	 */
-	final File tempDir
+	File tempDir
 
 	/**
 	 * located at tempDir/project.json
 	 */
-	final File projectJSONFile
+	File projectJSONFile
 
 	/**
 	 * located at tempDir/Photos
 	 */
-	final File photoDir
+	File photoDir
 
 	/**
 	 * protected constructor. Use one of the static methods instead.

@@ -4,14 +4,14 @@ package com.spidasoftware.schema.conversion;
  * Holds references to the various formats the calcdb supports
  */
 
-public class DataFormat {
+public enum DataFormat {
 
 	/**
 	 * Exchange file format. see Schema for details.
 	 *
 	 * Currently, this format is only supported for POST and PUT requests
 	 */
-	static final String EXCHANGE =  'exchange'
+	EXCHANGE('exchange'),
 
 	/**
 	 * represents data that strictly conforms to the calc project schema. Projects and Locations will include
@@ -20,7 +20,7 @@ public class DataFormat {
 	 *
 	 * All request types support this format.
 	 */
-	static final String CALC =  'calc'
+	CALC("calc"),
 
 	/**
 	 * represents data in the raw format stored in the database. All project components are stored separately, and
@@ -29,5 +29,27 @@ public class DataFormat {
 	 *
 	 * Only GET requests support this format.
 	 */
-	static final String REFERENCED = 'referenced'
+	REFERENCED("referenced")
+
+	String value
+
+	DataFormat(String val){
+		this.value = val
+	}
+
+
+
+	static DataFormat fromString(String str) {
+		for (DataFormat df : values()) {
+			if (df.getValue().equalsIgnoreCase(str)) {
+				return df
+			}
+		}
+		throw new IllegalArgumentException("No DataFormat exists for String: ${str}")
+	}
+
+	@Override
+	String toString() {
+		return value
+	}
 }

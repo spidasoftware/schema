@@ -34,38 +34,51 @@ public abstract class AbstractCalcDBComponent implements CalcDBProjectComponent 
 
     @Override
     public String getName() {
-        return getJSON().getString("label")
+        return getCalcJSON().optString("label")
     }
 
     @Override
     public String getCalcDBId() {
-        try {
-            return getJSON().getString("_id")
-        } catch (JSONException e) {
-            log.error("CalcDB Component does not have an _id")
-        }
-        return null
+	    return getJSON().getString("id")
     }
 
     @Override
     public String getClientFileName() {
-        try {
-            return getJSON().getString("clientFile")
-        } catch (JSONException e) {
-            log.error("CalcDB Component does not have a ClientFile")
-        }
-        return null
+	    return getJSON().getString("clientFile")
     }
 
     @Override
     public Date getDateModified() {
-        try {
-            long time = json.getLong('dateModified')
-	        return new Date(time)
-        } catch (JSONException e) {
-            log.error("CalcDB Component does not have a dateModified", e);
-        }
-        return null
+	    long time = json.getLong('dateModified')
+	    return new Date(time)
     }
+
+	/**
+	 * returns the json object representing the user, if one exists, otherwise null.
+	 * json will have:
+	 *   'id': the user id stored as a string
+	 *   'email': the email address
+	 * these properties may be set to default values if the component was created by an unauthenticated
+	 * source, such as project manager.
+	 *
+	 * @return
+	 */
+	JSONObject getUser(){
+		return getJSON().optJSONObject('user')
+	}
+
+	/**
+	 * sets the 'user' property with the given values
+	 * @param id
+	 * @param email
+	 */
+	void setUser(String id, String email) {
+		JSONObject user = new JSONObject()
+		user.elementOpt('id', id)
+		user.elementOpt('email', email)
+		getJSON().put('user', user)
+	}
+
+	abstract JSONObject getCalcJSON()
 
 }

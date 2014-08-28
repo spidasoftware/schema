@@ -11,7 +11,7 @@ import spock.lang.*
  * To change this template use File | Settings | File Templates.
  */
 class RestAPISpec extends Specification {
-	def baseUrl = "http://www.spidamin.com/calcdb"
+	def baseUrl = "http://www.spidamin.com/spidadb"
 	def client = Mock(GenericHttpClient)
 	def api = new RestAPI(baseUrl, client)
 
@@ -37,8 +37,8 @@ class RestAPISpec extends Specification {
 		where:
 		currentBaseUrl      || currentPath          || currentId  || format 	  || expectedUri
 		"www.website.com"   || "api/resource"       || "1234567"  || null   	  || "www.website.com/api/resource/1234567"
-		"spida.min.com"     || "/calcdb/projects"   ||  ""        || "referenced" || "spida.min.com/calcdb/projects.referenced"
-		"spida.min.com/"    || "/calcdb/projects"   || "123"      || "calc"		  || "spida.min.com/calcdb/projects/123.calc"
+		"spida.min.com"     || "/spidadb/projects"   ||  ""        || "referenced" || "spida.min.com/spidadb/projects.referenced"
+		"spida.min.com/"    || "/spidadb/projects"   || "123"      || "calc"		  || "spida.min.com/spidadb/projects/123.calc"
 		"www.google.com/"   || "search"             || null       || null  		  || "www.google.com/search"
 	}
 
@@ -71,7 +71,7 @@ class RestAPISpec extends Specification {
 		config.path = "/tests"
 		config.name = "tests"
 		config.headers = ["Accept": "application/json"]
-		config.format = ""
+		config.format = "referenced"
 
 		def saveParams = ["name":"value"]
 		Map combinedParams = saveParams.plus(config.additionalParams as Map) as Map
@@ -81,21 +81,21 @@ class RestAPISpec extends Specification {
 		def result = api.find(config, "123")
 
 		then: "the correct methods should be called"
-		1*client.executeRequest("GET", new URI(baseUrl + "/tests/123"), _ as Map, _ as Map, config.doWithResponse) >> "response"
+		1*client.executeRequest("GET", new URI(baseUrl + "/tests/123.referenced"), _ as Map, _ as Map, config.doWithResponse) >> "response"
 		1*config.doWithFindResult.call("response")
 
 		when: "call the list method"
 		def listResult = api.list(config, saveParams)
 
 		then:
-		1*client.executeRequest("GET", new URI(baseUrl + "/tests"), _ as Map, _ as Map, config.doWithResponse) >> "response"
+		1*client.executeRequest("GET", new URI(baseUrl + "/tests.referenced"), _ as Map, _ as Map, config.doWithResponse) >> "response"
 		1*config.doWithListResult.call("response")
 
 		when: "call the update method"
 		api.update(config, saveParams, "123")
 
 		then:
-		1*client.executeRequest("PUT", new URI(baseUrl + "/tests/123"), _ as Map, _ as Map, config.doWithResponse) >> "response"
+		1*client.executeRequest("PUT", new URI(baseUrl + "/tests/123.referenced"), _ as Map, _ as Map, config.doWithResponse) >> "response"
 		1*config.doWithUpdateResult.call("response")
 
 		when: "call the delete method"
@@ -109,7 +109,7 @@ class RestAPISpec extends Specification {
 		api.save(config, saveParams)
 
 		then:
-		1*client.executeRequest("POST", new URI(baseUrl + "/tests"), _ as Map, _ as Map, config.doWithResponse) >> "response"
+		1*client.executeRequest("POST", new URI(baseUrl + "/tests.referenced"), _ as Map, _ as Map, config.doWithResponse) >> "response"
 		1*config.doWithSaveResult.call("response")
 
 	}

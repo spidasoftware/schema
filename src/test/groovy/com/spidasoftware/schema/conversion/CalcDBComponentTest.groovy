@@ -29,9 +29,9 @@ public class CalcDBComponentTest {
 
     @Test
     public void testGetCalcDBId() throws Exception {
-        assertEquals("project should return correct _id", "52d065f1e4b0576ebf7c3900", project.getCalcDBId())
-        assertEquals("location should return correct _id", "52d065f1e4b0576ebf7c3901", location.getCalcDBId())
-        assertEquals("design should return the correct _id", "52d065f1e4b0576ebf7c3902", design.getCalcDBId())
+        assertEquals("project should return correct id", "53e3906d44ae3953e03b39ff", project.getCalcDBId())
+        assertEquals("location should return correct id", "53e3906d44ae3953e03b39fd", location.getCalcDBId())
+        assertEquals("design should return the correct _id", "53e3906d44ae3953e03b39fe", design.getCalcDBId())
     }
 
     @Test
@@ -53,8 +53,8 @@ public class CalcDBComponentTest {
     public void testGetPhotosFromLocation() {
         def otherLocation = loadLocation("/formats/calcdb/exampleProject/locations.json")
         def photoIds = otherLocation.getPhotoIds()
-        assertEquals("Should be one photo loaded from the json", 1, photoIds.size())
-        assertNotNull("Should return the correct photo", photoIds.find { it == "5c6bd2e1-4cd9-4c45-9c49-07c93ca231c9" })
+        assertEquals("Should be three photos loaded from the json", 3, photoIds.size())
+        assertEquals("should have the correct ids", ['12345', '23456', '34567'] as Set, photoIds.toSet())
     }
 
     private CalcDBLocation loadLocation(String resourceString) {

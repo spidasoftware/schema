@@ -3,30 +3,6 @@
     "date": "2013-11-01",
     "schema": "/v1/schema/spidacalc/project.schema",
     "clientFileVersion": "b6f0f10b2c459ee17a4cd027980303f7",
-    "forms": [    {
-        "title": "Test Project Form",
-        "template": "b6f0f10b2c459ee17a4cd027980303f7",
-        "fields":         {
-            "field one": "value one",
-            "field two": "option two",
-            "field three": "true",
-            "group field":             {
-                "inner field one": "inner field value",
-                "inner field two": "8",
-                "group field": ""
-            },
-            "table field":             [
-                                {
-                    "table field one": "97",
-                    "table field two": "drop down option one"
-                },
-                                {
-                    "table field one": "14",
-                    "table field two": "drop down option two"
-                }
-            ]
-        }
-    }],
     "leads": [    {
         "locations": [        {
             "mapNumber": "",
@@ -117,10 +93,10 @@
                 "label": "Measured Design"
             }],
             "label": "Location-11-01-2013-08-20-09-157",
-            "id": "abeb297b-7bb6-451f-9d2e-c87aaddbfe03"
+            "id": "53e3906d44ae3953e03b39fd"
         }],
         "label": "Lead",
-        "id": "8ede6077-c877-4305-bc6d-76ecc1c5908e"
+        "id": "53e3906d44ae3953e03b39fc"
     }],
     "label": "minimal-project-valid"
 }

@@ -28,12 +28,12 @@ class CalcDBDesign extends AbstractCalcDBComponent {
      * @return JSONObject in the format created by ResultJSON class, or null if it's not found
      */
     public JSONObject getWorstPoleLoadingResult() {
-        JSONObject worstResult = null
-        if (getJSON()?.containsKey("worstPoleResult")) {
-            worstResult = getJSON().getJSONObject("worstPoleResult")
-        }
-        return worstResult
+        return getWorstCaseAnalysisResults().optJSONObject('pole')
     }
+
+	public JSONObject getWorstCaseAnalysisResults(){
+		return getJSON().optJSONObject('worstCaseAnalysisResults')
+	}
 
     /**
      * returns the name of this design's parent location, if it has one.
@@ -41,7 +41,7 @@ class CalcDBDesign extends AbstractCalcDBComponent {
      * @return
      */
     public String getParentLocationName() {
-        getStringProperty("locationLabel")
+	    getJSON().optString("locationLabel")
     }
 
     /**
@@ -50,8 +50,13 @@ class CalcDBDesign extends AbstractCalcDBComponent {
      * @return
      */
     public String getParentLocationId() {
-        getStringProperty("locationId")
+	    getJSON().optString("locationId")
     }
+
+	@Override
+	JSONObject getCalcJSON() {
+		return getJSON().getJSONObject('calcDesign')
+	}
 
     /**
      * returns the name of this design's parent project if it has one.
@@ -59,7 +64,7 @@ class CalcDBDesign extends AbstractCalcDBComponent {
      * @return
      */
     public String getParentProjectName() {
-        getStringProperty("projectLabel")
+	    getJSON().optString("projectLabel")
     }
 
     /**
@@ -67,15 +72,7 @@ class CalcDBDesign extends AbstractCalcDBComponent {
      * @return
      */
     String getParentProjectId() {
-        getStringProperty("projectId")
-    }
-
-    private String getStringProperty(String propertyName) {
-        String value = null
-        if (getJSON().containsKey(propertyName)) {
-            value = getJSON().getString(propertyName)
-        }
-        return value
+	    getJSON().optString("projectId")
     }
 
 }

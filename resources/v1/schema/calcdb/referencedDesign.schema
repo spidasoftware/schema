@@ -1,0 +1,89 @@
+{
+    "type": "object",
+    "description": "The Design data, as it is stored in CalcDB",
+    "required": [
+        "calcDesign",
+        "dateModified",
+        "id",
+        "projectId",
+        "projectLabel",
+        "locationId",
+        "locationLabel",
+        "clientFile"
+    ],
+    "properties": {
+        "id": {
+            "type": "string",
+            "description": "The unique id of this project component"
+        },
+        "calcDesign": {
+            "$ref": "../spidacalc/calc/design.schema"
+        },
+        "user": {
+            "$ref": "userRef.schema"
+        },
+        "projectId": {
+            "type": "string",
+            "description": "The id (in calcdb) of the parent Project"
+        },
+        "projectLabel": {
+            "type": "string",
+            "description": "The label of the parent Project, if there is one"
+        },
+        "locationId": {
+            "type": "string",
+            "description": "The label of the parent Location, if there is one"
+        },
+        "locationLabel" : {
+            "type": "string",
+            "description": "The label of the parent Location, if there is one"
+        },
+        "clientFile": {
+            "type": "string",
+            "description": "The name of the Client Data file used in the parent project"
+        },
+        "clientFileVersion": {
+            "type": "string",
+            "description": "The version of the Client Data file used in the parent project"
+        },
+        "dateModified": {
+            "$ref": "../general/long_date.schema"
+        },
+        "version": {
+            "type": "number",
+            "description": "This is a schema version integer."
+        },
+        "worstCaseAnalysisResults": {
+            "type": "object",
+            "description": "Holds the worst-case analysis results for each *type* of component. CalcDB will set these properties automatically when a design is saved. The data here is all duplicated in the 'analysis' property. It is reproduced here only to make it easier to query the data",
+            "properties": {
+                "pole": {
+                    "$ref": "../spidamin/asset/standard_details/analysis_asset.schema"
+                },
+                "guys": {
+                    "$ref": "../spidamin/asset/standard_details/analysis_asset.schema"
+                },
+                "spanGuys": {
+                    "$ref": "../spidamin/asset/standard_details/analysis_asset.schema"
+                },
+                "anchors": {
+                    "$ref": "../spidamin/asset/standard_details/analysis_asset.schema"
+                },
+                "pushBraces": {
+                    "$ref": "../spidamin/asset/standard_details/analysis_asset.schema"
+                },
+                "insulators": {
+                    "$ref": "../spidamin/asset/standard_details/analysis_asset.schema"
+                },
+                "crossArms": {
+                    "$ref": "../spidamin/asset/standard_details/analysis_asset.schema"
+                },
+                "sidewalkBraces": {
+                    "$ref": "../spidamin/asset/standard_details/analysis_asset.schema"
+                }
+            },
+            "additionalProperties": false
+        }
+    },
+    "additionalProperties": false
+}

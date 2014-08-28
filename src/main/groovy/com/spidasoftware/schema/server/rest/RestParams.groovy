@@ -66,22 +66,28 @@ class RestParams {
 			//make sure that any required parameters are present
 			method.parameters.each{
 				log.debug("Checking parameter: ${it.id}")
-				def key = it.id
-				if (it.required && !params[key]){
+
+				def paramId = it.id //id field always matches up with the key in the params map
+
+				//We may use a different key internally for the query. If this is set, then use it
+				//otherwise, just use the id as the key in the new params
+				def newParamsKey = it.documentProperty ?: paramId
+
+				if (it.required && !params[paramId]){
 					//if a required param is not present, throw an exception
-					log.info("Missing parameter ${key}")
-					throw new MissingParamException(key)
-				} else if (params[key]){
-					log.debug("Adding param: $key")
+					log.info("Missing parameter ${paramId}")
+					throw new MissingParamException(paramId)
+				} else if (params[paramId]){
+					log.debug("Adding param: $paramId")
 					if (it.schema){
 						//if there's a schema specified, then validate against it
-						validateAgainstSchema(it.schema, params[key])
-						newParams[key] = JSONSerializer.toJSON(params[key])
+						validateAgainstSchema(it.schema, params[paramId])
+						newParams[newParamsKey] = JSONSerializer.toJSON(params[paramId])
 					} else {
-                        if(it.enum && !it.enum.contains(params[key].toString())) {
-                            throw new InvalidParameterException(it.id + " with value: ${params[key]} is not valid:\nMust be one of ${it.enum}")
+                        if(it.enum && !it.enum.contains(params[paramId].toString())) {
+                            throw new InvalidParameterException(it.id + " with value: ${params[paramId]} is not valid:\nMust be one of ${it.enum}")
                         }
-						newParams[key] = params[key]
+						newParams[newParamsKey] = params[paramId]
 					}
 				}
 			}

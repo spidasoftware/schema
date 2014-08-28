@@ -1,6 +1,5 @@
 package com.spidasoftware.schema.conversion
 
-//import com.spidasoftware.schema.json.CalcDBProjectComponent
 import net.sf.json.JSONObject
 
 /**
@@ -20,10 +19,20 @@ class CalcDBProject extends AbstractCalcDBComponent {
      * @return the SPIDAdb ids of the locations contained in this project
      */
     List<String> getChildLocationIds(){
-        return getJSON().getJSONArray("locations").collect { it.toString() }
+        return getCalcJSON().getJSONArray("leads").collect{JSONObject lead-> lead.locations}.flatten().collect {JSONObject location-> location.id }
     }
 
-    @Override
+	@Override
+	String getClientFileName() {
+		return getCalcJSON().getString('clientFile')
+	}
+
+	@Override
+	JSONObject getCalcJSON() {
+		return getJSON().getJSONObject('calcProject')
+	}
+
+	@Override
     String toString() {
         return getName()?: "Project"
     }
