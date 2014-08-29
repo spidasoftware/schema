@@ -1,2 +1,2 @@
 language: groovy
-env: JAVA_OPTS="-noverify"
+env: JAVA_OPTS=-noverify
