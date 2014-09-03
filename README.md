@@ -24,6 +24,7 @@ There are few concepts to keep in mind:
 1. Our services rely heavily on the JSON format.  If you are not familiar with JSON, you will need to be to understand what it is your are submitting to the service.  Try this short [tutorial](http://www.w3schools.com/json/default.asp).
 2. We have two main areas for our services. SPIDACalc and SPIDAMin, don't confuse the two.  They each have some overlap in naming, but fundamentally different structures.  SPIDAMin is an online application that is primarily used to manage assets.  SPIDACalc is a client application for analyzing utility pole structures.  Both have a project, but each is unique and different.  Make sure you are using the correct one.
 3. Schema files end in .schema, and interface definitions end in .json.  The .schema files are used to validate the objects passed. The .json files describe the services to which you pass those objects.
+4. The CalcDB api follows REpresentational Sate Transfer (REST) conventions, which makes it somewhat different from out other APIs, which use Remote Procedure Call (RPC) conventions. This document contains general information that is mostly only relevant to RPC, although some information is relevant to both. For information on using the CalcDB api, check out [this link.](http://github.com/spidasoftware/schema/blob/master/resources/v1/schema/calcdb/interfaces)
 
 Services
 ------------

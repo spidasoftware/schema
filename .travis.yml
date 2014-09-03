@@ -1,1 +1,2 @@
 language: groovy
+env: _JAVA_OPTIONS="-XX:-UseSplitVerifier"
