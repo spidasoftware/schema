@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat
  * Time: 2:28 PM
  * To change this template use File | Settings | File Templates.
  */
-public abstract class AbstractCalcDBComponent implements CalcDBProjectComponent {
+abstract class AbstractCalcDBComponent implements CalcDBProjectComponent {
     private static final Logger log = Logger.getLogger(AbstractCalcDBComponent.class)
     JSONObject json
 
