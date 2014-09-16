@@ -19,7 +19,7 @@ class CalcDBProject extends AbstractCalcDBComponent {
      * @return the SPIDAdb ids of the locations contained in this project
      */
     List<String> getChildLocationIds(){
-        return getCalcJSON().getJSONArray("leads").collect{JSONObject lead-> lead.locations}.flatten().collect {JSONObject location-> location.id }
+        return getCalcJSON().getJSONArray("leads")?.collect{JSONObject lead-> lead.locations}?.flatten()?.collect {JSONObject location-> location.id }
     }
 
 	@Override
