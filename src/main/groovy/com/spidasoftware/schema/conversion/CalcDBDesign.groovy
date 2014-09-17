@@ -28,7 +28,7 @@ class CalcDBDesign extends AbstractCalcDBComponent {
      * @return JSONObject in the format created by ResultJSON class, or null if it's not found
      */
     public JSONObject getWorstPoleLoadingResult() {
-        return getWorstCaseAnalysisResults().optJSONObject('pole')
+        return getWorstCaseAnalysisResults()?.optJSONObject('pole')
     }
 
 	public JSONObject getWorstCaseAnalysisResults(){

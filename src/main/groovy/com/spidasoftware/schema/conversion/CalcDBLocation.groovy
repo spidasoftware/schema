@@ -26,7 +26,7 @@ class CalcDBLocation extends AbstractCalcDBComponent {
      * @return
      */
     public List<String> getDesignIds() {
-        getCalcJSON().getJSONArray('designs').collect{JSONObject design-> design.id}
+        getCalcJSON().getJSONArray('designs')?.collect{ JSONObject design -> design.id}
     }
 
 	@Override
