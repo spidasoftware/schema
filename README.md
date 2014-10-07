@@ -3,8 +3,8 @@ SPIDA Software JSON Interfaces
 
 [![Build Status](https://secure.travis-ci.org/spidasoftware/schema.png)](http://travis-ci.org/spidasoftware/schema)
 
-* LAST RELEASED VERSION: 0.5
-* CURRENT DEV VERSION:   0.7-SNAPSHOT
+* LAST RELEASED VERSION: 1.0.0
+* CURRENT DEV VERSION:   1.0.x-SNAPSHOT
 
 License
 -------
