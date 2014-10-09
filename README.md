@@ -4,7 +4,6 @@ SPIDA Software JSON Interfaces
 [![Build Status](https://secure.travis-ci.org/spidasoftware/schema.png)](http://travis-ci.org/spidasoftware/schema)
 
 * LAST RELEASED VERSION: 1.0.0
-* CURRENT DEV VERSION:   1.0.x-SNAPSHOT
 
 Version 1.0.0 of Schema marks the point at which it stabilizes. The schemas found under `/resources/v1/` are considered stable, and we will endeavor to avoid any breaking changes to them. Any future changes that would cause integrations to break should be made under the `v2/` namespace.
 
