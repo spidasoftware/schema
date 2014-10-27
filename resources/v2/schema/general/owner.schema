@@ -26,14 +26,17 @@
       "properties": {
         "type": {
           "type": "string",
-          "description": "Values are percent or force"
+          "description": "Values are percent or force."
         },
         "forceValue": {
-          "$ref": "../general/measurable.schema"
+          "$ref": "../general/measurable.schema",
+          "description": "Only needs to be present if type is force."
         },
         "percentValue": {
           "type": "number",
-          "description": "Percent value"
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Only needs to be present if type is percent."
         }
       },
       "additionalProperties": false
