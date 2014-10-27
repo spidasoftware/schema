@@ -1,0 +1,45 @@
+{
+  "anchors": [], 
+  "crossArms": [], 
+  "damages": [], 
+  "equipments": [], 
+  "guys": [], 
+  "insulators": [],
+  "notePoints": [], 
+  "pointLoads": [], 
+  "pole": {
+    "id": "Pole",
+    "agl": {
+      "unit": "FOOT", 
+      "value": 16
+    }, 
+    "clientItem": {
+      "classOfPole": "5", 
+      "height": {
+        "unit": "FOOT", 
+        "value": 20
+      }, 
+      "species": "Southern Pine"
+    }, 
+    "environment": "STREET", 
+    "glc": {
+      "unit": "FOOT", 
+      "value": 1.9642857101595517
+    }, 
+    "owner": {
+      "industry": "UTILITY", 
+      "id": "Acme Power",
+      "externalId": "706e1c60-20f6-4447-b381-c9060cb51337"
+    }, 
+    "stressRatio": 1, 
+    "temperature": {
+      "unit": "FAHRENHEIT", 
+      "value": 60
+    }
+  },
+  "pushBraces": [], 
+  "spanGuys": [], 
+  "spanPoints": [], 
+  "wireEndPoints": [], 
+  "wires": []
+}

@@ -1,0 +1,672 @@
+{
+  "id": "#/spidacalc/calc/structure.schema",
+  "description": "Structural Description of a calc Design",
+  "type": "object",
+  "required": [
+    "pole"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "pole": {
+      "$ref": "../../spidacalc/calc/pole.schema",
+      "description": "The main pole being analyzed."
+    },
+    "anchors": {
+      "description": "List of all anchors in this structure.",
+      "type": "array",
+      "items": {
+        "$ref":"../../spidacalc/calc/anchor.schema"
+      }
+    },
+    "wireEndPoints": {
+      "description": "List of all wire end points in the structure. Wire end points are the poles/buildings at the other end of your wires.",
+      "type": "array",
+      "items": {
+        "$ref":"../../spidacalc/calc/wire_end_point.schema"
+      }
+    },
+    "spanPoints": {
+      "description": "List of span points, which hold additional information at points along a wire.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "spanPoint",
+        "required": [
+          "id",
+          "distance",
+          "environment",
+          "heights"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Display ID. Should be unique within structure."
+          },
+          "externalId": {
+            "type": "string",
+            "description": "Optional external ID."
+          },
+          "distance": {
+            "$ref": "../../general/measurable.schema",
+            "description": "Distance from pole."
+          },
+          "environment": {
+            "$ref": "../../spidacalc/calc/enums/environment.schema",
+            "description": "Type of environment the point is in -- STREET, RAILROAD, etc."
+          },
+          "heights": {
+            "description": "List of heights recorded at this span point.",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "id": "height",
+              "required": [
+                "wireId",
+                "height"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "wireId": {
+                  "type": "string"
+                },
+                "height": {
+                  "$ref": "../../general/measurable.schema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "notePoints": {
+      "description": "Additional notes attached to a specific place in the structure.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "notePoint",
+        "required": [
+          "id",
+          "distance",
+          "direction",
+          "height",
+          "note"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "A display id for the object. Should be unique to the pole."
+          },
+          "externalId": {
+            "type": "string",
+            "description": "An optional id for mapping to external systems. Calc does not use this ID, but does preserve it."
+          },  
+          "distance": {
+            "$ref": "../../general/measurable.schema",
+            "description": "Distance from pole."
+          },
+          "direction": {
+            "$ref": "../../general/bearing.schema",
+            "description": "Bearing from pole."
+          },
+          "note": {
+            "type": "string",
+            "description": "Actual note taken."
+          },
+          "height": {
+            "$ref": "../../general/measurable.schema",
+            "description": "Height above ground that the note refers to."
+          }
+        }
+      }
+    },
+    "pointLoads": {
+      "description": "Additional loads to be applied to the structure.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "pointLoad",
+        "required": [
+          "id",
+          "attachmentHeight",
+          "owner",
+          "elevation",
+          "rotation",
+          "x",
+          "y",
+          "z",
+          "fx",
+          "fy",
+          "fz",
+          "mx",
+          "my",
+          "mz"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The display ID for the attachment. Must be unique within the pole."
+          },
+          "externalId": {
+            "type": "string",
+            "description": "An optional externalId for the item."
+          },
+          "owner": {
+            "$ref": "../../general/owner.schema",
+            "description": "The company who is applying this load"
+          },
+          "attachmentHeight": {
+            "$ref": "../../general/measurable.schema",
+            "description": "Height above ground on pole to attach load."
+          },
+          "elevation": {
+            "$ref": "../../general/measurable.schema",
+            "description": "Additional translation on load."
+          },
+          "rotation": {
+            "$ref": "../../general/measurable.schema",
+            "description": "Additional rotation on load"
+          },
+          "x": {
+            "$ref": "../../general/measurable.schema",
+            "description": "X (east)position of load"
+          },
+          "y": {
+            "$ref": "../../general/measurable.schema",
+            "description": "Y (North) Position of load"
+          },
+          "z": {
+            "$ref": "../../general/measurable.schema",
+            "description": "Z (Up) Position of load"
+          },
+          "fx": {
+            "$ref": "../../general/measurable.schema",
+            "description": "X component of force"
+          },
+          "fy": {
+            "$ref": "../../general/measurable.schema",
+            "description": "Y component of force"
+          },
+          "fz": {
+            "$ref": "../../general/measurable.schema",
+            "description": "z component of force"
+          },
+          "mx": {
+            "$ref": "../../general/measurable.schema",
+            "description": "x component of moment"
+          },
+          "my": {
+            "$ref": "../../general/measurable.schema",
+            "description": "y component of moment"
+          },
+          "mz": {
+            "$ref": "../../general/measurable.schema",
+            "description": "z component of moment"
+          }
+        }
+      }
+    },
+    "damages": {
+      "description": "List of damages found on pole. See calc documentation for available types,their meaning, and properties that match each",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "attachHeight",
+          "damageType",
+          "damageHeight"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Id unique within structure"
+          },
+          "externalId": {
+            "type": "string",
+            "description": "Optional external id"
+          },
+          "damageType": {
+            "$ref": "../../spidacalc/calc/enums/damage_type.schema",
+            "description": "Type/Shape of damage on pole."
+          },
+          "attachHeight": {
+            "$ref": "../../general/measurable.schema",
+            "description": "Height above ground line of the top of the damage."
+          },
+          "damageHeight": {
+            "$ref": "../../general/measurable.schema",
+            "description": "Height of the damage itself."
+          },
+          "direction": {
+            "$ref": "../../general/bearing.schema",
+            "description": "Bearing around pole of damage"
+          },
+          "arc": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "width": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "depth": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "circumference": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "nestDepth": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "shellThickness": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "neckDepth": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "neckDiameter": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "neckOffset": {
+            "$ref": "../../general/measurable.schema"
+          }
+        }
+      }
+    },
+    "wires": {
+      "description": "List of wires on the pole and their properties. Each span is considered a separate wire",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "wire",
+        "required": [
+          "id",
+          "attachmentHeight",
+          "owner",
+          "clientItem",
+          "usageGroup"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The display ID for the attachment. Must be unique within the pole."
+          },
+          "externalId": {
+            "type": "string",
+            "description": "An optional externalId for the item."
+          },
+          "owner": {
+            "$ref": "../../general/owner.schema",
+            "description": "Company who owns the wire"
+          },
+          "attachmentHeight": {
+            "$ref": "../../general/measurable.schema",
+            "description": "Height at the which the wire is attached to the pole."
+          },
+          "usageGroup": {
+            "$ref": "enums/usage_group.schema"
+          },
+          "tensionGroup": {
+            "type": "string",
+            "description": "Which client-wire-defined tension group the wire is in."
+          },
+          "midspanHeight": {
+            "$ref": "../../general/measurable.schema",
+            "description": "Height of the midspan, if collected."
+          },
+          "tensionAdjustment": {
+            "type": "number",
+            "description": "Additional wire-specific tension adjustment in addition to load case tension multipliers."
+          },
+          "clientItem": {
+            "$ref": "../../spidacalc/calc/client_references/wire.schema",
+            "description": "The engineering properties of this wire."
+          }
+        }
+      }
+    },
+    "spanGuys": {
+      "description": "List of all span guys attached to the structure",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "spanGuy",
+        "required": [
+          "id",
+          "attachmentHeight",
+          "owner",
+          "clientItem",
+          "height"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The display ID for the attachment. Must be unique within the pole."
+          },
+          "externalId": {
+            "type": "string",
+            "description": "An optional externalId for the item."
+          },
+          "owner": {
+            "$ref": "../../general/owner.schema"
+          },
+          "attachmentHeight": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "midspanHeight": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "height": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "clientItem": {
+            "$ref": "../../spidacalc/calc/client_references/wire.schema"
+          }
+        }
+      }
+    },
+    "guys": {
+      "description": "List of all guys attached to structure.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "guy",
+        "required": [
+          "id",
+          "attachmentHeight",
+          "owner",
+          "clientItem"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The display ID for the attachment. Must be unique within the pole."
+          },
+          "externalId": {
+            "type": "string",
+            "description": "An optional externalId for the item."
+          },
+          "owner": {
+            "$ref": "../../general/owner.schema"
+          },
+          "attachmentHeight": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "braceHeight": {
+            "$ref": "../../general/measurable.schema",
+            "description": "DEPRECATED in Calc 5.1. Use sidewalkBraces instead. If this is a sidewalk guy, attach height of sidewalk brace."
+          },
+          "braceLength": {
+            "$ref": "../../general/measurable.schema",
+            "description": "DEPRECATED in Calc 5.1. Use sidewalkBraces instead. If this is a sidewalk guy, length of sidewalk brace."
+          },
+          "clientItem": {
+            "$ref": "../../spidacalc/calc/client_references/wire.schema"
+          }
+        }
+      }
+    },
+    "sidewalkBraces": {
+      "description": "List of all sidewalk braces (AKA queen posts)",
+      "items": {
+        "type": "object",
+        "description": "A single sidewalk brace.",
+        "id": "sidewalkBrace",
+        "required": [
+          "attachmentHeight",
+          "length",
+          "clientItem",
+          "direction",
+          "id",
+          "owner",
+          "guys"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The display ID for the attachment. Must be unique within the pole."
+          },
+          "externalId": {
+            "type": "string",
+            "description": "An optional externalId for the item."
+          },
+          "owner": {
+            "$ref": "../../general/owner.schema"
+          },
+          "attachmentHeight": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "length": {
+            "description": "Length of the brace from the pole.",
+            "$ref": "../../general/measurable.schema"
+          },
+          "direction": {
+            "$ref": "../../general/bearing.schema"
+          },
+          "clientItem": {
+            "type": "string",
+            "description": "The size of the client brace to be used."
+          },
+          "guys": {
+            "type": "array",
+            "description": "List of Guy IDs of guys that are attached to this brace.",
+            "items": {
+              "type": "string",
+              "description": "Guy ID"
+            }
+          }
+        }
+      }
+    },
+    "equipments": {
+      "description": "List of all equipment attached to the structure",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "equipment",
+        "required": [
+          "id",
+          "attachmentHeight",
+          "owner",
+          "clientItem",
+          "direction",
+          "bottomHeight"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The display ID for the attachment. Must be unique within the pole."
+          },
+          "externalId": {
+            "type": "string",
+            "description": "An optional externalId for the item."
+          },
+          "owner": {
+            "$ref": "../../general/owner.schema"
+          },
+          "attachmentHeight": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "bottomHeight": {
+            "$ref": "../../general/measurable.schema",
+            "description": "Measured height above ground of the bottom of the equipment."
+          },
+          "direction": {
+            "$ref": "../../general/bearing.schema"
+          },
+          "clientItem": {
+            "$ref": "../../spidacalc/calc/client_references/equipment.schema"
+          }
+        }
+      }
+    },
+    "crossArms": {
+      "description": "List of all crossarms on the structure.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "crossArm",
+        "required": [
+          "id",
+          "attachmentHeight",
+          "owner",
+          "associatedBacking",
+          "clientItem",
+          "direction",
+          "offset"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The display ID for the attachment. Must be unique within the pole."
+          },
+          "externalId": {
+            "type": "string",
+            "description": "An optional externalId for the item."
+          },
+          "owner": {
+            "$ref": "../../general/owner.schema"
+          },
+          "attachmentHeight": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "offset": {
+            "$ref": "../../general/measurable.schema",
+            "description": "The offset along the pole. 0 Offset will result in a crossarm attached to the pole at one end."
+          },
+          "direction": {
+            "$ref": "../../general/bearing.schema",
+            "description": "Crossarm bearing is the direction the end of the crossarm points, not the direction of the bolt attachment."
+          },
+          "associatedBacking": {
+            "type": "string",
+            "description": "Either BISECTOR or a wire end point ID of the end point associated with the wires going to the crossarm."
+          },
+          "insulators": {
+            "description": "List of IDs of all insulators attached to this crossarm.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "clientItem": {
+            "type": "string",
+            "description": "ID of the client crossarm with the material properties for this crossarm."
+          }
+        }
+      }
+    },
+    "insulators": {
+      "description": "List of all insulators in structure, including those attached to crossarms.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "insulator",
+        "required": [
+          "id",
+          "attachmentHeight",
+          "owner",
+          "doubleInsulator",
+          "clientItem",
+          "direction",
+          "offset"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The display ID for the attachment. Must be unique within the pole."
+          },
+          "externalId": {
+            "type": "string",
+            "description": "An optional externalId for the item."
+          },
+          "owner": {
+            "$ref": "../../general/owner.schema"
+          },
+          "attachmentHeight": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "offset": {
+            "$ref": "../../general/measurable.schema",
+            "description": "When attached to a crossarm, the offset along the crossarm."
+          },
+          "direction": {
+            "$ref": "../../general/bearing.schema"
+          },
+          "doubleInsulator": {
+            "type": "boolean",
+            "description": "Used if this is an insulator on a double crossarm, where there are insulators attached on each arm."
+          },
+          "wires": {
+            "description": "List of wire IDs attached to insulator. Each span is considered a separate wire",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "clientItem": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "pushBraces": {
+      "description": "List of all push braces attached to the structure",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "pushBrace",
+        "required": [
+          "id",
+          "attachmentHeight",
+          "owner",
+          "clientItem",
+          "distance",
+          "direction",
+          "glc"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The display ID for the attachment. Must be unique within the pole."
+          },
+          "externalId": {
+            "type": "string",
+            "description": "An optional externalId for the item."
+          },
+          "owner": {
+            "$ref": "../../general/owner.schema"
+          },
+          "attachmentHeight": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "glc": {
+            "$ref": "../../general/measurable.schema",
+            "description": "Ground line circumference of push brace."
+          },
+          "direction": {
+            "$ref": "../../general/bearing.schema",
+            "description": "Bearing of push brace relative to main pole."
+          },
+          "distance": {
+            "$ref": "../../general/measurable.schema",
+            "description": "Distance from main pole to base of push brace"
+          },
+          "clientItem": {
+            "$ref": "../../spidacalc/calc/client_references/pole.schema"
+          }
+        }
+      }
+    }
+  }
+}

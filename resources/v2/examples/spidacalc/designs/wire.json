@@ -1,0 +1,133 @@
+{
+  "anchors": [], 
+  "crossArms": [], 
+  "damages": [], 
+  "equipments": [], 
+  "guys": [], 
+  "insulators": [],
+  "notePoints": [], 
+  "pointLoads": [], 
+  "pole": {
+    "id": "Pole",
+    "agl": {
+      "unit": "FOOT", 
+      "value": 38.5
+    }, 
+    "clientItem": {
+      "classOfPole": "4", 
+      "height": {
+        "unit": "FOOT", 
+        "value": 45
+      }, 
+      "species": "Douglas Fir"
+    }, 
+    "environment": "STREET", 
+    "glc": {
+      "unit": "FOOT", 
+      "value": 2.8990375130504664
+    }, 
+    "owner": {
+      "industry": "UTILITY", 
+      "id": "SCE",
+      "externalId": "14c8750c-7b8e-4305-8c1e-68b0165567ae"
+    }, 
+    "stressRatio": 1, 
+    "temperature": {
+      "unit": "FAHRENHEIT", 
+      "value": 60
+    }
+  }, 
+  "pushBraces": [], 
+  "spanGuys": [], 
+  "spanPoints": [], 
+  "wireEndPoints": [
+    {
+      "comments": "", 
+      "direction": 0, 
+      "distance": {
+        "unit": "FOOT", 
+        "value": 150
+      }, 
+      "id": "WEP#1", 
+      "inclination": {
+        "unit": "DEGREE_ANGLE", 
+        "value": 0
+      }, 
+      "spanGuys": [], 
+      "spanPoints": [], 
+      "type": "NEXT_POLE", 
+      "externalId": "046db3c5-2ee1-4595-a7cd-13a78c49cb3d",
+      "wires": ["Wire#2"]
+    }, 
+    {
+      "comments": "", 
+      "direction": 180, 
+      "distance": {
+        "unit": "FOOT", 
+        "value": 150
+      }, 
+      "id": "WEP#2", 
+      "inclination": {
+        "unit": "DEGREE_ANGLE", 
+        "value": 0
+      }, 
+      "spanGuys": [], 
+      "spanPoints": [], 
+      "type": "PREVIOUS_POLE", 
+      "externalId": "4f079e81-2740-4e5d-b0c9-0bb88a58446f",
+      "wires": ["Wire#1"]
+    }
+  ], 
+  "wires": [
+    {
+      "attachmentHeight": {
+        "unit": "FOOT", 
+        "value": 27.5
+      }, 
+      "clientItem": {
+        "conductorStrands": 7, 
+        "coreStrands": 0, 
+        "size": "1/0 AAC-COV"
+      }, 
+      "id": "Wire#1", 
+      "midspanHeight": {
+        "unit": "FOOT", 
+        "value": 0
+      }, 
+      "owner": {
+        "industry": "UTILITY", 
+        "id": "SCE",
+        "externalId": "4c060a42-f8d3-4d0d-b802-a8556655ac78"
+      }, 
+      "tensionAdjustment": 1, 
+      "tensionGroup": "Full", 
+      "usageGroup": "PRIMARY", 
+      "externalId": "72b3a747-e850-4618-a424-ed85f21c6713"
+    }, 
+    {
+      "attachmentHeight": {
+        "unit": "FOOT", 
+        "value": 27.5
+      }, 
+      "clientItem": {
+        "conductorStrands": 7, 
+        "coreStrands": 0, 
+        "size": "1/0 AAC-COV"
+      }, 
+      "id": "Wire#2", 
+      "midspanHeight": {
+        "unit": "FOOT", 
+        "value": 0
+      }, 
+      "owner": {
+        "industry": "UTILITY", 
+        "id": "SCE",
+        "externalId": "433d78b4-5af0-4c10-b800-939d5f2dc2aa"
+      }, 
+      "tensionAdjustment": 1, 
+      "tensionGroup": "Full", 
+      "usageGroup": "PRIMARY", 
+      "externalId": "aa44a5bd-075e-408d-ba7b-38fb9372a0ab"
+    }
+  ]
+}

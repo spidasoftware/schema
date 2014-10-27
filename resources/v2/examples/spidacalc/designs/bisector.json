@@ -1,0 +1,175 @@
+{
+  "anchors": [
+    {
+      "clientItem": "10\" - 12\" - 14\" Triple Helix (Class 4) 5/8\" Rod", 
+      "direction": 319, 
+      "distance": {
+        "unit": "FOOT", 
+        "value": 15
+      }, 
+      "guys": [
+        "Guy#1"
+      ], 
+      "height": {
+        "unit": "FOOT", 
+        "value": 0
+      }, 
+      "id": "Anchor#1", 
+      "owner": {
+        "industry": "UTILITY", 
+        "id": "Acme Power",
+        "externalId": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+      }, 
+      "supportType": "Bisector", 
+      "externalId": "60f0a981-2f0d-49a5-bfe0-50b119b1ced1"
+    }
+  ], 
+  "crossArms": [], 
+  "damages": [], 
+  "equipments": [], 
+  "guys": [
+    {
+      "attachmentHeight": {
+        "unit": "FOOT", 
+        "value": 13.6
+      }, 
+      "clientItem": {
+        "conductorStrands": 19, 
+        "coreStrands": 0, 
+        "size": "1\" SM"
+      }, 
+      "id": "Guy#1", 
+      "owner": {
+        "industry": "UTILITY", 
+        "id": "Acme Power",
+        "externalId": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+      }, 
+      "externalId": "9a5cec91-ceda-49f2-885f-d56c92a22362"
+    }
+  ], 
+  "insulators": [],
+  "notePoints": [], 
+  "pointLoads": [], 
+  "pole": {
+    "agl": {
+      "unit": "FOOT", 
+      "value": 16
+    }, 
+    "clientItem": {
+      "classOfPole": "5", 
+      "height": {
+        "unit": "FOOT", 
+        "value": 20
+      }, 
+      "species": "Southern Pine"
+    }, 
+    "environment": "STREET", 
+    "glc": {
+      "unit": "FOOT", 
+      "value": 1.9642857101595517
+    }, 
+    "owner": {
+      "industry": "UTILITY", 
+      "id": "Acme Power",
+      "externalId": "38260275-c218-4608-8601-21c8544c5253"
+    }, 
+    "stressRatio": 1, 
+    "temperature": {
+      "unit": "FAHRENHEIT", 
+      "value": 60
+    }
+  }, 
+  "pushBraces": [], 
+  "spanGuys": [], 
+  "spanPoints": [], 
+  "wireEndPoints": [
+    {
+      "comments": "", 
+      "direction": 76, 
+      "distance": {
+        "unit": "FOOT", 
+        "value": 143
+      }, 
+      "id": "WEP#1", 
+      "inclination": {
+        "unit": "DEGREE_ANGLE", 
+        "value": 0
+      }, 
+      "spanGuys": [], 
+      "spanPoints": [], 
+      "type": "NEXT_POLE", 
+      "externalId": "6bdb3562-8bb6-45e3-8c86-14716df6ab6e",
+      "wires": ["Wire#1"]
+    }, 
+    {
+      "comments": "", 
+      "direction": 201, 
+      "distance": {
+        "unit": "FOOT", 
+        "value": 147
+      }, 
+      "id": "WEP#2", 
+      "inclination": {
+        "unit": "DEGREE_ANGLE", 
+        "value": 0
+      }, 
+      "spanGuys": [], 
+      "spanPoints": [], 
+      "type": "PREVIOUS_POLE", 
+      "externalId": "218816f8-004c-4998-8414-a9324375f154",
+      "wires": ["Wire#2"]
+    }
+  ], 
+  "wires": [
+    {
+      "attachmentHeight": {
+        "unit": "FOOT", 
+        "value": 13.6
+      }, 
+      "clientItem": {
+        "conductorStrands": 7, 
+        "coreStrands": 0, 
+        "size": "1 AAC"
+      }, 
+      "id": "Wire#2", 
+      "midspanHeight": {
+        "unit": "FOOT", 
+        "value": 0
+      }, 
+      "owner": {
+        "industry": "UTILITY", 
+        "id": "Acme Power",
+        "externalId": "79e889d1-d8ca-4d10-9668-3e238c578f45"
+      }, 
+      "tensionAdjustment": 1, 
+      "tensionGroup": "Full", 
+      "usageGroup": "PRIMARY", 
+      "externalId": "0848525c-aabd-4274-aff9-133a212c2764"
+    }, 
+    {
+      "attachmentHeight": {
+        "unit": "FOOT", 
+        "value": 13.6
+      }, 
+      "clientItem": {
+        "conductorStrands": 7, 
+        "coreStrands": 0, 
+        "size": "1 AAC"
+      }, 
+      "id": "Wire#1", 
+      "midspanHeight": {
+        "unit": "FOOT", 
+        "value": 0
+      }, 
+      "owner": {
+        "industry": "UTILITY", 
+        "id": "Acme Power",
+        "externalId": "fe819d3b-4e14-4bf7-a066-754d224d296c"
+      }, 
+      "tensionAdjustment": 1, 
+      "tensionGroup": "Full", 
+      "usageGroup": "PRIMARY", 
+      "externalId": "11a9b386-2dfb-49a2-b708-4a063d5c3f4d"
+    }
+  ]
+}

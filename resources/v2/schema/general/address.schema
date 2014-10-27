@@ -1,0 +1,30 @@
+{
+  "id": "general/address.schema",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "type": "object",
+  "description": "A street address.",
+  "properties": {
+    "number": {
+      "type": "string"
+    },
+    "street": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "county": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "zip_code": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

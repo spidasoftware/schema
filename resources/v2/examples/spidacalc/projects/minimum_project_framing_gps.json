@@ -1,0 +1,39 @@
+{
+  "clientFile": "Demo.client",
+  "leads": [{"locations": [  {
+    "designs": [{"framingPlan":     {
+      "customName": "frameWithoutPrimary",
+      "framingEndPoints":       [
+                {
+          "direction": 95,
+          "distance":           {
+            "unit": "FOOT",
+            "value": 50
+          },
+          "framingWireItems": []
+        },
+                {
+          "direction": 270,
+          "distance":           {
+            "unit": "FOOT",
+            "value": 60
+          },
+          "framingWireItems": []
+        }
+      ],
+      "framingUnitItems":       [
+        "45-3",
+        "C3.7",
+        "C3.7"
+      ]
+    }}],
+    "geographicCoordinate":     {
+      "type": "point",
+      "coordinates":       [
+        -81.3688492,
+        40.6097807
+      ]
+    }
+  }]}],
+  "schema": "https://raw.github.com/spidasoftware/schema/master/resources/v1/schema/spidacalc/calc/project.schema"
+}

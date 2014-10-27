@@ -1,0 +1,28 @@
+{
+  "id": "user_service",
+  "description": "This service is for managing users.",
+  "getLoggedInUser": {
+    "allowedMethods": ["GET"],
+    "description": "Return the user details.",
+    "returns": "../../spidamin/user/user.schema"
+  },
+  "getUser": {
+    "allowedMethods": ["GET"],
+    "description": "Return the user details.",
+    "returns": "../../spidamin/user/user.schema",
+    "params": [
+      {
+        "type": "number",
+        "name": "id",
+        "required": false,
+        "description": "Get user by id."
+      },
+      {
+        "type": "string",
+        "name": "api_token",
+        "required": false,
+        "description": "Get user by api token."
+      }
+    ]
+  }
+}

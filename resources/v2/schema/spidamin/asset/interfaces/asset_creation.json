@@ -1,0 +1,62 @@
+{
+    "id": "asset_creation_service",
+    "description": "This service allows for the creation of assets",
+    "getName": {
+        "allowedMethods":["GET"],
+        "description": "Get name of this service.",
+        "returns": "string"
+    },
+    "createOrUpdate": {
+        "allowedMethods":["POST"],
+        "description": "Creates or Updates a Station, Asset, or Attachment",
+        "returns": "../../general/ids.schema",
+        "params": [
+            {
+                "type": "../../spidamin/asset/station.schema",
+                "name": "station",
+                "required": false,
+                "description": "The station object to create or update; station, asset, or attachment required"
+            },
+            {
+                "type": "../../spidamin/asset/asset.schema",
+                "name": "asset",
+                "required": false,
+                "description": "The asset object to create or update; station, asset, or attachment required"
+            },
+            {
+                "type": "array",
+                "name": "attachments",
+                "required": false,
+                "description": "The attachment object to create or update; station, asset, or attachment required",
+                "items": {
+                    "$ref": "../../spidiamin/asset/attachment.schema"
+                }
+            }
+        ]
+    },
+    "delete": {
+        "allowedMethods":["POST"],
+        "description": "Deletes stations or assets",
+        "returns": "../../general/method_response.schema",
+        "params": [
+            {
+                "type": "array",
+                "name": "asset_ids",
+                "required": false,
+                "description": "The asset object ids to delete"
+            },
+            {
+                "type": "array",
+                "name": "station_ids",
+                "required": false,
+                "description": "The station object ids to delete"
+            },
+            {
+                "type": "array",
+                "name": "attachment_uuids",
+                "required": false,
+                "description": "The attachment object uuids to delete"
+            }
+        ]
+    }
+}

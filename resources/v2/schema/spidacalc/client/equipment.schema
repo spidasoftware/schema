@@ -1,0 +1,54 @@
+{
+  "description": "Engineering properties for an equipment",
+  "id": "#/spidacalc/client/equipment.schema",
+  "type": "object",
+  "required": [
+    "distanceToBottom",
+    "distanceToTop",
+    "lateralArea",
+    "offset",
+    "poleSideArea",
+    "shape",
+    "size",
+    "throughHoleDiameter",
+    "type",
+    "valuePerLength",
+    "weight"
+  ],
+  "properties": {
+    "size": {
+      "type": "string"
+    },
+    "distanceToBottom": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "distanceToTop": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "lateralArea": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "offset": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "poleSideArea": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "shape": {
+      "$ref": "../../spidacalc/client/enums/shape.schema"
+    },
+    "throughHoleDiameter": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "type": {
+      "$ref": "../../spidacalc/client/equipment_type.schema"
+    },
+    "valuePerLength": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "weight": {
+      "$ref": "../../general/measurable.schema"
+    }
+  },
+  "additionalProperties": false
+}

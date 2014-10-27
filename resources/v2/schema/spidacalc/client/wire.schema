@@ -1,0 +1,72 @@
+{
+  "description": "Engineering properties for a wire",
+  "id": "#/spidacalc/client/wire.schema",
+  "type": "object",
+  "required": [
+    "calculation",
+    "conductorStrands",
+    "coreStrands",
+    "crossArea",
+    "description",
+    "diameter",
+    "expansionCoefficient",
+    "modulus",
+    "numberOfConductors",
+    "size",
+    "strength",
+    "tensionGroups",
+    "usageGroups",
+    "weight"
+  ],
+  "properties": {
+    "conductorStrands": {
+      "type": "integer"
+    },
+    "description": {
+      "type": "string"
+    },
+    "coreStrands": {
+      "type": "integer"
+    },
+    "numberOfConductors": {
+      "type": "integer"
+    },
+    "size": {
+      "type": "string"
+    },
+    "calculation": {
+      "$ref": "../../spidacalc/client/calculation.schema"
+    },
+    "crossArea": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "diameter": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "expansionCoefficient": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "modulus": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "strength": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "weight": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "tensionGroups": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/client/tension_group.schema"
+      }
+    },
+    "usageGroups": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

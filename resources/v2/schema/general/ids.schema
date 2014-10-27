@@ -1,0 +1,14 @@
+{
+  "id": "#/general/ids.schema",
+  "description": "An array of ids",
+  "type": "array",
+  "required": [
+    "items"
+  ],
+  "items": {
+    "type": [
+      "number",
+      "string"
+    ]
+  }
+}

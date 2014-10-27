@@ -1,0 +1,15 @@
+{
+	"id": "#/spidacalc/usage_group.schema",
+	"description": "Usage group for a wire.",
+	"type": "string",
+	"enum": [
+		"PRIMARY",
+		"NEUTRAL",
+		"SECONDARY",
+		"OPEN_WIRE",
+		"UTILITY_SERVICE",
+		"GUY",
+		"COMMUNICATION",
+		"COMMUNICATION_SERVICE"
+	]
+}

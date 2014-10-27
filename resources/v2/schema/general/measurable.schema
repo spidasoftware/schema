@@ -1,0 +1,37 @@
+{
+  "id": "general/measurable.schema",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "type": "object",
+  "description": "a measured quantity",
+  "properties": {
+    "value": {
+      "type": "number"
+    },
+    "unit": {
+      "type": "string",
+      "enum": [
+        "CUBIC_INCH",
+        "DEGREE_ANGLE",
+        "FAHRENHEIT",
+        "FOOT",
+        "INCH",
+        "METRE",
+        "PERCENT",
+        "PER_FAHRENHEIT",
+        "POUND_FORCE",
+        "POUND_FORCE_FOOT",
+        "POUND_FORCE_PER_FOOT",
+        "POUND_FORCE_PER_SQUARE_INCH",
+        "POUND_PER_CUBIC_FOOT",
+        "SIXTEENTH_INCH",
+        "SQUARE_FOOT",
+        "SQUARE_INCH"
+      ]
+    }
+  },
+  "required": [
+    "value",
+    "unit"
+  ],
+  "additionalProperties": false
+}

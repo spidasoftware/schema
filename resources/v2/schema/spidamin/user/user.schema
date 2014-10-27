@@ -1,0 +1,33 @@
+{
+  "id": "#/spidamin/user/user.schema",
+  "description": "A SPIDAMin user",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number",
+      "description": "This is a database ID created by UsersMaster."
+    },
+    "firstName": {
+      "type": "string",
+      "description": "The user's first name"
+    },
+    "lastName": {
+      "type": "string",
+      "description": "The user's last name"
+    },
+    "email": {
+      "type": "string",
+      "description": "The user's email address"
+    },
+    "company": {
+      "$ref": "../../spidamin/user/company.schema"
+    },
+    "foreignCompanies": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidamin/user/company.schema"
+      }
+    }
+  },
+  "additionalProperties": false
+}

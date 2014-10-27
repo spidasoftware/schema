@@ -1,0 +1,17 @@
+{
+  "id": "#/general/id.schema",
+  "type": "object",
+  "description": "General id holder for success responses",
+  "properties": {
+    "id": {
+      "type": [
+        "number",
+        "string"
+      ]
+    }
+  },
+  "required": [
+    "id"
+  ],
+  "additionalProperties": false
+}

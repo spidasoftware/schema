@@ -1,0 +1,191 @@
+{
+  "stations": [
+    {
+      "assetTypes": [
+        "POLE"
+      ],
+      "address": {
+        "zip_code": "89412",
+        "county": "County B",
+        "street": "Happy Street",
+        "state": "NY",
+        "country": "USA",
+        "city": "Emerald City"
+      },
+      "stationAssets": [
+        {
+          "assetDetails": [
+            {
+              "name": "poleClass",
+              "value": "H1"
+            },
+            {
+              "name": "construction",
+              "value": "Construction 2"
+            },
+            {
+              "name": "county",
+              "value": "County B"
+            },
+            {
+              "name": "dateInspected",
+              "value": "60511413303741"
+            },
+            {
+              "name": "length",
+              "value": "60"
+            },
+            {
+              "name": "loading",
+              "value": "100"
+            },
+            {
+              "name": "strength",
+              "value": "0.5811306235300355"
+            },
+            {
+              "name": "township",
+              "value": "Red Township"
+            },
+            {
+              "name": "treatment",
+              "value": "Copper Azole"
+            },
+            {
+              "name": "yearSet",
+              "value": "1960"
+            }
+          ],
+          "assetId": "ff808181452ce50101452d0575bb00d9",
+          "assetType": "POLE",
+          "assetAttachments": [],
+          "ownerId": 1,
+          "primaryAsset": true,
+          "assetTags": [
+            {
+              "primary": true,
+              "name": "Primary Tag",
+              "value": "54"
+            },
+            {
+              "primary": false,
+              "name": "Secondary Tag",
+              "value": "SE"
+            }
+          ]
+        }
+      ],
+      "stationId": "ff808181452ce50101452d0575ba00d8",
+      "primaryAssetOwnerId": 1,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.840767,
+          39.973728
+        ]
+      },
+      "primaryAssetType": "POLE",
+      "dataProviderId": 1
+    },
+    {
+      "assetTypes": [
+        "POLE"
+      ],
+      "address": {
+        "zip_code": "90210",
+        "county": "County A",
+        "street": "Elm Street",
+        "state": "NY",
+        "country": "USA",
+        "city": "Emerald City"
+      },
+      "stationAssets": [
+        {
+          "assetDetails": [
+            {
+              "name": "poleClass",
+              "value": "4"
+            },
+            {
+              "name": "construction",
+              "value": "Construction 2"
+            },
+            {
+              "name": "county",
+              "value": "County C"
+            },
+            {
+              "name": "dateInspected",
+              "value": "61139541393127"
+            },
+            {
+              "name": "length",
+              "value": "40"
+            },
+            {
+              "name": "loading",
+              "value": "2"
+            },
+            {
+              "name": "strength",
+              "value": "0.7496529252120498"
+            },
+            {
+              "name": "township",
+              "value": "Blue Township"
+            },
+            {
+              "name": "treatment",
+              "value": "Penta"
+            },
+            {
+              "name": "yearSet",
+              "value": "2005"
+            }
+          ],
+          "assetId": "ff808181452ce50101452d06d2e61d19",
+          "assetType": "POLE",
+          "assetAttachments": [],
+          "ownerId": 223,
+          "primaryAsset": true,
+          "assetTags": [
+            {
+              "primary": true,
+              "name": "Primary Tag",
+              "value": "54"
+            },
+            {
+              "primary": false,
+              "name": "Secondary Tag",
+              "value": "SE"
+            }
+          ]
+        }
+      ],
+      "stationId": "ff808181452ce50101452d06d2e61d18",
+      "primaryAssetOwnerId": 223,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.841713,
+          39.916706
+        ]
+      },
+      "primaryAssetType": "POLE",
+      "dataProviderId": 223
+    }
+  ],
+  "geometry": {
+    "type": "LineString",
+    "coordinates": [
+      [
+        -82.840767,
+        39.973728
+      ],
+      [
+        -82.841713,
+        39.916706
+      ]
+    ]
+  }
+}

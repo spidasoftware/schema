@@ -1,0 +1,33 @@
+{
+  "horizontalOffset": {
+    "unit": "INCH", 
+    "value": 22
+  }, 
+  "lateralArea": {
+    "unit": "SQUARE_INCH", 
+    "value": 40.358879999999999
+  }, 
+  "poleSideArea": {
+    "unit": "SQUARE_INCH", 
+    "value": 32.860799999999998
+  }, 
+  "shape": "ROUND", 
+  "size": " 13.2 kV Pin Type Insulator (16\" Bracket Double Insulator)", 
+  "strength": {
+    "unit": "POUND_FORCE", 
+    "value": 2500
+  }, 
+  "throughHoleDiameter": {
+    "unit": "SIXTEENTH_INCH", 
+    "value": -1
+  }, 
+  "type": "BRACKET", 
+  "verticalOffset": {
+    "unit": "INCH", 
+    "value": 9
+  }, 
+  "weight": {
+    "unit": "POUND_FORCE", 
+    "value": 1
+  }
+}

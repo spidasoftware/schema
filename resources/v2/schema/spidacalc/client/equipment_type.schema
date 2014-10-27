@@ -1,0 +1,23 @@
+{
+  "description": "Type for an equipment",
+  "id": "#/spidacalc/client/equipment_type.schema",
+  "type": "object",
+  "required": [
+    "name",
+    "industry"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "industry": {
+      "type": "string",
+      "enum": [
+        "COMMUNICATION",
+        "UTILITY",
+        "BOTH"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

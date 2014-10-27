@@ -1,0 +1,9 @@
+{
+  "enum": [
+    "ROUND", 
+    "SQUARE", 
+    "ROUND_LATTICE", 
+    "SQUARE_LATTICE"
+  ], 
+  "type": "string"
+}

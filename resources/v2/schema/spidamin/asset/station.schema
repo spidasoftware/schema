@@ -1,0 +1,62 @@
+{
+  "id": "#/spidamin/asset/asset/station.schema",
+  "description": "A SPIDAMin station",
+  "type": "object",
+  "required": [
+    "dataProviderId",
+    "geometry",
+    "assetTypes"
+  ],
+  "properties": {
+    "source": {
+      "type": "string",
+      "description": "The source of the 'stationId'.  The service name configured by SPIDA."
+    },
+    "stationId": {
+      "type": "string",
+      "description": "This is a database ID created by the asset service. Only set this value if you want to update an existing station."
+    },
+    "dataProviderId": {
+      "type": "number",
+      "description": "Id of company that provided the asset data"
+    },
+    "primaryAssetOwnerId": {
+      "type": "number",
+      "description": "Id of company that owns the primary asset, not required for creation."
+    },
+    "primaryAssetType": {
+      "type": "string",
+      "description": "Type of the primary asset, not required for creation."
+    },
+    "assetTypes": {
+      "description": "All available asset types at this station, not required for creation.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["POLE", "NJUNS", "ANALYSIS","FILE","PHOTO"]
+      }
+    },
+    "geometry": {
+      "$ref": "../../general/geometry.schema"
+    },
+    "stationAssets": {
+      "$ref": "../../spidamin/asset/assets.schema"
+    },
+    "address": {
+     "$ref": "../../general/address.schema"
+    },
+    "linkerId": {
+      "type": "number",
+      "description": "Optional.  If the station is linked to stations in other asset services, this is the linkerId returned by the StationLinker."
+    },
+    "servicePriority": {
+      "type": "number",
+      "description": "Optional.  SPIDAMin station linker sets this value."
+    },
+    "originalStationId": {
+      "type": "string",
+      "description": "Optional.  SPIDAMin station linker sets this value."
+    }
+  },
+  "additionalProperties": false
+}

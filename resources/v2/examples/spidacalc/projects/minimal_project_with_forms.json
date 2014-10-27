@@ -1,0 +1,134 @@
+{
+  "clientFile": "Demo.client",
+  "date": "2013-10-30",
+  "schema": "/v1/schema/spidacalc/project.schema",
+  "clientFileVersion": "b6f0f10b2c459ee17a4cd027980303f7",
+  "forms": [  {
+    "title": "Test Project Form",
+    "template": "b6f0f10b2c459ee17a4cd027980303f7",
+    "fields":     {
+      "field one": "input value one",
+      "field two": "option two",
+      "field three": "true",
+      "group field":       {
+        "inner field one": "input value two",
+        "inner field two": "70",
+        "group field": ""
+      },
+      "table field":       [
+                {
+          "table field one": "79",
+          "table field two": "drop down option one"
+        },
+                {
+          "table field one": "35",
+          "table field two": "drop down option two"
+        },
+                {
+          "table field one": "0",
+          "table field two": "drop down option one"
+        }
+      ]
+    }
+  }],
+  "leads": [  {
+    "id": "e2abdf96-9fb9-4fc2-b14d-aad1c136ff7e",
+    "locations": [    {
+      "id": "c4f25c99-945f-403a-91a1-8ccf17c2e925",
+      "mapNumber": "",
+      "comments": "",
+      "address":       {
+        "number": "",
+        "street": "",
+        "city": "",
+        "county": "",
+        "state": "",
+        "zip_code": ""
+      },
+      "remedies": [],
+      "poleTags": [],
+      "userDefinedValues": {},
+      "summaryNotes": [],
+      "forms": [      {
+        "title": "Test Location Form",
+        "template": "b6f0f10b2c459ee17a4cd027980303f7",
+        "fields":         {
+          "field one": "input value one",
+          "field two": "option two",
+          "field three": "true",
+          "group field":           {
+            "inner field one": "input value two",
+            "inner field two": "80",
+            "group field": ""
+          },
+          "table field":           [
+                        {
+              "table field one": "113",
+              "table field two": "drop down option one"
+            },
+                        {
+              "table field one": "53",
+              "table field two": "drop down option two"
+            },
+                        {
+              "table field one": "0",
+              "table field two": "drop down option one"
+            }
+          ]
+        }
+      }],
+      "images": [],
+      "designs": [      {
+        "id": "Measured Design",
+        "structure":         {
+          "pole":           {
+            "glc":             {
+              "unit": "FOOT",
+              "value": 4.378378466737164
+            },
+            "agl":             {
+              "unit": "FOOT",
+              "value": 70
+            },
+            "environment": "STREET",
+            "temperature":             {
+              "unit": "FAHRENHEIT",
+              "value": 60
+            },
+            "stressRatio": 1,
+            "clientItem":             {
+              "species": "Southern Pine",
+              "classOfPole": "1",
+              "height":               {
+                "unit": "FOOT",
+                "value": 80
+              }
+            },
+            "owner":             {
+              "id": "AEP",
+              "industry": "UTILITY",
+              "externalId": "f5a59c7e-e8d9-4b0a-9be2-34765b3cae77"
+            }
+          },
+          "wireEndPoints": [],
+          "spanPoints": [],
+          "anchors": [],
+          "notePoints": [],
+          "pointLoads": [],
+          "damages": [],
+          "wires": [],
+          "spanGuys": [],
+          "guys": [],
+          "equipments": [],
+          "crossArms": [],
+          "insulators": [],
+          "pushBraces": []
+        },
+        "analysis": [],
+        "label": "Measured Design"
+      }],
+      "label": "c4f25c99-945f-403a-91a1-8ccf17c2e925"
+    }],
+    "label": "e2abdf96-9fb9-4fc2-b14d-aad1c136ff7e"
+  }]
+}

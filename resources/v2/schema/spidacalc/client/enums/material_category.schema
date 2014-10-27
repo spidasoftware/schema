@@ -1,0 +1,10 @@
+{
+  "enum": [
+    "WOOD", 
+    "METAL", 
+    "REINFORCED_CONCRETE", 
+    "POLYMER", 
+    "PRESTRESSED_CONCRETE"
+  ], 
+  "type": "string"
+}

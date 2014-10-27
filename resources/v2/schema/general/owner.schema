@@ -1,0 +1,47 @@
+{
+  "id": "#/general/owner.schema",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "type": "object",
+  "description": "A company that owns components at a location.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The unique id and display name of the owner"
+    },
+    "externalId": {
+      "type": "string",
+      "description": "An id to for this owner in a system external to calc."
+    },
+    "industry": {
+      "type": "string",
+      "enum": [
+        "COMMUNICATION",
+        "UTILITY",
+        "BOTH"
+      ]
+    },
+    "pretension": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Values are percent or force"
+        },
+        "forceValue": {
+          "$ref": "../general/measurable.schema"
+        },
+        "percentValue": {
+          "type": "number",
+          "description": "Percent value"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "industry",
+    "id"
+  ],
+  "additionalProperties": false
+}

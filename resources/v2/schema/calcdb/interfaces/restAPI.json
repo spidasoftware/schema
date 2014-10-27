@@ -1,0 +1,392 @@
+{
+	"description":"Documents the CalcDB REST API",
+    "defaultFormat":"calc",
+	"resources":{
+		"project":{
+			"list":{
+				"description":"Finds all projects that match the parameters",
+				"allowedMethods":["GET"],
+                "projectionMaxByType": {
+                    "calc":1,
+                    "referenced": 100
+                },
+				"parameters":[
+					{
+						"id":"label",
+						"description":"the name of the project",
+						"required":false,
+						"type":"string",
+                        "documentProperty": "calcProject.label"
+					},
+					{
+						"id":"format",
+						"description":"format for return value. NOTE calc format will limit the results to 1 project",
+                        "type": "string",
+                        "enum": ["calc", "referenced"],
+                        "required":false
+					},
+                    {
+                        "id": "userEmail",
+                        "description": "the email of the user who last updated the project",
+                        "required": false,
+                        "type": "string",
+                        "documentProperty": "user.email"
+                    }
+				]
+			},
+			"show":{
+				"path":"/<id>",
+				"description":"returns a project by unique id",
+				"allowedMethods":["GET"],
+				"parameters":[
+					{
+						"id":"id",
+						"description":"The unique id of this project, given in the url",
+						"required":true,
+						"type":"string"
+					},
+                    {
+                        "id":"format",
+                        "description":"format for return value.",
+                        "type": "string",
+                        "enum": ["calc", "referenced"],
+                        "required":false
+                    }
+				]
+			},
+			"save":{
+				"description":"saves a new project, including locations and designs",
+				"allowedMethods":["POST"],
+				"atLeastOneParamRequired":["project", "filefortUuid"],
+				"parameters":[
+					{
+						"id":"project",
+						"description":"The project json to be saved. project is required if format is calc",
+						"schema":"/v1/schema/spidacalc/calc/project.schema",
+						"required":false
+					},
+					{
+						"id":"filefortUuid",
+						"description":"The uuid of the exchange file in filefort.",
+						"type":"string",
+						"required":false
+					},
+                    {
+                        "id":"format",
+                        "description":"format type for the project. project is required if format is calc",
+                        "type": "string",
+                        "enum": ["calc", "exchange"],
+                        "required":false
+                    }
+				]
+			},
+			"update":{
+				"description":"Updates and existing project, including locations and designs",
+				"allowedMethods":["PUT"],
+				"atLeastOneParamRequired":["project", "filefortUuid"],
+				"parameters":[
+					{
+						"id":"project",
+						"description":"The project json to be saved. project is required if format is calc",
+						"schema":"/v1/schema/spidacalc/calc/project.schema",
+						"required":false
+					},
+					{
+						"id":"id",
+                        "description":"The unique id of this project, given in the URL",
+                        "type":"string",
+                        "required":true
+					},
+					{
+						"id":"filefortUuid",
+						"description":"The uuid of the exchange file in filefort.",
+						"type":"string",
+						"required":false
+					},
+                    {
+                        "id":"format",
+                        "description":"format type for the project. project is required if format is calc",
+                        "type": "string",
+                        "enum": ["calc", "exchange"],
+                        "required":false
+                    }
+				]
+			},
+			"delete":{
+				"description":"deletes a project AND any locations/designs within it",
+				"allowedMethods":["DELETE"],
+				"parameters":[
+					{
+						"id":"id",
+						"description":"The unique id of this project",
+						"type":"string",
+						"required":true
+					}
+				]
+			}
+		},
+		"location":{
+			"list":{
+				"description":"Finds all locations that match the parameters",
+				"allowedMethods":["GET"],
+                "projectionMaxByType": {
+                    "calc":25,
+                    "referenced": 100
+                },
+				"parameters":[
+					{
+						"id":"projectLabel",
+						"description":"The name of the parent Calc project",
+						"required":false,
+						"type":"string"
+					},
+					{
+						"id":"projectId",
+						"description":"the id of the parent project",
+						"required":false,
+						"type":"string"						
+					},
+					{
+						"id":"label",
+						"description":"The Location name from SpidaCalc",
+						"required":false,
+						"type":"string",
+                        "documentProperty": "calcLocation.label"
+					},
+                    {
+                        "id":"format",
+                        "description":"format for return value. NOTE calc format will limit the results to 25 locations",
+                        "type": "string",
+                        "enum": ["calc", "referenced"],
+                        "required":false
+                    },
+                    {
+                        "id": "userEmail",
+                        "description": "the email of the user who last updated the project",
+                        "required": false,
+                        "type": "string",
+                        "documentProperty": "user.email"
+                    }
+				]
+			},
+			"show":{
+				"path":"/<id>",
+				"description":"returns a location by unique id",
+				"allowedMethods":["GET"],
+				"parameters":[
+					{
+						"id":"id",
+						"description":"The unique id of this location, given in the url",
+						"required":false,
+						"type":"string"
+					},
+                    {
+                        "id":"format",
+                        "description":"format for return value.",
+                        "type": "string",
+                        "enum": ["calc", "referenced"],
+                        "required":false
+                    }
+				]
+			},
+			"save":{
+				"description":"saves a new location, inlcuding any designs within it",
+				"allowedMethods":["POST"],
+				"parameters":[
+					{
+						"id":"location",
+						"description":"The location json to be saved",
+						"schema":"/v1/schema/spidacalc/calc/location.schema",
+						"required":true
+					}
+				]
+			},
+			"update":{
+				"path":"<rootPath>/<id>",
+				"description":"Updates and existing location, including any designs within it",
+				"allowedMethods":["PUT"],
+				"parameters":[
+					{
+						"id":"location",
+						"description":"The location json to be saved",
+						"schema":"/v1/schema/spidacalc/calc/location.schema",
+						"required":false
+					},
+					{
+						"id":"id",
+						"description":"the unique id of the location",
+						"type":"string",
+						"required":true
+					}
+				]
+			},
+			"delete":{
+				"description":"deletes a Location AND any designs within it ONLY if the location does not have a parent project",
+				"allowedMethods":["DELETE"],
+				"parameters":[
+					{
+						"id":"id",
+						"description":"The unique id of this location",
+						"type":"string",
+						"required":true
+					}
+				]
+			}
+		},
+		"design":{
+			"list":{
+				"description":"Finds all designs that match the parameters",
+				"allowedMethods":["GET"],
+                "projectionMaxByType": {
+                    "calc":100,
+                    "referenced": 100
+                },
+				"parameters":[
+					{
+						"id":"projectLabel",
+						"description":"The name of the parent Calc project",
+						"required":false,
+						"type":"string"
+					},
+					{
+						"id":"projectId",
+						"description":"the id of the parent project",
+						"required":false,
+						"type":"string"						
+					},
+					{
+						"id":"locationId",
+						"description":"the id of the parent location",
+						"required":false,
+						"type":"string"
+					},
+					{
+						"id":"locationLabel",
+						"description":"The label of the parent location",
+						"required":false,
+						"type":"string"
+					},
+                    {
+                        "id": "label",
+                        "description": "The label of the design (design layer name)",
+                        "required": false,
+                        "type": "string",
+                        "documentProperty": "calcDesign.label"
+                    },
+                    {
+                        "id":"format",
+                        "description":"format for return value.",
+                        "type": "string",
+                        "enum": ["calc", "referenced"],
+                        "required":false
+                    },
+                    {
+                        "id": "userEmail",
+                        "description": "the email of the user who last updated the project",
+                        "required": false,
+                        "type": "string",
+                        "documentProperty": "user.email"
+                    }
+				]
+			},
+			"show":{
+				"path":"/designs/<id>",
+				"description":"returns a design by unique id",
+				"allowedMethods":["GET"],
+				"parameters":[
+					{
+						"id":"id",
+						"description":"The unique id of this design, given in the url",
+						"required":true,
+						"type":"string"
+					},
+                    {
+                        "id":"format",
+                        "description":"format for return value.",
+                        "type": "string",
+                        "enum": ["calc", "referenced"],
+                        "required":false
+                    }
+				]
+			},
+			"save":{
+				"description":"saves a new design without a parent Location or Project",
+				"allowedMethods":["POST"],
+				"parameters":[
+					{
+						"id":"design",
+						"description":"The design json to be saved",
+						"schema":"/v1/schema/spidacalc/calc/design.schema",
+						"required":true
+					}
+				]
+			},
+			"update":{
+				"path":"/designs/<id>",
+				"description":"Updates and existing design ONLY if it has no parent Location",
+				"allowedMethods":["PUT"],
+				"parameters":[
+					{
+						"id":"design",
+						"description":"The design json to be saved",
+						"schema":"/v1/schema/spidacalc/calc/design.schema",
+						"required":true
+					},
+					{
+						"id":"id",
+						"description":"the unique id of the design",
+						"type":"string",
+						"required":true
+					}
+				]
+			},
+			"delete":{
+				"path":"designs/<id>",
+				"description":"deletes a design ONLY if it has no parent Location",
+				"allowedMethods":["DELETE"],
+				"parameters":[
+					{
+						"id":"id",
+						"description":"The unique id of this design, given in the url",
+						"type":"string",
+						"required":true
+					}
+				]
+			}
+		},
+		"photo": {
+			"show":{
+				"path":"/photos/<uuid>",
+				"description":"returns a photo by unique uuid (filefort id). returns as json with base64 encoded photo",
+				"allowedMethods":["GET"],
+				"parameters":[
+					{
+						"id":"uuid",
+						"description":"The unique id of this photo, given in the url",
+						"required":true,
+						"type":"string"
+					}
+				]
+			}
+		}
+
+	},
+	"projection":{
+		"parameters":[
+			{
+				"id":"skip",
+				"description":"The number of records to skip. Used along with limit to implement pagination",
+				"type":"number",
+				"required":false,
+				"defaultValue":0
+			},
+			{
+				"id":"limit",
+				"description":"Limits the number of items returned - values higher than the default will be ignored",
+				"type":"number",
+				"required":false,
+				"defaultValue":50
+			}
+		]
+	}
+}

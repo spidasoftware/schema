@@ -1,0 +1,59 @@
+{
+  "description": "Engineering properties for a pole",
+  "id": "#/spidacalc/client/pole.schema",
+  "type": "object",
+  "required": [
+    "classOfPole",
+    "density",
+    "height",
+    "materialCategory",
+    "modulus",
+    "poissonRatio",
+    "ptc",
+    "shape",
+    "species",
+    "allowable",
+    "taper"
+  ],
+  "properties": {
+    "classOfPole": {
+      "type": "string"
+    },
+    "density": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "height": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "materialCategory": {
+      "$ref": "../../spidacalc/client/enums/material_category.schema"
+    },
+    "modulus": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "allowable": {
+      "description":"Either the stress or moment allowable for this client pole.",
+      "$ref": "../../general/measurable.schema"
+    },
+    "poissonRatio": {
+      "type": "number"
+    },
+    "ptc": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "shape": {
+      "$ref": "../../spidacalc/client/enums/shape.schema"
+    },
+    "species": {
+      "type": "string"
+    },
+    "taper": {
+      "type": "number"
+    },
+    "wallThickness": {
+      "description":"Thinkness of the material in the pole, solid if not provided.",
+      "$ref": "../../general/measurable.schema"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,33 @@
+{
+  "id": "#/spidamin/asset/standard_details/analysis_asset.schema",
+  "description": "A SPIDA analysis asset",
+  "type": "object",
+  "properties": {
+    "actual": {
+      "type": "number"
+    },
+    "allowable": {
+      "type": "number"
+    },
+    "analysisDate": {
+      "description":"The long value of the time when the analysis was performed.",
+      "$ref": "../../../general/long_date.schema"
+    },
+    "component": {
+      "type": "string"
+    },
+    "loadInfo": {
+      "type": "string"
+    },
+    "passes": {
+      "type": "boolean"
+    },
+    "unit": {
+      "type": "string"
+    },
+    "designType": {
+      "type":"string"
+    }
+  },
+  "additionalProperties": false
+}

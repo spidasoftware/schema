@@ -1,0 +1,39 @@
+{
+  "clientFile": "Demo.client",
+  "leads": [{"locations":   [
+        {
+      "geographicCoordinate":       {
+        "type": "Point",
+        "coordinates":         [
+          -82.12352134905785,
+          40.1290863927813
+        ]
+      },
+      "id": "41811012B10002",
+      "label": "41811012B10002"
+    },
+        {
+      "geographicCoordinate":       {
+        "type": "Point",
+        "coordinates":         [
+          -82.012987562,
+          40.01982364
+        ]
+      },
+      "id": "41811012B10003",
+      "label": "41811012B10003"
+    },
+        {
+      "geographicCoordinate":       {
+        "type": "Point",
+        "coordinates":         [
+          -82.76547632,
+          40.90861238756
+        ]
+      },
+      "id": "41811036A30117",
+      "label": "41811036A30117"
+    }
+  ]}],
+  "schema": "https://raw.github.com/spidasoftware/schema/master/resources/v1/schema/spidacalc/calc/project.schema"
+}

@@ -1,0 +1,42 @@
+{
+  "description": "Tension information for a client wire.",
+  "id": "#/spidacalc/client/tension_group.schema",
+  "type": "object",
+  "required": [
+    "temperature",
+    "tension",
+    "name",
+    "groups"
+  ],
+  "properties": {
+    "groups": {
+      "items": {
+        "type": "object",
+        "required": [
+          "distance",
+          "tension"
+        ],
+        "properties": {
+          "distance": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "tension": {
+            "$ref": "../../general/measurable.schema"
+          }
+        },
+        "additionalProperties": false
+      },
+      "type": "array"
+    },
+    "name": {
+      "type": "string"
+    },
+    "temperature": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "tension": {
+      "$ref": "../../general/measurable.schema"
+    }
+  },
+  "additionalProperties": false
+}

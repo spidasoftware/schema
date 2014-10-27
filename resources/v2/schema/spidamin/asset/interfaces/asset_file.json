@@ -1,0 +1,59 @@
+{
+    "id": "asset_file_service",
+    "description": "Manage Asset Files",
+    "getName": {
+        "allowedMethods":["GET"],
+        "description": "Get name of this service.",
+        "returns": "string"
+    },
+    "getVersionCount": {
+        "allowedMethods":["GET"],
+        "description": "Get version count of attachment with externalId.",
+        "returns": "number",
+        "params": [
+            {
+                "type": "string",
+                "name": "externalId",
+                "required": true,
+                "description": "externalId of attachment"
+            }
+        ]
+    },
+    "getFile": {
+        "allowedMethods":["GET"],
+        "description": "Get path for attachment with externalId",
+        "returns": "string",
+        "params": [
+            {
+                "type": "string",
+                "name": "externalId",
+                "required": true,
+                "description": "externalId of attachment"
+            },
+            {
+                "type": "number",
+                "name": "offset",
+                "required": false,
+                "description": "Offset of file, defaults to 0"
+            }
+        ]
+    },
+    "getBytes": {
+        "description": "Get base64 encoded bytes for attachment with externalId",
+        "returns": "string",
+        "params": [
+            {
+                "type": "string",
+                "name": "externalId",
+                "required": true,
+                "description": "externalId of attachment"
+            },
+            {
+                "type": "number",
+                "name": "offset",
+                "required": false,
+                "description": "Offset of file, defaults to 0"
+            }
+        ]
+    }
+}

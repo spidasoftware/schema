@@ -1,0 +1,22 @@
+{
+  "description": "A wire and an offset from the center of the cable.",
+  "type": "object",
+  "id": "#/spidacalc/client/wire_placement.schema",
+  "required": [
+    "x",
+    "y",
+    "clientWire"
+  ],
+  "properties": {
+    "x": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "y": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "clientWire": {
+      "$ref": "../../spidacalc/client/wire.schema"
+    }
+  },
+  "additionalProperties": false
+}

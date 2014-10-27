@@ -1,0 +1,111 @@
+{"projects": [
+    {
+    "clientFile": "Demo.client",
+    "schema": "https://raw.github.com/spidasoftware/schema/master/resources/v1/schema/spidacalc/calc/project.schema",
+    "leads": [{"locations":     [
+            {
+        "id": "00P1-L100",
+        "geographicCoordinate":         {
+          "type": "Point",
+          "coordinates":           [
+            -82.43565482,
+            40.09182756
+          ]
+        },
+        "images":         [
+          {"url": "http://spidasoftware.com/images/1900741739155-1.jpg"},
+          {"url": "http://spidasoftware.com/images/1900741739155-2.jpg"}
+        ],
+        "label": "00P1-L100"
+      },
+            {
+        "id": "00P1-L200",
+        "geographicCoordinate":         {
+          "type": "Point",
+          "coordinates":           [
+            -82.123453476,
+            40.1287956
+          ]
+        },
+        "images":         [
+          {"url": "file:///schema/resources/v1/schema/examples/spidacalc/photos/1900600739100-1.jpg"},
+          {"url": "file:///schema/resources/v1/schema/examples/spidacalc/photos/1900600739100-2.jpg"}
+        ],
+        "label": "00P1-L200"
+      },
+            {
+        "id": "00P1-L300",
+        "geographicCoordinate":         {
+          "type": "Point",
+          "coordinates":           [
+            -82.0981236576,
+            40.0981236079
+          ]
+        },
+        "images":         [
+          {"url": "../photos/1900948739239-1.jpg"},
+          {"url": "../photos/1900948739239-2.jpg"}
+        ],
+        "label": "00P1-L300"
+      },
+            {
+        "id": "00P1-L400",
+        "geographicCoordinate":         {
+          "type": "Point",
+          "coordinates":           [
+            -82.324577,
+            40.346267
+          ]
+        },
+        "images":         [
+          {"url": "1900948739239-1.jpg"},
+          {"url": "1900948739239-2.jpg"}
+        ],
+        "label": "00P1-L400"
+      }
+    ]}],
+    "id": "project-1",
+    "label": "project-1"
+  },
+    {
+    "clientFile": "Demo.client",
+    "schema": "https://raw.github.com/spidasoftware/schema/master/resources/v1/schema/spidacalc/calc/project.schema",
+    "leads": [{"locations":     [
+            {
+        "id": "00P2-L100",
+        "geographicCoordinate":         {
+          "type": "Point",
+          "coordinates":           [
+            -82.68356845642346,
+            40.234787
+          ]
+        },
+        "label": "00P2-L100"
+      },
+            {
+        "id": "00P2-L200",
+        "geographicCoordinate":         {
+          "type": "Point",
+          "coordinates":           [
+            -82.2345237,
+            40.234677
+          ]
+        },
+        "label": "00P2-L200"
+      },
+            {
+        "id": "00P2-L300",
+        "geographicCoordinate":         {
+          "type": "Point",
+          "coordinates":           [
+            -82.2345234778,
+            40.326457457
+          ]
+        },
+        "label": "00P2-L300"
+      }
+    ]}],
+    "id": "project-2",
+    "label": "project-2"
+  }
+]}

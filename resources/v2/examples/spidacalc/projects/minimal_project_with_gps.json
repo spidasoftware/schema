@@ -1,0 +1,42 @@
+{
+  "clientFile": "Demo.client",
+  "schema": "https://raw.github.com/spidasoftware/schema/master/resources/v1/schema/spidacalc/calc/project.schema",
+  "leads": [{"locations": [  {
+    "designs": [{"structure": {"pole":     {
+      "agl":       {
+        "unit": "FOOT",
+        "value": 16
+      },
+      "clientItem":       {
+        "classOfPole": "5",
+        "height":         {
+          "unit": "FOOT",
+          "value": 40
+        },
+        "species": "Southern Pine"
+      },
+      "environment": "STREET",
+      "glc":       {
+        "unit": "FOOT",
+        "value": 1.9642857101595517
+      },
+      "owner":       {
+        "industry": "UTILITY",
+        "id": "Acme Power",
+        "externalId": "706e1c60-20f6-4447-b381-c9060cb51337"
+      },
+      "stressRatio": 1,
+      "temperature":       {
+        "unit": "FAHRENHEIT",
+        "value": 60
+      }
+    }}}],
+    "geographicCoordinate":     {
+      "type": "Point",
+      "coordinates":       [
+        -82.12334677,
+        40.01928365
+      ]
+    }
+  }]}]
+}

@@ -1,0 +1,18 @@
+{
+  "description": "Engineering properties for an anchor",
+  "id": "#/spidacalc/client/anchor.schema",
+  "type": "object",
+  "required": [
+    "size",
+    "strength"
+  ],
+  "properties": {
+    "size": {
+      "type": "string"
+    },
+    "strength": {
+      "$ref": "../../general/measurable.schema"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "id": "general/geometry.schema",
+  "additionalProperties": false,
+  "properties": {
+    "coordinates": {
+      "type": "array",
+      "id": "coordinates"
+    },
+    "type": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "type",
+    "coordinates"
+  ]
+}
