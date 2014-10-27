@@ -20,23 +20,6 @@
         "UTILITY",
         "BOTH"
       ]
-    },
-    "pretension": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string",
-          "description": "Values are percent or force"
-        },
-        "forceValue": {
-          "$ref": "../general/measurable.schema"
-        },
-        "percentValue": {
-          "type": "number",
-          "description": "Percent value"
-        }
-      },
-      "additionalProperties": false
     }
   },
   "required": [
