@@ -28,11 +28,11 @@
           "type": "string",
           "description": "Values are percent or force."
         },
-        "forceValue": {
+        "force": {
           "$ref": "../general/measurable.schema",
           "description": "Only needs to be present if type is force."
         },
-        "percentValue": {
+        "percent": {
           "type": "number",
           "minimum": 0,
           "maximum": 100,
