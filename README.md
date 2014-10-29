@@ -103,9 +103,9 @@ General process for implementing a service:
 Versions
 --------
 
-Our schema's currently conform to the "json-schema-draft-03" version, but we are looking to always keep that current until the official release of that standard.
+Our schemas currently conform to the "json-schema-draft-03" version, but we are looking to always keep that current until the official release of that standard.
 
-As of October 9, 2014, the v1 Schemas are considered stable, and will not have any more breaking changes. This of course means that no new features will be added to v1 either. All new development will be done under the 'v2' namespace. This will allow existing integrations to continue to work as changes are made to Schema v2. V2 is currently undergoing development, and will be considered unstable until it's release. V1 may have minor bug fixes, but only as long as they do not break any existing integrations.
+As of October 9, 2014, the v1 Schemas are considered stable, and will not have any more breaking changes. This of course means that no new features will be added to v1 either. All new development will be done under the 'v2' namespace. This will allow existing integrations to continue to work as changes are made to Schema v2. V2 is currently undergoing development, and will be considered unstable until its release. V1 may have minor bug fixes, but only as long as they do not break any existing integrations.
 
 Development
 -------------
