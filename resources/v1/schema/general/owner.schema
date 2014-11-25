@@ -20,6 +20,26 @@
         "UTILITY",
         "BOTH"
       ]
+    },
+    "pretension": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Values are percent or force."
+        },
+        "force": {
+          "$ref": "../general/measurable.schema",
+          "description": "Only needs to be present if type is force."
+        },
+        "percent": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Only needs to be present if type is percent."
+        }
+      },
+      "additionalProperties": false
     }
   },
   "required": [
