@@ -152,10 +152,10 @@ Calc stores UUIDs for all components on the pole. They aren't used as identifier
 
 ###Limitations and known issues:
 
-- All ID on the structure must conform to the Calc naming conventions. All wires must be named with something starting with "Wire#", all equipment with "Equip#". This will be fixed in a later version to allow generic labeling. Correct ID Form is CASE SENSITIVE. EQUIP#1 is not a correct ID. Equip#1 is.
-- UUIDs must be actual UUIDs and in the canonical form xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx  http://en.wikipedia.org/wiki/Universally_unique_identifier In future versions this will be more generic.
 - parameters sent to RPC interface must be in the order specified in the interface description.
-- Load case names are case-sensitive, to what is in the client file. This can be different from what is shown in calc.
+- ~~All ID on the structure must conform to the Calc naming conventions. All wires must be named with something starting with "Wire#", all equipment with "Equip#". This will be fixed in a later version to allow generic labeling. Correct ID Form is CASE SENSITIVE. EQUIP#1 is not a correct ID. Equip#1 is.~~ This has been fixed in Calc 5.3 ID's may be any alphanumeric string.
+- ~~UUIDs must be actual UUIDs and in the canonical form xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx  http://en.wikipedia.org/wiki/Universally_unique_identifier In future versions this will be more generic.~~ As of version 5.3 UUIDs have been removed. externalIds can be in any form.
+- ~~Load case names are case-sensitive, to what is in the client file. This can be different from what is shown in calc.~~ This has been fixed in calc 5.3.
 
 ##Calc Project Structure
 
@@ -200,6 +200,28 @@ Each wire has its own information on tension, material properties, attach height
 Each span from the main pole is its own wire object, even if they are connected. So on normal line construction, with a single line, you will have two wire end points, and two wires - one running to each wire end point.
 
 Calc has different wire end point types. The generic types are OTHER_POLE and BUILDING. There are also two special types, NEXT_POLE and PREVIOUS_POLE. These indicate the main run in the line of poles. There can only be one of each of them. Anchors whose support type is set to BISECTOR will automatically track the bisector angle between the NEXT_POLE and the PREVIOUS_POLE when edited in Calc.
+
+### Equipment Types
+
+Custom equipment types are supported. However, the following types are recognized by calc as built-in:
+
+- CAPACITOR, 
+- CUTOUT_ARRESTOR, 
+- DRIP_LOOP, 
+- PRIMARY_METERING, 
+- RECLOSER, 
+- REGULATOR, 
+- RISER, 
+- STREET_LIGHT, 
+- SWITCH, 
+- TERMINATION_BRACKET, 
+- TRANSFORMER, 
+- JOINT_USE_BOX, 
+- APPARATUS_CASE, 
+- CROSS_CONNECT, 
+- LOAD_COIL_CASE, 
+- POWER_SUPPLY, 
+- SPLICE_CASE
 
 ##FAQ
 

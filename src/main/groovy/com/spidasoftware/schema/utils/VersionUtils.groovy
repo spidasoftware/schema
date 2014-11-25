@@ -12,7 +12,6 @@ import java.util.regex.Pattern
 @Log4j
 class VersionUtils {
 
-	static int CURRENT_VERSION = 2
 	static Pattern pattern = Pattern.compile(/(\d+)(\.\d+)?(\.\d+)?(\.\d+)?/)
 
 	/**
