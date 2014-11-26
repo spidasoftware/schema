@@ -145,7 +145,7 @@ The tool uses our included Validator java class.
 
 #### Java Tools
 
-In the utils/src/* folders are some java classes that can be helpful when integrating our stuff into a java world.  This includes a classes that produces a JSON descriptor of a class and validate a service against a JSON descriptor.
+In the src/* folders are some java classes that can be helpful when integrating our stuff into a java world.  This includes a classes that produces a JSON descriptor of a class and validate a service against a JSON descriptor.
 
 The jar can be compiled with:
     
