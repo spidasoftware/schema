@@ -23,6 +23,16 @@
       "description": "Measurable height above ground line of pole. If omitted the default NESC embedment will be used.",
       "$ref": "../../general/measurable.schema"
     },
+    "leanAngle": {
+      "description": "Lean angle measured vertical.",
+      "type": "integer",
+      "maximum": 20,
+      "minimum": 0
+    },
+    "leanDirection": {
+        "description": "Lean bearing. The direction the top of the pole is pointing.",
+        "$ref": "../../general/bearing.schema"
+    },
     "environment": {
       "description": "Environment of the pole - STREET, RAILROAD, etc",
       "$ref": "../../spidacalc/calc/enums/environment.schema"
