@@ -26,7 +26,7 @@ public class JSONServletException extends Exception {
 	}
 
 	public JSONObject toJSON() {
-		 JSONObject error = new JSONObject();
+		JSONObject error = new JSONObject();
 		error.put("code", code);
 		error.put("message", this.getMessage());
 		return error;
