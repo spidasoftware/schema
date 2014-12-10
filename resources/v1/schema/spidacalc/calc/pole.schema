@@ -52,6 +52,14 @@
     "owner": {
       "description": "Company who owns the pole.",
       "$ref": "../../general/owner.schema"
+    },
+    "foundation": {
+      "description": "Optional name of the foundation at the pole; references client data.",
+      "type": "string"
+    },
+    "groundWaterLevel": {
+      "description": "Ground water level at the pole. Should be negative.",
+      "$ref": "../../general/measurable.schema"
     }
   },
   "additionalProperties": false
