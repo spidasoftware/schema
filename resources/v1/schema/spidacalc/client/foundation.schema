@@ -1,0 +1,33 @@
+{
+  "description": "Engineering properties for a foundation/soil. It is either a basic (Seiler) method or advanced (Brinch Hansen) method.",
+  "id": "#/spidacalc/client/foundation.schema",
+  "type": "object",
+  "required": [
+    "name",
+    "isDefault",
+    "typeLabel"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "isDefault": {
+      "type": "boolean"
+    },
+    "typeLabel": {
+      "type": "string"
+    },
+    "soilClassificationConstant": {
+      "type": "integer",
+      "maximum": 200,
+      "minimum": 1
+    },
+    "dryProperties": {
+      "$ref": "../../spidacalc/client/advanced_foundation_properties.schema"
+    },
+    "wetProperties": {
+      "$ref": "../../spidacalc/client/advanced_foundation_properties.schema"
+    }
+  },
+  "additionalProperties": false
+}

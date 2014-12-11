@@ -223,6 +223,42 @@
             }
         ]
     },
+    "foundations": {
+        "description": "Return the client foundations in the client file.",
+        "returns": "array",
+        "params": [
+            {
+                "type": "string",
+                "name": "clientFile",
+                "required": true,
+                "description": "Client File to be queried"
+            },
+            {
+                "type": "boolean",
+                "name": "details",
+                "required": false,
+                "description": "Should the complete details be returned."
+            }
+        ]
+    },
+    "foundation": {
+        "description": "Return a client foundation in the client file.",
+        "returns": "object",
+        "params": [
+            {
+                "type": "string",
+                "name": "foundation",
+                "required": true,
+                "description": "foundation name"
+            },
+            {
+                "type": "string",
+                "name": "clientFile",
+                "required": true,
+                "description": "Client File to be queried"
+            }
+        ]
+    },
     "sidewalkBraces": {
         "description": "Return the client sidewalk braces in the client file.",
         "returns": "array",

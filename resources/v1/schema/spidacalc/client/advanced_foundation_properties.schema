@@ -1,0 +1,22 @@
+{
+  "description": "Advanced properties for a foundation/soil.",
+  "id": "#/spidacalc/client/advanced_foundation_properties.schema",
+  "type": "object",
+  "required": [
+    "unitWeight",
+    "cohesion",
+    "internalFrictionAngle"
+  ],
+  "properties": {
+    "unitWeight": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "cohesion": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "internalFrictionAngle": {
+      "$ref": "../../general/measurable.schema"
+    }
+  },
+  "additionalProperties": false
+}
