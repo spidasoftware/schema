@@ -5,8 +5,6 @@ SPIDA Software JSON Interfaces
 
 * LAST RELEASED VERSION: 1.0.0
 
-Version 1.0.0 of Schema marks the point at which it stabilizes. The schemas found under `/resources/v1/` are considered stable, and we will endeavor to avoid any breaking changes to them. Any future changes that would cause integrations to break should be made under the `v2/` namespace.
-
 License
 -------
 This repository is governed by the terms of use located [here.](https://github.com/spidasoftware/schema/raw/master/2013_10_25%20SPIDA%20API%20Terms%20of%20Service.pdf)
