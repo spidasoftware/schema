@@ -4,15 +4,11 @@
   "type": "object",
   "required": [
     "name",
-    "isDefault",
     "typeLabel"
   ],
   "properties": {
     "name": {
       "type": "string"
-    },
-    "isDefault": {
-      "type": "boolean"
     },
     "typeLabel": {
       "type": "string"
