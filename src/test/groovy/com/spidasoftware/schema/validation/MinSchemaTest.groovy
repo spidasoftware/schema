@@ -112,7 +112,7 @@ class MinSchemaTest extends GroovyTestCase {
 
 	void testExampleUser(){
 		def schema = factory.getJsonSchema("v1/schema/spidamin/user/user.schema")
-		report = schema.validate(JsonLoader.fromString(new File("resources/v1/examples/spidamin/user/getLoggedInUser_response.json").text))
+		report = schema.validate(JsonLoader.fromString(new File("resources/v1/examples/spidamin/user/user_response.json").text))
 		report.each{ log.info "validation report "+it.toString() }
 		assertTrue "should be a valid instance against the schema", report.isSuccess()
 	}
