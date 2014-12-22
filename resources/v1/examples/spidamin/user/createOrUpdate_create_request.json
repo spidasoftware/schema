@@ -1,0 +1,15 @@
+{
+  "firstName": "Spida",
+  "lastName": "Man",
+  "email": "admin@spidasoftware.com",
+  "company": {
+    "name": "SPIDA"
+  },
+  "externalIds": [
+    {
+      "system": "IJUS",
+      "value": "jwentwor"
+    }
+  ],
+  "foreignCompanies": []
+}

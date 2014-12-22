@@ -7,6 +7,10 @@
       "type": "number",
       "description": "This is a database ID created by UsersMaster."
     },
+    "enabled": {
+      "type": "boolean",
+      "description": "Is the user enabled."
+    },
     "firstName": {
       "type": "string",
       "description": "The user's first name"
@@ -19,6 +23,10 @@
       "type": "string",
       "description": "The user's email address"
     },
+    "apiToken": {
+      "type": "string",
+      "description": "The user's API Token"
+    },
     "company": {
       "$ref": "../../spidamin/user/company.schema"
     },
@@ -26,6 +34,23 @@
       "type": "array",
       "items": {
         "$ref": "../../spidamin/user/company.schema"
+      }
+    },
+    "externalIds": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "system": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
       }
     }
   },

@@ -1,6 +1,19 @@
 {
   "id": "user_service",
   "description": "This service is for managing users.",
+  "createOrUpdate": {
+    "allowedMethods":["POST"],
+    "description": "creates or updates a user",
+    "returns": "../../general/id.schema",
+    "params": [
+      {
+        "type": "../../spidamin/user/user.schema",
+        "name": "user_json",
+        "required": true,
+        "description": "The user object to create or update. It updates if the user.id is present, and creates if not."
+      }
+    ]
+  },
   "getLoggedInUser": {
     "allowedMethods": ["GET"],
     "description": "Return the user details.",
@@ -12,16 +25,35 @@
     "returns": "../../spidamin/user/user.schema",
     "params": [
       {
-        "type": "number",
         "name": "id",
+        "type": "number",
         "required": false,
         "description": "Get user by id."
       },
       {
-        "type": "string",
         "name": "api_token",
+        "type": "string",
         "required": false,
         "description": "Get user by api token."
+      }
+    ]
+  },
+  "getUserByExternalId": {
+    "allowedMethods": ["GET"],
+    "description": "Finds a user by it's external id.",
+    "returns": "../../spidamin/user/user.schema",
+    "params": [
+      {
+        "name": "system",
+        "type": "string",
+        "required": true,
+        "description": "system of external id"
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": true,
+        "description": "external id value"
       }
     ]
   }
