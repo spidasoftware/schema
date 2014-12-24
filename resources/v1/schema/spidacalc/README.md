@@ -140,9 +140,9 @@ The JSON examples are in [resources/v1/examples/spidacalc](../../../v1/examples/
 
 Some of the schemas use terms that are specific to spidacalc or the utility industry. A basic description of the values is included in the schema itself. For a more complete definition of those terms, please see the help menu in SpidaCalc.
 
-###UUIDs
+###External IDs
 
-Calc stores UUIDs for all components on the pole. They aren't used as identifiers by the program - they are for interfacing with other applications. You may include them if you have track them, but the id field is the one that is important for building the pole.
+Calc stores external ids for all components on the pole. They aren't used as identifiers by the program - they are for interfacing with other applications. You may include them if you have track them, but the id field is the one that is important for building the pole.
 
 ###Useful JSON Development tools:
 
