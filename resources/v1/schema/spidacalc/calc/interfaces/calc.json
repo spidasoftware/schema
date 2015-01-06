@@ -23,21 +23,21 @@
       }
     ]
   },
-  "openPole": {
-    "description": "Create a project from a single pole .",
+  "openStructure": {
+    "description": "Create a project from a single structure .",
     "returns": "null",
     "params": [
       {
         "type": "object",
-        "name": "pole",
+        "name": "structure",
         "required": true,
-        "description": "JSON description of the pole to be opened"
+        "description": "JSON description of the structure to be opened"
       },
       {
         "type": "string",
         "name": "clientFile",
         "required": true,
-        "description": "name of the client file to use to create the pole"
+        "description": "name of the client file to use to create the pole in the structure"
       }
     ]
   },
