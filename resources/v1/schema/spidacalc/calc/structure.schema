@@ -11,6 +11,34 @@
       "$ref": "../../spidacalc/calc/pole.schema",
       "description": "The main pole being analyzed."
     },
+    "foundations": {
+      "type": "array",
+      "description": "Foundations (including groundwater level) for the pole and other items.",
+      "items": {
+        "type": "object",
+        "id": "foundation",
+        "required": [
+          "id",
+          "clientFoundation",
+          "groundWaterLevel"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The display ID for the foundation. Must be unique within the pole."
+          },
+          "clientFoundation": {
+            "type": "string",
+            "description": "Name of the foundation at the pole; references client data.",
+          },
+          "groundWaterLevel": {
+            "description": "Ground water level at the foundation. Should be negative.",
+            "$ref": "../../general/measurable.schema"
+          }
+        }
+      }
+    },
     "anchors": {
       "description": "List of all anchors in this structure.",
       "type": "array",
