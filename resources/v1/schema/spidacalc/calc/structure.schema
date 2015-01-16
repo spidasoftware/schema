@@ -19,8 +19,7 @@
         "id": "foundation",
         "required": [
           "id",
-          "clientItem",
-          "groundWaterLevel"
+          "clientItem"
         ],
         "additionalProperties": false,
         "properties": {
