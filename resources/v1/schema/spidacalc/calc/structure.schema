@@ -19,14 +19,17 @@
         "id": "foundation",
         "required": [
           "id",
-          "clientItem",
-          "groundWaterLevel"
+          "clientItem"
         ],
         "additionalProperties": false,
         "properties": {
           "id": {
             "type": "string",
             "description": "The display ID for the foundation. Must be unique within the pole."
+          },
+          "externalId": {
+            "type": "string",
+            "description": "Optional external ID."
           },
           "clientItem": {
             "type": "string",
