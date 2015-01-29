@@ -1,6 +1,6 @@
 {
   "id": "#/user/company.schema",
-  "description": "A SPIDAMin company",
+  "description": "A SPIDAMin company.",
   "type": "object",
   "properties": {
     "id": {
@@ -9,7 +9,9 @@
     },
     "name": {
       "type": "string",
-      "description": "First name of user"
+      "description": "The company's name.",
+      "minLength": 1,
+      "maxLength": 50
     }
   },
   "additionalProperties": false

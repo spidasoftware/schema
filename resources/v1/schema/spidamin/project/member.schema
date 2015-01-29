@@ -1,6 +1,6 @@
 {
   "id": "#/spidamin/project/member.schema",
-  "description": "A ProjectManager member",
+  "description": "A ProjectManager member.  One of the following is required to associate a user to a member: userId, email, externalId",
   "type": "object",
   "required": [
     "type"
@@ -12,11 +12,15 @@
     },
     "userId": {
       "type": "number",
-      "description": "This is the database ID of the member in UsersMaster. If this value is left blank, email must be set."
+      "description": "This is the database ID of the user in UsersMaster. If not set, email or external id must be set."
     },
     "email": {
-      "type":"string",
-      "description":"This is the email address of the member in UsersMaster.  If this value is left blank, userId must be set."
+      "type": "string",
+      "description": "This is the email address of the user in UsersMaster.  If not set, userId or external id must be set."
+    },
+    "externalId": {
+      "$ref": "../../spidamin/user/external_id.schema.schema",
+      "description": "This is the external id associated with a user in UsersMaster.  If not set, userId or email must be set."
     },
     "type": {
       "type": "string",
