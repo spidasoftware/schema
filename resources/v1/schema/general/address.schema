@@ -20,7 +20,8 @@
       "type": "string"
     },
     "country": {
-      "type": "string"
+      "type": "string",
+      "description": "Only AssetMaster uses this field.  ProjectManager and SPIDACalc ignore this."
     },
     "zip_code": {
       "type": "string"

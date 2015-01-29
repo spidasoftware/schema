@@ -5,41 +5,42 @@
   "properties": {
     "id": {
       "type": "number",
-      "description": "This is a database ID created by ProjectManager.  Only set this value if you want to update an existing project."
+      "description": "This is a database ID created by ProjectManager.  Only set this value if you want to update an existing project.  Not required for project creation."
     },
     "name": {
       "type": "string",
-      "description": "project code for project model in ProjectManager database. REQUIRED FOR CREATION",
+      "description": "The primary project code for the project.  REQUIRED FOR CREATION",
       "minLength": 2,
       "maxLength": 72
     },
     "flowId": {
       "type": "number",
-      "description": "ID for flow model in ProjectManager database. REQUIRED FOR CREATION"
+      "description": "ID for flow model in ProjectManager database.  REQUIRED FOR CREATION"
     },
     "deleted": {
       "type": "boolean",
-      "description": "true if project is marked as deleted (NOTE: value is not writable, only readable through API)"
+      "description": "true if project is marked as deleted (NOTE: value is not writable, only readable through API).  Not required for project creation."
     },
     "editable": {
       "type": "boolean",
-      "description": "true if project can be updated by your user (NOTE: value is not writable, only readable through API)"
+      "description": "true if project can be updated by your user (NOTE: value is not writable, only readable through API).  Not required for project creation."
     },
     "address": {
-      "$ref": "../../general/address.schema"
+      "$ref": "../../general/address.schema",
+      "description": "Not required for project creation."
     },
     "draft": {
       "type": "boolean",
-      "description": "Draft projects do not move through the ProjectManager work flow"
+      "description": "Draft projects do not move through the ProjectManager work flow.  Not required for project creation."
     },
     "companyId": {
       "type": "number",
-      "description": "ID for the company this project belongs to"
+      "description": "This is the database id of the company in which the project exists. (Not the project creator)  Not required for project creation."
     },
     "members": {
       "type": "array",
       "id": "members",
-      "description": "A ProjectManager member",
+      "description": "This allows users to access the project.  By default the creator can access and edit the project.  Not required for project creation.",
       "items": {
         "$ref": "../../spidamin/project/member.schema"
       }
@@ -47,7 +48,7 @@
     "projectCodes": {
       "type": "array",
       "id": "projectCodes",
-      "description": "A ProjectManager project code",
+      "description": "This allows different companies to refer to a project by different names.  Not required for project creation.",
       "items": {
         "$ref": "../../spidamin/project/project_code.schema"
       }
@@ -57,25 +58,25 @@
       "properties": {
         "current": {
           "type": "string",
-          "description": "Current status of project model in ProjectManager database"
+          "description": "Current status of project.  Set this value if you want to change the project status on an update."
         },
         "possible": {
           "type": "array",
-          "description": "Every possible next status for project model in ProjectManager database"
+          "description": "Every possible next status for project.  Use this to check the possible values for the 'current' status."
         }
       }
     },
     "stations": {
       "type": "array",
       "id": "stations",
-      "description": "A ProjectManager station",
+      "description": "A ProjectManager station points to a station in an asset service.  Stations are not required for project creation.",
       "items": {
         "$ref": "../../spidamin/project/station_wrapper.schema"
       }
     },
     "coreForm": {
       "$ref": "../../general/form.schema",
-      "description": "Values with which to populate core form"
+      "description": "Other data to associate with a project.  Not required for project creation."
     }
   },
   "additionalProperties": false
