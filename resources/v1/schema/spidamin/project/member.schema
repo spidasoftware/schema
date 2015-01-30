@@ -19,7 +19,7 @@
       "description": "This is the email address of the user in UsersMaster.  If not set, userId or external id must be set."
     },
     "externalId": {
-      "$ref": "../../spidamin/user/external_id.schema.schema",
+      "$ref": "../../spidamin/user/external_id.schema",
       "description": "This is the external id associated with a user in UsersMaster.  If not set, userId or email must be set."
     },
     "type": {
