@@ -35,6 +35,12 @@
         "type": "string",
         "required": false,
         "description": "Get user by api token."
+      },
+      {
+        "name": "email",
+        "type": "string",
+        "required": false,
+        "description": "Get user by email."
       }
     ]
   },
