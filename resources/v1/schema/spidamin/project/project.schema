@@ -15,7 +15,11 @@
     },
     "flowId": {
       "type": "number",
-      "description": "ID for flow model in ProjectManager database.  REQUIRED FOR CREATION"
+      "description": "ID for flow model in ProjectManager database.  flowId or flowName required for creation"
+    },
+    "flowName": {
+      "type": "string",
+      "description": "Name for flow model in ProjectManager database.  flowId or flowName required for creation"
     },
     "deleted": {
       "type": "boolean",

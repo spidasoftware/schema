@@ -79,6 +79,14 @@
   "getFlows": {
     "allowedMethods":["GET"],
     "description": "Return available flows",
-    "returns": "../../spidamin/project/flows.schema"
+    "returns": "../../spidamin/project/flows.schema",
+    "params": [
+      {
+        "type": "boolean",
+        "name": "include_viewable",
+        "required": false,
+        "description": "If false, only flows usable for project creation will be returned.  If true, all viewable flows will also be included."
+      }
+    ]
   }
 }
