@@ -27,6 +27,8 @@ https://min/calcdb/logLevel
 https://min/calcdb/photos
 https://min/calcdb/projects
 https://min/calcdb/thin
+https://min/calcdb/versions/max
+https://min/calcdb/v${num}/${any_calcdb_method_above}
 
 https://min/filefort/assetAPI/getAssets
 https://min/filefort/assetAPI/getName
@@ -49,6 +51,8 @@ https://min/licensemanager/external/client
 https://min/licensemanager/external/license
 https://min/licensemanager/profile
 
+https://min/projectmanager/actionAPI/reload
+https://min/projectmanager/actionAPI/run/${ActionNames}
 https://min/projectmanager/j_spring_security_logout
 https://min/projectmanager/projectAPI/createOrUpdate
 https://min/projectmanager/projectAPI/delete
@@ -72,4 +76,5 @@ https://min/usersmaster/usersAPI/delete
 https://min/usersmaster/usersAPI/getLoggedInUser
 https://min/usersmaster/usersAPI/getUser
 https://min/usersmaster/usersAPI/getUserByExternalId
+
 ```
