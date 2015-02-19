@@ -76,5 +76,4 @@ https://min/usersmaster/usersAPI/delete
 https://min/usersmaster/usersAPI/getLoggedInUser
 https://min/usersmaster/usersAPI/getUser
 https://min/usersmaster/usersAPI/getUserByExternalId
-
 ```
