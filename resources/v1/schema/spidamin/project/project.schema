@@ -81,6 +81,13 @@
     "coreForm": {
       "$ref": "../../general/form.schema",
       "description": "Other data to associate with a project.  Not required for project creation."
+    },
+    "dataForms": {
+      "description": "List of project forms.  Not required for project creation.",
+      "type": "array",
+      "items": {
+          "$ref": "../../general/form.schema"
+      }
     }
   },
   "additionalProperties": false
