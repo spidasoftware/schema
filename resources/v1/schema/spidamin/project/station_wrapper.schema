@@ -38,7 +38,7 @@
       "description": "ProjectManager will set this to true if station is marked as deleted.  Not required for project creation."
     },
     "dataForms": {
-      "description": "List of dataForms on the station.",
+      "description": "List of station forms.  Not required for project creation.",
       "type": "array",
       "items": {
           "$ref": "../../general/form.schema"
