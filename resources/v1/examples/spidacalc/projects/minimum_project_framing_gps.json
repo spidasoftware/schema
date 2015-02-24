@@ -1,39 +1,93 @@
 {
-  "clientFile": "Demo.client",
-  "leads": [{"locations": [  {
-    "designs": [{"framingPlan":     {
-      "customName": "frameWithoutPrimary",
-      "framingEndPoints":       [
+    "clientFile": "Training_Demo4.0.client",
+    "leads": [
+        {
+            "locations": [
                 {
-          "direction": 95,
-          "distance":           {
-            "unit": "FOOT",
-            "value": 50
-          },
-          "framingWireItems": []
-        },
-                {
-          "direction": 270,
-          "distance":           {
-            "unit": "FOOT",
-            "value": 60
-          },
-          "framingWireItems": []
+                    "designs": [
+                        {
+                            "framingPlan": {
+                                "customName": "My Framing Plan",
+                                "framingEndPoints": [
+                                    {
+                                        "direction": 180,
+                                        "distance": {
+                                            "unit": "FOOT",
+                                            "value": 200
+                                        },
+                                        "framingWireItems": [
+                                            {
+                                                "code": "1/0 ACSR",
+                                                "tensionGroupOverride": "Full",
+                                                "usageGroup": "PRIMARY"
+                                            },
+                                            {
+                                                "code": "1/0 AAC Triplex",
+                                                "tensionGroupOverride": "Full",
+                                                "usageGroup": "NEUTRAL"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "direction": 0,
+                                        "distance": {
+                                            "unit": "FOOT",
+                                            "value": 200
+                                        },
+                                        "framingWireItems": [
+                                            {
+                                                "code": "1/0 ACSR",
+                                                "tensionGroupOverride": "Full",
+                                                "usageGroup": "PRIMARY"
+                                            },
+                                            {
+                                                "code": "1/0 AAC Triplex",
+                                                "tensionGroupOverride": "Full",
+                                                "usageGroup": "NEUTRAL"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "direction": 270,
+                                        "distance": {
+                                            "unit": "FOOT",
+                                            "value": 200
+                                        },
+                                        "framingWireItems": [
+                                            {
+                                                "code": "1/0 ACSR",
+                                                "tensionGroupOverride": "Full",
+                                                "usageGroup": "PRIMARY"
+                                            },
+                                            {
+                                                "code": "1/0 AAC Triplex",
+                                                "tensionGroupOverride": "Full",
+                                                "usageGroup": "NEUTRAL"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "framingUnitItems": [
+                                    "25-7",
+                                    "A1",
+                                    "A5",
+                                    "G1.2.15kVA",
+                                    "F1.10",
+                                    "E1.1.1/2"
+                                ]
+                            }
+                        }
+                    ],
+                    "geographicCoordinate": {
+                        "type": "point",
+                        "coordinates": [
+                            -81.3688492,
+                            40.6097807
+                        ]
+                    }
+                }
+            ]
         }
-      ],
-      "framingUnitItems":       [
-        "45-3",
-        "C3.7",
-        "C3.7"
-      ]
-    }}],
-    "geographicCoordinate":     {
-      "type": "point",
-      "coordinates":       [
-        -81.3688492,
-        40.6097807
-      ]
-    }
-  }]}],
-  "schema": "https://raw.github.com/spidasoftware/schema/master/resources/v1/schema/spidacalc/calc/project.schema"
+    ],
+    "schema": "https://raw.github.com/spidasoftware/schema/master/resources/v1/schema/spidacalc/calc/project.schema"
 }
