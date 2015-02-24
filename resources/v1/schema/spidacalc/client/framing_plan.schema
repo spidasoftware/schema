@@ -51,7 +51,7 @@
                   "description": "Force the wire to use a different tension group than the default."
                 },
                 "usageGroup": {
-                  "$ref": "../../spidacalc/usage_group.schema"
+                  "$ref": "../../spidacalc/calc/enums/usage_group.schema"
                 }
               },
               "additionalProperties": false
