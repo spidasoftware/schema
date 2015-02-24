@@ -35,7 +35,6 @@
               "description": "A wire that goes to this wire end point.",
               "required": [
                 "code",
-                "owner",
                 "usageGroup"
               ],
               "properties": {
@@ -51,7 +50,7 @@
                   "description": "Force the wire to use a different tension group than the default."
                 },
                 "usageGroup": {
-                  "$ref": "../../spidacalc/usage_group.schema"
+                  "$ref": "../calc/enums/usage_group.schema"
                 }
               },
               "additionalProperties": false
