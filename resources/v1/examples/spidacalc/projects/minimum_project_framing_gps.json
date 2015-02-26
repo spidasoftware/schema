@@ -1,79 +1,52 @@
 {
-    "clientFile": "Training_Demo4.0.client",
+    "clientFile": "Demo.client",
     "leads": [
         {
             "locations": [
                 {
                     "designs": [
                         {
-                            "framingPlan": {
+                            "framingPlan":         {
                                 "customName": "My Framing Plan",
-                                "framingEndPoints": [
+                                "framingUnitItems":           [
+                                    "35-5",
+                                    "A1"
+                                ],
+                                "framingEndPoints":           [
                                     {
+                                        "distance":               {
+                                            "unit": "FOOT",
+                                            "value": 200
+                                        },
                                         "direction": 180,
-                                        "distance": {
-                                            "unit": "FOOT",
-                                            "value": 200
-                                        },
-                                        "framingWireItems": [
+                                        "framingWireItems":               [
                                             {
-                                                "code": "1/0 ACSR",
-                                                "tensionGroupOverride": "Full",
+                                                "code": "1/0 AAAC",
                                                 "usageGroup": "PRIMARY"
                                             },
                                             {
-                                                "code": "1/0 AAC Triplex",
-                                                "tensionGroupOverride": "Full",
+                                                "code": "1/0 AAAC",
                                                 "usageGroup": "NEUTRAL"
                                             }
                                         ]
                                     },
                                     {
+                                        "distance":               {
+                                            "unit": "FOOT",
+                                            "value": 200
+                                        },
                                         "direction": 0,
-                                        "distance": {
-                                            "unit": "FOOT",
-                                            "value": 200
-                                        },
-                                        "framingWireItems": [
+                                        "framingWireItems":               [
                                             {
-                                                "code": "1/0 ACSR",
-                                                "tensionGroupOverride": "Full",
+                                                "code": "1/0 AAAC",
                                                 "usageGroup": "PRIMARY"
                                             },
                                             {
-                                                "code": "1/0 AAC Triplex",
-                                                "tensionGroupOverride": "Full",
-                                                "usageGroup": "NEUTRAL"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "direction": 270,
-                                        "distance": {
-                                            "unit": "FOOT",
-                                            "value": 200
-                                        },
-                                        "framingWireItems": [
-                                            {
-                                                "code": "1/0 ACSR",
-                                                "tensionGroupOverride": "Full",
-                                                "usageGroup": "PRIMARY"
-                                            },
-                                            {
-                                                "code": "1/0 AAC Triplex",
-                                                "tensionGroupOverride": "Full",
+                                                "code": "1/0 AAAC",
                                                 "usageGroup": "NEUTRAL"
                                             }
                                         ]
                                     }
-                                ],
-                                "framingUnitItems": [
-                                    "25-7",
-                                    "A1",
-                                    "A5",
-                                    "G1.2.15kVA",
-                                    "F1.10",
-                                    "E1.1.1/2"
                                 ]
                             }
                         }
