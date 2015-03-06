@@ -216,4 +216,6 @@ When creating a project, either one will do. A project does not need to already 
 
 Locations and Designs are simply parts of a Project. The cannot be deleted or modified individually. Instead, update or delete the parent Project.
 
+### Notes on . and $
+  The mongo database used by {calc,spida}db does not allow periods or dollar signs in document keys.  To work around this, both periods and dollar signs are transformed into their full-width versions.  So, . becomes \uff0e and $ becomes \uff04.  This is handled automatically on data being inserted into or retrieved from the mongoDataBaseService.  This should for the most part be transparent.  Except, when using a custom query, you must use the "escaped" key in the query.  Data returned from the query will be automatically unescaped, but parameters in the query itself must be escaped.  
 
