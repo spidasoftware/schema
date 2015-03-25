@@ -1,13 +1,13 @@
 {
   "frame": {
-    "description": "A wire is analyzed under loading conditions for a variety of outputs.",
+    "description": "Frame a pole using a units or assemblies.",
     "returns": "object",
     "params": [
       {
         "name": "framing_plan",
         "type": "design",
         "required": true,
-        "description": "The client wire containing all the engineering information for analysis."
+        "description": "The framing plan containing the units and wire end points."
       },
       {
         "name": "load_case",
