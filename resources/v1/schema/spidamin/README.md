@@ -174,9 +174,15 @@ The advantage of passing the expireSession parameter is that it does not require
 
 ### Switching Companies and Users
 
-Once the API Token is successfully authenticated the user will be logged into their home company.  The session can be switched to a different company and/or user assuming the user has the correct role.  If accessing a project in a different company the session should be switched to the company that the project is in.  To switch companies make a call to:
+Once the API Token is successfully authenticated the user will be logged into their home company.  The session can be switched to a different company and/or user assuming the user has the correct role.  The sessions are per web application so switching in assetmaster will not switch the company in projectmanager.  If accessing a project in projectmanager from different company the session should be switched to the company that the project is in. If accessing stations in assetmaster from a different company than users home company the session should be switched to the stations company.
+
+To switch the the assetmaster session:
 
     curl -g 'https://test.spidasoftware.com/assetmaster/switchcompany?coselect=TestCompany'
+    
+To switch the projectmanager session:
+
+    curl -g 'https://test.spidasoftware.com/projectmanager/switchcompany?coselect=TestCompany'
 
 To switch to a different user make a call to:
 
