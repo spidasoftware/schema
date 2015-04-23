@@ -28,6 +28,7 @@
     },
     "value": {
       "type": "string",
+      "description": "Cannot contain any of the following characters: ` = \\ ~ ! @ $ % ^ & * + | [ ] { } ; ' : \" ,  . / < > ?",
       "minLength": 2,
       "maxLength": 72
     }

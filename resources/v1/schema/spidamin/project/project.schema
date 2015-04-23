@@ -9,7 +9,7 @@
     },
     "name": {
       "type": "string",
-      "description": "The primary project code for the project.  REQUIRED FOR CREATION",
+      "description": "The primary project code for the project.  REQUIRED FOR CREATION. Cannot contain any of the following characters: ` = \\ ~ ! @ $ % ^ & * + | [ ] { } ; ' : \" ,  . / < > ?",
       "minLength": 2,
       "maxLength": 72
     },
