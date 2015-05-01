@@ -1,14 +1,5 @@
-Asset JSON Schema's and Interfaces
+Asset JSON Schema's
 ==============================
-
-### Interfaces
-
-1. asset.json - is used for basic getting of stations and assets based on id, bounding box, and company id's
-2. asset_creation.json - the interface to create assets in a service.  This is for generally for adding and removing from the back end services.
-3. asset_search.json - the interface for finding assets based on more complex queries than given in the basic asset interface.
-4. asset_file.json - the interface for retrieving asset attachments
-
-### Schemas
 
 1. asset.schema - the basic asset at a given station location.
 2. assets.schema - a list of assets

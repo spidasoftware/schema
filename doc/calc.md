@@ -5,7 +5,7 @@ Calc Integration API
 
 ##There are three parts to the Calc APIs
 
-- A data transfer format for moving project, structure, and results information in and out of spidacalc.
+- A data transfer format for moving project, structure, and results information in and out of SPIDACalc.
 - A REST-like remote control interface for controlling a running instance of calc.
 - A REST interface for querying calc client engineering data.
 
@@ -24,7 +24,7 @@ Finally, for export only it can include high level analysis results, including l
 In short, for pretty much anything you can do in calc, you get it in or out through this simple and readable data format.
 
 
-### Calc exchange file format ###
+#### Calc exchange file format ####
 
 The exchange file format allows any valid project JSON to be put into a portable file that includes project photos and can be easily imported by an end user using the normal Calc UI. Creating an exchange file simply involves putting the project JSON and all the photos into a zip file with the extension '.exchange.spida'. The structure of this file, is shown below, relative to the root of the archive:
 
@@ -49,7 +49,7 @@ One thing to note is that the exchange file format is not entirely portable, bec
 then the user must have Demo.client in their clients directory in order to properly open the file.
 
 
-###Supported Structure Fields
+####Supported Structure Fields
 
 The calc import API supports the following attributes of a structure.
 
@@ -92,65 +92,65 @@ The client data service allows querying of our client-specific materials librari
 
 These are the Integration API descriptions for SPIDACalc. There are two types of schemas.
 
-###Data schemas
+####Data schemas
 
 This describes the data format  supported by calc. It is available broken into logical units in v1/calc or as a single file for simpler validation in public/v1/calc. Example data files are in the examples directory. The format is best approached after learning basic calc functionality. All properties mirror the calc user interface pretty closely.
 
-####structure.schema
+#####structure.schema
 
 Schema for an individual detailed pole structure. It will define individual attachments, end points, and other physical components. This is for import from another data collection or pole design tool.
 
-####framing_plan.schema
+#####framing_plan.schema
 
 Schema for a simplified framing plan. It defines a pole design in very broad terms in code units. This tends to be a more useful way to import from a staking tool or GIS database.
 
-####calc_project.schema
+#####calc_project.schema
 
-Schema for a calc project. Includes information on GPS positions, street addresses, photos, remedies, and design structure defined by either design.schema or framing_plan.schema. This is the format that be opened and exported directly by SpidaCalc.
+Schema for a calc project. Includes information on GPS positions, street addresses, photos, remedies, and design structure defined by either design.schema or framing_plan.schema. This is the format that be opened and exported directly by SPIDACalc.
 
-###RPC Interfaces
+####RPC Interfaces
 
-RPC interfaces are exposed at http://localhost:4560/ while SPIDACalc is running. They allow control over core operations of SPIDAcalc from another programming running locally via basic HTTP POST requests. There is an example script using these methods in examples/scripts/example_RPC_client.coffee.
+RPC interfaces are exposed at http://localhost:4560/ while SPIDACalc is running. They allow control over core operations of SPIDACalc from another programming running locally via basic HTTP POST requests. There is an example script using these methods in examples/scripts/example_RPC_client.coffee.
 
-####client_data.json
+#####client_data.json
 
 Located at http://localhost:4560/clientData/<method name>. This interface provides basic querying methods for what client items are available in a client file.
 
-####calc.json
+#####calc.json
 
 located at http://localhost:4560/calc/<method name>. Provides stateful control methods to a running instance of SPIDACalc. Includes methods to open a file, run analysis, run a report, etc.
 
-###Schema Public access
+####Schema Public access
 
 The schemas are published and available online at http://github.com/spidasoftware/schema
 
-###Command Line Interface
+####Command Line Interface
 
 Currently the command line interface only allows for launching calc when it is not already running with a project to open. It will take both .spida and calc_project json files as arguments, though. To open a json file run:
 
 `calc.exe myProject.json`
 
-###Using the examples
+####Using the examples
 
 The example data files are json files that can be opened in any text editor. They can be found in  The RPC example script is a coffeescript file that can be run using the node-js coffeescript package. http://coffeescript.org/
 
 The JSON examples are in [resources/v1/examples/spidacalc](../../../v1/examples/spidacalc)
 
-###More definition of terms
+####More definition of terms
 
-Some of the schemas use terms that are specific to spidacalc or the utility industry. A basic description of the values is included in the schema itself. For a more complete definition of those terms, please see the help menu in SpidaCalc.
+Some of the schemas use terms that are specific to SPIDACalc or the utility industry. A basic description of the values is included in the schema itself. For a more complete definition of those terms, please see the help menu in SPIDACalc.
 
-###External IDs
+####External IDs
 
 Calc stores external ids for all components on the pole. They aren't used as identifiers by the program - they are for interfacing with other applications. You may include them if you have track them, but the id field is the one that is important for building the pole.
 
-###Useful JSON Development tools:
+####Useful JSON Development tools:
 
 - [jsonlint.com] - validates that your json is correctly formed with more useful errors.
 - node_modules/JSV/examples/index.html - provides an easy to use interface for schema validation and viewing errors
 
 
-###Limitations and known issues:
+####Limitations and known issues:
 
 - parameters sent to RPC interface must be in the order specified in the interface description.
 - ~~All ID on the structure must conform to the Calc naming conventions. All wires must be named with something starting with "Wire#", all equipment with "Equip#". This will be fixed in a later version to allow generic labeling. Correct ID Form is CASE SENSITIVE. EQUIP#1 is not a correct ID. Equip#1 is.~~ This has been fixed in Calc 5.3 ID's may be any alphanumeric string.
@@ -171,7 +171,7 @@ A location has many designs. A design is a specific version of the structure at 
 
 The calc structure is a model of a single pole under analysis and everything directly attached to it.
 
-###Attachments
+####Attachments
 
 Components attaching directly to the pole have structure in common
 
@@ -185,13 +185,13 @@ Components at a distance from the pole have structure in common
 - distance: The distance from the pole to the item.
 - direction: The bearing of the object relative to the pole.
 
-###Directions
+####Directions
 
 Directions are in degrees. 0 is North, 90 is East, 180 is South, 270 is west. They are the bearing from the main pole to that item. This matches the display in Calc.
 
 *Note* in the 4.4.2 release, there is a bug in the direction handling. The rotation is reversed. 0 is North, 270 is East, 180 is South, 90 is West.
 
-###Wire End Points
+####Wire End Points
 
 Calc uses the concept of wire end points to describe spans. A Wire End Point is something that the spans on your pole are going to. It could be another pole, it could be a building. It holds the distance and direction and the list of wires going to it.
 
@@ -201,7 +201,7 @@ Each span from the main pole is its own wire object, even if they are connected.
 
 Calc has different wire end point types. The generic types are OTHER_POLE and BUILDING. There are also two special types, NEXT_POLE and PREVIOUS_POLE. These indicate the main run in the line of poles. There can only be one of each of them. Anchors whose support type is set to BISECTOR will automatically track the bisector angle between the NEXT_POLE and the PREVIOUS_POLE when edited in Calc.
 
-### Equipment Types
+#### Equipment Types
 
 Custom equipment types are supported. However, the following types are recognized by calc as built-in:
 
@@ -211,7 +211,7 @@ Custom equipment types are supported. However, the following types are recognize
 - PRIMARY_METERING
 - RECLOSER
 - REGULATOR
-- RISER 
+- RISER
 - STREET_LIGHT
 - SWITCH
 - TERMINATION_BRACKET
@@ -225,7 +225,7 @@ Custom equipment types are supported. However, the following types are recognize
 
 ##FAQ
 
-###I send my request to calc, but it says that I'm missing required parameters?
+####I send my request to calc, but it says that I'm missing required parameters?
 
 The individual parameters are passed as URL or POST FORM encoded parameters, even if the parameters themselves are JSON strings. make sure you set the following on your question:
 
@@ -234,19 +234,15 @@ The individual parameters are passed as URL or POST FORM encoded parameters, eve
 
 This design decision was made to make it easy to test basic requests, but it seems to cause some confusion.
 
-###Can I use this to run my own analysis server?
+####Can I use this to run my own analysis server?
 
 No, it is not supported by the terms of use of calc or the schema.
 
-###What reports are available?
+####What reports are available?
 
 The report ID is any report named in your client file, as well as two of the reports available in the calc menu: "Project Summary Report" and "Project Details Report"
 
 
-###Questions/Support
+####Questions/Support
 
 For questions about the SPIDACalc API, please contact SPIDA support at support@spidasoftware.com.
-
-
-
-

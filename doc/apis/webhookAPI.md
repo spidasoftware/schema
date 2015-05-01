@@ -1,9 +1,12 @@
-# SPIDAMin Webhook Design
+# Webhook API
 
-## Webhook API
-The Webhook API is located at `/productname/webhookAPI/`.  It contains methods for registering, unregistering, renewing, and viewing webhooks.  All requests must have a content-type of 'application/json'.  With the exception of the apiToken, all parameters must be passed in the request body as properties of a JSON object.  All response bodies will contain a JSON object.
+It contains methods for registering, unregistering, renewing, and viewing webhooks.  All requests must have a content-type of 'application/json'.  With the exception of the apiToken, all parameters must be passed in the request body as properties of a JSON object.  All response bodies will contain a JSON object.
 
-### Registering
+#### URLs
+
+`https://${HOST}/projectmanager/webhookAPI`
+
+#### Registering
 Register a webhook with a POST request to `/productname/webhookAPI/register?apiToken=your-api-token`
 
 The request body must be a JSON object containing the following properties:
@@ -19,7 +22,7 @@ The server will respond with a JSON object containing the following properties:
 * message: error/success message
 * leaseEnd: The time this webhook will expire.  Represented as milliseconds since the unix epoch.
 
-### Unregister
+#### Unregister
 Unregister a previous registered webhook with a POST request to `/productname/webhookAPI/unregister?apiToken=your-api-token`
 
 The request body must be a JSON object containing exactly one of the following properties:
@@ -31,7 +34,7 @@ The server will respond with a JSON object containing the following properties:
 * success: true/false
 * message: error/success message
 
-### Renew
+#### Renew
 Renew previously registered, currently active webhooks with a POST request to `/productname/webhookAPI/renew?apiToken=your-api-token`
 
 The request body must be a JSON object containing the following properties:
@@ -46,7 +49,7 @@ The server will respond with a JSON object containing the following properties:
 * message: error/success message
 * leaseEnd: The time the webhooks will expire.  Represented as milliseconds since the unix epoch.
 
-### View
+#### View
 To view previously registered active webhooks create a POST request to
 `/productname/webhookAPI/view?apiToken=your-api-token`
 
@@ -62,25 +65,6 @@ The server will respond with a JSON object containing the following properties:
 	* eventFilter: A filter on event name.  Will be a Java regular expression.
 	* hookId: The user defined id for this hook.  
 	* leaseEnd: The time this webhook will expire.  Represented as milliseconds since the unix epoch.
-
-## Internal Webhook Service
-In Min code, anywhere a change or update is made we will call:
-```
-webhookService.sendEvent(channel, eventName, JSONObject obj)
-```
-or
-```
-webhookService.sendEvent(channel, eventName) {
-	new JSONObject(
-		...
-	)
-}
-```
-The second form can be used if generating the JSONObject could possible impact performance.  It will not be evaluated unless there is a webhook which matches the event and in that case will be executed only one.
-
-For performance reasons this will add the event to an async queue that another thread will listen to then handle sending callbacks to the registered urls.
-
-This thread will POST back to the registered urls when the channel matches and eventFilter is a regex match on eventName.  To make this work we will come up with a naming standard per channel, i.e. for a project channel it may be eventType:name:company id. Where eventType may be something like 'update', 'reassign', 'statusChange', etc.
 
 ## Callbacks
 When an event within the given channel and matching the given eventName happens on the Min server.  A callback to the webhook's registered url will be created.  This callback will be an HTTP POST request with content-type application/json.  The request body will be a JSON object containing the following properties:

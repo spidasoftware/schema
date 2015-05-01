@@ -22,81 +22,26 @@ There are few concepts to keep in mind:
 
 1. Our services rely heavily on the JSON format.  If you are not familiar with JSON, you will need to be to understand what it is your are submitting to the service.  Try this short [tutorial](http://www.w3schools.com/json/default.asp).
 2. We have two main areas for our services. SPIDACalc and SPIDAMin, don't confuse the two.  They each have some overlap in naming, but fundamentally different structures.  SPIDAMin is an online application that is primarily used to manage assets.  SPIDACalc is a client application for analyzing utility pole structures.  Both have a project, but each is unique and different.  Make sure you are using the correct one.
-3. Schema files end in .schema, and interface definitions end in .json.  The .schema files are used to validate the objects passed. The .json files describe the services to which you pass those objects.
+3. Schema files end in .schema. The .schema files are used to validate the objects passed into specific API endpoints. The [Doc](doc) folder has descriptions of the services to which you pass those objects.
 4. The CalcDB api follows REpresentational Sate Transfer (REST) conventions, which makes it somewhat different from out other APIs, which use Remote Procedure Call (RPC) conventions. This document contains general information that is mostly only relevant to RPC, although some information is relevant to both. For information on using the CalcDB api, check out [this link.](http://github.com/spidasoftware/schema/blob/master/resources/v1/schema/calcdb/interfaces)
 
 Services
 ------------
 
-Our services provide a set of methods that can be called for a specific product.  Our service definitions are in each folder in a separate folder called _interfaces_.  For example we have a _spidcalc_ folder that contains an _interfaces_ folder.  The spidacalc folder contains all the objects that relate to spidacalc.  The interfaces contains the service interfaces that relate to spidacalc.
-
-We based our services on the json-rpc that can be found [here](http://www.simple-is-better.org/json-rpc/jsonrpc20-schema-service-descriptor.html).  
-
-Each service call has three main pieces, the request url, the request parameters, and the response.
-
-### Request URL
-
-Methods will be done against a url that ends with the method name.  The method names are defined in the interfaces.  Example: 
-
-    .../projectmanager/projectAPI/getProjects
-
-would be the _getProjects_ method from the spidamin/project/interfaces/pm.json.  The url before the _getProjects_ would be server specific.
-
-### Request Parameters
-
-Parameters for the procedure are included in the http params list after the method name i.e. 
-
-    .../getProjects?projectCodeValues=["value"]
-
-would contain the parameter of projectCodeValues.
-
-If you are using POST, the parameters must still be in the POST params if they are too large for the params list in the request string. You will need to set the request content type to:
-
-     application/x-www-form-urlencoded
-
-And the charset to `UTF-8`
-
-### Response 
-
-The response body will always be formatted in the generic [_method\_response_](resources/v1/general/method_response.schema), this allows for passing error codes and the result. 
-
-    {"result":5}
-
-Would be a valid response object, that might be returned.
-
-### Allowed Methods
-
-HTTP says that GET calls should not modify data.  So if you are making a call with our API and it is a modification or creation of the object stored in the application, you will need to do a POST. 
+Our services provide a set of methods that can be called for a specific product.  Our service definitions are in each folder in a separate folder called _interfaces_.  For example we have a _spidcalc_ folder that contains an _interfaces_ folder.  The SPIDACalc folder contains all the objects that relate to SPIDACalc.  The interfaces contains the service interfaces that relate to SPIDACalc.
 
 ### License Agreement (EULA)
 
-All users must accept the License Agreement.  If this has not been accepted, all HTTP requests will be redirected to usersmaster/agreement.  Login to SPIDAMin and you will be redirected to the License Agreeement.  Click the 'Accept' button at the bottom of the page.
+All users must accept the License Agreement.  If this has not been accepted, all HTTP requests will be redirected to usersmaster/agreement.  Login to SPIDAMin and you will be redirected to the License Agreement.  Click the 'Accept' button at the bottom of the page.
 
 Folder Structure
 --------------------
-
+1. [doc](doc) - documentation and overview of specific functionality that is available through all our API's.
 1. [v1](v1) - the version 1 API
-  1. [resources/v1/schema/spidacalc](resources/v1/schema/spidacalc) - schemas for communication with spidacalc version 4.4.2.0 and future versions
-  1. [resources/v1/schema/spidamin](resources/v1/schema/spidamin) - schemas for communication with spidamin 3.0
+  1. [resources/v1/schema/spidacalc](resources/v1/schema/spidacalc) - schemas for communication with SPIDACalc version 4.4.2.0 and future versions
+  1. [resources/v1/schema/spidamin](resources/v1/schema/spidamin) - schemas for communication with SPIDAMin 3.0
   1. [resources/v1/examples](resources/v1/examples) - used in tests, good example objects
 1. [src](src) - some utilities that can be used in Java as well as the tests.
-
-General Process
-------------------
-
-### Consume a Service
-
-General process for using a service defined here:
-* Find the service interface you are implementing.
-* Create tested input params for the service methods you are going to use
-* Write integration tests if possible using example services.
-
-### Implement a Service
-
-General process for implementing a service:
-* Find the service interface you are implementing.
-* Write a test to make sure you implement all the methods.
-* Write a test to make sure your method respond with correct responses.
 
 Versions
 --------
@@ -108,9 +53,9 @@ As of October 9, 2014, the v1 Schemas are considered stable, and will not have a
 Development
 -------------
 
-Any parts of the exposed APIs should allow clients to continue to use the v1 schemas. In SPIDACalc and SPIDA DB, this can be specified simply as a property of project JSON, "version". The version property should hold an integer value that specifies which version of the schema to use, 1 or 2. This could also be accomplished by having a separate namespace in the URL for apis that use the v2 schemas, for example `/api/v2/project/createOrUpdate`. A way to specify schema version should be implemented as needed by each application and documented here. 
+Any parts of the exposed APIs should allow clients to continue to use the v1 schemas. In SPIDACalc and SPIDA DB, this can be specified simply as a property of project JSON, "version". The version property should hold an integer value that specifies which version of the schema to use, 1 or 2. This could also be accomplished by having a separate namespace in the URL for apis that use the v2 schemas, for example `/api/v2/project/createOrUpdate`. A way to specify schema version should be implemented as needed by each application and documented here.
 
-Any changes to the v2 schema should be accompanied by a modification to a `v1 -> v2` changeset. This will allow us to simplify our handling of the JSON on the backend by allowing us to use the same classes to deal with all of the JSON. Checking for and running the changeset should be implemented in each project as it is required by changes to the schema. 
+Any changes to the v2 schema should be accompanied by a modification to a `v1 -> v2` changeset. This will allow us to simplify our handling of the JSON on the backend by allowing us to use the same classes to deal with all of the JSON. Checking for and running the changeset should be implemented in each project as it is required by changes to the schema.
 
 
 Testing
@@ -152,7 +97,7 @@ The tool uses our included Validator java class.
 In the src/* folders are some java classes that can be helpful when integrating our stuff into a java world.  This includes a classes that produces a JSON descriptor of a class and validate a service against a JSON descriptor.
 
 The jar can be compiled with:
-    
+
     gradlew install
 
 ***
