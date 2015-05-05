@@ -396,6 +396,14 @@
           },
           "clientItem": {
             "$ref": "../../spidacalc/calc/client_references/wire.schema"
+          },
+          "pretension": {
+            "type": "number",
+            "description": "Value between 0 and 100. Used if default pretension is not used."
+          },
+          "defaultPretension": {
+            "type": "boolean",
+            "description": "True if guy should use the pretension from the owner."
           }
         }
       }
@@ -438,6 +446,14 @@
           },
           "clientItem": {
             "$ref": "../../spidacalc/calc/client_references/wire.schema"
+          },
+          "pretension": {
+            "type": "number",
+            "description": "Value between 0 and 100. Used if default pretension is not used."
+          },
+          "defaultPretension": {
+            "type": "boolean",
+            "description": "True if guy should use the pretension from the owner."
           }
         }
       }
