@@ -25,7 +25,7 @@ Opens a project with the given object
 
 #### Parameters
 
-1. `project`: a _required_ [project object](../resources/v1/schema/spidacalc/calc/project.schema).
+1. `project`: a _required_ [project object](../../resources/v1/schema/spidacalc/calc/project.schema).
 
 #### Returns
 
@@ -67,7 +67,7 @@ Create a project from a single structure.
 
 #### Parameters
 
-1. `structure`: a _required_ [structure object](../resources/v1/schema/spidacalc/calc/structure.schema).
+1. `structure`: a _required_ [structure object](../../resources/v1/schema/spidacalc/calc/structure.schema).
 1. `clientFile`: a _required_ `string` for the client file name to be used.
 
 #### Returns
@@ -89,7 +89,7 @@ Create a project from a single framing of a pole.
 
 #### Parameters
 
-1. `structure`: a _required_ [framing plan object](../resources/v1/schema/spidacalc/client/framing_plan.schema).
+1. `structure`: a _required_ [framing plan object](../../resources/v1/schema/spidacalc/client/framing_plan.schema).
 1. `clientFile`: a _required_ `string` for the client file name to be used.
 
 #### Returns
@@ -136,7 +136,7 @@ none
 
 #### Returns
 
-a complete [project object](../resources/v1/schema/spidacalc/calc/project.schema) with results.
+a complete [project object](../../resources/v1/schema/spidacalc/calc/project.schema) with results.
 
 Exit
 -----
@@ -157,7 +157,7 @@ none
 
 #### Returns
 
-a complete [project object](../resources/v1/schema/spidacalc/calc/project.schema) with results.
+a complete [project object](../../resources/v1/schema/spidacalc/calc/project.schema) with results.
 
 Analyze Current Project
 -----

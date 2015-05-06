@@ -76,7 +76,7 @@ Return the asset types this service returns.
 
 #### Returns
 
-[asset_details.schema](../resources/v1/schema/spidamin/asset/asset_details.schema)
+[asset_details.schema](../../resources/v1/schema/spidamin/asset/asset_details.schema)
 
 #### Examples
 
@@ -93,7 +93,7 @@ Get a set of Stations based on parameters provided
 
 1. `stations_ids`: an array of the ids to retrieve. Required if bounding box or tags is not provided.  If the tag parameter is not implemented this should search tags as well as station ids
 1. `tags`: Services may optionally implement this parameter.  If this is implemented any stations containing this tags will be returned.  Required if bounding box or station_ids is not provided.
-1. `bounding_box`: A [polygon object](../resources/v1/schema/general/geometry.schema) that is the south, west, north, east of information to return. Required if no station ids or tags are provided.
+1. `bounding_box`: A [polygon object](../../resources/v1/schema/general/geometry.schema) that is the south, west, north, east of information to return. Required if no station ids or tags are provided.
 1. `company_ids`: an array of ids for the company to retrieve from. Not required.
 1. `details`: a boolean on whether to fetch station asset details with the query.
 
@@ -103,7 +103,7 @@ Get a set of Stations based on parameters provided
 
 #### Returns
 
-[stations.schema](../resources/v1/schema/spidamin/asset/stations.schema)
+[stations.schema](../../resources/v1/schema/spidamin/asset/stations.schema)
 
 #### Examples
 
@@ -169,7 +169,7 @@ Get a set of Assets based on parameters provided
 
 #### Returns
 
-[stations.schema](../resources/v1/schema/spidamin/asset/stations.schema)
+[stations.schema](../../resources/v1/schema/spidamin/asset/stations.schema)
 
 #### Examples
 

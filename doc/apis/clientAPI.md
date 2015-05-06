@@ -74,7 +74,7 @@ Return a client anchor from the client file.
 
 #### Returns
 
-A [client anchor](../resources/v1/schema/spidacalc/client/anchor.schema)
+A [client anchor](../../resources/v1/schema/spidacalc/client/anchor.schema)
 
 Insulators
 -----
@@ -118,7 +118,7 @@ Return a client insulator from the client file.
 
 #### Returns
 
-A [client insulator](../resources/v1/schema/spidacalc/client/insulator.schema)
+A [client insulator](../../resources/v1/schema/spidacalc/client/insulator.schema)
 
 Poles
 -----
@@ -157,12 +157,12 @@ Return a client pole from the client file.
 
 #### Parameters
 
-1. type: a _required_ [pole_reference](../resources/v1/schema/spidacalc/calc/client_references/pole.schema) of the pole to retrieve.
+1. type: a _required_ [pole_reference](../../resources/v1/schema/spidacalc/calc/client_references/pole.schema) of the pole to retrieve.
 1. clientFile: a _required_ `string` of the client file name to pull from
 
 #### Returns
 
-A [client pole](../resources/v1/schema/spidacalc/client/pole.schema)
+A [client pole](../../resources/v1/schema/spidacalc/client/pole.schema)
 
 Wires
 -----
@@ -202,12 +202,12 @@ Return a client wire from the client file.
 
 #### Parameters
 
-1. wire: a _required_ [wire reference](../resources/v1/schema/spidacalc/calc/client_references/wire.schema) of the wire to retrieve.
+1. wire: a _required_ [wire reference](../../resources/v1/schema/spidacalc/calc/client_references/wire.schema) of the wire to retrieve.
 1. clientFile: a _required_ `string` of the client file name to pull from
 
 #### Returns
 
-A [client wire](../resources/v1/schema/spidacalc/client/wire.schema)
+A [client wire](../../resources/v1/schema/spidacalc/client/wire.schema)
 
 List Equipment
 -----
@@ -247,12 +247,12 @@ Return a client equipment from the client file.
 
 #### Parameters
 
-1. equipment: a _required_ [equipment reference](../resources/v1/schema/spidacalc/calc/client_references/equipment.schema) of the equipment to retrieve.
+1. equipment: a _required_ [equipment reference](../../resources/v1/schema/spidacalc/calc/client_references/equipment.schema) of the equipment to retrieve.
 1. clientFile: a _required_ `string` of the client file name to pull from
 
 #### Returns
 
-A [client equipment](../resources/v1/schema/spidacalc/client/equipment.schema)
+A [client equipment](../../resources/v1/schema/spidacalc/client/equipment.schema)
 
 List Cross Arms
 -----
@@ -296,7 +296,7 @@ Return a client crossArm from the client file.
 
 #### Returns
 
-A [client crossArm](../resources/v1/schema/spidacalc/client/crossArm.schema)
+A [client crossArm](../../resources/v1/schema/spidacalc/client/crossArm.schema)
 
 List Foundations
 -----
@@ -340,7 +340,7 @@ Return a client foundation from the client file.
 
 #### Returns
 
-A [client foundation](../resources/v1/schema/spidacalc/client/foundation.schema)
+A [client foundation](../../resources/v1/schema/spidacalc/client/foundation.schema)
 
 List Sidewalk Braces
 -----
@@ -384,7 +384,7 @@ Return a client sidewalkBrace from the client file.
 
 #### Returns
 
-A [client sidewalkBrace](../resources/v1/schema/spidacalc/client/sidewalkBrace.schema)
+A [client sidewalkBrace](../../resources/v1/schema/spidacalc/client/sidewalkBrace.schema)
 
 List Load Cases
 -----

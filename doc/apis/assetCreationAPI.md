@@ -54,13 +54,13 @@ an id is in the posted station object.
 
 station, asset, or attachment required
 
-1. `asset`: An [asset object](../resources/v1/schema/spidamin/asset/station.schema)
-1. `station`: A [station object](../resources/v1/schema/spidamin/asset/station.schema)
-1. `attachment`: An array of [attachment object](../resources/v1/schema/spidamin/asset/attachment.schema)
+1. `asset`: An [asset object](../../resources/v1/schema/spidamin/asset/station.schema)
+1. `station`: A [station object](../../resources/v1/schema/spidamin/asset/station.schema)
+1. `attachment`: An array of [attachment object](../../resources/v1/schema/spidamin/asset/attachment.schema)
 
 #### Returns
 
-1. An [id array](../resources/v1/schema/general/ids.schema)
+1. An [id array](../../resources/v1/schema/general/ids.schema)
 
 Delete
 ----------
@@ -83,6 +83,6 @@ Deletes stations or assets
 
 #### Returns
 
-1. `asset`: An [method response object](../resources/v1/schema/general/method_response.schema)
+1. `asset`: An [method response object](../../resources/v1/schema/general/method_response.schema)
 
 #### Examples

@@ -25,11 +25,11 @@ Create or update a project
 
 #### Parameters
 
-1. `project_json`: a required [project](../resources/v1/schema/spidamin/project/project.schema). An update is performed if the project.id is present, and create if not.
+1. `project_json`: a required [project](../../resources/v1/schema/spidamin/project/project.schema). An update is performed if the project.id is present, and create if not.
 
 #### Returns
 
-1. An [id object](../resources/v1/schema/general/id.schema)
+1. An [id object](../../resources/v1/schema/general/id.schema)
 
 #### Examples
 
@@ -83,7 +83,7 @@ Return a list of projects
 
 #### Returns
 
-1. A [projects object](../resources/v1/schema/spidamin/project/projects.schema)
+1. A [projects object](../../resources/v1/schema/spidamin/project/projects.schema)
 
 #### Examples
 
@@ -109,7 +109,7 @@ deletes Members, ProjectCodes, Stations, Projects
 
 #### Returns
 
-A [general response object](../resources/v1/schema/general/method_response.schema)
+A [general response object](../../resources/v1/schema/general/method_response.schema)
 
 Get Flows
 -------
@@ -130,4 +130,4 @@ Returns available flows for project creation
 
 #### Returns
 
-1. A [flows object](../resources/v1/schema/spidamin/project/flows.schema)
+1. A [flows object](../../resources/v1/schema/spidamin/project/flows.schema)
