@@ -44,6 +44,7 @@ Each action should contain a method `getScriptSecurity`, that must return a Scri
 #### Errors
 
 Errors can be expressed in one of 2 ways:
+
 1. Through the HTTP status code of the response
 2. Through the message text in the JSON response body
 
