@@ -78,7 +78,7 @@ Currently, even though it is done in a web service style, this is only available
 
 The Calc service is best thought of as a remote control for a running copy of calc. Once Calc is started, an integrating program can make basic commands that can do the same thing as a user would do in the UI. These options include:
 
-- Opening a pole or project.
+- Opening a project.
 - Saving the project.
 - Analyzing that project.
 - Generating reports.
