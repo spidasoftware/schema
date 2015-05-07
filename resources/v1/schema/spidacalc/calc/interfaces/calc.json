@@ -23,42 +23,6 @@
       }
     ]
   },
-  "openStructure": {
-    "description": "Create a project from a single structure .",
-    "returns": "null",
-    "params": [
-      {
-        "type": "object",
-        "name": "structure",
-        "required": true,
-        "description": "JSON description of the structure to be opened"
-      },
-      {
-        "type": "string",
-        "name": "clientFile",
-        "required": true,
-        "description": "name of the client file to use to create the pole in the structure"
-      }
-    ]
-  },
-  "openFraming": {
-    "description": "Create a project from a single framing of a pole.",
-    "returns": "null",
-    "params": [
-      {
-        "type": "object",
-        "name": "framing",
-        "required": true,
-        "description": "JSON description of the framing to be opened"
-      },
-      {
-        "type": "string",
-        "name": "clientFile",
-        "required": true,
-        "description": "name of the client file to use to create the pole"
-      }
-    ]
-  },
   "saveCurrentProject": {
     "description": "Save the currently opened project",
     "returns": "null",
