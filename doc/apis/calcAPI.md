@@ -52,50 +52,6 @@ Opens a project with the given file path
 
 none
 
-Open Structure
------
-
-Create a project from a single structure.
-
-#### URL
-
-`http://localhost:4560/calc/openProject`
-
-#### Allowed Methods
-
-`POST`
-
-#### Parameters
-
-1. `structure`: a _required_ [structure object](../../resources/v1/schema/spidacalc/calc/structure.schema).
-1. `clientFile`: a _required_ `string` for the client file name to be used.
-
-#### Returns
-
-none
-
-Open Framing
------
-
-Create a project from a single framing of a pole.
-
-#### URL
-
-`http://localhost:4560/calc/openFraming`
-
-#### Allowed Methods
-
-`POST`
-
-#### Parameters
-
-1. `structure`: a _required_ [framing plan object](../../resources/v1/schema/spidacalc/client/framing_plan.schema).
-1. `clientFile`: a _required_ `string` for the client file name to be used.
-
-#### Returns
-
-none
-
 Save Current Project
 -----
 
