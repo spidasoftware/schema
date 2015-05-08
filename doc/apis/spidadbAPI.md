@@ -1,7 +1,7 @@
 SPIDA DB API
 ===========
 
-SPIDA DB is a web application that stores the complex pole data described by they SPIDACalc Project JSON schema. The aim of SPIDA DB is to provide a simple and robust API for storing and accessing pole data that can be used in a wide variety of integration and reporting scenarios. 
+SPIDA DB is a web application that stores the complex pole data described by they SPIDACalc Project JSON schema. The aim of SPIDA DB is to provide a simple and robust API for storing and accessing pole data that can be used in a wide variety of integration and reporting scenarios.
 
 # General Concepts
 
@@ -17,41 +17,41 @@ The thing about REST is that it's really really simple. You can get a basic prim
 - http://developer.infoconnect.com/get-vs-post-%E2%80%93-restful-primer
 - http://rest.elkstein.org/
 
-### HTTP METHODS
+#### HTTP METHODS
 
 The basic idea is that http verbs are used to indicate what the client wants to do. Here's a table showing the http request types and descriptions of what they're used for. Using these different types of http calls allows a client to Create, Read, Update, and Delete (CRUD). Notice how there are two rows for GET requests. This is because one is for requesting a list of projects, and the other is for showing a specific project by id. Any time we want to deal with a single specific resource, we always put the resource's id in the url. See the examples below for specifics.
 
 | Method | Purpose                                                 | URL
 |--------|---------------------------------------------------------|---------------------
-| POST   | _Save_ a new Project (projects only)                    | `<base-url>/projects.<format>`
-| PUT    | _Update_ an existing Project (projects only)            | `<base-url>/projects/<id>.<format>`
-| GET    | _Show_ a single resource. Can never modify data.        | `<base-url>/<resource-type>/<id>.<format>`
-| GET    | _List_ resources matching a query. Cannot modify data.  | `<base-url>/<resource-type>.<format>`
-| DELETE | _Delete_ It'll be gone forever, so you better be sure.  | `<base-url>/<resource-type>/<id>`
+| POST   | _Save_ a new Project (projects only)                    | `https://${HOST}/spidadb/projects.<format>`
+| PUT    | _Update_ an existing Project (projects only)            | `https://${HOST}/spidadb/projects/<id>.<format>`
+| GET    | _Show_ a single resource. Can never modify data.        | `https://${HOST}/spidadb/<resource-type>/<id>.<format>`
+| GET    | _List_ resources matching a query. Cannot modify data.  | `https://${HOST}/spidadb/<resource-type>.<format>`
+| DELETE | _Delete_ It'll be gone forever, so you better be sure.  | `https://${HOST}/spidadb/<resource-type>/<id>`
 
 - `<base-url>`      = The url to SPIDA DB. i.e.- `https://www.spidamin.com/SPIDA DB`
 - `<resource-type>` = One of: "projects", "locations", "designs"
 - `<id>`            = The unique SPIDA DB id of a specific resource
 - `<format>`        = The format of the data you are sending or requesting. This is not required.
 
-### Resource Types
+#### Resource Types
 SPIDA DB deals with three main types of data, projects, locations and designs. These correspond to the same objects in a SPIDACalc project. The API has an endpoint (resource-type) for each type of component. For example, let's say we have SPIDA DB running at the following base url: `https://www.example.com/SPIDA DB`. In order to deal with projects, we will simply add `/projects` to the base url, resulting in: `https://www.example.com/SPIDA DB/projects`. If we instead with to work with Locations or Designs, then we would simply replace that url segment with... surprise, "/locations" or "/designs".
 
-### id
+#### id
 Each resource in SPIDA DB has its own unique id. When requesting a resource, the id is just a part of the url. The URL `/projects/123` refers to the project with id '123'. Id's can be specified when creating a project, but every resource's id must be unique.
 
-### Format
+#### Format
 Here's where things get interesting. Even though there is only one schema, there are several formats that the data can be in. When you save a project to SPIDA DB, it will typically contain several Locations, which in turn may contain several Designs. This is all sent to SPIDA DB via a POST or PUT request as a single JSON document. This is the default format, and it is called "__calc__" format. When you go to the project menu in SPIDACalc and export the project JSON, this is what you get: A single JSON document containing all the Locations and Designs in the Project. All requests will default to this format if none is specified.
 
 This is not how SPIDA DB stores the data internally, however. The aim of SPIDA DB is to make it easy to separate individual Locations and Designs from their parent Project, so they are each stored separately. Then, each item will contain _references_ to it's parent and each of it's children. This is called "__referenced__" format. The .referenced format is read-only, meaning that a client cannot Save or Update using it, but it is very useful for querying the data.
 
 Finally, there is a third format, called "__exchange__". This format corresponds to the Exchange File format [described here.](http://github.com/spidasoftware/schema/tree/master/resources/v1/schema/spidacalc#calc-exchange-file-format) Using this format allows a client to easily include the project JSON and all the photos in a single file upload. Currently, the .exchange format is ONLY supported for Save and Update requests for projects.
 
-Formats are specified using a .suffix attached to the url, similar to a file extension. Content-Types for responses from SPIDA DB will always be 'application/json', and will not indicate a specific format. For most List requests, the referenced format should be preferred. This is because data in this format is much smaller. If a request is made for Projects in .calc format, then all of the Locations and Designs will be returned along with each project. Projects can be _quite_ large, so SPIDA DB severely limits the number that can be returned in .calc format. Using .referenced format makes the project (or Location) a tiny fraction of it's full size and makes it easy to return large lists of them. 
+Formats are specified using a .suffix attached to the url, similar to a file extension. Content-Types for responses from SPIDA DB will always be 'application/json', and will not indicate a specific format. For most List requests, the referenced format should be preferred. This is because data in this format is much smaller. If a request is made for Projects in .calc format, then all of the Locations and Designs will be returned along with each project. Projects can be _quite_ large, so SPIDA DB severely limits the number that can be returned in .calc format. Using .referenced format makes the project (or Location) a tiny fraction of it's full size and makes it easy to return large lists of them.
 
-### Authentication
+#### Authentication
 
-One last thing before we get to the good stuff, and that's the matter of authentication. REST stands for REpresentational State Transfer. This essentially means that the server is Stateless, and the request is expected to contain all of the information that the server needs in order to complete the request. This means that every request to SPIDA DB must contain an apiToken parameter, or else the server won't know which user is making the request. SPIDA DB ignores all Cookies and other session infomation sent with a request. For all the requests in this example, we'll use the api token, "abc123", but each users actual api token will be a unique alpha-numeric value that is somewhat longer.
+One last thing before we get to the good stuff, and that's the matter of authentication. REST stands for REpresentational State Transfer. This essentially means that the server is Stateless, and the request is expected to contain all of the information that the server needs in order to complete the request. This means that every request to SPIDA DB must contain an apiToken parameter, or else the server won't know which user is making the request. SPIDA DB ignores all Cookies and other session information sent with a request. For all the requests in this example, we'll use the api token, "abc123", but each users actual api token will be a unique alpha-numeric value that is somewhat longer.
 
 
 # Examples
@@ -60,7 +60,7 @@ These examples will all use the command-line tool curl, just because of it's ubi
 
 ## Saving a project - POST - `<baseURL>/<resource-type>`
 
-Let's start off by saving a project, by sending a POST request to `<base url>/projects`. We will need two parameters. The first is the api token, which is how SPIDA DB authenticates the user. The second is the project json. The api token parameter can be sent either in the url or the body, but the project json must be sent in the body, and the parameter name must be 'project'. 
+Let's start off by saving a project, by sending a POST request to `<base url>/projects`. We will need two parameters. The first is the api token, which is how SPIDA DB authenticates the user. The second is the project json. The api token parameter can be sent either in the url or the body, but the project json must be sent in the body, and the parameter name must be 'project'.
 
 For this example, we'll save the included example project at: v1/examples/spidacalc/projects/full_project.json
 
@@ -89,7 +89,7 @@ The response from SPIDA DB (formatted for readability):
         ]
     }
 
-The response 'status' just tells us that everything went ok. If there is ever a problem processing a request, the status will be "error". The 'project' field shows us the SPIDA DB id for the newly saved project. The locations and designs fields are simply arrays of the ids for those objects. 
+The response 'status' just tells us that everything went ok. If there is ever a problem processing a request, the status will be "error". The 'project' field shows us the SPIDA DB id for the newly saved project. The locations and designs fields are simply arrays of the ids for those objects.
 
 ## Update the Project - PUT - `<baseURL>/projects/<id>`
 
@@ -100,8 +100,8 @@ Send the request:
 	curl -X PUT --data apiToken=abc123 \
 	 --data-urlencode "project@v1/examples/spidacalc/projects/modified_project.json" \
 	 https://www.example.com/spidadb/projects/53e13203e4b07e53be02f130
- 
-The response will be essentially the save as for a POST (save) request. 
+
+The response will be essentially the save as for a POST (save) request.
 
 ## Show the project - GET - `<baseURL>/<resource-type>/<id>`
 
@@ -153,15 +153,15 @@ Send the request:
 `curl -X DELETE https://www.example.com/spidadb/projects/53e13203e4b07e53be02f130?apiToken=abc123`
 
 The response:
- 
-`{"status": "ok"}` 
+
+`{"status": "ok"}`
 
 ## Photos
 
 We've sort of avoided this topic until now because photos are a bit different than other resources. There is no way to directly save, update, or delete a photo. They are instead considered to be part of a Location for these purposes. However, when you request a Location, SPIDA DB does not send the photos along with it. Instead, if a location contains photos, each image will have a 'link' attribute that provides the id of that photo. You can then send a GET to "<base-url>/photos/<id>" to retrieve the photo.
- 
+
  An example of an image 'link' (the rest of the location is not shown):
- 
+
     //in a Location json
     "images": [
         {
@@ -172,8 +172,8 @@ We've sort of avoided this topic until now because photos are a bit different th
             }
         }
     ]
-    
-This shows an example of a location with one photo. The 'url' property will typically just be a filename. This will be resolved when a project in imported into SPIDACalc, but SPIDA DB simply ignores it. The part that SPIDA DB is interested in is the 'link'. It contains the id for that photo. 
+
+This shows an example of a location with one photo. The 'url' property will typically just be a filename. This will be resolved when a project in imported into SPIDACalc, but SPIDA DB simply ignores it. The part that SPIDA DB is interested in is the 'link'. It contains the id for that photo.
 
 To request the image from the example:
 
@@ -185,7 +185,7 @@ The response:
         "status": "ok",
         "photo": "<base-64 encoded string>..."
     }
-    
+
 The response will include the photo bytes as a base64 encoded string in the body of the JSON response. This would then be decoded by the client and written to a file. There is currently no support for any other request type or options for photos.
 
 
@@ -194,11 +194,11 @@ The response will include the photo bytes as a base64 encoded string in the body
 The available fields that can be added to requests as parameters are listed in [restAPI.json](https://github.com/spidasoftware/schema/blob/master/resources/v1/schema/calcdb/interfaces/restAPI.json). For each item in "resources" (project, location, design, photo), there is an object for each type of API call: 'list', 'show', 'save', 'update', 'delete'. Each of these objects has a 'parameters' array that lists the possible parameters for it. Some will be required, others are optional. List requests have the most parameters since all the searchable fields will be enumerated. All list parameters are implicitly combined with a logical AND. So, if you pass the params, "id=myCalcId\&label=MyProject", then SPIDA DB will only return projects that match both of those.
 
 
-# The Finer Points 
+# The Finer Points
 
-### Saving or Updating Projects 
+#### Saving or Updating Projects
 
-There are several possible ways to save/update a project. 
+There are several possible ways to save/update a project.
 
 - **Plain old Project JSON**  This is what we did in the example. This would normally just be sent with a ContentType of "multipart/form-data", but "application/X-www-form-urlencoded" is also acceptable (just less efficient). No photos are saved, because none are sent. The request would be sent to `<base-url>/projects.calc` but the `.calc` format is optional since that is the default.
 
@@ -208,14 +208,13 @@ There are several possible ways to save/update a project.
 
 - **Filefort uuid**  If you have the uuid of an exchange file in Filefort, then you can simply provide the uuid in the `filefortUuid` parameter. SPIDA DB will get the exchange file from filefort and use it to create the project.
 
-### PUT or POST
+#### PUT or POST
 
-When creating a project, either one will do. A project does not need to already exist in order to PUT it. In fact, creating a project using a PUT is intended to allow the client to specify the id as it's created. Just about any string value is acceptable as an id, as long as it doesn't contain a '.' (period). 
+When creating a project, either one will do. A project does not need to already exist in order to PUT it. In fact, creating a project using a PUT is intended to allow the client to specify the id as it's created. Just about any string value is acceptable as an id, as long as it doesn't contain a '.' (period).
 
-### Deleting or Updating Locations or Designs
+#### Deleting or Updating Locations or Designs
 
 Locations and Designs are simply parts of a Project. The cannot be deleted or modified individually. Instead, update or delete the parent Project.
 
-### Notes on . and $
+#### Notes on . and $
   The mongo database used by {calc,spida}db does not allow periods or dollar signs in document keys.  To work around this, both periods and dollar signs are transformed into their full-width versions.  So, . becomes \uff0e and $ becomes \uff04.  This is handled automatically on data being inserted into or retrieved from the mongoDataBaseService.  This should for the most part be transparent.  Except, when using a custom query, you must use the "escaped" key in the query.  Data returned from the query will be automatically unescaped, but parameters in the query itself must be escaped.  
-

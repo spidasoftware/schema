@@ -10,7 +10,7 @@ apply plugin: 'project-report'
 apply plugin: 'releaseNotes'
 
 group = 'com.spidasoftware'
-version = '1.04' //for nightly build, ensure that this is the first "version" in the file and keep single quotes
+version = '1.05' //for nightly build, ensure that this is the first "version" in the file and keep single quotes
 description = "Schema"
 
 sourceCompatibility = 1.7
@@ -39,7 +39,7 @@ sourceSets {
 // Dependencies
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 buildscript {
-	
+
 	try {
 		project.ext.m2Settings = [exposed:"https://dev.spidasoftware.com/artifactory/exposed-repo"]//default
 		def m2Root = new XmlSlurper().parse(new File(System.getProperty("user.home"), ".m2/settings.xml"))
@@ -49,9 +49,9 @@ buildscript {
 			project.ext.m2Settings = [username: m2Spida.username.text(), password: m2Spida.password.text(), exposed: m2Repos.exposedLocation.text()]
 		}
 	} catch(ex){
-		println ex.message //use ex.printStackTrace() if you want to show the full stacktrace 
+		println ex.message //use ex.printStackTrace() if you want to show the full stacktrace
 	}
-	
+
 	//uncomment to print out maven settings
 	//println "m2Settings: ${m2Settings}"
 
@@ -100,8 +100,8 @@ dependencies {
 
 }
 
-test {  
-    testLogging.showStandardStreams = true  
+test {
+    testLogging.showStandardStreams = true
 }
 
 
@@ -139,7 +139,7 @@ task(validateJson, dependsOn: 'classes', type: JavaExec) {
 
 task wrapper(type: Wrapper) {
 	/*****************************************************************************************
-		NOTES: 
+		NOTES:
 		1) This will also change gradle version for all subprojects.
 		2) Setting url with "-all" so that the download includes gradle documentation.
 		3) If you only set gradleVersion, it will append "-bin".
@@ -147,4 +147,3 @@ task wrapper(type: Wrapper) {
  	 *****************************************************************************************/
 	distributionUrl = 'http://services.gradle.org/distributions/gradle-1.11-all.zip'
 }
-
