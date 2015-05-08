@@ -10,7 +10,7 @@ apply plugin: 'project-report'
 apply plugin: 'releaseNotes'
 
 group = 'com.spidasoftware'
-version = '1.04-SNAPSHOT' //for nightly build, ensure that this is the first "version" in the file and keep single quotes
+version = '1.05-SNAPSHOT' //for nightly build, ensure that this is the first "version" in the file and keep single quotes
 description = "Schema"
 
 sourceCompatibility = 1.7
