@@ -15,7 +15,7 @@
             "description": "The unique id of this project component"
         },
         "calcLocation": {
-            "$ref": "../spidacalc/calc/location.schema"
+            "$ref": "../../spidacalc/calc/location.schema"
         },
         "projectId": {
             "type": "string",
@@ -34,7 +34,7 @@
             "description": "The version of the Client Data file used in the parent project"
         },
         "dateModified": {
-            "$ref": "../general/long_date.schema"
+            "$ref": "../../general/long_date.schema"
         },
         "version": {
             "type": "number",

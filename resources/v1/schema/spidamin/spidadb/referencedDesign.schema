@@ -17,7 +17,7 @@
             "description": "The unique id of this project component"
         },
         "calcDesign": {
-            "$ref": "../spidacalc/calc/design.schema"
+            "$ref": "../../spidacalc/calc/design.schema"
         },
         "user": {
             "$ref": "userRef.schema"
@@ -47,7 +47,7 @@
             "description": "The version of the Client Data file used in the parent project"
         },
         "dateModified": {
-            "$ref": "../general/long_date.schema"
+            "$ref": "../../general/long_date.schema"
         },
         "version": {
             "type": "number",
@@ -58,28 +58,28 @@
             "description": "Holds the worst-case analysis results for each *type* of component. CalcDB will set these properties automatically when a design is saved. The data here is all duplicated in the 'analysis' property. It is reproduced here only to make it easier to query the data",
             "properties": {
                 "pole": {
-                    "$ref": "../spidamin/asset/standard_details/analysis_asset.schema"
+                    "$ref": "../../spidamin/asset/standard_details/analysis_asset.schema"
                 },
                 "guys": {
-                    "$ref": "../spidamin/asset/standard_details/analysis_asset.schema"
+                    "$ref": "../../spidamin/asset/standard_details/analysis_asset.schema"
                 },
                 "spanGuys": {
-                    "$ref": "../spidamin/asset/standard_details/analysis_asset.schema"
+                    "$ref": "../../spidamin/asset/standard_details/analysis_asset.schema"
                 },
                 "anchors": {
-                    "$ref": "../spidamin/asset/standard_details/analysis_asset.schema"
+                    "$ref": "../../spidamin/asset/standard_details/analysis_asset.schema"
                 },
                 "pushBraces": {
-                    "$ref": "../spidamin/asset/standard_details/analysis_asset.schema"
+                    "$ref": "../../spidamin/asset/standard_details/analysis_asset.schema"
                 },
                 "insulators": {
-                    "$ref": "../spidamin/asset/standard_details/analysis_asset.schema"
+                    "$ref": "../../spidamin/asset/standard_details/analysis_asset.schema"
                 },
                 "crossArms": {
-                    "$ref": "../spidamin/asset/standard_details/analysis_asset.schema"
+                    "$ref": "../../spidamin/asset/standard_details/analysis_asset.schema"
                 },
                 "sidewalkBraces": {
-                    "$ref": "../spidamin/asset/standard_details/analysis_asset.schema"
+                    "$ref": "../../spidamin/asset/standard_details/analysis_asset.schema"
                 }
             },
             "additionalProperties": false
