@@ -62,6 +62,41 @@ station, asset, or attachment required
 
 1. An [id array](../../resources/v1/schema/general/ids.schema)
 
+#### Examples
+
+To make the commands easier to read lets assume you have a file called `station.json` with the following JSON in it:
+
+```
+{
+  "assetTypes": ["POLE"],
+  "primaryAssetOwnerId": 2,
+  "primaryAssetType": "POLE",
+  "dataProviderId": 2,
+  "geometry": {
+    "type": "Point",
+    "coordinates": [-82.95468139648438,
+      39.98353576660156
+    ]
+  },
+  "stationAssets": [{
+    "assetDetails": [{
+      "name": "poleClass",
+      "value": "3"
+    }],
+    "assetType": "POLE",
+    "ownerId": 2,
+    "primaryAsset": true,
+    "assetTags": [{
+      "primary": true,
+      "name": "Primary Tag",
+      "value": "10"
+    }]
+  }]
+}
+```
+
+`curl
+
 Delete
 ----------
 
