@@ -67,35 +67,48 @@ station, asset, or attachment required
 To make the commands easier to read lets assume you have a file called `station.json` with the following JSON in it:
 
 ```
-{
-  "assetTypes": ["POLE"],
-  "primaryAssetOwnerId": 2,
-  "primaryAssetType": "POLE",
-  "dataProviderId": 2,
-  "geometry": {
-    "type": "Point",
-    "coordinates": [-82.95468139648438,
-      39.98353576660156
-    ]
-  },
-  "stationAssets": [{
-    "assetDetails": [{
-      "name": "poleClass",
-      "value": "3"
-    }],
-    "assetType": "POLE",
-    "ownerId": 2,
-    "primaryAsset": true,
-    "assetTags": [{
-      "primary": true,
-      "name": "Primary Tag",
-      "value": "10"
-    }]
-  }]
+station={
+ "assetTypes": ["POLE"],
+ "primaryAssetOwnerId": 57,
+ "primaryAssetType": "POLE",
+ "dataProviderId": 57,
+ "geometry": {
+  "type": "Point",
+  "coordinates": [
+   -82.95468139648438,
+   39.98353576660156
+  ]
+ },
+ "stationAssets": [{
+  "assetDetails": [
+   {
+    "name": "poleClass",
+    "value": "3"
+   }
+  ],
+  "assetType": "POLE",
+  "ownerId": 57,
+  "primaryAsset": true,
+  "assetTags": [
+   {
+    "primary": true,
+    "name": "Primary Tag",
+    "value": "10"
+   }
+  ]
+ }]
 }
 ```
 
-`curl
+This sets the "station" parameter, and we can then create a station with a curl call like the following:
+
+`curl -k -d @station.json 'https://demo.spidasoftware.com/assetmaster/assetCreationAPI/createOrUpdate?apiToken=tokenvalue'`
+
+This would result in a success response of:
+
+`{"result":["ff8081814b84506a014d583304e76144"]}`
+
+This is the given id for the created asset.
 
 Delete
 ----------
