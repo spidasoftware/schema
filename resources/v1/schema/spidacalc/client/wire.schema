@@ -35,7 +35,7 @@
       "type": "string"
     },
     "calculation": {
-      "$ref": "../../spidacalc/client/calculation.schema"
+      "$ref": "../../spidacalc/client/enums/calculation.schema"
     },
     "crossArea": {
       "$ref": "../../general/measurable.schema"

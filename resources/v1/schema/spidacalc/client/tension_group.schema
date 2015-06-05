@@ -4,7 +4,6 @@
   "type": "object",
   "required": [
     "temperature",
-    "tension",
     "name",
     "groups"
   ],
@@ -32,9 +31,6 @@
       "type": "string"
     },
     "temperature": {
-      "$ref": "../../general/measurable.schema"
-    },
-    "tension": {
       "$ref": "../../general/measurable.schema"
     }
   },

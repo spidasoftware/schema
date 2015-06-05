@@ -19,7 +19,7 @@
     "modulus": {
       "$ref": "../../general/measurable.schema"
     },
-    "outDiameter": {
+    "outerDiameter": {
       "$ref": "../../general/measurable.schema"
     },
     "wallThickness": {
