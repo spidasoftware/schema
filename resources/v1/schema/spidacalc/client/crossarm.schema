@@ -34,13 +34,13 @@
       "$ref": "../../general/measurable.schema"
     },
     "materialCategory": {
-      "$ref": "../../spidacalc/client/material_category.schema"
+      "$ref": "../../spidacalc/client/enums/material_category.schema"
     },
     "modulus": {
       "$ref": "../../general/measurable.schema"
     },
     "shape": {
-      "$ref": "../../spidacalc/client/shape.schema"
+      "$ref": "../../spidacalc/client/enums/shape.schema"
     },
     "stressAllow": {
       "$ref": "../../general/measurable.schema"
