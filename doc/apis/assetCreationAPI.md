@@ -135,6 +135,8 @@ Deletes stations or assets
 
 #### Examples
 
+If were to delete the stations that was created in the previous example we would use the following url:
+
 `curl -k -d @stations.json 'https://demo.spidasoftware.com/assetmaster/assetCreationAPI/delete?apiToken=tokenvalue'`
 
 with the `stations.json` containing the following:
