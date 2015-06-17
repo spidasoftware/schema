@@ -41,12 +41,12 @@ REST is a specific type of data service, and a few of our more data centric serv
 
 ##### SPIDACalc
 
-1. [client](apis/calcAPI.md) - a REST(ish) endpoint to retrieve engineering information used in SPIDACalc from external tools.
+1. [client](apis/calcAPI.md) - a REST endpoint to retrieve engineering information used in SPIDACalc from external tools.
 
 SPIDACalc
 ========
 
-There is a very good overview of how to use the services available on a locally installed SPIDACalc given in [this file.](calc.md)
+Information about the SPIDACalc exchange format JSON and integration API can be found in [The Calc API Developer Guide.](calc.md)
 
 SPIDAMin
 ========
