@@ -134,3 +134,13 @@ Deletes stations or assets
 1. `asset`: An [method response object](../../resources/v1/schema/general/method_response.schema)
 
 #### Examples
+
+`curl -k -d @stations.json 'https://demo.spidasoftware.com/assetmaster/assetCreationAPI/delete?apiToken=tokenvalue'`
+
+with the `stations.json` containing the following:
+
+```
+station_ids=[
+  "ff8081814b84506a014d583304e76144"
+]
+```
