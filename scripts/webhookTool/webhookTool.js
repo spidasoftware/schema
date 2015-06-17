@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 var http = require('http');
+var https = require('https');
 var url = require('url');
 var prettyjson = require('prettyjson');
 var argv = require('yargs')
@@ -64,7 +65,8 @@ if (argv.hookId) {
 }
 
 if (action != 'listen') {
-    var req = http.request(reqParams,function(resp) {
+    var proto = reqParams.protocol == 'https:' ? https : http;
+    var req = proto.request(reqParams,function(resp) {
         if (resp.statusCode == 200) {
             console.log('Response received');
             var body = ''
