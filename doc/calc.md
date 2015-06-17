@@ -167,6 +167,23 @@ A location is a single point on a map where a pole structure is located. It will
 
 A location has many designs. A design is a specific version of the structure at a location. This allows for comparison between multiple design for quality control or remediation work. A design has a single structure.
 
+### Load Cases and results
+
+Calc uses load cases to handle NESC, GO95, and CSA loading standards. These are referenced by the name in the client file. To specify the load cases to be applied to a design, send analysis objects using only the ID and 
+<pre>
+"analysis": [
+    {
+        "id": "CSA - Heavy One"
+    }, 
+    {
+        "id": "Csa Severe Two"
+    }
+]
+</pre>
+    
+If Results are included, they will be listed per component. When loaded into calc they will show the summary of the result, and that the results are out of date and need to be re-analyzed to get full results.
+
+
 ##Calc Pole Structure
 
 The calc structure is a model of a single pole under analysis and everything directly attached to it.
