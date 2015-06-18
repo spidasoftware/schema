@@ -42,7 +42,7 @@ Get version count of attachment with uuid.  This can be used in the offset in fu
 
 #### URL
 
-`https://${HOST}/${APP}/assetAPI/getVersionCount`
+`https://${HOST}/${APP}/assetFileAPI/getVersionCount`
 
 #### Allowed Methods
 
@@ -65,7 +65,7 @@ Get date the attachment was created.
 
 #### URL
 
-`https://${HOST}/${APP}/assetAPI/getCreatedDate`
+`https://${HOST}/${APP}/assetFileAPI/getCreatedDate`
 
 #### Allowed Methods
 
@@ -88,7 +88,7 @@ Get date the attachment was last updated.
 
 #### URL
 
-`https://${HOST}/${APP}/assetAPI/getUpdatedDate`
+`https://${HOST}/${APP}/assetFileAPI/getUpdatedDate`
 
 #### Allowed Methods
 
