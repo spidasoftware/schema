@@ -5,7 +5,6 @@ This API is set of methods that allow you to create and modify with the file ass
 
 ## Implementing Apps
 
-1. assetmaster
 1. filefort
 
 Methods
@@ -34,16 +33,16 @@ none
 
 #### Examples
 
-`https://demo.spidasoftware.com/assetmaster/assetAPI/getName`
+`https://demo.spidasoftware.com/filefort/assetAPI/getName`
 
 Get Version Count
 ----------
 
-Get version count of attachment with externalId.  This can be used in the offset in future requests.
+Get version count of attachment with uuid.  This can be used in the offset in future requests.
 
 #### URL
 
-`https://${HOST}/${APP}/assetAPI/getVersionCount`
+`https://${HOST}/${APP}/assetFileAPI/getVersionCount`
 
 #### Allowed Methods
 
@@ -51,7 +50,53 @@ Get version count of attachment with externalId.  This can be used in the offset
 
 #### Parameters
 
-1. `externalId`: a required string of the external id of the attachment
+1. `uuid`: a required string of the uuid of the attachment
+
+#### Returns
+
+`number`
+
+#### Examples
+
+Get Created Date
+----------
+
+Get date the attachment was created.
+
+#### URL
+
+`https://${HOST}/${APP}/assetFileAPI/getCreatedDate`
+
+#### Allowed Methods
+
+`GET`
+
+#### Parameters
+
+1. `uuid`: a required string of the uuid of the attachment
+
+#### Returns
+
+`number`
+
+#### Examples
+
+Get Updated Date
+----------
+
+Get date the attachment was last updated.
+
+#### URL
+
+`https://${HOST}/${APP}/assetFileAPI/getUpdatedDate`
+
+#### Allowed Methods
+
+`GET`
+
+#### Parameters
+
+1. `uuid`: a required string of the uuid of the attachment
 
 #### Returns
 
@@ -62,7 +107,7 @@ Get version count of attachment with externalId.  This can be used in the offset
 Get File
 ----------
 
-Get path for attachment with externalId
+Get path for attachment with uuid
 
 #### URL
 
@@ -74,7 +119,7 @@ Get path for attachment with externalId
 
 #### Parameters
 
-1. `externalId`: a required string of the external id of the attachment
+1. `uuid`: a required string of the uuid of the attachment
 1. `offset`: A offset count of the file, defaults to 0
 
 #### Returns
@@ -86,7 +131,7 @@ Get path for attachment with externalId
 Get Bytes
 ----------
 
-Get base64 encoded bytes for attachment with externalId
+Get base64 encoded bytes for attachment with uuid
 
 #### URL
 
@@ -98,7 +143,7 @@ Get base64 encoded bytes for attachment with externalId
 
 #### Parameters
 
-1. `externalId`: a required string of the external id of the attachment
+1. `uuid`: a required string of the uuid of the attachment
 1. `offset`: A offset count of the file, defaults to 0
 
 #### Returns
@@ -122,7 +167,7 @@ Get get the raw bytes in the response body with the "Content-disposition:attachm
 
 #### Parameters
 
-1. `externalId`: a required string of the external id of the attachment
+1. `uuid`: a required string of the uuid of the attachment
 1. `offset`: A offset count of the file, defaults to 0
 
 #### Returns
