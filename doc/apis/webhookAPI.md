@@ -179,3 +179,562 @@ Anything in the response will be ignored by the server.
 		</tr>
 	</tbody>
 </table>
+
+##Webhook Example
+In these examples the SPIDAMin server is running at https://spidamin.example.com and the webhook callback server is running at https://callback.example.com.  An API token "API_TOKEN" has been created for an admin user.
+
+###Register
+The below example registers a new webhook that will create a callback request for all events on the "Project" channel.
+
+Direction: Callback Server -> SPIDAMin  
+Request to: https://spidamin.example.com/projectmanager/webhookAPI/register?apiToken=API_TOKEN  
+Request JSON:
+```json
+{
+	"url": "https://callback.example.com/callback",
+	"channel": "Project",
+	"eventFilter": ".*",
+	"leaseTime": 1200
+}
+```
+
+Response JSON:
+```json
+{
+	"message": "Webhook registered successfully",
+	"leaseEnd": 1437763293324,
+	"hookId": "397b23c8-ff7d-49e0-83eb-79f98f415aa2",
+	"success": true
+}
+```
+
+###View
+The server can be queried for registered webhooks.  Here all webhooks registered with the callback url: https://callback.example.com/callback are queried.
+
+Direction: Callback Server -> SPIDAMin  
+Request to: https://spidamin.example.com/projectmanager/webhookAPI/register?apiToken=API_TOKEN  
+Request JSON:
+```json
+{
+  "url": "https://callback.example.com/callback"
+}
+```
+
+Response JSON:
+```json
+{
+  "webhooks": [
+    {
+      "leaseEnd": 1437763293324,
+      "hookId": "397b23c8-ff7d-49e0-83eb-79f98f415aa2",
+      "channel": "Project",
+      "url": "https://callback.example.com/callback",
+      "eventFilter": ".*"
+    }
+  ]
+}
+```
+
+###Callback
+A new project is created with 3 new stations.  The SPIDAMin server then makes 2 calls to the callback URL.  The first call is for a stationsAdded event, when the stations are added to the new project.  It lists the user who added the stations, the stations added, and the project the stations where added to.
+
+Direction: SPIDAMin -> Callback Server  
+Request to: https://callback.example.com/callback  
+Request JSON:
+```json
+{
+  "timestamp": 1437763552852,
+  "payload": {
+    "project": {
+      "stations": [
+        {
+          "id": 35061,
+          "spotted": false,
+          "source": "assetmasterAssetService",
+          "stationId": "ff8081814b84506a014b8458c5d01130",
+          "display": "110",
+          "deleted": false,
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -82.85795593261719,
+              40.00355911254883
+            ]
+          }
+        },
+        {
+          "id": 35063,
+          "spotted": false,
+          "source": "assetmasterAssetService",
+          "stationId": "ff8081814b84506a014b8458df771a4c",
+          "display": "193",
+          "deleted": false,
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -82.85726928710938,
+              40.005088806152344
+            ]
+          }
+        },
+        {
+          "id": 35067,
+          "spotted": false,
+          "source": "assetmasterAssetService",
+          "stationId": "ff8081814b84506a014b8459530f5190",
+          "display": "230",
+          "deleted": false,
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -82.85816192626953,
+              40.004947662353516
+            ]
+          }
+        }
+      ],
+      "status": {
+        "current": "Start"
+      },
+      "projectCodes": [
+        {
+          "id": 35060,
+          "value": "Webhook Test Project",
+          "companyId": 11,
+          "type": "PROJECT"
+        }
+      ],
+      "deleted": false,
+      "id": 35057,
+      "draft": false,
+      "address": {},
+      "name": "Webhook Test Project",
+      "companyId": 11,
+      "dataForms": [],
+      "flowName": "New Flow",
+      "members": [
+        {
+          "id": 35058,
+          "userId": 13,
+          "type": "CREATOR"
+        },
+        {
+          "id": 35059,
+          "userId": 13,
+          "type": "ASSIGNEE"
+        }
+      ],
+      "flowId": 28379
+    },
+    "stations": [
+      {
+        "servicePriority": 90,
+        "assetTypes": [
+          "POLE"
+        ],
+        "source": "assetmasterAssetService",
+        "address": {
+          "zip_code": "89412",
+          "county": "County A",
+          "street": "Easy Street",
+          "state": "CA",
+          "city": "Emerald City",
+          "country": "USA"
+        },
+        "originalStationId": "ff8081814b84506a014b8458c5d01130",
+        "linkerId": 34443,
+        "stationAssets": [
+          {
+            "assetDetails": [
+              {
+                "name": "strength",
+                "value": "0.07451032192038298"
+              },
+              {
+                "name": "county",
+                "value": "County B"
+              },
+              {
+                "name": "construction",
+                "value": "Construction 2"
+              },
+              {
+                "name": "yearSet",
+                "value": "1999"
+              },
+              {
+                "name": "length",
+                "value": "70"
+              },
+              {
+                "name": "township",
+                "value": "Red Township"
+              },
+              {
+                "name": "poleClass",
+                "value": "H3"
+              },
+              {
+                "name": "treatment",
+                "value": "Copper Azole"
+              },
+              {
+                "name": "dateInspected",
+                "value": "61147850985302"
+              },
+              {
+                "name": "loading",
+                "value": "12"
+              }
+            ],
+            "assetId": "ff8081814b84506a014b8458c5d01131",
+            "assetType": "POLE",
+            "ownerId": 101,
+            "assetAttachments": [],
+            "primaryAsset": true,
+            "assetTags": [
+              {
+                "name": "Primary Tag",
+                "primary": true,
+                "value": "110"
+              }
+            ]
+          }
+        ],
+        "stationId": "s27801_ff8081814b84506a014b8458c5d01130",
+        "primaryAssetOwnerId": 101,
+        "dataProviderId": 101,
+        "primaryAssetType": "POLE",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -82.85795593261719,
+            40.00355911254883
+          ]
+        }
+      },
+      {
+        "servicePriority": 90,
+        "assetTypes": [
+          "POLE"
+        ],
+        "source": "assetmasterAssetService",
+        "address": {
+          "zip_code": "02138",
+          "county": "County A",
+          "street": "Elm Street",
+          "state": "CA",
+          "country": "Amurrica",
+          "city": "Emerald City"
+        },
+        "originalStationId": "ff8081814b84506a014b8458df771a4c",
+        "linkerId": 34448,
+        "stationAssets": [
+          {
+            "assetDetails": [
+              {
+                "name": "strength",
+                "value": "0.43478809120011097"
+              },
+              {
+                "name": "county",
+                "value": "County B"
+              },
+              {
+                "name": "construction",
+                "value": "Construction 2"
+              },
+              {
+                "name": "yearSet",
+                "value": "1997"
+              },
+              {
+                "name": "length",
+                "value": "65"
+              },
+              {
+                "name": "township",
+                "value": "Red Township"
+              },
+              {
+                "name": "poleClass",
+                "value": "H2"
+              },
+              {
+                "name": "treatment",
+                "value": "CCA"
+              },
+              {
+                "name": "loading",
+                "value": "24"
+              },
+              {
+                "name": "dateInspected",
+                "value": "60813918591864"
+              }
+            ],
+            "assetId": "ff8081814b84506a014b8458df771a4d",
+            "assetType": "POLE",
+            "ownerId": 123,
+            "assetAttachments": [],
+            "primaryAsset": true,
+            "assetTags": [
+              {
+                "name": "Primary Tag",
+                "primary": true,
+                "value": "193"
+              }
+            ]
+          }
+        ],
+        "stationId": "s27801_ff8081814b84506a014b8458df771a4c",
+        "primaryAssetOwnerId": 123,
+        "dataProviderId": 123,
+        "primaryAssetType": "POLE",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -82.85726928710938,
+            40.005088806152344
+          ]
+        }
+      },
+      {
+        "servicePriority": 90,
+        "assetTypes": [
+          "POLE"
+        ],
+        "source": "assetmasterAssetService",
+        "address": {
+          "zip_code": "90210",
+          "county": "County B",
+          "street": "Easy Street",
+          "state": "OH",
+          "country": "Amurrica",
+          "city": "Lud"
+        },
+        "originalStationId": "ff8081814b84506a014b8459530f5190",
+        "linkerId": 34478,
+        "stationAssets": [
+          {
+            "assetDetails": [
+              {
+                "name": "county",
+                "value": "County B"
+              },
+              {
+                "name": "construction",
+                "value": "Construction 1"
+              },
+              {
+                "name": "yearSet",
+                "value": "2000"
+              },
+              {
+                "name": "length",
+                "value": "40"
+              },
+              {
+                "name": "township",
+                "value": "Red Township"
+              },
+              {
+                "name": "poleClass",
+                "value": "4"
+              },
+              {
+                "name": "loading",
+                "value": "71"
+              },
+              {
+                "name": "dateInspected",
+                "value": "61245396621455"
+              },
+              {
+                "name": "strength",
+                "value": "0.5075003126284767"
+              },
+              {
+                "name": "treatment",
+                "value": "Creosote"
+              }
+            ],
+            "assetId": "ff8081814b84506a014b8459530f5191",
+            "assetType": "POLE",
+            "ownerId": 189,
+            "assetAttachments": [],
+            "primaryAsset": true,
+            "assetTags": [
+              {
+                "name": "Primary Tag",
+                "primary": true,
+                "value": "230"
+              }
+            ]
+          }
+        ],
+        "stationId": "s27801_ff8081814b84506a014b8459530f5190",
+        "primaryAssetOwnerId": 189,
+        "dataProviderId": 189,
+        "primaryAssetType": "POLE",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -82.85816192626953,
+            40.004947662353516
+          ]
+        }
+      }
+    ],
+    "user": "admin@spidasoftware.com"
+  },
+  "eventName": "stationsAdded:Webhook Test Project",
+  "hookId": "397b23c8-ff7d-49e0-83eb-79f98f415aa2",
+  "channel": "Project"
+}
+```
+
+The server receiving the callback responds with a 200 OK status.  Callback response content is ignored by SPIDAMin.
+
+The second callback is for the new event.
+
+Direction: SPIDAMin -> Callback Server  
+Request to: https://callback.example.com/callback  
+Request JSON:
+```json
+{
+  "timestamp": 1437763554001,
+  "payload": {
+    "stations": [
+      {
+        "id": 35061,
+        "spotted": false,
+        "source": "assetmasterAssetService",
+        "stationId": "ff8081814b84506a014b8458c5d01130",
+        "display": "110",
+        "deleted": false,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -82.85795593261719,
+            40.00355911254883
+          ]
+        }
+      },
+      {
+        "id": 35063,
+        "spotted": false,
+        "source": "assetmasterAssetService",
+        "stationId": "ff8081814b84506a014b8458df771a4c",
+        "display": "193",
+        "deleted": false,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -82.85726928710938,
+            40.005088806152344
+          ]
+        }
+      },
+      {
+        "id": 35067,
+        "spotted": false,
+        "source": "assetmasterAssetService",
+        "stationId": "ff8081814b84506a014b8459530f5190",
+        "display": "230",
+        "deleted": false,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -82.85816192626953,
+            40.004947662353516
+          ]
+        }
+      }
+    ],
+    "status": {
+      "current": "Start"
+    },
+    "projectCodes": [
+      {
+        "id": 35060,
+        "value": "Webhook Test Project",
+        "companyId": 11,
+        "type": "PROJECT"
+      }
+    ],
+    "deleted": false,
+    "id": 35057,
+    "draft": false,
+    "address": {},
+    "name": "Webhook Test Project",
+    "companyId": 11,
+    "dataForms": [],
+    "flowName": "New Flow",
+    "members": [
+      {
+        "id": 35058,
+        "userId": 13,
+        "type": "CREATOR"
+      },
+      {
+        "id": 35059,
+        "userId": 13,
+        "type": "ASSIGNEE"
+      }
+    ],
+    "flowId": 28379
+  },
+  "eventName": "new:api:New Flow:Webhook Test Project",
+  "hookId": "397b23c8-ff7d-49e0-83eb-79f98f415aa2",
+  "channel": "Project"
+}
+```
+
+The server receiving the callback again responds with a 200 OK status.  Callback response content is ignored by SPIDAMin.
+
+###Renew
+Before the webhook expires it must be renewed.  This is required to keep SPIDAMin from sending callbacks that are no longer needed.
+
+Direction: Callback Server -> SPIDAMin  
+Request to: https://spidamin.example.com/projectmanager/webhookAPI/renew?apiToken=API_TOKEN  
+Request JSON:
+```json
+{
+  "hookId": "397b23c8-ff7d-49e0-83eb-79f98f415aa2",
+  "leaseTime": 1200
+}
+```
+
+Response JSON:
+```json
+{
+  "message": "Webhooks successfully renewed",
+  "hookIds": [
+    "397b23c8-ff7d-49e0-83eb-79f98f415aa2"
+  ],
+  "leaseEnd": 1437766625725,
+  "success": true
+}
+```
+
+###Unregister
+When the callback is now longer required.  The requesting application can either wait for the webhook to expire, or unregister the webhook.
+
+Direction: Callback Server -> SPIDAMin  
+Request to: https://spidamin.example.com/projectmanager/webhookAPI/unregister?apiToken=API_TOKEN  
+Request JSON:
+```json
+{
+  "hookId": "397b23c8-ff7d-49e0-83eb-79f98f415aa2"
+}
+```
+
+Response JSON:
+```json
+{
+  "message": "Webhooks successfully unregistered",
+  "hookIds": ["397b23c8-ff7d-49e0-83eb-79f98f415aa2"],
+  "success": true
+}
+```
