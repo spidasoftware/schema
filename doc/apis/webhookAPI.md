@@ -212,7 +212,7 @@ Response JSON:
 The server can be queried for registered webhooks.  Here all webhooks registered with the callback url: https://callback.example.com/callback are queried.
 
 Direction: Callback Server -> SPIDAMin  
-Request to: https://spidamin.example.com/projectmanager/webhookAPI/register?apiToken=API_TOKEN  
+Request to: https://spidamin.example.com/projectmanager/webhookAPI/view?apiToken=API_TOKEN  
 Request JSON:
 ```json
 {
