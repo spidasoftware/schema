@@ -126,13 +126,13 @@ Anything in the response will be ignored by the server.
 		<tr>
 			<td>Status</td>
 			<td>leaveStatus:<i>partType</i>:<i>eventName</i>:<i>stationName</i></td>
-			<td>Station</td>
+			<td>{previousEvent: <i>status</i>, nextEvent: <i>status</i>, part: <i>station or project</i>}</td>
 			<td>Send when an Project, Station, or Asset leaves a status</td>
 		</tr>
 		<tr>
 			<td>Status</td>
 			<td>enterStatus:<i>partType</i>:<i>eventName</i>:<i>stationName</i></td>
-			<td>Project</td>
+			<td>{previousEvent: <i>status</i>, nextEvent: <i>status</i>, part: <i>station or project</i>}</td>
 			<td>Send when an Project, Station, or Asset enters a status</td>
 		</tr>
 		<tr>
