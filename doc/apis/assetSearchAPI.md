@@ -18,7 +18,7 @@ Get the name of this service.  Used in display of assets.
 
 #### URL
 
-`https://${HOST}/${APP}/assetAPI/getName`
+`https://${HOST}/${APP}/assetSearchAPI/getName`
 
 #### Parameters
 
@@ -34,7 +34,7 @@ none
 
 #### Examples
 
-`https://demo.spidasoftware.com/assetmaster/assetAPI/getName`
+`https://demo.spidasoftware.com/assetmaster/assetSearchAPI/getName`
 
 Quick Find
 ----------
@@ -65,7 +65,7 @@ Find stations based on the given params.
 
 #### URL
 
-`https://${HOST}/${APP}/assetAPI/advancedFind`
+`https://${HOST}/${APP}/assetSearchAPI/advancedFind`
 
 #### Allowed Methods
 
@@ -88,7 +88,7 @@ Get the options for searching on this service.  This would give back an object d
 
 #### URL
 
-`https://${HOST}/${APP}/assetAPI/getAdvancedFindOptions`
+`https://${HOST}/${APP}/assetSearchAPI/getAdvancedFindOptions`
 
 #### Allowed Methods
 
