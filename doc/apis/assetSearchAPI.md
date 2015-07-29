@@ -43,7 +43,7 @@ Find stations based string.  This searches some basic information on the station
 
 #### URL
 
-``
+`https://${HOST}/${APP}/assetSearchAPI/quickFind`
 
 #### Allowed Methods
 
