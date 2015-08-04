@@ -1,0 +1,90 @@
+{
+  "anchors": [
+    {
+      "clientItem": {
+        "size": "10\" - 12\" Double Helix (Class 4) 1 1/4\" Rod"
+      },
+      "direction": 81,
+      "distance": {
+        "unit": "FOOT",
+        "value": 10
+      },
+      "guys": [
+        "Guy#1"
+      ],
+      "height": {
+        "unit": "FOOT",
+        "value": 0
+      },
+      "id": "Anchor#1",
+      "owner": {
+        "industry": "UTILITY",
+        "id": "Acme Power",
+        "externalId": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+      },
+      "supportType": "Other",
+      "externalId": "32850af8-5aa8-4292-a638-41406877609c"
+    }
+  ],
+  "crossArms": [],
+  "damages": [],
+  "equipments": [],
+  "guys": [
+    {
+      "attachmentHeight": {
+        "unit": "FOOT",
+        "value": 11.916666666666666
+      },
+      "clientItem": {
+        "conductorStrands": 19,
+        "coreStrands": 0,
+        "size": "1\" SM"
+      },
+      "id": "Guy#1",
+      "owner": {
+        "industry": "UTILITY",
+        "id": "Acme Power",
+        "externalId": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+      },
+      "externalId": "3bfe3675-2bc4-44a1-8346-3d5bd8e6c63a"
+    }
+  ],
+  "insulators": [],
+  "notePoints": [],
+  "pointLoads": [],
+  "pole": {
+    "id": "Pole",
+    "agl": {
+      "unit": "FOOT",
+      "value": 16
+    },
+    "clientItem": {
+      "classOfPole": "5",
+      "height": {
+        "unit": "FOOT",
+        "value": 20
+      },
+      "species": "Southern Pine"
+    },
+    "environment": "STREET",
+    "glc": {
+      "unit": "FOOT",
+      "value": 1.9642857101595517
+    },
+    "owner": {
+      "industry": "UTILITY",
+      "id": "Acme Power",
+      "externalId": "38260275-c218-4608-8601-21c8544c5253"
+    },
+    "stressRatio": 1,
+    "temperature": {
+      "unit": "FAHRENHEIT",
+      "value": 60
+    }
+  },
+  "pushBraces": [],
+  "spanGuys": [],
+  "spanPoints": [],
+  "wireEndPoints": [],
+  "wires": []
+}

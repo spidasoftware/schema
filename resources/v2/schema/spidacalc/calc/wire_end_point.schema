@@ -1,0 +1,67 @@
+{
+  "id": "#/spidacalc/calc/wire_end_point.schema",
+  "description": "A wire end point describes something that wires go to from the current pole under analysis. It is usually another pole, but it can be a building. One wire end point will have multiple wires running to it. In a single structure, you can have one NEXT_POLE and one PREVIOUS_POLE wire end point, and as many OTHER_POLE or BUILDING type wire end points as you want.",
+  "type": "object",
+  "required": [
+    "id",
+    "distance",
+    "direction",
+    "type",
+    "inclination",
+    "wires",
+    "spanGuys",
+    "spanPoints"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "A display id for the object. Must be unique to the pole."
+    },
+    "externalId": {
+      "type": "string",
+      "description": "An optional id for mapping to external systems. Calc does not use this ID, but does preserve it."
+    },  
+    "distance": {
+      "$ref": "../../general/measurable.schema",
+      "description": "Distance from the main pole to this wire end point. AKA Span length."
+    },
+    "direction": {
+      "$ref": "../../general/bearing.schema",
+      "description": "Bearing of this wire end point from the main pole."
+    },
+    "inclination": {
+      "$ref": "../../general/measurable.schema",
+      "description": "Elevation change from the base of the main pole to the base of this wire end point."
+    },
+    "type": {
+      "$ref": "../../spidacalc/calc/enums/wep_type.schema",
+      "description": "Type of the wire end point. You can have one each of NEXT_POLE and PREVIOUS_POLE, and as many of the others as you want."
+    },
+    "comments": {
+      "type": "string",
+      "description": "Any comments about this wire end point."
+    },
+    "wires": {
+      "description": "The list of wire IDs that run to this wire end point.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "spanGuys": {
+      "description": "The list of span guy IDs that run to this wire end point.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "spanPoints": {
+      "description": "IDs of additional points of interest or measurement along this span.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

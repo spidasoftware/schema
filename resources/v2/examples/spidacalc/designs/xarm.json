@@ -1,0 +1,67 @@
+{
+  "anchors": [], 
+  "crossArms": [
+    {
+      "associatedBacking": "Other", 
+      "attachmentHeight": {
+        "unit": "FOOT", 
+        "value": 13.833333333333332
+      }, 
+      "clientItem": "10 Foot Cross Arm", 
+      "direction": 0, 
+      "id": "CrossArm#1", 
+      "insulators": [], 
+      "offset": {
+        "unit": "INCH", 
+        "value": 60
+      }, 
+      "owner": {
+        "industry": "UTILITY", 
+        "id": "Acme Power",
+        "externalId": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+      }, 
+      "externalId": "5521682b-f784-4e96-b6e2-2aa88e0df6b1"
+    }
+  ], 
+  "damages": [], 
+  "equipments": [], 
+  "guys": [], 
+  "insulators": [],
+  "notePoints": [], 
+  "pointLoads": [], 
+  "pole": {
+    "id": "Pole",
+    "agl": {
+      "unit": "FOOT", 
+      "value": 16
+    }, 
+    "clientItem": {
+      "classOfPole": "5", 
+      "height": {
+        "unit": "FOOT", 
+        "value": 20
+      }, 
+      "species": "Southern Pine"
+    }, 
+    "environment": "STREET", 
+    "glc": {
+      "unit": "FOOT", 
+      "value": 1.9642857101595517
+    }, 
+    "owner": {
+      "industry": "UTILITY", 
+      "id": "Acme Power",
+      "externalId": "38260275-c218-4608-8601-21c8544c5253"
+    }, 
+    "stressRatio": 1, 
+    "temperature": {
+      "unit": "FAHRENHEIT", 
+      "value": 60
+    }
+  }, 
+  "pushBraces": [], 
+  "spanGuys": [], 
+  "spanPoints": [], 
+  "wireEndPoints": [], 
+  "wires": []
+}

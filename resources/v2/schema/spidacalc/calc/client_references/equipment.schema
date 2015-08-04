@@ -1,0 +1,20 @@
+{
+      "id": "#/spidacalc/calc/client_references/equipment.schema",
+  "type": "object",
+  "description": "A reference to a client equipment",
+  "required": [
+    "type",
+    "size"
+  ],
+  "properties": {
+    "type": {
+      "description": "The type of equipment described",
+      "type": "string"
+    },
+    "size": {
+      "description": "The client data identifier for this equipment.",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

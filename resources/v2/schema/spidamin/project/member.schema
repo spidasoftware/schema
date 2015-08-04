@@ -1,0 +1,41 @@
+{
+  "id": "#/spidamin/project/member.schema",
+  "description": "A ProjectManager member.  One of the following is required to associate a user to a member: userId, email, externalId, userGroupName",
+  "type": "object",
+  "required": [
+    "type"
+  ],
+  "properties": {
+    "id": {
+      "type": "number",
+      "description": "This is a database ID created by ProjectManager.  Only set this value if you want to update an existing member."
+    },
+    "userId": {
+      "type": "number",
+      "description": "This is the database ID of the user in UsersMaster. If not set, email or externalId or userGroupName must be set."
+    },
+    "email": {
+      "type": "string",
+      "description": "This is the email address of the user in UsersMaster.  If not set, userId or externalId or userGroupName must be set."
+    },
+    "externalId": {
+      "$ref": "../../spidamin/user/external_id.schema",
+      "description": "This is the external id associated with a user in UsersMaster.  If not set, userId or email or userGroupName must be set."
+    },
+    "userGroupName": {
+      "type": "string",
+      "description": "The name of a user group in UsersMaster.  This will create a member for each user in the group.  If not set, userId or email or externalId must be set."
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "CREATOR",
+        "WATCHER",
+        "ASSIGNEE",
+        "MANAGER"
+      ],
+      "description": "This is always required for creating and updating.  If userGroupName is used, the same type will be the used for all users in the group."
+    }
+  },
+  "additionalProperties": false
+}

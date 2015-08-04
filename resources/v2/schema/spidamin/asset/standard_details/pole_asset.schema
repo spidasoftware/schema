@@ -1,0 +1,75 @@
+{
+  "id": "#/spidamin/asset/standard_details/pole_asset.schema",
+  "description": "A SPIDA pole asset",
+  "type": "object",
+  "properties": {
+    "poleClass": {
+      "type": "string"
+    },
+    "construction": {
+      "type": "string"
+    },
+    "analysisDate": {
+      "description":"The long value of the time when the analysis was performed.",
+      "$ref": "../../../general/long_date.schema"
+    },
+    "county": {
+      "type": "string"
+    },
+    "createdDate": {
+      "description":"The long value of the time when the asset was created.",
+      "$ref": "../../../general/long_date.schema"
+    },
+    "dateInspected": {
+      "description":"The long value of the time when the inspection occurred.",
+      "$ref": "../../../general/long_date.schema"
+    },
+    "glc": {
+      "type": "string"
+    },
+    "length": {
+      "type": "string"
+    },
+    "loading": {
+      "type": "string"
+    },
+    "manufacturer": {
+      "type": "string"
+    },
+    "material": {
+      "type": "string"
+    },
+    "modifiedDate": {
+      "description":"The long value of the time when the asset was last modified.",
+      "$ref": "../../../general/long_date.schema"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "species": {
+      "type": "string"
+    },
+    "strength": {
+      "type": "string"
+    },
+    "substation": {
+      "type": "string"
+    },
+    "township": {
+      "type": "string"
+    },
+    "treatment": {
+      "type": "string"
+    },
+    "year": {
+      "type": "number"
+    },
+    "yearManufacture": {
+      "type": "number"
+    },
+    "yearSet": {
+      "type": "number"
+    }
+  },
+  "additionalProperties": false
+}

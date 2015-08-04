@@ -1,0 +1,18 @@
+{
+  "id": "#/user/company.schema",
+  "description": "A SPIDAMin company.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number",
+      "description": "This is a database ID created by UsersMaster."
+    },
+    "name": {
+      "type": "string",
+      "description": "The company's name.",
+      "minLength": 1,
+      "maxLength": 50
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,98 @@
+{
+  "id": "#/spidacalc/calc/project.schema",
+  "type": "object",
+  "required": [
+    "schema",
+    "clientFile",
+    "leads"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+        "description": "Primary Key and unique identifier for project component",
+        "type": "string"
+    },
+    "label": {
+        "description": "Display name for project component",
+        "type": "string"
+    },
+    "schema": {
+      "type": "string",
+      "description": "Full URL of the calc schema. For version 1 should be resources/v1/schema/schema/spidacalc/calc/project.schema"
+    },
+    "version": {
+      "type": "number",
+      "description": "This is a schema version integer."
+    },
+    "clientFile": {
+      "type": "string",
+      "description": "Filename of the client file with extension. (ex, Demo.client)"
+    },
+    "clientFileVersion": {
+       "type":"string",
+       "description": "version identifier for a specific client file"
+    },
+    "date": {
+      "type": "string",
+      "description": "Date the project was created."
+    },
+    "engineer": {
+      "type": "string",
+      "description": "Engineer of the project."
+    },
+    "generalLocation": {
+      "type": "string",
+      "description": "Project's general location on the map."
+    },
+    "address": {
+      "$ref": "../../general/address.schema"
+    },
+    "comments": {
+      "type": "string",
+      "description": "Any comments about the project."
+    },
+    "userDefinedValues": {
+        "description": "Any flat JSON object with string fields. This gets stored as user defined key-value pairs. For example, this could be used for an outside system id.", 
+        "id": "userDefinedValues",
+        "type": "object"
+    },
+	"forms": {
+      "type": "array",
+      "description": "An optional array of Project forms.",
+      "items": {
+        "$ref": "../../general/form.schema"
+      }
+    },
+    "leads": {
+      "type": "array",
+      "description": "All of the leads in the project",
+      "items": {
+        "type": "object",
+        "id": "lead",
+        "description": "A lead is a string of poles. It could be a circuit, or just a logical grouping.",
+        "required": [
+          "locations"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+              "description": "Primary Key and unique identifier for project component",
+              "type": "string"
+          },
+          "label": {
+              "description": "Display name for project component",
+              "type": "string"
+          },
+          "locations": {
+            "type": "array",
+            "id": "locations",
+            "description": "All locations in lead.",
+            "items": {
+                "$ref":"../../spidacalc/calc/location.schema"
+            }
+          }
+        }
+      }
+    }
+  }
+}

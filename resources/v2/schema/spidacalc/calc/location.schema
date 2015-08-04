@@ -1,0 +1,144 @@
+{
+    "type": "object",
+    "id": "#/spidacalc/calc/location.schema", 
+    "description": "A location is single physical location that has a pole", 
+    "additionalProperties": false, 
+    "properties": {
+        "id": {
+            "description": "Primary Key and unique identifier for project component",
+            "type": "string"
+        },
+        "label": {
+            "description": "Display name for project component",
+            "type": "string"
+        },
+        "address": {
+            "$ref": "../../general/address.schema"
+        }, 
+        "comments": {
+            "description": "Technician comments about location.", 
+            "type": "string"
+        }, 
+        "designs": {
+            "description": "All pole structural designs for location", 
+            "id": "designs", 
+            "items": {
+                "$ref": "../../spidacalc/calc/design.schema"
+            }, 
+            "type": "array"
+        },
+        "forms": {
+            "description": "An optional array of location forms for this location", 
+            "items": {
+                "$ref": "../../general/form.schema"
+            }, 
+            "type": "array"
+        }, 
+        "geographicCoordinate": {
+            "$ref": "../../general/geometry.schema"
+        }, 
+        "technician": {
+            "description": "Name of technician that did work at this location.", 
+            "type": "string"
+        },
+        "crossStreet1": {
+            "description": "The first cross street.", 
+            "type": "string"
+        },
+        "crossStreet2": {
+            "description": "The second cross street.", 
+            "type": "string"
+        },
+        "images": {
+            "description": "Photos/images for this location. Images are required to have a url and can have a link.", 
+            "id": "images",
+            "items": {
+                "additionalProperties": false, 
+                "required": ["url"],
+                "properties": {
+                    "url": {
+                        "description": "Path to the image file.", 
+                        "type": "string"
+                    },
+                    "link": {
+                        "description":"link to the source of the photo along with the id for that source. NOTE: this is only to be used with CalcDB, Calc will currently ignore the link.",
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                            "source", 
+                            "id"
+                        ], 
+                        "properties": {
+                            "source": {
+                                "type": "string",
+                                "description": "The source of the 'id'.  The service name configured by SPIDA."
+                            },
+                            "id": {
+                                "type": "string",
+                                "description": "This is a database ID for the photo in the service."
+                            }
+                        }
+                    }
+                }, 
+                "type": "object"
+            }, 
+            "type": "array"
+        }, 
+        "mapNumber": {
+            "description": "Optional map number to align with GIS system.", 
+            "type": "string"
+        }, 
+        "poleTags": {
+            "description": "List of physical tags on the pole.", 
+            "items": {
+                "additionalProperties": false, 
+                "id": "poleTag", 
+                "properties": {
+                    "type": {
+                        "description": "Can be anything, but values known by calc are FIELD, MAP, and FOREIGN", 
+                        "type": "string"
+                    }, 
+                    "value": {
+                        "type": "string"
+                    }
+                }, 
+                "required": [
+                    "type", 
+                    "value"
+                ], 
+                "type": "object"
+            }, 
+            "type": "array"
+        }, 
+        "remedies": {
+            "description": "List of remedies for the location", 
+            "items": {
+                "additionalProperties": false, 
+                "id": "remedy", 
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    }
+                }, 
+                "required": [
+                    "description"
+                ], 
+                "type": "object"
+            }, 
+            "type": "array"
+        }, 
+        "summaryNotes": {
+            "description": "List of summary notes for the location", 
+            "id": "summaryNotes", 
+            "items": {
+                "type": "string"
+            }, 
+            "type": "array"
+        },
+        "userDefinedValues": {
+            "description": "Any flat JSON object with string fields. This gets stored as user defined key-value pairs. For example, this could be used for an outside system id.", 
+            "id": "userDefinedValues",
+            "type": "object"
+        }
+    } 
+}

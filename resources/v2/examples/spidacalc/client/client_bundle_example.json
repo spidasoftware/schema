@@ -1,0 +1,320 @@
+{
+  "size": "My Test Bundle",
+  "expansionCoefficient":   {
+    "unit": "PER_FAHRENHEIT",
+    "value": 1.28E-5
+  },
+  "weight":   {
+    "unit": "POUND_FORCE_PER_FOOT",
+    "value": 1
+  },
+  "diameter":   {
+    "unit": "INCH",
+    "value": 0.398
+  },
+  "crossArea":   {
+    "unit": "SQUARE_INCH",
+    "value": 0.5
+  },
+  "strength":   {
+    "unit": "POUND_FORCE",
+    "value": 4270
+  },
+  "modulus":   {
+    "unit": "POUND_FORCE_PER_SQUARE_INCH",
+    "value": 8900000
+  },
+  "description": "1/0 AAAC - Azuza",
+  "conductorStrands": 1,
+  "coreStrands": 1,
+  "numberOfConductors": 1,
+  "calculation": "INITIAL",
+  "usageGroups":   [
+    "PRIMARY",
+    "NEUTRAL"
+  ],
+  "tensionGroups":   [
+        {
+      "id": "Full",
+      "temperature":       {
+        "unit": "FAHRENHEIT",
+        "value": 60.00000000000006
+      },
+      "groups": [      {
+        "tension":         {
+          "unit": "POUND_FORCE",
+          "value": 1082
+        },
+        "distance":         {
+          "unit": "FOOT",
+          "value": 4999.000000000001
+        }
+      }]
+    },
+        {
+      "id": "Slack",
+      "temperature":       {
+        "unit": "FAHRENHEIT",
+        "value": 60.00000000000006
+      },
+      "groups": [      {
+        "tension":         {
+          "unit": "POUND_FORCE",
+          "value": 108.2
+        },
+        "distance":         {
+          "unit": "FOOT",
+          "value": 4999.000000000001
+        }
+      }]
+    }
+  ],
+  "messenger":   {
+    "x":     {
+      "unit": "INCH",
+      "value": 0.5
+    },
+    "y":     {
+      "unit": "INCH",
+      "value": 0.25
+    },
+    "clientWire":     {
+      "size": "Messenger size",
+      "expansionCoefficient":       {
+        "unit": "PER_FAHRENHEIT",
+        "value": 1.28E-5
+      },
+      "weight":       {
+        "unit": "POUND_FORCE_PER_FOOT",
+        "value": 1
+      },
+      "diameter":       {
+        "unit": "INCH",
+        "value": 0.398
+      },
+      "crossArea":       {
+        "unit": "SQUARE_INCH",
+        "value": 0.5
+      },
+      "strength":       {
+        "unit": "POUND_FORCE",
+        "value": 4270
+      },
+      "modulus":       {
+        "unit": "POUND_FORCE_PER_SQUARE_INCH",
+        "value": 8900000
+      },
+      "description": "1/0 AAAC - Azuza",
+      "conductorStrands": 7,
+      "coreStrands": 0,
+      "numberOfConductors": 1,
+      "calculation": "INITIAL",
+      "usageGroups":       [
+        "PRIMARY",
+        "NEUTRAL"
+      ],
+      "tensionGroups":       [
+                {
+          "id": "Full",
+          "temperature":           {
+            "unit": "FAHRENHEIT",
+            "value": 60.00000000000006
+          },
+          "groups": [          {
+            "tension":             {
+              "unit": "POUND_FORCE",
+              "value": 1082
+            },
+            "distance":             {
+              "unit": "FOOT",
+              "value": 4999.000000000001
+            }
+          }]
+        },
+                {
+          "id": "Slack",
+          "temperature":           {
+            "unit": "FAHRENHEIT",
+            "value": 60.00000000000006
+          },
+          "groups": [          {
+            "tension":             {
+              "unit": "POUND_FORCE",
+              "value": 108.2
+            },
+            "distance":             {
+              "unit": "FOOT",
+              "value": 4999.000000000001
+            }
+          }]
+        }
+      ]
+    }
+  },
+  "cables":   [
+        {
+      "x":       {
+        "unit": "INCH",
+        "value": 0
+      },
+      "y":       {
+        "unit": "INCH",
+        "value": 0
+      },
+      "clientWire":       {
+        "size": "Comm number 1",
+        "expansionCoefficient":         {
+          "unit": "PER_FAHRENHEIT",
+          "value": 1.28E-5
+        },
+        "weight":         {
+          "unit": "POUND_FORCE_PER_FOOT",
+          "value": 0.11489999999999999
+        },
+        "diameter":         {
+          "unit": "INCH",
+          "value": 0.398
+        },
+        "crossArea":         {
+          "unit": "SQUARE_INCH",
+          "value": 0.0968
+        },
+        "strength":         {
+          "unit": "POUND_FORCE",
+          "value": 4270
+        },
+        "modulus":         {
+          "unit": "POUND_FORCE_PER_SQUARE_INCH",
+          "value": 8900000
+        },
+        "description": "1/0 AAAC - Azuza",
+        "conductorStrands": 7,
+        "coreStrands": 0,
+        "numberOfConductors": 1,
+        "calculation": "INITIAL",
+        "usageGroups":         [
+          "PRIMARY",
+          "NEUTRAL"
+        ],
+        "tensionGroups":         [
+                    {
+            "id": "Full",
+            "temperature":             {
+              "unit": "FAHRENHEIT",
+              "value": 60.00000000000006
+            },
+            "groups": [            {
+              "tension":               {
+                "unit": "POUND_FORCE",
+                "value": 1082
+              },
+              "distance":               {
+                "unit": "FOOT",
+                "value": 4999.000000000001
+              }
+            }]
+          },
+                    {
+            "id": "Slack",
+            "temperature":             {
+              "unit": "FAHRENHEIT",
+              "value": 60.00000000000006
+            },
+            "groups": [            {
+              "tension":               {
+                "unit": "POUND_FORCE",
+                "value": 108.2
+              },
+              "distance":               {
+                "unit": "FOOT",
+                "value": 4999.000000000001
+              }
+            }]
+          }
+        ]
+      }
+    },
+        {
+      "x":       {
+        "unit": "INCH",
+        "value": -0.5
+      },
+      "y":       {
+        "unit": "INCH",
+        "value": -0.25
+      },
+      "clientWire":       {
+        "size": "Comm number 2",
+        "expansionCoefficient":         {
+          "unit": "PER_FAHRENHEIT",
+          "value": 1.28E-5
+        },
+        "weight":         {
+          "unit": "POUND_FORCE_PER_FOOT",
+          "value": 0.11489999999999999
+        },
+        "diameter":         {
+          "unit": "INCH",
+          "value": 0.398
+        },
+        "crossArea":         {
+          "unit": "SQUARE_INCH",
+          "value": 0.0968
+        },
+        "strength":         {
+          "unit": "POUND_FORCE",
+          "value": 4270
+        },
+        "modulus":         {
+          "unit": "POUND_FORCE_PER_SQUARE_INCH",
+          "value": 8900000
+        },
+        "description": "1/0 AAAC - Azuza",
+        "conductorStrands": 7,
+        "coreStrands": 0,
+        "numberOfConductors": 1,
+        "calculation": "INITIAL",
+        "usageGroups":         [
+          "PRIMARY",
+          "NEUTRAL"
+        ],
+        "tensionGroups":         [
+                    {
+            "id": "Full",
+            "temperature":             {
+              "unit": "FAHRENHEIT",
+              "value": 60.00000000000006
+            },
+            "groups": [            {
+              "tension":               {
+                "unit": "POUND_FORCE",
+                "value": 1082
+              },
+              "distance":               {
+                "unit": "FOOT",
+                "value": 4999.000000000001
+              }
+            }]
+          },
+                    {
+            "id": "Slack",
+            "temperature":             {
+              "unit": "FAHRENHEIT",
+              "value": 60.00000000000006
+            },
+            "groups": [            {
+              "tension":               {
+                "unit": "POUND_FORCE",
+                "value": 108.2
+              },
+              "distance":               {
+                "unit": "FOOT",
+                "value": 4999.000000000001
+              }
+            }]
+          }
+        ]
+      }
+    }
+  ]
+}

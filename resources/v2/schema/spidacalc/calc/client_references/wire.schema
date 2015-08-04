@@ -1,0 +1,25 @@
+{
+  "id": "#/spidacalc/calc/client_references/wire.schema",
+  "type": "object",
+  "description": "A reference to a client wire",
+  "required": [
+    "size",
+    "coreStrands",
+    "conductorStrands"
+  ],
+  "properties": {
+    "size": {
+      "description": "The client data identifier for this type of wire.",
+      "type": "string"
+    },
+    "coreStrands": {
+      "description": "Number of supportive strands in the wire.",
+      "type": "integer"
+    },
+    "conductorStrands": {
+      "description": "Number of conducting strands in the wire.",
+      "type": "integer"
+    }
+  },
+  "additionalProperties": false
+}

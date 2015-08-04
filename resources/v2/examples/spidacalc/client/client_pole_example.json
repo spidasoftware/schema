@@ -1,0 +1,32 @@
+{
+  "classOfPole": "1", 
+  "density": {
+    "unit": "POUND_PER_CUBIC_FOOT", 
+    "value": 40
+  }, 
+  "height": {
+    "unit": "FOOT", 
+    "value": 25
+  }, 
+  "materialCategory": "WOOD", 
+  "modulus": {
+    "unit": "POUND_FORCE_PER_SQUARE_INCH", 
+    "value": 2500000
+  }, 
+  "poissonRatio": 0.29999999999999999, 
+  "ptc": {
+    "unit": "INCH", 
+    "value": 27.00000031516571
+  }, 
+  "shape": "ROUND", 
+  "species": "Douglas Fir", 
+  "allowable": {
+    "unit": "POUND_FORCE_PER_SQUARE_INCH", 
+    "value": 8000
+  }, 
+  "taper": 0.108895502984524, 
+  "wallThickness": {
+    "unit": "INCH", 
+    "value": -1
+  }
+}

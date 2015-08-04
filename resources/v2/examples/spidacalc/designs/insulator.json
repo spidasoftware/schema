@@ -1,0 +1,158 @@
+{
+  "anchors": [], 
+  "crossArms": [], 
+  "damages": [], 
+  "equipments": [], 
+  "guys": [], 
+  "insulators": [
+    {
+      "attachmentHeight": {
+        "unit": "FOOT", 
+        "value": 13.416666666666666
+      }, 
+      "clientItem": " 13.2 kV Pin Type Insulator (16\" Bracket Double Insulator)", 
+      "direction": 90, 
+      "doubleInsulator": false, 
+      "id": "Insulator#1", 
+      "offset": {
+        "unit": "INCH", 
+        "value": 161
+      }, 
+      "owner": {
+        "industry": "UTILITY", 
+        "id": "Acme Power",
+        "externalId": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+      }, 
+      "externalId": "d403b784-323d-444a-97f8-f07a5f0a7c10",
+      "wires": [
+        "Wire#1", 
+        "Wire#2"
+      ]
+    }
+  ], 
+  "notePoints": [], 
+  "pointLoads": [], 
+  "pole": {
+    "id": "Pole",
+    "agl": {
+      "unit": "FOOT", 
+      "value": 16
+    }, 
+    "clientItem": {
+      "classOfPole": "5", 
+      "height": {
+        "unit": "FOOT", 
+        "value": 20
+      }, 
+      "species": "Southern Pine"
+    }, 
+    "environment": "STREET", 
+    "glc": {
+      "unit": "FOOT", 
+      "value": 1.9642857101595517
+    }, 
+    "owner": {
+      "industry": "UTILITY", 
+      "id": "Acme Power",
+      "externalId": "38260275-c218-4608-8601-21c8544c5253"
+    }, 
+    "stressRatio": 1, 
+    "temperature": {
+      "unit": "FAHRENHEIT", 
+      "value": 60
+    }
+  },
+  "pushBraces": [], 
+  "spanGuys": [], 
+  "spanPoints": [], 
+  "wireEndPoints": [
+    {
+      "comments": "", 
+      "direction": 0, 
+      "distance": {
+        "unit": "FOOT", 
+        "value": 150
+      }, 
+      "id": "WEP#1", 
+      "inclination": {
+        "unit": "DEGREE_ANGLE", 
+        "value": 0
+      }, 
+      "spanGuys": [], 
+      "spanPoints": [], 
+      "type": "NEXT_POLE", 
+      "externalId": "f15b9cca-50a5-477f-a83f-6e3e9f75309d",
+      "wires": ["Wire#1"]
+    }, 
+    {
+      "comments": "", 
+      "direction": 180, 
+      "distance": {
+        "unit": "FOOT", 
+        "value": 150
+      }, 
+      "id": "WEP#2", 
+      "inclination": {
+        "unit": "DEGREE_ANGLE", 
+        "value": 0
+      }, 
+      "spanGuys": [], 
+      "spanPoints": [], 
+      "type": "PREVIOUS_POLE", 
+      "externalId": "c6be6cbf-1d84-43df-b352-17adeef4e0bd",
+      "wires": ["Wire#2"]
+    }
+  ], 
+  "wires": [
+    {
+      "attachmentHeight": {
+        "unit": "FOOT", 
+        "value": 14.166666666666666
+      }, 
+      "clientItem": {
+        "conductorStrands": 7, 
+        "coreStrands": 0, 
+        "size": "1 AAC"
+      }, 
+      "id": "Wire#2", 
+      "midspanHeight": {
+        "unit": "FOOT", 
+        "value": 0
+      }, 
+      "owner": {
+        "industry": "UTILITY", 
+        "id": "Acme Power",
+        "externalId": "2e784f30-340a-4cfa-9d08-e9a46bbbe2f1"
+      }, 
+      "tensionAdjustment": 1, 
+      "tensionGroup": "Full", 
+      "usageGroup": "PRIMARY", 
+      "externalId": "05f6c911-6a33-467e-b79e-8ce5a6a28045"
+    }, 
+    {
+      "attachmentHeight": {
+        "unit": "FOOT", 
+        "value": 14.166666666666666
+      }, 
+      "clientItem": {
+        "conductorStrands": 7, 
+        "coreStrands": 0, 
+        "size": "1 AAC"
+      }, 
+      "id": "Wire#1", 
+      "midspanHeight": {
+        "unit": "FOOT", 
+        "value": 0
+      }, 
+      "owner": {
+        "industry": "UTILITY", 
+        "id": "Acme Power",
+        "externalId": "b28d047c-9a87-48c5-a034-3d0b4d0665e6"
+      }, 
+      "tensionAdjustment": 1, 
+      "tensionGroup": "Full", 
+      "usageGroup": "PRIMARY", 
+      "externalId": "554110dc-3827-47da-909e-b53f4e57f1a1"
+    }
+  ]
+}

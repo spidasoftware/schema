@@ -1,0 +1,20 @@
+{
+  "id": "#/spidamin/asset/asset/stations.schema",
+  "description": "A SPIDAMin stations",
+  "type": "object",
+  "required": [
+    "stations"
+  ],
+  "properties": {
+    "stations": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidamin/asset/station.schema"
+      }
+    },
+    "geometry": {
+      "$ref": "../../general/geometry.schema"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,51 @@
+{
+    "type": "object",
+    "id": "#/spidacalc/calc/design.schema", 
+    "additionalProperties": false, 
+    "properties": {
+        "id": {
+            "description": "Primary Key and unique identifier for project component",
+            "type": "string"
+        },
+        "label": {
+            "description": "Display name for project component",
+            "type": "string"
+        },
+        "analysis": {
+            "description": "List of load cases and their results. On exports the results will be filled in if they exist. On import results are ignored, but load cases will be pre-assigned.",
+            "items": {
+                "additionalProperties": false, 
+                "description": "A collection of results for a loading or strength case.", 
+                "properties": {
+                    "id": {
+                        "description": "Load Case id.",
+                        "type": "string"
+                    }, 
+                    "results": {
+                        "description": "Result summaries for all components.", 
+                        "items": {
+                            "$ref": "../../spidamin/asset/standard_details/analysis_asset.schema"
+                        }, 
+                        "type": "array"
+                    }
+                }, 
+                "required": [
+                    "id"
+                ], 
+                "type": "object"
+            }, 
+            "type": "array"
+        }, 
+        "framingPlan": {
+            "$ref": "../../spidacalc/client/framing_plan.schema"
+        }, 
+        "geographicCoordinate": {
+            "$ref": "../../general/geometry.schema"
+        }, 
+
+        "structure": {
+            "$ref": "../../spidacalc/calc/structure.schema"
+        }
+    }
+    
+}

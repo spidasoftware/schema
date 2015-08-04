@@ -1,0 +1,184 @@
+{
+  "pole":   {
+    "glc":     {
+      "unit": "FOOT",
+      "value": 2.416666416561876
+    },
+    "agl":     {
+      "unit": "FOOT",
+      "value": 29
+    },
+    "clientItem":     {
+      "species": "Southern Pine",
+      "classOfPole": "5",
+      "height":       {
+        "unit": "FOOT",
+        "value": 35
+      }
+    },
+    "owner":     {
+      "id": "Acme Power",
+      "industry": "UTILITY"
+    }
+  },
+  "damages":   [
+        {
+      "id": "Damage#1",
+      "attachHeight":       {
+        "unit": "FOOT",
+        "value": 1.1666666666666667
+      },
+      "damageHeight":       {
+        "unit": "FOOT",
+        "value": 2.1666666666666665
+      },
+      "damageType": "HEART",
+      "shellThickness":       {
+        "unit": "INCH",
+        "value": 2.7006029333750003
+      }
+    },
+        {
+      "id": "Damage#2",
+      "attachHeight":       {
+        "unit": "FOOT",
+        "value": 15.75
+      },
+      "damageHeight":       {
+        "unit": "FOOT",
+        "value": 0.5
+      },
+      "damageType": "WOODPECKER",
+      "direction": 45,
+      "neckDepth":       {
+        "unit": "INCH",
+        "value": 3
+      },
+      "neckDiameter":       {
+        "unit": "INCH",
+        "value": 1
+      },
+      "neckOffset":       {
+        "unit": "INCH",
+        "value": 2.5
+      },
+      "nestDepth":       {
+        "unit": "INCH",
+        "value": 6
+      }
+    },
+        {
+      "id": "Damage#3",
+      "attachHeight":       {
+        "unit": "FOOT",
+        "value": 22.666666666666668
+      },
+      "damageHeight":       {
+        "unit": "FOOT",
+        "value": 0.16666666666666666
+      },
+      "damageType": "WEDGE",
+      "direction": 45,
+      "arc":       {
+        "unit": "INCH",
+        "value": 4.042901105500001
+      },
+      "depth":       {
+        "unit": "INCH",
+        "value": 4.042901105500001
+      }
+    },
+        {
+      "id": "Damage#4",
+      "attachHeight":       {
+        "unit": "FOOT",
+        "value": 28.25
+      },
+      "damageHeight":       {
+        "unit": "FOOT",
+        "value": 0.16666666666666666
+      },
+      "damageType": "ARC",
+      "direction": 45,
+      "arc":       {
+        "unit": "INCH",
+        "value": 1.8529201471875005
+      },
+      "depth":       {
+        "unit": "INCH",
+        "value": 1
+      }
+    },
+        {
+      "id": "Damage#5",
+      "attachHeight":       {
+        "unit": "FOOT",
+        "value": 27.333333333333332
+      },
+      "damageHeight":       {
+        "unit": "FOOT",
+        "value": 0.16666666666666666
+      },
+      "damageType": "POCKET",
+      "direction": 225,
+      "depth":       {
+        "unit": "INCH",
+        "value": 2.8208839773750007
+      },
+      "shellThickness":       {
+        "unit": "INCH",
+        "value": 0.2820883977375001
+      }
+    },
+        {
+      "id": "Damage#6",
+      "attachHeight":       {
+        "unit": "FOOT",
+        "value": 26.5
+      },
+      "damageHeight":       {
+        "unit": "FOOT",
+        "value": 0.16666666666666666
+      },
+      "damageType": "SHELL",
+      "circumference":       {
+        "unit": "INCH",
+        "value": 18
+      }
+    },
+        {
+      "id": "Damage#7",
+      "attachHeight":       {
+        "unit": "FOOT",
+        "value": 24.25
+      },
+      "damageHeight":       {
+        "unit": "FOOT",
+        "value": 0.16666666666666666
+      },
+      "damageType": "SLICE",
+      "direction": 225,
+      "width":       {
+        "unit": "INCH",
+        "value": 3.947316696375001
+      }
+    },
+        {
+      "id": "Damage#8",
+      "attachHeight":       {
+        "unit": "FOOT",
+        "value": 21.75
+      },
+      "damageHeight":       {
+        "unit": "FOOT",
+        "value": 0.041666666666666664
+      },
+      "damageType": "THROUGH_BOLT",
+      "direction": 45,
+      "depth":       {
+        "unit": "INCH",
+        "value": 6
+      }
+    }
+  ]
+}

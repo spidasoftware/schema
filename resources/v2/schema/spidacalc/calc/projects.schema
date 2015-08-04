@@ -1,0 +1,17 @@
+{
+  "id": "#/spidacalc/calc/projects.schema",
+  "description": "SPIDACalc projects",
+  "type": "object",
+  "required": [
+    "projects"
+  ],
+  "properties": {
+    "projects": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/calc/project.schema"
+      }
+    }
+  },
+  "additionalProperties": false
+}

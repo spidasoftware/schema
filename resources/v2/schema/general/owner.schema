@@ -1,0 +1,30 @@
+{
+  "id": "#/general/owner.schema",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "type": "object",
+  "description": "A company that owns components at a location.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The unique id and display name of the owner"
+    },
+    "externalId": {
+      "type": "string",
+      "description": "An id to for this owner in a system external to calc."
+    },
+    "industry": {
+      "type": "string",
+      "enum": [
+        "COMMUNICATION",
+        "UTILITY",
+        "BOTH"
+      ]
+    }
+  },
+  "required": [
+    "industry",
+    "id"
+  ],
+  "additionalProperties": false
+}

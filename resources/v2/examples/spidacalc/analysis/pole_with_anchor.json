@@ -1,0 +1,86 @@
+{
+  "id": "Pole",
+  "pole": {
+    "agl": {
+      "unit": "FOOT",
+      "value": 16
+    },
+    "clientItem": {
+      "classOfPole": "5",
+      "height": {
+        "unit": "FOOT",
+        "value": 20
+      },
+      "species": "Southern Pine",
+      "density": {
+        "unit": "POUND_PER_CUBIC_FOOT",
+        "value": 20
+      },
+      "materialCategory": "WOOD",
+      "modulus": {
+        "unit": "POUND_FORCE_PER_SQUARE_INCH",
+        "value": 20
+      },
+      "allowable": {
+        "unit": "POUND_FORCE_FOOT",
+        "value": 10
+      },
+      "poissonRatio": 0.33,
+      "ptc": {
+        "unit": "INCH",
+        "value": 20
+      },
+      "shape": "ROUND",
+      "taper": 0,
+      "wallThickness": {
+        "unit": "INCH",
+        "value": 1
+      }
+    },
+    "environment": "STREET",
+    "glc": {
+      "unit": "FOOT",
+      "value": 1.9642857101595517
+    },
+    "owner": {
+      "industry": "UTILITY",
+      "id": "Acme Power",
+      "externalId": "706e1c60-20f6-4447-b381-c9060cb51337"
+    },
+    "stressRatio": 1,
+    "temperature": {
+      "unit": "FAHRENHEIT",
+      "value": 60
+    },
+    "externalId": "14d247fc-991a-409b-bf29-18ea148a8ef3"
+  },
+  "anchors": [
+    {
+      "clientItem": {
+        "size": "Big Anchor",
+        "strength": {
+          "unit": "POUND_FORCE",
+          "value": 6000
+        }
+      },
+      "direction": 81,
+      "distance": {
+        "unit": "FOOT",
+        "value": 10
+      },
+      "guys": [],
+      "height": {
+        "unit": "FOOT",
+        "value": 0
+      },
+      "id": "Anchor#1",
+      "owner": {
+        "industry": "UTILITY",
+        "id": "Acme Power",
+        "externalId": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+      },
+      "supportType": "Other",
+      "externalId": "32850af8-5aa8-4292-a638-41406877609c"
+    }
+  ]
+}

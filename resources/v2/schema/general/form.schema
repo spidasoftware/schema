@@ -1,0 +1,26 @@
+{
+  "id": "#/general/form.schema",
+  "type": "object",
+  "description": "Either a Location or a Project form, with field and values stored as <fieldName>: <value>",
+  "required": [
+    "title",
+    "fields"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "the title of the form"
+    },
+    "template": {
+      "type": "string",
+      "description": "The template id for this form's template"
+    },
+    "fields": {
+      "type": "object",
+      "description": "all of the data fields in the custom form",
+      "additionalProperties": true,
+      "properties": {}
+    }
+  }
+}

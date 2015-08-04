@@ -1,0 +1,25 @@
+{
+  "id": "#/spidacalc/calc/client_references/pole.schema",
+  "type": "object",
+  "description": "A reference to a client pole",
+  "required": [
+    "height",
+    "species",
+    "classOfPole"
+  ],
+  "properties": {
+    "species": {
+      "description": "The species of wood or type of metal used.",
+      "type": "string"
+    },
+    "classOfPole": {
+      "description": "The pole class.",
+      "type": "string"
+    },
+    "height": {
+      "description": "The height of the pole.",
+      "$ref": "../../../general/measurable.schema"
+    }
+  },
+  "additionalProperties": false
+}

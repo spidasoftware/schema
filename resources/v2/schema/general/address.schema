@@ -1,0 +1,31 @@
+{
+  "id": "general/address.schema",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "type": "object",
+  "description": "A street address.",
+  "properties": {
+    "number": {
+      "type": "string"
+    },
+    "street": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "county": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string",
+      "description": "Only AssetMaster uses this field.  ProjectManager and SPIDACalc ignore this."
+    },
+    "zip_code": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,15 @@
+{
+  "id": "#/spidamin/project/flow.schema",
+  "description": "A ProjectManager flow",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number",
+      "description": "This is a database ID created by project manager."
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,49 @@
+{
+  "id": "station_wrapper",
+  "description": "A ProjectManager station 'wraps' or points to one or more stations in asset services.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number",
+      "description": "This is a database ID created by ProjectManager.  Only set this value if you want to update an existing station.  Not required for project creation."
+    },
+    "spotted": {
+      "type": "boolean",
+      "description": "Found in Field or New Pole.  Set to 'true' if station does NOT exist in any asset service. Set to 'false' or don't set if station exists in an asset service."
+    },
+    "display": {
+      "type": "string",
+      "description": "If found in field, this values is the physical pole tag.  If designing a new pole, this value is a unique id.  If this asset exists in an asset service, you don't need to set this because ProjectManager will set this value to the primary asset's primary tag.",
+      "minLength": 2,
+      "maxLength": 72
+    },
+    "geometry": {
+      "$ref": "../../general/geometry.schema",
+      "description": "If spotted (found in field or new pole), this value is required for project creation.  If this asset exists in an asset service, you don't need to set this because ProjectManager will set this value."
+    },
+    "source": {
+      "type": "string",
+      "description": "The source of the 'stationId'.  The service name configured by SPIDA.  Required for project creation if the asset exists in an asset service.",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "stationId": {
+      "type": "string",
+      "description": "The id of the station within the asset service specified by the 'source' field.  Required for project creation if the asset exists in an asset service.",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "deleted": {
+      "type": "boolean",
+      "description": "ProjectManager will set this to true if station is marked as deleted.  Not required for project creation."
+    },
+    "dataForms": {
+      "description": "List of station forms.  Not required for project creation.",
+      "type": "array",
+      "items": {
+          "$ref": "../../general/form.schema"
+      }
+    }
+  },
+  "additionalProperties": false
+}

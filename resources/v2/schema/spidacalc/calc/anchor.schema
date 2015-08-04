@@ -1,0 +1,57 @@
+{
+  "type": "object",
+  "id": "#/spidacalc/calc/anchor.schema",
+  "description": "A single anchor in a structure.",
+  "required": [
+    "id",
+    "distance",
+    "direction",
+    "height",
+    "owner",
+    "supportType",
+    "clientItem",
+    "guys"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "A display id for the object. Must be unique to the pole."
+    },
+    "externalId": {
+      "type": "string",
+      "description": "An optional id for mapping to external systems. Calc does not use this ID, but does preserve it."
+    },  
+    "distance": {
+      "description": "The distance from the outside of the pole to the anchor.",
+      "$ref": "../../general/measurable.schema"
+    },
+    "direction": {
+      "description": "The bearing of the anchor relative to the pole",
+      "$ref": "../../general/bearing.schema"
+    },
+    "owner": {
+      "description": "Who owns this anchor.",
+      "$ref": "../../general/owner.schema"
+    },
+    "height": {
+      "description": "Height of the anchor relative to the base of the pole.",
+      "$ref": "../../general/measurable.schema"
+    },
+    "supportType": {
+      "description": "If the anchor backs a specific line or bisector. Options are a Wire end Point ID or BISECTOR",
+      "type": "string"
+    },
+    "clientItem": {
+      "description": "The client anchor with this anchor's material properties",
+      "type": "string"
+    },
+    "guys": {
+      "description": "List of Guy ID's of all guys that are attached to this anchor.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,21 @@
+{
+  "id": "general/geometry.schema",
+  "type": "object",
+  "description": "This schema follows the GeoJSON spec.  For more information go to http://geojson.org/",
+  "additionalProperties": false,
+  "required": [
+    "type",
+    "coordinates"
+  ],
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "For a gps point this value would be: Point"
+    },
+    "coordinates": {
+      "type": "array",
+      "id": "coordinates",
+      "description": "Point coordinates are in x, y order (longitude, latitude for geographic coordinates)."
+    }
+  }
+}
