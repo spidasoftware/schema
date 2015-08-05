@@ -16,6 +16,12 @@
     "taper"
   ],
   "properties": {
+    "id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
     "classOfPole": {
       "type": "string"
     },
