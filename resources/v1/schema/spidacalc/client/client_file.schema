@@ -1,0 +1,74 @@
+{
+	"description": "Properties for a client file",
+	"id": "#/spidacalc/client/client_file.schema",
+	"type": "object",
+	"required": [
+		"clientAnchor",
+		"clientCrossArm",
+		"clientEquipment",
+		"clientFoundation",
+		"clientInsulator",
+		"clientPole",
+		"clientSidewalkBrace",
+		"clientWire"
+	],
+	"properties": {
+		"name": {
+			"type": "string"
+		},
+		"id": {
+			"type": "string"
+		},
+		"version": {
+			"type": "string"
+		},
+		"clientAnchor": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"clientCrossArm": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"clientInsulator": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"clientSidewalkBrace": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"clientFoundation": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"clientWire": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"clientPole": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"clientEquipment": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		}
+	}
+}
