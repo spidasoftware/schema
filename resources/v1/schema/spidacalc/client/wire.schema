@@ -20,10 +20,10 @@
   ],
   "properties": {
     "id": {
-        type: "string"
+        "type": "string"
     },
     "version": {
-        type: "string"
+        "type": "string"
     },
     "conductorStrands": {
       "type": "integer"
