@@ -3,14 +3,14 @@
 	"id": "#/spidacalc/client/client_file.schema",
 	"type": "object",
 	"required": [
-		"clientAnchor",
-		"clientCrossArm",
+		"clientAnchors",
+		"clientCrossArms",
 		"clientEquipment",
-		"clientFoundation",
-		"clientInsulator",
-		"clientPole",
-		"clientSidewalkBrace",
-		"clientWire"
+		"clientFoundations",
+		"clientInsulators",
+		"clientPoles",
+		"clientSidewalkBraces",
+		"clientWires"
 	],
 	"properties": {
 		"name": {
@@ -22,7 +22,7 @@
 		"version": {
 			"type": "string"
 		},
-		"clientAnchor": {
+		"clientAnchors": {
 			"type": "array",
 			"items": {
 				"type": "string"
