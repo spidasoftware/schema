@@ -15,6 +15,12 @@
     "weight"
   ],
   "properties": {
+    "id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
     "size": {
       "type": "string"
     },
