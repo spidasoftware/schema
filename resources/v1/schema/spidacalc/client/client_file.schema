@@ -28,37 +28,37 @@
 				"type": "string"
 			}
 		},
-		"clientCrossArm": {
+		"clientCrossArms": {
 			"type": "array",
 			"items": {
 				"type": "string"
 			}
 		},
-		"clientInsulator": {
+		"clientInsulators": {
 			"type": "array",
 			"items": {
 				"type": "string"
 			}
 		},
-		"clientSidewalkBrace": {
+		"clientSidewalkBraces": {
 			"type": "array",
 			"items": {
 				"type": "string"
 			}
 		},
-		"clientFoundation": {
+		"clientFoundations": {
 			"type": "array",
 			"items": {
 				"type": "string"
 			}
 		},
-		"clientWire": {
+		"clientWires": {
 			"type": "array",
 			"items": {
 				"type": "string"
 			}
 		},
-		"clientPole": {
+		"clientPoles": {
 			"type": "array",
 			"items": {
 				"type": "string"
