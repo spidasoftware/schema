@@ -136,6 +136,16 @@ The example data files are json files that can be opened in any text editor. The
 
 The JSON examples are in [resources/v1/examples/spidacalc](../../../v1/examples/spidacalc)
 
+####Looking around
+
+An easy way to start playing with what is available in the SPIDACalc API is to open Calc, then open a web browser to
+
+    http://localhost:4560/calc/getProject
+    
+Your web browser will show you the JSON version of the currently open project (this is where a browser extension that formats JSON is very useful for development.)
+
+If you change something in SPIDACalc and refresh your browser, the changes will be reflected in the browser window.
+
 ####More definition of terms
 
 Some of the schemas use terms that are specific to SPIDACalc or the utility industry. A basic description of the values is included in the schema itself. For a more complete definition of those terms, please see the help menu in SPIDACalc.
@@ -148,6 +158,7 @@ Calc stores external ids for all components on the pole. They aren't used as ide
 
 - [jsonlint.com] - validates that your json is correctly formed with more useful errors.
 - node_modules/JSV/examples/index.html - provides an easy to use interface for schema validation and viewing errors
+- [https://chrome.google.com/webstore/detail/chklaanhfefbnpoihckbnefhakgolnmc] JSONView or similar - a browser extension that will format JSON output cleanly.
 
 
 ####Limitations and known issues:
