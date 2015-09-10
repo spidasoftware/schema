@@ -137,7 +137,7 @@ Analyze the currently opened project
 
 none
 
-Analyze Current Project
+Generate a report
 -----
 
 Generate a report for the current project. Returns file location of report.
