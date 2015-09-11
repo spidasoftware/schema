@@ -89,7 +89,8 @@
       "distance": {
         "unit": "FOOT", 
         "value": 143
-      }, 
+      },
+      "environment": "HIGHWAY",
       "id": "WEP#1", 
       "inclination": {
         "unit": "DEGREE_ANGLE", 
