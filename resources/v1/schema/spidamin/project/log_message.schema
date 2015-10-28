@@ -11,7 +11,7 @@
   "properties": {
     "id": {
       "type": "number",
-      "description": "This is a database ID created by ProjectManager.  Only set this value if you want to update an existing log message."
+      "description": "This is a database ID created by ProjectManager."
     },
     "trigger": {
       "type": "string",
