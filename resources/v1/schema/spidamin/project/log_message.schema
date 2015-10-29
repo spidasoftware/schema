@@ -5,8 +5,7 @@
   "required": [
     "trigger",
     "message",
-    "success",
-    "date"
+    "success"
   ],
   "properties": {
     "id": {
@@ -27,7 +26,7 @@
     },
     "date": {
       "$ref": "../../general/long_date.schema",
-      "description": "The date that the action happened."
+      "description": "The date that the action happened. When adding a log message this is automatically set to the current time, this value cannot be set through the API."
     },
     "eventId": {
       "type": "number",
