@@ -87,6 +87,32 @@ Return a list of projects
 
 #### Examples
 
+Add Log Message
+----------
+
+Add a log message to a project.
+
+#### URL
+
+`https://${HOST}/${APP}/projectAPI/addLogMessage`
+
+#### Allowed Methods
+
+`POST`
+
+#### Parameters
+
+`project_id` and `log_message_json` are required
+
+1. `project_id`: A `number`, the project id of the project that the log message should be added to.
+1. `log_message_json`: [logMessage](../../resources/v1/schema/spidamin/project/log_message.schema).
+
+#### Returns
+
+1. An [id object](../../resources/v1/schema/general/id.schema)
+
+#### Examples
+
 Delete
 -------
 
