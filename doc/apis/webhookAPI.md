@@ -126,26 +126,20 @@ Anything in the response will be ignored by the server.
 		<tr>
 			<td>Status</td>
 			<td>leaveStatus:<i>partType</i>:<i>eventName</i>:<i>stationName</i></td>
-			<td>{previousEvent: <i>status</i>, nextEvent: <i>status</i>, part: <i>station or project</i>}</td>
+			<td>{previousEvent: <i>status</i>, nextEvent: <i>status</i>, part: <i>station or project</i>, user: <i>userEmail</i>}</td>
 			<td>Send when an Project, Station, or Asset leaves a status</td>
 		</tr>
 		<tr>
 			<td>Status</td>
 			<td>enterStatus:<i>partType</i>:<i>eventName</i>:<i>stationName</i></td>
-			<td>{previousEvent: <i>status</i>, nextEvent: <i>status</i>, part: <i>station or project</i>}</td>
+			<td>{previousEvent: <i>status</i>, nextEvent: <i>status</i>, part: <i>station or project</i>, user: <i>userEmail</i>}</td>
 			<td>Send when an Project, Station, or Asset enters a status</td>
 		</tr>
 		<tr>
 			<td>Form</td>
 			<td>update:<i>ownerName</i>:<i>formName</i></td>
-			<td>{user: <i>userEmail</i>, <br/>form: <i>form</i>, <br/>parentName: <i>parentName</i>}</td>
+			<td>{user: <i>userEmail</i>, <br/>form: <i>form</i>, <br/>projectId: <i>projectId</i>, <br/>projectName: <i>projectName</i>, <br/>parentId: <i>parentId</i>, <br/>parentName: <i>parentName</i>}</td>
 			<td>Sent when a form is updated by a user</td>
-		</tr>
-		<tr>
-			<td>Form</td>
-			<td>delete:<i>ownerName</i>:<i>formName</i></td>
-			<td>{user: <i>userEmail</i>, <br/>form: <i>form</i>, <br/>parentName: <i>parentName</i>}</td>
-			<td>Sent when a form is deleted by a user</td>
 		</tr>
 		<tr>
 			<td>File</td>
