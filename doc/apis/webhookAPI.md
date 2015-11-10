@@ -93,7 +93,7 @@ Anything in the response will be ignored by the server.
 				new:<i>source</i>:<i>flowName</i>:<i>projectName</i><br/>
 				source is api or ui
 			</td>
-			<td>{user: <i>userEmail</i>, <br/>project: <i>project</i>}</td>
+			<td>{user: <i>userEmail</i>, <br/>projectId: <i>projectId</i>, <br/>project: <i>project</i>}</td>
 			<td>Sent when a project is created</td>
 		</tr>
 		<tr>
@@ -102,37 +102,37 @@ Anything in the response will be ignored by the server.
 				update:<i>source</i>:<i>projectName</i><br/>
 				source is api or ui
 			</td>
-			<td>{user: <i>userEmail</i>, <br/>project: <i>project</i>}</td>
+			<td>{user: <i>userEmail</i>, <br/>projectId: <i>projectId</i>, <br/>project: <i>project</i>}</td>
 			<td>Sent when a project is updated</td>
 		</tr>
 		<tr>
 			<td>Project</td>
 			<td>stationsAdded:<i>projectName</i></td>
-			<td>{user: <i>userEmail</i>, <br/>project: <i>project</i>, <br/>stations: <i>stationsAdded</i>}</td>
+			<td>{user: <i>userEmail</i>, <br/>projectId: <i>projectId</i>, <br/>project: <i>project</i>, <br/>stations: <i>stationsAdded</i>}</td>
 			<td>Sent when stations are added to a project</td>
 		</tr>
 		<tr>
 			<td>Project</td>
 			<td>updateAddress:<i>projectName</i></td>
-			<td>{user: <i>userEmail</i>, <br/>project: <i>project</i>}</td>
+			<td>{user: <i>userEmail</i>, <br/>projectId: <i>projectId</i>, <br/>project: <i>project</i>}</td>
 			<td>Sent when a project's address is updated through the UI</td>
 		</tr>
 		<tr>
 			<td>Project</td>
 			<td>delete:<i>projectName</i></td>
-			<td>{user: <i>userEmail</i>, <br/>project: <i>project</i>}</td>
+			<td>{user: <i>userEmail</i>, <br/>projectId: <i>projectId</i>, <br/>project: <i>project</i>}</td>
 			<td>Sent when a project's address is updated through the UI</td>
 		</tr>
 		<tr>
 			<td>Status</td>
 			<td>leaveStatus:<i>partType</i>:<i>eventName</i>:<i>stationName</i></td>
-			<td>{previousEvent: <i>status</i>, nextEvent: <i>status</i>, part: <i>station or project</i>, user: <i>userEmail</i>}</td>
+			<td>{previousEvent: <i>status</i>, nextEvent: <i>status</i>, part: <i>station or project</i>, user: <i>userEmail</i>, <br/>projectId: <i>projectId</i>}</td>
 			<td>Send when an Project, Station, or Asset leaves a status</td>
 		</tr>
 		<tr>
 			<td>Status</td>
 			<td>enterStatus:<i>partType</i>:<i>eventName</i>:<i>stationName</i></td>
-			<td>{previousEvent: <i>status</i>, nextEvent: <i>status</i>, part: <i>station or project</i>, user: <i>userEmail</i>}</td>
+			<td>{previousEvent: <i>status</i>, nextEvent: <i>status</i>, part: <i>station or project</i>, user: <i>userEmail</i>, <br/>projectId: <i>projectId</i>}</td>
 			<td>Send when an Project, Station, or Asset enters a status</td>
 		</tr>
 		<tr>
@@ -144,7 +144,7 @@ Anything in the response will be ignored by the server.
 		<tr>
 			<td>File</td>
 			<td>upload:<i>fileParentName</i>:<i>fileName</i></td>
-			<td>{user: <i>userEmail</i>, <br/>parentType: <i>parentType</i>, <br/>parentName: <i>parentName</i>, fileName: <i>fileName</i>}</td>
+			<td>{user: <i>userEmail</i>, <br/>projectId: <i>projectId</i>, <br/>parentType: <i>parentType</i>, <br/>parentName: <i>parentName</i>, fileName: <i>fileName</i>}</td>
 			<td>Sent when a file is uploaded by a user</td>
 		</tr>
 		<tr>
@@ -162,13 +162,13 @@ Anything in the response will be ignored by the server.
 		<tr>
 			<td>Action</td>
 			<td>runStart:<i>actionName</i>:<i>actionFilePrefix</i>:<i>partName</i></td>
-			<td>{name: <i>actionName</i>, <br/>filePrefix<i>actionFilePrefix</i>, <br/>parameters: <i>actionParameters</i>, <br/>part: <i>actionPart</i>, <br/>runInstance: <i>uniqueRunUUID</i>, <br/>source: <i>source</i>}</td>
+			<td>{name: <i>actionName</i>, <br/>filePrefix<i>actionFilePrefix</i>, <br/>parameters: <i>actionParameters</i>, <br/>part: <i>actionPart</i>, <br/>runInstance: <i>uniqueRunUUID</i>, <br/>source: <i>source</i>, user: <i>userEmail</i>, <br/>projectId: <i>projectId</i>}</td>
 			<td>Sent when an action begins running</td>
 		</tr>
 		<tr>
 			<td>Action</td>
 			<td>runEnd:<i>actionName</i>:<i>actionFilePrefix</i>:<i>success</i></td>
-			<td>{name: <i>actionName</i>, <br/>filePrefix<i>actionFilePrefix</i>, <br/>runInstance: <i>uniqueRunUUID</i>, <br/>success: <i>success</i>, <br/>message: <i>message</i>, <br/>source: <i>source</i>}</td>
+			<td>{name: <i>actionName</i>, <br/>filePrefix<i>actionFilePrefix</i>, <br/>runInstance: <i>uniqueRunUUID</i>, <br/>success: <i>success</i>, <br/>message: <i>message</i>, <br/>source: <i>source</i>, user: <i>userEmail</i>, <br/>projectId: <i>projectId</i>}</td>
 			<td>Sent when an action finishes</td>
 		</tr>
 	</tbody>
