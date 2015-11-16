@@ -19,6 +19,12 @@
     "weight"
   ],
   "properties": {
+    "id": {
+        "type": "string"
+    },
+    "version": {
+        "type": "string"
+    },
     "conductorStrands": {
       "type": "integer"
     },

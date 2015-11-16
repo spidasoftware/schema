@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=yes"/>
+  <style type="text/css">
+    html { height: 100% }
+    body { height: 100%; margin: 10; padding: 0 }
+    #map-canvas { height: 100% }
+    #json {width: 49%; height:300px}
+    #kml {width: 49%; height:300px}
+
+  </style>
+  <script src="https://maps.googleapis.com/maps/api/js?sensor=false">
+  </script>
+  <script src="jquery-2.0.3.js"></script>
+  <script type="text/javascript" src="google.js"></script>
+  <script type="text/javascript" src="calcdemo.js">
+  </script>
+</head>
+<body>
+
+
+<p id="controls">Open Project <input type="file" id="projectFile"></input> </p>
+<div>
+<textarea id="json">Project JSON will load here</textarea>
+
+<textarea id="kml">Project KML will load here</textarea>
+</div>
+<div id="map-canvas"/>
+
+</body>
+</html>

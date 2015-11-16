@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=yes"/>
+  <style type="text/css">
+    html { height: 100% }
+    body { height: 100%; margin: 10px; padding: 0px }
+    #client {width: 49%}
+    #design {width: 49%}
+    #results {width: 100%; height: 100%}
+
+  </style>
+
+  <script src="jquery-2.0.3.js"></script>
+  <script type="text/javascript" src="calcdemo.js">
+  </script>
+</head>
+<body>
+
+
+<div>
+<select id="client" size="20"></select>
+
+<select id="design" size="20">
+  <option>35-3</option>
+  <option>A2.3</option>
+  <option>G1.2.15kVA</option>
+  <option>1/0 AAC Triplex</option>
+  <option>1/0 ACSR</option>
+
+</select>
+</div>
+<div>
+  <button id="add" onclick="onAdd()">Add Framing</button>
+  <button id="frame" onclick="frameInCalc()">Frame In Calc</button>
+</div>
+
+<iframe id="results"></iframe>
+</body>
+</html>

@@ -93,7 +93,9 @@ Anything in the response will be ignored by the server.
 				new:<i>source</i>:<i>flowName</i>:<i>projectName</i><br/>
 				source is api or ui
 			</td>
-			<td>{user: <i>userEmail</i>, <br/>project: <i>project</i>}</td>
+			<td>{user: <i>userEmail</i>, <br/>
+			projectId: <i>project.id</i>, <br/>
+			project: <i>project</i>}</td>
 			<td>Sent when a project is created</td>
 		</tr>
 		<tr>
@@ -102,79 +104,119 @@ Anything in the response will be ignored by the server.
 				update:<i>source</i>:<i>projectName</i><br/>
 				source is api or ui
 			</td>
-			<td>{user: <i>userEmail</i>, <br/>project: <i>project</i>}</td>
+			<td>{user: <i>userEmail</i>, <br/>
+			projectId: <i>project.id</i>, <br/>
+			project: <i>project</i>}</td>
 			<td>Sent when a project is updated</td>
 		</tr>
 		<tr>
 			<td>Project</td>
 			<td>stationsAdded:<i>projectName</i></td>
-			<td>{user: <i>userEmail</i>, <br/>project: <i>project</i>, <br/>stations: <i>stationsAdded</i>}</td>
+			<td>{user: <i>userEmail</i>, <br/>
+			projectId: <i>project.id</i>, <br/>
+			project: <i>project</i>, <br/>
+			stations: <i>stationsAdded</i>}</td>
 			<td>Sent when stations are added to a project</td>
 		</tr>
 		<tr>
 			<td>Project</td>
 			<td>updateAddress:<i>projectName</i></td>
-			<td>{user: <i>userEmail</i>, <br/>project: <i>project</i>}</td>
+			<td>{user: <i>userEmail</i>, <br/>
+			projectId: <i>project.id</i>, <br/>
+			project: <i>project</i>}</td>
 			<td>Sent when a project's address is updated through the UI</td>
 		</tr>
 		<tr>
 			<td>Project</td>
 			<td>delete:<i>projectName</i></td>
-			<td>{user: <i>userEmail</i>, <br/>project: <i>project</i>}</td>
+			<td>{user: <i>userEmail</i>, <br/>
+			projectId: <i>project.id</i>, <br/>
+			project: <i>project</i>}</td>
 			<td>Sent when a project's address is updated through the UI</td>
 		</tr>
 		<tr>
 			<td>Status</td>
 			<td>leaveStatus:<i>partType</i>:<i>eventName</i>:<i>stationName</i></td>
-			<td>{previousEvent: <i>status</i>, nextEvent: <i>status</i>, part: <i>station or project</i>}</td>
+			<td>{previousEvent: <i>status</i>,  <br/>
+			nextEvent: <i>status</i>,  <br/>
+			part: <i>station or project</i>,  <br/>
+			user: <i>userEmail</i>, <br/>
+			projectId: <i>project.id</i>}</td>
 			<td>Send when an Project, Station, or Asset leaves a status</td>
 		</tr>
 		<tr>
 			<td>Status</td>
 			<td>enterStatus:<i>partType</i>:<i>eventName</i>:<i>stationName</i></td>
-			<td>{previousEvent: <i>status</i>, nextEvent: <i>status</i>, part: <i>station or project</i>}</td>
+			<td>{previousEvent: <i>status</i>,  <br/>
+			nextEvent: <i>status</i>,  <br/>
+			part: <i>station or project</i>,  <br/>
+			user: <i>userEmail</i>, <br/>
+			projectId: <i>project.id</i>}</td>
 			<td>Send when an Project, Station, or Asset enters a status</td>
 		</tr>
 		<tr>
 			<td>Form</td>
-			<td>update:<i>ownerName</i>:<i>formName</i></td>
-			<td>{user: <i>userEmail</i>, <br/>form: <i>form</i>, <br/>parentName: <i>parentName</i>}</td>
+			<td>update:<i>source</i>:<i>ownerName</i>:<i>formName</i><br/>
+				source is api or ui</td>
+			<td>{user: <i>userEmail</i>, <br/>
+			form: <i>form</i>, <br/>
+			projectId: <i>project.id</i>, <br/>
+			projectName: <i>projectName</i>, <br/>
+			parentId: <i>parentId</i>, <br/>
+			parentName: <i>parentName</i>}</td>
 			<td>Sent when a form is updated by a user</td>
-		</tr>
-		<tr>
-			<td>Form</td>
-			<td>delete:<i>ownerName</i>:<i>formName</i></td>
-			<td>{user: <i>userEmail</i>, <br/>form: <i>form</i>, <br/>parentName: <i>parentName</i>}</td>
-			<td>Sent when a form is deleted by a user</td>
 		</tr>
 		<tr>
 			<td>File</td>
 			<td>upload:<i>fileParentName</i>:<i>fileName</i></td>
-			<td>{user: <i>userEmail</i>, <br/>parentType: <i>parentType</i>, <br/>parentName: <i>parentName</i>, fileName: <i>fileName</i>}</td>
+			<td>{user: <i>userEmail</i>, <br/>
+			projectId: <i>project.id</i>, <br/>
+			parentType: <i>parentType</i>, <br/>
+			parentName: <i>parentName</i>,  <br/>
+			fileName: <i>fileName</i>}</td>
 			<td>Sent when a file is uploaded by a user</td>
 		</tr>
 		<tr>
 			<td>Tag</td>
 			<td>new:<i>tagType</i></td>
-			<td>{user: <i>userEmail</i>, <br/>tagType: <i>tagType</i>, <br/>name: <i>tagName</i>, <br/>ids: <i>tagIds</i>}</td>
+			<td>{user: <i>userEmail</i>, <br/>
+			tagType: <i>tagType</i>, <br/>
+			name: <i>tagName</i>, <br/>
+			ids: <i>tagIds</i>}</td>
 			<td>Sent when a tag is created</td>
 		</tr>
 		<tr>
 			<td>Tag</td>
 			<td>delete:<i>tagType</i>:<i>tagName<i></td>
-			<td>{user: <i>userEmail</i>, <br/>tagType: <i>tagType</i>, <br/>name: <i>tagName</i>}</td>
+			<td>{user: <i>userEmail</i>, <br/>
+			tagType: <i>tagType</i>, <br/>
+			name: <i>tagName</i>}</td>
 			<td>Sent when a tag is deleted</td>
 		</tr>
 		<tr>
 			<td>Action</td>
 			<td>runStart:<i>actionName</i>:<i>actionFilePrefix</i>:<i>partName</i></td>
-			<td>{name: <i>actionName</i>, <br/>filePrefix<i>actionFilePrefix</i>, <br/>parameters: <i>actionParameters</i>, <br/>part: <i>actionPart</i>, <br/>runInstance: <i>uniqueRunUUID</i>, <br/>source: <i>source</i>}</td>
+			<td>{name: <i>actionName</i>, <br/>
+			filePrefix<i>actionFilePrefix</i>, <br/>
+			parameters: <i>actionParameters</i>, <br/>
+			part: <i>actionPart</i>, <br/>
+			runInstance: <i>uniqueRunUUID</i>, <br/>
+			source: <i>source</i>,  <br/>
+			user: <i>userEmail</i>, <br/>
+			projectId: <i>project.id</i>}</td>
 			<td>Sent when an action begins running</td>
 		</tr>
 		<tr>
 			<td>Action</td>
 			<td>runEnd:<i>actionName</i>:<i>actionFilePrefix</i>:<i>success</i></td>
-			<td>{name: <i>actionName</i>, <br/>filePrefix<i>actionFilePrefix</i>, <br/>runInstance: <i>uniqueRunUUID</i>, <br/>success: <i>success</i>, <br/>message: <i>message</i>, <br/>source: <i>source</i>}</td>
+			<td>{name: <i>actionName</i>, <br/>
+			filePrefix<i>actionFilePrefix</i>, <br/>
+			runInstance: <i>uniqueRunUUID</i>, <br/>
+			success: <i>success</i>, <br/>
+			message: <i>message</i>, <br/>
+			source: <i>source</i>,  <br/>
+			user: <i>userEmail</i>, <br/>
+			projectId: <i>project.id</i>}</td>
 			<td>Sent when an action finishes</td>
 		</tr>
 	</tbody>

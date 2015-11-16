@@ -1,0 +1,37 @@
+{
+  "id": "#/spidamin/project/log_message.schema",
+  "description": "A ProjectManager Project log message.",
+  "type": "object",
+  "required": [
+    "trigger",
+    "message",
+    "success"
+  ],
+  "properties": {
+    "id": {
+      "type": "number",
+      "description": "This is a database ID created by ProjectManager."
+    },
+    "trigger": {
+      "type": "string",
+      "description": "This is what caused the log message."
+    },
+    "message": {
+      "type": "string",
+      "description": "This is the message(description) for the log message."
+    },
+    "success": {
+      "type": "boolean",
+      "description": "Whether or not the action was successful."
+    },
+    "date": {
+      "$ref": "../../general/long_date.schema",
+      "description": "The date that the action happened. When adding a log message this is automatically set to the current time, this value cannot be set through the API."
+    },
+    "eventId": {
+      "type": "number",
+      "description": "Event that the project was on when the action was triggered."
+    }
+  },
+  "additionalProperties": false
+}
