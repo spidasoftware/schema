@@ -1,0 +1,67 @@
+{
+  "id": "#/spidacalc/cee/result.schema",
+  "description": "SPIDA CEE analysis result",
+  "type": "object",
+  "required": [
+    "loadCase",
+    "clientFileVersion",
+    "components"
+  ],
+  "properties": {
+    "loadCase": {
+      "description": "The name of the load case used to generate the results.",
+      "type": "string"
+    },
+    "clientFileVersion": {
+      "description": "The version of the client file used to generate these results.",
+      "type": "string"
+    },
+    "components": {
+      "description": "A list of the results for each component.",
+      "type": "array",
+      "items": {
+        "description": "An individual result object for the component.",
+        "type": "object",
+        "properties": {
+          "component": {
+            "type": "string"
+          },
+          "status": {
+            "type": "boolean"
+          },
+          "resultsType": {
+            "type": "string"
+          },
+          "summary": {
+            "id": "http://jsonschema.net/summary",
+            "type": "object",
+            "properties": {
+              "actual": {
+                "type": "number"
+              },
+              "ratio": {
+                "type": "number"
+              },
+              "allowable": {
+                "type": "number"
+              },
+              "windDirection": {
+                "type": "integer"
+              },
+              "failingRatio": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        "required": [
+          "component",
+          "status",
+          "resultsType",
+          "summary"
+        ]
+
+      }
+    }
+  },
+  "additionalProperties": true
