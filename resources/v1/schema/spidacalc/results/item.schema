@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "id": "#/spidacalc/results/item.schema",
+  "description": "The forces on a single component item.",
+  "required": [
+    "id"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The id of the item."
+    },
+    "applied":{
+      "$ref": "../../general/triad.schema"
+    },
+    "reaction":{
+      "$ref": "../../general/triad.schema"
+    },
+    "actingOn":{
+      "type":"array",
+      "items":{
+        "component":{
+          "description": "The id of the item the force is acting on.",
+          "type": "string"
+        },
+        "load":{
+          "$ref": "../../general/point-load.schema"
+        }
+      },
+      "required":["component", "load"]
+    }
+  },
+  "additionalProperties": false
+}

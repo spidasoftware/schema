@@ -1,0 +1,17 @@
+{
+  "id": "#/spidacalc/calc/results.schema",
+  "description": "SPIDACalc results",
+  "type": "object",
+  "required": [
+    "results"
+  ],
+  "properties": {
+    "results": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/results/result.schema"
+      }
+    }
+  },
+  "additionalProperties": false
+}

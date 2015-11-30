@@ -1,0 +1,55 @@
+{
+  "id": "#/general/triad.schema",
+  "type": "object",
+  "properties": {
+    "vector": {
+      "type": "array",
+      "items": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        }
+      ],
+      "required": [
+        "0",
+        "1",
+        "2"
+      ]
+    },
+    "toGlobal": {
+      "type": "array",
+      "items": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        }
+      ],"required": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    "unit": {
+
+    }
+  },
+  "required": [
+    "vector",
+    "toGlobal",
+    "unit"
+  ]
+}
