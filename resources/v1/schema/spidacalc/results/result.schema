@@ -1,5 +1,5 @@
 {
-  "id": "#/spidacalc/cee/result.schema",
+  "id": "#/spidacalc/results/result.schema",
   "description": "SPIDA CEE analysis result",
   "type": "object",
   "required": [
@@ -89,6 +89,24 @@
             }
           },
           "guys":{
+            "type": "array",
+            "items":{
+              "$ref": "../../spidacalc/results/item.schema"
+            }
+          },
+          "spanGuys":{
+            "type": "array",
+            "items":{
+              "$ref": "../../spidacalc/results/item.schema"
+            }
+          },
+          "equipments":{
+            "type": "array",
+            "items":{
+              "$ref": "../../spidacalc/results/item.schema"
+            }
+          },
+          "pushBraces":{
             "type": "array",
             "items":{
               "$ref": "../../spidacalc/results/item.schema"

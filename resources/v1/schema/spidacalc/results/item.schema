@@ -10,24 +10,30 @@
       "type": "string",
       "description": "The id of the item."
     },
-    "applied":{
+    "applied": {
       "$ref": "../../general/triad.schema"
     },
-    "reaction":{
+    "pretension": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "reaction": {
       "$ref": "../../general/triad.schema"
     },
-    "actingOn":{
-      "type":"array",
-      "items":{
-        "component":{
-          "description": "The id of the item the force is acting on.",
-          "type": "string"
+    "actingOn": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "component": {
+            "description": "The id of the item the force is acting on.",
+            "type": "string"
+          },
+          "load": {
+            "$ref": "../../general/point-load.schema"
+          }
         },
-        "load":{
-          "$ref": "../../general/point-load.schema"
-        }
-      },
-      "required":["component", "load"]
+        "required": ["component", "load"]
+      }
     }
   },
   "additionalProperties": false

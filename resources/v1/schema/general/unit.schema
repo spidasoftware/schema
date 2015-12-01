@@ -1,7 +1,6 @@
 {
   "id": "#/general/unit.schema",
   "type": "string",
-
   "enum": [
     "CUBIC_INCH",
     "DEGREE_ANGLE",
@@ -18,6 +17,8 @@
     "POUND_PER_CUBIC_FOOT",
     "SIXTEENTH_INCH",
     "SQUARE_FOOT",
-    "SQUARE_INCH"
+    "SQUARE_INCH",
+    "NEWTON",
+    "NEWTON_METRE"
   ]
 }
