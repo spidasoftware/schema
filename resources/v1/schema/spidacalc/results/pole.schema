@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "id": "#/spidacalc/results/pole.schema",
+  "description": "The forces on a single component item.",
+  "required": [
+    "id"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The id of the item."
+    },
+    "reaction": {
+      "$ref": "../../general/point_load.schema"
+    },
+    "applied": {
+      "$ref": "../../general/point_load.schema"
+    },
+    "centroid": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "atHeight": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "properties": {
+          "height": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "stress": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "actual": {
+            "type": "number"
+          },
+          "components": {
+            "type": "array"
+          },
+          "applied": {
+            "$ref": "../../general/point_load.schema"
+          },
+          "internal": {
+            "$ref": "../../general/point_load.schema"
+          },
+          "deflections": {
+            "$ref": "../../general/triad.schema"
+          }
+        },
+        "required": ["height", "components", "applied", "internal", "deflections"]
+      }
+    }
+  },
+  "additionalProperties": false
+}

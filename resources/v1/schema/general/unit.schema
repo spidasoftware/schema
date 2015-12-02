@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "#/general/unit.schema",
   "type": "string",
   "enum": [
@@ -14,6 +15,7 @@
     "POUND_FORCE_FOOT",
     "POUND_FORCE_PER_FOOT",
     "POUND_FORCE_PER_SQUARE_INCH",
+    "PASCAL",
     "POUND_PER_CUBIC_FOOT",
     "SIXTEENTH_INCH",
     "SQUARE_FOOT",

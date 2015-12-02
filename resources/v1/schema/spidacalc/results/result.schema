@@ -40,8 +40,8 @@
             "type": "string"
           },
           "summary": {
-            "id": "http://jsonschema.net/summary",
             "type": "object",
+            "description":"Holds some required values for a result and any other item that should be displayed at a high level.",
             "required":[
               "actual", "ratio", "allowable", "windDirection", "failingRatio"
             ],
@@ -65,10 +65,17 @@
             "additionalProperties":true
           },
           "poles":{
-            "type": "array"
+            "type": "array",
+            "minItems":1,
+            "items":{
+              "$ref": "../../spidacalc/results/pole.schema"
+            }
           },
           "wires":{
-            "type": "array"
+            "type": "array",
+            "items":{
+              "$ref": "../../spidacalc/results/wire.schema"
+            }
           },
           "insulators":{
             "type": "array",
