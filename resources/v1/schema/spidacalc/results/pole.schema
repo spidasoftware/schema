@@ -21,6 +21,7 @@
     },
     "atHeight": {
       "type": "array",
+      "description":"measurements at specific heights on the pole",
       "minItems": 1,
       "items": {
         "properties": {
@@ -44,9 +45,18 @@
           },
           "deflections": {
             "$ref": "../../general/triad.schema"
+          },
+          "momentOfInertia": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "crossArea": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "sectionModulus": {
+            "$ref": "../../general/measurable.schema"
           }
         },
-        "required": ["height", "components", "applied", "internal", "deflections"]
+        "required": ["height"]
       }
     }
   },

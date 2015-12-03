@@ -43,7 +43,7 @@
             "type": "object",
             "description":"Holds some required values for a result and any other item that should be displayed at a high level.",
             "required":[
-              "actual", "ratio", "allowable", "windDirection", "failingRatio"
+              "actual", "ratio", "allowable", "failingRatio"
             ],
             "properties": {
               "actual": {

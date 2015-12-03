@@ -8,7 +8,11 @@
     "FAHRENHEIT",
     "FOOT",
     "INCH",
+    "INCH_TO_THE_FOURTH",
     "METRE",
+    "METRE_TO_THE_FOURTH",
+    "NEWTON",
+    "NEWTON_METRE",
     "PERCENT",
     "PER_FAHRENHEIT",
     "POUND_FORCE",
@@ -20,7 +24,6 @@
     "SIXTEENTH_INCH",
     "SQUARE_FOOT",
     "SQUARE_INCH",
-    "NEWTON",
-    "NEWTON_METRE"
+    "SQUARE_METRE"
   ]
 }
