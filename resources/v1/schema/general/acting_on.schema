@@ -1,0 +1,18 @@
+{
+  "id":"#/general/acting_on.schema",
+  "type": "array",
+  "minItems":1,
+  "items": {
+    "type": "object",
+    "properties": {
+      "component": {
+        "description": "The id of the item the force is acting on.",
+        "type": ["string", "null"]
+      },
+      "load": {
+        "$ref": "../general/point_load.schema"
+      }
+    },
+    "required": ["component", "load"]
+  }
+}

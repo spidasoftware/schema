@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "#/general/point_load.schema",
+  "type": "object",
+  "properties": {
+    "translational": {
+      "$ref": "../general/triad.schema"
+    },
+    "rotational": {
+      "$ref": "../general/triad.schema"
+    }
+  },
+  "required": [
+    "translational",
+    "rotational"
+  ]
+}

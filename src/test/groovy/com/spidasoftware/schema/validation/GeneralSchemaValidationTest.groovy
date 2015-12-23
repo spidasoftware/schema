@@ -2,6 +2,7 @@ package com.spidasoftware.schema.validation
 
 import com.github.fge.jackson.JsonLoader
 import com.github.fge.jsonschema.cfg.ValidationConfiguration
+import com.github.fge.jsonschema.load.configuration.LoadingConfiguration
 import com.github.fge.jsonschema.main.JsonSchemaFactory
 import com.github.fge.jsonschema.processors.syntax.SyntaxValidator
 import com.github.fge.jsonschema.uri.*
@@ -13,6 +14,8 @@ class GeneralSchemaValidationTest extends GroovyTestCase {
 	def log = Logger.getLogger(this.class)
 	def report
 	private static final SyntaxValidator schemaValidator = new SyntaxValidator(ValidationConfiguration.byDefault())
+	final LoadingConfiguration cfg = LoadingConfiguration.newBuilder().setNamespace(new File("resources").toURI().toString()).freeze()
+  final JsonSchemaFactory factory = JsonSchemaFactory.newBuilder().setLoadingConfiguration(cfg).freeze()
 
 	void setUp() {
 	}
@@ -48,7 +51,7 @@ class GeneralSchemaValidationTest extends GroovyTestCase {
 		report = schema.validate(JsonLoader.fromString(instance))
 		report.each{
 			log.info "Validation message geometry: "+it.toString()
-		}    
+		}
 		assertTrue "test item should be valid against schema", report.isSuccess()
 	}
 
@@ -70,14 +73,14 @@ class GeneralSchemaValidationTest extends GroovyTestCase {
 		}
 		assertTrue "this schema should be valid", report.isSuccess()
 
-		def schema = JsonSchemaFactory.byDefault().getJsonSchema(schemaNode)
+		def schema = factory.getJsonSchema("v1/schema/general/measurable.schema")
 
 		report = schema.validate(JsonLoader.fromString(instance))
 		report.each{
 			log.info "Validation message measurable: "+it.toString()
 		}
 		assertTrue "test item should be valid against schema", report.isSuccess()
-	}  
+	}
 
 	void testThatMethodResponseIsValidSchema(){
 		def schemaNode = JsonLoader.fromPath("resources/v1/schema/general/method_response.schema")
@@ -86,7 +89,7 @@ class GeneralSchemaValidationTest extends GroovyTestCase {
 			log.info "Validation message method reponse: "+it.toString()
 		}
 		assertTrue "this schema should be valid", report.isSuccess()
-	}    
+	}
 
 	void testThatOwnerIsValidSchema(){
 		def schemaNode = JsonLoader.fromPath("resources/v1/schema/general/owner.schema")

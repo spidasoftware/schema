@@ -1,0 +1,133 @@
+{
+  "id": "#/spidacalc/results/result.schema",
+  "description": "SPIDA CEE analysis result",
+  "type": "object",
+  "required": [
+    "loadCase",
+    "clientFileVersion",
+    "components"
+  ],
+  "properties": {
+    "loadCase": {
+      "description": "The name of the load case used to generate the results.",
+      "type": "string"
+    },
+    "clientFileVersion": {
+      "description": "The version of the client file used to generate these results.",
+      "type": "string"
+    },
+    "components": {
+      "description": "A list of the results for each component.",
+      "type": "array",
+      "items": {
+        "description": "An individual result object for the component.",
+        "type": "object",
+        "required": [
+          "component",
+          "status",
+          "resultsType",
+          "summary",
+          "poles"
+        ],
+        "properties": {
+          "component": {
+            "type": "string"
+          },
+          "status": {
+            "type": "boolean"
+          },
+          "resultsType": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "object",
+            "description":"Holds some required values for a result and any other item that should be displayed at a high level.",
+            "required":[
+              "actual", "ratio", "allowable", "failingRatio"
+            ],
+            "properties": {
+              "actual": {
+                "type": "number"
+              },
+              "ratio": {
+                "type": "number"
+              },
+              "allowable": {
+                "type": "number"
+              },
+              "windDirection": {
+                "type": "integer"
+              },
+              "failingRatio": {
+                "type": "number"
+              }
+            },
+            "additionalProperties":true
+          },
+          "poles":{
+            "type": "array",
+            "minItems":1,
+            "items":{
+              "$ref": "../../spidacalc/results/pole.schema"
+            }
+          },
+          "wires":{
+            "type": "array",
+            "items":{
+              "$ref": "../../spidacalc/results/wire.schema"
+            }
+          },
+          "insulators":{
+            "type": "array",
+            "items":{
+              "$ref": "../../spidacalc/results/item.schema"
+            }
+          },
+          "crossArms":{
+            "type": "array",
+            "items":{
+              "$ref": "../../spidacalc/results/item.schema"
+            }
+          },
+          "sidewalkBraces":{
+            "type": "array",
+            "items":{
+              "$ref": "../../spidacalc/results/item.schema"
+            }
+          },
+          "guys":{
+            "type": "array",
+            "items":{
+              "$ref": "../../spidacalc/results/item.schema"
+            }
+          },
+          "spanGuys":{
+            "type": "array",
+            "items":{
+              "$ref": "../../spidacalc/results/item.schema"
+            }
+          },
+          "equipments":{
+            "type": "array",
+            "items":{
+              "$ref": "../../spidacalc/results/item.schema"
+            }
+          },
+          "pushBraces":{
+            "type": "array",
+            "items":{
+              "$ref": "../../spidacalc/results/item.schema"
+            }
+          },
+          "anchors":{
+            "type": "array",
+            "items":{
+              "$ref": "../../spidacalc/results/item.schema"
+            }
+          }
+        },
+        "additionalProperties":false
+      }
+    }
+  }
+}

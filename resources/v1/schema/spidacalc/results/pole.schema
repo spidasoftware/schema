@@ -1,0 +1,64 @@
+{
+  "type": "object",
+  "id": "#/spidacalc/results/pole.schema",
+  "description": "The forces on a single component item.",
+  "required": [
+    "id"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The id of the item."
+    },
+    "reaction": {
+      "$ref": "../../general/point_load.schema"
+    },
+    "applied": {
+      "$ref": "../../general/point_load.schema"
+    },
+    "centroid": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "atHeight": {
+      "type": "array",
+      "description":"measurements at specific heights on the pole",
+      "minItems": 1,
+      "items": {
+        "properties": {
+          "height": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "stress": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "actual": {
+            "type": "number"
+          },
+          "components": {
+            "type": "array"
+          },
+          "applied": {
+            "$ref": "../../general/point_load.schema"
+          },
+          "internal": {
+            "$ref": "../../general/point_load.schema"
+          },
+          "deflections": {
+            "$ref": "../../general/triad.schema"
+          },
+          "momentOfInertia": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "crossArea": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "sectionModulus": {
+            "$ref": "../../general/measurable.schema"
+          }
+        },
+        "required": ["height"]
+      }
+    }
+  },
+  "additionalProperties": false
+}
