@@ -7,7 +7,7 @@ We have two main kinds of API's: RPC and REST.
 
 ## RPC API
 
-RPC stands for "Remote Procedure Call" and is for "invoking an action on a remove system". Further specific information on our RPC type endpoints is given in [this additional file](rpc.md).
+RPC stands for "Remote Procedure Call" and is for "invoking an action on a remote system". Further specific information on our RPC type endpoints is given in [this additional file](rpc.md).
 
 #### Available Services
 
