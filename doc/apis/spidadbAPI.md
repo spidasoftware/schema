@@ -1,7 +1,7 @@
 SPIDA DB API
 ===========
 
-SPIDA DB is a web application that stores the complex pole data described by they SPIDACalc Project JSON schema. The aim of SPIDA DB is to provide a simple and robust API for storing and accessing pole data that can be used in a wide variety of integration and reporting scenarios.
+SPIDA DB is a web application that stores the complex pole data described by the SPIDACalc Project JSON schema. The aim of SPIDA DB is to provide a simple and robust API for storing and accessing pole data that can be used in a wide variety of integration and reporting scenarios.
 
 # General Concepts
 
