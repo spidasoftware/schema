@@ -1,0 +1,5 @@
+{
+  "id": "#/spidacalc/results/load_case.schema",
+  "description": "The loading information used to generate analysis",
+  "type": "object"
+}
