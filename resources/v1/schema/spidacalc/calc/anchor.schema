@@ -9,8 +9,11 @@
     "height",
     "owner",
     "supportType",
-    "clientItem",
     "guys"
+  ],
+  "oneOf":[
+    {"required":["clientItem"]},
+    {"required":["clientItemVersion"]}
   ],
   "properties": {
     "id": {
@@ -42,7 +45,12 @@
       "type": "string"
     },
     "clientItem": {
-      "description": "The client anchor with this anchor's material properties",
+      "type": "string",
+      "description": "Reference of the client item with the engineering properties for this anchor."
+    },
+    "clientItemVersion": {
+      "description": "The client anchor version hash of the material properties",
+      "format": "md5",
       "type": "string"
     },
     "guys": {

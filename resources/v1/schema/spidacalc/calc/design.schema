@@ -21,18 +21,23 @@
                         "description": "an id, usually the loadcase name",
                         "type": "string"
                     },
-                    "loadCase":{
+                    "loadCaseVersion":{
                       "description": "load case version hash.",
+                      "format": "md5",
                       "type": "string"
                     },
+                    "resultId":{
+                        "description": "The complete result object for this load case.",
+                        "type": "string"
+                    },
                     "results": {
-                        "description": "Result summaries or complete results id for all components.",
+                        "description": "Result summaries for all components.",
                         "items": {
                             "$ref": "../../spidamin/asset/standard_details/analysis_asset.schema"
-                        }, 
+                        },
                         "type": "array"
                     }
-                }, 
+                },
                 "required": [
                     "id"
                 ], 

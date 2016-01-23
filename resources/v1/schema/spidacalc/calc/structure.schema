@@ -18,8 +18,11 @@
         "type": "object",
         "id": "foundation",
         "required": [
-          "id",
-          "clientItem"
+          "id"
+        ],
+        "oneOf":[
+          {"required":["clientItem"]},
+          {"required":["clientItemVersion"]}
         ],
         "additionalProperties": false,
         "properties": {
@@ -33,7 +36,12 @@
           },
           "clientItem": {
             "type": "string",
-            "description": "Name of the foundation at the pole; references client data."
+            "description": "Reference to the client item with the engineering properties for this foundation."
+          },
+          "clientItemVersion": {
+            "type": "string",
+            "format": "md5",
+            "description": "Hash of the client item containing the engineering properties for this foundation"
           },
           "groundWaterLevel": {
             "description": "Ground water level at the foundation. Should be negative.",
@@ -316,8 +324,11 @@
           "id",
           "attachmentHeight",
           "owner",
-          "clientItem",
           "usageGroup"
+        ],
+        "oneOf":[
+          {"required":["clientItem"]},
+          {"required":["clientItemVersion"]}
         ],
         "additionalProperties": false,
         "properties": {
@@ -354,7 +365,12 @@
           },
           "clientItem": {
             "$ref": "../../spidacalc/calc/client_references/wire.schema",
-            "description": "The engineering properties of this wire."
+            "description": "Reference of the client item with the engineering properties for this wire."
+          },
+          "clientItemVersion": {
+            "type": "string",
+            "format": "md5",
+            "description": "Hash of the client item containing the engineering properties for this wire"
           }
         }
       }
@@ -369,8 +385,11 @@
           "id",
           "attachmentHeight",
           "owner",
-          "clientItem",
           "height"
+        ],
+        "oneOf":[
+          {"required":["clientItem"]},
+          {"required":["clientItemVersion"]}
         ],
         "additionalProperties": false,
         "properties": {
@@ -395,7 +414,13 @@
             "$ref": "../../general/measurable.schema"
           },
           "clientItem": {
-            "$ref": "../../spidacalc/calc/client_references/wire.schema"
+            "$ref": "../../spidacalc/calc/client_references/wire.schema",
+            "description": "Reference of the client item with the engineering properties for this span guy."
+          },
+          "clientItemVersion": {
+            "type": "string",
+            "format": "md5",
+            "description": "Hash of the client item containing the engineering properties for this span guy."
           }
         }
       }
@@ -409,8 +434,11 @@
         "required": [
           "id",
           "attachmentHeight",
-          "owner",
-          "clientItem"
+          "owner"
+        ],
+        "oneOf":[
+          {"required":["clientItem"]},
+          {"required":["clientItemVersion"]}
         ],
         "additionalProperties": false,
         "properties": {
@@ -437,7 +465,13 @@
             "description": "DEPRECATED in Calc 5.1. Use sidewalkBraces instead. If this is a sidewalk guy, length of sidewalk brace."
           },
           "clientItem": {
-            "$ref": "../../spidacalc/calc/client_references/wire.schema"
+            "$ref": "../../spidacalc/calc/client_references/wire.schema",
+            "description": "Reference of the client item with the engineering properties for this guy."
+          },
+          "clientItemVersion": {
+            "type": "string",
+            "format": "md5",
+            "description": "Hash of the client item containing the engineering properties for this guy."
           }
         }
       }
@@ -451,11 +485,14 @@
         "required": [
           "attachmentHeight",
           "length",
-          "clientItem",
           "direction",
           "id",
           "owner",
           "guys"
+        ],
+        "oneOf":[
+          {"required":["clientItem"]},
+          {"required":["clientItemVersion"]}
         ],
         "additionalProperties": false,
         "properties": {
@@ -482,7 +519,12 @@
           },
           "clientItem": {
             "type": "string",
-            "description": "The size of the client brace to be used."
+            "description": "Reference to the client item with the engineering properties for this brace."
+          },
+          "clientItemVersion": {
+            "type": "string",
+            "format": "md5",
+            "description": "Hash of the client item containing the engineering properties for this brace."
           },
           "guys": {
             "type": "array",
@@ -505,9 +547,12 @@
           "id",
           "attachmentHeight",
           "owner",
-          "clientItem",
           "direction",
           "bottomHeight"
+        ],
+        "oneOf":[
+          {"required":["clientItem"]},
+          {"required":["clientItemVersion"]}
         ],
         "additionalProperties": false,
         "properties": {
@@ -533,7 +578,13 @@
             "$ref": "../../general/bearing.schema"
           },
           "clientItem": {
-            "$ref": "../../spidacalc/calc/client_references/equipment.schema"
+            "$ref": "../../spidacalc/calc/client_references/equipment.schema",
+            "description": "Reference to the client item with the engineering properties for this equipment."
+          },
+          "clientItemVersion": {
+            "type": "string",
+            "format": "md5",
+            "description": "Hash of the client item containing the engineering properties for this equipment."
           }
         }
       }
@@ -549,9 +600,12 @@
           "attachmentHeight",
           "owner",
           "associatedBacking",
-          "clientItem",
           "direction",
           "offset"
+        ],
+        "oneOf":[
+          {"required":["clientItem"]},
+          {"required":["clientItemVersion"]}
         ],
         "additionalProperties": false,
         "properties": {
@@ -590,7 +644,12 @@
           },
           "clientItem": {
             "type": "string",
-            "description": "ID of the client crossarm with the material properties for this crossarm."
+            "description": "Reference to the client item with the engineering properties for this crossarm."
+          },
+          "clientItemVersion": {
+            "type": "string",
+            "format": "md5",
+            "description": "Hash of the client item containing the engineering properties for this crossarm."
           }
         }
       }
@@ -606,9 +665,12 @@
           "attachmentHeight",
           "owner",
           "doubleInsulator",
-          "clientItem",
           "direction",
           "offset"
+        ],
+        "oneOf":[
+          {"required":["clientItem"]},
+          {"required":["clientItemVersion"]}
         ],
         "additionalProperties": false,
         "properties": {
@@ -645,7 +707,13 @@
             }
           },
           "clientItem": {
-            "type": "string"
+            "type": "string",
+            "description": "Reference to the client item with the engineering properties for this insulator."
+          },
+          "clientItemVersion": {
+            "type": "string",
+            "format": "md5",
+            "description": "Hash of the client item containing the engineering properties for this insulator."
           }
         }
       }
@@ -660,10 +728,13 @@
           "id",
           "attachmentHeight",
           "owner",
-          "clientItem",
           "distance",
           "direction",
           "glc"
+        ],
+        "oneOf":[
+          {"required":["clientItem"]},
+          {"required":["clientItemVersion"]}
         ],
         "additionalProperties": false,
         "properties": {
@@ -694,7 +765,13 @@
             "description": "Distance from main pole to base of push brace"
           },
           "clientItem": {
-            "$ref": "../../spidacalc/calc/client_references/pole.schema"
+            "$ref": "../../spidacalc/calc/client_references/pole.schema",
+            "description": "Reference to the client item with the engineering properties for this push brace."
+          },
+          "clientItemVersion": {
+            "type": "string",
+            "format": "md5",
+            "description": "Hash of the client item containing the engineering properties for this push brace."
           }
         }
       }

@@ -3,7 +3,6 @@
   "description": "SPIDA CEE analysis result",
   "type": "object",
   "required": [
-    "design",
     "loadCase",
     "components"
   ],
@@ -12,12 +11,17 @@
       "description": "the id of this result",
       "type": "string"
     },
-    "design": {
-      "description": "The version of the client file used to generate these results.",
+    "designId": {
+      "description": "The id of the design used to generate these results.",
       "type": "string"
     },
     "loadCase": {
+      "description": "The name of load case used to generate the results.",
+      "type": "string"
+    },
+    "loadCaseVersion": {
       "description": "The version hash of the load case used to generate the results.",
+      "format": "md5",
       "type": "string"
     },
     "components": {
