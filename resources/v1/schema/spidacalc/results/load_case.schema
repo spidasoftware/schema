@@ -36,6 +36,9 @@
 		"analyzeGroundLineOnly": {
 			"type": "boolean"
 		},
+		"analyzeWithExtremeIceOnAll": {
+			"type": "boolean"
+		},
 		"analyzeWithoutLinearConstant": {
 			"type": "boolean"
 		},
@@ -48,9 +51,9 @@
 		"pretensionGuys": {
 			"type": "boolean"
 		},
-		"rural": {
-			"type": "boolean"
-		},
+    "rural": {
+      "type": "boolean"
+    },
 		"components": {
       "type":"array",
       "items":{
@@ -92,11 +95,10 @@
 				"HEAVY",
 				"MEDIUM_A",
 				"MEDIUM_B",
-				"SEVERE"
+				"SEVERE",
+        "WARM_ISLAND_UNDER_9000_FT",
+        "WARM_ISLAND_OVER_9000_FT"
 			]
-		},
-		"overrides": {
-			"type": "object"
 		},
 		"connectionType": {
 			"enum": [
@@ -157,7 +159,7 @@
 				"MPH_170"
 			]
 		},
-		"iceThickness": {
+		"ice": {
       "oneOf":[
         {"enum": [
           "INCH_000", "INCH_025", "INCH_050", "INCH_075", "INCH_100", "INCH_125", "INCH_150"
@@ -168,7 +170,11 @@
       ]
 		},
     "linearConstant": {
-      "description": "option constant for custom load cases",
+      "description": "contant option for custom load cases",
+      "$ref": "../../general/measurable.schema"
+    },
+    "iceThickness": {
+      "description": "ice option for custom load cases",
       "$ref": "../../general/measurable.schema"
     },
     "temperature": {
@@ -183,9 +189,48 @@
       "description": "option for custom load cases",
       "type": "boolean"
     },
-    "rural": {
-      "description": "option constant for custom load cases",
-      "type": "boolean"
+    "overrides": {
+      "type": "object"
+    },
+    "bucklingCase":{
+      "type": "object",
+      "properties":{
+        "bucklingCoefficient": {
+          "type":"number"
+        },
+        "loadingHeightPercent": {
+          "type":"number"
+        },
+        "guyedConstants": {
+          "type":"array",
+          "items":{
+            "type":"object",
+            "properties":{
+              "value":{
+                "type":"number"
+              },
+              "key":{
+                "$ref": "../../general/measurable.schema"
+              }
+            }
+          }
+        },
+        "unguyedConstant": {
+          "type":"number"
+        },
+        "diameterHeightPercent": {
+          "type":"number"
+        },
+        "analysisMethod": {
+          "enum":["AITC", "TRADITIONAL_EULER"]
+        },
+        "diameterMethod": {
+          "enum":["TAPERED_DIAMETER", "CONSTANT_DIAMETER"]
+        },
+        "sectionHeightMode":{
+          "enum":["PERCENT", "LOAD"]
+        }
+      }
     }
 	},
 	"oneOf": [{
@@ -206,7 +251,7 @@
 		}
 	}, {
 		"type": "object",
-		"required": ["iceThickness"],
+		"required": ["ice"],
 		"properties": {
 			"type": {
 				"enum": ["EXTREME_ICE_LOAD_CASE", "EXTREME_ICE_LOAD_CASE2012"]
