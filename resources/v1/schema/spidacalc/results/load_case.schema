@@ -18,7 +18,7 @@
 			"type": "string"
 		},
 		"type": {
-			"description": "the kind of load case this is.",
+			"description": "the kind of load case this is. enum is defined below",
 			"type": "string"
 		},
 		"analyzeWithExtremeWindOnAll": {
@@ -192,8 +192,30 @@
     "overrides": {
       "type": "object"
     },
+    "deflectionCase":{
+      "type": "object",
+      "required":["type"],
+      "properties":{
+        "type": {
+          "enum":["FIXED_DISTANCE_DEFLECTION", "ANGLE_DEFLECTION", "PERCENT_OF_HEIGHT_DEFLECTION"]
+        },
+        "distance": {
+          "description": "option for fixed distance",
+          "$ref": "../../general/measurable.schema"
+        },
+        "maxAllowableAngle": {
+          "description": "option for angle deflection",
+          "$ref": "../../general/measurable.schema"
+        },
+        "percent": {
+          "description": "option for percent deflection",
+          "type":"number"
+        }
+      }
+    },
     "bucklingCase":{
       "type": "object",
+      "required":["bucklingCoefficient","unguyedConstant","guyedConstants","analysisMethod","sectionHeightMode"],
       "properties":{
         "bucklingCoefficient": {
           "type":"number"
@@ -206,10 +228,10 @@
           "items":{
             "type":"object",
             "properties":{
-              "value":{
+              "constant":{
                 "type":"number"
               },
-              "key":{
+              "angle":{
                 "$ref": "../../general/measurable.schema"
               }
             }
@@ -251,7 +273,7 @@
 		}
 	}, {
 		"type": "object",
-		"required": ["ice"],
+		"required": ["ice", "windSpeed", "constructionGrade"],
 		"properties": {
 			"type": {
 				"enum": ["EXTREME_ICE_LOAD_CASE", "EXTREME_ICE_LOAD_CASE2012"]
@@ -259,16 +281,26 @@
 		}
 	},{
 		"type": "object",
+    "required": ["windSpeed", "constructionGrade", "usageLevel"],
 		"properties": {
 			"type": {
 				"enum": [
-					"CSA_LOAD_CASE",
-					"CSA_LINEAR_LOAD_CASE",
-					"CSA2015_NON_LINEAR_LOAD_CASE",
-					"ZONE_LOAD_CASE",
-					"ZONE_LOAD_CASE2012",
 					"EXTREME_WIND_LOAD_CASE",
 					"EXTREME_WIND_LOAD_CASE2012"
+				]
+			}
+		}
+	},{
+		"type": "object",
+    "required": ["loadZone", "constructionGrade", "usageLevel"],
+		"properties": {
+			"type": {
+				"enum": [
+          "ZONE_LOAD_CASE",
+					"ZONE_LOAD_CASE2012",
+					"CSA_LOAD_CASE",
+					"CSA_LINEAR_LOAD_CASE",
+					"CSA2015_NON_LINEAR_LOAD_CASE"
 				]
 			}
 		}
