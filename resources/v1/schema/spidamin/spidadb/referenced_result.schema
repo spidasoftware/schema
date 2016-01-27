@@ -4,7 +4,7 @@
     "required": [
         "id",
         "calcDesign",
-        "dateModified",
+        "dateModified"
     ],
     "properties": {
         "id": {
