@@ -11,10 +11,6 @@
       "description": "the id of this result",
       "type": "string"
     },
-    "designId": {
-      "description": "The id of the design used to generate these results.",
-      "type": "string"
-    },
     "loadCase": {
       "description": "The name of load case used to generate the results.",
       "type": "string"

@@ -21,40 +21,38 @@
                         "description": "an id, usually the loadcase name",
                         "type": "string"
                     },
-                    "loadCaseVersion":{
-                      "description": "load case version hash.",
-                      "format": "md5",
-                      "type": "string"
-                    },
-                    "resultId":{
-                        "description": "The complete result object for this load case.",
-                        "type": "string"
-                    },
                     "results": {
-                        "description": "Result summaries for all components.",
+                        "description": "Results for all components.",
+                        "type": "array",
                         "items": {
-                            "$ref": "../../spidamin/asset/standard_details/analysis_asset.schema"
-                        },
-                        "type": "array"
+                            "oneOf":[
+                              {
+                                "$ref": "../../spidamin/asset/standard_details/analysis_asset.schema"
+                              },
+                              {
+                                "$ref": "../../spidacalc/results/result.schema"
+                              }
+                            ]
+                        }
                     }
                 },
                 "required": [
                     "id"
-                ], 
+                ],
                 "type": "object"
-            }, 
+            },
             "type": "array"
-        }, 
+        },
         "framingPlan": {
             "$ref": "../../spidacalc/client/framing_plan.schema"
-        }, 
+        },
         "geographicCoordinate": {
             "$ref": "../../general/geometry.schema"
-        }, 
+        },
 
         "structure": {
             "$ref": "../../spidacalc/calc/structure.schema"
         }
     }
-    
+
 }
