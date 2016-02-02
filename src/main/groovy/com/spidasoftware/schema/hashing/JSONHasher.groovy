@@ -12,7 +12,7 @@ class JSONHasher {
 
 	def static jsonSlurper = new JsonSlurper()
 
-	private static String hashJsonString(String jsonString) {
+	public static String hash(String jsonString) {
 		def jsonObject = jsonSlurper.parseText(jsonString)
 		def mapString
 		if (jsonObject instanceof List) {
@@ -27,11 +27,11 @@ class JSONHasher {
 	}
 
 	static String hash(List jsonList) {
-		return hashJsonString(JsonOutput.toJson(jsonList))
+		return hash(JsonOutput.toJson(jsonList))
 	}
 
 	static String hash(Map jsonObject) {
-		return hashJsonString(JsonOutput.toJson(jsonObject))
+		return hash(JsonOutput.toJson(jsonObject))
 	}
 
 	//Partially recursive (uses sortAny() which also can call this function) sort of a map.
