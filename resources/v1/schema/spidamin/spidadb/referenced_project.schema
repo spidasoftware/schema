@@ -18,7 +18,7 @@
             "$ref": "../../general/long_date.schema"
         },
         "user": {
-          "$ref": "../../spidamin/spidadb/user_ref.schema"
+            "$ref": "../../spidamin/spidadb/user_ref.schema"
         }
     }
 }

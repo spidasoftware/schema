@@ -136,7 +136,7 @@ Anything in the response will be ignored by the server.
 		</tr>
 		<tr>
 			<td>Status</td>
-			<td>leaveStatus:<i>partType</i>:<i>eventName</i>:<i>stationName</i></td>
+			<td>leaveStatus:<i>partType</i>:<i>eventName</i>:<i>partName</i></td>
 			<td>{previousEvent: <i>status</i>,  <br/>
 			nextEvent: <i>status</i>,  <br/>
 			part: <i>station or project</i>,  <br/>
@@ -146,7 +146,7 @@ Anything in the response will be ignored by the server.
 		</tr>
 		<tr>
 			<td>Status</td>
-			<td>enterStatus:<i>partType</i>:<i>eventName</i>:<i>stationName</i></td>
+			<td>enterStatus:<i>partType</i>:<i>eventName</i>:<i>partName</i></td>
 			<td>{previousEvent: <i>status</i>,  <br/>
 			nextEvent: <i>status</i>,  <br/>
 			part: <i>station or project</i>,  <br/>

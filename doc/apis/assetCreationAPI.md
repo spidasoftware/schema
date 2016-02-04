@@ -113,7 +113,11 @@ This is the given id for the created asset.
 Delete
 ----------
 
-Deletes stations or assets
+Deletes stations or assets. 
+
+Note: You must be careful when deleting stations from an asset service because of how they are linked to Projectmanager stations.  The Projectmanager stations are separate from the asset service stations. When we add an asset service station to a project in Projectmanager we create a Projectmanager station and link it to the corresponding asset service station. If an asset service station is deleted then the link from Projectmanager that points to the asset service station is broken.  Trying to retreive details from the asset service for the Projectmanager station will fail because the asset service station doesn't exist.  The asset service is separate and has no knowledge of Projectmanager so it does not update the link and Projectmanager will never know that it was deleted.  If an asset service station is deleted and then added back it will be created with a new id and Projectmanager will not know about the new id. If details need to be updated on an asset service station the createOrUpdate should be used to update the details.  If you must delete an asset service station and add in a new one instead of updating the existing station then the links in Projectmanager will have to be updated using the [Station Linker API](stationLinkerAPI.md).
+
+
 
 #### URL
 
