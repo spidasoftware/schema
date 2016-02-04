@@ -41,7 +41,7 @@
             "description": "This is a schema version integer."
         },
         "user": {
-            "$ref": "userRef.schema"
+            "$ref": "../../spidamin/spidadb/user_ref.schema"
         }
     }
 }

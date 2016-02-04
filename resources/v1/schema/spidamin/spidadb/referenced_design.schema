@@ -20,7 +20,7 @@
             "$ref": "../../spidacalc/calc/design.schema"
         },
         "user": {
-            "$ref": "userRef.schema"
+            "$ref": "../../spidamin/spidadb/user_ref.schema"
         },
         "projectId": {
             "type": "string",
