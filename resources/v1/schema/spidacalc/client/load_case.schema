@@ -1,0 +1,309 @@
+{
+	"id": "#/spidacalc/results/load_case.schema",
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"description": "The loading information used to generate analysis",
+	"type": "object",
+	"required": ["name", "type", "maximumLoadingRatio", "analyzeGroundLineOnly"],
+	"properties": {
+		"id": {
+			"description": "the id of this result",
+			"type": "string"
+		},
+		"name": {
+			"type": "string"
+		},
+		"version": {
+			"description": "The version hash of the load case used to generate the results.",
+			"format": "md5",
+			"type": "string"
+		},
+		"type": {
+			"description": "the kind of load case this is. enum is defined below",
+			"type": "string"
+		},
+		"analyzeWithExtremeWindOnAll": {
+			"type": "boolean"
+		},
+		"maximumLoadingRatio": {
+			"type": "integer"
+		},
+		"useStrengthResults": {
+			"type": "boolean"
+		},
+		"analyzeWithDisplacementBasedLoadChanges": {
+			"type": "boolean"
+		},
+		"analyzeGroundLineOnly": {
+			"type": "boolean"
+		},
+		"analyzeWithExtremeIceOnAll": {
+			"type": "boolean"
+		},
+		"analyzeWithoutLinearConstant": {
+			"type": "boolean"
+		},
+		"analyzeWithAverageSpan": {
+			"type": "boolean"
+		},
+		"addByDefault": {
+			"type": "boolean"
+		},
+		"pretensionGuys": {
+			"type": "boolean"
+		},
+    "rural": {
+      "type": "boolean"
+    },
+		"components": {
+      "type":"array",
+      "items":{
+		  	"enum": [
+		  		"ANCHOR",
+		  		"GUY",
+		  		"PUSHBRACE",
+		  		"CROSSARM",
+		  		"INSULATOR",
+		  		"POLE",
+		  		"SIDEWALK_BRACE",
+		  		"FOUNDATION"
+			  ]
+      }
+		},
+		"constructionGrade": {
+			"enum": [
+				"B",
+				"C",
+				"C_WITH_CROSSINGS",
+				"N",
+				"ONE",
+				"TWO",
+				"THREE",
+				"A",
+				"F"
+			]
+		},
+		"constructionType": {
+			"enum": [
+				"NEW",
+				"REPLACEMENT"
+			]
+		},
+		"loadZone": {
+			"enum": [
+				"LIGHT",
+				"MEDIUM",
+				"HEAVY",
+				"MEDIUM_A",
+				"MEDIUM_B",
+				"SEVERE",
+        "WARM_ISLAND_UNDER_9000_FT",
+        "WARM_ISLAND_OVER_9000_FT"
+			]
+		},
+		"connectionType": {
+			"enum": [
+				"CONTINUATION", "ARM"
+			]
+		},
+		"analysisMethod": {
+			"enum": [
+				"DIRECT_STIFFNESS", "CO_ROTATIONAL"
+			]
+		},
+		"usageLevel": {
+			"enum": [
+				"NONE", "POLE"
+			]
+		},
+		"staticPretensionMultiplier": {
+			"type": "number"
+		},
+		"windType": {
+			"enum": [
+				"SWEEP", "FIXED", "RANGE"
+			]
+		},
+		"windStartAngle": {
+			"$ref": "../../general/measurable.schema"
+		},
+		"windEndAngle": {
+			"$ref": "../../general/measurable.schema"
+		},
+		"sweepIncrement": {
+			"enum": [
+				"DEGREE_1", "DEGREE_2", "DEGREE_5", "DEGREE_10", "DEGREE_15", "DEGREE_25", "DEGREE_45"
+			]
+		},
+		"windSpeed": {
+			"enum": [
+				"MPH_30",
+				"MPH_40",
+				"MPH_50",
+				"MPH_60",
+				"MPH_90",
+				"MPH_95",
+				"MPH_100",
+				"MPH_105",
+				"MPH_110",
+				"MPH_115",
+				"MPH_120",
+				"MPH_125",
+				"MPH_130",
+				"MPH_135",
+				"MPH_140",
+				"MPH_145",
+				"MPH_150",
+				"MPH_155",
+				"MPH_160",
+				"MPH_165",
+				"MPH_170"
+			]
+		},
+		"ice": {
+      "oneOf":[
+        {"enum": [
+          "INCH_000", "INCH_025", "INCH_050", "INCH_075", "INCH_100", "INCH_125", "INCH_150"
+        ]},
+        {
+          "$ref": "../../general/measurable.schema"
+        }
+      ]
+		},
+    "linearConstant": {
+      "description": "contant option for custom load cases",
+      "$ref": "../../general/measurable.schema"
+    },
+    "iceThickness": {
+      "description": "ice option for custom load cases",
+      "$ref": "../../general/measurable.schema"
+    },
+    "temperature": {
+      "description": "option for custom load cases",
+      "$ref": "../../general/measurable.schema"
+    },
+    "windPressure": {
+      "description": "option for custom load cases",
+      "$ref": "../../general/measurable.schema"
+    },
+    "loadMultipliersIncludedInDisplacementBasedLoadChanges": {
+      "description": "option for custom load cases",
+      "type": "boolean"
+    },
+    "overrides": {
+      "type": "object"
+    },
+    "deflectionCase":{
+      "type": "object",
+      "required":["type"],
+      "properties":{
+        "type": {
+          "enum":["FIXED_DISTANCE_DEFLECTION", "ANGLE_DEFLECTION", "PERCENT_OF_HEIGHT_DEFLECTION"]
+        },
+        "distance": {
+          "description": "option for fixed distance",
+          "$ref": "../../general/measurable.schema"
+        },
+        "maxAllowableAngle": {
+          "description": "option for angle deflection",
+          "$ref": "../../general/measurable.schema"
+        },
+        "percent": {
+          "description": "option for percent deflection",
+          "type":"number"
+        }
+      }
+    },
+    "bucklingCase":{
+      "type": "object",
+      "required":["bucklingCoefficient","unguyedConstant","guyedConstants","analysisMethod","sectionHeightMode"],
+      "properties":{
+        "bucklingCoefficient": {
+          "type":"number"
+        },
+        "loadingHeightPercent": {
+          "type":"number"
+        },
+        "guyedConstants": {
+          "type":"array",
+          "items":{
+            "type":"object",
+            "properties":{
+              "constant":{
+                "type":"number"
+              },
+              "angle":{
+                "$ref": "../../general/measurable.schema"
+              }
+            }
+          }
+        },
+        "unguyedConstant": {
+          "type":"number"
+        },
+        "diameterHeightPercent": {
+          "type":"number"
+        },
+        "analysisMethod": {
+          "enum":["AITC", "TRADITIONAL_EULER"]
+        },
+        "diameterMethod": {
+          "enum":["TAPERED_DIAMETER", "CONSTANT_DIAMETER"]
+        },
+        "sectionHeightMode":{
+          "enum":["PERCENT", "LOAD"]
+        }
+      }
+    }
+	},
+	"oneOf": [{
+		"type": "object",
+		"required": ["linearConstant", "temperature", "windPressure", "loadMultipliersIncludedInDisplacementBasedLoadChanges", "iceThickness"],
+		"properties": {
+			"type": {
+				"enum": ["CUSTOM_LOAD_CASE"]
+			}
+		}
+	}, {
+		"type": "object",
+		"required": ["rural"],
+		"properties": {
+			"type": {
+				"enum": ["GO95_LOAD_CASE", "GO95_LOAD_CASE2014"]
+			}
+		}
+	}, {
+		"type": "object",
+		"required": ["ice", "windSpeed", "constructionGrade"],
+		"properties": {
+			"type": {
+				"enum": ["EXTREME_ICE_LOAD_CASE", "EXTREME_ICE_LOAD_CASE2012"]
+			}
+		}
+	},{
+		"type": "object",
+    "required": ["windSpeed", "constructionGrade", "usageLevel"],
+		"properties": {
+			"type": {
+				"enum": [
+					"EXTREME_WIND_LOAD_CASE",
+					"EXTREME_WIND_LOAD_CASE2012"
+				]
+			}
+		}
+	},{
+		"type": "object",
+    "required": ["loadZone", "constructionGrade", "usageLevel"],
+		"properties": {
+			"type": {
+				"enum": [
+          "ZONE_LOAD_CASE",
+					"ZONE_LOAD_CASE2012",
+					"CSA_LOAD_CASE",
+					"CSA_LINEAR_LOAD_CASE",
+					"CSA2015_NON_LINEAR_LOAD_CASE"
+				]
+			}
+		}
+	}],
+	"additionalProperties": false
+}

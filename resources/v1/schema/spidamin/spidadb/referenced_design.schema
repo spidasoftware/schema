@@ -2,9 +2,9 @@
     "type": "object",
     "description": "The Design data, as it is stored in CalcDB",
     "required": [
+        "id",
         "calcDesign",
         "dateModified",
-        "id",
         "projectId",
         "projectLabel",
         "locationId",

@@ -3,8 +3,11 @@
   "description": "The properties for a pole in a structure.",
   "type": "object",
   "required": [
-    "clientItem",
     "owner"
+  ],
+  "oneOf":[
+    {"required":["clientItem"]},
+    {"required":["clientItemVersion"]}
   ],
   "properties": {
     "id": {
@@ -46,8 +49,13 @@
       "type": "number"
     },
     "clientItem": {
-      "description": "The client pole used to specify material properties.",
-      "$ref": "../../spidacalc/calc/client_references/pole.schema"
+      "$ref": "../../spidacalc/calc/client_references/pole.schema",
+      "description": "Reference of the client item with the engineering properties for this pole."
+    },
+    "clientItemVersion": {
+      "description": "The version hash of engineering material properties.",
+      "format": "md5",
+      "type": "string"
     },
     "owner": {
       "description": "Company who owns the pole.",

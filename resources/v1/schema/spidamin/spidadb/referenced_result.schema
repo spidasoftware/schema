@@ -1,0 +1,53 @@
+{
+    "type": "object",
+    "description": "The result data, as it is stored in CalcDB",
+    "required": [
+        "id",
+        "calcDesign",
+        "dateModified"
+    ],
+    "properties": {
+        "id": {
+            "type": "string",
+            "description": "The unique id of this project component"
+        },
+        "calcResult": {
+            "$ref": "../../spidacalc/result/result.schema"
+        },
+        "user": {
+          "$ref": "../../spidamin/spidadb/user_ref.schema"
+        },
+        "projectId": {
+            "type": "string",
+            "description": "The id (in calcdb) of the parent Project, if there is one"
+        },
+        "projectLabel": {
+            "type": "string",
+            "description": "The label of the parent Project, if there is one"
+        },
+        "locationId": {
+            "type": "string",
+            "description": "The label of the parent Location, if there is one"
+        },
+        "locationLabel" : {
+            "type": "string",
+            "description": "The label of the parent Location, if there is one"
+        },
+        "designId": {
+            "type": "string",
+            "description": "The label of the parent Design, if there is one"
+        },
+        "designLabel" : {
+            "type": "string",
+            "description": "The label of the parent Design, if there is one"
+        },
+        "dateModified": {
+            "$ref": "../../general/long_date.schema"
+        },
+        "version": {
+            "type": "number",
+            "description": "This is a schema version integer."
+        }
+    },
+    "additionalProperties": false
+}

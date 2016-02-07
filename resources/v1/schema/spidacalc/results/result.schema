@@ -4,16 +4,20 @@
   "type": "object",
   "required": [
     "loadCase",
-    "clientFileVersion",
     "components"
   ],
   "properties": {
-    "loadCase": {
-      "description": "The name of the load case used to generate the results.",
+    "id": {
+      "description": "the id of this result",
       "type": "string"
     },
-    "clientFileVersion": {
-      "description": "The version of the client file used to generate these results.",
+    "loadCase": {
+      "description": "The name of load case used to generate the results.",
+      "type": "string"
+    },
+    "loadCaseVersion": {
+      "description": "The version hash of the load case used to generate the results.",
+      "format": "md5",
       "type": "string"
     },
     "components": {
