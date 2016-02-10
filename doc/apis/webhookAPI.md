@@ -154,6 +154,26 @@ Anything in the response will be ignored by the server.
 			projectId: <i>project.id</i>}</td>
 			<td>Send when an Project, Station, or Asset enters a status</td>
 		</tr>
+    <tr>
+      <td>Phase</td>
+      <td>leavePhase:<i>partType</i>:<i>eventName</i>:<i>partName</i></td>
+      <td>{previousPhase: <i>phase</i>,  <br/>
+      nextPhase: <i>phase</i>,  <br/>
+      part: <i>project</i>,  <br/>
+      user: <i>userEmail</i>, <br/>
+      projectId: <i>project.id</i>}</td>
+      <td>Send when a Project leaves a phase</td>
+    </tr>
+    <tr>
+      <td>Phase</td>
+      <td>enterPhase:<i>partType</i>:<i>eventName</i>:<i>partName</i></td>
+      <td>{previousPhase: <i>phase</i>,  <br/>
+      nextPhase: <i>phase</i>,  <br/>
+      part: <i>project</i>,  <br/>
+      user: <i>userEmail</i>, <br/>
+      projectId: <i>project.id</i>}</td>
+      <td>Send when a Project enters a phase</td>
+    </tr>
 		<tr>
 			<td>Form</td>
 			<td>update:<i>source</i>:<i>ownerName</i>:<i>formName</i><br/>
