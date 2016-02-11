@@ -84,8 +84,8 @@ Anything in the response will be ignored by the server.
 			<th>Event Name</th>
 			<th>Payload</th>
 			<th>Description</th>
-			<td>Version Available</td>
-		</tr>
+			<th>Version Available</th>
+		</tr> 
 	</thead>
 	<tbody>
 		<tr>
