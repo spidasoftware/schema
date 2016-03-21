@@ -7,10 +7,16 @@ class JSONHasherSpec extends Specification{
 
 	String json
 	String jsonMixed
+	String realJson
+	String realJson2
+	String realJson3
+	String realJson4
 
 	def setup(){
 		json = '{ "level": 1, "child": { "array": [1, 2, 3, 4, 5], "arrayOfObjects":[ {"name":"short", "age":12, "location":"someplace"}, {"name":"long", "age":66, "location":"nowhere"} ], "sibling":"sister" }, "otherProp":"something" }'
 		jsonMixed = '{ "child": { "sibling": "sister", "array": [1, 3, 2, 5, 4], "arrayOfObjects": [{ "name": "long", "location": "nowhere", "age": 66 }, { "age": 12, "name": "short", "location": "someplace" }], }, "otherProp": "something", "level": 1 }'
+		realJson = '{"description": "0.75 Inch Telephone Bundle with 1/4\\\" EHS Messenger","coreStrands": 166.20000000000002,"conductorStrands": 7,"crossArea": {"unit": "SQUARE_INCH","value": 0.0352},"expansionCoefficient": {"unit": "PER_FAHRENHEIT","value": 6.4E-6}}'
+		realJson2 = '{"expansionCoefficient": {"unit": "PER_FAHRENHEIT","value": 0.0000064},"description": "0.75 Inch Telephone Bundle with 1/4\\\" EHS Messenger","conductorStrands": 7,"coreStrands": 166.20000000000002,"crossArea": {"unit": "SQUARE_INCH","value": 0.0352000}}'
 	}
 
 	def "Test hash produces a different value for objects with one different character"() {
@@ -36,6 +42,66 @@ class JSONHasherSpec extends Specification{
 			hashChanged == hashMapChanged
 			map.level==1
 			mapChanged.level==2
+	}
+
+
+
+	def "Hasher correctly handles scientific notation"() {
+
+		when:
+			def jsonSlurper = new JsonSlurper()
+
+			def jsonScientific = json.replace('"level": 1', '"level": 1.27E-8')
+			def jsonDecimal = json.replace('"level": 1', '"level": 0.0000000127')
+
+			def map1 = jsonSlurper.parseText(jsonScientific)
+			def map2 = jsonSlurper.parseText(jsonDecimal)
+
+			def hash1 = JSONHasher.hash(jsonScientific)
+			def hash2 = JSONHasher.hash(jsonDecimal)
+
+			def hashMap1 = JSONHasher.hash(map1)
+			def hashMap2 = JSONHasher.hash(map2)
+
+		then:
+			hash1 == hash2
+			hashMap1 == hashMap2
+			map1.level == 1.27E-8
+			map2.level == 0.0000000127
+	}
+
+
+	def "Hasher correctly handles BigDecimals"() {
+
+		when:
+			def jsonSlurper = new JsonSlurper()
+
+			def map1 = jsonSlurper.parseText(json)
+			def map2 = jsonSlurper.parseText(json)
+
+			map1.level = new BigDecimal(1.29999999999992999999999999)
+			map2.level = 1.29999999999992999999999999
+
+			def hashMap1 = JSONHasher.hash(map1)
+			def hashMap2 = JSONHasher.hash(map2)
+
+		then:
+			hashMap1 == hashMap2
+	}
+
+	def "Hasher correctly handles a real json object"() {
+
+		when:
+			def jsonSlurper = new JsonSlurper()
+
+			def map1 = jsonSlurper.parseText(realJson)
+			def map2 = jsonSlurper.parseText(realJson2)
+
+			def hashMap1 = JSONHasher.hash(map1)
+			def hashMap2 = JSONHasher.hash(map2)
+
+		then:
+			hashMap1 == hashMap2
 	}
 
 	def "hash should produce the same value for equal but mixed objects"() {

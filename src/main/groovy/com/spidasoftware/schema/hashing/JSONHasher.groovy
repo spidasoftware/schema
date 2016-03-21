@@ -77,10 +77,16 @@ class JSONHasher {
 				key = sortedKeys[i]
 				value = data[key]
 
+				//Check if the value is in scientific notation.  If so, convert it to normal
+				//notation.
+				if (value.toString() =~ /[\d]\.[\d]+[Ee][+|\-]?[\d]/ ){
+					//TODO: Figure out what to do with this.  Test with passingClientFiles/TrainingDemo_4.0.client
+					//and see if the clientBraces bug is fixed.
+				}
+
 				//Checks if the type of the value is BigDecimal, and then cuts it
-				//to a floating point to avoid a MongoDB bug with BDs.
+				//to a floating point to avoid a MongoDB bug.
 				if ( value instanceof BigDecimal ){
-					log.trace("Found Big Decimal, converting to a double")
 					value = (double) value.doubleValue()
 				}
 				sortedMap.put(key.toString(), sortAny(value))
