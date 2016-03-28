@@ -5,12 +5,13 @@
 	"required": [
 		"clientAnchors",
 		"clientCrossArms",
-		"clientEquipment",
+		"clientEquipments",
 		"clientFoundations",
 		"clientInsulators",
 		"clientPoles",
-		"clientSidewalkBraces",
-		"clientWires"
+		"clientBraces",
+		"clientWires",
+		"loadCases"
 	],
 	"properties": {
 		"name": {
@@ -40,7 +41,7 @@
 				"type": "string"
 			}
 		},
-		"clientSidewalkBraces": {
+		"clientBraces": {
 			"type": "array",
 			"items": {
 				"type": "string"
@@ -64,7 +65,13 @@
 				"type": "string"
 			}
 		},
-		"clientEquipment": {
+		"clientEquipments": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"loadCases": {
 			"type": "array",
 			"items": {
 				"type": "string"
