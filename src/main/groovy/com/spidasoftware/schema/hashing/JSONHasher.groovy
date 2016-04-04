@@ -5,8 +5,6 @@ import groovy.json.JsonSlurper
 import groovy.util.logging.Log4j
 import org.apache.commons.codec.digest.DigestUtils
 
-import java.security.MessageDigest
-
 @Log4j
 class JSONHasher {
 
@@ -18,7 +16,7 @@ class JSONHasher {
 		jsonObject.remove('version')
 		jsonObject.remove('_id')
 		def mapString = JsonOutput.toJson(sortJsonMap(jsonObject))
-		return DigestUtils.md5Hex(mapString)
+		return DigestUtils.md5Hex( mapString.toLowerCase() )
 	}
 
 	static String hash(Map jsonObject){
@@ -77,13 +75,6 @@ class JSONHasher {
 				key = sortedKeys[i]
 				value = data[key]
 
-				//Check if the value is in scientific notation.  If so, convert it to normal
-				//notation.
-				if (value.toString() =~ /[\d]\.[\d]+[Ee][+|\-]?[\d]/ ){
-					//TODO: Figure out what to do with this.  Test with passingClientFiles/TrainingDemo_4.0.client
-					//and see if the clientBraces bug is fixed.
-				}
-
 				//Checks if the type of the value is BigDecimal, and then cuts it
 				//to a floating point to avoid a MongoDB bug.
 				if ( value instanceof BigDecimal ){
@@ -93,7 +84,6 @@ class JSONHasher {
 			}
 			log.trace("sorted map:"+ sortedMap)
 			return sortedMap
-
 
 		} else {
 
