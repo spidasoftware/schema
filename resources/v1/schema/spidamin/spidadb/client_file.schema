@@ -1,17 +1,11 @@
 {
 	"description": "Properties for a client file",
-	"id": "#/spidacalc/client/client_file.schema",
+	"id": "#/spidamin/spidadb/client_file.schema",
 	"type": "object",
 	"required": [
-		"clientAnchors",
-		"clientCrossArms",
-		"clientEquipments",
-		"clientFoundations",
-		"clientInsulators",
-		"clientPoles",
-		"clientBraces",
-		"clientWires",
-		"loadCases"
+		"id",
+		"name",
+		"version"
 	],
 	"properties": {
 		"name": {
@@ -71,12 +65,12 @@
 				"type": "string"
 			}
 		},
-		"loadCases": {
-			"type": "array",
+		"loadCases":{
+			"type":"array",
 			"items": {
 				"type": "string"
 			}
 		}
-    },
+  },
 	"additionalProperties": false
 }

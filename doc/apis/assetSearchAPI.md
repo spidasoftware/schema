@@ -1,4 +1,4 @@
-Asset Creation API
+Asset Search API
 ============
 
 This API is set of methods that allow you to search stations and assets.  
