@@ -80,7 +80,7 @@ class JSONHasherSpec extends Specification{
 			def map2 = jsonSlurper.parseText(json)
 
 			map1.level = new BigDecimal(1.29999999999992999999999999)
-			map2.level = 1.29999999999992999999999999
+			map2.level = (double) 1.29999999999992999999999999
 
 			def hashMap1 = JSONHasher.hash(map1)
 			def hashMap2 = JSONHasher.hash(map2)
