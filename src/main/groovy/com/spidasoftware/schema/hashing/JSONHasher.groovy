@@ -5,8 +5,6 @@ import groovy.json.JsonSlurper
 import groovy.util.logging.Log4j
 import org.apache.commons.codec.digest.DigestUtils
 
-import java.security.MessageDigest
-
 @Log4j
 class JSONHasher {
 
@@ -23,7 +21,7 @@ class JSONHasher {
 			jsonObject.remove('_id')
 			mapString = JsonOutput.toJson(sortJsonMap(jsonObject))
 		}
-		return DigestUtils.md5Hex(mapString)
+		return DigestUtils.md5Hex( mapString.toLowerCase() )
 	}
 
 	static String hash(List jsonList) {
@@ -81,7 +79,6 @@ class JSONHasher {
 			for (int i = 0; i < data.size(); i++) {
 				key = sortedKeys[i]
 				value = data[key]
-
 				//Checks if the type of the value is BigDecimal, and then cuts it
 				//to a floating point to avoid a MongoDB bug with BDs.
 				if (value instanceof BigDecimal) {
@@ -92,7 +89,6 @@ class JSONHasher {
 			}
 			log.trace("sorted map:" + sortedMap)
 			return sortedMap
-
 
 		} else {
 
