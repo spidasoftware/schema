@@ -54,6 +54,12 @@
     "rural": {
       "type": "boolean"
     },
+		"maximumAllowableTensionedDisplacement":{
+			"$ref": "../../general/measurable.schema"
+		},
+		"minimumDisplacementLoadingTension":{
+			"$ref": "../../general/measurable.schema"
+		},
 		"components": {
       "type":"array",
       "items":{
