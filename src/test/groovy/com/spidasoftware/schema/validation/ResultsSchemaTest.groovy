@@ -15,8 +15,8 @@ class ResultsSchemaTest extends GroovyTestCase {
     final JsonSchemaFactory factory = JsonSchemaFactory.newBuilder().setLoadingConfiguration(cfg).freeze()
 
 	void testOneOfEverythingConverted(){
-		def schema = factory.getJsonSchema("v1/schema/spidacalc/results/results.schema")
-		report = schema.validate(JsonLoader.fromString(new File("resources/v1/examples/spidacalc/results/one_of_everything.json").text))
+		def schema = factory.getJsonSchema("schema/spidacalc/results/results.schema")
+		report = schema.validate(JsonLoader.fromString(new File("resources/examples/spidacalc/results/one_of_everything.json").text))
 		report.each{ log.info "testOneOfEverythingConverted validation report "+it.toString() }
 		println report.toString()
 		assertTrue "this instance should be valid against the schema", report.isSuccess()

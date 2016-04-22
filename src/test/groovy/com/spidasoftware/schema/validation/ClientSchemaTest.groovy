@@ -22,8 +22,8 @@ class ClientSchemaTest extends GroovyTestCase {
 
 
 	private test(String name){
-		def schema = factory.getJsonSchema("v1/schema/spidacalc/client/${name}.schema")
-		report = schema.validate(JsonLoader.fromString(new File("resources/v1/examples/spidacalc/client/client_${name}_example.json").text))
+		def schema = factory.getJsonSchema("schema/spidacalc/client/${name}.schema")
+		report = schema.validate(JsonLoader.fromString(new File("resources/examples/spidacalc/client/client_${name}_example.json").text))
 		report.each{ log.info "validation report "+it.toString() }
 		assertTrue "the instance should be valid against a ${name} schema", report.isSuccess()
 	}

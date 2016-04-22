@@ -17,6 +17,10 @@
 		"version": {
 			"type": "string"
 		},
+		"clientFileHash":{
+			"type": "string",
+			"description":"a legacy hash of the complete file that was used to create this item"
+		},
 		"clientAnchors": {
 			"type": "array",
 			"items": {
