@@ -2,10 +2,19 @@
 	"description": "Properties for a client file",
 	"id": "#/spidamin/spidadb/client_file.schema",
 	"type": "object",
-	"required": [
-		"id",
-		"name",
-		"version"
+	"oneOf": [
+
+		{
+			"required": [
+				"name"
+			]
+		}, {
+			"required": [
+				"name",
+				"id",
+				"version"
+			]
+		}
 	],
 	"properties": {
 		"name": {
@@ -74,12 +83,12 @@
 				"type": "string"
 			}
 		},
-		"loadCases":{
-			"type":"array",
+		"loadCases": {
+			"type": "array",
 			"items": {
 				"type": "string"
 			}
 		}
-  },
+	},
 	"additionalProperties": false
 }
