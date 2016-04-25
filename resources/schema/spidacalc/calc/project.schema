@@ -18,7 +18,7 @@
     },
     "schema": {
       "type": "string",
-      "description": "Full URL of the calc schema. For version 1 should be resources/v1/schema/schema/spidacalc/calc/project.schema"
+      "description": "Full URL of the calc schema. /schema/spidacalc/calc/project.schema"
     },
     "version": {
       "type": "number",
@@ -52,7 +52,7 @@
       "description": "Any comments about the project."
     },
     "userDefinedValues": {
-        "description": "Any flat JSON object with string fields. This gets stored as user defined key-value pairs. For example, this could be used for an outside system id.", 
+        "description": "Any flat JSON object with string fields. This gets stored as user defined key-value pairs. For example, this could be used for an outside system id.",
         "id": "userDefinedValues",
         "type": "object"
     },

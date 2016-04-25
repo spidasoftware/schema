@@ -4,6 +4,8 @@
   "type": "object",
   "required": [
     "loadCase",
+    "engineVersion",
+    "analysisDate",
     "components"
   ],
   "properties": {
@@ -19,6 +21,14 @@
       "description": "The version hash of the load case used to generate the results.",
       "format": "md5",
       "type": "string"
+    },
+    "engineVersion":{
+      "type":"string",
+      "description": "the version of the engine that was used to generate these results"
+    },
+    "analysisDate":{
+      "type":"number",
+      "description":"milliseconds from 1970-01-01 UTC"
     },
     "components": {
       "description": "A list of the results for each component.",

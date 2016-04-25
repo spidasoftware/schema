@@ -15,7 +15,12 @@
 			"type": "string"
 		},
 		"version": {
-			"type": "string"
+			"type": "string",
+			"description": "a hash of of the individual items hash"
+		},
+		"companyId": {
+			"type": "string",
+			"description": "the owning company for this client file"
 		},
 		"clientFileHash":{
 			"type": "string",
