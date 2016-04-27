@@ -19,6 +19,10 @@
         "calcDesign": {
             "$ref": "../../spidacalc/calc/design.schema"
         },
+        "companyId": {
+          "type": "string",
+          "description": "the owning company for this design"
+        },
         "user": {
             "$ref": "../../spidamin/spidadb/user_ref.schema"
         },

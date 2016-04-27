@@ -10,6 +10,10 @@
       "type": "string",
       "description": "The id of the item."
     },
+    "description":{
+      "type":"string",
+      "description":"a readable string that is used for display"
+    },
     "applied": {
       "$ref": "../../general/triad.schema"
     },

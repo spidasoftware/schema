@@ -1,0 +1,133 @@
+{
+
+  "description": "An individual result object for the component.",
+  "type": "object",
+  "required": [
+    "component", "poles", "actual", "ratio", "allowable", "failingRatio", "status", "resultsType", "strengthFactor"
+  ],
+  "properties": {
+    "itemId": {
+      "type": "string",
+      "description":"the unique per structure of the item that was being examined"
+    },
+    "itemDescription":{
+      "type": "string",
+      "description":"the readable description of the item that was being examined"
+    },
+    "analysisType":{
+      "enum": ["STRESS", "MOMENT", "FORCE", "BUCKLING", "DEFLECTION"]
+    },
+    "status": {
+      "enum": ["PASSING", "NEAR_FAILING", "FAILING"]
+    },
+    "resultsType": {
+      "enum": ["SAFETY_FACTOR", "PERCENT_LOADED"]
+    },
+    "actual": {
+      "type": "number"
+    },
+    "ratio": {
+      "type": "number"
+    },
+    "allowable": {
+      "type": "number"
+    },
+    "windDirection": {
+      "type": "integer"
+    },
+    "failingRatio": {
+      "type": "number"
+    },
+    "strengthFactor":{
+      "type": "number"
+    },
+    "values": {
+      "type": "object",
+      "properties": {
+        "ratedStress": {
+          "$ref": "../../general/measurable.schema"
+        },
+        "stress": {
+          "$ref": "../../general/measurable.schema"
+        },
+        "atDirection": {
+          "type": "array",
+          "description": "a list of direction in degrees to the value reported at that wind direction",
+          "items": {
+            "type": "object",
+            "properties": {
+              "direction": {
+                "$ref": "../../general/measurable.schema"
+              },
+              "value": {
+                "$ref": "../../general/measurable.schema"
+              }
+            }
+          }
+        }
+      }
+    },
+    "poles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "../../spidacalc/results/pole.schema"
+      }
+    },
+    "wires": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/results/wire.schema"
+      }
+    },
+    "insulators": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/results/item.schema"
+      }
+    },
+    "crossArms": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/results/item.schema"
+      }
+    },
+    "sidewalkBraces": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/results/item.schema"
+      }
+    },
+    "guys": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/results/item.schema"
+      }
+    },
+    "spanGuys": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/results/item.schema"
+      }
+    },
+    "equipments": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/results/item.schema"
+      }
+    },
+    "pushBraces": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/results/item.schema"
+      }
+    },
+    "anchors": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/results/item.schema"
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -14,6 +14,10 @@
             "type": "string",
             "description": "The unique id of this project component"
         },
+        "companyId": {
+          "type": "string",
+          "description": "the owning company for this project"
+        },
         "dateModified": {
             "$ref": "../../general/long_date.schema"
         },

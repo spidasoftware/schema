@@ -2,10 +2,19 @@
 	"description": "Properties for a client file",
 	"id": "#/spidamin/spidadb/client_file.schema",
 	"type": "object",
-	"required": [
-		"id",
-		"name",
-		"version"
+	"oneOf": [
+
+		{
+			"required": [
+				"name"
+			]
+		}, {
+			"required": [
+				"name",
+				"id",
+				"version"
+			]
+		}
 	],
 	"properties": {
 		"name": {
@@ -15,7 +24,16 @@
 			"type": "string"
 		},
 		"version": {
-			"type": "string"
+			"type": "string",
+			"description": "a hash of of the individual items hash"
+		},
+		"companyId": {
+			"type": "string",
+			"description": "the owning company for this client file"
+		},
+		"clientFileHash":{
+			"type": "string",
+			"description":"a legacy hash of the complete file that was used to create this item"
 		},
 		"clientAnchors": {
 			"type": "array",
@@ -65,12 +83,12 @@
 				"type": "string"
 			}
 		},
-		"loadCases":{
-			"type":"array",
+		"loadCases": {
+			"type": "array",
 			"items": {
 				"type": "string"
 			}
 		}
-  },
+	},
 	"additionalProperties": false
 }

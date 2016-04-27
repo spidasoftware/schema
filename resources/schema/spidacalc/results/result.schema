@@ -1,0 +1,43 @@
+
+{
+  "id": "#/spidacalc/results/result.schema",
+  "description": "SPIDA CEE analysis result",
+  "type": "object",
+  "required": [
+    "loadCase",
+    "engineVersion",
+    "analysisDate",
+    "components"
+  ],
+  "properties": {
+    "id": {
+      "description": "the id of this result",
+      "type": "string"
+    },
+    "loadCase": {
+      "description": "The name of load case used to generate the results.",
+      "type": "string"
+    },
+    "loadCaseVersion": {
+      "description": "The version hash of the load case used to generate the results.",
+      "format": "md5",
+      "type": "string"
+    },
+    "engineVersion":{
+      "type":"string",
+      "description": "the version of the engine that was used to generate these results"
+    },
+    "analysisDate":{
+      "type":"number",
+      "description":"milliseconds from 1970-01-01 UTC"
+    },
+    "components": {
+      "id": "#/spidacalc/results/component.schema",
+      "description": "A map of the values for each component.",
+      "type": "array",
+      "items": {
+        "$ref":"../../spidacalc/results/component.schema"
+      }
+    }
+  }
+}
