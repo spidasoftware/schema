@@ -3,46 +3,69 @@
   "description": "An individual result object for the component.",
   "type": "object",
   "required": [
-    "component",
-    "status",
-    "resultsType",
-    "summary",
-    "poles"
+    "component", "poles", "actual", "ratio", "allowable", "failingRatio", "status", "resultsType", "strengthFactor"
   ],
   "properties": {
-    "component": {
-      "type": "string"
+    "itemId": {
+      "type": "string",
+      "description":"the unique per structure of the item that was being examined"
+    },
+    "itemDescription":{
+      "type": "string",
+      "description":"the readable description of the item that was being examined"
+    },
+    "analysisType":{
+      "enum": ["STRESS", "MOMENT", "FORCE", "BUCKLING", "DEFLECTION"]
     },
     "status": {
-      "type": "boolean"
+      "enum": ["PASSING", "NEAR_FAILING", "FAILING"]
     },
     "resultsType": {
-      "type": "string"
+      "enum": ["SAFETY_FACTOR", "PERCENT_LOADED"]
     },
-    "summary": {
+    "actual": {
+      "type": "number"
+    },
+    "ratio": {
+      "type": "number"
+    },
+    "allowable": {
+      "type": "number"
+    },
+    "windDirection": {
+      "type": "integer"
+    },
+    "failingRatio": {
+      "type": "number"
+    },
+    "strengthFactor":{
+      "type": "number"
+    },
+    "values": {
       "type": "object",
-      "description": "Holds some required values for a result and any other item that should be displayed at a high level.",
-      "required": [
-        "actual", "ratio", "allowable", "failingRatio"
-      ],
       "properties": {
-        "actual": {
-          "type": "number"
+        "ratedStress": {
+          "$ref": "../../general/measurable.schema"
         },
-        "ratio": {
-          "type": "number"
+        "stress": {
+          "$ref": "../../general/measurable.schema"
         },
-        "allowable": {
-          "type": "number"
-        },
-        "windDirection": {
-          "type": "integer"
-        },
-        "failingRatio": {
-          "type": "number"
+        "atDirection": {
+          "type": "array",
+          "description": "a list of direction in degrees to the value reported at that wind direction",
+          "items": {
+            "type": "object",
+            "properties": {
+              "direction": {
+                "$ref": "../../general/measurable.schema"
+              },
+              "value": {
+                "$ref": "../../general/measurable.schema"
+              }
+            }
+          }
         }
-      },
-      "additionalProperties": true
+      }
     },
     "poles": {
       "type": "array",
