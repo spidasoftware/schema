@@ -116,11 +116,6 @@
 				"DIRECT_STIFFNESS", "CO_ROTATIONAL"
 			]
 		},
-		"usageLevel": {
-			"enum": [
-				"NONE", "POLE"
-			]
-		},
 		"staticPretensionMultiplier": {
 			"type": "number"
 		},
@@ -287,7 +282,7 @@
 		}
 	},{
 		"type": "object",
-    "required": ["windSpeed", "constructionGrade", "usageLevel"],
+    "required": ["windSpeed", "constructionGrade"],
 		"properties": {
 			"type": {
 				"enum": [
@@ -298,7 +293,7 @@
 		}
 	},{
 		"type": "object",
-    "required": ["loadZone", "constructionGrade", "usageLevel"],
+    "required": ["loadZone", "constructionGrade"],
 		"properties": {
 			"type": {
 				"enum": [
