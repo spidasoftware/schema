@@ -31,6 +31,10 @@
       "type":"number",
       "description":"milliseconds from 1970-01-01 UTC"
     },
+    "warnings":{
+      "type":"array",
+      "items":"string"
+    },
     "components": {
       "id": "#/spidacalc/results/component.schema",
       "description": "A map of the values for each component.",

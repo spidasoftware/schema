@@ -10,6 +10,10 @@
       "type": "string",
       "description": "The id of the item."
     },
+    "description": {
+      "type": "string",
+      "description": "a readable string that is used for display"
+    },
     "reaction": {
       "$ref": "../../general/point_load.schema"
     },
@@ -21,9 +25,21 @@
     },
     "atHeight": {
       "type": "array",
-      "description":"measurements at specific heights on the pole",
+      "description": "measurements at specific heights on the pole",
       "minItems": 1,
       "items": {
+        "required":["height", "components"],
+        "anyOf": [{
+            "description": "strength result fields",
+            "required": ["momentOfInertia", "crossArea", "sectionModulus"]
+          }, {
+            "description": "buckling and loading result fields",
+            "required": ["stress", "deflected", "applied", "actual", "internal"]
+          }, {
+            "description": "moment result fields",
+            "required": ["deflected", "applied", "actual", "internal"]
+          }
+        ],
         "properties": {
           "height": {
             "$ref": "../../general/measurable.schema"
@@ -38,12 +54,15 @@
             "type": "array"
           },
           "applied": {
+            "description": "any externally applied forces at this height",
             "$ref": "../../general/point_load.schema"
           },
           "internal": {
+            "description": "internal forces at this height",
             "$ref": "../../general/point_load.schema"
           },
-          "deflections": {
+          "deflected": {
+            "description": "the final deflected location of the pole at this height",
             "$ref": "../../general/triad.schema"
           },
           "momentOfInertia": {
@@ -55,8 +74,7 @@
           "sectionModulus": {
             "$ref": "../../general/measurable.schema"
           }
-        },
-        "required": ["height"]
+        }
       }
     }
   },

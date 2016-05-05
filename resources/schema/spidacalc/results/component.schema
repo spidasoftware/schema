@@ -1,9 +1,8 @@
 {
-
-  "description": "An individual result object for the component.",
+  "description": "A copmeonnt is an compination of an individual item and analysis type i.e. Pole Buckling",
   "type": "object",
   "required": [
-    "component", "poles", "actual", "ratio", "allowable", "failingRatio", "status", "resultsType", "strengthFactor"
+    "itemId", "itemDescription", "poles", "actual", "ratio", "allowable", "failingRatio", "status", "resultsType", "strengthFactor"
   ],
   "properties": {
     "itemId": {
@@ -24,12 +23,15 @@
       "enum": ["SAFETY_FACTOR", "PERCENT_LOADED"]
     },
     "actual": {
-      "type": "number"
-    },
-    "ratio": {
+      "description":"S.F. or percent",
       "type": "number"
     },
     "allowable": {
+      "description":"allowable S.F. or percent",
+      "type": "number"
+    },
+    "ratio": {
+      "description":"the ratio between actual and allowable",
       "type": "number"
     },
     "windDirection": {
@@ -40,6 +42,10 @@
     },
     "strengthFactor":{
       "type": "number"
+    },
+    "message":{
+      "description":"an optional message with additional information about these results",
+      "type": "string"
     },
     "values": {
       "type": "object",
