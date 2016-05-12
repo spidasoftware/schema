@@ -30,8 +30,8 @@
 		"useStrengthResults": {
 			"type": "boolean"
 		},
-		"analyzeWithDisplacementBasedLoadChanges": {
-			"type": "boolean"
+		"displacementBasedLoadChangesLevel": {
+			"enum": ["NONE", "PARTIAL", "ALL"]
 		},
 		"analyzeGroundLineOnly": {
 			"type": "boolean"
