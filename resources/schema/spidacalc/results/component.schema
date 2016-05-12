@@ -38,6 +38,7 @@
       "type": "integer"
     },
     "failingRatio": {
+      "description":"the ratio at which this analysis will fail",
       "type": "number"
     },
     "strengthFactor":{

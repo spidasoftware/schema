@@ -4,7 +4,7 @@
   "description": "SPIDA CEE analysis result",
   "type": "object",
   "required": [
-    "loadCase",
+    "analysisCase",
     "engineVersion",
     "analysisDate",
     "components"
@@ -14,11 +14,11 @@
       "description": "the id of this result",
       "type": "string"
     },
-    "loadCase": {
+    "analysisCase": {
       "description": "The name of load case used to generate the results.",
       "type": "string"
     },
-    "loadCaseVersion": {
+    "analysisCaseVersion": {
       "description": "The version hash of the load case used to generate the results.",
       "format": "md5",
       "type": "string"
