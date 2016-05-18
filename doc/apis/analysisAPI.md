@@ -16,19 +16,19 @@ To start an analysis you will create a job by submitting a complete Analysis pay
 
 #### URL
 
-  `https://cee.spidastudio.com/job`
+https://cee.spidastudio.com/job
 
 #### Method
 
-    `POST`
+POST
 
 #### Parameter
 
-  An Analysis object in the POST body
+An [Analysis](../../resources/schema/spidacalc/cee/analysis.schema) object in the POST body
 
 #### Response
 
-  A Job object with id
+A [Job](../../resources/schema/spidacalc/cee/job.schema) object
 
 ### GET
 
@@ -36,11 +36,11 @@ Getting the job will tell you its updated status and position.
 
 #### URL
 
-  `https://cee.spidastudio.com/job/${id}`
+    https://cee.spidastudio.com/job/${id}
 
 #### Method
 
-    `GET`
+    GET
 
 #### Parameter
 
@@ -48,7 +48,7 @@ Getting the job will tell you its updated status and position.
 
 #### Response
 
-  A [Job](../../resources/schema/spidacalc/analysis/job.schema) object
+  A [Job](../../resources/schema/spidacalc/cee/job.schema) object
 
 ### DELETE
 
