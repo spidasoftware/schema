@@ -48,7 +48,7 @@ Getting the job will tell you its updated status and position.
 
 #### Response
 
-  A Job object
+  A [Job](../../resources/schema/spidacalc/analysis/job.schema) object
 
 ### DELETE
 
@@ -56,16 +56,16 @@ To cancel any job before it has been started, you can delete the job with the fo
 
 #### URL
 
-  `https://cee.spidastudio.com/job/${id}`
+    https://cee.spidastudio.com/job/${id}
 
 #### Method
 
-    `DELETE`
+    DELETE
 
 #### Parameter
 
-  id: the id of the job that was returned upon creation
+id: the id of the job that was returned upon creation
 
 #### Response
 
-  none
+none
