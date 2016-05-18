@@ -1,9 +1,9 @@
 {
-  "id": "#/spidacalc/analysis/analysis.schema",
+  "id": "#/spidacalc/cee/analysis.schema",
   "description": "SPIDA CEE analysis object",
   "type": "object",
   "required": [
-    "id",
+    "referenceId",
     "engineVersion",
     "structure",
     "loadCase",
@@ -11,25 +11,25 @@
     "callbackUrl"
   ],
   "properties": {
-    "id": {
-        "description": "A description for this analysis",
+    "referenceId": {
+        "description": "An external id that can be used for reference.  It is not checked for uniquenss.",
         "type": "string"
     },
     "engineVersion":{
-         "description": "The version of the engine to use for this analysis",
-         "enum": ["7.0.0-SNAPSHOT"]
+         "description": "The version of the engine to use for this analysis. i.e. 7.0.0.0-SNAPSHOT",
+         "type": "string"
+    },
+    "loadCase": {
+      "description": "The load case to use when analyzing the structure.",
+      "$ref": "../../spidacalc/client/load_case.schema"
     },
     "structure": {
       "description": "The structure to be analyzed.",
       "$ref": "../../spidacalc/calc/structure.schema"
     },
-    "loadCase": {
-      "description": "The load case values to use when analyzing the structure.",
-      "$ref": "../../spidacalc/client/load_case.schema"
-    },
     "clientData": {
       "description": "The engineering data to be used to fill in the references on the structure.",
-      "type": "object"
+      "$ref": "../../spidacalc/client/data.schema"
     },
     "callbackUrl": {
         "description": "an url to post the results upon completion",
