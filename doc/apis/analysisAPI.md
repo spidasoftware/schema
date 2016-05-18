@@ -1,9 +1,9 @@
 Analysis API
 ===========
 
-###
-
 ### OAUTH
+
+OAUTH is used for authentication in CEE.  We currently will have to enable your user.
 
 Jobs
 ----
@@ -16,11 +16,11 @@ To start an analysis you will create a job by submitting a complete Analysis pay
 
 #### URL
 
-https://cee.spidastudio.com/job
+    https://cee.spidastudio.com/job
 
 #### Method
 
-POST
+    POST
 
 #### Parameter
 
