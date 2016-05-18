@@ -7,6 +7,7 @@
     "referenceId",
     "submittedDate",
     "startedDate",
+    "position",
     "output"
   ],
   "properties": {
@@ -32,6 +33,10 @@
         }
       ]
     },
+    "position":{
+      "description":"the place in the queue of this job",
+      "type":"number"
+    }
     "output": {
       "description": "The output of the analysis.  Either an error object, the results object, or null.",
       "oneOf":[
