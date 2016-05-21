@@ -33,17 +33,28 @@
         }
       ]
     },
+    "completedDate": {
+      "description": "milliseconds from 1970-01-01 UTC when the analysis was completed, or null if not completed.",
+      "oneOf": [
+        {
+          "type":"number"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
     "position":{
       "description":"the place in the queue of this job",
       "type":"number"
-    }
+    },
     "output": {
       "description": "The output of the analysis.  Either an error object, the results object, or null.",
       "oneOf":[
         {
           "description":"an object to describe the error that occured",
           "type":"object",
-          "required":["message", "submittedAnalysis", "engineOutput"]
+          "required":["message", "submittedAnalysis", "engineOutput"],
           "properties":{
             "message":{
               "description":"human readable message on the cause",
