@@ -26,11 +26,11 @@ To start an analysis you will create a job by submitting a complete Analysis pay
 
 #### Parameter
 
-An [Analysis](../../resources/schema/spidacalc/cee/analysis.schema) object in the POST body
+A [Job](../../resources/schema/spidacalc/cee/job.schema) object in the POST body with required fields
 
 #### Response
 
-A [Job](../../resources/schema/spidacalc/cee/job.schema) object
+A [Job](../../resources/schema/spidacalc/cee/job.schema) object with populated read only values and id
 
 ### GET
 
