@@ -3,12 +3,12 @@
   "description": "SPIDA CEE job object.  A job is one analysis that has been submitted.",
   "type": "object",
   "required": [
-    "id",
     "referenceId",
-    "submittedDate",
-    "startedDate",
-    "position",
-    "output"
+    "engineVersion",
+    "structure",
+    "analysisCase",
+    "clientData",
+    "callbackUrl"
   ],
   "properties": {
     "id": {
@@ -44,12 +44,39 @@
         }
       ]
     },
+    "engineVersion":{
+         "description": "The version of the engine to use for this analysis. i.e. 7.0.0.0-SNAPSHOT",
+         "type": "string"
+    },
+    "analysisCase": {
+      "description": "The load or strength case to use when analyzing the structure.",
+      "oneOf":[
+        {"$ref": "../../spidacalc/client/load_case.schema"},
+        {"$ref": "../../spidacalc/client/strength_case.schema"}
+      ]
+    },
+    "structure": {
+      "description": "The structure to be analyzed.",
+      "$ref": "../../spidacalc/calc/structure.schema"
+    },
+    "clientData": {
+      "description": "The engineering data to be used to fill in the references on the structure.",
+      "$ref": "../../spidacalc/client/data.schema"
+    },
+    "callbackUrl": {
+        "description": "an url to post the results upon completion",
+        "type": "string"
+    },
     "position":{
-      "description":"the place in the queue of this job",
+      "description":"the place in the queue of this job - read only",
+      "type":"number"
+    },
+    "complexityIndex":{
+      "description":"the calculated complexity of this analysis - read only",
       "type":"number"
     },
     "output": {
-      "description": "The output of the analysis.  Either an error object, the results object, or null.",
+      "description": "The output of the analysis.  Either an error object, the results object, or null. - read only",
       "oneOf":[
         {
           "description":"an object to describe the error that occured",
