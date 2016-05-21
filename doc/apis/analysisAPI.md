@@ -1,7 +1,7 @@
 Analysis API 
 ===========
 
-* note: this api is a draft specification and will be implemented in phases *
+_note: this api is a draft specification and will be implemented in phases_
 
 ### OAUTH
 
