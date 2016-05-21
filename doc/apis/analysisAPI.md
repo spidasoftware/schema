@@ -1,9 +1,11 @@
-Analysis API
+Analysis API 
 ===========
+
+* note: this api is a draft specification and will be implemented in phases *
 
 ### OAUTH
 
-OAUTH is used for authentication in CEE.  We currently will have to enable your user.
+OAUTH is used for authentication in CEE.  Current plans are for Google and our own CAS providers to be used. Once you authenticate, we currently will have to enable your user.
 
 Jobs
 ----
