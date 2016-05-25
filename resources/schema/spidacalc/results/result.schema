@@ -1,4 +1,3 @@
-
 {
   "id": "#/spidacalc/results/result.schema",
   "description": "SPIDA CEE analysis result",
@@ -20,8 +19,8 @@
     },
     "analysisCaseVersion": {
       "description": "The version hash of the load case used to generate the results.",
-      "format": "md5",
-      "type": "string"
+      "type": "string",
+      "pattern": "[a-f0-9]{32}"
     },
     "engineVersion":{
       "type":"string",
@@ -33,7 +32,9 @@
     },
     "warnings":{
       "type":"array",
-      "items":"string"
+      "items":{
+        "type":"string"
+      }
     },
     "components": {
       "id": "#/spidacalc/results/component.schema",
