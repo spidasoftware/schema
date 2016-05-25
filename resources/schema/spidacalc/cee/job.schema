@@ -3,7 +3,6 @@
   "description": "SPIDA CEE job object.  A job is one analysis that has been submitted.",
   "type": "object",
   "required": [
-    "referenceId",
     "engineVersion",
     "structure",
     "analysisCase",
@@ -12,36 +11,36 @@
   ],
   "properties": {
     "id": {
-      "description":"a unique id for this job"
+      "description":"Unique id for this job (READ ONLY)"
     },
     "referenceId": {
       "description": "An external id that can be used for reference.  It is not checked for uniquenss.",
       "type": "string"
     },
     "userEmail": {
-      "description": "The email address of the user who triggered the job.  Not required for creation.  Set by server.",
+      "description": "The email address of the user who triggered the job (READ ONLY)",
       "type": "string"
     },
     "submitDate": {
-      "description":"milliseconds from 1970-01-01 UTC",
+      "description":"Milliseconds from 1970-01-01 UTC (READ ONLY)",
       "type":"number"
     },
     "startDate": {
-      "description": "milliseconds from 1970-01-01 UTC when the analysis was actually started, or null if not started.",
+      "description": "Milliseconds from 1970-01-01 UTC when the analysis was actually started, or null if not started (READ ONLY)",
       "oneOf": [
         {"type":"number"},
         {"type": "null"}
       ]
     },
     "finishDate": {
-      "description": "milliseconds from 1970-01-01 UTC when the analysis was completed, or null if not completed.",
+      "description": "Milliseconds from 1970-01-01 UTC when the analysis was completed, or null if not completed (READ ONLY)",
       "oneOf": [
         {"type":"number"},
         {"type": "null"}
       ]
     },
     "engineVersion":{
-         "description": "The version of the engine to use for this analysis. i.e. 7.0.0.0-SNAPSHOT",
+         "description": "Version of the SPIDACalc engine to use for this analysis. i.e. 7.0.0.0-SNAPSHOT",
          "type": "string"
     },
     "analysisCase": {
@@ -64,15 +63,15 @@
         "type": "string"
     },
     "position":{
-      "description":"the place in the queue of this job - read only",
+      "description":"the place in the queue of this job (READ ONLY)",
       "type":"number"
     },
     "complexityIndex":{
-      "description":"the calculated complexity of this analysis - read only",
+      "description":"the calculated complexity of this analysis (READ ONLY)",
       "type":"number"
     },
     "output": {
-      "description": "The output of the analysis.  Either an error object, the results object, or null. - read only",
+      "description": "The output of the analysis.  Either an error object, the results object, or null (READ ONLY)",
       "oneOf":[
         {
           "description":"an object to describe the error that occured",
