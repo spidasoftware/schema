@@ -86,9 +86,6 @@
               "description":"human readable message on the cause",
               "type":"string"
             },
-            "submittedAnalysis":{
-              "$ref":"../../spidacalc/cee/analysis.schema"
-            },
             "engineOutput":{
               "description":"raw engine response",
               "type":"string"
