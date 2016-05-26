@@ -349,7 +349,7 @@
             "description": "Height at the which the wire is attached to the pole."
           },
           "usageGroup": {
-            "$ref": "enums/usage_group.schema"
+            "$ref": "../../spidacalc/calc/enums/usage_group.schema"
           },
           "tensionGroup": {
             "type": "string",

@@ -1,20 +1,26 @@
 {
-	"id": "#/spidacalc/results/load_case.schema",
-	"$schema": "http://json-schema.org/draft-04/schema#",
-	"description": "The loading information used to generate analysis",
-	"type": "object",
-	"required": ["name", "type", "maximumLoadingRatio", "analyzeGroundLineOnly"],
-	"properties": {
-		"id": {
-			"description": "the id of this result",
-			"type": "string"
-		},
-		"name": {
-			"type": "string"
-		},
-		"version": {
-			"description": "The version hash of the load case used to generate the results.",
-			"format": "md5",
-			"type": "string"
-		}
+  "id": "#/spidacalc/results/load_case.schema",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "The loading information used to generate analysis",
+  "type": "object",
+  "required": [
+    "name",
+    "type",
+    "maximumLoadingRatio",
+    "analyzeGroundLineOnly"
+  ],
+  "properties": {
+    "id": {
+      "description": "the id of this result",
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "version": {
+      "description": "The version hash of the load case used to generate the results.",
+      "format": "md5",
+      "type": "string"
+    }
+  }
 }
