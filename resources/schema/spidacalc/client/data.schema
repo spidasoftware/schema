@@ -13,49 +13,49 @@
 			"type": "string",
 			"description": "a hash of of the individual items hash"
 		},
-		"clientAnchors": {
+		"anchors": {
 			"type": "array",
 			"items": {
 				"$ref":"../../spidacalc/client/anchor.schema"
 			}
 		},
-		"clientCrossArms": {
+		"crossArms": {
 			"type": "array",
 			"items": {
 				"$ref":"../../spidacalc/client/crossarm.schema"
 			}
 		},
-		"clientInsulators": {
+		"insulators": {
 			"type": "array",
 			"items": {
 				"$ref":"../../spidacalc/client/insulator.schema"
 			}
 		},
-		"clientBraces": {
+		"braces": {
 			"type": "array",
 			"items": {
 				"$ref":"../../spidacalc/client/sidewalk_brace.schema"
 			}
 		},
-		"clientFoundations": {
+		"foundations": {
 			"type": "array",
 			"items": {
 				"$ref":"../../spidacalc/client/foundation.schema"
 			}
 		},
-		"clientWires": {
+		"wires": {
 			"type": "array",
 			"items": {
 				"$ref":"../../spidacalc/client/wire.schema"
 			}
 		},
-		"clientPoles": {
+		"poles": {
 			"type": "array",
 			"items": {
         "$ref":"../../spidacalc/client/pole.schema"
 			}
 		},
-		"clientEquipments": {
+		"equipments": {
 			"type": "array",
 			"items": {
 				"$ref":"../../spidacalc/client/equipment.schema"
