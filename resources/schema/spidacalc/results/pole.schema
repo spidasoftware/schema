@@ -38,6 +38,9 @@
           }, {
             "description": "moment result fields",
             "required": ["deflected", "applied", "actual", "internal"]
+          }, {
+            "description": "error result fields",
+            "required":["deflected"]
           }
         ],
         "properties": {

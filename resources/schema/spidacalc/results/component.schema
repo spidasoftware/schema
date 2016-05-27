@@ -35,6 +35,7 @@
       "type": "number"
     },
     "windDirection": {
+      "description":"the direction in compass degress the wind was blowing for these results",
       "type": "integer"
     },
     "failingRatio": {
