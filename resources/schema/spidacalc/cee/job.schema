@@ -13,7 +13,7 @@
     "id": {
       "description":"Unique id for this job (READ ONLY)"
     },
-    "referenceId": {
+    "externalId": {
       "description": "An external id that can be used for reference.  It is not checked for uniquenss.",
       "type": "string"
     },
