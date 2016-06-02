@@ -20,7 +20,7 @@
         "required": [
           "id"
         ],
-        "oneOf":[
+        "anyOf":[
           {"required":["clientItem"]},
           {"required":["clientItemVersion"]}
         ],
@@ -40,7 +40,7 @@
           },
           "clientItemVersion": {
             "type": "string",
-            "format": "md5",
+            "pattern": "[a-f0-9]{32}",
             "description": "Hash of the client item containing the engineering properties for this foundation"
           },
           "groundWaterLevel": {
@@ -140,7 +140,7 @@
           "externalId": {
             "type": "string",
             "description": "An optional id for mapping to external systems. Calc does not use this ID, but does preserve it."
-          },  
+          },
           "distance": {
             "$ref": "../../general/measurable.schema",
             "description": "Distance from pole."
@@ -326,7 +326,7 @@
           "owner",
           "usageGroup"
         ],
-        "oneOf":[
+        "anyOf":[
           {"required":["clientItem"]},
           {"required":["clientItemVersion"]}
         ],
@@ -369,7 +369,7 @@
           },
           "clientItemVersion": {
             "type": "string",
-            "format": "md5",
+            "pattern": "[a-f0-9]{32}",
             "description": "Hash of the client item containing the engineering properties for this wire"
           }
         }
@@ -387,7 +387,7 @@
           "owner",
           "height"
         ],
-        "oneOf":[
+        "anyOf":[
           {"required":["clientItem"]},
           {"required":["clientItemVersion"]}
         ],
@@ -419,7 +419,7 @@
           },
           "clientItemVersion": {
             "type": "string",
-            "format": "md5",
+            "pattern": "[a-f0-9]{32}",
             "description": "Hash of the client item containing the engineering properties for this span guy."
           }
         }
@@ -436,7 +436,7 @@
           "attachmentHeight",
           "owner"
         ],
-        "oneOf":[
+        "anyOf":[
           {"required":["clientItem"]},
           {"required":["clientItemVersion"]}
         ],
@@ -470,7 +470,7 @@
           },
           "clientItemVersion": {
             "type": "string",
-            "format": "md5",
+            "pattern": "[a-f0-9]{32}",
             "description": "Hash of the client item containing the engineering properties for this guy."
           }
         }
@@ -490,7 +490,7 @@
           "owner",
           "guys"
         ],
-        "oneOf":[
+        "anyOf":[
           {"required":["clientItem"]},
           {"required":["clientItemVersion"]}
         ],
@@ -523,7 +523,7 @@
           },
           "clientItemVersion": {
             "type": "string",
-            "format": "md5",
+            "pattern": "[a-f0-9]{32}",
             "description": "Hash of the client item containing the engineering properties for this brace."
           },
           "guys": {
@@ -550,7 +550,7 @@
           "direction",
           "bottomHeight"
         ],
-        "oneOf":[
+        "anyOf":[
           {"required":["clientItem"]},
           {"required":["clientItemVersion"]}
         ],
@@ -583,7 +583,7 @@
           },
           "clientItemVersion": {
             "type": "string",
-            "format": "md5",
+            "pattern": "[a-f0-9]{32}",
             "description": "Hash of the client item containing the engineering properties for this equipment."
           }
         }
@@ -603,7 +603,7 @@
           "direction",
           "offset"
         ],
-        "oneOf":[
+        "anyOf":[
           {"required":["clientItem"]},
           {"required":["clientItemVersion"]}
         ],
@@ -648,7 +648,7 @@
           },
           "clientItemVersion": {
             "type": "string",
-            "format": "md5",
+            "pattern": "[a-f0-9]{32}",
             "description": "Hash of the client item containing the engineering properties for this crossarm."
           }
         }
@@ -668,7 +668,7 @@
           "direction",
           "offset"
         ],
-        "oneOf":[
+        "anyOf":[
           {"required":["clientItem"]},
           {"required":["clientItemVersion"]}
         ],
@@ -712,7 +712,7 @@
           },
           "clientItemVersion": {
             "type": "string",
-            "format": "md5",
+            "pattern": "[a-f0-9]{32}",
             "description": "Hash of the client item containing the engineering properties for this insulator."
           }
         }
@@ -732,7 +732,7 @@
           "direction",
           "glc"
         ],
-        "oneOf":[
+        "anyOf":[
           {"required":["clientItem"]},
           {"required":["clientItemVersion"]}
         ],
@@ -770,7 +770,7 @@
           },
           "clientItemVersion": {
             "type": "string",
-            "format": "md5",
+            "pattern": "[a-f0-9]{32}",
             "description": "Hash of the client item containing the engineering properties for this push brace."
           }
         }

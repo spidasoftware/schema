@@ -14,7 +14,7 @@
 		},
 		"version": {
 			"description": "The version hash of the load case used to generate the results.",
-			"format": "md5",
+			"pattern": "[a-f0-9]{32}",
 			"type": "string"
 		},
 		"type": {

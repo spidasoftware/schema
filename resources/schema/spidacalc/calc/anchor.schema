@@ -11,7 +11,7 @@
     "supportType",
     "guys"
   ],
-  "oneOf":[
+  "anyOf":[
     {"required":["clientItem"]},
     {"required":["clientItemVersion"]}
   ],
@@ -23,7 +23,7 @@
     "externalId": {
       "type": "string",
       "description": "An optional id for mapping to external systems. Calc does not use this ID, but does preserve it."
-    },  
+    },
     "distance": {
       "description": "The distance from the outside of the pole to the anchor.",
       "$ref": "../../general/measurable.schema"
@@ -50,7 +50,7 @@
     },
     "clientItemVersion": {
       "description": "The client anchor version hash of the material properties",
-      "format": "md5",
+      "pattern": "[a-f0-9]{32}",
       "type": "string"
     },
     "guys": {

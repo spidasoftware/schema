@@ -5,9 +5,11 @@
   "type": "object",
   "required": [
     "name",
-    "type",
-    "maximumLoadingRatio",
-    "analyzeGroundLineOnly"
+    "addByDefault",
+    "includeThroughBolts",
+    "minimumAllowableRatio",
+    "sweepIncrement",
+    "heightToIncludeAtGroundline"
   ],
   "properties": {
     "id": {
@@ -18,9 +20,25 @@
       "type": "string"
     },
     "version": {
-      "description": "The version hash of the load case used to generate the results.",
-      "format": "md5",
+      "description": "The version hash of the strength case.",
+      "pattern": "[a-f0-9]{32}",
       "type": "string"
+    },
+    "addByDefault":{
+      "type":"boolean"
+    },
+    "includeThroughBolts":{
+      "type":"boolean"
+    },
+    "minimumAllowableRatio":{
+      "type":"number"
+    },
+    "sweepIncrement":{
+      "$ref":"../../general/measurable.schema"
+    },
+    "heightToIncludeAtGroundline":{
+      "description":"any damage at this height and below will be treated as if the all occur at ground line",
+      "$ref":"../../general/measurable.schema"
     }
   },
   "additionalProperties": false

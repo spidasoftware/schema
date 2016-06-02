@@ -5,7 +5,7 @@
   "required": [
     "owner"
   ],
-  "oneOf":[
+  "anyOf":[
     {"required":["clientItem"]},
     {"required":["clientItemVersion"]}
   ],
@@ -54,7 +54,7 @@
     },
     "clientItemVersion": {
       "description": "The version hash of engineering material properties.",
-      "format": "md5",
+      "pattern": "[a-f0-9]{32}",
       "type": "string"
     },
     "owner": {

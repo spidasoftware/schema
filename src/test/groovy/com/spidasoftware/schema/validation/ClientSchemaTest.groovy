@@ -36,6 +36,10 @@ class ClientSchemaTest extends GroovyTestCase {
 		test("wire")
 	}
 
+	void testLoadCaseObject(){
+		test("wire")
+	}
+
 	void testClientInsulatorObject(){
 		test("insulator")
 	}
