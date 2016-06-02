@@ -2,7 +2,7 @@
   "description": "A copmeonnt is an compination of an individual item and analysis type i.e. Pole Buckling",
   "type": "object",
   "required": [
-    "itemId", "itemDescription", "poles", "actual", "ratio", "allowable", "failingRatio", "status", "resultsType", "strengthFactor", "analysisType"
+    "itemId", "itemDescription", "poles", "actual", "actualEngineering", "ratio", "allowable","allowableEngineering", "failingRatio", "status", "resultsType", "strengthFactor", "analysisType"
   ],
   "properties": {
     "itemId": {
@@ -26,9 +26,32 @@
       "description":"S.F. or percent",
       "type": "number"
     },
+    "actualEngineering":{
+      "description":"actual engineering value that caused the 'actual' value.  This is the specific calculated value from the various analyses. i.e. 6000 psi calculated",
+      "$ref": "../../general/measurable.schema"
+    },
+    "atDirection": {
+      "type": "array",
+      "description": "a list of direction in degrees to the 'actualEngineering' reported at that wind direction",
+      "items": {
+        "type": "object",
+        "properties": {
+          "direction": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "value": {
+            "$ref": "../../general/measurable.schema"
+          }
+        }
+      }
+    },
     "allowable": {
       "description":"allowable S.F. or percent",
       "type": "number"
+    },
+    "allowableEngineering": {
+      "description":"allowable engineering value.  This is usually pulled from the material properties i.e. 8000 psi for wood.",
+      "$ref": "../../general/measurable.schema"
     },
     "ratio": {
       "description":"the ratio between actual and allowable",
@@ -49,31 +72,10 @@
       "description":"an optional message with additional information about these results",
       "type": "string"
     },
-    "values": {
+    "additionalValues": {
       "type": "object",
-      "properties": {
-        "ratedStress": {
-          "$ref": "../../general/measurable.schema"
-        },
-        "stress": {
-          "$ref": "../../general/measurable.schema"
-        },
-        "atDirection": {
-          "type": "array",
-          "description": "a list of direction in degrees to the value reported at that wind direction",
-          "items": {
-            "type": "object",
-            "properties": {
-              "direction": {
-                "$ref": "../../general/measurable.schema"
-              },
-              "value": {
-                "$ref": "../../general/measurable.schema"
-              }
-            }
-          }
-        }
-      }
+      "description":"this is a place to store any additional values that may be useful for the results",
+      "additionalProperties":true
     },
     "poles": {
       "type": "array",
