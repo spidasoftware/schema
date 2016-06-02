@@ -22,5 +22,6 @@
       "format": "md5",
       "type": "string"
     }
-  }
+  },
+  "additionalProperties": false
 }
