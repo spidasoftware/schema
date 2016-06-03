@@ -1,6 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "#/general/point_load.schema",
+  "description":"holder of two triad force vectors. If either is not provided, it is considered 0",
   "type": "object",
   "properties": {
     "translational": {
@@ -10,8 +11,5 @@
       "$ref": "../general/triad.schema"
     }
   },
-  "required": [
-    "translational",
-    "rotational"
-  ]
+  "additionalProperties":false
 }
