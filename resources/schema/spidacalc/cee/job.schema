@@ -26,22 +26,22 @@
       "type": "string"
     },
     "workerId": {
-      "description": "The ID of the work that did the job (READ ONLY)",
+      "description": "The ID of the CEE worker that did the job (READ ONLY)",
       "type": "string"
     },
     "submitDate": {
-      "description":"Milliseconds from 1970-01-01 UTC (READ ONLY)",
+      "description":"when the server accepted the job (Milliseconds from 1970-01-01 UTC) (READ ONLY)",
       "type":"number"
     },
     "startDate": {
-      "description": "Milliseconds from 1970-01-01 UTC when the analysis was actually started, or null if not started (READ ONLY)",
+      "description": "when the analysis was actually started, or null if not started (Milliseconds from 1970-01-01 UTC) (READ ONLY)",
       "oneOf": [
         {"type":"number"},
         {"type": "null"}
       ]
     },
     "finishDate": {
-      "description": "Milliseconds from 1970-01-01 UTC when the analysis was completed, or null if not completed (READ ONLY)",
+      "description": "when the analysis was completed, or null if not completed (Milliseconds from 1970-01-01 UTC) (READ ONLY)",
       "oneOf": [
         {"type":"number"},
         {"type": "null"}
@@ -86,14 +86,14 @@
                   "type":"number"
                 },
                 "date": {
-                  "description": "Milliseconds from 1970-01-01 UTC when the callback was completed (READ ONLY)",
+                  "description": "when the callback was completed (Milliseconds from 1970-01-01 UTC) (READ ONLY)",
                   "type":"number"
                 }
             }
         }
     },
     "position":{
-      "description":"the place in the queue of this job (READ ONLY)",
+      "description":"The job's place in line for analysis.  For example, position 0 means this job is next, position 1 means there is one job ahead of this one (READ ONLY)",
       "type":"number"
     },
     "complexityIndex":{
