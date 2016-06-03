@@ -25,6 +25,10 @@
       "description": "The IP address of the client that triggered the job (READ ONLY)",
       "type": "string"
     },
+    "workerId": {
+      "description": "The ID of the work that did the job (READ ONLY)",
+      "type": "string"
+    },
     "submitDate": {
       "description":"Milliseconds from 1970-01-01 UTC (READ ONLY)",
       "type":"number"
@@ -66,6 +70,28 @@
         "description": "an url to post the results upon completion",
         "type": "string"
     },
+    "callbackAttempts": {
+        "description": "an array of all callback attempts made by CEE (READ ONLY)",
+         "type": "array",
+        "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "success": {
+                  "description": "true if response status code was 200 when making the callback (READ ONLY)",
+                  "type":"boolean"
+                },
+                "statusCode": {
+                  "description": "response status code of callback (READ ONLY)",
+                  "type":"number"
+                },
+                "date": {
+                  "description": "Milliseconds from 1970-01-01 UTC when the callback was completed (READ ONLY)",
+                  "type":"number"
+                }
+            }
+        }
+    },
     "position":{
       "description":"the place in the queue of this job (READ ONLY)",
       "type":"number"
@@ -80,7 +106,7 @@
         {
           "description":"an object to describe the error that occured",
           "type":"object",
-          "required":["message", "submittedAnalysis", "engineOutput"],
+          "required":["message", "engineOutput"],
           "properties":{
             "message":{
               "description":"human readable message on the cause",
@@ -90,7 +116,8 @@
               "description":"raw engine response",
               "type":"string"
             }
-          }
+          },
+          "additionalProperties": false
         },
         {"$ref": "../../spidacalc/results/result.schema"},
         {"type": "null"}
