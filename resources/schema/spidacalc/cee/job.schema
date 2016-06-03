@@ -4,14 +4,24 @@
   "type": "object",
   "required": [
     "engineVersion",
-    "structure",
-    "analysisCase",
-    "clientData",
+    "payload",
     "callbackUrl"
   ],
   "properties": {
     "id": {
-      "description":"Unique id for this job (READ ONLY)"
+      "description":"Unique id for this job given by CEE"
+    },
+    "engineVersion":{
+         "description": "Version of the SPIDACalc engine to use for this analysis. i.e. 7.0.0.0-SNAPSHOT",
+         "type": "string"
+    },
+    "payload": {
+      "description": "The analysis payload.",
+      "$ref": "../../spidacalc/cee/analysis.schema"
+    },
+    "callbackUrl": {
+        "description": "an url to post the results upon completion",
+        "type": "string"
     },
     "externalId": {
       "description": "An external id that can be used for reference.  It is not checked for uniquenss.",
@@ -46,29 +56,6 @@
         {"type":"number"},
         {"type": "null"}
       ]
-    },
-    "engineVersion":{
-         "description": "Version of the SPIDACalc engine to use for this analysis. i.e. 7.0.0.0-SNAPSHOT",
-         "type": "string"
-    },
-    "analysisCase": {
-      "description": "The load or strength case to use when analyzing the structure.",
-      "oneOf":[
-        {"$ref": "../../spidacalc/client/load_case.schema"},
-        {"$ref": "../../spidacalc/client/strength_case.schema"}
-      ]
-    },
-    "structure": {
-      "description": "The structure to be analyzed.",
-      "$ref": "../../spidacalc/calc/structure.schema"
-    },
-    "clientData": {
-      "description": "The engineering data to be used to fill in the references on the structure.",
-      "$ref": "../../spidacalc/client/data.schema"
-    },
-    "callbackUrl": {
-        "description": "an url to post the results upon completion",
-        "type": "string"
     },
     "callbackAttempts": {
         "description": "an array of all callback attempts made by CEE (READ ONLY)",
