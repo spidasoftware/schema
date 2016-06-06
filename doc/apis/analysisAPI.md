@@ -10,7 +10,9 @@ OAUTH is used for authentication in CEE.  Current plans are for Google and our o
 Jobs
 ----
 
-The analysis can be a somewhat long running operation.  Anywhere from a few seconds to several minutes depending on the complexity of the analysis involved. An analysis job is submitted and placed in the queue.  Once it is ready to be processed it is started.  Upon completion the job results are POSTed to the specified call back url.
+The analysis can be a somewhat long running operation.  Anywhere from a few seconds to several minutes depending on the complexity of the analysis involved. An analysis job is submitted and placed in the queue.  Once it is ready to be processed it is started.  
+
+When an analysis is done, the job is finished, and a POST request is made to the `callbackUrl` with the complete job json in the body.  The analysis results will be in the job `output` section.
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -32,6 +34,7 @@ POST
 #### Parameter
 
 One [Job](../../resources/schema/spidacalc/cee/job.schema) object in the POST body
+
 Or an array of [Job](../../resources/schema/spidacalc/cee/job.schema) objects in the POST body
 
 #### Response
@@ -89,6 +92,7 @@ PUT
 #### Parameter
 
 One [Job](../../resources/schema/spidacalc/cee/job.schema) object in the POST body
+
 Or an array of [Job](../../resources/schema/spidacalc/cee/job.schema) objects in the POST body
 
 #### Response
