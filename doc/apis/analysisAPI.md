@@ -39,7 +39,7 @@ Or an array of [Job](../../resources/schema/spidacalc/cee/job.schema) objects in
 
 #### Response
 
-A list of objects.  Objects will include a `valid` boolean, an `id` if the job was valid, an array of `errors` if invalid.
+An array of [job-action-response](../../resources/schema/spidacalc/cee/job-action-response.schema) objects.
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -97,7 +97,7 @@ Or an array of [Job](../../resources/schema/spidacalc/cee/job.schema) objects in
 
 #### Response
 
-A list of objects.  Objects will include a `valid` boolean, an `id` if the job was valid, an array of `errors` if invalid.
+An array of [job-action-response](../../resources/schema/spidacalc/cee/job-action-response.schema) objects.
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -129,7 +129,7 @@ ids: a json array of ids passed as a query parameter
 
 #### Response
 
-an array of objects with a `removed` boolean property
+An array of [job-action-response](../../resources/schema/spidacalc/cee/job-action-response.schema) objects.
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -154,6 +154,6 @@ Or an array of [Job](../../resources/schema/spidacalc/cee/job.schema) objects in
 
 #### Response
 
-A list of objects.  Objects will include a `valid` boolean and an array of `errors` if invalid.
+An array of [job-action-response](../../resources/schema/spidacalc/cee/job-action-response.schema) objects.
 
 
