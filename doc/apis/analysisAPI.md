@@ -12,7 +12,7 @@ The analysis can be a somewhat long running operation.  It can take anywhere fro
 
 ### Callbacks
 
-When an analysis is done a POST request is made to the `callbackUrl` with the complete job json in the body.  The analysis results will be in the job `output` section.
+When CEE finishes one analysis job, a POST request is made to the `callbackUrl` with the complete job json in the body.  The analysis results can be retrieved from the job `output` property.
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -150,6 +150,7 @@ POST
 #### Parameter
 
 One [Job](../../resources/schema/spidacalc/cee/job.schema) object in the POST body
+
 Or an array of [Job](../../resources/schema/spidacalc/cee/job.schema) objects in the POST body
 
 #### Response
