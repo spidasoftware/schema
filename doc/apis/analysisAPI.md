@@ -21,9 +21,9 @@ Get client id and client secret from [https://cee.spidastudio.com/user/profile](
 ### API Usage Examples with curl
 
 ```
-$ oauthParams="grant_type=client_credentials&client_id=...&client_secret=..."
+$ oauthParams="grant_type=client_credentials&client_id=...&client_secret=..."                                      #Get client id and client secret from https://cee.spidastudio.com/user/profile
 $ oauthJsonResponse=`curl -X POST  --data "$oauthParams" https://cee.spidastudio.com/oauth/token`
-$ accessToken=`echo $oauthJsonResponse | jq -r '.access_token'`            #jq from https://stedolan.github.io/jq/
+$ accessToken=`echo $oauthJsonResponse | jq -r '.access_token'`                                                    #jq from https://stedolan.github.io/jq/
 
 $ curl -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data @schema/resources/examples/spidacalc/cee/job.json http://localhost:8080/job
 [{"success":true,"id":"5755ad4a3c55d07876c8ae8a"}]
