@@ -2,10 +2,6 @@
 
 _note: this api is a draft specification and will be implemented in phases_
 
-### OAUTH
-
-OAUTH is used for authentication in CEE.  Current plans are for Google and our own CAS providers to be used. Click the login link at [https://cee.spidastudio.com](https://cee.spidastudio.com). Once authenticated, contact us so we can manually enabled you.  (This will eventually be automated.)
-
 ### Job Queue
 
 The analysis can be a somewhat long running operation.  It can take anywhere from a few seconds to several minutes depending on the complexity of the analysis involved.  When an analysis job is submitted it is placed in the queue and then analyzed.
@@ -14,12 +10,20 @@ The analysis can be a somewhat long running operation.  It can take anywhere fro
 
 When CEE finishes one analysis job, a POST request is made to the `callbackUrl` with the complete job json in the body.  The analysis results can be retrieved from the job `output` property.
 
+### OAUTH
+
+OAUTH is used for authentication in CEE.  Current plans are for Google and our own CAS providers to be used. 
+
+Click the login link at [https://cee.spidastudio.com](https://cee.spidastudio.com). Once authenticated, contact us so we can manually enabled you.  (This will eventually be automated.)
+
+Get client id and client secret from [https://cee.spidastudio.com/user/profile](https://cee.spidastudio.com/user/profile)
+
 ### API Usage Examples with curl
 
 ```
 $ oauthParams="grant_type=client_credentials&client_id=...&client_secret=..."
 $ oauthJsonResponse=`curl -X POST  --data "$oauthParams" https://cee.spidastudio.com/oauth/token`
-$ accessToken=`echo $oauthJsonResponse | jq -r '.access_token'`            #jq - https://stedolan.github.io/jq/
+$ accessToken=`echo $oauthJsonResponse | jq -r '.access_token'`            #jq from https://stedolan.github.io/jq/
 
 $ curl -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data @schema/resources/examples/spidacalc/cee/job.json http://localhost:8080/job
 [{"success":true,"id":"5755ad4a3c55d07876c8ae8a"}]
