@@ -14,19 +14,19 @@ The analysis can be a somewhat long running operation.  It can take anywhere fro
 
 When CEE finishes one analysis job, a POST request is made to the `callbackUrl` with the complete job json in the body.  The analysis results can be retrieved from the job `output` property.
 
-### API Usage Example
+### API Usage Examples with curl
 
 ```
 $ curl -H "Content-Type: application/json" --data @schema/resources/examples/spidacalc/cee/job.json http://localhost:8080/job
 [{"success":true,"id":"5755ad4a3c55d07876c8ae8a"}]
 
-$ curl -o job.json http://localhost:8080/job/5755ad4a3c55d07876c8ae8a
+$ curl -o job.json http://localhost:8080/job/5755ad4a3c55d07876c8ae8a                                       #output to a file so we can use it below
 
 $ cat job.json
 [{"callbackUrl":"https://post/job/here/when/done","engineVersion":"7.0.0.0-SNAPSHOT","payload":{...
 
-$ curl --request PUT -H "Content-Type: application/json" --data @job.json http://localhost:8080/job
-[{"success":true,"id":"5755ae963c55d07876c8ae8b"}]
+$ curl --request PUT -H "Content-Type: application/json" --data @job.json http://localhost:8080/job         #using file created above
+[{"success":true,"id":"5755ae963c55d07876c8ae8b"}]                                                          #now we have a new id (because we remove and add)
 
 $ curl --request DELETE http://localhost:8080/job/5755ae963c55d07876c8ae8b
 [{"success":true}]
