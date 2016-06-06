@@ -17,21 +17,25 @@ When CEE finishes one analysis job, a POST request is made to the `callbackUrl` 
 ### API Usage Examples with curl
 
 ```
-$ curl -H "Content-Type: application/json" --data @schema/resources/examples/spidacalc/cee/job.json http://localhost:8080/job
+$ oauthParams="grant_type=client_credentials&client_id=...&client_secret=..."
+$ oauthJsonResponse=`curl -X POST  --data "$oauthParams" https://cee.spidastudio.com/oauth/token`
+$ accessToken=`echo $oauthJsonResponse | jq -r '.access_token'`            #jq - https://stedolan.github.io/jq/
+
+$ curl -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data @schema/resources/examples/spidacalc/cee/job.json http://localhost:8080/job
 [{"success":true,"id":"5755ad4a3c55d07876c8ae8a"}]
 
-$ curl -o job.json http://localhost:8080/job/5755ad4a3c55d07876c8ae8a                                       #output to a file so we can use it below
+$ curl -o job.json -H "Authorization: Bearer $accessToken" http://localhost:8080/job/5755ad4a3c55d07876c8ae8a      #output to a file so we can use it below
 
 $ cat job.json
 [{"callbackUrl":"https://post/job/here/when/done","engineVersion":"7.0.0.0-SNAPSHOT","payload":{...
 
-$ curl --request PUT -H "Content-Type: application/json" --data @job.json http://localhost:8080/job         #using file created above
-[{"success":true,"id":"5755ae963c55d07876c8ae8b"}]                                                          #now we have a new id (because we remove and add)
+$ curl --request PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data @job.json http://localhost:8080/job
+[{"success":true,"id":"5755ae963c55d07876c8ae8b"}]
 
-$ curl --request DELETE http://localhost:8080/job/5755ae963c55d07876c8ae8b
+$ curl --request DELETE -H "Authorization: Bearer $accessToken" http://localhost:8080/job/5755ae963c55d07876c8ae8b
 [{"success":true}]
 
-$ curl -H "Content-Type: application/json" --data @schema/resources/examples/spidacalc/cee/job.json http://localhost:8080/job/validate
+$ curl -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data @schema/resources/examples/spidacalc/cee/job.json http://localhost:8080/job/validate
 [{"success":true,"errors":[]}]
 
 ```
@@ -101,7 +105,7 @@ An array of [Job](../../resources/schema/spidacalc/cee/job.schema) objects
 
 ### Updating Jobs
 
-Update job(s) before they have been started.
+Update job(s) before they have been started.  This will remove the existing job and add a new job with a new id to the queue.
 
 #### URL
 
