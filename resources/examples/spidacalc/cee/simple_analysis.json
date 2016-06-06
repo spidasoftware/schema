@@ -3,44 +3,48 @@
     "wires": [],
     "anchors": [],
     "equipments": [],
-    "poles": [{
-      "taper": 0,
-      "poissonRatio": 0.3,
-      "shape": "ROUND",
-      "density": {
-        "unit": "POUND_PER_CUBIC_FOOT",
-        "value": 10
-      },
-      "classOfPole": "10\" Series II",
-      "materialCategory": "WOOD",
-      "allowable": {
-        "unit": "POUND_FORCE_PER_SQUARE_INCH",
-        "value": 10000
-      },
-      "species": "Fiberglass",
-      "wallThickness": {
-        "unit": "INCH",
-        "value": -1
-      },
-      "ptc": {
-        "unit": "INCH",
-        "value": 24.73695
-      },
-      "modulus": {
-        "unit": "POUND_FORCE_PER_SQUARE_INCH",
-        "value": 1.0E7
-      },
-      "height": {
-        "unit": "FOOT",
-        "value": 40
+    "poles": [
+      {
+        "taper": 0,
+        "poissonRatio": 0.3,
+        "shape": "ROUND",
+        "density": {
+          "unit": "POUND_PER_CUBIC_FOOT",
+          "value": 10
+        },
+        "classOfPole": "10\" Series II",
+        "materialCategory": "WOOD",
+        "allowable": {
+          "unit": "POUND_FORCE_PER_SQUARE_INCH",
+          "value": 10000
+        },
+        "species": "Fiberglass",
+        "wallThickness": {
+          "unit": "INCH",
+          "value": -1
+        },
+        "ptc": {
+          "unit": "INCH",
+          "value": 24.73695
+        },
+        "modulus": {
+          "unit": "POUND_FORCE_PER_SQUARE_INCH",
+          "value": 1.0E+7
+        },
+        "height": {
+          "unit": "FOOT",
+          "value": 40
+        }
       }
-    }],
+    ],
     "insulators": [],
-    "foundations": [{
-      "soilClassificationConstant": 70,
-      "name": "Average",
-      "typeLabel": "Basic (Seiler)"
-    }],
+    "foundations": [
+      {
+        "soilClassificationConstant": 70,
+        "name": "Average",
+        "typeLabel": "Basic (Seiler)"
+      }
+    ],
     "crossArms": [],
     "braces": []
   },
@@ -129,15 +133,17 @@
     "insulators": [],
     "pushBraces": [],
     "sidewalkBraces": [],
-    "foundations": [{
-      "id": "Foundation",
-      "externalId": "5751a56145687738fb3b483e",
-      "clientItem": "Average",
-      "clientItemVersion": "9c9da5d8aae04f8567063a7b09b90b4e",
-      "groundWaterLevel": {
-        "unit": "INCH",
-        "value": -120
+    "foundations": [
+      {
+        "id": "Foundation",
+        "externalId": "5751a56145687738fb3b483e",
+        "clientItem": "Average",
+        "clientItemVersion": "9c9da5d8aae04f8567063a7b09b90b4e",
+        "groundWaterLevel": {
+          "unit": "INCH",
+          "value": -120
+        }
       }
-    }]
+    ]
   }
 }
