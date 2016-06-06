@@ -1,24 +1,28 @@
-Analysis API 
-===========
+# Analysis API 
 
 _note: this api is a draft specification and will be implemented in phases_
-
-### OAUTH
-
-OAUTH is used for authentication in CEE.  Current plans are for Google and our own CAS providers to be used. Click the login link at [https://cee.spidastudio.com](https://cee.spidastudio.com). Once authenticated, contact us so we can manually enabled you.  (This will eventually be automated.)
-
-Jobs
-----
-
-The analysis can be a somewhat long running operation.  Anywhere from a few seconds to several minutes depending on the complexity of the analysis involved. An analysis job is submitted and placed in the queue.  Once it is ready to be processed it is started.  
-
-When an analysis is done, the job is finished, and a POST request is made to the `callbackUrl` with the complete job json in the body.  The analysis results will be in the job `output` section.
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-### CREATE
+### OAUTH
+
+OAUTH is used for authentication in CEE.  Current plans are for Google and our own CAS providers to be used. Click the login link at [https://cee.spidastudio.com](https://cee.spidastudio.com). Once authenticated, contact us so we can manually enabled you.  (This will eventually be automated.)
+
+### Job Queue
+
+The analysis can be a somewhat long running operation.  It can take anywhere from a few seconds to several minutes depending on the complexity of the analysis involved.  When an analysis job is submitted it is placed in the queue and then analyzed.
+
+### Callbacks
+
+When an analysis is done a POST request is made to the `callbackUrl` with the complete job json in the body.  The analysis results will be in the job `output` section.
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+### Creating Jobs
 
 To start an analysis you will need to create and post a job.  A job includes an analysis payload.  This payload includes the structure, client data, and analysis case required to analyze the pole.
 See the job schema [here](../../resources/schema/spidacalc/cee/job.schema).
@@ -45,7 +49,7 @@ An array of [job-action-response](../../resources/schema/spidacalc/cee/job-actio
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-### READ
+### Getting Jobs
 
 Getting the job(s) will tell you status and position in queue.  If the job has been finished, then the job will include the output of the analysis.
 
@@ -77,7 +81,7 @@ An array of [Job](../../resources/schema/spidacalc/cee/job.schema) objects
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-### UPDATE
+### Updating Jobs
 
 Update job(s) before they have been started.
 
@@ -103,7 +107,7 @@ An array of [job-action-response](../../resources/schema/spidacalc/cee/job-actio
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-### DELETE
+### Deleting Jobs
 
 Cancel job(s) before they have been started.
 
@@ -135,7 +139,7 @@ An array of [job-action-response](../../resources/schema/spidacalc/cee/job-actio
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-### VALIDATE
+### Validating Jobs
 
 You can also just validate jobs without adding them to the queue.  This can be a helpful tool during development and/or debugging.
 
