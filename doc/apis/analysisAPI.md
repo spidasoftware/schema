@@ -2,10 +2,6 @@
 
 _note: this api is a draft specification and will be implemented in phases_
 
-
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
 ### OAUTH
 
 OAUTH is used for authentication in CEE.  Current plans are for Google and our own CAS providers to be used. Click the login link at [https://cee.spidastudio.com](https://cee.spidastudio.com). Once authenticated, contact us so we can manually enabled you.  (This will eventually be automated.)
