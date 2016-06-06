@@ -14,26 +14,28 @@ When CEE finishes one analysis job, a POST request is made to the `callbackUrl` 
 
 OAUTH is used for authentication in CEE.  Current plans are for Google and our own CAS providers to be used. 
 
-Click the login link at [https://cee.spidastudio.com](https://cee.spidastudio.com). Once authenticated, contact us so we can manually enabled you.  (This will eventually be automated.)
+Click the login link at [https://cee.spidastudio.com](https://cee.spidastudio.com). 
+
+Once authenticated, contact us so we can manually enabled you.  (This will eventually be automated.)
 
 Get client id and client secret from [https://cee.spidastudio.com/user/profile](https://cee.spidastudio.com/user/profile)
 
 ### API Usage Examples with curl
 
 ```
-$ oauthParams="grant_type=client_credentials&client_id=...&client_secret=..."                                      #Get client id and client secret from https://cee.spidastudio.com/user/profile
+$ oauthParams="grant_type=client_credentials&client_id=...&client_secret=..."                              #Get client id and client secret from https://cee.spidastudio.com/user/profile
 $ oauthJsonResponse=`curl -X POST  --data "$oauthParams" https://cee.spidastudio.com/oauth/token`
-$ accessToken=`echo $oauthJsonResponse | jq -r '.access_token'`                                                    #jq from https://stedolan.github.io/jq/
+$ accessToken=`echo $oauthJsonResponse | jq -r '.access_token'`                                            #Get jq from https://stedolan.github.io/jq/
 
-$ curl -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data @schema/resources/examples/spidacalc/cee/job.json http://localhost:8080/job
+$ curl --request POST -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data @schema/resources/examples/spidacalc/cee/job.json http://localhost:8080/job
 [{"success":true,"id":"5755ad4a3c55d07876c8ae8a"}]
 
-$ curl -o job.json -H "Authorization: Bearer $accessToken" http://localhost:8080/job/5755ad4a3c55d07876c8ae8a      #output to a file so we can use it below
+$ curl --request GET -o job.json -H "Authorization: Bearer $accessToken" http://localhost:8080/job/5755ad4a3c55d07876c8ae8a                      #output to a file so we can use it below
 
-$ cat job.json
+$ cat job.json                                                                                                                                   #file generated above and used below
 [{"callbackUrl":"https://post/job/here/when/done","engineVersion":"7.0.0.0-SNAPSHOT","payload":{...
 
-$ curl --request PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data @job.json http://localhost:8080/job
+$ curl --request PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data @job.json http://localhost:8080/job      #using file generated above
 [{"success":true,"id":"5755ae963c55d07876c8ae8b"}]
 
 $ curl --request DELETE -H "Authorization: Bearer $accessToken" http://localhost:8080/job/5755ae963c55d07876c8ae8b
