@@ -25,26 +25,29 @@ Get client id and client secret from [https://cee.spidastudio.com/user/profile](
 ```bash
 #Get client id and client secret from https://cee.spidastudio.com/user/profile
 oauthParams="grant_type=client_credentials&client_id=...&client_secret=..."                              
-oauthJsonResponse=`curl -X POST  --data "$oauthParams" https://cee.spidastudio.com/oauth/token`
+oauthJsonResponse=`curl -X POST --data "$oauthParams" https://cee.spidastudio.com/oauth/token`
 
 #Get jq from https://stedolan.github.io/jq/
 accessToken=`echo $oauthJsonResponse | jq -r '.access_token'`                                            
 
+#Create a job (from an example in this repository)
 curl --request POST -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data @schema/resources/examples/spidacalc/cee/job.json http://localhost:8080/job
 #[{"success":true,"id":"5755ad4a3c55d07876c8ae8a"}]
 
-#output to a file so we can use it below
+#Get that job back (output to a file so we can use it below)
 curl --request GET -o job.json -H "Authorization: Bearer $accessToken" http://localhost:8080/job/5755ad4a3c55d07876c8ae8a                      
 cat job.json                                                                                                                                   
 #[{"callbackUrl":"https://post/job/here/when/done","engineVersion":"7.0.0.0-SNAPSHOT","payload":{...
 
-#using file generated above
+#Update job (using file generated above)
 curl --request PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data @job.json http://localhost:8080/job      
-#[{"success":true,"id":"5755ae963c55d07876c8ae8b"}]
+#[{"success":true,"id":"5755ae963c55d07876c8ae8b"}]       #<--notice the new id because we remove the old job first, then add the updated one
 
+#Delete that updated job
 curl --request DELETE -H "Authorization: Bearer $accessToken" http://localhost:8080/job/5755ae963c55d07876c8ae8b
 #[{"success":true}]
 
+#Validate a job (not a required step)
 curl --request POST -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data @schema/resources/examples/spidacalc/cee/job.json http://localhost:8080/job/validate
 #[{"success":true,"errors":[]}]
 
@@ -69,9 +72,9 @@ POST
 
 #### Parameter
 
-One [Job](../../resources/schema/spidacalc/cee/job.schema) object in the POST body
+One [Job](../../resources/schema/spidacalc/cee/job.schema) object in the POST body (currently limited to 50MB)
 
-Or an array of [Job](../../resources/schema/spidacalc/cee/job.schema) objects in the POST body
+Or an array of [Job](../../resources/schema/spidacalc/cee/job.schema) objects in the POST body (currently limited to 50MB)
 
 #### Response
 
@@ -127,9 +130,9 @@ PUT
 
 #### Parameter
 
-One [Job](../../resources/schema/spidacalc/cee/job.schema) object in the POST body
+One [Job](../../resources/schema/spidacalc/cee/job.schema) object in the POST body (currently limited to 50MB)
 
-Or an array of [Job](../../resources/schema/spidacalc/cee/job.schema) objects in the POST body
+Or an array of [Job](../../resources/schema/spidacalc/cee/job.schema) objects in the POST body (currently limited to 50MB)
 
 #### Response
 
@@ -173,7 +176,7 @@ An array of [job-action-response](../../resources/schema/spidacalc/cee/job-actio
 
 ### Validating Jobs
 
-You can also just validate jobs without adding them to the queue.  This can be a helpful tool during development and/or debugging.
+You can also just validate jobs without adding them to the queue.  This is not required but can be a helpful tool during development and/or debugging.
 
 #### URL
 
@@ -185,9 +188,9 @@ POST
 
 #### Parameter
 
-One [Job](../../resources/schema/spidacalc/cee/job.schema) object in the POST body
+One [Job](../../resources/schema/spidacalc/cee/job.schema) object in the POST body (currently limited to 50MB)
 
-Or an array of [Job](../../resources/schema/spidacalc/cee/job.schema) objects in the POST body
+Or an array of [Job](../../resources/schema/spidacalc/cee/job.schema) objects in the POST body (currently limited to 50MB)
 
 #### Response
 
