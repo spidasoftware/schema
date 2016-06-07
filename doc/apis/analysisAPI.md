@@ -18,7 +18,7 @@ Click the login link at [https://cee.spidastudio.com](https://cee.spidastudio.co
 
 Once authenticated, contact us so we can manually enable you.  (This will eventually be automated.)
 
-Get client id and client secret from [https://cee.spidastudio.com/user/profile](https://cee.spidastudio.com/user/profile)
+Get client id and client secret from [https://cee.spidastudio.com/profile](https://cee.spidastudio.com/profile)
 
 ### API Usage Examples with curl
 
@@ -31,24 +31,24 @@ oauthJsonResponse=`curl -X POST --data "$oauthParams" https://cee.spidastudio.co
 accessToken=`echo $oauthJsonResponse | jq -r '.access_token'`                                            
 
 #Create a job (from an example in this repository)
-curl --request POST -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data @schema/resources/examples/spidacalc/cee/job.json http://localhost:8080/job
+curl --request POST -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data @schema/resources/examples/spidacalc/cee/job.json https://cee.spidastudio.com/job
 #[{"success":true,"id":"5755ad4a3c55d07876c8ae8a"}]
 
 #Get that job back (output to a file so we can use it below)
-curl --request GET -o job.json -H "Authorization: Bearer $accessToken" http://localhost:8080/job/5755ad4a3c55d07876c8ae8a                      
+curl --request GET -o job.json -H "Authorization: Bearer $accessToken" https://cee.spidastudio.com/job/5755ad4a3c55d07876c8ae8a                      
 cat job.json                                                                                                                                   
 #[{"callbackUrl":"https://post/job/here/when/done","engineVersion":"7.0.0.0-SNAPSHOT","payload":{...
 
 #Update job (using file generated above)
-curl --request PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data @job.json http://localhost:8080/job      
+curl --request PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data @job.json https://cee.spidastudio.com/job      
 #[{"success":true,"id":"5755ae963c55d07876c8ae8b"}]       #<--notice the new id because we remove the old job first, then add the updated one
 
 #Delete that updated job
-curl --request DELETE -H "Authorization: Bearer $accessToken" http://localhost:8080/job/5755ae963c55d07876c8ae8b
+curl --request DELETE -H "Authorization: Bearer $accessToken" https://cee.spidastudio.com/job/5755ae963c55d07876c8ae8b
 #[{"success":true}]
 
 #Validate a job (not a required step)
-curl --request POST -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data @schema/resources/examples/spidacalc/cee/job.json http://localhost:8080/job/validate
+curl --request POST -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data @schema/resources/examples/spidacalc/cee/job.json https://cee.spidastudio.com/job/validate
 #[{"success":true,"errors":[]}]
 
 ```
