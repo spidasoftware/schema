@@ -137,6 +137,12 @@
       "items": {
         "$ref": "../../spidacalc/results/item.schema"
       }
+    },
+    "pointLoads":{
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/results/item.schema"
+      }
     }
   },
   "additionalProperties": false
