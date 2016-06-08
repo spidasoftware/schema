@@ -20,7 +20,7 @@
       "items": {
         "type": "object"
       }
-    },
-    "additionalProperties": false
-  }
+    }
+  },
+  "additionalProperties": false
 }

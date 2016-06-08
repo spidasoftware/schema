@@ -1,0 +1,83 @@
+{
+  "results": [{
+    "analysisCase": "Load Case Mock",
+    "analysisCaseVersion": "912ec803b2ce49e4a541068d495ab570",
+    "analysisDate": 1465409694124,
+    "engineVersion": "7.0.0.0-SNAPSHOT",
+    "components": [{
+      "itemId": "itemId",
+      "itemDescription": "itemId",
+      "resultsType": "PERCENT_LOADED",
+      "analysisType": "STRESS",
+      "failingRatio": 0.0,
+      "strengthFactor": 0.9,
+      "allowable": 100.0,
+      "additionalValues": {},
+      "allowableEngineering": {
+        "unit": "PASCAL",
+        "value": 1200.0
+      },
+      "actualEngineering": {
+        "unit": "PASCAL",
+        "value": 1000.0
+      },
+      "atDirection": [{
+        "direction": {
+          "unit": "DEGREE_ANGLE",
+          "value": 0.0
+        },
+        "value": {
+          "unit": "PASCAL",
+          "value": 1.0
+        }
+      }, {
+        "direction": {
+          "unit": "DEGREE_ANGLE",
+          "value": 32.0
+        },
+        "value": {
+          "unit": "PASCAL",
+          "value": 2.0
+        }
+      }, {
+        "direction": {
+          "unit": "DEGREE_ANGLE",
+          "value": 58.0
+        },
+        "value": {
+          "unit": "PASCAL",
+          "value": 3.0
+        }
+      }],
+      "status": "FAILING",
+      "actual": 1.7976931348623157E308,
+      "ratio": 1.7976931348623157E308,
+      "message": "Basic Exception",
+      "poles": [{
+        "id": "Pole",
+        "description": "40' Class 4 Southern Yellow Pine",
+        "atHeight": [{
+          "height": {
+            "unit": "METRE",
+            "value": 0.0
+          },
+          "deflected": {
+            "vector": [0.0, 0.0, 0.0],
+            "unit": "METRE"
+          },
+          "components": []
+        }, {
+          "height": {
+            "unit": "METRE",
+            "value": 10.0
+          },
+          "deflected": {
+            "vector": [0.0, 0.0, 10.0],
+            "unit": "METRE"
+          },
+          "components": []
+        }]
+      }]
+    }]
+  }]
+}
