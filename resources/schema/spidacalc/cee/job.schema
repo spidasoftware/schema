@@ -4,8 +4,7 @@
   "type": "object",
   "required": [
     "engineVersion",
-    "payload",
-    "callbackUrl"
+    "payload"
   ],
   "properties": {
     "id": {
@@ -21,7 +20,7 @@
       "$ref": "../../spidacalc/cee/analysis.schema"
     },
     "callbackUrl": {
-      "description": "an url to post the results upon completion",
+      "description": "URL for CEE to POST the job upon completion (Not required if just asking for results later)",
       "type": "string"
     },
     "externalId": {
