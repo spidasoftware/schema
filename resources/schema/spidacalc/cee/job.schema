@@ -31,6 +31,10 @@
       "description": "The email address of the user who triggered the job (READ ONLY)",
       "type": "string"
     },
+    "accountId": {
+      "description": "The account id of the user who triggered the job (READ ONLY)",
+      "type": "string"
+    },
     "requestIP": {
       "description": "The IP address of the client that triggered the job (READ ONLY)",
       "type": "string"
