@@ -132,7 +132,7 @@
           "additionalProperties": false
         },
         {
-          "$ref": "../../spidacalc/results/result.schema"
+          "$ref": "../../spidacalc/results/results.schema"
         },
         {
           "type": "null"
