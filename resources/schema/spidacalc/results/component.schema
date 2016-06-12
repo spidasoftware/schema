@@ -14,7 +14,7 @@
       "description":"the readable description of the item that was being examined"
     },
     "analysisType":{
-      "enum": ["STRESS", "MOMENT", "FORCE", "BUCKLING", "DEFLECTION"]
+      "enum": ["STRESS", "MOMENT", "FORCE", "BUCKLING", "DEFLECTION", "STRENGTH"]
     },
     "status": {
       "enum": ["PASSING", "NEAR_FAILING", "FAILING"]
