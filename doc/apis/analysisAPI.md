@@ -10,15 +10,27 @@ The analysis can be a somewhat long running operation.  It can take anywhere fro
 
 When CEE finishes one analysis job, a POST request is made to the `callbackUrl` with the complete job json in the body.  The analysis results can be retrieved from the job `output` property.
 
-### OAUTH
+### Authentication
 
 OAUTH is used for authentication in CEE.  Current plans are for Google and our own CAS providers to be used. 
 
-Click the login link at [https://cee.spidastudio.com](https://cee.spidastudio.com). 
+Click the login link at [https://cee.spidastudio.com](https://cee.spidastudio.com). When you login the first time, SPIDA will receive an email and enable you manually.  Then you will receive an email when we enable you.  Now, you can submit jobs.  
 
-Once authenticated, contact us so we can manually enable you.  (This will eventually be automated.)
+To make an HTTP request you will need a client id and client secret.  Get these values from [https://cee.spidastudio.com/profile](https://cee.spidastudio.com/profile)
 
-Get client id and client secret from [https://cee.spidastudio.com/profile](https://cee.spidastudio.com/profile)
+### Authorization
+
+#### User Role
+
+Users can only see their own profile and jobs that they have submitted.
+
+#### Account Admin Role
+
+Each account should have at least one administrator.  SPIDA will assign the account admin upon request.  The account administrator will be in charge of receiving and approving new user requests for their own account.  Also, account administrators can see all jobs submitted in their own account.
+
+#### Admin Role
+
+SPIDA employees can have an admin role.
 
 ### API Usage Examples with curl
 
