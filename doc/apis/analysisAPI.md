@@ -8,7 +8,7 @@ The analysis can be a somewhat long running operation.  It can take anywhere fro
 
 ### Callbacks
 
-When CEE finishes one analysis job, a POST request is made to the `callbackUrl` with the complete job json in the body.  The analysis results can be retrieved from the job `output` property.
+When CEE finishes one analysis job, if a `callbackUrl` property is provided, then a POST request is made to the `callbackUrl` with the complete job json in the body.  The analysis results can be retrieved from the job `output` property.
 
 ### Authentication
 
@@ -134,7 +134,9 @@ An array of [Job](../../resources/schema/spidacalc/cee/job.schema) objects
 
 ### Getting Job Statuses
 
-Getting the job statuses
+Get each job(s) status in the queue.  This can be useful if you are not providing a `callbackUrl` and you just want to periodically check the status of jobs until they are all done.  Then you could request all the jobs and get the full objects back.
+
+To see a list of possible statuses, see the [job-status-response](../../resources/schema/spidacalc/cee/job-status-response.schema)
 
 #### URL
 
