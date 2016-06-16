@@ -63,10 +63,6 @@ curl --request PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: app
 curl --request DELETE -H "Authorization: Bearer $accessToken" https://cee.spidastudio.com/job/5755ad4a3c55d07876c8ae8a
 #[{"id":"5755ad4a3c55d07876c8ae8a","success":true}]
 
-#Validate a job (not a required step)
-curl --request POST -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data @schema/resources/examples/spidacalc/cee/job.json https://cee.spidastudio.com/job/validate
-#[{"success":true,"errors":[]}]
-
 ```
 
 [Example Job](../../resources/examples/spidacalc/cee/job.json)
@@ -222,28 +218,4 @@ An array of [job-action-response](../../resources/schema/spidacalc/cee/job-actio
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-### Validating Jobs
-
-You can also just validate jobs without adding them to the queue.  This is not required but can be a helpful tool during development and/or debugging.
-
-#### URL
-
-https://cee.spidastudio.com/job/validate
-
-#### Method
-
-POST
-
-#### Parameter
-
-One [Job](../../resources/schema/spidacalc/cee/job.schema) object in the POST body (currently limited to 50MB)
-
-Or an array of [Job](../../resources/schema/spidacalc/cee/job.schema) objects in the POST body (currently limited to 50MB)
-
-#### Response
-
-An array of [job-action-response](../../resources/schema/spidacalc/cee/job-action-response.schema) objects.
-
 
