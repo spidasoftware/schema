@@ -36,19 +36,19 @@ SPIDA employees can have an admin role.
 
 ```bash
 #Get client id and client secret from https://cee.spidastudio.com/user/profile
-oauthParams="grant_type=client_credentials&client_id=...&client_secret=..."                              
+oauthParams="grant_type=client_credentials&client_id=...&client_secret=..."
 oauthJsonResponse=`curl -X POST --data "$oauthParams" https://cee.spidastudio.com/oauth/token`
 
 #Get jq from https://stedolan.github.io/jq/
-accessToken=`echo $oauthJsonResponse | jq -r '.access_token'`                                            
+accessToken=`echo $oauthJsonResponse | jq -r '.access_token'`
 
 #Create a job (from an example in this repository)
 curl --request POST -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data @schema/resources/examples/spidacalc/cee/job.json https://cee.spidastudio.com/job
 #[{"success":true,"id":"5755ad4a3c55d07876c8ae8a"}]
 
 #Get that job back (output to a file so we can use it below)
-curl --request GET -o job.json -H "Authorization: Bearer $accessToken" https://cee.spidastudio.com/job/5755ad4a3c55d07876c8ae8a                
-cat job.json          
+curl --request GET -o job.json -H "Authorization: Bearer $accessToken" https://cee.spidastudio.com/job/5755ad4a3c55d07876c8ae8a
+cat job.json
 #[{"callbackUrl":"https://post/job/here/when/done","engineVersion":"7.0.0.0-SNAPSHOT","payload":{...
 
 #Get that job status back
