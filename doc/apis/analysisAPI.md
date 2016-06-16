@@ -47,17 +47,21 @@ curl --request POST -H "Authorization: Bearer $accessToken" -H "Content-Type: ap
 #[{"success":true,"id":"5755ad4a3c55d07876c8ae8a"}]
 
 #Get that job back (output to a file so we can use it below)
-curl --request GET -o job.json -H "Authorization: Bearer $accessToken" https://cee.spidastudio.com/job/5755ad4a3c55d07876c8ae8a                      
-cat job.json                                                                                                                                   
+curl --request GET -o job.json -H "Authorization: Bearer $accessToken" https://cee.spidastudio.com/job/5755ad4a3c55d07876c8ae8a                
+cat job.json          
 #[{"callbackUrl":"https://post/job/here/when/done","engineVersion":"7.0.0.0-SNAPSHOT","payload":{...
 
+#Get that job status back
+curl --request GET -H "Authorization: Bearer $accessToken" https://cee.spidastudio.com/job/status/5755ad4a3c55d07876c8ae8a
+#[{"id":"5755ad4a3c55d07876c8ae8a","status":"WAITING"}]
+
 #Update job (using file generated above)
-curl --request PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data @job.json https://cee.spidastudio.com/job      
-#[{"success":true,"id":"5755ae963c55d07876c8ae8b"}]       #<--notice the new id because we remove the old job first, then add the updated one
+curl --request PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data @job.json https://cee.spidastudio.com/job
+#[{"id":"5755ad4a3c55d07876c8ae8a","success":true}]
 
 #Delete that updated job
-curl --request DELETE -H "Authorization: Bearer $accessToken" https://cee.spidastudio.com/job/5755ae963c55d07876c8ae8b
-#[{"success":true}]
+curl --request DELETE -H "Authorization: Bearer $accessToken" https://cee.spidastudio.com/job/5755ad4a3c55d07876c8ae8a
+#[{"id":"5755ad4a3c55d07876c8ae8a","success":true}]
 
 #Validate a job (not a required step)
 curl --request POST -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data @schema/resources/examples/spidacalc/cee/job.json https://cee.spidastudio.com/job/validate
@@ -128,9 +132,41 @@ An array of [Job](../../resources/schema/spidacalc/cee/job.schema) objects
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
+### Getting Job Statuses
+
+Getting the job statuses
+
+#### URL
+
+https://cee.spidastudio.com/job/status/${id}
+
+or 
+
+https://cee.spidastudio.com/job/status?ids=["${id}","${id}"]
+
+#### Method
+
+GET
+
+#### Parameter
+
+id: the id of the job that was returned upon creation
+
+or 
+
+ids: a json array of ids passed as a query parameter
+
+#### Response
+
+An array of [job-status-response](../../resources/schema/spidacalc/cee/job-status-response.schema) objects
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 ### Updating Jobs
 
-Update job(s) before they have been started.  This will remove the existing job and add a new job with a new id to the queue.
+Update job(s) before they have been started.
 
 #### URL
 
