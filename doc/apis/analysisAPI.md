@@ -8,7 +8,7 @@ The analysis can be a somewhat long running operation.  It can take anywhere fro
 
 ### Callbacks
 
-When CEE finishes one analysis job, a POST request is made to the `callbackUrl` with the complete job json in the body.  The analysis results can be retrieved from the job `output` property.
+When CEE finishes one analysis job, if a `callbackUrl` property is provided, then a POST request is made to the `callbackUrl` with the complete job json in the body.  The analysis results can be retrieved from the job `output` property.
 
 ### Authentication
 
@@ -36,32 +36,32 @@ SPIDA employees can have an admin role.
 
 ```bash
 #Get client id and client secret from https://cee.spidastudio.com/user/profile
-oauthParams="grant_type=client_credentials&client_id=...&client_secret=..."                              
+oauthParams="grant_type=client_credentials&client_id=...&client_secret=..."
 oauthJsonResponse=`curl -X POST --data "$oauthParams" https://cee.spidastudio.com/oauth/token`
 
 #Get jq from https://stedolan.github.io/jq/
-accessToken=`echo $oauthJsonResponse | jq -r '.access_token'`                                            
+accessToken=`echo $oauthJsonResponse | jq -r '.access_token'`
 
 #Create a job (from an example in this repository)
 curl --request POST -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data @schema/resources/examples/spidacalc/cee/job.json https://cee.spidastudio.com/job
 #[{"success":true,"id":"5755ad4a3c55d07876c8ae8a"}]
 
 #Get that job back (output to a file so we can use it below)
-curl --request GET -o job.json -H "Authorization: Bearer $accessToken" https://cee.spidastudio.com/job/5755ad4a3c55d07876c8ae8a                      
-cat job.json                                                                                                                                   
+curl --request GET -o job.json -H "Authorization: Bearer $accessToken" https://cee.spidastudio.com/job/5755ad4a3c55d07876c8ae8a
+cat job.json
 #[{"callbackUrl":"https://post/job/here/when/done","engineVersion":"7.0.0.0-SNAPSHOT","payload":{...
 
+#Get that job status back
+curl --request GET -H "Authorization: Bearer $accessToken" https://cee.spidastudio.com/job/status/5755ad4a3c55d07876c8ae8a
+#[{"id":"5755ad4a3c55d07876c8ae8a","status":"WAITING"}]
+
 #Update job (using file generated above)
-curl --request PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data @job.json https://cee.spidastudio.com/job      
-#[{"success":true,"id":"5755ae963c55d07876c8ae8b"}]       #<--notice the new id because we remove the old job first, then add the updated one
+curl --request PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data @job.json https://cee.spidastudio.com/job
+#[{"id":"5755ad4a3c55d07876c8ae8a","success":true}]
 
 #Delete that updated job
-curl --request DELETE -H "Authorization: Bearer $accessToken" https://cee.spidastudio.com/job/5755ae963c55d07876c8ae8b
-#[{"success":true}]
-
-#Validate a job (not a required step)
-curl --request POST -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data @schema/resources/examples/spidacalc/cee/job.json https://cee.spidastudio.com/job/validate
-#[{"success":true,"errors":[]}]
+curl --request DELETE -H "Authorization: Bearer $accessToken" https://cee.spidastudio.com/job/5755ad4a3c55d07876c8ae8a
+#[{"id":"5755ad4a3c55d07876c8ae8a","success":true}]
 
 ```
 
@@ -128,9 +128,43 @@ An array of [Job](../../resources/schema/spidacalc/cee/job.schema) objects
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
+### Getting Job Statuses
+
+Get each job(s) status in the queue.  This can be useful if you are not providing a `callbackUrl` and you just want to periodically check the status of jobs until they are all done.  Then you could request all the jobs and get the full objects back.
+
+To see a list of possible statuses, see the [job-status-response](../../resources/schema/spidacalc/cee/job-status-response.schema)
+
+#### URL
+
+https://cee.spidastudio.com/job/status/${id}
+
+or 
+
+https://cee.spidastudio.com/job/status?ids=["${id}","${id}"]
+
+#### Method
+
+GET
+
+#### Parameter
+
+id: the id of the job that was returned upon creation
+
+or 
+
+ids: a json array of ids passed as a query parameter
+
+#### Response
+
+An array of [job-status-response](../../resources/schema/spidacalc/cee/job-status-response.schema) objects
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 ### Updating Jobs
 
-Update job(s) before they have been started.  This will remove the existing job and add a new job with a new id to the queue.
+Update job(s) before they have been started.
 
 #### URL
 
@@ -184,28 +218,4 @@ An array of [job-action-response](../../resources/schema/spidacalc/cee/job-actio
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-### Validating Jobs
-
-You can also just validate jobs without adding them to the queue.  This is not required but can be a helpful tool during development and/or debugging.
-
-#### URL
-
-https://cee.spidastudio.com/job/validate
-
-#### Method
-
-POST
-
-#### Parameter
-
-One [Job](../../resources/schema/spidacalc/cee/job.schema) object in the POST body (currently limited to 50MB)
-
-Or an array of [Job](../../resources/schema/spidacalc/cee/job.schema) objects in the POST body (currently limited to 50MB)
-
-#### Response
-
-An array of [job-action-response](../../resources/schema/spidacalc/cee/job-action-response.schema) objects.
-
 
