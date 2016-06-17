@@ -4,6 +4,7 @@
   "type": "string",
   "enum": [
     "CUBIC_INCH",
+    "CUBIC_METRE",
     "DEGREE_ANGLE",
     "FAHRENHEIT",
     "FOOT",
