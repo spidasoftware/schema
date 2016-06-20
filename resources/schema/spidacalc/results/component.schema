@@ -2,7 +2,7 @@
   "description": "A copmeonnt is an compination of an individual item and analysis type i.e. Pole Buckling",
   "type": "object",
   "required": [
-    "itemId", "itemDescription", "poles", "actual", "actualEngineering", "ratio", "allowable","allowableEngineering", "failingRatio", "status", "resultsType", "strengthFactor", "analysisType"
+    "itemId", "itemDescription", "poles", "actual", "actualEngineering", "ratio", "allowable","allowableEngineering", "failingRatio", "status", "resultsType", "analysisType"
   ],
   "properties": {
     "itemId": {

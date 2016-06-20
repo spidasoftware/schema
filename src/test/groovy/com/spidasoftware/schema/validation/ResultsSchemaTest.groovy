@@ -17,7 +17,7 @@ class ResultsSchemaTest extends GroovyTestCase {
 	void testErrorResult(){
 		def schema = factory.getJsonSchema("schema/spidacalc/results/results.schema")
 		report = schema.validate(JsonLoader.fromString(new File("resources/examples/spidacalc/results/error.json").text))
-		report.each{ log.info "testOneOfEverythingConverted validation report "+it.toString() }
+		report.each{ log.info "testErrorResult validation report "+it.toString() }
 		println report.toString()
 		assertTrue "this instance should be valid against the schema", report.isSuccess()
 	}

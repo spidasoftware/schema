@@ -10,7 +10,6 @@
       "resultsType": "PERCENT_LOADED",
       "analysisType": "STRESS",
       "failingRatio": 0.0,
-      "strengthFactor": 0.9,
       "allowable": 100.0,
       "additionalValues": {},
       "allowableEngineering": {
