@@ -50,34 +50,22 @@
     "startDate": {
       "description": "when the analysis was actually started, or null if not started (Milliseconds from 1970-01-01 UTC) (READ ONLY)",
       "oneOf": [
-        {
-          "type": "number"
-        },
-        {
-          "type": "null"
-        }
+        {"type": "number"},
+        {"type": "null"}
       ]
     },
     "finishDate": {
       "description": "when the analysis was completed, or null if not completed (Milliseconds from 1970-01-01 UTC) (READ ONLY)",
       "oneOf": [
-        {
-          "type": "number"
-        },
-        {
-          "type": "null"
-        }
+        {"type": "number"},
+        {"type": "null"}
       ]
     },
     "cancelDate": {
       "description": "if the job is cancelled this will be set (Milliseconds from 1970-01-01 UTC) (READ ONLY)",
       "oneOf": [
-        {
-          "type": "number"
-        },
-        {
-          "type": "null"
-        }
+        {"type": "number"},
+        {"type": "null"}
       ]
     },
     "callbackAttempts": {
@@ -113,11 +101,7 @@
       }
     },
     "position": {
-      "description": "The job's place in line for analysis.  For example, position 0 means this job is next, position 1 means there is one job ahead of this one (READ ONLY)",
-      "type": "number"
-    },
-    "complexityIndex": {
-      "description": "the calculated complexity of this analysis (READ ONLY)",
+      "description": "The job's place in line for analysis.  For example, position 1 means this job is next, position 2 means there is one job ahead of this one (READ ONLY)",
       "type": "number"
     },
     "output": {
@@ -142,12 +126,8 @@
           },
           "additionalProperties": false
         },
-        {
-          "$ref": "../../spidacalc/results/results.schema"
-        },
-        {
-          "type": "null"
-        }
+        {"$ref": "../../spidacalc/results/results.schema"},
+        {"type": "null"}
       ]
     }
   },
