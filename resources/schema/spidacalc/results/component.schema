@@ -14,7 +14,7 @@
       "description":"the readable description of the item that was being examined"
     },
     "analysisType":{
-      "enum": ["STRESS", "MOMENT", "FORCE", "BUCKLING", "DEFLECTION", "STRENGTH"]
+      "$ref":"../../general/analysis_type.schema"
     },
     "status": {
       "enum": ["PASSING", "NEAR_FAILING", "FAILING"]
@@ -63,9 +63,6 @@
     },
     "failingRatio": {
       "description":"the ratio at which this analysis will fail",
-      "type": "number"
-    },
-    "strengthFactor":{
       "type": "number"
     },
     "message":{

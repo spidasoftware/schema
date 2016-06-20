@@ -13,6 +13,9 @@
       "description":"The long value of the time when the analysis was performed.",
       "$ref": "../../../general/long_date.schema"
     },
+    "analysisType":{
+      "$ref": "../../../general/analysis_type.schema"
+    },
     "component": {
       "type": "string"
     },
