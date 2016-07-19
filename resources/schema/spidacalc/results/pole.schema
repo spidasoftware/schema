@@ -34,13 +34,13 @@
             "required": ["momentOfInertia", "crossArea", "sectionModulus"]
           }, {
             "description": "buckling and loading result fields",
-            "required": ["stress", "deflected", "applied", "actual", "internal"]
+            "required": ["stress", "deflection", "applied", "actual", "internal"]
           }, {
             "description": "moment result fields",
-            "required": ["deflected", "applied", "actual", "internal"]
+            "required": ["deflection", "applied", "actual", "internal"]
           }, {
             "description": "error result fields",
-            "required":["deflected"]
+            "required":["deflection"]
           }
         ],
         "properties": {
@@ -64,8 +64,8 @@
             "description": "internal forces at this height",
             "$ref": "../../general/point_load.schema"
           },
-          "deflected": {
-            "description": "the final deflected location of the pole at this height",
+          "deflection": {
+            "description": "the deflection from the starting position of the pole at this height",
             "$ref": "../../general/triad.schema"
           },
           "momentOfInertia": {
