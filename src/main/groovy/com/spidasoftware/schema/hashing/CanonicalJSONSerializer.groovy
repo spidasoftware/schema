@@ -12,8 +12,8 @@ import net.sf.json.JSONNull
 class CanonicalJSONSerializer {
 
 	private static final String START_OBJ = '{'
-	private static final String END_OBJ = '{'
-	private static final String SEP_OBJ = '['
+	private static final String END_OBJ = '}'
+	private static final String SEP_OBJ = ','
 	private static final String START_ARR = '['
 	private static final String END_ARR = ']'
 	private static final String SEP_ARR = ','
@@ -24,7 +24,7 @@ class CanonicalJSONSerializer {
 
 	public static final Closure<ArrayBehavior> DEFAULT_ARRAY_DECIDER = { JSONArray array -> array.opt(0) instanceof Number ? ArrayBehavior.LIST : ArrayBehavior.SET }
 
-	NumberFormat numberFormat = new DecimalFormat('0.########E0')
+	NumberFormat numberFormat = new DecimalFormat('0.############E0')
 	Closure<ArrayBehavior> arrayDecider = DEFAULT_ARRAY_DECIDER
 
 	CanonicalJSONSerializer() {
@@ -47,7 +47,7 @@ class CanonicalJSONSerializer {
 	String serialize(JSON json) {
 		StringWriter writer = new StringWriter()
 
-		serialize(json)
+		serialize(writer,json)
 
 		return writer.toString()
 	}
@@ -81,6 +81,15 @@ class CanonicalJSONSerializer {
 		}
 	}
 
+	private String serializeObject(JSONObject json) {
+		StringWriter writer = new StringWriter()
+
+		serializeObject(writer,json)
+
+		return writer.toString()
+	}
+
+
 	private void serializeObject(Writer writer, JSONObject json) {
 		writer.write(START_OBJ)
 		json.keys().sort().eachWithIndex({ key, i -> 
@@ -105,7 +114,7 @@ class CanonicalJSONSerializer {
 			if (idx > 0) {
 				writer.write(SEP_ARR)
 			}
-			serializeAny(item)
+			serializeAny(writer,item)
 		})
 		writer.write(END_ARR)
 	}
@@ -116,7 +125,7 @@ class CanonicalJSONSerializer {
 
 	private void serializeString(Writer writer, String string) {
 		writer.write(QUOTE)
-		StringEscapeUtils.escapeJavaScript(writer, key.toString())
+		StringEscapeUtils.escapeJavaScript(writer, string)
 		writer.write(QUOTE)
 	}
 
@@ -134,14 +143,17 @@ class CanonicalJSONSerializer {
 
 	private List sortJSONArray(JSONArray array) {
 		//If items are a JSONObject with an id sort them by if otherwise sort them as strings
-		array.sort({item ->
-			(item instanceof JSONObject && obj.id) ? obj.id.toString() : obj.toString()
-		})
+		array.sort(this.&sortKey)
 	}
 
 	private String sortKey(Object obj) {
-		if (obj instanceof JSONObject && obj.id) {
-			return obj.id.toString()
+		if (obj instanceof JSONObject) {
+			if (obj.id) {
+				return obj.id.toString()
+			} else {
+				//TODO: This is extremely inefficient
+				return serializeObject((JSONObject) obj)
+			}
 		} else {
 			return obj.toString()
 		}

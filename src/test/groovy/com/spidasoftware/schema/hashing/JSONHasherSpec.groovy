@@ -10,7 +10,7 @@ class JSONHasherSpec extends Specification{
 
 	def setup(){
 		json = '{ "level": 1, "child": { "array": [1, 2, 3, 4, 5], "arrayOfObjects":[ {"name":"short", "age":12, "location":"someplace"}, {"name":"long", "age":66, "location":"nowhere"} ], "sibling":"sister" }, "otherProp":"something" }'
-		jsonMixed = '{ "child": { "sibling": "sister", "array": [1, 3, 2, 5, 4], "arrayOfObjects": [{ "name": "long", "location": "nowhere", "age": 66 }, { "age": 12, "name": "short", "location": "someplace" }], }, "otherProp": "something", "level": 1 }'
+		jsonMixed = '{ "child": { "sibling": "sister", "array": [1, 2, 3, 4, 5], "arrayOfObjects": [{ "name": "long", "location": "nowhere", "age": 66 }, { "age": 12, "name": "short", "location": "someplace" }], }, "otherProp": "something", "level": 1 }'
 	}
 
 	def "Test hash produces a different value for objects with one different character"() {
