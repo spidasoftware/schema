@@ -100,9 +100,6 @@ class CanonicalJSONSerializer {
 			writer.write(PROP_SEP)
 
 			serializeAny(writer, json.get(key))
-
-			Object val = json.get(key)
-
 		})
 
 		writer.write(END_OBJ)
