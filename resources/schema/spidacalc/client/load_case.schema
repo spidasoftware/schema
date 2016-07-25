@@ -31,7 +31,7 @@
 			"type": "boolean"
 		},
 		"displacementBasedLoadChangesLevel": {
-			"enum":["NONE", "PARTIAL", "ALL"]
+			"enum": ["NONE", "PARTIAL", "ALL"]
 		},
 		"analyzeGroundLineOnly": {
 			"type": "boolean"
@@ -114,11 +114,6 @@
 		"analysisMethod": {
 			"enum": [
 				"DIRECT_STIFFNESS", "CO_ROTATIONAL"
-			]
-		},
-		"usageLevel": {
-			"enum": [
-				"NONE", "POLE"
 			]
 		},
 		"staticPretensionMultiplier": {

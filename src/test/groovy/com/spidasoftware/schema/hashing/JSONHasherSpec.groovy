@@ -14,9 +14,7 @@ class JSONHasherSpec extends Specification{
 
 	def setup(){
 		json = '{ "level": 1, "child": { "array": [1, 2, 3, 4, 5], "arrayOfObjects":[ {"name":"short", "age":12, "location":"someplace"}, {"name":"long", "age":66, "location":"nowhere"} ], "sibling":"sister" }, "otherProp":"something" }'
-		jsonMixed = '{ "child": { "sibling": "sister", "array": [1, 3, 2, 5, 4], "arrayOfObjects": [{ "name": "long", "location": "nowhere", "age": 66 }, { "age": 12, "name": "short", "location": "someplace" }], }, "otherProp": "something", "level": 1 }'
-		realJson = '{"description": "0.75 Inch Telephone Bundle with 1/4\\\" EHS Messenger","coreStrands": 166.20000000000002,"conductorStrands": 7,"crossArea": {"unit": "SQUARE_INCH","value": 0.0352},"expansionCoefficient": {"unit": "PER_FAHRENHEIT","value": 6.4E-6}}'
-		realJson2 = '{"expansionCoefficient": {"unit": "PER_FAHRENHEIT","value": 0.0000064},"description": "0.75 Inch Telephone Bundle with 1/4\\\" EHS Messenger","conductorStrands": 7,"coreStrands": 166.20000000000002,"crossArea": {"unit": "SQUARE_INCH","value": 0.0352000}}'
+		jsonMixed = '{ "child": { "sibling": "sister", "array": [1, 2, 3, 4, 5], "arrayOfObjects": [{ "name": "long", "location": "nowhere", "age": 66 }, { "age": 12, "name": "short", "location": "someplace" }], }, "otherProp": "something", "level": 1 }'
 	}
 
 	def "Test hash produces a different value for objects with one different character"() {

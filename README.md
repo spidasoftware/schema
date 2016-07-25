@@ -1,13 +1,13 @@
 SPIDA Software JSON Interfaces
 ==============================
 
-[![Build Status](https://secure.travis-ci.org/spidasoftware/schema.png)](http://travis-ci.org/spidasoftware/schema)
+[![Build Status](https://travis-ci.org/spidasoftware/schema.svg?branch=master)](http://travis-ci.org/spidasoftware/schema)
 
-* LAST RELEASED VERSION: 1.0.6
+* LAST RELEASED VERSION: 1.11/3.0.1
 
 License
 -------
-This repository is governed by the terms of use located [here.](https://github.com/spidasoftware/schema/raw/master/2013_10_25%20SPIDA%20API%20Terms%20of%20Service.pdf)
+By accessing, downloading or using the APIs defined here you are agreeing to these terms of use [here.](https://github.com/spidasoftware/schema/raw/master/2013_10_25%20SPIDA%20API%20Terms%20of%20Service.pdf)
 
 General Overview of the Schema
 --------------------------------
