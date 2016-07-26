@@ -17,7 +17,7 @@ import org.apache.log4j.Logger
 /**
  * Class to validate against our json schemas. Will references the schemas locally as a jar resource.
  * The resources directory is specified in pom.xml.
- * 
+ *
  * User: mford
  * Date: 7/24/13
  * Time: 2:34 PM
@@ -40,7 +40,7 @@ class Validator {
 
 			String namespaceString = "resource:" + namespace + "/";
 			log.trace "Validation: \nschemaPath=$schemaPath \nnamespace=$namespace \nnamespaceString=$namespaceString"
-			
+
 			JsonSchemaFactory factory = getFactoryWithNamespace(namespaceString);
 			JsonNode schemaNode = JsonLoader.fromResource(schemaPath);
 			return loadAndValidate(factory, schemaNode, json);
@@ -164,7 +164,7 @@ class Validator {
 			throw new JSONServletException(JSONServletException.INTERNAL_ERROR, "An internal error occurred when validating JSON");
 		}
 		if (!report.isSuccess()) {
-			throw new JSONServletException(JSONServletException.INVALID_PARAMETERS, report.toString());
+			throw new JSONServletException(JSONServletException.BAD_REQUEST, report.toString());
 		}
 	}
 }

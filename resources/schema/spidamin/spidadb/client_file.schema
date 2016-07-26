@@ -1,0 +1,94 @@
+{
+	"description": "Properties for a client file",
+	"id": "#/spidamin/spidadb/client_file.schema",
+	"type": "object",
+	"oneOf": [
+
+		{
+			"required": [
+				"name"
+			]
+		}, {
+			"required": [
+				"name",
+				"id",
+				"version"
+			]
+		}
+	],
+	"properties": {
+		"name": {
+			"type": "string"
+		},
+		"id": {
+			"type": "string"
+		},
+		"version": {
+			"type": "string",
+			"description": "a hash of of the individual items hash"
+		},
+		"companyId": {
+			"type": "string",
+			"description": "the owning company for this client file"
+		},
+		"clientFileHash":{
+			"type": "string",
+			"description":"a legacy hash of the complete file that was used to create this item"
+		},
+		"clientAnchors": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"clientCrossArms": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"clientInsulators": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"clientBraces": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"clientFoundations": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"clientWires": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"clientPoles": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"clientEquipments": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"loadCases": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		}
+	},
+	"additionalProperties": false
+}

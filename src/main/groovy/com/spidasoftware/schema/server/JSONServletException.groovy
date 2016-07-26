@@ -1,17 +1,21 @@
 package com.spidasoftware.schema.server
 
-import net.sf.json.JSONObject;
+import net.sf.json.JSONObject
 
 /**
  * Exception for servlets to throw when they have an error. Will be communicated back to the calling client.
  */
 public class JSONServletException extends Exception {
 
-	public static String NO_ERROR = "NO_ERROR";
-	public static String INVALID_PARAMETERS = "INVALID_PARAMETERS";
-	public static String INTERNAL_ERROR = "INTERNAL_ERROR";
+	public static final String INTERNAL_ERROR = "INTERNAL_ERROR";
+	public static final String MISSING_METHOD = "MISSING_METHOD";
+	public static final String MISSING_RESOURCE = "MISSING_RESOURCE";
+	public static final String METHOD_NOT_ALLOWED = "METHOD_NOT_ALLOWED";
+	public static final String BAD_REQUEST = "BAD_REQUEST";
+	public static final String FORBIDDEN = "FORBIDDEN";
 
 	protected String code;
+
 
 	public JSONServletException(String code, String message) {
 		super(message);
@@ -36,7 +40,7 @@ public class JSONServletException extends Exception {
 		String code = ((String)json.get("code"))
 		String message =(String)json.get("message")
 
-		JSONServletException ex = new JSONServletException(code, message);
+		JSONServletException ex = new JSONServletException(code , message);
 		return ex;
 	}
 }
