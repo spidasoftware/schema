@@ -60,7 +60,7 @@
             "unit": "METRE",
             "value": 0.0
           },
-          "deflected": {
+          "deflection": {
             "vector": [0.0, 0.0, 0.0],
             "unit": "METRE"
           },
@@ -70,8 +70,8 @@
             "unit": "METRE",
             "value": 10.0
           },
-          "deflected": {
-            "vector": [0.0, 0.0, 10.0],
+          "deflection": {
+            "vector": [1.0, 0.0, 0.0],
             "unit": "METRE"
           },
           "components": []
