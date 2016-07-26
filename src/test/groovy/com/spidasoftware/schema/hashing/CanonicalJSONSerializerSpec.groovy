@@ -3,6 +3,7 @@ package com.spidasoftware.schema.hashing
 import net.sf.json.JSONObject
 import net.sf.json.JSONArray
 import net.sf.json.JSONSerializer
+import net.sf.json.JSONNull
 import spock.lang.Specification
 
 class CanonicalJSONSerializerSpec extends Specification{
@@ -58,6 +59,14 @@ class CanonicalJSONSerializerSpec extends Specification{
 		
 		then:
 			JSONSerializer.toJSON(new CanonicalJSONSerializer().serialize(json)).val == json.val
+	}
+
+	def "Handles nulls"() {
+		when:
+			def json = JSONObject.fromObject(val: null)
+
+		then:
+			JSONSerializer.toJSON(new CanonicalJSONSerializer().serialize(json)).val instanceof JSONNull
 	}
 
 

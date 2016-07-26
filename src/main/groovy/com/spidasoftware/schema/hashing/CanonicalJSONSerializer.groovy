@@ -53,7 +53,7 @@ class CanonicalJSONSerializer {
 	}
 
 	private void serializeAny(Writer writer, Object val) {
-		if (val == null) {
+		if (val == null || val instanceof JSONNull) {
 			serializeNull(writer)
 		} else if (val instanceof JSONArray) {
 			serializeArray(writer, val)
