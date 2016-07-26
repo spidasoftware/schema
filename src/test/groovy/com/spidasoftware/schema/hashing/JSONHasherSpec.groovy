@@ -92,8 +92,8 @@ class JSONHasherSpec extends Specification{
 		when:
 			def jsonSlurper = new JsonSlurper()
 
-			def map1 = jsonSlurper.parseText(realJson)
-			def map2 = jsonSlurper.parseText(realJson2)
+			def map1 = jsonSlurper.parseText(json)
+			def map2 = jsonSlurper.parseText(jsonMixed)
 
 			def hashMap1 = JSONHasher.hash(map1)
 			def hashMap2 = JSONHasher.hash(map2)
