@@ -1,0 +1,27 @@
+{
+  "id": "#/spidacalc/cee/analysis.schema",
+  "description": "SPIDA CEE analysis object.  The analysis objects are validated by the specific version of the engine that specified.",
+  "type": "object",
+  "required": [
+    "structure",
+    "analysisCase",
+    "clientData"
+  ],
+  "properties": {
+    "analysisCase": {
+      "description": "The load or strength case to use when analyzing the structure.",
+      "oneOf":[
+        {"$ref": "../../spidacalc/client/load_case.schema"},
+        {"$ref": "../../spidacalc/client/strength_case.schema"}
+      ]
+    },
+    "structure": {
+      "description": "The structure to be analyzed.",
+      "$ref": "../../spidacalc/calc/structure.schema"
+    },
+    "clientData": {
+      "description": "The engineering data to be used to fill in the references on the structure.",
+      "$ref": "../../spidacalc/client/data.schema"
+      }
+    }
+  }

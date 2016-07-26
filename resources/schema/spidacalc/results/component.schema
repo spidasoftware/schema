@@ -1,0 +1,146 @@
+{
+  "description": "A copmeonnt is an compination of an individual item and analysis type i.e. Pole Buckling",
+  "type": "object",
+  "required": [
+    "itemId", "itemDescription", "poles", "actual", "actualEngineering", "ratio", "allowable","allowableEngineering", "failingRatio", "status", "resultsType", "analysisType"
+  ],
+  "properties": {
+    "itemId": {
+      "type": "string",
+      "description":"the unique per structure of the item that was being examined"
+    },
+    "itemDescription":{
+      "type": "string",
+      "description":"the readable description of the item that was being examined"
+    },
+    "analysisType":{
+      "$ref":"../../general/analysis_type.schema"
+    },
+    "status": {
+      "enum": ["PASSING", "NEAR_FAILING", "FAILING"]
+    },
+    "resultsType": {
+      "enum": ["SAFETY_FACTOR", "PERCENT_LOADED"]
+    },
+    "actual": {
+      "description":"S.F. or percent",
+      "type": "number"
+    },
+    "actualEngineering":{
+      "description":"actual engineering value that caused the 'actual' value.  This is the specific calculated value from the various analyses. i.e. 6000 psi calculated",
+      "$ref": "../../general/measurable.schema"
+    },
+    "atDirection": {
+      "type": "array",
+      "description": "a list of direction in degrees to the 'actualEngineering' reported at that wind direction",
+      "items": {
+        "type": "object",
+        "properties": {
+          "direction": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "value": {
+            "$ref": "../../general/measurable.schema"
+          }
+        }
+      }
+    },
+    "allowable": {
+      "description":"allowable S.F. or percent",
+      "type": "number"
+    },
+    "allowableEngineering": {
+      "description":"allowable engineering value.  This is usually pulled from the material properties i.e. 8000 psi for wood.",
+      "$ref": "../../general/measurable.schema"
+    },
+    "ratio": {
+      "description":"the ratio between actual and allowable",
+      "type": "number"
+    },
+    "windDirection": {
+      "description":"the direction in compass degress the wind was blowing for these results",
+      "type": "integer"
+    },
+    "failingRatio": {
+      "description":"the ratio at which this analysis will fail",
+      "type": "number"
+    },
+    "message":{
+      "description":"an optional message with additional information about these results",
+      "type": "string"
+    },
+    "additionalValues": {
+      "type": "object",
+      "description":"this is a place to store any additional values that may be useful for the results",
+      "additionalProperties":true
+    },
+    "poles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "../../spidacalc/results/pole.schema"
+      }
+    },
+    "wires": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/results/wire.schema"
+      }
+    },
+    "insulators": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/results/item.schema"
+      }
+    },
+    "crossArms": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/results/item.schema"
+      }
+    },
+    "sidewalkBraces": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/results/item.schema"
+      }
+    },
+    "guys": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/results/item.schema"
+      }
+    },
+    "spanGuys": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/results/item.schema"
+      }
+    },
+    "equipments": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/results/item.schema"
+      }
+    },
+    "pushBraces": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/results/item.schema"
+      }
+    },
+    "anchors": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/results/item.schema"
+      }
+    },
+    "pointLoads":{
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/results/item.schema"
+      }
+    }
+  },
+  "additionalProperties": false
+}

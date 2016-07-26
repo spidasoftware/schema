@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "#/general/triad.schema",
+  "type": "object",
+  "properties": {
+    "vector": {
+      "type": "array",
+      "items": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        }
+      ],
+      "required": [
+        "0",
+        "1",
+        "2"
+      ]
+    },
+    "toGlobal": {
+      "type": "array",
+      "description":"a quaterion for the transformation of the 'vector' that will put it in global space.  If not specified, then the vector is in global space.",
+      "items": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "number"
+        }
+      ],"required": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    "unit": {
+      "$ref": "../general/unit.schema"
+    }
+  },
+  "required": [
+    "vector",
+    "unit"
+  ]
+}

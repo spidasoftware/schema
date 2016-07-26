@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "id": "#/spidacalc/results/wire.schema",
+  "description": "The forces on a single component item.",
+  "required": [
+    "id", "sag", "tension", "windForce", "verticalForce", "actingOn"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The id of the item."
+    },
+    "description":{
+      "type":"string",
+      "description":"a readable string that is used for display"
+    },
+    "sag": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "tension": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "windForce": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "verticalForce": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "actingOn": {
+      "$ref": "../../general/acting_on.schema"
+    }
+  },
+  "additionalProperties": false
+}

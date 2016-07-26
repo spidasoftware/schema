@@ -1,0 +1,36 @@
+{
+"addByDefault": false,
+"analysisMethod": "DIRECT_STIFFNESS",
+"analyzeGroundLineOnly": false,
+"analyzeWithAverageSpan": false,
+"analyzeWithoutLinearConstant": false,
+"connectionType": "CONTINUATION",
+"constructionGrade": "B",
+"constructionType": "NEW",
+"displacementBasedLoadChangesLevel": "NONE",
+"loadZone": "HEAVY",
+"maximumAllowableTensionedDisplacement": {
+"unit": "METRE",
+"value": 0.1
+},
+"maximumLoadingRatio": 1,
+"minimumDisplacementLoadingTension": {
+"unit": "NEWTON",
+"value": 225
+},
+"name": "NESC 2007",
+"pretensionGuys": false,
+"staticPretensionMultiplier": 0.25,
+"sweepIncrement": "DEGREE_1",
+"type": "ZONE_LOAD_CASE",
+"useStrengthResults": false,
+"windEndAngle": {
+"unit": "DEGREE_ANGLE",
+"value": 360
+},
+"windStartAngle": {
+"unit": "DEGREE_ANGLE",
+"value": 0
+},
+"windType": "SWEEP"
+}

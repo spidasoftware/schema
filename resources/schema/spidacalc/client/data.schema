@@ -1,0 +1,74 @@
+{
+	"description": "Properties for a client file",
+	"id": "#/spidacalc/client/data.schema",
+	"type": "object",
+	"properties": {
+		"name": {
+			"type": "string"
+		},
+		"id": {
+			"type": "string"
+		},
+		"version": {
+			"type": "string",
+			"description": "a hash of of the individual items hash"
+		},
+		"anchors": {
+			"type": "array",
+			"items": {
+				"$ref":"../../spidacalc/client/anchor.schema"
+			}
+		},
+		"crossArms": {
+			"type": "array",
+			"items": {
+				"$ref":"../../spidacalc/client/crossarm.schema"
+			}
+		},
+		"insulators": {
+			"type": "array",
+			"items": {
+				"$ref":"../../spidacalc/client/insulator.schema"
+			}
+		},
+		"braces": {
+			"type": "array",
+			"items": {
+				"$ref":"../../spidacalc/client/sidewalk_brace.schema"
+			}
+		},
+		"foundations": {
+			"type": "array",
+			"items": {
+				"$ref":"../../spidacalc/client/foundation.schema"
+			}
+		},
+		"wires": {
+			"type": "array",
+			"items": {
+				"$ref":"../../spidacalc/client/wire.schema"
+			}
+		},
+		"poles": {
+			"type": "array",
+			"items": {
+        "$ref":"../../spidacalc/client/pole.schema"
+			}
+		},
+		"equipments": {
+			"type": "array",
+			"items": {
+				"$ref":"../../spidacalc/client/equipment.schema"
+			}
+		},
+		"analysisCases": {
+			"type": "array",
+			"items": {
+        "oneOf":[
+          {"$ref":"../../spidacalc/client/load_case.schema"},{"$ref":"../../spidacalc/client/strength_case.schema"}
+        ]
+			}
+		}
+	},
+	"additionalProperties": false
+}

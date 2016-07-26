@@ -8,8 +8,6 @@ import net.sf.json.JSONSerializer
 import org.apache.commons.codec.digest.DigestUtils
 import org.apache.commons.codec.binary.Hex
 
-import java.security.MessageDigest
-
 @Log4j
 class JSONHasher {
 

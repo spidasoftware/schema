@@ -1,0 +1,45 @@
+{
+  "id": "#/spidacalc/results/load_case.schema",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "The loading information used to generate analysis",
+  "type": "object",
+  "required": [
+    "name",
+    "addByDefault",
+    "includeThroughBolts",
+    "minimumAllowableRatio",
+    "sweepIncrement",
+    "heightToIncludeAtGroundline"
+  ],
+  "properties": {
+    "id": {
+      "description": "the id of this result",
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "version": {
+      "description": "The version hash of the strength case.",
+      "pattern": "[a-f0-9]{32}",
+      "type": "string"
+    },
+    "addByDefault":{
+      "type":"boolean"
+    },
+    "includeThroughBolts":{
+      "type":"boolean"
+    },
+    "minimumAllowableRatio":{
+      "type":"number"
+    },
+    "sweepIncrement":{
+      "$ref":"../../general/measurable.schema"
+    },
+    "heightToIncludeAtGroundline":{
+      "description":"any damage at this height and below will be treated as if the all occur at ground line",
+      "$ref":"../../general/measurable.schema"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,135 @@
+{
+  "id": "#/spidacalc/cee/job.schema",
+  "description": "SPIDA CEE job object.  A job is one analysis that has been submitted.",
+  "type": "object",
+  "required": [
+    "engineVersion",
+    "payload"
+  ],
+  "properties": {
+    "id": {
+      "description": "Unique id for this job given by CEE",
+      "type": "string"
+    },
+    "engineVersion": {
+      "description": "Version of the SPIDACalc engine to use for this analysis. i.e. 7.0.0.0-SNAPSHOT",
+      "type": "string"
+    },
+    "payload": {
+      "description": "The analysis payload.",
+      "$ref": "../../spidacalc/cee/analysis.schema"
+    },
+    "callbackUrl": {
+      "description": "URL for CEE to POST the job upon completion (Not required if just asking for results later)",
+      "type": "string"
+    },
+    "externalId": {
+      "description": "An external id that can be used for reference.  It is not checked for uniquenss.",
+      "type": "string"
+    },
+    "userEmail": {
+      "description": "The email address of the user who triggered the job (READ ONLY)",
+      "type": "string"
+    },
+    "accountId": {
+      "description": "The account id of the user who triggered the job (READ ONLY)",
+      "type": "string"
+    },
+    "requestIP": {
+      "description": "The IP address of the client that triggered the job (READ ONLY)",
+      "type": "string"
+    },
+    "workerId": {
+      "description": "The ID of the CEE worker that did the job (READ ONLY)",
+      "type": "string"
+    },
+    "submitDate": {
+      "description": "when the server accepted the job (Milliseconds from 1970-01-01 UTC) (READ ONLY)",
+      "type": "number"
+    },
+    "startDate": {
+      "description": "when the analysis was actually started, or null if not started (Milliseconds from 1970-01-01 UTC) (READ ONLY)",
+      "oneOf": [
+        {"type": "number"},
+        {"type": "null"}
+      ]
+    },
+    "finishDate": {
+      "description": "when the analysis was completed, or null if not completed (Milliseconds from 1970-01-01 UTC) (READ ONLY)",
+      "oneOf": [
+        {"type": "number"},
+        {"type": "null"}
+      ]
+    },
+    "cancelDate": {
+      "description": "if the job is cancelled this will be set (Milliseconds from 1970-01-01 UTC) (READ ONLY)",
+      "oneOf": [
+        {"type": "number"},
+        {"type": "null"}
+      ]
+    },
+    "callbackAttempts": {
+      "description": "an array of all callback attempts made by CEE (READ ONLY)",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "success",
+          "message",
+          "statusCode",
+          "date"
+        ],
+        "properties": {
+          "success": {
+            "description": "true if response status code was 200 when making the callback (READ ONLY)",
+            "type": "boolean"
+          },
+          "message": {
+            "description": "callback attempt log message from CEE (READ ONLY)",
+            "type": "string"
+          },
+          "statusCode": {
+            "description": "response status code of callback (READ ONLY)",
+            "type": "number"
+          },
+          "date": {
+            "description": "when the callback was completed (Milliseconds from 1970-01-01 UTC) (READ ONLY)",
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "position": {
+      "description": "The job's place in line for analysis.  For example, position 1 means this job is next, position 2 means there is one job ahead of this one (READ ONLY)",
+      "type": "number"
+    },
+    "output": {
+      "description": "The output of the analysis.  Either an error object, the results object, or null (READ ONLY)",
+      "oneOf": [
+        {
+          "description": "an object to describe the error that occured",
+          "type": "object",
+          "required": [
+            "message",
+            "engineOutput"
+          ],
+          "properties": {
+            "message": {
+              "description": "human readable message on the cause",
+              "type": "string"
+            },
+            "engineOutput": {
+              "description": "raw engine response",
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        {"$ref": "../../spidacalc/results/results.schema"},
+        {"type": "null"}
+      ]
+    }
+  },
+  "additionalProperties": false
+}

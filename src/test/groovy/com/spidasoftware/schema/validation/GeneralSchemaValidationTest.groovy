@@ -21,7 +21,7 @@ class GeneralSchemaValidationTest extends GroovyTestCase {
 	}
 
 	void testThatAddressIsValidSchema(){
-		def schemaNode = JsonLoader.fromPath("resources/v1/schema/general/geometry.schema")
+		def schemaNode = JsonLoader.fromPath("resources/schema/general/geometry.schema")
 		report = schemaValidator.validateSchema(schemaNode)
 		report.each{
 			log.info "Validation message address: "+it.toString()
@@ -30,7 +30,7 @@ class GeneralSchemaValidationTest extends GroovyTestCase {
 	}
 
 	void testThatBearingIsValidSchema(){
-		def schemaNode = JsonLoader.fromPath("resources/v1/schema/general/bearing.schema")
+		def schemaNode = JsonLoader.fromPath("resources/schema/general/bearing.schema")
 		report = schemaValidator.validateSchema(schemaNode)
 		report.each{
 			log.info "Validation message bearing: "+it.toString()
@@ -40,7 +40,7 @@ class GeneralSchemaValidationTest extends GroovyTestCase {
 	void testThatGeometryIsValidSchema(){
 
 		def instance =  '{"type": "POINT", "coordinates": []}'
-		def schemaNode = JsonLoader.fromPath("resources/v1/schema/general/geometry.schema")
+		def schemaNode = JsonLoader.fromPath("resources/schema/general/geometry.schema")
 		report = schemaValidator.validateSchema(schemaNode)
 		report.each{
 			log.info "Validation message geometry: "+it.toString()
@@ -56,7 +56,7 @@ class GeneralSchemaValidationTest extends GroovyTestCase {
 	}
 
 	void testThatIdIsValidSchema(){
-		def schemaNode = JsonLoader.fromPath("resources/v1/schema/general/id.schema")
+		def schemaNode = JsonLoader.fromPath("resources/schema/general/id.schema")
 		report = schemaValidator.validateSchema(schemaNode)
 		report.each{
 			log.info "Validation message id: "+it.toString()
@@ -66,14 +66,14 @@ class GeneralSchemaValidationTest extends GroovyTestCase {
 
 	void testThatMeasurableIsValidSchema(){
 		def instance =  '{"unit": "FOOT", "value": 10}'
-		def schemaNode = JsonLoader.fromPath("resources/v1/schema/general/measurable.schema")
+		def schemaNode = JsonLoader.fromPath("resources/schema/general/measurable.schema")
 		report = schemaValidator.validateSchema(schemaNode)
 		report.each{
 			log.info "Validation message measurable: "+it.toString()
 		}
 		assertTrue "this schema should be valid", report.isSuccess()
 
-		def schema = factory.getJsonSchema("v1/schema/general/measurable.schema")
+		def schema = factory.getJsonSchema("schema/general/measurable.schema")
 
 		report = schema.validate(JsonLoader.fromString(instance))
 		report.each{
@@ -83,7 +83,7 @@ class GeneralSchemaValidationTest extends GroovyTestCase {
 	}
 
 	void testThatMethodResponseIsValidSchema(){
-		def schemaNode = JsonLoader.fromPath("resources/v1/schema/general/method_response.schema")
+		def schemaNode = JsonLoader.fromPath("resources/schema/general/method_response.schema")
 		report = schemaValidator.validateSchema(schemaNode)
 		report.each{
 			log.info "Validation message method reponse: "+it.toString()
@@ -92,7 +92,7 @@ class GeneralSchemaValidationTest extends GroovyTestCase {
 	}
 
 	void testThatOwnerIsValidSchema(){
-		def schemaNode = JsonLoader.fromPath("resources/v1/schema/general/owner.schema")
+		def schemaNode = JsonLoader.fromPath("resources/schema/general/owner.schema")
 		report = schemaValidator.validateSchema(schemaNode)
 		report.each{
 			log.info "Validation message owner: "+it.toString()
@@ -102,7 +102,7 @@ class GeneralSchemaValidationTest extends GroovyTestCase {
 
 	void testOwnerMinLength() {
 		def json = JsonLoader.fromString('{"name":"", "industry":"COMMUNICATION"}')
-		def schemaNode = JsonLoader.fromPath("resources/v1/schema/general/owner.schema")
+		def schemaNode = JsonLoader.fromPath("resources/schema/general/owner.schema")
 
 		def schema = JsonSchemaFactory.byDefault().getJsonSchema(schemaNode)
 		report = schema.validate(json)
@@ -115,7 +115,7 @@ class GeneralSchemaValidationTest extends GroovyTestCase {
 	}
 
 	void testThatServiceMethodIsValidSchema(){
-		def schemaNode = JsonLoader.fromPath("resources/v1/schema/general/service_method.schema")
+		def schemaNode = JsonLoader.fromPath("resources/schema/general/service_method.schema")
 		report = schemaValidator.validateSchema(schemaNode)
 		report.each{
 			log.info "Validation message service method: "+it.toString()
