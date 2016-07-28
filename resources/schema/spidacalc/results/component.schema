@@ -50,7 +50,7 @@
     },
     "atHeight": {
       "type": "array",
-      "description": "measurements at specific heights on the pole",
+      "description": "measurements at specific heights, only populated for pole components",
       "minItems": 1,
       "items": {
         "required": ["height", "components"],
