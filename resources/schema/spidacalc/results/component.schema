@@ -135,8 +135,11 @@
       "type": "array",
       "description": "this is a place to store any additional values that may be useful for the results",
       "items": {
-        "required": ["value"],
+        "required": ["value", "name"],
         "properties": {
+          "name":{
+            "type":"string"
+          },
           "value": {
             "oneOf": [{
               "type": "number"
