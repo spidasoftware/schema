@@ -132,9 +132,35 @@
       "type": "string"
     },
     "additionalValues": {
-      "type": "object",
+      "type": "array",
       "description": "this is a place to store any additional values that may be useful for the results",
-      "additionalProperties": true
+      "items": {
+        "required": ["value"],
+        "properties": {
+          "value": {
+            "oneOf": [{
+              "type": "number"
+            }, {
+              "$ref": "../../general/measurable.schema"
+            }]
+          },
+          "tags": {
+            "type": "array",
+            "description": "additional information about the value for display and understanding.",
+            "items": {
+              "$oneOf": [
+                {
+                  "enum": ["ATTACH_HEIGHT", "SMALL_LENGTH", "ERROR"]
+                }, {
+                  "$ref": "../../spidacalc/results/enums/status.schema"
+                }
+
+              ]
+            }
+          }
+        },
+        "additionalValues": false
+      }
     },
     "poles": {
       "type": "array",
