@@ -120,7 +120,7 @@ function frameInCalc() {
       ]
     }
   ],
-  "schema": "https://raw.github.com/spidasoftware/schema/master/resources/v1/schema/spidacalc/calc/project.schema"
+  "schema": "https://raw.github.com/spidasoftware/schema/master/resources/schema/spidacalc/calc/project.schema"
   }
 
    var parameters = {

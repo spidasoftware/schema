@@ -56,7 +56,7 @@ Find stations based string.  This searches some basic information on the station
 
 #### Returns
 
-1. `stations`: A [stations object](../../resources/v1/schema/spidamin/asset/stations.schema).
+1. `stations`: A [stations object](../../resources/schema/spidamin/asset/stations.schema).
 
 Advanced Find
 ----------
@@ -73,12 +73,12 @@ Find stations based on the given params.
 
 #### Parameters
 
-1. `find_query`: _required_, a [query object](../../resources/v1/schema/spidamin/asset/find_query.schema)
+1. `find_query`: _required_, a [query object](../../resources/schema/spidamin/asset/find_query.schema)
 1. `companyId`: a `number` to search other than your home company.
 
 #### Returns
 
-1. A [stations object](../../resources/v1/schema/spidamin/asset/stations.schema).
+1. A [stations object](../../resources/schema/spidamin/asset/stations.schema).
 
 
 Get Advanced Find Options
@@ -100,4 +100,4 @@ none
 
 #### Returns
 
-1. `find_options`: An [method response object](../../resources/v1/schema/spidamin/asset/find_options.schema)
+1. `find_options`: An [method response object](../../resources/schema/spidamin/asset/find_options.schema)

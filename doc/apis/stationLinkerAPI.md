@@ -60,11 +60,11 @@ Links stations in different services together returns the linkerId of the linked
 
 #### Parameters
 
-1. `station_ids`: _required_, a [service and ids object](../../resources/v1/schema/spidamin/asset/service_and_ids.schema).
+1. `station_ids`: _required_, a [service and ids object](../../resources/schema/spidamin/asset/service_and_ids.schema).
 
 #### Returns
 
-1. An [id array](../../resources/v1/schema/general/ids.schema)
+1. An [id array](../../resources/schema/general/ids.schema)
 
 Unlink Stations
 -----
@@ -81,8 +81,8 @@ Unlinks stations from any other station, returns the linkerIds of the unlinked s
 
 #### Parameters
 
-1. `station_ids`: _required_, a [service and ids object](../../resources/v1/schema/spidamin/asset/service_and_ids.schema).
+1. `station_ids`: _required_, a [service and ids object](../../resources/schema/spidamin/asset/service_and_ids.schema).
 
 #### Returns
 
-1. An [id array](../../resources/v1/schema/general/ids.schema)
+1. An [id array](../../resources/schema/general/ids.schema)

@@ -28,11 +28,11 @@ an id is in the posted user object.
 
 station, asset, or attachment required
 
-1. `user_json`: A [user object](../../resources/v1/schema/spidamin/user/user.schema)
+1. `user_json`: A [user object](../../resources/schema/spidamin/user/user.schema)
 
 #### Returns
 
-1. An [id object](../../resources/v1/schema/general/id.schema)
+1. An [id object](../../resources/schema/general/id.schema)
 
 Get Logged In User
 -----
@@ -53,7 +53,7 @@ none
 
 #### Returns
 
-A [user object](../../resources/v1/schema/spidamin/user/user.schema)
+A [user object](../../resources/schema/spidamin/user/user.schema)
 
 
 Get User
@@ -79,7 +79,7 @@ One of the parameters is required.
 
 #### Returns
 
-A [user object](../../resources/v1/schema/spidamin/user/user.schema)
+A [user object](../../resources/schema/spidamin/user/user.schema)
 
 Get User by External ID
 -----
@@ -102,7 +102,7 @@ Return user details from the 'alias' that is used by an external system.
 
 #### Returns
 
-A [user object](../../resources/v1/schema/spidamin/user/user.schema)
+A [user object](../../resources/schema/spidamin/user/user.schema)
 
 Delete
 -------
@@ -123,4 +123,4 @@ deletes a user
 
 #### Returns
 
-1. A [general response object](../../resources/v1/schema/general/method_response.schema)
+1. A [general response object](../../resources/schema/general/method_response.schema)

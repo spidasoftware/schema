@@ -25,11 +25,11 @@ Create or update a project
 
 #### Parameters
 
-1. `project_json`: a required [project](../../resources/v1/schema/spidamin/project/project.schema). An update is performed if the project.id is present, and create if not.
+1. `project_json`: a required [project](../../resources/schema/spidamin/project/project.schema). An update is performed if the project.id is present, and create if not.
 
 #### Returns
 
-1. An [id object](../../resources/v1/schema/general/id.schema)
+1. An [id object](../../resources/schema/general/id.schema)
 
 #### Examples
 
@@ -83,7 +83,7 @@ Return a list of projects
 
 #### Returns
 
-1. A [projects object](../../resources/v1/schema/spidamin/project/projects.schema)
+1. A [projects object](../../resources/schema/spidamin/project/projects.schema)
 
 #### Examples
 
@@ -108,7 +108,7 @@ No parameters are required.
 1. `include_finished`: A `boolean`, if true finds all projects including projects that have been finished in the company. If false finds all projects that have not been finished in that company. If not set defaults to false.
 #### Returns
 
-1. A [projects object](../../resources/v1/schema/spidamin/project/projects.schema) (Note: only projectCodes and id will be in the project object)
+1. A [projects object](../../resources/schema/spidamin/project/projects.schema) (Note: only projectCodes and id will be in the project object)
 
 Add Log Message
 ----------
@@ -128,11 +128,11 @@ Add a log message to a project.
 `project_id` and `log_message_json` are required
 
 1. `project_id`: A `number`, the project id of the project that the log message should be added to.
-1. `log_message_json`: [logMessage](../../resources/v1/schema/spidamin/project/log_message.schema).
+1. `log_message_json`: [logMessage](../../resources/schema/spidamin/project/log_message.schema).
 
 #### Returns
 
-1. An [id object](../../resources/v1/schema/general/id.schema)
+1. An [id object](../../resources/schema/general/id.schema)
 
 #### Examples
 
@@ -158,7 +158,7 @@ deletes Members, ProjectCodes, Stations, Projects
 
 #### Returns
 
-A [general response object](../../resources/v1/schema/general/method_response.schema)
+A [general response object](../../resources/schema/general/method_response.schema)
 
 Get Flows
 -------
@@ -179,4 +179,4 @@ Returns available flows for project creation
 
 #### Returns
 
-1. A [flows object](../../resources/v1/schema/spidamin/project/flows.schema)
+1. A [flows object](../../resources/schema/spidamin/project/flows.schema)

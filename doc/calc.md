@@ -134,7 +134,7 @@ Currently the command line interface only allows for launching calc when it is n
 
 The example data files are json files that can be opened in any text editor. They can be found in  The RPC example script is a coffeescript file that can be run using the node-js coffeescript package. http://coffeescript.org/
 
-The JSON examples are in [https://github.com/spidasoftware/schema/tree/master/resources/v1/examples/spidacalc)
+The JSON examples are in [https://github.com/spidasoftware/schema/tree/master/resources/examples/spidacalc)
 
 ####Looking around
 

@@ -23,7 +23,7 @@ There are few concepts to keep in mind:
 1. Our services rely heavily on the JSON format.  If you are not familiar with JSON, you will need to be to understand what it is your are submitting to the service.  Try this short [tutorial](http://www.w3schools.com/json/default.asp).
 2. We have two main areas for our services. SPIDACalc and SPIDAMin, don't confuse the two.  They each have some overlap in naming, but fundamentally different structures.  SPIDAMin is an online application that is primarily used to manage assets.  SPIDACalc is a client application for analyzing utility pole structures.  Both have a project, but each is unique and different.  Make sure you are using the correct one.
 3. Schema files end in .schema. The .schema files are used to validate the objects passed into specific API endpoints. The [Doc](doc) folder has descriptions of the services to which you pass those objects.
-4. The CalcDB api follows REpresentational State Transfer (REST) conventions, which makes it somewhat different from out other APIs, which use Remote Procedure Call (RPC) conventions. This document contains general information that is mostly only relevant to RPC, although some information is relevant to both. For information on using the CalcDB api, check out [this link.](http://github.com/spidasoftware/schema/blob/master/resources/v1/schema/calcdb/interfaces)
+4. The CalcDB api follows REpresentational State Transfer (REST) conventions, which makes it somewhat different from out other APIs, which use Remote Procedure Call (RPC) conventions. This document contains general information that is mostly only relevant to RPC, although some information is relevant to both. For information on using the CalcDB api, check out [this link.](http://github.com/spidasoftware/schema/blob/master/resources/schema/calcdb/interfaces)
 
 Services
 ------------
@@ -38,9 +38,9 @@ Folder Structure
 --------------------
 1. [doc](doc) - documentation and overview of specific functionality that is available through all our API's.
 1. [v1](v1) - the version 1 API
-  1. [resources/v1/schema/spidacalc](resources/v1/schema/spidacalc) - schemas for communication with SPIDACalc version 4.4.2.0 and future versions
-  1. [resources/v1/schema/spidamin](resources/v1/schema/spidamin) - schemas for communication with SPIDAMin 3.0
-  1. [resources/v1/examples](resources/v1/examples) - used in tests, good example objects
+  1. [resources/schema/spidacalc](resources/schema/spidacalc) - schemas for communication with SPIDACalc version 4.4.2.0 and future versions
+  1. [resources/schema/spidamin](resources/schema/spidamin) - schemas for communication with SPIDAMin 3.0
+  1. [resources/examples](resources/examples) - used in tests, good example objects
 1. [src](src) - some utilities that can be used in Java as well as the tests.
 
 Versions
@@ -88,7 +88,7 @@ We include a command line validator to validate against any of our included sche
 
 For example, to validate the "one of everything" structure example, from the schema directory you would type:
 
-    gradlew :validateJson -Pschema=/v1/schema/spidacalc/calc/structure.schema -PjsonFile=resources/v1/examples/spidacalc/designs/one_of_everything.json
+    gradlew :validateJson -Pschema=/v1/schema/spidacalc/calc/structure.schema -PjsonFile=resources/examples/spidacalc/designs/one_of_everything.json
 
 The tool uses our included Validator java class.
 

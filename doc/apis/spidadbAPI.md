@@ -6,7 +6,7 @@ SPIDA DB is a web application that stores the complex pole data described by the
 # General Concepts
 
 1. You will need to have a basic understanding of how to make HTTP requests. If you are unfamiliar with how to send an HTTP request, you should familiarize yourself before continuing with this document. HTTP requests can be made using any programming language, tool, or platform, so there are plenty of options.
-2. SPIDA DB primarily deals with data coming from SPIDACalc Project format. The JSON schema can be found [here.](https://github.com/spidasoftware/schema/blob/master/resources/v1/schema/spidacalc/calc/project.schema) This describes the overall scope of the data that can be stored in SPIDA DB.
+2. SPIDA DB primarily deals with data coming from SPIDACalc Project format. The JSON schema can be found [here.](https://github.com/spidasoftware/schema/blob/master/resources/schema/spidacalc/calc/project.schema) This describes the overall scope of the data that can be stored in SPIDA DB.
 3. SPIDA DB deals with this data on three different levels: Projects, Locations, and Designs. Just like in SPIDACalc, a Project can have many Locations, and a Location can have many Designs. These objects correspond exactly with the project components in SPIDACalc.
 4. Only Projects can be directly created, updated, or deleted. Locations, Designs, and Photos are effectively read-only. They can only be deleted or modified by deleting or updating thier parent project.
 
@@ -45,7 +45,7 @@ Here's where things get interesting. Even though there is only one schema, there
 
 This is not how SPIDA DB stores the data internally, however. The aim of SPIDA DB is to make it easy to separate individual Locations and Designs from their parent Project, so they are each stored separately. Then, each item will contain _references_ to it's parent and each of it's children. This is called "__referenced__" format. The .referenced format is read-only, meaning that a client cannot Save or Update using it, but it is very useful for querying the data.
 
-Finally, there is a third format, called "__exchange__". This format corresponds to the Exchange File format [described here.](http://github.com/spidasoftware/schema/tree/master/resources/v1/schema/spidacalc#calc-exchange-file-format) Using this format allows a client to easily include the project JSON and all the photos in a single file upload. Currently, the .exchange format is ONLY supported for Save and Update requests for projects.
+Finally, there is a third format, called "__exchange__". This format corresponds to the Exchange File format [described here.](http://github.com/spidasoftware/schema/tree/master/resources/schema/spidacalc#calc-exchange-file-format) Using this format allows a client to easily include the project JSON and all the photos in a single file upload. Currently, the .exchange format is ONLY supported for Save and Update requests for projects.
 
 Formats are specified using a .suffix attached to the url, similar to a file extension. Content-Types for responses from SPIDA DB will always be 'application/json', and will not indicate a specific format. For most List requests, the referenced format should be preferred. This is because data in this format is much smaller. If a request is made for Projects in .calc format, then all of the Locations and Designs will be returned along with each project. Projects can be _quite_ large, so SPIDA DB severely limits the number that can be returned in .calc format. Using .referenced format makes the project (or Location) a tiny fraction of it's full size and makes it easy to return large lists of them.
 
@@ -191,7 +191,7 @@ The response will include the photo bytes as a base64 encoded string in the body
 
 # REST API Descriptor
 
-The available fields that can be added to requests as parameters are listed in [restAPI.json](https://github.com/spidasoftware/schema/blob/master/resources/v1/schema/calcdb/interfaces/restAPI.json). For each item in "resources" (project, location, design, photo), there is an object for each type of API call: 'list', 'show', 'save', 'update', 'delete'. Each of these objects has a 'parameters' array that lists the possible parameters for it. Some will be required, others are optional. List requests have the most parameters since all the searchable fields will be enumerated. All list parameters are implicitly combined with a logical AND. So, if you pass the params, "id=myCalcId\&label=MyProject", then SPIDA DB will only return projects that match both of those.
+The available fields that can be added to requests as parameters are listed in [restAPI.json](https://github.com/spidasoftware/schema/blob/master/resources/schema/calcdb/interfaces/restAPI.json). For each item in "resources" (project, location, design, photo), there is an object for each type of API call: 'list', 'show', 'save', 'update', 'delete'. Each of these objects has a 'parameters' array that lists the possible parameters for it. Some will be required, others are optional. List requests have the most parameters since all the searchable fields will be enumerated. All list parameters are implicitly combined with a logical AND. So, if you pass the params, "id=myCalcId\&label=MyProject", then SPIDA DB will only return projects that match both of those.
 
 
 # The Finer Points
