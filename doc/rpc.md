@@ -40,7 +40,7 @@ Each method in the documentation has a parameter section and it will give you a 
 
 #### Responses
 
-The response body will always be formatted in the generic [_method\_response_](resources/v1/general/method_response.schema), this allows for passing error codes and the result.
+The response body will always be formatted in the generic [_method\_response_](resources/general/method_response.schema), this allows for passing error codes and the result.
 
     {"result":5}
 

@@ -25,7 +25,7 @@ Opens a project with the given object
 
 #### Parameters
 
-1. `project`: a _required_ [project object](../../resources/v1/schema/spidacalc/calc/project.schema).
+1. `project`: a _required_ [project object](../../resources/schema/spidacalc/calc/project.schema).
 
 #### Returns
 
@@ -92,7 +92,7 @@ none
 
 #### Returns
 
-a complete [project object](../../resources/v1/schema/spidacalc/calc/project.schema) with results.
+a complete [project object](../../resources/schema/spidacalc/calc/project.schema) with results.
 
 Exit
 -----
@@ -113,7 +113,7 @@ none
 
 #### Returns
 
-a complete [project object](../../resources/v1/schema/spidacalc/calc/project.schema) with results.
+a complete [project object](../../resources/schema/spidacalc/calc/project.schema) with results.
 
 Analyze Current Project
 -----
