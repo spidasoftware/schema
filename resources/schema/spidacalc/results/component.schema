@@ -59,7 +59,7 @@
           "required": ["momentOfInertia", "crossArea", "sectionModulus"]
         }, {
           "description": "buckling and loading result fields",
-          "required": ["stress", "deflection", "applied", "actual", "internal"]
+          "required": ["engineeringValue", "deflection", "applied", "actual", "internal"]
         }, {
           "description": "moment result fields",
           "required": ["deflection", "applied", "actual", "internal"]
@@ -71,7 +71,8 @@
           "height": {
             "$ref": "../../general/measurable.schema"
           },
-          "stress": {
+          "actualEngineering": {
+            "discription":"the value that corresponds to the actualEngineering at this height",
             "$ref": "../../general/measurable.schema"
           },
           "actual": {
