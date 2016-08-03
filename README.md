@@ -5,6 +5,8 @@ SPIDA Software JSON Interfaces
 
 * LAST RELEASED VERSION: 1.11/3.0.1
 
+Look at the [Release](https://github.com/spidasoftware/schema/releases) page for your specific product version and the API documentation for it. 
+
 License
 -------
 By accessing, downloading or using the APIs defined here you are agreeing to these terms of use [here.](https://github.com/spidasoftware/schema/raw/master/2013_10_25%20SPIDA%20API%20Terms%20of%20Service.pdf)
