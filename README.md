@@ -70,10 +70,6 @@ gradlew test
 Tools
 -----
 
-#### Utilities
-
-We have included some utilities in the [utils](src/main/groovy/com/spidasoftware/schema/utils) package, if we needed them maybe they can be of use to you.
-
 #### Schema Validation
 
 If you are in need of actually validating some JSON data against the schema there several options depending on your language.  The one we use in our tests is the excellent library by [fge](https://github.com/fge/json-schema-validator).  It gives very good validation errors and also does all the references for you, so there is no need to load all the linked schema.  You will also notice in our tests we use a namespace of a file system.  This could be any location you put the file, you could even use a "resource:/" uri for referencing in a jar.
