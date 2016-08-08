@@ -72,7 +72,7 @@
             "$ref": "../../general/measurable.schema"
           },
           "actualEngineering": {
-            "discription":"the value that corresponds to the actualEngineering at this height",
+            "description": "the value that corresponds to the actualEngineering at this height",
             "$ref": "../../general/measurable.schema"
           },
           "actual": {
@@ -138,12 +138,14 @@
       "items": {
         "required": ["value", "name"],
         "properties": {
-          "name":{
-            "type":"string"
+          "name": {
+            "type": "string"
           },
           "value": {
             "oneOf": [{
               "type": "number"
+            }, {
+              "type": "boolean"
             }, {
               "$ref": "../../general/measurable.schema"
             }]
@@ -152,8 +154,7 @@
             "type": "array",
             "description": "additional information about the value for display and understanding.",
             "items": {
-              "$oneOf": [
-                {
+              "oneOf": [{
                   "enum": ["ATTACH_HEIGHT", "SMALL_LENGTH", "ERROR"]
                 }, {
                   "$ref": "../../spidacalc/results/enums/status.schema"
@@ -163,7 +164,7 @@
             }
           }
         },
-        "additionalValues": false
+        "additionalProperties": false
       }
     },
     "poles": {
