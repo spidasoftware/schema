@@ -5,9 +5,9 @@ infos = [];
 
 function addPlacemark(location) {
   var kmlString = '\n\t<Placemark>' +
-                       '\n\t\t<name>' + location.id + '</name>' +
+                       '\n\t\t<name>' + location.label + '</name>' +
                        '\n\t\t<Point>\n\t\t\t<coordinates>' +
-                       location.geographicCoordinate.latitude + "," + location.geographicCoordinate.longitude +
+                       location.geographicCoordinate.coordinates[1] + "," + location.geographicCoordinate.coordinates[1] +
                         '</coordinates> \n\t\t</Point>\n\t</Placemark>';
   return kmlString;
 }
@@ -22,7 +22,9 @@ function convertToKML(project) {
     var lead = project.leads[i];
     for (j=0; j<lead.locations.length; j++) {
       var location = lead.locations[j];
-      kmlString = kmlString + addPlacemark(location);
+      if (location.geographicCoordinate) {
+          kmlString = kmlString + addPlacemark(location);
+      }
     }
   }
   kmlString = kmlString + "\n</kml>";
@@ -35,25 +37,27 @@ function createMarkers(project) {
     var lead = project.leads[i];
     for (j=0; j<lead.locations.length; j++) {
       var location = lead.locations[j];
-      var point = new google.maps.LatLng(location.geographicCoordinate.latitude, location.geographicCoordinate.longitude);
-      console.log("adding marker at " + point);
-      var marker = new google.maps.Marker({
-        position: point,
-        map: map,
-        title: location.id
-      });
-
-      var contentString = location.id;
-
-      var info = new google.maps.InfoWindow({
-           content: contentString
-       });
-
-      map.setCenter(point);
-
-      info.open(map, marker);
-      markers.push(marker);
-      infos.push(info);
+      if (location.geographicCoordinate) {
+				var point = new google.maps.LatLng(location.geographicCoordinate.coordinates[1], location.geographicCoordinate.coordinates[0]);
+				console.log("adding marker at " + point);
+				var marker = new google.maps.Marker({
+					position: point,
+					map: map,
+					title: location.label
+				});
+	
+				var contentString = location.label;
+	
+				var info = new google.maps.InfoWindow({
+						 content: contentString
+				 });
+	
+				map.setCenter(point);
+	
+				info.open(map, marker);
+				markers.push(marker);
+				infos.push(info);
+			}
     }
   }
 }
