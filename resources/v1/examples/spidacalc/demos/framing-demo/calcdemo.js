@@ -50,18 +50,16 @@ function frameInCalc() {
             {
               code: "1/0 ACSR",
               owner: {
-                name: "ACME POWER",
-                industry: "UTILITY",
-                uuid: "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+                id: "ACME POWER",
+                industry: "UTILITY"
               },
               usageGroup: "PRIMARY"
             },
             {
               code: "1/0 AAC Triplex",
               owner: {
-                name: "ACME POWER",
-                industry: "UTILITY",
-                uuid: "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+                id: "ACME POWER",
+                industry: "UTILITY"
               },
               usageGroup: "NEUTRAL"
             }
@@ -77,9 +75,8 @@ function frameInCalc() {
           {
             code: "1/0 ACSR",
             owner: {
-              name: "ACME POWER",
-              industry: "UTILITY",
-              uuid: "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+              id: "ACME POWER",
+              industry: "UTILITY"
 
             },
               usageGroup: "PRIMARY"
@@ -87,10 +84,8 @@ function frameInCalc() {
             {
               code: "1/0 AAC Triplex",
               owner: {
-                name: "ACME POWER",
-                industry: "UTILITY",
-                uuid: "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
-
+                id: "ACME POWER",
+                industry: "UTILITY"
               },
               usageGroup: "NEUTRAL"
             }
@@ -101,7 +96,7 @@ function frameInCalc() {
     };
 
   var project = {
-  "name": "project-1",
+  "label": "project-1",
   "clientFile": "TrainingDemo_4.0.client",
   "leads": [
     {
@@ -113,8 +108,8 @@ function frameInCalc() {
             }
           ],
           "geographicCoordinate": {
-            "latitude": 40.609780700000002,
-            "longitude": -81.3688492
+          	"type": "Point",
+          	"coordinates": [ -81.3688492, 40.609780700000002 ]
           }
         }
       ]
