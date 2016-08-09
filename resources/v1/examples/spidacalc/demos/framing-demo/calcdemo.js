@@ -3,7 +3,7 @@ window.onload = function() {
 
   console.log("onload");
   var postParameters = {
-    clientFile: 'Demo.client'
+    clientFile: 'TrainingDemo_4.0.client'
   };
 
   var posting = $.post("http://localhost:4560/clientData/framingUnits", postParameters);
@@ -28,7 +28,7 @@ function onAdd() {
      var option = clientSelect.options[clientSelect.selectedIndex]
      if (option) {
        var value = option.value;
-//       units.push(value);
+       units.push(value);
        var designSelect = document.getElementById("design");
        var element= document.createElement("option");
        element.innerText = value;
