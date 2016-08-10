@@ -2,7 +2,7 @@
 	"description": "Properties for a client file",
 	"id": "#/spidamin/spidadb/client_file.schema",
 	"type": "object",
-	"oneOf": [
+	"anyOf": [
 
 		{
 			"required": [
