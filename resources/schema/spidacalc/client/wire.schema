@@ -72,6 +72,12 @@
       "items": {
         "type": "string"
       }
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/client/client_wire_alias.schema"
+      }
     }
   },
   "additionalProperties": false

@@ -46,8 +46,13 @@
         }
 
       }
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/client/client_alias.schema"
+      }
     }
-
   },
   "additionalProperties": false
 }
