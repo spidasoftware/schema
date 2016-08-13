@@ -1,0 +1,14 @@
+{
+  "description": "An alias for a client item. Used for integrations",
+  "id": "#/spidacalc/client/client_alias.schema",
+  "type": "object",
+  "required": [
+    "id"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}
