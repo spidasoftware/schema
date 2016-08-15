@@ -52,6 +52,7 @@
       "$ref": "../../general/measurable.schema"
     },
     "aliases": {
+      "description": "A list of alternative aliases/framing codes for this item in integrations.",
       "type": "array",
       "items": {
         "$ref": "../../spidacalc/client/client_alias.schema"
