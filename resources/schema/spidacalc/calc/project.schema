@@ -24,6 +24,10 @@
       "type": "number",
       "description": "This is a schema version integer."
     },
+    "spidadbVersion": {
+        "type": "number",
+        "description": "This is the revision number of the project in SPIDADB.  It will be set by SPIDADB when retrieving the project. The number that is returned should be passed to an update call to SPIDADB to ensure that the project has not been updated since it was retrieved."
+    },
     "clientFile": {
       "type": "string",
       "description": "Filename of the client file with extension. (ex, Demo.client)"
