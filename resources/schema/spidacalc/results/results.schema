@@ -6,6 +6,10 @@
     "results"
   ],
   "properties": {
+    "id": {
+      "description": "the id of this results array",
+      "type": "string"
+    },
     "results": {
       "type": "array",
       "items": {

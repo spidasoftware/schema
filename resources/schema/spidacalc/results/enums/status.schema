@@ -1,0 +1,9 @@
+{
+	"id": "#/spidacalc/results/status.schema",
+	"description": "At a given point the overall status of the analysis results",
+	"enum": [
+		"PASSING",
+		"NEAR_FAILING",
+		"FAILING"
+	]
+}
