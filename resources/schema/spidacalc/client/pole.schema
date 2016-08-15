@@ -59,6 +59,13 @@
     "wallThickness": {
       "description":"Thinkness of the material in the pole, solid if not provided.",
       "$ref": "../../general/measurable.schema"
+    },
+    "aliases": {
+      "description": "A list of alternative aliases/framing codes for this item in integrations.",
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/client/client_alias.schema"
+      }
     }
   },
   "additionalProperties": false
