@@ -145,8 +145,10 @@
             "oneOf": [{
               "type": "number"
             }, {
-              "type": "boolean"
-            }, {
+              "type": "boolean" 
+            },{
+              "type": "string"
+            },{
               "$ref": "../../general/measurable.schema"
             }]
           },
