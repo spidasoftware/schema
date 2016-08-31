@@ -39,10 +39,11 @@ All users must accept the License Agreement.  If this has not been accepted, all
 Folder Structure
 --------------------
 1. [doc](doc) - documentation and overview of specific functionality that is available through all our API's.
-1. [v1](v1) - the version 1 API
-  1. [resources/schema/spidacalc](resources/schema/spidacalc) - schemas for communication with SPIDACalc version 4.4.2.0 and future versions
-  1. [resources/schema/spidamin](resources/schema/spidamin) - schemas for communication with SPIDAMin 3.0
-  1. [resources/examples](resources/examples) - used in tests, good example objects
+1. [resources](resources) - location of the schema and example files.
+  1. [schema](resources/schema) - all the schemas are located here.
+    1. [spidacalc](resources/schema/spidacalc) - schemas for communication with SPIDACalc 4.4.2.0 and future versions
+    1. [spidamin](resources/schema/spidamin) - schemas for communication with SPIDAMin 15.0 and future versions
+  1. [examples](resources/examples) - used in tests, good example objects.
 1. [src](src) - some utilities that can be used in Java as well as the tests.
 
 Versions

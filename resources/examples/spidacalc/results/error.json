@@ -11,7 +11,7 @@
       "analysisType": "STRESS",
       "failingRatio": 0.0,
       "allowable": 100.0,
-      "additionalValues": {},
+      "additionalValues": [],
       "allowableEngineering": {
         "unit": "PASCAL",
         "value": 1200.0
@@ -48,34 +48,34 @@
           "value": 3.0
         }
       }],
+      "atHeight": [{
+        "height": {
+          "unit": "METRE",
+          "value": 0.0
+        },
+        "deflection": {
+          "vector": [0.0, 0.0, 0.0],
+          "unit": "METRE"
+        },
+        "components": []
+      }, {
+        "height": {
+          "unit": "METRE",
+          "value": 10.0
+        },
+        "deflection": {
+          "vector": [1.0, 0.0, 0.0],
+          "unit": "METRE"
+        },
+        "components": []
+      }],
       "status": "FAILING",
       "actual": 1.7976931348623157E308,
       "ratio": 1.7976931348623157E308,
       "message": "Basic Exception",
       "poles": [{
         "id": "Pole",
-        "description": "40' Class 4 Southern Yellow Pine",
-        "atHeight": [{
-          "height": {
-            "unit": "METRE",
-            "value": 0.0
-          },
-          "deflection": {
-            "vector": [0.0, 0.0, 0.0],
-            "unit": "METRE"
-          },
-          "components": []
-        }, {
-          "height": {
-            "unit": "METRE",
-            "value": 10.0
-          },
-          "deflection": {
-            "vector": [1.0, 0.0, 0.0],
-            "unit": "METRE"
-          },
-          "components": []
-        }]
+        "description": "40' Class 4 Southern Yellow Pine"
       }]
     }]
   }]

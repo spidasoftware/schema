@@ -3,7 +3,7 @@
   "id": "#/spidacalc/results/item.schema",
   "description": "The forces on a single component item.",
   "required": [
-    "id"
+    "id", "description"
   ],
   "properties": {
     "id": {
@@ -15,13 +15,13 @@
       "description":"a readable string that is used for display"
     },
     "applied": {
-      "$ref": "../../general/triad.schema"
+      "$ref": "../../general/point_load.schema"
     },
     "pretension": {
       "$ref": "../../general/measurable.schema"
     },
     "reaction": {
-      "$ref": "../../general/triad.schema"
+      "$ref": "../../general/point_load.schema"
     },
     "actingOn": {
       "$ref": "../../general/acting_on.schema"

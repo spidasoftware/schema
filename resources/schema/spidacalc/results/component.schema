@@ -2,32 +2,32 @@
   "description": "A copmeonnt is an compination of an individual item and analysis type i.e. Pole Buckling",
   "type": "object",
   "required": [
-    "itemId", "itemDescription", "poles", "actual", "actualEngineering", "ratio", "allowable","allowableEngineering", "failingRatio", "status", "resultsType", "analysisType"
+    "itemId", "itemDescription", "poles", "actual", "actualEngineering", "ratio", "allowable", "allowableEngineering", "failingRatio", "status", "resultsType", "analysisType"
   ],
   "properties": {
     "itemId": {
       "type": "string",
-      "description":"the unique per structure of the item that was being examined"
+      "description": "the unique per structure of the item that was being examined"
     },
-    "itemDescription":{
+    "itemDescription": {
       "type": "string",
-      "description":"the readable description of the item that was being examined"
+      "description": "the readable description of the item that was being examined"
     },
-    "analysisType":{
-      "$ref":"../../general/analysis_type.schema"
+    "analysisType": {
+      "$ref": "../../general/analysis_type.schema"
     },
     "status": {
-      "enum": ["PASSING", "NEAR_FAILING", "FAILING"]
+      "$ref": "../../spidacalc/results/enums/status.schema"
     },
     "resultsType": {
       "enum": ["SAFETY_FACTOR", "PERCENT_LOADED"]
     },
     "actual": {
-      "description":"S.F. or percent",
+      "description": "S.F. or percent",
       "type": "number"
     },
-    "actualEngineering":{
-      "description":"actual engineering value that caused the 'actual' value.  This is the specific calculated value from the various analyses. i.e. 6000 psi calculated",
+    "actualEngineering": {
+      "description": "actual engineering value that caused the 'actual' value.  This is the specific calculated value from the various analyses. i.e. 6000 psi calculated",
       "$ref": "../../general/measurable.schema"
     },
     "atDirection": {
@@ -41,44 +41,139 @@
           },
           "value": {
             "$ref": "../../general/measurable.schema"
+          },
+          "status": {
+            "$ref": "../../spidacalc/results/enums/status.schema"
+          }
+        }
+      }
+    },
+    "atHeight": {
+      "type": "array",
+      "description": "measurements at specific heights, only populated for pole components",
+      "minItems": 1,
+      "items": {
+        "required": ["height", "components"],
+        "anyOf": [{
+          "description": "strength result fields",
+          "required": ["momentOfInertia", "crossArea", "sectionModulus"]
+        }, {
+          "description": "buckling and loading result fields",
+          "required": ["engineeringValue", "deflection", "applied", "actual", "internal"]
+        }, {
+          "description": "moment result fields",
+          "required": ["deflection", "applied", "actual", "internal"]
+        }, {
+          "description": "error result fields",
+          "required": ["deflection"]
+        }],
+        "properties": {
+          "height": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "actualEngineering": {
+            "description": "the value that corresponds to the actualEngineering at this height",
+            "$ref": "../../general/measurable.schema"
+          },
+          "actual": {
+            "type": "number"
+          },
+          "status": {
+            "$ref": "../../spidacalc/results/enums/status.schema"
+          },
+          "components": {
+            "type": "array"
+          },
+          "applied": {
+            "description": "any externally applied forces at this height",
+            "$ref": "../../general/point_load.schema"
+          },
+          "internal": {
+            "description": "internal forces at this height",
+            "$ref": "../../general/point_load.schema"
+          },
+          "deflection": {
+            "description": "the deflection from the starting position of the pole at this height",
+            "$ref": "../../general/triad.schema"
+          },
+          "momentOfInertia": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "crossArea": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "sectionModulus": {
+            "$ref": "../../general/measurable.schema"
           }
         }
       }
     },
     "allowable": {
-      "description":"allowable S.F. or percent",
+      "description": "allowable S.F. or percent",
       "type": "number"
     },
     "allowableEngineering": {
-      "description":"allowable engineering value.  This is usually pulled from the material properties i.e. 8000 psi for wood.",
+      "description": "allowable engineering value.  This is usually pulled from the material properties i.e. 8000 psi for wood.",
       "$ref": "../../general/measurable.schema"
     },
     "ratio": {
-      "description":"the ratio between actual and allowable",
+      "description": "the ratio between actual and allowable",
       "type": "number"
     },
     "windDirection": {
-      "description":"the direction in compass degress the wind was blowing for these results",
+      "description": "the direction in compass degress the wind was blowing for these results",
       "type": "integer"
     },
     "failingRatio": {
-      "description":"the ratio at which this analysis will fail",
+      "description": "the ratio at which this analysis will fail",
       "type": "number"
     },
-    "message":{
-      "description":"an optional message with additional information about these results",
+    "message": {
+      "description": "an optional message with additional information about these results",
       "type": "string"
     },
     "additionalValues": {
-      "type": "object",
-      "description":"this is a place to store any additional values that may be useful for the results",
-      "additionalProperties":true
+      "type": "array",
+      "description": "this is a place to store any additional values that may be useful for the results",
+      "items": {
+        "required": ["value", "name"],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "oneOf": [{
+              "type": "number"
+            }, {
+              "type": "boolean" 
+            },{
+              "type": "string"
+            },{
+              "$ref": "../../general/measurable.schema"
+            }]
+          },
+          "tags": {
+            "type": "array",
+            "description": "additional information about the value for display and understanding.",
+            "items": {
+              "oneOf": [{
+                  "enum": ["ATTACH_HEIGHT", "SMALL_LENGTH", "ERROR"]
+                }, {
+                  "$ref": "../../spidacalc/results/enums/status.schema"
+                }
+
+              ]
+            }
+          }
+        },
+        "additionalProperties": false
+      }
     },
     "poles": {
       "type": "array",
       "minItems": 1,
       "items": {
-        "$ref": "../../spidacalc/results/pole.schema"
+        "$ref": "../../spidacalc/results/item.schema"
       }
     },
     "wires": {
@@ -135,7 +230,7 @@
         "$ref": "../../spidacalc/results/item.schema"
       }
     },
-    "pointLoads":{
+    "pointLoads": {
       "type": "array",
       "items": {
         "$ref": "../../spidacalc/results/item.schema"
