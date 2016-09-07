@@ -49,10 +49,10 @@ class JSONHasher {
 
 		def id
 		def version
-		if (jsonMap.id != null) {
+		if (jsonMap.containsKey("id")) {
 			id = jsonMap.remove("id")
 		}
-		if (jsonMap.version != null) {
+		if (jsonMap.containsKey("version")) {
 			version = jsonMap.remove("version")
 		}
 
