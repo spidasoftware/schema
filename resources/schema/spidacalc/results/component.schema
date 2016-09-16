@@ -35,6 +35,8 @@
       "description": "a list of direction in degrees to the 'actualEngineering' reported at that wind direction",
       "items": {
         "type": "object",
+        "required":["direction", "value", "status"],
+        "additionalProperties":"false",
         "properties": {
           "direction": {
             "$ref": "../../general/measurable.schema"
@@ -145,7 +147,7 @@
             "oneOf": [{
               "type": "number"
             }, {
-              "type": "boolean" 
+              "type": "boolean"
             },{
               "type": "string"
             },{
