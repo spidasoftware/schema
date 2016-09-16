@@ -36,7 +36,7 @@
       "items": {
         "type": "object",
         "required":["direction", "value", "status"],
-        "additionalProperties":"false",
+        "additionalProperties":false,
         "properties": {
           "direction": {
             "$ref": "../../general/measurable.schema"
