@@ -28,7 +28,8 @@
         "value": {
           "unit": "PASCAL",
           "value": 1.0
-        }
+        },
+        "status":"FAILING"
       }, {
         "direction": {
           "unit": "DEGREE_ANGLE",
@@ -37,7 +38,8 @@
         "value": {
           "unit": "PASCAL",
           "value": 2.0
-        }
+        },
+        "status":"FAILING"
       }, {
         "direction": {
           "unit": "DEGREE_ANGLE",
@@ -46,7 +48,8 @@
         "value": {
           "unit": "PASCAL",
           "value": 3.0
-        }
+        },
+        "status":"FAILING"
       }],
       "atHeight": [{
         "height": {
