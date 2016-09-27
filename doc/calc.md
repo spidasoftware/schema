@@ -124,12 +124,6 @@ located at http://localhost:4560/calc/<method name>. Provides stateful control m
 
 The schemas are published and available online at http://github.com/spidasoftware/schema
 
-####Command Line Interface
-
-Currently the command line interface only allows for launching calc when it is not already running with a project to open. It will take both .spida and calc_project json files as arguments, though. To open a json file run:
-
-`calc.exe myProject.json`
-
 ####Using the examples
 
 The example data files are json files that can be opened in any text editor. They can be found in  The RPC example script is a coffeescript file that can be run using the node-js coffeescript package. http://coffeescript.org/
