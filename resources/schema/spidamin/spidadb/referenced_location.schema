@@ -4,10 +4,7 @@
     "required": [
         "calcLocation",
         "dateModified",
-        "id",
-        "projectId",
-        "projectLabel",
-        "clientFile"
+        "id"
     ],
     "properties": {
         "id": {
@@ -39,10 +36,6 @@
         },
         "dateModified": {
             "$ref": "../../general/long_date.schema"
-        },
-        "version": {
-            "type": "number",
-            "description": "This is a schema version integer."
         },
         "user": {
             "$ref": "../../spidamin/spidadb/user_ref.schema"

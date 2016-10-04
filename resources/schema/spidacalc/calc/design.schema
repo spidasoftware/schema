@@ -7,6 +7,28 @@
             "description": "Primary Key and unique identifier for project component",
             "type": "string"
         },
+        "schema": {
+          "type": "string",
+          "description": "Full URL of the calc schema. /schema/spidacalc/calc/design.schema"
+        },
+        "version": {
+            "type": "number",
+            "description": "This is a schema version integer."
+        },
+        "spidadbVersion": {
+            "type": "number",
+            "description": "This is the revision number of the design in SPIDADB.  It will be set by SPIDADB when retrieving the design. The number that is returned should be passed to an update call to SPIDADB to ensure that the design has not been updated since it was retrieved."
+        },
+        "status": {
+          "type": "string",
+          "description": "Whether or not the design has been approved and is the record for that location. DRAFT - Changed but not reviewed. SUBMITTED - Ready for review. ACCEPTED - Accepted by reviewer, only one design can be approved per location. REJECTED - Anything the location that is not ACCEPTED.",
+          "enum": [
+                "DRAFT",
+                "SUMBITTED",
+                "ACCEPTED",
+                "REJECTED"
+              ]
+        },
         "label": {
             "description": "Display name for project component",
             "type": "string"
@@ -52,6 +74,11 @@
 
         "structure": {
             "$ref": "../../spidacalc/calc/structure.schema"
+        },
+        "userDefinedValues": {
+            "description": "Any flat JSON object with string fields. This gets stored as user defined key-value pairs. For example, this could be used for an outside system id.", 
+            "id": "userDefinedValues",
+            "type": "object"
         }
     }
 

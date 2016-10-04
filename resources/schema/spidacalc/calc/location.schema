@@ -8,6 +8,18 @@
             "description": "Primary Key and unique identifier for project component",
             "type": "string"
         },
+        "schema": {
+          "type": "string",
+          "description": "Full URL of the calc schema. /schema/spidacalc/calc/location.schema"
+        },
+        "version": {
+            "type": "number",
+            "description": "This is a schema version integer."
+        },
+        "spidadbVersion": {
+            "type": "number",
+            "description": "This is the revision number of the location in SPIDADB.  It will be set by SPIDADB when retrieving the location. The number that is returned should be passed to an update call to SPIDADB to ensure that the location has not been updated since it was retrieved."
+        },
         "label": {
             "description": "Display name for project component",
             "type": "string"
