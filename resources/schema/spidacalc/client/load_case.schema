@@ -54,7 +54,13 @@
     "rural": {
       "type": "boolean"
     },
-		"maximumAllowableTensionedDisplacement":{
+		"hybridShearZone":{
+			"$ref": "../../general/measurable.schema"
+		},
+		"minimumHybridTension":{
+			"$ref": "../../general/measurable.schema"
+		},
+		"maximumHybridSupportAngle":{
 			"$ref": "../../general/measurable.schema"
 		},
 		"minimumDisplacementLoadingTension":{
