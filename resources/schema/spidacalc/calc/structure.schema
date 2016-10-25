@@ -385,7 +385,8 @@
           "id",
           "attachmentHeight",
           "owner",
-          "height"
+          "height",
+          "type"
         ],
         "anyOf":[
           {"required":["clientItem"]},
@@ -412,6 +413,9 @@
           },
           "height": {
             "$ref": "../../general/measurable.schema"
+          },
+          "type":{
+            "enum":["SUPPORT", "LOAD"]
           },
           "clientItem": {
             "$ref": "../../spidacalc/calc/client_references/wire.schema",
