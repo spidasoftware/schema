@@ -61,7 +61,7 @@
                         "type": "string"
                     },
                     "direction": {
-                        "description": "the direction string that the photo was taken in"
+                        "description": "the direction string that the photo was taken in",
                         "type": "string"
                     },
                     "link": {
