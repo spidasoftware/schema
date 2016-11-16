@@ -782,7 +782,7 @@
                 "value": 48
             },
             "direction": 275,
-            "associatedBacking": "Bisector",
+            "supportedWEPs": ["WEP#1","WEP#2"],
             "insulators":             [
                 "Insulator#1",
                 "Insulator#2",

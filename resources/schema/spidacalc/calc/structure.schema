@@ -603,7 +603,7 @@
           "id",
           "attachmentHeight",
           "owner",
-          "associatedBacking",
+          "supportedWEPs",
           "direction",
           "offset"
         ],

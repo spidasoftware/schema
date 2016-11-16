@@ -154,7 +154,7 @@
                             "unit": "FOOT",
                             "value": 0
                         },
-                        "supportType": "Bisector",
+                        "supportedWEPs": ["WEP#1","WEP#2"],
                         "clientItem": "Triple 1 inch",
                         "guys": ["Guy#1"],
                         "externalId": "4e25b9de-a629-4a55-bb9d-89dc6f346501"
@@ -794,7 +794,7 @@
                                 "value": 48
                             },
                             "direction": 128,
-                            "associatedBacking": "Bisector",
+                            "supportedWEPs": ["WEP#1","WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -819,7 +819,7 @@
                                 "value": 54
                             },
                             "direction": 128,
-                            "associatedBacking": "Bisector",
+                            "supportedWEPs": ["WEP#1","WEP#2"],
                             "insulators":                             [
                                 "Insulator#4",
                                 "Insulator#5",
@@ -1392,7 +1392,7 @@
                             "unit": "FOOT",
                             "value": 0
                         },
-                        "supportType": "Bisector",
+                        "supportedWEPs": ["WEP#1","WEP#2"],
                         "clientItem": "Triple 1 inch",
                         "guys": ["Guy#1"],
                         "externalId": "6b3e7e7c-6433-4775-b848-d802496f508e"
@@ -2082,7 +2082,7 @@
                                 "value": 48
                             },
                             "direction": 128,
-                            "associatedBacking": "Bisector",
+                            "supportedWEPs": ["WEP#1","WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -2107,7 +2107,7 @@
                                 "value": 54
                             },
                             "direction": 128,
-                            "associatedBacking": "Bisector",
+                            "supportedWEPs": ["WEP#1","WEP#2"],
                             "insulators":                             [
                                 "Insulator#4",
                                 "Insulator#5",
@@ -2680,7 +2680,7 @@
                                 "unit": "FOOT",
                                 "value": 0
                             },
-                            "supportType": "Bisector",
+                            "supportedWEPs": ["WEP#1","WEP#2"],
                             "clientItem": "Triple 1 inch",
                             "guys": ["Guy#1"],
                             "externalId": "62e13964-2360-4212-81ec-142ef6f9732c"
@@ -2701,7 +2701,7 @@
                                 "unit": "FOOT",
                                 "value": 0
                             },
-                            "supportType": "WEP#2",
+                            "suppotedWEPs": ["WEP#2"],
                             "clientItem": "Triple 3/4 inch",
                             "guys": ["Guy#2"],
                             "externalId": "e03c4c46-cbaf-404d-812b-121c8013cb6c"
@@ -3387,7 +3387,7 @@
                                 "value": 48
                             },
                             "direction": 128,
-                            "associatedBacking": "Bisector",
+                            "supportedWEPs": ["WEP#1","WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -3412,7 +3412,7 @@
                                 "value": 54
                             },
                             "direction": 128,
-                            "associatedBacking": "Bisector",
+                            "supportedWEPs": ["WEP#1","WEP#2"],
                             "insulators":                             [
                                 "Insulator#4",
                                 "Insulator#5",
@@ -4618,7 +4618,7 @@
                                 "value": 48
                             },
                             "direction": 126,
-                            "associatedBacking": "Bisector",
+                            "supportedWEPs": ["WEP#1","WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -4643,7 +4643,7 @@
                                 "value": 54
                             },
                             "direction": 126,
-                            "associatedBacking": "Bisector",
+                            "supportedWEPs": ["WEP#1","WEP#2"],
                             "insulators":                             [
                                 "Insulator#4",
                                 "Insulator#5",
@@ -5838,7 +5838,7 @@
                                 "value": 48
                             },
                             "direction": 126,
-                            "associatedBacking": "Bisector",
+                            "supportedWEPs": ["WEP#1","WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -5863,7 +5863,7 @@
                                 "value": 54
                             },
                             "direction": 126,
-                            "associatedBacking": "Bisector",
+                            "supportedWEPs": ["WEP#1","WEP#2"],
                             "insulators":                             [
                                 "Insulator#4",
                                 "Insulator#5",
@@ -7058,7 +7058,7 @@
                                 "value": 48
                             },
                             "direction": 126,
-                            "associatedBacking": "Bisector",
+                            "supportedWEPs": ["WEP#1","WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -7083,7 +7083,7 @@
                                 "value": 54
                             },
                             "direction": 126,
-                            "associatedBacking": "Bisector",
+                            "supportedWEPs": ["WEP#1","WEP#2"],
                             "insulators":                             [
                                 "Insulator#4",
                                 "Insulator#5",
@@ -8304,7 +8304,7 @@
                                 "value": 48
                             },
                             "direction": 307,
-                            "associatedBacking": "Bisector",
+                            "supportedWEPs": ["WEP#1","WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -8332,7 +8332,7 @@
                                 "value": 54
                             },
                             "direction": 307,
-                            "associatedBacking": "Bisector",
+                            "supportedWEPs": ["WEP#1","WEP#2"],
                             "insulators":                             [
                                 "Insulator#7",
                                 "Insulator#8",
@@ -9731,7 +9731,7 @@
                                 "value": 48
                             },
                             "direction": 307,
-                            "associatedBacking": "Bisector",
+                            "supportedWEPs": ["WEP#1","WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -9759,7 +9759,7 @@
                                 "value": 54
                             },
                             "direction": 307,
-                            "associatedBacking": "Bisector",
+                            "supportedWEPs": ["WEP#1","WEP#2"],
                             "insulators":                             [
                                 "Insulator#7",
                                 "Insulator#8",
@@ -11158,7 +11158,7 @@
                                 "value": 48
                             },
                             "direction": 307,
-                            "associatedBacking": "Bisector",
+                            "supportedWEPs": ["WEP#1","WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -11186,7 +11186,7 @@
                                 "value": 54
                             },
                             "direction": 307,
-                            "associatedBacking": "Bisector",
+                            "supportedWEPs": ["WEP#1","WEP#2"],
                             "insulators":                             [
                                 "Insulator#7",
                                 "Insulator#8",
@@ -12394,7 +12394,7 @@
                                 "value": 48
                             },
                             "direction": 129,
-                            "associatedBacking": "Bisector",
+                            "supportedWEPs": ["WEP#1","WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -12419,7 +12419,7 @@
                                 "value": 54
                             },
                             "direction": 129,
-                            "associatedBacking": "Bisector",
+                            "supportedWEPs": ["WEP#1","WEP#2"],
                             "insulators":                             [
                                 "Insulator#4",
                                 "Insulator#5",
@@ -13526,7 +13526,7 @@
                                 "value": 48
                             },
                             "direction": 129,
-                            "associatedBacking": "Bisector",
+                            "supportedWEPs": ["WEP#1","WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -13551,7 +13551,7 @@
                                 "value": 54
                             },
                             "direction": 129,
-                            "associatedBacking": "Bisector",
+                            "supportedWEPs": ["WEP#1","WEP#2"],
                             "insulators":                             [
                                 "Insulator#4",
                                 "Insulator#5",
@@ -14658,7 +14658,7 @@
                                 "value": 48
                             },
                             "direction": 129,
-                            "associatedBacking": "Bisector",
+                            "supportedWEPs": ["WEP#1","WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -14683,7 +14683,7 @@
                                 "value": 54
                             },
                             "direction": 129,
-                            "associatedBacking": "Bisector",
+                            "supportedWEPs": ["WEP#1","WEP#2"],
                             "insulators":                             [
                                 "Insulator#4",
                                 "Insulator#5",

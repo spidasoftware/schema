@@ -8,7 +8,7 @@
     "direction",
     "height",
     "owner",
-    "supportType",
+    "supportedWEPs",
     "guys"
   ],
   "anyOf":[

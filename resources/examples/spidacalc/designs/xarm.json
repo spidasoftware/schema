@@ -2,7 +2,7 @@
   "anchors": [], 
   "crossArms": [
     {
-      "associatedBacking": "Other", 
+      "supportedWEPs": [],
       "attachmentHeight": {
         "unit": "FOOT", 
         "value": 13.833333333333332

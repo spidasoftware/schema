@@ -190,7 +190,7 @@
                                             "unit": "FOOT",
                                             "value": 0
                                         },
-                                        "supportType": "WEP#2",
+                                        "suppotedWEPs": ["WEP#2"],
                                         "clientItem": "10\" - 10\" Double Helix (Class 4) 1 1/4\" Rod",
                                         "guys": [
                                             "Guy#1"
@@ -1107,7 +1107,7 @@
                                             "unit": "FOOT",
                                             "value": 0
                                         },
-                                        "supportType": "WEP#2",
+                                        "suppotedWEPs": ["WEP#2"],
                                         "clientItem": "10\" - 10\" Double Helix (Class 4) 1 1/4\" Rod",
                                         "guys": [
                                             "Guy#1"
