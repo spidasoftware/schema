@@ -635,9 +635,12 @@
             "$ref": "../../general/bearing.schema",
             "description": "Crossarm bearing is the direction the end of the crossarm points, not the direction of the bolt attachment."
           },
-          "associatedBacking": {
-            "type": "string",
-            "description": "Either BISECTOR or a wire end point ID of the end point associated with the wires going to the crossarm."
+          "supportedWEPs": {
+            "description": "WEP IDs supported by this crossarm",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "insulators": {
             "description": "List of IDs of all insulators attached to this crossarm.",

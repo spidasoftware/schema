@@ -40,9 +40,12 @@
       "description": "Height of the anchor relative to the base of the pole.",
       "$ref": "../../general/measurable.schema"
     },
-    "supportType": {
-      "description": "If the anchor backs a specific line or bisector. Options are a Wire end Point ID or BISECTOR",
-      "type": "string"
+    "supportedWEPs": {
+      "description": "WEP IDs supported by this anchor",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     },
     "clientItem": {
       "type": "string",
