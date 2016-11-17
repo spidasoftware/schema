@@ -21,7 +21,7 @@
         "id": "Acme Power",
         "externalId": "6f831f3c-c7b1-4d49-ab10-e57249f2e60b"
       },
-      "supportType": "Other",
+      "supportedWEPs": [],
       "externalId": "d87aa235-a100-4d8e-a0ec-5f8bbff4a365"
     },
     {
@@ -44,13 +44,13 @@
         "id": "Acme Power",
         "externalId": "d4ca47d0-5fe7-4d6e-b5c3-15f1e76d4de1"
       },
-      "supportType": "Other",
+      "supportedWEPs": [],
       "externalId": "fe9a4c37-3b8c-4f62-9031-48bb02fcee35"
     }
   ],
   "crossArms": [
     {
-      "associatedBacking": "WEP#1",
+      "supportedWEPs": ["WEP#1"],
       "attachmentHeight": {
         "unit": "FOOT",
         "value": 13.583333333333332

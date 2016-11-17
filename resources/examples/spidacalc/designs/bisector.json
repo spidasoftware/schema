@@ -20,7 +20,7 @@
         "id": "Acme Power",
         "externalId": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
       }, 
-      "supportType": "Bisector", 
+      "supportedWEPs": ["WEP#1","WEP#2"],
       "externalId": "60f0a981-2f0d-49a5-bfe0-50b119b1ced1"
     }
   ], 

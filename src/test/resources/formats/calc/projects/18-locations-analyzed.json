@@ -141,7 +141,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "supportType": "WEP#1",
+                                "suppotedWEPs": ["WEP#1"],
                                 "clientItem": "1\" Triple Eye - Anchor Rod and Plate",
                                 "guys":                                 [
                                     "Guy#1",
@@ -165,7 +165,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "supportType": "WEP#1",
+                                "suppotedWEPs": ["WEP#1"],
                                 "clientItem": "5/8\" Single Eye - Anchor Rod and Plate",
                                 "guys":                                 [
                                     "Guy#3",
@@ -189,7 +189,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "supportType": "WEP#1",
+                                "suppotedWEPs": ["WEP#1"],
                                 "clientItem": "3/4\" Double Eye - Anchor Rod and Plate",
                                 "guys": ["Guy#4"],
                                 "externalId": "f6004a1a-40ff-443f-9b9b-bbe7576110df"
@@ -210,7 +210,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "supportType": "WEP#1",
+                                "suppotedWEPs": ["WEP#1"],
                                 "clientItem": "3/4\" Double Eye - Anchor Rod and Plate",
                                 "guys": ["Guy#6"],
                                 "externalId": "f56de840-fdba-4219-b617-71dfc1edc411"
@@ -617,7 +617,7 @@
                                 "value": 60
                             },
                             "direction": 133,
-                            "associatedBacking": "WEP#1",
+                            "suppotedWEPs": ["WEP#1"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -907,7 +907,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "supportType": "WEP#1",
+                                "suppotedWEPs": ["WEP#1"],
                                 "clientItem": "3/4\" Double Eye - Anchor Rod and Plate",
                                 "guys": ["Guy#1"],
                                 "externalId": "9862d9ef-f82a-45ce-bb40-431c3305483b"
@@ -928,7 +928,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "supportType": "WEP#1",
+                                "suppotedWEPs": ["WEP#1"],
                                 "clientItem": "3/4\" Double Eye - Anchor Rod and Plate",
                                 "guys": ["Guy#2"],
                                 "externalId": "b4104d3e-a3f9-46a4-834f-8a99b2350baa"
@@ -1440,7 +1440,7 @@
                                 "value": 60
                             },
                             "direction": 355,
-                            "associatedBacking": "WEP#2",
+                            "suppotedWEPs": ["WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -2077,7 +2077,7 @@
                                     "value": 72
                                 },
                                 "direction": 257,
-                                "associatedBacking": "Bisector",
+                                "supportedWEPs": ["WEP#1","WEP#2"],
                                 "insulators":                                 [
                                     "Insulator#1",
                                     "Insulator#2",
@@ -2107,7 +2107,7 @@
                                     "value": 6
                                 },
                                 "direction": 257,
-                                "associatedBacking": "Bisector",
+                                "supportedWEPs": ["WEP#1","WEP#2"],
                                 "insulators":                                 [
                                     "Insulator#9",
                                     "Insulator#10"
@@ -2539,7 +2539,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "supportType": "WEP#3",
+                                "suppotedWEPs": ["WEP#3"],
                                 "clientItem": "1\" Triple Eye - Anchor Rod and Plate",
                                 "guys":                                 [
                                     "Guy#1",
@@ -2563,7 +2563,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "supportType": "WEP#3",
+                                "suppotedWEPs": ["WEP#3"],
                                 "clientItem": "1\" Triple Eye - Anchor Rod and Plate",
                                 "guys":                                 [
                                     "Guy#3",
@@ -3121,7 +3121,7 @@
                                     "value": 60
                                 },
                                 "direction": 80,
-                                "associatedBacking": "Bisector",
+                                "supportedWEPs": ["WEP#1","WEP#2"],
                                 "insulators":                                 [
                                     "Insulator#1",
                                     "Insulator#2",
@@ -3147,7 +3147,7 @@
                                     "value": 60
                                 },
                                 "direction": 170,
-                                "associatedBacking": "WEP#3",
+                                "suppotedWEPs": ["WEP#3"],
                                 "insulators":                                 [
                                     "Insulator#5",
                                     "Insulator#6",
@@ -3520,7 +3520,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "supportType": "WEP#1",
+                                "suppotedWEPs": ["WEP#1"],
                                 "clientItem": "1\" Triple Eye - Anchor Rod and Plate",
                                 "guys":                                 [
                                     "Guy#1",
@@ -3544,7 +3544,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "supportType": "WEP#1",
+                                "suppotedWEPs": ["WEP#1"],
                                 "clientItem": "1\" Triple Eye - Anchor Rod and Plate",
                                 "guys":                                 [
                                     "Guy#3",
@@ -3868,7 +3868,7 @@
                                 "value": 60
                             },
                             "direction": 80,
-                            "associatedBacking": "WEP#1",
+                            "suppotedWEPs": ["WEP#1"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -4547,7 +4547,7 @@
                                 "value": 60
                             },
                             "direction": 350,
-                            "associatedBacking": "Bisector",
+                            "supportedWEPs": ["WEP#1","WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -5400,7 +5400,7 @@
                                     "value": 60
                                 },
                                 "direction": 170,
-                                "associatedBacking": "WEP#2",
+                                "suppotedWEPs": ["WEP#2"],
                                 "insulators":                                 [
                                     "Insulator#1",
                                     "Insulator#2",
@@ -5426,7 +5426,7 @@
                                     "value": 60
                                 },
                                 "direction": 170,
-                                "associatedBacking": "Other",
+                                "supportedWEPs": [],
                                 "insulators": [],
                                 "externalId": "c350c5b6-f5b9-4ec5-8026-22177403d5d6"
                             }
@@ -6185,7 +6185,7 @@
                                 "value": 60
                             },
                             "direction": 350,
-                            "associatedBacking": "Bisector",
+                            "supportedWEPs": ["WEP#1","WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -6773,7 +6773,7 @@
                                 "value": 60
                             },
                             "direction": 350,
-                            "associatedBacking": "Bisector",
+                            "supportedWEPs": ["WEP#1","WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -7494,7 +7494,7 @@
                                     "value": 60
                                 },
                                 "direction": 170,
-                                "associatedBacking": "WEP#2",
+                                "suppotedWEPs": ["WEP#2"],
                                 "insulators":                                 [
                                     "Insulator#1",
                                     "Insulator#2",
@@ -7520,7 +7520,7 @@
                                     "value": 60
                                 },
                                 "direction": 170,
-                                "associatedBacking": "Other",
+                                "supportedWEPs": [],
                                 "insulators": [],
                                 "externalId": "9e22e7be-65ef-407a-9564-406a1a460ce8"
                             }
@@ -8201,7 +8201,7 @@
                                 "value": 60
                             },
                             "direction": 350,
-                            "associatedBacking": "Bisector",
+                            "supportedWEPs": ["WEP#1","WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -8556,7 +8556,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "supportType": "Bisector",
+                                "supportedWEPs": ["WEP#1","WEP#2"],
                                 "clientItem": "1\" Triple Eye - Anchor Rod and Plate",
                                 "guys": ["Guy#1"],
                                 "externalId": "49e91822-45c8-4829-beb5-eaa70dde2d85"
@@ -8577,7 +8577,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "supportType": "Bisector",
+                                "supportedWEPs": ["WEP#1","WEP#2"],
                                 "clientItem": "1\" Triple Eye - Anchor Rod and Plate",
                                 "guys":                                 [
                                     "Guy#2",
@@ -9022,7 +9022,7 @@
                                 "value": 60
                             },
                             "direction": 180,
-                            "associatedBacking": "Bisector",
+                            "supportedWEPs": ["WEP#1","WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -9427,7 +9427,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "supportType": "Bisector",
+                                "supportedWEPs": ["WEP#1","WEP#2"],
                                 "clientItem": "1\" Triple Eye - Anchor Rod and Plate",
                                 "guys":                                 [
                                     "Guy#1",
@@ -9451,7 +9451,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "supportType": "Bisector",
+                                "supportedWEPs": ["WEP#1","WEP#2"],
                                 "clientItem": "1\" Triple Eye - Anchor Rod and Plate",
                                 "guys": ["Guy#3"],
                                 "externalId": "5601e2dd-da66-4bba-a0f1-0efad2366101"
@@ -9955,7 +9955,7 @@
                                     "value": 60
                                 },
                                 "direction": 1,
-                                "associatedBacking": "Bisector",
+                                "supportedWEPs": ["WEP#1","WEP#2"],
                                 "insulators":                                 [
                                     "Insulator#1",
                                     "Insulator#2",
@@ -9981,7 +9981,7 @@
                                     "value": 64
                                 },
                                 "direction": 359,
-                                "associatedBacking": "Other",
+                                "supportedWEPs": [],
                                 "insulators": [],
                                 "externalId": "3f5dcb9a-f136-47d5-af3c-a10027dd0d6b"
                             }
@@ -10845,7 +10845,7 @@
                                     "value": 72
                                 },
                                 "direction": 352,
-                                "associatedBacking": "Bisector",
+                                "supportedWEPs": ["WEP#1","WEP#2"],
                                 "insulators":                                 [
                                     "Insulator#1",
                                     "Insulator#2",
@@ -10871,7 +10871,7 @@
                                     "value": 60
                                 },
                                 "direction": 87,
-                                "associatedBacking": "WEP#3",
+                                "suppotedWEPs": ["WEP#3"],
                                 "insulators":                                 [
                                     "Insulator#5",
                                     "Insulator#6",
@@ -10897,7 +10897,7 @@
                                     "value": 30
                                 },
                                 "direction": 260,
-                                "associatedBacking": "Other",
+                                "supportedWEPs": [],
                                 "insulators": [],
                                 "externalId": "83a22d43-e6ce-4cbf-a2a8-06ba45883987"
                             }
@@ -11263,7 +11263,7 @@
                                 "unit": "FOOT",
                                 "value": 0
                             },
-                            "supportType": "WEP#1",
+                            "suppotedWEPs": ["WEP#1"],
                             "clientItem": "1\" Triple Eye - Anchor Rod and Plate",
                             "guys":                             [
                                 "Guy#1",
@@ -11608,7 +11608,7 @@
                                 "value": 60
                             },
                             "direction": 352,
-                            "associatedBacking": "Bisector",
+                            "supportedWEPs": ["WEP#1","WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -11903,7 +11903,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "supportType": "WEP#2",
+                                "suppotedWEPs": ["WEP#2"],
                                 "clientItem": "1\" Triple Eye - Anchor Rod and Plate",
                                 "guys": ["Guy#1"],
                                 "externalId": "1f72d05d-3214-42a0-9fa7-79d3bee2ca67"
@@ -11924,7 +11924,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "supportType": "WEP#2",
+                                "suppotedWEPs": ["WEP#2"],
                                 "clientItem": "1\" Triple Eye - Anchor Rod and Plate",
                                 "guys":                                 [
                                     "Guy#2",
@@ -12263,7 +12263,7 @@
                                 "value": 60
                             },
                             "direction": 267,
-                            "associatedBacking": "Bisector",
+                            "supportedWEPs": ["WEP#1","WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -12947,7 +12947,7 @@
                                 "value": 60
                             },
                             "direction": 87,
-                            "associatedBacking": "WEP#2",
+                            "suppotedWEPs": ["WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",

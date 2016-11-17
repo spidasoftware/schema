@@ -232,7 +232,7 @@
                     "unit": "FOOT",
                     "value": 0
                 },
-                "supportType": "Other",
+                "supportedWEPs": [],
                 "clientItem": "8\" Triple 3/4\" Rod",
                 "guys":                 [
                     "Guy#1",
@@ -256,7 +256,7 @@
                     "unit": "FOOT",
                     "value": 0
                 },
-                "supportType": "Other",
+                "supportedWEPs": [],
                 "clientItem": "12\" Triple 1\" Rod",
                 "guys":                 [
                     "Guy#3",
@@ -1230,7 +1230,7 @@
                 "value": 48
             },
             "direction": 275,
-            "associatedBacking": "Bisector",
+            "supportedWEPs": ["WEP#1","WEP#2"],
             "insulators":             [
                 "Insulator#1",
                 "Insulator#2",

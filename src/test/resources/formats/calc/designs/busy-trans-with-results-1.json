@@ -951,7 +951,7 @@
                 "value": 48
             },
             "direction": 275,
-            "associatedBacking": "Other",
+            "supportedWEPs": [],
             "insulators":             [
                 "Insulator#1",
                 "Insulator#2",

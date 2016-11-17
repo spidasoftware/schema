@@ -159,7 +159,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "supportType": "WEP#3",
+                                "suppotedWEPs": ["WEP#3"],
                                 "clientItem": "Twin",
                                 "guys": ["Guy#1"],
                                 "externalId": "3936cf89-f98c-4c2b-918e-5b8ab7bcfe73"
@@ -180,7 +180,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "supportType": "Other",
+                                "supportedWEPs": [],
                                 "clientItem": "Single",
                                 "guys": ["Guy#2"],
                                 "externalId": "182f857f-3586-474f-a2ba-8b32fa54170f"
@@ -741,7 +741,7 @@
                                     "value": 60
                                 },
                                 "direction": 90,
-                                "associatedBacking": "Bisector",
+                                "supportedWEPs": ["WEP#1","WEP#2"],
                                 "insulators":                                 [
                                     "Insulator#1",
                                     "Insulator#2",
@@ -766,7 +766,7 @@
                                     "value": 60
                                 },
                                 "direction": 191,
-                                "associatedBacking": "WEP#3",
+                                "suppotedWEPs": ["WEP#3"],
                                 "insulators":                                 [
                                     "Insulator#4",
                                     "Insulator#5",
@@ -1648,7 +1648,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "supportType": "WEP#3",
+                                "suppotedWEPs": ["WEP#3"],
                                 "clientItem": "Twin",
                                 "guys": ["Guy#1"],
                                 "externalId": "2ef5faa3-ba6a-41f9-84f1-2d21af76d13f"
@@ -1669,7 +1669,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "supportType": "Other",
+                                "supportedWEPs": [],
                                 "clientItem": "Single",
                                 "guys": ["Guy#2"],
                                 "externalId": "82a85600-c44c-40be-86c3-d538489915ae"
@@ -2230,7 +2230,7 @@
                                     "value": 60
                                 },
                                 "direction": 90,
-                                "associatedBacking": "Bisector",
+                                "supportedWEPs": ["WEP#1","WEP#2"],
                                 "insulators":                                 [
                                     "Insulator#1",
                                     "Insulator#2",
@@ -2255,7 +2255,7 @@
                                     "value": 60
                                 },
                                 "direction": 191,
-                                "associatedBacking": "WEP#3",
+                                "suppotedWEPs": ["WEP#3"],
                                 "insulators":                                 [
                                     "Insulator#4",
                                     "Insulator#5",
@@ -2889,7 +2889,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "supportType": "WEP#3",
+                                "suppotedWEPs": ["WEP#3"],
                                 "clientItem": "Twin",
                                 "guys": ["Guy#1"],
                                 "externalId": "78773564-d3e8-4981-9891-063011b99d0d"
@@ -2910,7 +2910,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "supportType": "Other",
+                                "supportedWEPs": [],
                                 "clientItem": "Single",
                                 "guys": ["Guy#2"],
                                 "externalId": "e5a31deb-a2af-47ec-82f3-4dbcc32678a8"
@@ -3471,7 +3471,7 @@
                                     "value": 60
                                 },
                                 "direction": 90,
-                                "associatedBacking": "Bisector",
+                                "supportedWEPs": ["WEP#1","WEP#2"],
                                 "insulators":                                 [
                                     "Insulator#1",
                                     "Insulator#2",
@@ -3496,7 +3496,7 @@
                                     "value": 60
                                 },
                                 "direction": 191,
-                                "associatedBacking": "WEP#3",
+                                "suppotedWEPs": ["WEP#3"],
                                 "insulators":                                 [
                                     "Insulator#4",
                                     "Insulator#5",
@@ -4130,7 +4130,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "supportType": "WEP#3",
+                                "suppotedWEPs": ["WEP#3"],
                                 "clientItem": "Twin",
                                 "guys": ["Guy#1"],
                                 "externalId": "4e42a192-c34d-4208-b398-6eae71f589cb"
@@ -4151,7 +4151,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "supportType": "Other",
+                                "supportedWEPs": [],
                                 "clientItem": "Single",
                                 "guys": ["Guy#2"],
                                 "externalId": "07c652e7-18ef-4c84-b067-49a136b8d56a"
@@ -4712,7 +4712,7 @@
                                     "value": 60
                                 },
                                 "direction": 90,
-                                "associatedBacking": "Bisector",
+                                "supportedWEPs": ["WEP#1","WEP#2"],
                                 "insulators":                                 [
                                     "Insulator#1",
                                     "Insulator#2",
@@ -4737,7 +4737,7 @@
                                     "value": 60
                                 },
                                 "direction": 191,
-                                "associatedBacking": "WEP#3",
+                                "suppotedWEPs": ["WEP#3"],
                                 "insulators":                                 [
                                     "Insulator#4",
                                     "Insulator#5",
@@ -5371,7 +5371,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "supportType": "WEP#3",
+                                "suppotedWEPs": ["WEP#3"],
                                 "clientItem": "Twin",
                                 "guys": ["Guy#1"],
                                 "externalId": "1527c495-8008-4b1b-bc10-10f2b5acf53a"
@@ -5392,7 +5392,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "supportType": "Other",
+                                "supportedWEPs": [],
                                 "clientItem": "Single",
                                 "guys": ["Guy#2"],
                                 "externalId": "12398aa8-e422-4c25-86e4-c67c2916e480"
@@ -5972,7 +5972,7 @@
                                     "value": 60
                                 },
                                 "direction": 90,
-                                "associatedBacking": "Bisector",
+                                "supportedWEPs": ["WEP#1","WEP#2"],
                                 "insulators":                                 [
                                     "Insulator#1",
                                     "Insulator#2",
@@ -5997,7 +5997,7 @@
                                     "value": 60
                                 },
                                 "direction": 191,
-                                "associatedBacking": "WEP#3",
+                                "suppotedWEPs": ["WEP#3"],
                                 "insulators":                                 [
                                     "Insulator#4",
                                     "Insulator#5",
