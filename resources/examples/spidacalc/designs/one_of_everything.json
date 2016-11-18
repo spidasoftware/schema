@@ -378,10 +378,6 @@
   ],
   "insulators": [
     {
-      "attachmentHeight": {
-        "unit": "FOOT",
-        "value": 10.416666666666666
-      },
       "clientItem": "13.2 kV Pin Type Insulator (16\" Bracket)",
       "direction": 118,
       "doubleInsulator": false,
@@ -402,10 +398,6 @@
       ]
     },
     {
-      "attachmentHeight": {
-        "unit": "FOOT",
-        "value": 13.583333333333332
-      },
       "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
       "direction": 28,
       "doubleInsulator": false,

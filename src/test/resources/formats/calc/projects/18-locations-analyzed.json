@@ -635,10 +635,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 35.916666666666664
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 4
@@ -656,10 +652,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 35.916666666666664
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 116
@@ -677,10 +669,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 35.916666666666664
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 41
@@ -698,10 +686,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 35.916666666666664
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 79
@@ -1457,10 +1441,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 41.166666666666664
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 4
@@ -1478,10 +1458,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 41.166666666666664
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 116
@@ -1499,10 +1475,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 41.166666666666664
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 60
@@ -2124,10 +2096,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 36.83333333333333
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 4
@@ -2145,10 +2113,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 36.83333333333333
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 4
@@ -2166,10 +2130,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 36.83333333333333
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 140
@@ -2187,10 +2147,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 36.83333333333333
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 140
@@ -2208,10 +2164,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 36.83333333333333
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 49
@@ -2229,10 +2181,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 36.83333333333333
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 49
@@ -2250,10 +2198,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 36.83333333333333
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 95
@@ -2271,10 +2215,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 36.83333333333333
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 95
@@ -2292,10 +2232,6 @@
                                     "id": "Unknown TelCo"
                                 },
                                 "clientItem": "3\" Clevis Insulator",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 22.166666666666664
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 4
@@ -2316,10 +2252,6 @@
                                     "id": "Unknown TelCo"
                                 },
                                 "clientItem": "3\" Clevis Insulator",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 22.166666666666664
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 20
@@ -3166,10 +3098,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 43.166666666666664
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 37
@@ -3190,10 +3118,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 43.166666666666664
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 95
@@ -3214,10 +3138,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 43.166666666666664
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 4
@@ -3238,10 +3158,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 43.166666666666664
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 120
@@ -3262,10 +3178,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 37.916666666666664
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 4
@@ -3283,10 +3195,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 37.916666666666664
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 116
@@ -3304,10 +3212,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 37.916666666666664
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 41
@@ -3325,10 +3229,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 37.916666666666664
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 79
@@ -3886,10 +3786,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 44.25
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 37
@@ -3907,10 +3803,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 44.25
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 95
@@ -3928,10 +3820,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 44.25
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 4
@@ -3949,10 +3837,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 44.25
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 120
@@ -4565,10 +4449,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 37.83333333333333
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 116
@@ -4589,10 +4469,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 37.83333333333333
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 41
@@ -4613,10 +4489,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 37.83333333333333
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 4
@@ -4637,10 +4509,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 37.83333333333333
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 79
@@ -6203,10 +6071,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 37.58333333333333
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 116
@@ -6227,10 +6091,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 37.58333333333333
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 41
@@ -6251,10 +6111,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 37.58333333333333
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 4
@@ -6275,10 +6131,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 37.58333333333333
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 79
@@ -6791,10 +6643,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 37.83333333333333
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 116
@@ -6815,10 +6663,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 37.83333333333333
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 41
@@ -6839,10 +6683,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 37.83333333333333
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 4
@@ -6863,10 +6703,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 37.83333333333333
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 79
@@ -7534,10 +7370,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 38.666666666666664
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 116
@@ -7558,10 +7390,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 38.666666666666664
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 41
@@ -7582,10 +7410,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 38.666666666666664
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 4
@@ -7606,10 +7430,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 38.666666666666664
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 79
@@ -8223,10 +8043,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 38.5
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 116
@@ -8244,10 +8060,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 38.5
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 41
@@ -8265,10 +8077,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 38.5
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 4
@@ -8286,10 +8094,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 38.5
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 79
@@ -8307,10 +8111,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 38.5
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 116
@@ -8328,10 +8128,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 38.5
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 41
@@ -8349,10 +8145,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 38.5
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 4
@@ -8370,10 +8162,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 38.5
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 79
@@ -9044,10 +8832,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 40.5
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 116
@@ -9065,10 +8849,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 40.5
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 41
@@ -9086,10 +8866,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 40.5
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 4
@@ -9107,10 +8883,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 40.5
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 79
@@ -9128,10 +8900,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 40.5
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 116
@@ -9149,10 +8917,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 40.5
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 41
@@ -9170,10 +8934,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 40.5
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 4
@@ -9191,10 +8951,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 40.5
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 79
@@ -10911,10 +10667,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 37.25
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 140
@@ -10935,10 +10687,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 37.25
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 41
@@ -10959,10 +10707,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 37.25
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 4
@@ -10983,10 +10727,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 37.25
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 103
@@ -11007,10 +10747,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 42.58333333333333
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 4
@@ -11028,10 +10764,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 42.58333333333333
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 116
@@ -11049,10 +10781,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 42.58333333333333
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 41
@@ -11070,10 +10798,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 42.58333333333333
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 79
@@ -11626,10 +11350,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 37.08333333333333
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 116
@@ -11650,10 +11370,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 37.08333333333333
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 29
@@ -11674,10 +11390,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 37.08333333333333
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 4
@@ -11698,10 +11410,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 37.08333333333333
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 91
@@ -12285,10 +11993,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 40.5
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 79
@@ -12306,10 +12010,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 40.5
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 4
@@ -12327,10 +12027,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 40.5
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 116
@@ -12348,10 +12044,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 40.5
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 41
@@ -12369,10 +12061,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 40.5
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 79
@@ -12390,10 +12078,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 40.5
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 4
@@ -12411,10 +12095,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 40.5
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 116
@@ -12432,10 +12112,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Deadend",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 40.5
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 41
@@ -12965,10 +12641,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 30.916666666666664
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 79
@@ -12989,10 +12661,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 30.916666666666664
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 4
@@ -13013,10 +12681,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 30.916666666666664
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 116
@@ -13037,10 +12701,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 30.916666666666664
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 41

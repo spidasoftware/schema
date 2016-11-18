@@ -669,7 +669,6 @@
         "id": "insulator",
         "required": [
           "id",
-          "attachmentHeight",
           "owner",
           "doubleInsulator",
           "direction",
@@ -692,12 +691,9 @@
           "owner": {
             "$ref": "../../general/owner.schema"
           },
-          "attachmentHeight": {
-            "$ref": "../../general/measurable.schema"
-          },
           "offset": {
             "$ref": "../../general/measurable.schema",
-            "description": "When attached to a crossarm, the offset along the crossarm."
+            "description": "If insulator is on a pole, then offest is the attach height.  If insulator is on a cross arm, then offset is the distance from one end of the cross arm."
           },
           "direction": {
             "$ref": "../../general/bearing.schema"

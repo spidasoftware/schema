@@ -784,10 +784,6 @@
                                     "id": "AEP"
                                 },
                                 "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 45.5
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 4
@@ -808,10 +804,6 @@
                                     "id": "AEP"
                                 },
                                 "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 45.5
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 116
@@ -832,10 +824,6 @@
                                     "id": "AEP"
                                 },
                                 "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 45.5
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 41
@@ -856,10 +844,6 @@
                                     "id": "AEP"
                                 },
                                 "clientItem": "15kV Dead End Insulator",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 43.166666666666664
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 4
@@ -877,10 +861,6 @@
                                     "id": "AEP"
                                 },
                                 "clientItem": "15kV Dead End Insulator",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 43.166666666666664
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 116
@@ -898,10 +878,6 @@
                                     "id": "AEP"
                                 },
                                 "clientItem": "15kV Dead End Insulator",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 43.166666666666664
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 60

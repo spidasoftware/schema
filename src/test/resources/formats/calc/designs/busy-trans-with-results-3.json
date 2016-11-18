@@ -1159,10 +1159,6 @@
                     "externalId": "bbc7c36a-b936-45d1-8e72-27a3da12a595"
                 },
                 "clientItem": "34.5kV Post Insulator (18\" Bracket)",
-                "attachmentHeight":                 {
-                    "unit": "FOOT",
-                    "value": 61
-                },
                 "offset":                 {
                     "unit": "INCH",
                     "value": 732
@@ -1183,10 +1179,6 @@
                     "externalId": "4da923f2-35ef-448d-b9ca-b6eb533bda99"
                 },
                 "clientItem": "34.5kV Dead End Insulator",
-                "attachmentHeight":                 {
-                    "unit": "FOOT",
-                    "value": 60
-                },
                 "offset":                 {
                     "unit": "INCH",
                     "value": 720
@@ -1204,10 +1196,6 @@
                     "externalId": "ad4d24ed-1e0f-4c63-b669-0818d6507edf"
                 },
                 "clientItem": "34.5kV Dead End Insulator",
-                "attachmentHeight":                 {
-                    "unit": "FOOT",
-                    "value": 56
-                },
                 "offset":                 {
                     "unit": "INCH",
                     "value": 672
@@ -1225,10 +1213,6 @@
                     "externalId": "1a85f05f-53c8-451a-ae39-514e15e35f43"
                 },
                 "clientItem": "34.5kV Post Insulator (18\" Bracket)",
-                "attachmentHeight":                 {
-                    "unit": "FOOT",
-                    "value": 57
-                },
                 "offset":                 {
                     "unit": "INCH",
                     "value": 684
@@ -1249,10 +1233,6 @@
                     "externalId": "6433a30b-5aa7-4b3f-a9a3-6e4081ffc777"
                 },
                 "clientItem": "34.5kV Post Insulator (18\" Bracket)",
-                "attachmentHeight":                 {
-                    "unit": "FOOT",
-                    "value": 51.5
-                },
                 "offset":                 {
                     "unit": "INCH",
                     "value": 618
@@ -1273,10 +1253,6 @@
                     "externalId": "30d96a43-1f5b-404e-89ea-bc3f6b171757"
                 },
                 "clientItem": "34.5kV Dead End Insulator",
-                "attachmentHeight":                 {
-                    "unit": "FOOT",
-                    "value": 50.5
-                },
                 "offset":                 {
                     "unit": "INCH",
                     "value": 606
@@ -1294,10 +1270,6 @@
                     "externalId": "2472ee0d-a736-4d9b-9e80-cd2d7ef2d471"
                 },
                 "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                "attachmentHeight":                 {
-                    "unit": "FOOT",
-                    "value": 30.833333333333332
-                },
                 "offset":                 {
                     "unit": "INCH",
                     "value": 35
@@ -1318,10 +1290,6 @@
                     "externalId": "51fe0dce-4812-4503-9609-003a35eb24f9"
                 },
                 "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                "attachmentHeight":                 {
-                    "unit": "FOOT",
-                    "value": 30.833333333333332
-                },
                 "offset":                 {
                     "unit": "INCH",
                     "value": 91
@@ -1342,10 +1310,6 @@
                     "externalId": "2c89d694-f4e3-4c2b-bb48-d76b3a1d83f7"
                 },
                 "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                "attachmentHeight":                 {
-                    "unit": "FOOT",
-                    "value": 30.833333333333332
-                },
                 "offset":                 {
                     "unit": "INCH",
                     "value": 6
