@@ -20,7 +20,7 @@
     "externalId": {
       "type": "string",
       "description": "An optional id for mapping to external systems. Calc does not use this ID, but does preserve it."
-    },  
+    },
     "distance": {
       "$ref": "../../general/measurable.schema",
       "description": "Distance from the main pole to this wire end point. AKA Span length."
@@ -44,6 +44,11 @@
     "comments": {
       "type": "string",
       "description": "Any comments about this wire end point."
+    },
+    "connectionId":{
+      "description": "The shared connection id.  Represents the unique connection between two objects.  Must be two and only two objects with the same id.",
+      "pattern": "[a-f0-9]{24}",
+      "type": "string"
     },
     "wires": {
       "description": "The list of wire IDs that run to this wire end point.",
