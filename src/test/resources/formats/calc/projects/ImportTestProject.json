@@ -373,10 +373,6 @@
                 "externalId": "4c2b12dd-44b3-422e-828d-471068ed6efc"
               },
               "clientItem": "15kV Dead End Polymer Insulator",
-              "attachmentHeight":               {
-                "unit": "FOOT",
-                "value": 41.75
-              },
               "offset":               {
                 "unit": "INCH",
                 "value": 4
@@ -394,10 +390,6 @@
                 "externalId": "41eaafd4-649a-4e94-877f-d780831619e2"
               },
               "clientItem": "15kV Dead End Polymer Insulator",
-              "attachmentHeight":               {
-                "unit": "FOOT",
-                "value": 41.75
-              },
               "offset":               {
                 "unit": "INCH",
                 "value": 4
@@ -415,10 +407,6 @@
                 "externalId": "1ebcc9d4-90d0-4a54-970f-2dbaea3c984c"
               },
               "clientItem": "15kV Dead End Polymer Insulator",
-              "attachmentHeight":               {
-                "unit": "FOOT",
-                "value": 41.75
-              },
               "offset":               {
                 "unit": "INCH",
                 "value": 116
@@ -436,10 +424,6 @@
                 "externalId": "b49f852b-748c-4267-8d2d-e9168f287beb"
               },
               "clientItem": "15kV Dead End Polymer Insulator",
-              "attachmentHeight":               {
-                "unit": "FOOT",
-                "value": 41.75
-              },
               "offset":               {
                 "unit": "INCH",
                 "value": 116
@@ -457,10 +441,6 @@
                 "externalId": "4bf81996-6929-447e-a2f6-b57483c447e3"
               },
               "clientItem": "15kV Dead End Polymer Insulator",
-              "attachmentHeight":               {
-                "unit": "FOOT",
-                "value": 41.75
-              },
               "offset":               {
                 "unit": "INCH",
                 "value": 60
@@ -478,10 +458,6 @@
                 "externalId": "6cccab6d-3365-45f4-92d0-a3cfec33eb4d"
               },
               "clientItem": "15kV Dead End Polymer Insulator",
-              "attachmentHeight":               {
-                "unit": "FOOT",
-                "value": 41.75
-              },
               "offset":               {
                 "unit": "INCH",
                 "value": 60
