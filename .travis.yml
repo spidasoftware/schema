@@ -2,4 +2,4 @@ language: groovy
 jdk: oraclejdk8
 env: _JAVA_OPTIONS="-XX:-UseSplitVerifier"
 sudo: false
-script: gradlew test --stacktrace
+script: ./gradlew test --stacktrace
