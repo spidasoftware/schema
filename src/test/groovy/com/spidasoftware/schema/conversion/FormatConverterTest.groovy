@@ -134,32 +134,32 @@ class FormatConverterTest extends Specification {
         }
     }
 
-	// void "format converter should not barf when 'clientFile' and 'clientFileVersion' fields are missing"(){
-	// 	setup: "get calc project json and remove those fields"
-	// 	def projectJson = getCalcProject("18-locations-analyzed.json")
-	// 	projectJson.remove('clientFile')
-	// 	projectJson.remove('clientFileVersion')
+	void "format converter should not barf when 'clientFile' and 'clientFileVersion' fields are missing"(){
+		setup: "get calc project json and remove those fields"
+		def projectJson = getCalcProject("18-locations-analyzed.json")
+		projectJson.remove('clientFile')
+		projectJson.remove('clientFileVersion')
 
-	// 	when: "convert the project json into calcdb components"
- //        converter.convertCalcProject(projectJson)
+		when: "convert the project json into calcdb components"
+        converter.convertCalcProject(projectJson)
 
-	// 	then: "shouldn't throw any exceptions"
-	// 	notThrown(Exception)
+		then: "shouldn't throw any exceptions"
+		notThrown(Exception)
 
-	// }
+	}
 
- //    def "designs should be converted by themselves"(){
- //        when:
- //        def design = converter.convertCalcDesign(current, null, null)?.getJSON()
+    def "designs should be converted by themselves"(){
+        when:
+        def design = converter.convertCalcDesign(current, null, null)?.getJSON()
 
- //        then:
- //        design.getLong('dateModified')
- //        design.worstCaseAnalysisResults instanceof JSONObject
-	//     design.worstCaseAnalysisResults.containsKey('pole')
+        then:
+        design.getLong('dateModified')
+        design.worstCaseAnalysisResults instanceof JSONObject
+	    design.worstCaseAnalysisResults.containsKey('pole')
 
- //        where:
- //        current << getCalcDesignsList("busy-trans-with-results", 4)
- //    }
+        where:
+        current << getCalcDesignsList("busy-trans-with-results", 4)
+    }
 
  //    void "Converting to calcDB objects should not throw any exceptions"(){
 
@@ -185,89 +185,89 @@ class FormatConverterTest extends Specification {
 
  //    }
 
- //    @Unroll("The design: #currentDesignName should have the correct worst case loading results")
- //    void "Designs have the worstResults set to the correct result object"(){
- //        setup: "load designs with a variety of load cases"
- //        def project = getCalcProject("LoadCaseTest.json")
- //        def designs = project.leads[0].locations[0].designs
+    @Unroll("The design: #currentDesignName should have the correct worst case loading results")
+    void "Designs have the worstResults set to the correct result object"(){
+        setup: "load designs with a variety of load cases"
+        def project = getCalcProject("LoadCaseTest.json")
+        def designs = project.leads[0].locations[0].designs
 
- //        when: "add analysisResults to the current design"
- //        def currentDesign = designs.find{ it.label == currentDesignName }
- //        def design = converter.convertCalcDesign(currentDesign, null, null).getJSON()
+        when: "add analysisResults to the current design"
+        def currentDesign = designs.find{ it.label == currentDesignName }
+        def design = converter.convertCalcDesign(currentDesign, null, null).getJSON()
 
- //        then: "the correct worst results should be set"
- //        assertEquals("Worst Pole result should be correct", worstPole, design.worstCaseAnalysisResults.pole.actual, e)
- //        assertEquals("worst anchor result is correct", worstAnchor, design.worstCaseAnalysisResults.anchors.actual, e)
- //        assertEquals("worst guy result is correct", worstGuy, design.worstCaseAnalysisResults.guys.actual, e)
- //        assertEquals("worst pushbrace is correct", worstPushbrace, design.worstCaseAnalysisResults.pushBraces.actual, e)
- //        assertEquals("worst xarm is correct", worstCrossarm, design.worstCaseAnalysisResults.crossArms.actual, e)
- //        assertEquals("worst insulator is correct", worstInsulator, design.worstCaseAnalysisResults.insulators.actual, e)
+        then: "the correct worst results should be set"
+        assertEquals("Worst Pole result should be correct", worstPole, design.worstCaseAnalysisResults.pole.actual, e)
+        assertEquals("worst anchor result is correct", worstAnchor, design.worstCaseAnalysisResults.anchors.actual, e)
+        assertEquals("worst guy result is correct", worstGuy, design.worstCaseAnalysisResults.guys.actual, e)
+        assertEquals("worst pushbrace is correct", worstPushbrace, design.worstCaseAnalysisResults.pushBraces.actual, e)
+        assertEquals("worst xarm is correct", worstCrossarm, design.worstCaseAnalysisResults.crossArms.actual, e)
+        assertEquals("worst insulator is correct", worstInsulator, design.worstCaseAnalysisResults.insulators.actual, e)
 
- //        where:
- //        currentDesignName     | worstPole | worstAnchor | worstGuy | worstPushbrace | worstCrossarm | worstInsulator | e
- //        "go95-strength"       | 1.28 	  | 0.36 	    | 0.34 	   | 2.20			| 0.40			| 0.46 			 | 0.01
- //        "nesc-strength"	      | 149		  | 305 		| 352 	   | 68				| 379			| 280 			 | 1.0
- //        "nesc-lowered-stress" | 188       | 305 		| 352 	   | 68				| 379			| 280 			 | 1.0
- //        "strength-is-worst"   | 0.4 	  | 0.36 		| 0.34 	   | 2.20 			| 0.40 		    | 0.46 			 | 0.1
+        where:
+        currentDesignName     | worstPole | worstAnchor | worstGuy | worstPushbrace | worstCrossarm | worstInsulator | e
+        "go95-strength"       | 1.28 	  | 0.36 	    | 0.34 	   | 2.20			| 0.40			| 0.46 			 | 0.01
+        "nesc-strength"	      | 149		  | 305 		| 352 	   | 68				| 379			| 280 			 | 1.0
+        "nesc-lowered-stress" | 188       | 305 		| 352 	   | 68				| 379			| 280 			 | 1.0
+        "strength-is-worst"   | 0.4 	  | 0.36 		| 0.34 	   | 2.20 			| 0.40 		    | 0.46 			 | 0.1
 
- //    }
+    }
 
- //    void "Project data should get copied to locations and designs"(){
- //        setup:
- //        def project
- //        def locations
- //        def designs
+    void "Project data should get copied to locations and designs"(){
+        setup:
+        def project
+        def locations
+        def designs
 
 
- //        when:
- //        def components = converter.convertCalcProject(current)
- //        project = components.find {it instanceof CalcDBProject}.getJSON()
- //        locations = components.findAll {it instanceof CalcDBLocation}*.getJSON()
- //        designs = components.findAll {it instanceof CalcDBDesign}*.getJSON()
+        when:
+        def components = converter.convertCalcProject(current)
+        project = components.find {it instanceof CalcDBProject}.getJSON()
+        locations = components.findAll {it instanceof CalcDBLocation}*.getJSON()
+        designs = components.findAll {it instanceof CalcDBDesign}*.getJSON()
 
- //        then:
- //        def projectId = project.id
- //        projectId == project.calcProject.id //make sure they are the same
- //        projectId == locations[0]."projectId"
- //        project.calcProject.label == locations[0]."projectLabel"
- //        projectId == designs[0]."projectId"
- //        project.calcProject.label == designs[0]."projectLabel"
- //        project.calcProject.leads[0].locations[0].id == locations[0]."id"
+        then:
+        def projectId = project.id
+        projectId == project.calcProject.id //make sure they are the same
+        projectId == locations[0]."projectId"
+        project.calcProject.label == locations[0]."projectLabel"
+        projectId == designs[0]."projectId"
+        project.calcProject.label == designs[0]."projectLabel"
+        project.calcProject.leads[0].locations[0].id == locations[0]."id"
 
- //        where:
- //        current << [getCalcProject("single-full-pole.json"), getCalcProject("four-locations-one-lead-project.json"), getCalcProject("minimal-project-valid.json")]
- //    }
+        where:
+        current << [getCalcProject("single-full-pole.json"), getCalcProject("four-locations-one-lead-project.json"), getCalcProject("minimal-project-valid.json")]
+    }
 
- //    void "CalcDB components should be converted into calc-ready JSON"() {
- //        /*
- //        Just recreate a CalcDB project from it's component parts and make sure it goes together okay
- //         */
- //        when:
- //        CalcDBProject calcDBProject = new CalcDBProject(loadJson("exampleProject", "projects")[0] as JSONObject)
- //        Map calcDBLocations = [:]
- //        Map calcDBDesigns = [:]
- //        loadJson("exampleProject", "locations").each { location ->
- //            calcDBLocations.put(location."_id", new CalcDBLocation(location as JSONObject))
- //        }
- //        loadJson("exampleProject", "designs").each { design ->
- //            calcDBDesigns.put(design."_id", new CalcDBDesign(design as JSONObject))
- //        }
+    void "CalcDB components should be converted into calc-ready JSON"() {
+        /*
+        Just recreate a CalcDB project from it's component parts and make sure it goes together okay
+         */
+        when:
+        CalcDBProject calcDBProject = new CalcDBProject(loadJson("exampleProject", "projects")[0] as JSONObject)
+        Map calcDBLocations = [:]
+        Map calcDBDesigns = [:]
+        loadJson("exampleProject", "locations").each { location ->
+            calcDBLocations.put(location."_id", new CalcDBLocation(location as JSONObject))
+        }
+        loadJson("exampleProject", "designs").each { design ->
+            calcDBDesigns.put(design."_id", new CalcDBDesign(design as JSONObject))
+        }
 
- //        JSONObject projectJson = converter.convertCalcDBProject(calcDBProject, calcDBLocations, calcDBDesigns)
- //        def schema = "/schema/spidacalc/calc/project.schema"
- //        def report = new Validator().validateAndReport(schema, projectJson.toString())
+        JSONObject projectJson = converter.convertCalcDBProject(calcDBProject, calcDBLocations, calcDBDesigns)
+        def schema = "/schema/spidacalc/calc/project.schema"
+        def report = new Validator().validateAndReport(schema, projectJson.toString())
 
- //        then:
- //        // the projectJson should contain the correct label
- //        "exampleProject" == projectJson.getString("label")
+        then:
+        // the projectJson should contain the correct label
+        "exampleProject" == projectJson.getString("label")
 
- //        // each JSON location should have 3 designs
- //        projectJson.leads[0].locations.each {
- //            3 == it.designs.size()
- //        }
- //        // and the json output should validate successfully
- //        report.isSuccess()
- //    }
+        // each JSON location should have 3 designs
+        projectJson.leads[0].locations.each {
+            3 == it.designs.size()
+        }
+        // and the json output should validate successfully
+        report.isSuccess()
+    }
 
     private JSONObject getCalcObject(String name, String type) {
         String designString = getClass().getResourceAsStream("/formats/calc/${type}s/${name}").text
