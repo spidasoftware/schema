@@ -12,8 +12,8 @@ import static org.junit.Assert.assertTrue
 
 @Log4j
 class FormatConverterTest extends Specification {
-	double epsilon = 0.000001
 
+	double epsilon = 0.000001
 	FormatConverter converter = new FormatConverter()
 
 	@Unroll("#currentProject")
@@ -155,8 +155,10 @@ class FormatConverterTest extends Specification {
 	}
 
 	void "Converting to calcDB objects should not throw any exceptions"(){
-		expect:
+		when:
 			def fourPoles = getCalcProject("four-locations-one-lead-project.json")
+		then:
+			notThrown(Exception)
 			fourPoles != null
 			def components = converter.convertCalcProject(fourPoles)
 			def project = components.find {it instanceof CalcDBProject}.getJSON()
