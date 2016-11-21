@@ -1,8 +1,4 @@
 language: groovy
-# addons:
-#   apt:
-#     packages:
-#       - oracle-java8-installer
 env:
   global:
     - GRADLE_OPTS="-Xms128m -Xmx512m"
