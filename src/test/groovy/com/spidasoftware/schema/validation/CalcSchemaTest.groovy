@@ -114,49 +114,49 @@ class CalcSchemaTest extends GroovyTestCase {
 		assertTrue "this instance should be valid against the schema", report.isSuccess()
 	}
 
-	// void testProjectAdditionalProperties() {
-	// 	def schema = factory.getJsonSchema("schema/spidacalc/calc/project.schema")
-	// 	JSONObject json = JSONObject.fromObject(new File("resources/examples/spidacalc/projects/full_project.json").text)
-	// 	json.put("an additional property", "shouldn't validate")
-	// 	report = schema.validate(JsonLoader.fromString(json.toString()))
-	// 	assertFalse "this instance should be valid against the schema", report.isSuccess()
+	void testProjectAdditionalProperties() {
+		def schema = factory.getJsonSchema("schema/spidacalc/calc/project.schema")
+		JSONObject json = JSONObject.fromObject(new File("resources/examples/spidacalc/projects/full_project.json").text)
+		json.put("an additional property", "shouldn't validate")
+		report = schema.validate(JsonLoader.fromString(json.toString()))
+		assertFalse "this instance should be valid against the schema", report.isSuccess()
 
-	// 	json = JSONObject.fromObject(new File("resources/examples/spidacalc/projects/full_project.json").text)
-	// 	json.getJSONArray("leads").getJSONObject(0).put("an additional property", "shouldn't validate")
-	// 	report = schema.validate(JsonLoader.fromString(json.toString()))
-	// 	assertFalse "this instance should be valid against the schema", report.isSuccess()
+		json = JSONObject.fromObject(new File("resources/examples/spidacalc/projects/full_project.json").text)
+		json.getJSONArray("leads").getJSONObject(0).put("an additional property", "shouldn't validate")
+		report = schema.validate(JsonLoader.fromString(json.toString()))
+		assertFalse "this instance should be valid against the schema", report.isSuccess()
 
-	// 	json = JSONObject.fromObject(new File("resources/examples/spidacalc/projects/full_project.json").text)
-	// 	json.getJSONArray("leads").getJSONObject(0).getJSONArray("locations").getJSONObject(0).put("an additional property", "shouldn't validate")
-	// 	report = schema.validate(JsonLoader.fromString(json.toString()))
-	// 	assertFalse "this instance should be valid against the schema", report.isSuccess()
+		json = JSONObject.fromObject(new File("resources/examples/spidacalc/projects/full_project.json").text)
+		json.getJSONArray("leads").getJSONObject(0).getJSONArray("locations").getJSONObject(0).put("an additional property", "shouldn't validate")
+		report = schema.validate(JsonLoader.fromString(json.toString()))
+		assertFalse "this instance should be valid against the schema", report.isSuccess()
 
-	// 	def testFailues = []
-	// 	def locationComponents = ["geographicCoordinate", "remedies", "poleTags", "images"]
-	// 	locationComponents.each { component ->
-	// 		json = JSONObject.fromObject(new File("resources/examples/spidacalc/projects/full_project.json").text)
-	// 		if(component == "geographicCoordinate") {
-	// 			json.getJSONArray("leads").getJSONObject(0).getJSONArray("locations").getJSONObject(0).getJSONObject(component).put("an additional property", "shouldn't validate")
-	// 		} else {
-	// 			json.getJSONArray("leads").getJSONObject(0).getJSONArray("locations").getJSONObject(0).getJSONArray(component).getJSONObject(0).put("an additional property", "shouldn't validate")
-	// 		}
-	// 		report = schema.validate(JsonLoader.fromString(json.toString()))
-	// 		if(report.isSuccess()) {
-	// 			testFailues << "added an additional property to ${component}, it should not validate but did."
-	// 		}
-	// 	}
-	// 	assertEquals "The list should be empty, if it is not there are failures", [], testFailues
+		def testFailues = []
+		def locationComponents = ["geographicCoordinate", "remedies", "poleTags", "images"]
+		locationComponents.each { component ->
+			json = JSONObject.fromObject(new File("resources/examples/spidacalc/projects/full_project.json").text)
+			if(component == "geographicCoordinate") {
+				json.getJSONArray("leads").getJSONObject(0).getJSONArray("locations").getJSONObject(0).getJSONObject(component).put("an additional property", "shouldn't validate")
+			} else {
+				json.getJSONArray("leads").getJSONObject(0).getJSONArray("locations").getJSONObject(0).getJSONArray(component).getJSONObject(0).put("an additional property", "shouldn't validate")
+			}
+			report = schema.validate(JsonLoader.fromString(json.toString()))
+			if(report.isSuccess()) {
+				testFailues << "added an additional property to ${component}, it should not validate but did."
+			}
+		}
+		assertEquals "The list should be empty, if it is not there are failures", [], testFailues
 
-	// 	json = JSONObject.fromObject(new File("resources/examples/spidacalc/projects/full_project.json").text)
-	// 	json.getJSONArray("leads").getJSONObject(0).getJSONArray("locations").getJSONObject(0).getJSONArray("designs").getJSONObject(0).put("an additional property", "shouldn't validate")
-	// 	report = schema.validate(JsonLoader.fromString(json.toString()))
-	// 	assertFalse "this instance should be valid against the schema", report.isSuccess()
+		json = JSONObject.fromObject(new File("resources/examples/spidacalc/projects/full_project.json").text)
+		json.getJSONArray("leads").getJSONObject(0).getJSONArray("locations").getJSONObject(0).getJSONArray("designs").getJSONObject(0).put("an additional property", "shouldn't validate")
+		report = schema.validate(JsonLoader.fromString(json.toString()))
+		assertFalse "this instance should be valid against the schema", report.isSuccess()
 
-	// 	json = JSONObject.fromObject(new File("resources/examples/spidacalc/projects/full_project.json").text)
-	// 	json.getJSONArray("leads").getJSONObject(0).getJSONArray("locations").getJSONObject(0).getJSONArray("designs").getJSONObject(0).getJSONArray("analysis").getJSONObject(0).put("an additional property", "shouldn't validate")
-	// 	report = schema.validate(JsonLoader.fromString(json.toString()))
-	// 	assertFalse "this instance should be valid against the schema", report.isSuccess()
-	// }
+		json = JSONObject.fromObject(new File("resources/examples/spidacalc/projects/full_project.json").text)
+		json.getJSONArray("leads").getJSONObject(0).getJSONArray("locations").getJSONObject(0).getJSONArray("designs").getJSONObject(0).getJSONArray("analysis").getJSONObject(0).put("an additional property", "shouldn't validate")
+		report = schema.validate(JsonLoader.fromString(json.toString()))
+		assertFalse "this instance should be valid against the schema", report.isSuccess()
+	}
 
 	void testStructureAddidtionalProperties() {
 		def testFailues = []

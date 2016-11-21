@@ -1,66 +1,66 @@
 {
-    "clientFile": "Demo.client",
-    "leads": [
+  "clientFile": "Demo.client",
+  "leads": [
+    {
+      "locations": [
         {
-            "locations": [
-                {
-                    "designs": [
-                        {
-                            "framingPlan":         {
-                                "customName": "My Framing Plan",
-                                "framingUnitItems":           [
-                                    "35-5",
-                                    "A1"
-                                ],
-                                "framingEndPoints":           [
-                                    {
-                                        "distance":               {
-                                            "unit": "FOOT",
-                                            "value": 200
-                                        },
-                                        "direction": 180,
-                                        "framingWireItems":               [
-                                            {
-                                                "code": "1/0 AAAC",
-                                                "usageGroup": "PRIMARY"
-                                            },
-                                            {
-                                                "code": "1/0 AAAC",
-                                                "usageGroup": "NEUTRAL"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "distance":               {
-                                            "unit": "FOOT",
-                                            "value": 200
-                                        },
-                                        "direction": 0,
-                                        "framingWireItems":               [
-                                            {
-                                                "code": "1/0 AAAC",
-                                                "usageGroup": "PRIMARY"
-                                            },
-                                            {
-                                                "code": "1/0 AAAC",
-                                                "usageGroup": "NEUTRAL"
-                                            }
-                                        ]
-                                    }
-                                ]
-                            }
-                        }
-                    ],
-                    "geographicCoordinate": {
-                        "type": "point",
-                        "coordinates": [
-                            -81.3688492,
-                            40.6097807
-                        ]
-                    }
-                }
+          "designs": [
+            {
+              "framingPlan": {
+                "customName": "My Framing Plan",
+                "framingUnitItems": [
+                  "35-5",
+                  "A1"
+                ],
+                "framingEndPoints": [
+                  {
+                    "distance": {
+                      "unit": "FOOT",
+                      "value": 200
+                    },
+                    "direction": 180,
+                    "framingWireItems": [
+                      {
+                        "code": "1/0 AAAC",
+                        "usageGroup": "PRIMARY"
+                      },
+                      {
+                        "code": "1/0 AAAC",
+                        "usageGroup": "NEUTRAL"
+                      }
+                    ]
+                  },
+                  {
+                    "distance": {
+                      "unit": "FOOT",
+                      "value": 200
+                    },
+                    "direction": 0,
+                    "framingWireItems": [
+                      {
+                        "code": "1/0 AAAC",
+                        "usageGroup": "PRIMARY"
+                      },
+                      {
+                        "code": "1/0 AAAC",
+                        "usageGroup": "NEUTRAL"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "geographicCoordinate": {
+            "type": "point",
+            "coordinates": [
+              -81.3688492,
+              40.6097807
             ]
+          }
         }
-    ],
-    "schema": "https://raw.github.com/spidasoftware/schema/master/resources/schema/spidacalc/calc/project.schema"
+      ]
+    }
+  ],
+  "schema": "https://raw.github.com/spidasoftware/schema/master/resources/schema/spidacalc/calc/project.schema"
 }
