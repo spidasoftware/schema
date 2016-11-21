@@ -4,9 +4,11 @@ import com.github.fge.jsonschema.report.ProcessingReport
 import com.spidasoftware.schema.validation.Validator
 import groovy.util.logging.Log4j
 import net.sf.json.JSONArray
-import spock.lang.*
+import spock.lang.Specification
+import spock.lang.Unroll
 import net.sf.json.JSONObject
-import static org.junit.Assert.*
+import static org.junit.Assert.assertEquals
+import static org.junit.Assert.assertTrue
 
 @Log4j
 class FormatConverterTest extends Specification {

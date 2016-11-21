@@ -1,7 +1,7 @@
 package com.spidasoftware.schema.utils
 
-import net.sf.json.JSONObject;
-import net.sf.json.JSONArray;
+import net.sf.json.JSONObject
+import net.sf.json.JSONArray
 import com.spidasoftware.schema.validation.Validator
 
 class PoleCSVStationConverter {
