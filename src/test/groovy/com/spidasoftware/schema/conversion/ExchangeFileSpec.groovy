@@ -1,12 +1,7 @@
-package com.spidasoftware.schema.exchange
+package com.spidasoftware.schema.conversion
 
 import net.sf.json.JSONObject
 import spock.lang.Specification
-
-/**
- * Created by pfried on 7/29/14.
- */
-
 
 public class ExchangeFileSpec extends Specification {
 
