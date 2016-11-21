@@ -154,7 +154,7 @@
                             "unit": "FOOT",
                             "value": 0
                         },
-                        "supportedWEPs": ["WEP#1","WEP#2"],
+                        "supportedWEPs": ["WEP#1", "WEP#2"],
                         "clientItem": "Triple 1 inch",
                         "guys": ["Guy#1"],
                         "externalId": "4e25b9de-a629-4a55-bb9d-89dc6f346501"
@@ -794,7 +794,7 @@
                                 "value": 48
                             },
                             "direction": 128,
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -819,7 +819,7 @@
                                 "value": 54
                             },
                             "direction": 128,
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "insulators":                             [
                                 "Insulator#4",
                                 "Insulator#5",
@@ -837,10 +837,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 34.33333333333333
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 4
@@ -861,10 +857,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 34.33333333333333
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 92
@@ -885,10 +877,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 34.33333333333333
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 52
@@ -909,10 +897,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 41.75
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 4
@@ -933,10 +917,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 41.75
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 104
@@ -957,10 +937,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 41.75
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 75
@@ -1392,7 +1368,7 @@
                             "unit": "FOOT",
                             "value": 0
                         },
-                        "supportedWEPs": ["WEP#1","WEP#2"],
+                        "supportedWEPs": ["WEP#1", "WEP#2"],
                         "clientItem": "Triple 1 inch",
                         "guys": ["Guy#1"],
                         "externalId": "6b3e7e7c-6433-4775-b848-d802496f508e"
@@ -2082,7 +2058,7 @@
                                 "value": 48
                             },
                             "direction": 128,
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -2107,7 +2083,7 @@
                                 "value": 54
                             },
                             "direction": 128,
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "insulators":                             [
                                 "Insulator#4",
                                 "Insulator#5",
@@ -2125,10 +2101,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 34.33333333333333
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 4
@@ -2149,10 +2121,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 34.33333333333333
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 92
@@ -2173,10 +2141,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 34.33333333333333
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 52
@@ -2197,10 +2161,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 41.75
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 4
@@ -2221,10 +2181,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 41.75
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 104
@@ -2245,10 +2201,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 41.75
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 75
@@ -2680,7 +2632,7 @@
                                 "unit": "FOOT",
                                 "value": 0
                             },
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "clientItem": "Triple 1 inch",
                             "guys": ["Guy#1"],
                             "externalId": "62e13964-2360-4212-81ec-142ef6f9732c"
@@ -2701,7 +2653,7 @@
                                 "unit": "FOOT",
                                 "value": 0
                             },
-                            "suppotedWEPs": ["WEP#2"],
+                            "supportedWEPs": ["WEP#2"],
                             "clientItem": "Triple 3/4 inch",
                             "guys": ["Guy#2"],
                             "externalId": "e03c4c46-cbaf-404d-812b-121c8013cb6c"
@@ -3387,7 +3339,7 @@
                                 "value": 48
                             },
                             "direction": 128,
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -3412,7 +3364,7 @@
                                 "value": 54
                             },
                             "direction": 128,
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "insulators":                             [
                                 "Insulator#4",
                                 "Insulator#5",
@@ -3430,10 +3382,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 34.33333333333333
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 4
@@ -3454,10 +3402,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 34.33333333333333
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 92
@@ -3478,10 +3422,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 34.33333333333333
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 52
@@ -3502,10 +3442,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 41.75
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 4
@@ -3526,10 +3462,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 41.75
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 104
@@ -3550,10 +3482,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 41.75
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 75
@@ -4618,7 +4546,7 @@
                                 "value": 48
                             },
                             "direction": 126,
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -4643,7 +4571,7 @@
                                 "value": 54
                             },
                             "direction": 126,
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "insulators":                             [
                                 "Insulator#4",
                                 "Insulator#5",
@@ -4661,10 +4589,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 31.416666666666664
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 4
@@ -4685,10 +4609,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 31.416666666666664
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 92
@@ -4709,10 +4629,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 31.416666666666664
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 52
@@ -4733,10 +4649,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 41.75
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 4
@@ -4757,10 +4669,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 41.75
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 104
@@ -4781,10 +4689,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 41.75
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 75
@@ -5838,7 +5742,7 @@
                                 "value": 48
                             },
                             "direction": 126,
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -5863,7 +5767,7 @@
                                 "value": 54
                             },
                             "direction": 126,
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "insulators":                             [
                                 "Insulator#4",
                                 "Insulator#5",
@@ -5881,10 +5785,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 31.416666666666664
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 4
@@ -5905,10 +5805,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 31.416666666666664
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 92
@@ -5929,10 +5825,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 31.416666666666664
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 52
@@ -5953,10 +5845,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 41.75
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 4
@@ -5977,10 +5865,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 41.75
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 104
@@ -6001,10 +5885,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 41.75
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 75
@@ -7058,7 +6938,7 @@
                                 "value": 48
                             },
                             "direction": 126,
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -7083,7 +6963,7 @@
                                 "value": 54
                             },
                             "direction": 126,
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "insulators":                             [
                                 "Insulator#4",
                                 "Insulator#5",
@@ -7101,10 +6981,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 31.416666666666664
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 4
@@ -7125,10 +7001,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 31.416666666666664
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 92
@@ -7149,10 +7021,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 31.416666666666664
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 52
@@ -7173,10 +7041,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 41.75
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 4
@@ -7197,10 +7061,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 41.75
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 104
@@ -7221,10 +7081,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 41.75
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 75
@@ -8304,7 +8160,7 @@
                                 "value": 48
                             },
                             "direction": 307,
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -8332,7 +8188,7 @@
                                 "value": 54
                             },
                             "direction": 307,
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "insulators":                             [
                                 "Insulator#7",
                                 "Insulator#8",
@@ -8350,10 +8206,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 34.58333333333333
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 52
@@ -8371,10 +8223,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 34.58333333333333
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 92
@@ -8392,10 +8240,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 34.58333333333333
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 4
@@ -8413,10 +8257,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 34.58333333333333
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 52
@@ -8434,10 +8274,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 34.58333333333333
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 92
@@ -8455,10 +8291,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 34.58333333333333
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 4
@@ -8476,10 +8308,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 37.916666666666664
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 4
@@ -8500,10 +8328,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 37.916666666666664
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 104
@@ -8524,10 +8348,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 37.916666666666664
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 49
@@ -9731,7 +9551,7 @@
                                 "value": 48
                             },
                             "direction": 307,
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -9759,7 +9579,7 @@
                                 "value": 54
                             },
                             "direction": 307,
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "insulators":                             [
                                 "Insulator#7",
                                 "Insulator#8",
@@ -9777,10 +9597,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 34.58333333333333
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 52
@@ -9798,10 +9614,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 34.58333333333333
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 92
@@ -9819,10 +9631,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 34.58333333333333
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 4
@@ -9840,10 +9648,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 34.58333333333333
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 52
@@ -9861,10 +9665,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 34.58333333333333
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 92
@@ -9882,10 +9682,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 34.58333333333333
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 4
@@ -9903,10 +9699,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 37.916666666666664
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 4
@@ -9927,10 +9719,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 37.916666666666664
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 104
@@ -9951,10 +9739,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 37.916666666666664
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 49
@@ -11158,7 +10942,7 @@
                                 "value": 48
                             },
                             "direction": 307,
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -11186,7 +10970,7 @@
                                 "value": 54
                             },
                             "direction": 307,
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "insulators":                             [
                                 "Insulator#7",
                                 "Insulator#8",
@@ -12394,7 +12178,7 @@
                                 "value": 48
                             },
                             "direction": 129,
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -12419,7 +12203,7 @@
                                 "value": 54
                             },
                             "direction": 129,
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "insulators":                             [
                                 "Insulator#4",
                                 "Insulator#5",
@@ -12437,10 +12221,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 31.416666666666664
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 4
@@ -12461,10 +12241,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 31.416666666666664
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 92
@@ -12485,10 +12261,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 31.416666666666664
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 52
@@ -12509,10 +12281,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 37.25
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 4
@@ -12533,10 +12301,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 37.25
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 104
@@ -12557,10 +12321,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 37.25
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 75
@@ -13526,7 +13286,7 @@
                                 "value": 48
                             },
                             "direction": 129,
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -13551,7 +13311,7 @@
                                 "value": 54
                             },
                             "direction": 129,
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "insulators":                             [
                                 "Insulator#4",
                                 "Insulator#5",
@@ -13569,10 +13329,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 31.416666666666664
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 4
@@ -13593,10 +13349,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 31.416666666666664
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 92
@@ -13617,10 +13369,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 31.416666666666664
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 52
@@ -13641,10 +13389,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 37.25
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 4
@@ -13665,10 +13409,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 37.25
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 104
@@ -13689,10 +13429,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 37.25
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 75
@@ -14658,7 +14394,7 @@
                                 "value": 48
                             },
                             "direction": 129,
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -14683,7 +14419,7 @@
                                 "value": 54
                             },
                             "direction": 129,
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "insulators":                             [
                                 "Insulator#4",
                                 "Insulator#5",
@@ -14701,10 +14437,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 31.416666666666664
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 4
@@ -14725,10 +14457,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 31.416666666666664
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 92
@@ -14749,10 +14477,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 31.416666666666664
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 52
@@ -14773,10 +14497,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 37.25
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 4
@@ -14797,10 +14517,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 37.25
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 104
@@ -14821,10 +14537,6 @@
                                 "id": "Super Power Co."
                             },
                             "clientItem": "34.5kV Post Insulator (Crossarm)",
-                            "attachmentHeight":                             {
-                                "unit": "FOOT",
-                                "value": 37.25
-                            },
                             "offset":                             {
                                 "unit": "INCH",
                                 "value": 75

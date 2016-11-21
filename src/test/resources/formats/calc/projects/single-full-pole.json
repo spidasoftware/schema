@@ -227,7 +227,7 @@
                             "unit": "FOOT",
                             "value": 0
                         },
-                        "supportedWEPs": ["WEP#1","WEP#2"],
+                        "supportedWEPs": ["WEP#1", "WEP#2"],
                         "clientItem": "Triple 1 inch",
                         "guys": ["Guy#1"],
                         "externalId": "4e25b9de-a629-4a55-bb9d-89dc6f346501"
@@ -867,7 +867,7 @@
                                 "value": 48
                             },
                             "direction": 128,
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -892,7 +892,7 @@
                                 "value": 54
                             },
                             "direction": 128,
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "insulators":                             [
                                 "Insulator#4",
                                 "Insulator#5",

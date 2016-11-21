@@ -968,6 +968,10 @@
                     "externalId": "5b4c6944-b497-4cb2-97f8-8fb52a85a496"
                 },
                 "clientItem": "34.5kV Dead End Insulator",
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 54.333333333333336
+                },
                 "offset":                 {
                     "unit": "INCH",
                     "value": 652
@@ -985,6 +989,10 @@
                     "externalId": "6f846668-290b-47ef-b94d-ffad3e91ff0c"
                 },
                 "clientItem": "34.5kV Dead End Insulator",
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 54.333333333333336
+                },
                 "offset":                 {
                     "unit": "INCH",
                     "value": 652
@@ -1002,6 +1010,10 @@
                     "externalId": "1b379ad8-7302-433c-813a-42fb5734dd12"
                 },
                 "clientItem": "34.5kV Dead End Insulator",
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 48.333333333333336
+                },
                 "offset":                 {
                     "unit": "INCH",
                     "value": 580
@@ -1019,6 +1031,10 @@
                     "externalId": "336a72fc-ae8d-4727-a62a-9f3b747d98e3"
                 },
                 "clientItem": "34.5kV Dead End Insulator",
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 48.333333333333336
+                },
                 "offset":                 {
                     "unit": "INCH",
                     "value": 580
@@ -1036,6 +1052,10 @@
                     "externalId": "f1d8aaff-584f-415d-996f-76677586934d"
                 },
                 "clientItem": "34.5kV Dead End Insulator",
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 42.33333333333333
+                },
                 "offset":                 {
                     "unit": "INCH",
                     "value": 507.99999999999994
@@ -1053,6 +1073,10 @@
                     "externalId": "c1a18ecf-ec3f-494b-ab86-cfa3060e52b6"
                 },
                 "clientItem": "34.5kV Dead End Insulator",
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 42.333333333333336
+                },
                 "offset":                 {
                     "unit": "INCH",
                     "value": 508
@@ -1070,6 +1094,10 @@
                     "externalId": "ac7a3fc9-bad0-47ab-9ab9-2eb5ecabc665"
                 },
                 "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 29.333333333333332
+                },
                 "offset":                 {
                     "unit": "INCH",
                     "value": 35
@@ -1090,6 +1118,10 @@
                     "externalId": "ef4f779a-144d-4ea8-a517-ad7b285e7aa1"
                 },
                 "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 29.333333333333332
+                },
                 "offset":                 {
                     "unit": "INCH",
                     "value": 91
@@ -1110,6 +1142,10 @@
                     "externalId": "b7ad7f00-3271-4d01-80d4-d8349dc50ef5"
                 },
                 "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
+                "attachmentHeight":                 {
+                    "unit": "FOOT",
+                    "value": 29.333333333333332
+                },
                 "offset":                 {
                     "unit": "INCH",
                     "value": 6

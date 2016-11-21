@@ -1,5 +1,5 @@
 {
-    "schema": "https://raw.github.com/spidasoftware/schema/master/resources/schema/spidacalc/calc/project.schema",
+    "schema": "https://raw.github.com/spidasoftware/schema/master/resources/v1/schema/spidacalc/calc/project.schema",
     "version": "0.7",
     "name": "project-1",
     "clientFile": "Demo.client",
@@ -190,7 +190,7 @@
                                             "unit": "FOOT",
                                             "value": 0
                                         },
-                                        "suppotedWEPs": ["WEP#2"],
+                                        "supportedWEPs": ["WEP#2"],
                                         "clientItem": "10\" - 10\" Double Helix (Class 4) 1 1/4\" Rod",
                                         "guys": [
                                             "Guy#1"
@@ -517,6 +517,10 @@
                                             "uuid": "2e0dacd5-8e8b-4d50-a60e-60e5b3bb9e61"
                                         },
                                         "clientItem": "13.2 kV Pin Type Insulator (Pole Top)",
+                                        "attachmentHeight": {
+                                            "unit": "FOOT",
+                                            "value": 33.583333333333329
+                                        },
                                         "offset": {
                                             "unit": "INCH",
                                             "value": 402.99999999999994
@@ -1103,7 +1107,7 @@
                                             "unit": "FOOT",
                                             "value": 0
                                         },
-                                        "suppotedWEPs": ["WEP#2"],
+                                        "supportedWEPs": ["WEP#2"],
                                         "clientItem": "10\" - 10\" Double Helix (Class 4) 1 1/4\" Rod",
                                         "guys": [
                                             "Guy#1"

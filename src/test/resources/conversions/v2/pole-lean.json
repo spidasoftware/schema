@@ -1,0 +1,108 @@
+{
+  "label": "Project",
+  "clientFile": "Demo.client",
+  "date": "2014-11-26",
+  "schema": "/v1/schema/spidacalc/calc/project.schema",
+  "version": 2,
+  "engineer": "",
+  "comments": "",
+  "generalLocation": "",
+  "address":   {
+    "number": "",
+    "street": "",
+    "city": "",
+    "county": "",
+    "state": "",
+    "zip_code": ""
+  },
+  "userDefinedValues": {},
+  "clientFileVersion": "9baad9b23a66f270098a8f2c94b42dc1",
+  "forms": [  {
+    "title": "Project Summary",
+    "template": "9baad9b23a66f270098a8f2c94b42dc1-Project Summary",
+    "fields":     {
+      "Work Order #": "",
+      "Total Estimated Cost": "",
+      "Total Estimated Hours": "",
+      "Pole Replacements": "0",
+      "Rearrangements": "0"
+    }
+  }],
+  "leads": [  {
+    "label": "Lead",
+    "locations": [    {
+      "label": "Location-11-26-2014-12-49-50-508",
+      "mapNumber": "",
+      "comments": "",
+      "address":       {
+        "number": "",
+        "street": "",
+        "city": "",
+        "county": "",
+        "state": "",
+        "zip_code": ""
+      },
+      "technician": "",
+      "crossStreet1": "",
+      "crossStreet2": "",
+      "remedies": [],
+      "poleTags": [],
+      "userDefinedValues": {},
+      "summaryNotes": [],
+      "forms": [],
+      "images": [],
+      "designs": [      {
+        "label": "Measured Design",
+        "structure":         {
+          "pole":           {
+            "glc":             {
+              "unit": "FOOT",
+              "value": 3.109508578626117
+            },
+            "agl":             {
+              "unit": "FOOT",
+              "value": 38.5
+            },
+            "environment": "STREET",
+            "temperature":             {
+              "unit": "FAHRENHEIT",
+              "value": 60
+            },
+            "stressRatio": 1,
+            "leanAngle":0,
+            "leanDirection": 0,
+            "clientItem":             {
+              "species": "Southern Pine",
+              "classOfPole": "3",
+              "height":               {
+                "unit": "FOOT",
+                "value": 45
+              }
+            },
+            "externalId": "547612beda06cc6f1fa6ca48",
+            "owner":             {
+              "id": "Acme Power",
+              "industry": "UTILITY",
+              "externalId": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+            }
+          },
+          "wireEndPoints": [],
+          "spanPoints": [],
+          "anchors": [],
+          "notePoints": [],
+          "pointLoads": [],
+          "damages": [],
+          "wires": [],
+          "spanGuys": [],
+          "guys": [],
+          "equipments": [],
+          "crossArms": [],
+          "insulators": [],
+          "pushBraces": [],
+          "sidewalkBraces": []
+        },
+        "analysis": []
+      }]
+    }]
+  }]
+}

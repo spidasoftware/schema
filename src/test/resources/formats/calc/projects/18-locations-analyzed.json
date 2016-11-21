@@ -141,7 +141,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "suppotedWEPs": ["WEP#1"],
+                                "supportedWEPs": ["WEP#1"],
                                 "clientItem": "1\" Triple Eye - Anchor Rod and Plate",
                                 "guys":                                 [
                                     "Guy#1",
@@ -165,7 +165,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "suppotedWEPs": ["WEP#1"],
+                                "supportedWEPs": ["WEP#1"],
                                 "clientItem": "5/8\" Single Eye - Anchor Rod and Plate",
                                 "guys":                                 [
                                     "Guy#3",
@@ -189,7 +189,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "suppotedWEPs": ["WEP#1"],
+                                "supportedWEPs": ["WEP#1"],
                                 "clientItem": "3/4\" Double Eye - Anchor Rod and Plate",
                                 "guys": ["Guy#4"],
                                 "externalId": "f6004a1a-40ff-443f-9b9b-bbe7576110df"
@@ -210,7 +210,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "suppotedWEPs": ["WEP#1"],
+                                "supportedWEPs": ["WEP#1"],
                                 "clientItem": "3/4\" Double Eye - Anchor Rod and Plate",
                                 "guys": ["Guy#6"],
                                 "externalId": "f56de840-fdba-4219-b617-71dfc1edc411"
@@ -617,7 +617,7 @@
                                 "value": 60
                             },
                             "direction": 133,
-                            "suppotedWEPs": ["WEP#1"],
+                            "supportedWEPs": ["WEP#1"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -891,7 +891,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "suppotedWEPs": ["WEP#1"],
+                                "supportedWEPs": ["WEP#1"],
                                 "clientItem": "3/4\" Double Eye - Anchor Rod and Plate",
                                 "guys": ["Guy#1"],
                                 "externalId": "9862d9ef-f82a-45ce-bb40-431c3305483b"
@@ -912,7 +912,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "suppotedWEPs": ["WEP#1"],
+                                "supportedWEPs": ["WEP#1"],
                                 "clientItem": "3/4\" Double Eye - Anchor Rod and Plate",
                                 "guys": ["Guy#2"],
                                 "externalId": "b4104d3e-a3f9-46a4-834f-8a99b2350baa"
@@ -1309,6 +1309,7 @@
                                     "unit": "FOOT",
                                     "value": 32
                                 },
+                                "type":"SUPPORT",
                                 "externalId": "0a1ddcd6-6a66-44df-9b1c-158557f61c5b"
                             },
                                                         {
@@ -1335,6 +1336,7 @@
                                     "unit": "FOOT",
                                     "value": 29.75
                                 },
+                                "type":"SUPPORT",
                                 "externalId": "bc5ed121-d899-4c4e-87b5-d1668a3207b0"
                             }
                         ],
@@ -1424,7 +1426,7 @@
                                 "value": 60
                             },
                             "direction": 355,
-                            "suppotedWEPs": ["WEP#2"],
+                            "supportedWEPs": ["WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -2006,6 +2008,7 @@
                                 "unit": "FOOT",
                                 "value": 22.416666666666668
                             },
+                            "type":"SUPPORT",
                             "externalId": "2c7bc4c5-3a64-4416-a745-86f9d8271833"
                         }],
                         "guys": [],
@@ -2049,7 +2052,7 @@
                                     "value": 72
                                 },
                                 "direction": 257,
-                                "supportedWEPs": ["WEP#1","WEP#2"],
+                                "supportedWEPs": ["WEP#1", "WEP#2"],
                                 "insulators":                                 [
                                     "Insulator#1",
                                     "Insulator#2",
@@ -2079,7 +2082,7 @@
                                     "value": 6
                                 },
                                 "direction": 257,
-                                "supportedWEPs": ["WEP#1","WEP#2"],
+                                "supportedWEPs": ["WEP#1", "WEP#2"],
                                 "insulators":                                 [
                                     "Insulator#9",
                                     "Insulator#10"
@@ -2471,7 +2474,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "suppotedWEPs": ["WEP#3"],
+                                "supportedWEPs": ["WEP#3"],
                                 "clientItem": "1\" Triple Eye - Anchor Rod and Plate",
                                 "guys":                                 [
                                     "Guy#1",
@@ -2495,7 +2498,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "suppotedWEPs": ["WEP#3"],
+                                "supportedWEPs": ["WEP#3"],
                                 "clientItem": "1\" Triple Eye - Anchor Rod and Plate",
                                 "guys":                                 [
                                     "Guy#3",
@@ -3053,7 +3056,7 @@
                                     "value": 60
                                 },
                                 "direction": 80,
-                                "supportedWEPs": ["WEP#1","WEP#2"],
+                                "supportedWEPs": ["WEP#1", "WEP#2"],
                                 "insulators":                                 [
                                     "Insulator#1",
                                     "Insulator#2",
@@ -3079,7 +3082,7 @@
                                     "value": 60
                                 },
                                 "direction": 170,
-                                "suppotedWEPs": ["WEP#3"],
+                                "supportedWEPs": ["WEP#3"],
                                 "insulators":                                 [
                                     "Insulator#5",
                                     "Insulator#6",
@@ -3420,7 +3423,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "suppotedWEPs": ["WEP#1"],
+                                "supportedWEPs": ["WEP#1"],
                                 "clientItem": "1\" Triple Eye - Anchor Rod and Plate",
                                 "guys":                                 [
                                     "Guy#1",
@@ -3444,7 +3447,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "suppotedWEPs": ["WEP#1"],
+                                "supportedWEPs": ["WEP#1"],
                                 "clientItem": "1\" Triple Eye - Anchor Rod and Plate",
                                 "guys":                                 [
                                     "Guy#3",
@@ -3768,7 +3771,7 @@
                                 "value": 60
                             },
                             "direction": 80,
-                            "suppotedWEPs": ["WEP#1"],
+                            "supportedWEPs": ["WEP#1"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -4431,7 +4434,7 @@
                                 "value": 60
                             },
                             "direction": 350,
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -5268,7 +5271,7 @@
                                     "value": 60
                                 },
                                 "direction": 170,
-                                "suppotedWEPs": ["WEP#2"],
+                                "supportedWEPs": ["WEP#2"],
                                 "insulators":                                 [
                                     "Insulator#1",
                                     "Insulator#2",
@@ -5308,10 +5311,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 37.75
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 116
@@ -5332,10 +5331,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 37.75
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 41
@@ -5356,10 +5351,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 37.75
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 4
@@ -5380,10 +5371,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 37.75
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 79
@@ -6053,7 +6040,7 @@
                                 "value": 60
                             },
                             "direction": 350,
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -7330,7 +7317,7 @@
                                     "value": 60
                                 },
                                 "direction": 170,
-                                "suppotedWEPs": ["WEP#2"],
+                                "supportedWEPs": ["WEP#2"],
                                 "insulators":                                 [
                                     "Insulator#1",
                                     "Insulator#2",
@@ -8021,7 +8008,7 @@
                                 "value": 60
                             },
                             "direction": 350,
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -8344,7 +8331,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "supportedWEPs": ["WEP#1","WEP#2"],
+                                "supportedWEPs": ["WEP#1", "WEP#2"],
                                 "clientItem": "1\" Triple Eye - Anchor Rod and Plate",
                                 "guys": ["Guy#1"],
                                 "externalId": "49e91822-45c8-4829-beb5-eaa70dde2d85"
@@ -8365,7 +8352,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "supportedWEPs": ["WEP#1","WEP#2"],
+                                "supportedWEPs": ["WEP#1", "WEP#2"],
                                 "clientItem": "1\" Triple Eye - Anchor Rod and Plate",
                                 "guys":                                 [
                                     "Guy#2",
@@ -8810,7 +8797,7 @@
                                 "value": 60
                             },
                             "direction": 180,
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -9567,6 +9554,7 @@
                                 "unit": "FOOT",
                                 "value": 21.5
                             },
+                            "type":"SUPPORT",
                             "externalId": "cab10acc-9186-4f17-82b7-92d8b9f1c684"
                         }],
                         "guys":                         [
@@ -9751,10 +9739,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 36.916666666666664
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 116
@@ -9775,10 +9759,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 36.916666666666664
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 41
@@ -9799,10 +9779,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 36.916666666666664
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 4
@@ -9823,10 +9799,6 @@
                                     "id": "SCE"
                                 },
                                 "clientItem": "16 kV Pin (Cross Arm)",
-                                "attachmentHeight":                                 {
-                                    "unit": "FOOT",
-                                    "value": 36.916666666666664
-                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 79
@@ -10558,6 +10530,7 @@
                                 "unit": "FOOT",
                                 "value": 18.666666666666668
                             },
+                            "type":"SUPPORT",
                             "externalId": "18b193e5-27b0-412e-8b48-621f7b69ba69"
                         }],
                         "guys": [],
@@ -10627,7 +10600,7 @@
                                     "value": 60
                                 },
                                 "direction": 87,
-                                "suppotedWEPs": ["WEP#3"],
+                                "supportedWEPs": ["WEP#3"],
                                 "insulators":                                 [
                                     "Insulator#5",
                                     "Insulator#6",
@@ -10987,7 +10960,7 @@
                                 "unit": "FOOT",
                                 "value": 0
                             },
-                            "suppotedWEPs": ["WEP#1"],
+                            "supportedWEPs": ["WEP#1"],
                             "clientItem": "1\" Triple Eye - Anchor Rod and Plate",
                             "guys":                             [
                                 "Guy#1",
@@ -11332,7 +11305,7 @@
                                 "value": 60
                             },
                             "direction": 352,
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -11611,7 +11584,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "suppotedWEPs": ["WEP#2"],
+                                "supportedWEPs": ["WEP#2"],
                                 "clientItem": "1\" Triple Eye - Anchor Rod and Plate",
                                 "guys": ["Guy#1"],
                                 "externalId": "1f72d05d-3214-42a0-9fa7-79d3bee2ca67"
@@ -11632,7 +11605,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "suppotedWEPs": ["WEP#2"],
+                                "supportedWEPs": ["WEP#2"],
                                 "clientItem": "1\" Triple Eye - Anchor Rod and Plate",
                                 "guys":                                 [
                                     "Guy#2",
@@ -11971,7 +11944,7 @@
                                 "value": 60
                             },
                             "direction": 267,
-                            "supportedWEPs": ["WEP#1","WEP#2"],
+                            "supportedWEPs": ["WEP#1", "WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",
@@ -12623,7 +12596,7 @@
                                 "value": 60
                             },
                             "direction": 87,
-                            "suppotedWEPs": ["WEP#2"],
+                            "supportedWEPs": ["WEP#2"],
                             "insulators":                             [
                                 "Insulator#1",
                                 "Insulator#2",

@@ -1,0 +1,1301 @@
+{
+    "label": "full_project",
+    "schema": "https://raw.github.com/spidasoftware/schema/master/resources/v1/schema/spidacalc/calc/project.schema",
+    "version": 3,
+    "clientFile": "Demo.client",
+    "date": "2011-02-21",
+    "leads": [
+        {
+            "locations": [
+                {
+                    "label": "Location1",
+                    "mapNumber": "",
+                    "comments": "",
+                    "address": {
+                        "number": "9018",
+                        "street": "Sandyville Rd NE",
+                        "city": "Mineral City",
+                        "county": "Tuscarawas",
+                        "state": "OH",
+                        "zip_code": "44656"
+                    },
+                    "geographicCoordinate": {
+                        "type": "Point",
+                        "coordinates": [
+                            -82.876,
+                            40.683
+                        ]
+                    },
+                    "remedies": [
+                        {
+                            "description": "Remedy"
+                        }
+                    ],
+                    "poleTags": [
+                        {
+                            "type": "FIELD",
+                            "value": "poleTag"
+                        }
+                    ],
+                    "userDefinedValues": {
+                        "some_other_system_id": "123-987"
+                    },
+                    "summaryNotes": [],
+                    "images": [
+                        {
+                            "url": "http://fake-url-image"
+                        }
+                    ],
+                    "designs": [
+                        {
+                            "analysis": [
+                                {
+                                    "id": "NESC Heavy",
+                                    "results": [
+                                        {
+                                            "actual": 1000,
+                                            "allowable": 2000,
+                                            "analysisDate": 101010343343,
+                                            "component": "Pole",
+                                            "loadInfo": "NESC Heavy",
+                                            "passes": true,
+                                            "unit": "lb/in^2",
+                                            "designType": "Measured"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "structure": {
+                                "pole": {
+                                    "glc": {
+                                        "unit": "FOOT",
+                                        "value": 2.6666666666666665
+                                    },
+                                    "agl": {
+                                        "unit": "FOOT",
+                                        "value": 34.416666666666664
+                                    },
+                                    "environment": "PARALLEL_TO_STREET",
+                                    "temperature": {
+                                        "unit": "FAHRENHEIT",
+                                        "value": 60
+                                    },
+                                    "stressRatio": 1,
+                                    "clientItem": {
+                                        "species": "Southern Pine",
+                                        "classOfPole": "5",
+                                        "height": {
+                                            "unit": "FOOT",
+                                            "value": 40
+                                        }
+                                    },
+                                    "owner": {
+                                        "id": "AEP",
+                                        "industry": "UTILITY",
+                                        "externalId": "098e6dbc-b6df-470a-b7d1-5624f2ba89e2"
+                                    }
+                                },
+                                "wireEndPoints": [
+                                    {
+                                        "id": "WEP#1",
+                                        "distance": {
+                                            "unit": "FOOT",
+                                            "value": 287
+                                        },
+                                        "environment": "STREET",
+                                        "direction": 40,
+                                        "inclination": {
+                                            "unit": "DEGREE_ANGLE",
+                                            "value": 0
+                                        },
+                                        "type": "PREVIOUS_POLE",
+                                        "comments": "",
+                                        "wires": [
+                                            "Wire#1",
+                                            "Wire#2",
+                                            "Wire#3"
+                                        ],
+                                        "spanGuys": [],
+                                        "spanPoints": []
+                                    },
+                                    {
+                                        "id": "WEP#2",
+                                        "distance": {
+                                            "unit": "FOOT",
+                                            "value": 198
+                                        },
+                                        "direction": 220,
+                                        "inclination": {
+                                            "unit": "DEGREE_ANGLE",
+                                            "value": 0
+                                        },
+                                        "environment": "HIGHWAY",
+                                        "type": "NEXT_POLE",
+                                        "comments": "",
+                                        "wires": [
+                                            "Wire#4",
+                                            "Wire#5",
+                                            "Wire#6"
+                                        ],
+                                        "spanGuys": [],
+                                        "spanPoints": []
+                                    },
+                                    {
+                                        "id": "WEP#3",
+                                        "distance": {
+                                            "unit": "FOOT",
+                                            "value": 101
+                                        },
+                                        "direction": 240,
+                                        "inclination": {
+                                            "unit": "DEGREE_ANGLE",
+                                            "value": 0
+                                        },
+                                        "type": "BUILDING",
+                                        "comments": "",
+                                        "wires": ["Wire#8"],
+                                        "spanGuys": [],
+                                        "spanPoints": []
+                                    },
+                                    {
+                                        "id": "WEP#4",
+                                        "distance": {
+                                            "unit": "FOOT",
+                                            "value": 51
+                                        },
+                                        "direction": 110,
+                                        "inclination": {
+                                            "unit": "DEGREE_ANGLE",
+                                            "value": 0
+                                        },
+                                        "type": "OTHER_POLE",
+                                        "comments": "",
+                                        "wires": ["Wire#7"],
+                                        "spanGuys": [],
+                                        "spanPoints": []
+                                    }
+                                ],
+                                "spanPoints": [],
+                                "anchors": [
+                                    {
+                                        "id": "Anchor#1",
+                                        "distance": {
+                                            "unit": "FOOT",
+                                            "value": 10
+                                        },
+                                        "direction": 40,
+                                        "owner": {
+                                            "id": "Time Warner",
+                                            "industry": "COMMUNICATION",
+                                            "externalId": "1905cc87-4d46-45c4-9814-23ee1695c187"
+                                        },
+                                        "height": {
+                                            "unit": "FOOT",
+                                            "value": 0
+                                        },
+                                        "supportedWEPs": ["WEP#2"],
+                                        "clientItem": "10\" - 10\" Double Helix (Class 4) 1 1/4\" Rod",
+                                        "guys": ["Guy#1"]
+                                    }
+                                ],
+                                "notePoints": [
+                                    {
+                                        "id": "NotePoint#1",
+                                        "distance": {
+                                            "unit": "FOOT",
+                                            "value": 145
+                                        },
+                                        "direction": 225,
+                                        "note": "Residential Driveway",
+                                        "height": {
+                                            "unit": "FOOT",
+                                            "value": 29.254166666666666
+                                        }
+                                    }
+                                ],
+                                "pointLoads": [],
+                                "damages": [],
+                                "wires": [
+                                    {
+                                        "id": "Wire#1",
+                                        "owner": {
+                                            "id": "AEP",
+                                            "industry": "UTILITY",
+                                            "externalId": "caca5008-8810-434c-9556-d9274d5779dc"
+                                        },
+                                        "clientItem": {
+                                            "size": "4 ACSR",
+                                            "coreStrands": 1,
+                                            "conductorStrands": 6
+                                        },
+                                        "attachmentHeight": {
+                                            "unit": "FOOT",
+                                            "value": 35.083333333333336
+                                        },
+                                        "usageGroup": "PRIMARY",
+                                        "tensionGroup": "Full",
+                                        "midspanHeight": {
+                                            "unit": "FOOT",
+                                            "value": 0
+                                        },
+                                        "tensionAdjustment": 1
+                                    },
+                                    {
+                                        "id": "Wire#2",
+                                        "owner": {
+                                            "id": "AEP",
+                                            "industry": "UTILITY",
+                                            "externalId": "b2b94c50-c54d-41ae-8b08-b9c03cd85142"
+                                        },
+                                        "clientItem": {
+                                            "size": "4 ACSR",
+                                            "coreStrands": 1,
+                                            "conductorStrands": 6
+                                        },
+                                        "attachmentHeight": {
+                                            "unit": "FOOT",
+                                            "value": 27.833333333333332
+                                        },
+                                        "usageGroup": "NEUTRAL",
+                                        "tensionGroup": "Full",
+                                        "midspanHeight": {
+                                            "unit": "FOOT",
+                                            "value": 21.166666666666668
+                                        },
+                                        "tensionAdjustment": 1
+                                    },
+                                    {
+                                        "id": "Wire#3",
+                                        "owner": {
+                                            "id": "Time Warner",
+                                            "industry": "COMMUNICATION",
+                                            "externalId": "1905cc87-4d46-45c4-9814-23ee1695c187"
+                                        },
+                                        "clientItem": {
+                                            "size": "C6.6M0500",
+                                            "coreStrands": 0,
+                                            "conductorStrands": 7
+                                        },
+                                        "attachmentHeight": {
+                                            "unit": "FOOT",
+                                            "value": 24.75
+                                        },
+                                        "usageGroup": "COMMUNICATION",
+                                        "tensionGroup": "Slack",
+                                        "midspanHeight": {
+                                            "unit": "FOOT",
+                                            "value": 14
+                                        },
+                                        "tensionAdjustment": 1
+                                    },
+                                    {
+                                        "id": "Wire#4",
+                                        "owner": {
+                                            "id": "AEP",
+                                            "industry": "UTILITY",
+                                            "externalId": "d8f58bd8-b141-4840-8ab9-a8821e93bed9"
+                                        },
+                                        "clientItem": {
+                                            "size": "4 ACSR",
+                                            "coreStrands": 1,
+                                            "conductorStrands": 6
+                                        },
+                                        "attachmentHeight": {
+                                            "unit": "FOOT",
+                                            "value": 35.083333333333336
+                                        },
+                                        "usageGroup": "PRIMARY",
+                                        "tensionGroup": "Full",
+                                        "midspanHeight": {
+                                            "unit": "FOOT",
+                                            "value": 0
+                                        },
+                                        "tensionAdjustment": 1
+                                    },
+                                    {
+                                        "id": "Wire#5",
+                                        "owner": {
+                                            "id": "AEP",
+                                            "industry": "UTILITY",
+                                            "externalId": "b04f7b14-1ca8-47df-aabe-33e89cb312bb"
+                                        },
+                                        "clientItem": {
+                                            "size": "4 ACSR",
+                                            "coreStrands": 1,
+                                            "conductorStrands": 6
+                                        },
+                                        "attachmentHeight": {
+                                            "unit": "FOOT",
+                                            "value": 27.833333333333332
+                                        },
+                                        "usageGroup": "NEUTRAL",
+                                        "tensionGroup": "Full",
+                                        "midspanHeight": {
+                                            "unit": "FOOT",
+                                            "value": 22
+                                        },
+                                        "tensionAdjustment": 1
+                                    },
+                                    {
+                                        "id": "Wire#6",
+                                        "owner": {
+                                            "id": "Time Warner",
+                                            "industry": "COMMUNICATION",
+                                            "externalId": "a9707513-6826-4585-acdf-82b4c995ba6d"
+                                        },
+                                        "clientItem": {
+                                            "size": "C6.6M0500",
+                                            "coreStrands": 0,
+                                            "conductorStrands": 7
+                                        },
+                                        "attachmentHeight": {
+                                            "unit": "FOOT",
+                                            "value": 19.166666666666668
+                                        },
+                                        "usageGroup": "COMMUNICATION",
+                                        "tensionGroup": "Full",
+                                        "midspanHeight": {
+                                            "unit": "FOOT",
+                                            "value": 14.583333333333334
+                                        },
+                                        "tensionAdjustment": 1
+                                    },
+                                    {
+                                        "id": "Wire#8",
+                                        "owner": {
+                                            "id": "AEP",
+                                            "industry": "UTILITY",
+                                            "externalId": "cf96de80-7b09-449c-a352-c9792def58a5"
+                                        },
+                                        "clientItem": {
+                                            "size": "1/0 AAC Triplex",
+                                            "coreStrands": 0,
+                                            "conductorStrands": 9
+                                        },
+                                        "attachmentHeight": {
+                                            "unit": "FOOT",
+                                            "value": 27.833333333333332
+                                        },
+                                        "usageGroup": "UTILITY_SERVICE",
+                                        "tensionGroup": "Slack",
+                                        "midspanHeight": {
+                                            "unit": "FOOT",
+                                            "value": 13.916666666666666
+                                        },
+                                        "tensionAdjustment": 1
+                                    },
+                                    {
+                                        "id": "Wire#7",
+                                        "owner": {
+                                            "id": "AEP",
+                                            "industry": "UTILITY",
+                                            "externalId": "52a5ebf9-563a-4af5-b9ea-46a5891d91f4"
+                                        },
+                                        "clientItem": {
+                                            "size": "4 AAC Triplex",
+                                            "coreStrands": 0,
+                                            "conductorStrands": 7
+                                        },
+                                        "attachmentHeight": {
+                                            "unit": "FOOT",
+                                            "value": 27.833333333333332
+                                        },
+                                        "usageGroup": "SECONDARY",
+                                        "tensionGroup": "Slack",
+                                        "midspanHeight": {
+                                            "unit": "FOOT",
+                                            "value": 27.5
+                                        },
+                                        "tensionAdjustment": 1
+                                    }
+                                ],
+                                "spanGuys": [],
+                                "guys": [
+                                    {
+                                        "id": "Guy#1",
+                                        "owner": {
+                                            "id": "Time Warner",
+                                            "industry": "COMMUNICATION",
+                                            "externalId": "1905cc87-4d46-45c4-9814-23ee1695c187"
+                                        },
+                                        "clientItem": {
+                                            "size": "1/4\" EHS",
+                                            "coreStrands": 0,
+                                            "conductorStrands": 7
+                                        },
+                                        "attachmentHeight": {
+                                            "unit": "FOOT",
+                                            "value": 19.166666666666668
+                                        }
+                                    }
+                                ],
+                                "equipments": [
+                                    {
+                                        "id": "Equip#1",
+                                        "owner": {
+                                            "id": "AEP",
+                                            "industry": "UTILITY",
+                                            "externalId": "098e6dbc-b6df-470a-b7d1-5624f2ba89e2"
+                                        },
+                                        "clientItem": {
+                                            "type": "TRANSFORMER",
+                                            "size": "100 kVA Single Phase"
+                                        },
+                                        "attachmentHeight": {
+                                            "unit": "FOOT",
+                                            "value": 29.75
+                                        },
+                                        "bottomHeight": {
+                                            "unit": "FOOT",
+                                            "value": 28.333333333333332
+                                        },
+                                        "direction": 0
+                                    },
+                                    {
+                                        "id": "Equip#2",
+                                        "owner": {
+                                            "id": "AEP",
+                                            "industry": "UTILITY",
+                                            "externalId": "098e6dbc-b6df-470a-b7d1-5624f2ba89e2"
+                                        },
+                                        "clientItem": {
+                                            "type": "CUTOUT_ARRESTOR",
+                                            "size": "1 Cutout Pole Side (Porcelain)"
+                                        },
+                                        "attachmentHeight": {
+                                            "unit": "FOOT",
+                                            "value": 32.583333333333336
+                                        },
+                                        "bottomHeight": {
+                                            "unit": "FOOT",
+                                            "value": 32.583333333333336
+                                        },
+                                        "direction": 250
+                                    },
+                                    {
+                                        "id": "Equip#3",
+                                        "owner": {
+                                            "id": "AEP",
+                                            "industry": "UTILITY",
+                                            "externalId": "098e6dbc-b6df-470a-b7d1-5624f2ba89e2"
+                                        },
+                                        "clientItem": {
+                                            "type": "DRIP_LOOP",
+                                            "size": "Secondary"
+                                        },
+                                        "attachmentHeight": {
+                                            "unit": "FOOT",
+                                            "value": 27.333333333333332
+                                        },
+                                        "bottomHeight": {
+                                            "unit": "FOOT",
+                                            "value": 27.333333333333332
+                                        },
+                                        "direction": 70
+                                    }
+                                ],
+                                "crossArms": [],
+                                "insulators": [
+                                    {
+                                        "id": "Insulator#1",
+                                        "owner": {
+                                            "id": "AEP",
+                                            "industry": "UTILITY",
+                                            "externalId": "2e0dacd5-8e8b-4d50-a60e-60e5b3bb9e61"
+                                        },
+                                        "clientItem": "13.2 kV Pin Type Insulator (Pole Top)",
+                                        "attachmentHeight": {
+                                            "unit": "FOOT",
+                                            "value": 33.58333333333333
+                                        },
+                                        "offset": {
+                                            "unit": "INCH",
+                                            "value": 402.99999999999994
+                                        },
+                                        "direction": 70,
+                                        "doubleInsulator": false,
+                                        "wires": [
+                                            "Wire#1",
+                                            "Wire#4"
+                                        ]
+                                    }
+                                ],
+                                "pushBraces": []
+                            },
+                            "label": "Measured"
+                        }
+                    ]
+                },
+                {
+                    "mapNumber": "",
+                    "comments": "",
+                    "address": {
+                        "number": "9072",
+                        "street": "Sandyville Rd NE",
+                        "city": "Mineral City",
+                        "county": "Tuscarawas",
+                        "state": "OH",
+                        "zip_code": "44656"
+                    },
+                    "geographicCoordinate": {
+                        "type": "Point",
+                        "coordinates": [
+                            -82.87623466,
+                            40.683547457
+                        ]
+                    },
+                    "remedies": [
+                        {
+                            "description": "Remedy"
+                        }
+                    ],
+                    "poleTags": [
+                        {
+                            "type": "FIELD",
+                            "value": "poleTag"
+                        }
+                    ],
+                    "userDefinedValues": {
+                        "some_other_system_id": "123-987"
+                    },
+                    "summaryNotes": [],
+                    "images": [
+                        {
+                            "url": "http://fake-url-image"
+                        }
+                    ],
+                    "designs": [
+                        {
+                            "analysis": [
+                                {
+                                    "id": "NESC Heavy",
+                                    "results": [
+                                        {
+                                            "actual": 1000,
+                                            "allowable": 2000,
+                                            "analysisDate": 101010343343,
+                                            "component": "Pole",
+                                            "loadInfo": "NESC Heavy",
+                                            "passes": true,
+                                            "unit": "lb/in^2",
+                                            "designType": "Measured"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "structure": {
+                                "pole": {
+                                    "glc": {
+                                        "unit": "FOOT",
+                                        "value": 2.8333333333333335
+                                    },
+                                    "agl": {
+                                        "unit": "FOOT",
+                                        "value": 33.583333333333336
+                                    },
+                                    "environment": "PARALLEL_TO_STREET",
+                                    "temperature": {
+                                        "unit": "FAHRENHEIT",
+                                        "value": 60
+                                    },
+                                    "stressRatio": 1,
+                                    "clientItem": {
+                                        "species": "Southern Pine",
+                                        "classOfPole": "4",
+                                        "height": {
+                                            "unit": "FOOT",
+                                            "value": 40
+                                        }
+                                    },
+                                    "owner": {
+                                        "id": "AEP",
+                                        "industry": "UTILITY",
+                                        "externalId": "098e6dbc-b6df-470a-b7d1-5624f2ba89e2"
+                                    }
+                                },
+                                "wireEndPoints": [
+                                    {
+                                        "id": "WEP#1",
+                                        "distance": {
+                                            "unit": "FOOT",
+                                            "value": 181
+                                        },
+                                        "direction": 40,
+                                        "inclination": {
+                                            "unit": "DEGREE_ANGLE",
+                                            "value": 0
+                                        },
+                                        "type": "PREVIOUS_POLE",
+                                        "comments": "",
+                                        "wires": [
+                                            "Wire#1",
+                                            "Wire#2",
+                                            "Wire#3"
+                                        ],
+                                        "spanGuys": [],
+                                        "spanPoints": []
+                                    },
+                                    {
+                                        "id": "WEP#2",
+                                        "distance": {
+                                            "unit": "FOOT",
+                                            "value": 126
+                                        },
+                                        "direction": 220,
+                                        "inclination": {
+                                            "unit": "DEGREE_ANGLE",
+                                            "value": 0
+                                        },
+                                        "type": "NEXT_POLE",
+                                        "comments": "",
+                                        "wires": [
+                                            "Wire#4",
+                                            "Wire#5",
+                                            "Wire#6"
+                                        ],
+                                        "spanGuys": [],
+                                        "spanPoints": []
+                                    },
+                                    {
+                                        "id": "WEP#3",
+                                        "distance": {
+                                            "unit": "FOOT",
+                                            "value": 57
+                                        },
+                                        "direction": 145,
+                                        "inclination": {
+                                            "unit": "DEGREE_ANGLE",
+                                            "value": 0
+                                        },
+                                        "type": "OTHER_POLE",
+                                        "comments": "",
+                                        "wires": ["Wire#7"],
+                                        "spanGuys": [],
+                                        "spanPoints": []
+                                    }
+                                ],
+                                "spanPoints": [],
+                                "anchors": [],
+                                "notePoints": [],
+                                "pointLoads": [],
+                                "damages": [],
+                                "wires": [
+                                    {
+                                        "id": "Wire#1",
+                                        "owner": {
+                                            "id": "AEP",
+                                            "industry": "UTILITY",
+                                            "externalId": "660a7ad4-37b1-4ddf-8ac0-a35685e9ab3e"
+                                        },
+                                        "clientItem": {
+                                            "size": "4 ACSR",
+                                            "coreStrands": 1,
+                                            "conductorStrands": 6
+                                        },
+                                        "attachmentHeight": {
+                                            "unit": "FOOT",
+                                            "value": 34.666666666666664
+                                        },
+                                        "usageGroup": "PRIMARY",
+                                        "tensionGroup": "Full",
+                                        "midspanHeight": {
+                                            "unit": "FOOT",
+                                            "value": 0
+                                        },
+                                        "tensionAdjustment": 1
+                                    },
+                                    {
+                                        "id": "Wire#2",
+                                        "owner": {
+                                            "id": "AEP",
+                                            "industry": "UTILITY",
+                                            "externalId": "91ce282e-49c3-466e-8abd-2057592d957c"
+                                        },
+                                        "clientItem": {
+                                            "size": "1/0 AAC Triplex",
+                                            "coreStrands": 0,
+                                            "conductorStrands": 9
+                                        },
+                                        "attachmentHeight": {
+                                            "unit": "FOOT",
+                                            "value": 25.583333333333332
+                                        },
+                                        "usageGroup": "SECONDARY",
+                                        "tensionGroup": "Slack",
+                                        "midspanHeight": {
+                                            "unit": "FOOT",
+                                            "value": 19.916666666666668
+                                        },
+                                        "tensionAdjustment": 1
+                                    },
+                                    {
+                                        "id": "Wire#3",
+                                        "owner": {
+                                            "id": "Time Warner",
+                                            "industry": "COMMUNICATION",
+                                            "externalId": "97614f38-4bc8-495a-8964-195d61290bbf"
+                                        },
+                                        "clientItem": {
+                                            "size": "C6.6M0500",
+                                            "coreStrands": 0,
+                                            "conductorStrands": 7
+                                        },
+                                        "attachmentHeight": {
+                                            "unit": "FOOT",
+                                            "value": 20.25
+                                        },
+                                        "usageGroup": "COMMUNICATION",
+                                        "tensionGroup": "Full",
+                                        "midspanHeight": {
+                                            "unit": "FOOT",
+                                            "value": 16.083333333333332
+                                        },
+                                        "tensionAdjustment": 1
+                                    },
+                                    {
+                                        "id": "Wire#4",
+                                        "owner": {
+                                            "id": "AEP",
+                                            "industry": "UTILITY",
+                                            "externalId": "6799d98c-1e7a-4dbe-aed3-f0ba5506ddd6"
+                                        },
+                                        "clientItem": {
+                                            "size": "4 ACSR",
+                                            "coreStrands": 1,
+                                            "conductorStrands": 6
+                                        },
+                                        "attachmentHeight": {
+                                            "unit": "FOOT",
+                                            "value": 34.666666666666664
+                                        },
+                                        "usageGroup": "PRIMARY",
+                                        "tensionGroup": "Full",
+                                        "midspanHeight": {
+                                            "unit": "FOOT",
+                                            "value": 0
+                                        },
+                                        "tensionAdjustment": 1
+                                    },
+                                    {
+                                        "id": "Wire#5",
+                                        "owner": {
+                                            "id": "AEP",
+                                            "industry": "UTILITY",
+                                            "externalId": "81facc83-81c3-4a79-ad3b-67f947b18224"
+                                        },
+                                        "clientItem": {
+                                            "size": "1/0 AAC Triplex",
+                                            "coreStrands": 0,
+                                            "conductorStrands": 9
+                                        },
+                                        "attachmentHeight": {
+                                            "unit": "FOOT",
+                                            "value": 25.583333333333332
+                                        },
+                                        "usageGroup": "SECONDARY",
+                                        "tensionGroup": "Slack",
+                                        "midspanHeight": {
+                                            "unit": "FOOT",
+                                            "value": 25.166666666666668
+                                        },
+                                        "tensionAdjustment": 1
+                                    },
+                                    {
+                                        "id": "Wire#6",
+                                        "owner": {
+                                            "id": "Time Warner",
+                                            "industry": "COMMUNICATION",
+                                            "externalId": "522fb611-5b71-4914-a0ba-a95255b0791e"
+                                        },
+                                        "clientItem": {
+                                            "size": "C6.6M0500",
+                                            "coreStrands": 0,
+                                            "conductorStrands": 7
+                                        },
+                                        "attachmentHeight": {
+                                            "unit": "FOOT",
+                                            "value": 20.25
+                                        },
+                                        "usageGroup": "COMMUNICATION",
+                                        "tensionGroup": "Full",
+                                        "midspanHeight": {
+                                            "unit": "FOOT",
+                                            "value": 21.833333333333332
+                                        },
+                                        "tensionAdjustment": 1
+                                    },
+                                    {
+                                        "id": "Wire#7",
+                                        "owner": {
+                                            "id": "Frontier Comm",
+                                            "industry": "COMMUNICATION",
+                                            "externalId": "bbbdfd61-69e7-4031-8f56-b0a50f306c60"
+                                        },
+                                        "clientItem": {
+                                            "size": "TSV0250",
+                                            "coreStrands": 0,
+                                            "conductorStrands": 4
+                                        },
+                                        "attachmentHeight": {
+                                            "unit": "FOOT",
+                                            "value": 16.25
+                                        },
+                                        "usageGroup": "COMMUNICATION",
+                                        "tensionGroup": "Slack",
+                                        "midspanHeight": {
+                                            "unit": "FOOT",
+                                            "value": 14.25
+                                        },
+                                        "tensionAdjustment": 1
+                                    }
+                                ],
+                                "spanGuys": [],
+                                "guys": [],
+                                "equipments": [
+                                    {
+                                        "id": "Equip#1",
+                                        "owner": {
+                                            "id": "AEP",
+                                            "industry": "UTILITY",
+                                            "externalId": "098e6dbc-b6df-470a-b7d1-5624f2ba89e2"
+                                        },
+                                        "clientItem": {
+                                            "type": "TRANSFORMER",
+                                            "size": "25 kVA Single Phase"
+                                        },
+                                        "attachmentHeight": {
+                                            "unit": "FOOT",
+                                            "value": 28.25
+                                        },
+                                        "bottomHeight": {
+                                            "unit": "FOOT",
+                                            "value": 27
+                                        },
+                                        "direction": 175
+                                    },
+                                    {
+                                        "id": "Equip#3",
+                                        "owner": {
+                                            "id": "AEP",
+                                            "industry": "UTILITY",
+                                            "externalId": "098e6dbc-b6df-470a-b7d1-5624f2ba89e2"
+                                        },
+                                        "clientItem": {
+                                            "type": "DRIP_LOOP",
+                                            "size": "Secondary"
+                                        },
+                                        "attachmentHeight": {
+                                            "unit": "FOOT",
+                                            "value": 23.583333333333332
+                                        },
+                                        "bottomHeight": {
+                                            "unit": "FOOT",
+                                            "value": 23.583333333333332
+                                        },
+                                        "direction": 70
+                                    },
+                                    {
+                                        "id": "Equip#4",
+                                        "owner": {
+                                            "id": "AEP",
+                                            "industry": "UTILITY",
+                                            "externalId": "098e6dbc-b6df-470a-b7d1-5624f2ba89e2"
+                                        },
+                                        "clientItem": {
+                                            "type": "CUTOUT_ARRESTOR",
+                                            "size": "1 Cutout Pole Side (Porcelain)"
+                                        },
+                                        "attachmentHeight": {
+                                            "unit": "FOOT",
+                                            "value": 32.333333333333336
+                                        },
+                                        "bottomHeight": {
+                                            "unit": "FOOT",
+                                            "value": 32.333333333333336
+                                        },
+                                        "direction": 40
+                                    }
+                                ],
+                                "crossArms": [],
+                                "insulators": [
+                                    {
+                                        "id": "Insulator#1",
+                                        "owner": {
+                                            "id": "AEP",
+                                            "industry": "UTILITY",
+                                            "externalId": "5b91bf67-94fd-468e-bcb3-6a12d7bb5bb1"
+                                        },
+                                        "clientItem": "13.2 kV Pin Type Insulator (Pole Top)",
+                                        "attachmentHeight": {
+                                            "unit": "FOOT",
+                                            "value": 33.166666666666664
+                                        },
+                                        "offset": {
+                                            "unit": "INCH",
+                                            "value": 398
+                                        },
+                                        "direction": 70,
+                                        "doubleInsulator": false,
+                                        "wires": [
+                                            "Wire#1",
+                                            "Wire#4"
+                                        ]
+                                    }
+                                ],
+                                "pushBraces": []
+                            },
+                            "label": "Measured"
+                        }
+                    ],
+                    "label": "Location2"
+                }
+            ],
+            "label": "Lead1"
+        },
+        {
+            "locations": [
+                {
+                    "mapNumber": "",
+                    "comments": "",
+                    "address": {
+                        "number": "5025",
+                        "street": "Railroad St.",
+                        "city": "Mineral City",
+                        "county": "Tuscarawas",
+                        "state": "Ohio",
+                        "zip_code": "44656"
+                    },
+                    "geographicCoordinate": {
+                        "type": "Point",
+                        "coordinates": [
+                            -82.3215978657,
+                            40.89237598023
+                        ]
+                    },
+                    "remedies": [
+                        {
+                            "description": "Remedy"
+                        }
+                    ],
+                    "poleTags": [
+                        {
+                            "type": "FIELD",
+                            "value": "poleTag"
+                        }
+                    ],
+                    "userDefinedValues": {
+                        "some_other_system_id": "123-987"
+                    },
+                    "summaryNotes": [],
+                    "images": [
+                        {
+                            "url": "http://fake-url-image"
+                        }
+                    ],
+                    "designs": [
+                        {
+                            "analysis": [
+                                {
+                                    "id": "NESC Heavy",
+                                    "results": [
+                                        {
+                                            "actual": 1000,
+                                            "allowable": 2000,
+                                            "analysisDate": 101010343343,
+                                            "component": "Pole",
+                                            "loadInfo": "NESC Heavy",
+                                            "passes": true,
+                                            "unit": "lb/in^2",
+                                            "designType": "Measured"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "structure": {
+                                "pole": {
+                                    "glc": {
+                                        "unit": "FOOT",
+                                        "value": 2.25
+                                    },
+                                    "agl": {
+                                        "unit": "FOOT",
+                                        "value": 24.583333333333332
+                                    },
+                                    "environment": "PARALLEL_TO_STREET",
+                                    "temperature": {
+                                        "unit": "FAHRENHEIT",
+                                        "value": 60
+                                    },
+                                    "stressRatio": 1,
+                                    "clientItem": {
+                                        "species": "Southern Pine",
+                                        "classOfPole": "3",
+                                        "height": {
+                                            "unit": "FOOT",
+                                            "value": 35
+                                        }
+                                    },
+                                    "owner": {
+                                        "id": "AEP",
+                                        "industry": "UTILITY",
+                                        "externalId": "098e6dbc-b6df-470a-b7d1-5624f2ba89e2"
+                                    }
+                                },
+                                "wireEndPoints": [
+                                    {
+                                        "id": "WEP#1",
+                                        "distance": {
+                                            "unit": "FOOT",
+                                            "value": 88
+                                        },
+                                        "direction": 290,
+                                        "inclination": {
+                                            "unit": "DEGREE_ANGLE",
+                                            "value": 0
+                                        },
+                                        "type": "PREVIOUS_POLE",
+                                        "comments": "",
+                                        "wires": ["Wire#4"],
+                                        "spanGuys": [],
+                                        "spanPoints": []
+                                    },
+                                    {
+                                        "id": "WEP#2",
+                                        "distance": {
+                                            "unit": "FOOT",
+                                            "value": 40
+                                        },
+                                        "direction": 110,
+                                        "inclination": {
+                                            "unit": "DEGREE_ANGLE",
+                                            "value": 0
+                                        },
+                                        "type": "NEXT_POLE",
+                                        "comments": "",
+                                        "wires": ["Wire#8"],
+                                        "spanGuys": [],
+                                        "spanPoints": []
+                                    }
+                                ],
+                                "spanPoints": [],
+                                "anchors": [
+                                    {
+                                        "id": "Anchor#1",
+                                        "distance": {
+                                            "unit": "FOOT",
+                                            "value": 10
+                                        },
+                                        "direction": 290,
+                                        "owner": {
+                                            "id": "AEP",
+                                            "industry": "UTILITY",
+                                            "externalId": "098e6dbc-b6df-470a-b7d1-5624f2ba89e2"
+                                        },
+                                        "height": {
+                                            "unit": "FOOT",
+                                            "value": 0
+                                        },
+                                        "supportedWEPs": ["WEP#2"],
+                                        "clientItem": "10\" - 10\" Double Helix (Class 4) 1 1/4\" Rod",
+                                        "guys": ["Guy#1"]
+                                    }
+                                ],
+                                "notePoints": [],
+                                "pointLoads": [],
+                                "damages": [],
+                                "wires": [
+                                    {
+                                        "id": "Wire#4",
+                                        "owner": {
+                                            "id": "AEP",
+                                            "industry": "UTILITY",
+                                            "externalId": "ac02851e-ae0c-4ce8-a515-86207c61670f"
+                                        },
+                                        "clientItem": {
+                                            "size": "4 ACSR",
+                                            "coreStrands": 1,
+                                            "conductorStrands": 6
+                                        },
+                                        "attachmentHeight": {
+                                            "unit": "FOOT",
+                                            "value": 21.5
+                                        },
+                                        "usageGroup": "NEUTRAL",
+                                        "tensionGroup": "Full",
+                                        "midspanHeight": {
+                                            "unit": "FOOT",
+                                            "value": 25.916666666666668
+                                        },
+                                        "tensionAdjustment": 1
+                                    },
+                                    {
+                                        "id": "Wire#8",
+                                        "owner": {
+                                            "id": "AEP",
+                                            "industry": "UTILITY",
+                                            "externalId": "3899deb2-df3b-4fdb-94f6-62bf31feb05a"
+                                        },
+                                        "clientItem": {
+                                            "size": "4 ACSR",
+                                            "coreStrands": 1,
+                                            "conductorStrands": 6
+                                        },
+                                        "attachmentHeight": {
+                                            "unit": "FOOT",
+                                            "value": 21.5
+                                        },
+                                        "usageGroup": "NEUTRAL",
+                                        "tensionGroup": "Full",
+                                        "midspanHeight": {
+                                            "unit": "FOOT",
+                                            "value": 17.166666666666668
+                                        },
+                                        "tensionAdjustment": 1
+                                    }
+                                ],
+                                "spanGuys": [],
+                                "guys": [
+                                    {
+                                        "id": "Guy#1",
+                                        "owner": {
+                                            "id": "AEP",
+                                            "industry": "UTILITY",
+                                            "externalId": "098e6dbc-b6df-470a-b7d1-5624f2ba89e2"
+                                        },
+                                        "clientItem": {
+                                            "size": "3/8\" EHS",
+                                            "coreStrands": 0,
+                                            "conductorStrands": 7
+                                        },
+                                        "attachmentHeight": {
+                                            "unit": "FOOT",
+                                            "value": 24.25
+                                        }
+                                    }
+                                ],
+                                "equipments": [],
+                                "crossArms": [],
+                                "insulators": [],
+                                "pushBraces": []
+                            },
+                            "label": "Measured"
+                        }
+                    ],
+                    "label": "Location3"
+                }
+            ],
+            "label": "Lead2"
+        },
+        {
+            "locations": [
+                {
+                    "mapNumber": "",
+                    "comments": "PUSH BRACE POLE...",
+                    "address": {
+                        "number": "8790",
+                        "street": "1st St NE",
+                        "city": "Mineral City",
+                        "county": "Tuscarawas",
+                        "state": "OH",
+                        "zip_code": "44656"
+                    },
+                    "geographicCoordinate": {
+                        "type": "Point",
+                        "coordinates": [
+                            -82.123567678,
+                            40.1023985762
+                        ]
+                    },
+                    "remedies": [
+                        {
+                            "description": "Remedy"
+                        }
+                    ],
+                    "poleTags": [
+                        {
+                            "type": "FIELD",
+                            "value": "poleTag"
+                        }
+                    ],
+                    "userDefinedValues": {
+                        "some_other_system_id": "123-987"
+                    },
+                    "summaryNotes": [],
+                    "images": [
+                        {
+                            "url": "http://fake-url-image"
+                        }
+                    ],
+                    "designs": [
+                        {
+                            "analysis": [
+                                {
+                                    "id": "NESC Heavy",
+                                    "results": [
+                                        {
+                                            "actual": 1000,
+                                            "allowable": 2000,
+                                            "analysisDate": 101010343343,
+                                            "component": "Pole",
+                                            "loadInfo": "NESC Heavy",
+                                            "passes": true,
+                                            "unit": "lb/in^2",
+                                            "designType": "Measured"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "structure": {
+                                "pole": {
+                                    "glc": {
+                                        "unit": "FOOT",
+                                        "value": 3.0833333333333335
+                                    },
+                                    "agl": {
+                                        "unit": "FOOT",
+                                        "value": 34
+                                    },
+                                    "environment": "STREET",
+                                    "temperature": {
+                                        "unit": "FAHRENHEIT",
+                                        "value": 60
+                                    },
+                                    "stressRatio": 1,
+                                    "clientItem": {
+                                        "species": "Southern Pine",
+                                        "classOfPole": "5",
+                                        "height": {
+                                            "unit": "FOOT",
+                                            "value": 40
+                                        }
+                                    },
+                                    "owner": {
+                                        "id": "AEP",
+                                        "industry": "UTILITY",
+                                        "externalId": "098e6dbc-b6df-470a-b7d1-5624f2ba89e2"
+                                    }
+                                },
+                                "wireEndPoints": [],
+                                "spanPoints": [],
+                                "anchors": [],
+                                "notePoints": [],
+                                "pointLoads": [],
+                                "damages": [],
+                                "wires": [],
+                                "spanGuys": [],
+                                "guys": [],
+                                "equipments": [],
+                                "crossArms": [],
+                                "insulators": [],
+                                "pushBraces": []
+                            },
+                            "label": "Measured"
+                        }
+                    ],
+                    "label": "Location4"
+                }
+            ],
+            "label": "Lead3"
+        }
+    ]
+}

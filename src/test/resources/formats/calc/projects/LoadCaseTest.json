@@ -159,7 +159,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "suppotedWEPs": ["WEP#3"],
+                                "supportedWEPs": ["WEP#3"],
                                 "clientItem": "Twin",
                                 "guys": ["Guy#1"],
                                 "externalId": "3936cf89-f98c-4c2b-918e-5b8ab7bcfe73"
@@ -741,7 +741,7 @@
                                     "value": 60
                                 },
                                 "direction": 90,
-                                "supportedWEPs": ["WEP#1","WEP#2"],
+                                "supportedWEPs": ["WEP#1", "WEP#2"],
                                 "insulators":                                 [
                                     "Insulator#1",
                                     "Insulator#2",
@@ -766,7 +766,7 @@
                                     "value": 60
                                 },
                                 "direction": 191,
-                                "suppotedWEPs": ["WEP#3"],
+                                "supportedWEPs": ["WEP#3"],
                                 "insulators":                                 [
                                     "Insulator#4",
                                     "Insulator#5",
@@ -784,6 +784,10 @@
                                     "id": "AEP"
                                 },
                                 "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
+                                "attachmentHeight":                                 {
+                                    "unit": "FOOT",
+                                    "value": 45.5
+                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 4
@@ -804,6 +808,10 @@
                                     "id": "AEP"
                                 },
                                 "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
+                                "attachmentHeight":                                 {
+                                    "unit": "FOOT",
+                                    "value": 45.5
+                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 116
@@ -824,6 +832,10 @@
                                     "id": "AEP"
                                 },
                                 "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
+                                "attachmentHeight":                                 {
+                                    "unit": "FOOT",
+                                    "value": 45.5
+                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 41
@@ -844,6 +856,10 @@
                                     "id": "AEP"
                                 },
                                 "clientItem": "15kV Dead End Insulator",
+                                "attachmentHeight":                                 {
+                                    "unit": "FOOT",
+                                    "value": 43.166666666666664
+                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 4
@@ -861,6 +877,10 @@
                                     "id": "AEP"
                                 },
                                 "clientItem": "15kV Dead End Insulator",
+                                "attachmentHeight":                                 {
+                                    "unit": "FOOT",
+                                    "value": 43.166666666666664
+                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 116
@@ -878,6 +898,10 @@
                                     "id": "AEP"
                                 },
                                 "clientItem": "15kV Dead End Insulator",
+                                "attachmentHeight":                                 {
+                                    "unit": "FOOT",
+                                    "value": 43.166666666666664
+                                },
                                 "offset":                                 {
                                     "unit": "INCH",
                                     "value": 60
@@ -1624,7 +1648,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "suppotedWEPs": ["WEP#3"],
+                                "supportedWEPs": ["WEP#3"],
                                 "clientItem": "Twin",
                                 "guys": ["Guy#1"],
                                 "externalId": "2ef5faa3-ba6a-41f9-84f1-2d21af76d13f"
@@ -2206,7 +2230,7 @@
                                     "value": 60
                                 },
                                 "direction": 90,
-                                "supportedWEPs": ["WEP#1","WEP#2"],
+                                "supportedWEPs": ["WEP#1", "WEP#2"],
                                 "insulators":                                 [
                                     "Insulator#1",
                                     "Insulator#2",
@@ -2231,7 +2255,7 @@
                                     "value": 60
                                 },
                                 "direction": 191,
-                                "suppotedWEPs": ["WEP#3"],
+                                "supportedWEPs": ["WEP#3"],
                                 "insulators":                                 [
                                     "Insulator#4",
                                     "Insulator#5",
@@ -2865,7 +2889,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "suppotedWEPs": ["WEP#3"],
+                                "supportedWEPs": ["WEP#3"],
                                 "clientItem": "Twin",
                                 "guys": ["Guy#1"],
                                 "externalId": "78773564-d3e8-4981-9891-063011b99d0d"
@@ -3447,7 +3471,7 @@
                                     "value": 60
                                 },
                                 "direction": 90,
-                                "supportedWEPs": ["WEP#1","WEP#2"],
+                                "supportedWEPs": ["WEP#1", "WEP#2"],
                                 "insulators":                                 [
                                     "Insulator#1",
                                     "Insulator#2",
@@ -3472,7 +3496,7 @@
                                     "value": 60
                                 },
                                 "direction": 191,
-                                "suppotedWEPs": ["WEP#3"],
+                                "supportedWEPs": ["WEP#3"],
                                 "insulators":                                 [
                                     "Insulator#4",
                                     "Insulator#5",
@@ -4106,7 +4130,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "suppotedWEPs": ["WEP#3"],
+                                "supportedWEPs": ["WEP#3"],
                                 "clientItem": "Twin",
                                 "guys": ["Guy#1"],
                                 "externalId": "4e42a192-c34d-4208-b398-6eae71f589cb"
@@ -4688,7 +4712,7 @@
                                     "value": 60
                                 },
                                 "direction": 90,
-                                "supportedWEPs": ["WEP#1","WEP#2"],
+                                "supportedWEPs": ["WEP#1", "WEP#2"],
                                 "insulators":                                 [
                                     "Insulator#1",
                                     "Insulator#2",
@@ -4713,7 +4737,7 @@
                                     "value": 60
                                 },
                                 "direction": 191,
-                                "suppotedWEPs": ["WEP#3"],
+                                "supportedWEPs": ["WEP#3"],
                                 "insulators":                                 [
                                     "Insulator#4",
                                     "Insulator#5",
@@ -5347,7 +5371,7 @@
                                     "unit": "FOOT",
                                     "value": 0
                                 },
-                                "suppotedWEPs": ["WEP#3"],
+                                "supportedWEPs": ["WEP#3"],
                                 "clientItem": "Twin",
                                 "guys": ["Guy#1"],
                                 "externalId": "1527c495-8008-4b1b-bc10-10f2b5acf53a"
@@ -5948,7 +5972,7 @@
                                     "value": 60
                                 },
                                 "direction": 90,
-                                "supportedWEPs": ["WEP#1","WEP#2"],
+                                "supportedWEPs": ["WEP#1", "WEP#2"],
                                 "insulators":                                 [
                                     "Insulator#1",
                                     "Insulator#2",
@@ -5973,7 +5997,7 @@
                                     "value": 60
                                 },
                                 "direction": 191,
-                                "suppotedWEPs": ["WEP#3"],
+                                "supportedWEPs": ["WEP#3"],
                                 "insulators":                                 [
                                     "Insulator#4",
                                     "Insulator#5",
