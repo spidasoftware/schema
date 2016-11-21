@@ -1,15 +1,15 @@
 {
-    "leads": [
+  "leads": [
+    {
+      "locations": [
         {
-            "locations": [
-                {
-					"images": [
-						{
-							"url": "http://images.example.com/blah.jpg"
-						}
-					]
-                }
-            ]
+          "images": [
+            {
+              "url": "http://images.example.com/blah.jpg"
+            }
+          ]
         }
-    ]
+      ]
+    }
+  ]
 }
