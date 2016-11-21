@@ -82,32 +82,32 @@ class FormatConverterTest extends Specification {
 		return report.isSuccess()
 	}
 
-    void "analysis results should get collected properly by component"(){
-        setup: "load the results from a design"
-        def design = getCalcProject("18-locations-analyzed.json").leads[0].locations[4].designs[0]
-        def analysisResultsList = design.analysis
+    // void "analysis results should get collected properly by component"(){
+    //     setup: "load the results from a design"
+    //     def design = getCalcProject("18-locations-analyzed.json").leads[0].locations[4].designs[0]
+    //     def analysisResultsList = design.analysis
 
-        when: "collect the results for the pole"
-        def poleResults = converter.collectPoleResults(analysisResultsList)
+    //     when: "collect the results for the pole"
+    //     def poleResults = converter.collectPoleResults(analysisResultsList)
 
-        then: "the list should contain the correct results"
-        poleResults.size() == 2
-        def loadingResult = poleResults.find{ it.component == "Pole" }
-        assertEquals("the pole loading result shoul be correct", 4.028504221186, loadingResult.actual, epsilon)
+    //     then: "the list should contain the correct results"
+    //     poleResults.size() == 2
+    //     def loadingResult = poleResults.find{ it.component == "Pole" }
+    //     assertEquals("the pole loading result shoul be correct", 4.028504221186, loadingResult.actual, epsilon)
 
 
-        def buckling = poleResults.find{ it.component == "Pole-Buckling" }
-        assertEquals("the buckling result should be correct", 3.8975996880018, buckling.actual, epsilon)
+    //     def buckling = poleResults.find{ it.component == "Pole-Buckling" }
+    //     assertEquals("the buckling result should be correct", 3.8975996880018, buckling.actual, epsilon)
 
-        when: "collect results for a guy"
-        def guy1Results = converter.getResultsForComponent("Guy#1", analysisResultsList)
+    //     when: "collect results for a guy"
+    //     def guy1Results = converter.getResultsForComponent("Guy#1", analysisResultsList)
 
-        then: "the guy results should be correct"
-        guy1Results.size() == 1
-        def guy1 = guy1Results[0]
-        assertEquals("guy#1 result should be correct", 0.86576092650, guy1.actual, epsilon)
+    //     then: "the guy results should be correct"
+    //     guy1Results.size() == 1
+    //     def guy1 = guy1Results[0]
+    //     assertEquals("guy#1 result should be correct", 0.86576092650, guy1.actual, epsilon)
 
-    }
+    // }
 
     void "analysis results should get converted properly"(){
         setup: "load a project with analysis results"
@@ -161,29 +161,29 @@ class FormatConverterTest extends Specification {
         current << getCalcDesignsList("busy-trans-with-results", 4)
     }
 
- //    void "Converting to calcDB objects should not throw any exceptions"(){
+    void "Converting to calcDB objects should not throw any exceptions"(){
 
- //        expect:
- //        def fourPoles = getCalcProject("four-locations-one-lead-project.json")
- //        fourPoles != null
- //        def components = converter.convertCalcProject(fourPoles)
- //        def project = components.find {it instanceof CalcDBProject}.getJSON()
- //        def locations = components.findAll {it instanceof CalcDBLocation}*.getJSON()
- //        def designs = components.findAll {it instanceof CalcDBDesign}*.getJSON()
- //        project != null
- //        locations != null
- //        designs != null
- //        project.calcProject.leads.size() == 1
- //        project.calcProject.leads[0].locations.size() == 4
- //        locations.size() == 4
- //        designs.size() == 12
- //        def projectId = project["id"]
+        expect:
+        def fourPoles = getCalcProject("four-locations-one-lead-project.json")
+        fourPoles != null
+        def components = converter.convertCalcProject(fourPoles)
+        def project = components.find {it instanceof CalcDBProject}.getJSON()
+        def locations = components.findAll {it instanceof CalcDBLocation}*.getJSON()
+        def designs = components.findAll {it instanceof CalcDBDesign}*.getJSON()
+        project != null
+        locations != null
+        designs != null
+        project.calcProject.leads.size() == 1
+        project.calcProject.leads[0].locations.size() == 4
+        locations.size() == 4
+        designs.size() == 12
+        def projectId = project["id"]
 
- //        projectId == locations.get(0)["projectId"]
- //        projectId == designs.get(0)["projectId"]
+        projectId == locations.get(0)["projectId"]
+        projectId == designs.get(0)["projectId"]
 
 
- //    }
+    }
 
     @Unroll("The design: #currentDesignName should have the correct worst case loading results")
     void "Designs have the worstResults set to the correct result object"(){
