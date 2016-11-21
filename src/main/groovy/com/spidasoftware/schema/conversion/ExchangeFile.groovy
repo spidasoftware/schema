@@ -1,4 +1,4 @@
-package com.spidasoftware.schema.exchange
+package com.spidasoftware.schema.conversion
 
 import com.google.common.io.Files
 import net.sf.json.JSONObject
