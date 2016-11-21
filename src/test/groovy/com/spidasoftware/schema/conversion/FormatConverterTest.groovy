@@ -16,38 +16,38 @@ class FormatConverterTest extends Specification {
 
 	FormatConverter converter = new FormatConverter()
 
- //    @Unroll("#currentProject")
-	// void "referenced components should be valid against the schema"(){
-	// 	setup: "load calc project json"
-	// 	def calcProject = getCalcProject(currentProject)
-	// 	Validator validator = new Validator()
+    @Unroll("#currentProject")
+	void "referenced components should be valid against the schema"(){
+		setup: "load calc project json"
+		def calcProject = getCalcProject(currentProject)
+		Validator validator = new Validator()
 
-	// 	when: "convert to a list of referenced components"
-	// 	def refCompList = converter.convertCalcProject(calcProject)
+		when: "convert to a list of referenced components"
+		def refCompList = converter.convertCalcProject(calcProject)
 
-	// 	then: "the project should validate against the schema"
-	// 	def refProject = refCompList.find{it instanceof CalcDBProject}
-	// 	def projectReport = validator.validateAndReport("/schema/spidamin/spidadb/referenced_project.schema", refProject.getJSON().toString())
-	// 	projectReport.isSuccess()
+		then: "the project should validate against the schema"
+		def refProject = refCompList.find{it instanceof CalcDBProject}
+		def projectReport = validator.validateAndReport("/schema/spidamin/spidadb/referenced_project.schema", refProject.getJSON().toString())
+		projectReport.isSuccess()
 
-	// 	then: "the locations should validate against the schema"
-	// 	def refLocations = refCompList.findAll{ it instanceof CalcDBLocation}
-	// 	refLocations.each{
-	// 		def locationReport = validator.validateAndReport("/schema/spidamin/spidadb/referenced_location.schema", it.getJSON().toString())
-	// 		assert locationReport.isSuccess(), "location: ${it.getName()} failed validation: \n${locationReport}"
-	// 	}
+		then: "the locations should validate against the schema"
+		def refLocations = refCompList.findAll{ it instanceof CalcDBLocation}
+		refLocations.each{
+			def locationReport = validator.validateAndReport("/schema/spidamin/spidadb/referenced_location.schema", it.getJSON().toString())
+			assert locationReport.isSuccess(), "location: ${it.getName()} failed validation: \n${locationReport}"
+		}
 
-	// 	then: "the designs should validate against the schema"
-	// 	def refDesigns = refCompList.findAll{it instanceof CalcDBDesign}
-	// 	refDesigns.each{CalcDBDesign it->
-	// 		def designReport = validator.validateAndReport("/schema/spidamin/spidadb/referenced_design.schema", it.getJSON().toString())
-	// 		assert designReport.isSuccess(), "Design: ${it.getName()} at ${it.getParentLocationName()} in invalid \n${designReport}"
-	// 	}
+		then: "the designs should validate against the schema"
+		def refDesigns = refCompList.findAll{it instanceof CalcDBDesign}
+		refDesigns.each{CalcDBDesign it->
+			def designReport = validator.validateAndReport("/schema/spidamin/spidadb/referenced_design.schema", it.getJSON().toString())
+			assert designReport.isSuccess(), "Design: ${it.getName()} at ${it.getParentLocationName()} in invalid \n${designReport}"
+		}
 
-	// 	where:
-	// 	currentProject << ["four-locations-one-lead-project.json", "18-locations-analyzed.json", "single-full-pole.json"]
+		where:
+		currentProject << ["four-locations-one-lead-project.json", "18-locations-analyzed.json", "single-full-pole.json"]
 
-	// }
+	}
 
 	void "test converting calc to referenced and back again"(){
 		setup: "start with a calc project"
@@ -82,57 +82,57 @@ class FormatConverterTest extends Specification {
 		return report.isSuccess()
 	}
 
- //    void "analysis results should get collected properly by component"(){
- //        setup: "load the results from a design"
- //        def design = getCalcProject("18-locations-analyzed.json").leads[0].locations[4].designs[0]
- //        def analysisResultsList = design.analysis
+    void "analysis results should get collected properly by component"(){
+        setup: "load the results from a design"
+        def design = getCalcProject("18-locations-analyzed.json").leads[0].locations[4].designs[0]
+        def analysisResultsList = design.analysis
 
- //        when: "collect the results for the pole"
- //        def poleResults = converter.collectPoleResults(analysisResultsList)
+        when: "collect the results for the pole"
+        def poleResults = converter.collectPoleResults(analysisResultsList)
 
- //        then: "the list should contain the correct results"
- //        poleResults.size() == 2
- //        def loadingResult = poleResults.find{ it.component == "Pole" }
- //        assertEquals("the pole loading result shoul be correct", 4.028504221186, loadingResult.actual, epsilon)
+        then: "the list should contain the correct results"
+        poleResults.size() == 2
+        def loadingResult = poleResults.find{ it.component == "Pole" }
+        assertEquals("the pole loading result shoul be correct", 4.028504221186, loadingResult.actual, epsilon)
 
 
- //        def buckling = poleResults.find{ it.component == "Pole-Buckling" }
- //        assertEquals("the buckling result should be correct", 3.8975996880018, buckling.actual, epsilon)
+        def buckling = poleResults.find{ it.component == "Pole-Buckling" }
+        assertEquals("the buckling result should be correct", 3.8975996880018, buckling.actual, epsilon)
 
- //        when: "collect results for a guy"
- //        def guy1Results = converter.getResultsForComponent("Guy#1", analysisResultsList)
+        when: "collect results for a guy"
+        def guy1Results = converter.getResultsForComponent("Guy#1", analysisResultsList)
 
- //        then: "the guy results should be correct"
- //        guy1Results.size() == 1
- //        def guy1 = guy1Results[0]
- //        assertEquals("guy#1 result should be correct", 0.86576092650, guy1.actual, epsilon)
+        then: "the guy results should be correct"
+        guy1Results.size() == 1
+        def guy1 = guy1Results[0]
+        assertEquals("guy#1 result should be correct", 0.86576092650, guy1.actual, epsilon)
 
- //    }
+    }
 
- //    void "analysis results should get converted properly"(){
- //        setup: "load a project with analysis results"
- //        def project = getCalcProject("18-locations-analyzed.json")
- //        def components = converter.convertCalcProject(project)
+    void "analysis results should get converted properly"(){
+        setup: "load a project with analysis results"
+        def project = getCalcProject("18-locations-analyzed.json")
+        def components = converter.convertCalcProject(project)
 
- //        when: "convert the project"
- //        def designs = components.findAll {it instanceof CalcDBDesign}*.getJSON()
+        when: "convert the project"
+        def designs = components.findAll {it instanceof CalcDBDesign}*.getJSON()
 
- //        then: "all the worst*Results should be correct and the results should be attached to the correct components"
- //        designs.size() == 18
- //        def d1 = designs[0]
- //        assertEquals("the worstPoleResult should be correct", 2.3004643640057, d1.worstCaseAnalysisResults.pole.actual, epsilon)
- //        assertEquals("the worstGuyResult should be correct", 1.59366362255, d1.worstCaseAnalysisResults.guys.actual, epsilon)
+        then: "all the worst*Results should be correct and the results should be attached to the correct components"
+        designs.size() == 18
+        def d1 = designs[0]
+        assertEquals("the worstPoleResult should be correct", 2.3004643640057, d1.worstCaseAnalysisResults.pole.actual, epsilon)
+        assertEquals("the worstGuyResult should be correct", 1.59366362255, d1.worstCaseAnalysisResults.guys.actual, epsilon)
 
- //        //check all the designs to make sure they have a worstPoleResult
- //        designs.each{
- //            def right = (it.worstCaseAnalysisResults.pole.actual > 0.0)
- //            if (!right){
- //                // it just ain't right
- //                println "***** Incorrect worstPoleResult: design: ${it.locationLabel} - ${it.label}, result: ${it.worstPoleResult}"
- //            }
- //            assertTrue("design: ${it.id} should have a proper worstCaseAnalysisResult for the pole", right)
- //        }
- //    }
+        //check all the designs to make sure they have a worstPoleResult
+        designs.each{
+            def right = (it.worstCaseAnalysisResults.pole.actual > 0.0)
+            if (!right){
+                // it just ain't right
+                println "***** Incorrect worstPoleResult: design: ${it.locationLabel} - ${it.label}, result: ${it.worstPoleResult}"
+            }
+            assertTrue("design: ${it.id} should have a proper worstCaseAnalysisResult for the pole", right)
+        }
+    }
 
 	// void "format converter should not barf when 'clientFile' and 'clientFileVersion' fields are missing"(){
 	// 	setup: "get calc project json and remove those fields"
