@@ -212,31 +212,31 @@ class FormatConverterTest extends Specification {
 
     }
 
-    void "Project data should get copied to locations and designs"(){
-        setup:
-        def project
-        def locations
-        def designs
+    // void "Project data should get copied to locations and designs"(){
+    //     setup:
+    //     def project
+    //     def locations
+    //     def designs
 
 
-        when:
-        def components = converter.convertCalcProject(current)
-        project = components.find {it instanceof CalcDBProject}.getJSON()
-        locations = components.findAll {it instanceof CalcDBLocation}*.getJSON()
-        designs = components.findAll {it instanceof CalcDBDesign}*.getJSON()
+    //     when:
+    //     def components = converter.convertCalcProject(current)
+    //     project = components.find {it instanceof CalcDBProject}.getJSON()
+    //     locations = components.findAll {it instanceof CalcDBLocation}*.getJSON()
+    //     designs = components.findAll {it instanceof CalcDBDesign}*.getJSON()
 
-        then:
-        def projectId = project.id
-        projectId == project.calcProject.id //make sure they are the same
-        projectId == locations[0]."projectId"
-        project.calcProject.label == locations[0]."projectLabel"
-        projectId == designs[0]."projectId"
-        project.calcProject.label == designs[0]."projectLabel"
-        project.calcProject.leads[0].locations[0].id == locations[0]."id"
+    //     then:
+    //     def projectId = project.id
+    //     projectId == project.calcProject.id //make sure they are the same
+    //     projectId == locations[0]."projectId"
+    //     project.calcProject.label == locations[0]."projectLabel"
+    //     projectId == designs[0]."projectId"
+    //     project.calcProject.label == designs[0]."projectLabel"
+    //     project.calcProject.leads[0].locations[0].id == locations[0]."id"
 
-        where:
-        current << [getCalcProject("single-full-pole.json"), getCalcProject("four-locations-one-lead-project.json"), getCalcProject("minimal-project-valid.json")]
-    }
+    //     where:
+    //     current << [getCalcProject("single-full-pole.json"), getCalcProject("four-locations-one-lead-project.json"), getCalcProject("minimal-project-valid.json")]
+    // }
 
     void "CalcDB components should be converted into calc-ready JSON"() {
         /*
