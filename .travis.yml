@@ -1,5 +1,5 @@
 language: groovy
 jdk: oraclejdk8
-env: _JAVA_OPTIONS="-XX:-UseSplitVerifier"
+#env: _JAVA_OPTIONS="-XX:-UseSplitVerifier"
 sudo: false
 script: ./gradlew :test --debug
