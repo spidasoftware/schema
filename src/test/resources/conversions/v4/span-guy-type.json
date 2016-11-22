@@ -1,0 +1,33 @@
+{
+  "leads": [
+    {
+      "locations": [
+        {
+          "designs": [
+            {
+              "structure": {
+                "wireEndPoints": [],
+                "spanPoints": [],
+                "anchors": [],
+                "notePoints": [],
+                "pointLoads": [],
+                "damages": [],
+                "wires": [],
+                "spanGuys": [
+                  {
+                    "id": 1
+                  }
+                ],
+                "guys": [],
+                "equipments": [],
+                "crossArms": [],
+                "insulators": [],
+                "pushBraces": []
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
