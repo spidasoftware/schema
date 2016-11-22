@@ -1,4 +1,4 @@
-package com.spidasoftware.schema.server
+package com.spidasoftware.schema.validation
 
 import net.sf.json.JSONObject
 
