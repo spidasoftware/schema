@@ -2,9 +2,6 @@
   "id": "#/spidacalc/calc/structure.schema",
   "description": "Structural Description of a calc Design",
   "type": "object",
-  "required": [
-    "pole"
-  ],
   "additionalProperties": false,
   "properties": {
     "pole": {
