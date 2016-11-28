@@ -1,0 +1,40 @@
+{
+    "type": "object",
+    "id": "#/spidacalc/calc/client_assemby.schema",
+    "description": "An assembly is a set of items that will go on a pole. Can be saved as a client assembly or a user assembly. Can be either a framing assembly or a support assembly",
+    "additionalProperties": false,
+    "required": [
+        "code",
+        "group",
+        "assemblyStructure"
+    ],
+    "properties": {
+        "code": {
+            "description": "Unique identifier for this client assembly",
+            "type": "string"
+        },
+        "group": {
+            "description": "Used to group client assemblies",
+            "type": "string"
+        },
+        "assemblyType": {
+            "type": "string"
+        },
+        "distanceFromPoleTop": {
+            "$ref": "../../general/measurable.schema"
+        },
+        "distanceToUnderbuild": {
+            "$ref": "../../general/measurable.schema"
+        },
+        "maximumLineAngle": {
+            "$ref": "../../general/measurable.schema"
+        },
+        "minimumLineAngle": {
+            "$ref": "../../general/measurable.schema"
+        },
+        "assemblyStructure": {
+            "$ref": "../../spidacalc/calc/structure.schema"
+        }
+    }
+
+}
