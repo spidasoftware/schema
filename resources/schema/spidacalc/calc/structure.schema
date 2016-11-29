@@ -363,6 +363,11 @@
             "type": "number",
             "description": "Additional wire-specific tension adjustment in addition to load case tension multipliers."
           },
+          "connectionId":{
+            "description": "The shared connection id.  Represents the unique connection between two objects.  Must be two and only two objects with the same id.",
+            "pattern": "[a-f0-9]{24}",
+            "type": "string"
+          },
           "clientItem": {
             "$ref": "../../spidacalc/calc/client_references/wire.schema",
             "description": "Reference of the client item with the engineering properties for this wire."
