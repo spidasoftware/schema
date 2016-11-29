@@ -6,17 +6,17 @@
           "designs": [
             {
               "structure": {
-                "wireEndPoints": [
-                  {
-                    "connectionId": "123456789012345678901234"
-                  }
-                ],
+                "wireEndPoints": [],
                 "spanPoints": [],
                 "anchors": [],
                 "notePoints": [],
                 "pointLoads": [],
                 "damages": [],
-                "wires": [],
+                "wires": [
+                  {
+                    "connectionId": "123456789012345678901234"
+                  }
+                ],
                 "spanGuys": [],
                 "guys": [],
                 "equipments": [],
