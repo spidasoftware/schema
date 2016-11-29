@@ -45,6 +45,10 @@
 		"analyzeWithAverageSpan": {
 			"type": "boolean"
 		},
+		"loadingStepCountMultiplier":{
+			"description":"the multipler to use to apply the forces in more steps than standard",
+			"type":"number"
+		},
 		"addByDefault": {
 			"type": "boolean"
 		},
