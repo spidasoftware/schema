@@ -6,6 +6,7 @@
     "required": [
         "code",
         "group",
+        "assemblyType",
         "assemblyStructure"
     ],
     "properties": {
@@ -18,18 +19,22 @@
             "type": "string"
         },
         "assemblyType": {
-            "type": "string"
+            "enum": [ "SUPPORT", "FRAMING" ]
         },
         "distanceFromPoleTop": {
+            "description": "Should be present iff assemblyType == FRAMING",
             "$ref": "../../general/measurable.schema"
         },
         "distanceToUnderbuild": {
+            "description": "Should be present iff assemblyType == FRAMING",
             "$ref": "../../general/measurable.schema"
         },
         "maximumLineAngle": {
+            "description": "Should be present iff assemblyType == FRAMING",
             "$ref": "../../general/measurable.schema"
         },
         "minimumLineAngle": {
+            "description": "Should be present iff assemblyType == FRAMING",
             "$ref": "../../general/measurable.schema"
         },
         "assemblyStructure": {
