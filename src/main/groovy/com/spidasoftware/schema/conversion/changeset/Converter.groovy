@@ -126,7 +126,8 @@ class Converter {
 		calcProjectConverter.addChangeSet(4, new PhotoDirectionChangeSet())
 		calcProjectConverter.addChangeSet(4, new SupportTypeChangeSet())
 		calcProjectConverter.addChangeSet(4, new InsulatorAttachHeightChangeSet())
-        calcProjectConverter.addChangeSet(4, new LocationWepChangeSet())
+    calcProjectConverter.addChangeSet(4, new LocationWepChangeSet())
+    calcProjectConverter.addChangeSet(4, new WireConnectionIdChangeSet())
 		// add calc project changesets here
 		converters.put(calcProjectConverter.schemaPath, calcProjectConverter)
 	}
