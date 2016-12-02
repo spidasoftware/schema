@@ -24,7 +24,7 @@ class ValidatorTest extends TestCase {
 		def exception = null
 		try {
 			new Validator().validate(schema, instance)
-		} catch (com.spidasoftware.schema.server.JSONServletException jse) {
+		} catch (JSONServletException jse) {
 			exception = jse
 		}
 		assertNull("Should not have thrown a servlet exception", exception)
@@ -39,7 +39,7 @@ class ValidatorTest extends TestCase {
 		def exception = null
 		try {
 			new Validator().validate(schema, instance)
-		} catch (com.spidasoftware.schema.server.JSONServletException jse) {
+		} catch (JSONServletException jse) {
 			exception = jse
 		}
 	}
@@ -51,7 +51,7 @@ class ValidatorTest extends TestCase {
 		def exception = null
 		try {
 			new Validator().validate(schema, instance)
-		} catch (com.spidasoftware.schema.server.JSONServletException jse) {
+		} catch (JSONServletException jse) {
 			exception = jse
 		}
 		assertNotNull("Should have thrown a servlet exception", exception)
@@ -60,7 +60,7 @@ class ValidatorTest extends TestCase {
 		exception = null
 		try {
 			new Validator().validate(schema, instance)
-		} catch (com.spidasoftware.schema.server.JSONServletException jse) {
+		} catch (JSONServletException jse) {
 			exception = jse
 		}
 		assertNotNull("Should have thrown a servlet exception", exception)
@@ -90,7 +90,7 @@ class ValidatorTest extends TestCase {
 		def exception = null
 		try {
 			new Validator().validateFromText(schemaText, instance)
-		} catch (com.spidasoftware.schema.server.JSONServletException jse) {
+		} catch (JSONServletException jse) {
 			exception = jse
 		}
 		assertNull("Should not have thrown a servlet exception", exception)
@@ -105,7 +105,7 @@ class ValidatorTest extends TestCase {
 		def exception = null
 		try {
 			new Validator().validate(schemaFile, instance)
-		} catch (com.spidasoftware.schema.server.JSONServletException jse) {
+		} catch (JSONServletException jse) {
 			exception = jse
 		}
 		assertNull("Should not have thrown a servlet exception", exception)
@@ -120,7 +120,7 @@ class ValidatorTest extends TestCase {
 		def exception = null
 		try {
 			new Validator().validate(schemaURL, instance)
-		} catch (com.spidasoftware.schema.server.JSONServletException jse) {
+		} catch (JSONServletException jse) {
 			exception = jse
 		}
 		assertNull("Should not have thrown a servlet exception", exception)

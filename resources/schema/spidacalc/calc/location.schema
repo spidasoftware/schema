@@ -60,6 +60,10 @@
                         "description": "Path to the image file.", 
                         "type": "string"
                     },
+                    "direction": {
+                        "description": "the direction string that the photo was taken in",
+                        "type": "string"
+                    },
                     "link": {
                         "description":"link to the source of the photo along with the id for that source. NOTE: this is only to be used with CalcDB, Calc will currently ignore the link.",
                         "type": "object",

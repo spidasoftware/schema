@@ -1,0 +1,120 @@
+{
+  "label": "full_project",
+  "schema": "https://raw.github.com/spidasoftware/schema/master/resources/v1/schema/spidacalc/calc/project.schema",
+  "version": 3,
+  "clientFile": "Demo.client",
+  "date": "2011-02-21",
+  "leads": [
+    {
+      "locations": [
+        {
+          "mapNumber": "",
+          "comments": "PUSH BRACE POLE...",
+          "address": {
+            "number": "8790",
+            "street": "1st St NE",
+            "city": "Mineral City",
+            "county": "Tuscarawas",
+            "state": "OH",
+            "zip_code": "44656"
+          },
+          "geographicCoordinate": {
+            "type": "Point",
+            "coordinates": [
+              -82.123567678,
+              40.1023985762
+            ]
+          },
+          "remedies": [
+            {
+              "description": "Remedy"
+            }
+          ],
+          "poleTags": [
+            {
+              "type": "FIELD",
+              "value": "poleTag"
+            }
+          ],
+          "userDefinedValues": {
+            "some_other_system_id": "123-987"
+          },
+          "summaryNotes": [],
+          "images": [
+            {
+              "url": "http://fake-url-image"
+            }
+          ],
+          "designs": [
+            {
+              "analysis": [
+                {
+                  "id": "NESC Heavy",
+                  "results": [
+                    {
+                      "actual": 1000,
+                      "allowable": 2000,
+                      "analysisDate": 101010343343,
+                      "component": "Pole",
+                      "loadInfo": "NESC Heavy",
+                      "passes": true,
+                      "unit": "lb/in^2",
+                      "designType": "Measured"
+                    }
+                  ]
+                }
+              ],
+              "structure": {
+                "pole": {
+                  "glc": {
+                    "unit": "FOOT",
+                    "value": 3.0833333333333335
+                  },
+                  "agl": {
+                    "unit": "FOOT",
+                    "value": 34
+                  },
+                  "environment": "STREET",
+                  "temperature": {
+                    "unit": "FAHRENHEIT",
+                    "value": 60
+                  },
+                  "stressRatio": 1,
+                  "clientItem": {
+                    "species": "Southern Pine",
+                    "classOfPole": "5",
+                    "height": {
+                      "unit": "FOOT",
+                      "value": 40
+                    }
+                  },
+                  "owner": {
+                    "id": "AEP",
+                    "industry": "UTILITY",
+                    "externalId": "098e6dbc-b6df-470a-b7d1-5624f2ba89e2"
+                  }
+                },
+                "wireEndPoints": [],
+                "spanPoints": [],
+                "anchors": [],
+                "notePoints": [],
+                "pointLoads": [],
+                "damages": [],
+                "wires": [],
+                "spanGuys": [],
+                "guys": [],
+                "equipments": [],
+                "crossArms": [],
+                "insulators": [],
+                "pushBraces": []
+              },
+              "label": "Measured"
+            }
+          ],
+          "label": "Location4"
+        }
+      ],
+      "label": "Lead3"
+    }
+  ]
+}

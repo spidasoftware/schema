@@ -1439,7 +1439,7 @@
                 "unit": "FOOT",
                 "value": 0
               },
-              "supportType": "Other",
+              "supportedWEPs": [],
               "clientItem": "8\" - 8\" Double Helix (Class 4) 1\" Rod",
               "guys": ["Guy#1"]
             }],
@@ -2555,7 +2555,7 @@
                 "unit": "FOOT",
                 "value": 0
               },
-              "supportType": "WEP#2",
+              "supportedWEPs": ["WEP#2"],
               "clientItem": "8\" - 8\" Double Helix (Class 4) 3/4\" Rod",
               "guys": ["Guy#1"]
             }],
@@ -3980,7 +3980,7 @@
                   "unit": "FOOT",
                   "value": 0
                 },
-                "supportType": "Other",
+                "supportedWEPs": [],
                 "clientItem": "8\" - 8\" Double Helix (Class 4) 3/4\" Rod",
                 "guys": ["Guy#1"]
               },
@@ -4001,7 +4001,7 @@
                   "unit": "FOOT",
                   "value": 0
                 },
-                "supportType": "Other",
+                "supportedWEPs": [],
                 "clientItem": "8\" - 8\" Double Helix (Class 4) 3/4\" Rod",
                 "guys": ["Guy#2"]
               },
@@ -4022,7 +4022,7 @@
                   "unit": "FOOT",
                   "value": 0
                 },
-                "supportType": "Other",
+                "supportedWEPs": [],
                 "clientItem": "8\" - 8\" Double Helix (Class 4) 3/4\" Rod",
                 "guys": ["Guy#3"]
               }
@@ -7401,7 +7401,7 @@
                   "unit": "FOOT",
                   "value": 0
                 },
-                "supportType": "Bisector",
+                "supportedWEPs": ["WEP#1","WEP#2"],
                 "clientItem": "8\" - 8\" Double Helix (Class 4) 3/4\" Rod",
                 "guys": ["Guy#3"]
               },
@@ -7422,7 +7422,7 @@
                   "unit": "FOOT",
                   "value": 0
                 },
-                "supportType": "Bisector",
+                "supportedWEPs": ["WEP#1","WEP#2"],
                 "clientItem": "8\" - 8\" Double Helix (Class 4) 3/4\" Rod",
                 "guys": ["Guy#2"]
               },
@@ -7443,7 +7443,7 @@
                   "unit": "FOOT",
                   "value": 0
                 },
-                "supportType": "Bisector",
+                "supportedWEPs": ["WEP#1","WEP#2"],
                 "clientItem": "8\" - 8\" Double Helix (Class 4) 3/4\" Rod",
                 "guys": ["Guy#1"]
               }

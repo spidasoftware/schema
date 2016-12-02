@@ -22,7 +22,7 @@
         "id": "Acme Power",
         "externalId": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
       },
-      "supportType": "Other",
+      "supportedWEPs": [],
       "externalId": "32850af8-5aa8-4292-a638-41406877609c"
     }
   ],

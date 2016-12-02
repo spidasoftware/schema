@@ -1,3 +1,6 @@
 language: groovy
-env: _JAVA_OPTIONS="-XX:-UseSplitVerifier"
+env:
+  global:
+    - GRADLE_OPTS="-Xms128m -Xmx512m"
 sudo: false
+script: ./gradlew :test --debug

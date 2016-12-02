@@ -2,9 +2,6 @@
   "id": "#/spidacalc/calc/structure.schema",
   "description": "Structural Description of a calc Design",
   "type": "object",
-  "required": [
-    "pole"
-  ],
   "additionalProperties": false,
   "properties": {
     "pole": {
@@ -363,6 +360,11 @@
             "type": "number",
             "description": "Additional wire-specific tension adjustment in addition to load case tension multipliers."
           },
+          "connectionId":{
+            "description": "The shared connection id.  Represents the unique connection between two objects.  Must be two and only two objects with the same id.",
+            "pattern": "[a-f0-9]{24}",
+            "type": "string"
+          },
           "clientItem": {
             "$ref": "../../spidacalc/calc/client_references/wire.schema",
             "description": "Reference of the client item with the engineering properties for this wire."
@@ -603,7 +605,7 @@
           "id",
           "attachmentHeight",
           "owner",
-          "associatedBacking",
+          "supportedWEPs",
           "direction",
           "offset"
         ],
@@ -635,9 +637,12 @@
             "$ref": "../../general/bearing.schema",
             "description": "Crossarm bearing is the direction the end of the crossarm points, not the direction of the bolt attachment."
           },
-          "associatedBacking": {
-            "type": "string",
-            "description": "Either BISECTOR or a wire end point ID of the end point associated with the wires going to the crossarm."
+          "supportedWEPs": {
+            "description": "WEP IDs supported by this crossarm",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "insulators": {
             "description": "List of IDs of all insulators attached to this crossarm.",
@@ -666,7 +671,6 @@
         "id": "insulator",
         "required": [
           "id",
-          "attachmentHeight",
           "owner",
           "doubleInsulator",
           "direction",
@@ -689,12 +693,9 @@
           "owner": {
             "$ref": "../../general/owner.schema"
           },
-          "attachmentHeight": {
-            "$ref": "../../general/measurable.schema"
-          },
           "offset": {
             "$ref": "../../general/measurable.schema",
-            "description": "When attached to a crossarm, the offset along the crossarm."
+            "description": "If insulator is on a pole, then offest is the attach height.  If insulator is on a cross arm, then offset is the distance from one end of the cross arm."
           },
           "direction": {
             "$ref": "../../general/bearing.schema"

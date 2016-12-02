@@ -10,7 +10,7 @@ apply plugin: 'project-report'
 apply plugin: 'releaseNotes'
 
 group = 'com.spidasoftware'
-version = '4.0-SNAPSHOT' //for nightly build, ensure that this is the first "version" in the file and keep single quotes
+version = '4.1-SNAPSHOT' //for nightly build, ensure that this is the first "version" in the file and keep single quotes
 description = "Schema"
 
 sourceCompatibility = 1.7
@@ -90,20 +90,32 @@ dependencies {
 	compile group: 'org.apache.ant', name: 'ant', version: '1.9.4'
 	compile group: 'org.apache.ant', name: 'ant-launcher', version: '1.9.4'
 	compile group: 'org.codehaus.groovy', name: 'groovy-all', version:'2.1.9'
-	compile group: 'junit', name: 'junit', version:'4.9'
 	compile group: 'net.sf.json-lib', name: 'json-lib', version:'2.3', classifier:'jdk15'
 	compile group: 'log4j', name: 'log4j', version:'1.2.17'
 	compile group: 'commons-io', name: 'commons-io', version:'2.4'
 	compile group: 'com.github.fge', name: 'json-schema-validator', version:'2.1.6'
+    compile group: 'org.mongodb', name:'mongo-java-driver', version:'2.11.1'
 
+	compile group: 'junit', name: 'junit', version:'4.9'
     testCompile group: 'org.spockframework', name: 'spock-core', version: '0.7-groovy-2.0'
     testCompile group: 'cglib', name: 'cglib-nodep', version: '2.2'
 	testCompile group: 'org.objenesis', name:'objenesis', version: '2.1'
-
 }
 
 test {
     testLogging.showStandardStreams = true
+}
+
+if (System.env.TRAVIS == 'true') {
+  allprojects {
+    tasks.withType(GroovyCompile) {
+      groovyOptions.fork = false
+    }
+    tasks.withType(Test) {
+      maxParallelForks = 1
+      minHeapSize = '512m'
+    }
+  }
 }
 
 

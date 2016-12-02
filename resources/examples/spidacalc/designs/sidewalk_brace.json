@@ -69,7 +69,7 @@
         "unit": "FOOT",
         "value": 0
       },
-      "supportType": "Other",
+      "supportedWEPs": [],
       "clientItem": "10\" - 12\" - 14\" Triple Helix (Class 4) 1\" Rod",
       "guys": ["Guy#1"]
     },
@@ -90,7 +90,7 @@
         "unit": "FOOT",
         "value": 0
       },
-      "supportType": "Other",
+      "supportedWEPs": [],
       "clientItem": "10\" - 12\" - 14\" Triple Helix (Class 4) 1\" Rod",
       "guys": ["Guy#2"]
     }
@@ -251,7 +251,7 @@
         "externalId": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
       },
       "clientItem": "Default 4.4 Brace",
-      "associatedBacking": "Other",
+      "supportedWEPs": [],
       "attachmentHeight":       {
         "unit": "FOOT",
         "value": 20.083333333333332

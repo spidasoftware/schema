@@ -1,511 +1,511 @@
 {
-    "status": "ok",
-    "locations": [
-        {
-            "dateModified": 1407422633477,
-            "id": "53e390a944ae3953e03b3a01",
-            "projectLabel": "exampleProject",
-            "projectId": "53e390a944ae3953e03b3a11",
-            "clientFile": "AEP.client",
-            "clientFileVersion": "bd48326e6365bcb7d53f0aa0f964faa0",
-            "calcLocation": {
-                "mapNumber": "",
-                "comments": "",
-                "address": {
-                    "number": "123",
-                    "street": "Some St.",
-                    "city": "Somewhere",
-                    "county": "N/A",
-                    "state": "Ohio",
-                    "zip_code": "44444"
-                },
-                "geographicCoordinate": {
-                    "type": "Point",
-                    "coordinates": [
-                        -79.13687133789062,
-                        37.40403366088867
-                    ]
-                },
-                "remedies": [
-                    {
-                        "description": "New Telecom:"
-                    },
-                    {
-                        "description": "- do some stuff"
-                    },
-                    {
-                        "description": "- do some more stuff"
-                    },
-                    {
-                        "description": "Super Power Co:"
-                    },
-                    {
-                        "description": "- Do some other stuff"
-                    }
-                ],
-                "poleTags": [
-                    {
-                        "type": "MAP",
-                        "value": "37790105D16006"
-                    },
-                    {
-                        "type": "Pole Number",
-                        "value": "ESSL44210"
-                    },
-                    {
-                        "type": "Trans",
-                        "value": "442-10"
-                    }
-                ],
-                "summaryNotes": [
-                    "Super Power Co. install bisector guy to the N",
-                    "Super Power Co. install span guy for span to the N"
-                ],
-                "forms": [
-                    {
-                        "title": "Asset Information",
-                        "template": "bd48326e6365bcb7d53f0aa0f964faa0-Asset Information",
-                        "fields": {
-                            "Attachment Type Code": "MT - Maintenance",
-                            "Change Flag Code": "E - Existing",
-                            "Pole Location": "na",
-                            "NJUNS": "",
-                            "Engineering Cost": "0",
-                            "MakeReady Cost": "0",
-                            "Lead ID": "0",
-                            "Transmission": "No",
-                            "Lead-Location": "0"
-                        }
-                    },
-                    {
-                        "title": "Billing Code",
-                        "template": "bd48326e6365bcb7d53f0aa0f964faa0-Billing Code",
-                        "fields": {
-                            "Transmission Pole?": "true",
-                            "Change Flag": "N/A",
-                            "Billing Code": "SE",
-                            "CE Description": "N/A",
-                            "Note": "",
-                            "Existing Attachers with Work": "0",
-                            "Transmission Analysis Not Done (Clearance Violation)": "false"
-                        }
-                    }
-                ],
-                "images": [
-                    {
-                        "url": "37790105D16006-1.jpg",
-                        "link": {
-                            "source": "filefortAssetService",
-                            "id": "12345"
-                        }
-                    },
-                    {
-                        "url": "37790105D16006-2.jpg",
-                        "link": {
-                            "source": "filefortAssetService",
-                            "id": "23456"
-                        }
-                    },
-                    {
-                        "url": "37790105D16006-3.jpg",
-                        "link": {
-                            "source": "filefortAssetService",
-                            "id": "34567"
-                        }
-                    }
-                ],
-                "designs": [
-                    {
-                        "id": "53e390a944ae3953e03b3a05",
-                        "label": "Existing"
-                    },
-                    {
-                        "id": "53e390a944ae3953e03b3a06",
-                        "label": "Proposed"
-                    },
-                    {
-                        "id": "53e390a944ae3953e03b3a07",
-                        "label": "Remedy"
-                    }
-                ],
-                "label": "37790105D16006",
-                "id": "53e390a944ae3953e03b3a01"
-            }
+  "status": "ok",
+  "locations": [
+    {
+      "dateModified": 1407422633477,
+      "id": "53e390a944ae3953e03b3a01",
+      "projectLabel": "exampleProject",
+      "projectId": "53e390a944ae3953e03b3a11",
+      "clientFile": "AEP.client",
+      "clientFileVersion": "bd48326e6365bcb7d53f0aa0f964faa0",
+      "calcLocation": {
+        "mapNumber": "",
+        "comments": "",
+        "address": {
+          "number": "123",
+          "street": "Some St.",
+          "city": "Somewhere",
+          "county": "N/A",
+          "state": "Ohio",
+          "zip_code": "44444"
         },
-        {
-            "dateModified": 1407422633524,
-            "id": "53e390a944ae3953e03b3a02",
-            "projectLabel": "exampleProject",
-            "projectId": "53e390a944ae3953e03b3a11",
-            "clientFile": "AEP.client",
-            "clientFileVersion": "bd48326e6365bcb7d53f0aa0f964faa0",
-            "calcLocation": {
-                "mapNumber": "",
-                "comments": "",
-                "address": {
-                    "number": "123",
-                    "street": "Some St.",
-                    "city": "Somewhere",
-                    "county": "N/A",
-                    "state": "Ohio",
-                    "zip_code": "44444"
-                },
-                "geographicCoordinate": {
-                    "type": "Point",
-                    "coordinates": [
-                        -79.13653564453125,
-                        37.40439987182617
-                    ]
-                },
-                "remedies": [
-                    {
-                        "description": "New Telecom:"
-                    },
-                    {
-                        "description": "- do some stuff"
-                    },
-                    {
-                        "description": "- do some more stuff"
-                    },
-                    {
-                        "description": "Super Power Co:"
-                    },
-                    {
-                        "description": "- Do some other stuff"
-                    }
-                ],
-                "poleTags": [
-                    {
-                        "type": "MAP",
-                        "value": "37790105D16005"
-                    },
-                    {
-                        "type": "Pole Number",
-                        "value": "ESSL4429"
-                    },
-                    {
-                        "type": "Trans",
-                        "value": "442-9"
-                    }
-                ],
-                "summaryNotes": [
-                    "Make Ready Work Required",
-                    "Missing/Damaged Pole Ground"
-                ],
-                "forms": [
-                    {
-                        "title": "Asset Information",
-                        "template": "bd48326e6365bcb7d53f0aa0f964faa0-Asset Information",
-                        "fields": {
-                            "Attachment Type Code": "MT - Maintenance",
-                            "Change Flag Code": "E - Existing",
-                            "Pole Location": "na",
-                            "NJUNS": "",
-                            "Engineering Cost": "0",
-                            "MakeReady Cost": "0",
-                            "Lead ID": "0",
-                            "Transmission": "No",
-                            "Lead-Location": "0"
-                        }
-                    },
-                    {
-                        "title": "Billing Code",
-                        "template": "bd48326e6365bcb7d53f0aa0f964faa0-Billing Code",
-                        "fields": {
-                            "Transmission Pole?": "true",
-                            "Change Flag": "N/A",
-                            "Billing Code": "CP",
-                            "CE Description": "N/A",
-                            "Note": "",
-                            "Existing Attachers with Work": "0",
-                            "Transmission Analysis Not Done (Clearance Violation)": "false"
-                        }
-                    }
-                ],
-                "images": [
-                    {
-                        "url": "37790105D16005-1.jpg",
-                        "link": {
-                            "source": "filefortAssetService",
-                            "id": "45678"
-                        }
-                    },
-                    {
-                        "url": "37790105D16005-2.jpg",
-                        "link": {
-                            "source": "filefortAssetService",
-                            "id": "56789"
-                        }
-                    },
-                    {
-                        "url": "37790105D16005-3.jpg",
-                        "link": {
-                            "source": "filefortAssetService",
-                            "id": "1"
-                        }
-                    }
-                ],
-                "designs": [
-                    {
-                        "id": "53e390a944ae3953e03b3a08",
-                        "label": "Existing"
-                    },
-                    {
-                        "id": "53e390a944ae3953e03b3a09",
-                        "label": "Proposed"
-                    },
-                    {
-                        "id": "53e390a944ae3953e03b3a0a",
-                        "label": "Remedy"
-                    }
-                ],
-                "label": "37790105D16005",
-                "id": "53e390a944ae3953e03b3a02"
-            }
+        "geographicCoordinate": {
+          "type": "Point",
+          "coordinates": [
+            -79.13687133789062,
+            37.40403366088867
+          ]
         },
-        {
-            "dateModified": 1407422633570,
-            "id": "53e390a944ae3953e03b3a03",
-            "projectLabel": "exampleProject",
-            "projectId": "53e390a944ae3953e03b3a11",
-            "clientFile": "AEP.client",
-            "clientFileVersion": "bd48326e6365bcb7d53f0aa0f964faa0",
-            "calcLocation": {
-                "mapNumber": "",
-                "comments": "",
-                "address": {
-                    "number": "123",
-                    "street": "Some St.",
-                    "city": "Somewhere",
-                    "county": "N/A",
-                    "state": "Ohio",
-                    "zip_code": "44444"
-                },
-                "geographicCoordinate": {
-                    "type": "Point",
-                    "coordinates": [
-                        -79.13624572753906,
-                        37.40470886230469
-                    ]
-                },
-                "remedies": [
-                    {
-                        "description": "New Telecom:"
-                    },
-                    {
-                        "description": "- do some stuff"
-                    },
-                    {
-                        "description": "- do some more stuff"
-                    },
-                    {
-                        "description": "Super Power Co:"
-                    },
-                    {
-                        "description": "- Do some other stuff"
-                    }
-                ],
-                "poleTags": [
-                    {
-                        "type": "MAP",
-                        "value": "37790105D16004"
-                    },
-                    {
-                        "type": "Pole Number",
-                        "value": "ESSL4428"
-                    },
-                    {
-                        "type": "Trans",
-                        "value": "442-8"
-                    }
-                ],
-                "summaryNotes": [],
-                "forms": [
-                    {
-                        "title": "Asset Information",
-                        "template": "bd48326e6365bcb7d53f0aa0f964faa0-Asset Information",
-                        "fields": {
-                            "Attachment Type Code": "MT - Maintenance",
-                            "Change Flag Code": "E - Existing",
-                            "Pole Location": "na",
-                            "NJUNS": "",
-                            "Engineering Cost": "0",
-                            "MakeReady Cost": "0",
-                            "Lead ID": "0",
-                            "Transmission": "No",
-                            "Lead-Location": "0"
-                        }
-                    },
-                    {
-                        "title": "Billing Code",
-                        "template": "bd48326e6365bcb7d53f0aa0f964faa0-Billing Code",
-                        "fields": {
-                            "Transmission Pole?": "true",
-                            "Change Flag": "N/A",
-                            "Billing Code": "SP",
-                            "CE Description": "N/A",
-                            "Note": "",
-                            "Existing Attachers with Work": "0",
-                            "Transmission Analysis Not Done (Clearance Violation)": "false"
-                        }
-                    }
-                ],
-                "images": [
-                    {
-                        "url": "37790105D16004-1.jpg",
-                        "link": {
-                            "source": "filefortAssetService",
-                            "id": "2"
-                        }
-                    },
-                    {
-                        "url": "37790105D16004-2.jpg",
-                        "link": {
-                            "source": "filefortAssetService",
-                            "id": "3"
-                        }
-                    },
-                    {
-                        "url": "37790105D16004-3.jpg",
-                        "link": {
-                            "source": "filefortAssetService",
-                            "id": "4"
-                        }
-                    }
-                ],
-                "designs": [
-                    {
-                        "id": "53e390a944ae3953e03b3a0b",
-                        "label": "Existing"
-                    },
-                    {
-                        "id": "53e390a944ae3953e03b3a0c",
-                        "label": "Proposed"
-                    },
-                    {
-                        "id": "53e390a944ae3953e03b3a0d",
-                        "label": "Remedy"
-                    }
-                ],
-                "label": "37790105D16004",
-                "id": "53e390a944ae3953e03b3a03"
+        "remedies": [
+          {
+            "description": "New Telecom:"
+          },
+          {
+            "description": "- do some stuff"
+          },
+          {
+            "description": "- do some more stuff"
+          },
+          {
+            "description": "Super Power Co:"
+          },
+          {
+            "description": "- Do some other stuff"
+          }
+        ],
+        "poleTags": [
+          {
+            "type": "MAP",
+            "value": "37790105D16006"
+          },
+          {
+            "type": "Pole Number",
+            "value": "ESSL44210"
+          },
+          {
+            "type": "Trans",
+            "value": "442-10"
+          }
+        ],
+        "summaryNotes": [
+          "Super Power Co. install bisector guy to the N",
+          "Super Power Co. install span guy for span to the N"
+        ],
+        "forms": [
+          {
+            "title": "Asset Information",
+            "template": "bd48326e6365bcb7d53f0aa0f964faa0-Asset Information",
+            "fields": {
+              "Attachment Type Code": "MT - Maintenance",
+              "Change Flag Code": "E - Existing",
+              "Pole Location": "na",
+              "NJUNS": "",
+              "Engineering Cost": "0",
+              "MakeReady Cost": "0",
+              "Lead ID": "0",
+              "Transmission": "No",
+              "Lead-Location": "0"
             }
+          },
+          {
+            "title": "Billing Code",
+            "template": "bd48326e6365bcb7d53f0aa0f964faa0-Billing Code",
+            "fields": {
+              "Transmission Pole?": "true",
+              "Change Flag": "N/A",
+              "Billing Code": "SE",
+              "CE Description": "N/A",
+              "Note": "",
+              "Existing Attachers with Work": "0",
+              "Transmission Analysis Not Done (Clearance Violation)": "false"
+            }
+          }
+        ],
+        "images": [
+          {
+            "url": "37790105D16006-1.jpg",
+            "link": {
+              "source": "filefortAssetService",
+              "id": "12345"
+            }
+          },
+          {
+            "url": "37790105D16006-2.jpg",
+            "link": {
+              "source": "filefortAssetService",
+              "id": "23456"
+            }
+          },
+          {
+            "url": "37790105D16006-3.jpg",
+            "link": {
+              "source": "filefortAssetService",
+              "id": "34567"
+            }
+          }
+        ],
+        "designs": [
+          {
+            "id": "53e390a944ae3953e03b3a05",
+            "label": "Existing"
+          },
+          {
+            "id": "53e390a944ae3953e03b3a06",
+            "label": "Proposed"
+          },
+          {
+            "id": "53e390a944ae3953e03b3a07",
+            "label": "Remedy"
+          }
+        ],
+        "label": "37790105D16006",
+        "id": "53e390a944ae3953e03b3a01"
+      }
+    },
+    {
+      "dateModified": 1407422633524,
+      "id": "53e390a944ae3953e03b3a02",
+      "projectLabel": "exampleProject",
+      "projectId": "53e390a944ae3953e03b3a11",
+      "clientFile": "AEP.client",
+      "clientFileVersion": "bd48326e6365bcb7d53f0aa0f964faa0",
+      "calcLocation": {
+        "mapNumber": "",
+        "comments": "",
+        "address": {
+          "number": "123",
+          "street": "Some St.",
+          "city": "Somewhere",
+          "county": "N/A",
+          "state": "Ohio",
+          "zip_code": "44444"
         },
-        {
-            "dateModified": 1407422633621,
-            "id": "53e390a944ae3953e03b3a04",
-            "projectLabel": "exampleProject",
-            "projectId": "53e390a944ae3953e03b3a11",
-            "clientFile": "AEP.client",
-            "clientFileVersion": "bd48326e6365bcb7d53f0aa0f964faa0",
-            "calcLocation": {
-                "mapNumber": "",
-                "comments": "",
-                "address": {
-                    "number": "123",
-                    "street": "Some St.",
-                    "city": "Somewhere",
-                    "county": "N/A",
-                    "state": "Ohio",
-                    "zip_code": "44444"
-                },
-                "geographicCoordinate": {
-                    "type": "Point",
-                    "coordinates": [
-                        -79.13603973388672,
-                        37.40487289428711
-                    ]
-                },
-                "remedies": [
-                    {
-                        "description": "New Telecom:"
-                    },
-                    {
-                        "description": "- do some stuff"
-                    },
-                    {
-                        "description": "- do some more stuff"
-                    },
-                    {
-                        "description": "Super Power Co:"
-                    },
-                    {
-                        "description": "- Do some other stuff"
-                    }
-                ],
-                "poleTags": [
-                    {
-                        "type": "MAP",
-                        "value": "37790105D16003"
-                    },
-                    {
-                        "type": "Pole Number",
-                        "value": "ESSL4427"
-                    },
-                    {
-                        "type": "Trans",
-                        "value": "442-7"
-                    }
-                ],
-                "summaryNotes": [],
-                "forms": [
-                    {
-                        "title": "Asset Information",
-                        "template": "bd48326e6365bcb7d53f0aa0f964faa0-Asset Information",
-                        "fields": {
-                            "Attachment Type Code": "MT - Maintenance",
-                            "Change Flag Code": "E - Existing",
-                            "Pole Location": "na",
-                            "NJUNS": "",
-                            "Engineering Cost": "0",
-                            "MakeReady Cost": "0",
-                            "Lead ID": "0",
-                            "Transmission": "No",
-                            "Lead-Location": "0"
-                        }
-                    },
-                    {
-                        "title": "Billing Code",
-                        "template": "bd48326e6365bcb7d53f0aa0f964faa0-Billing Code",
-                        "fields": {
-                            "Transmission Pole?": "true",
-                            "Change Flag": "N/A",
-                            "Billing Code": "OK to Attach",
-                            "CE Description": "N/A",
-                            "Note": "",
-                            "Existing Attachers with Work": "0",
-                            "Transmission Analysis Not Done (Clearance Violation)": "false"
-                        }
-                    }
-                ],
-                "images": [
-                    {
-                        "url": "37790105D16003-1.jpg"
-                    },
-                    {
-                        "url": "37790105D16003-2.jpg"
-                    },
-                    {
-                        "url": "37790105D16003-3.jpg"
-                    }
-                ],
-                "designs": [
-                    {
-                        "id": "53e390a944ae3953e03b3a0e",
-                        "label": "Existing"
-                    },
-                    {
-                        "id": "53e390a944ae3953e03b3a0f",
-                        "label": "Proposed"
-                    },
-                    {
-                        "id": "53e390a944ae3953e03b3a10",
-                        "label": "Remedy"
-                    }
-                ],
-                "label": "37790105D16003",
-                "id": "53e390a944ae3953e03b3a04"
+        "geographicCoordinate": {
+          "type": "Point",
+          "coordinates": [
+            -79.13653564453125,
+            37.40439987182617
+          ]
+        },
+        "remedies": [
+          {
+            "description": "New Telecom:"
+          },
+          {
+            "description": "- do some stuff"
+          },
+          {
+            "description": "- do some more stuff"
+          },
+          {
+            "description": "Super Power Co:"
+          },
+          {
+            "description": "- Do some other stuff"
+          }
+        ],
+        "poleTags": [
+          {
+            "type": "MAP",
+            "value": "37790105D16005"
+          },
+          {
+            "type": "Pole Number",
+            "value": "ESSL4429"
+          },
+          {
+            "type": "Trans",
+            "value": "442-9"
+          }
+        ],
+        "summaryNotes": [
+          "Make Ready Work Required",
+          "Missing/Damaged Pole Ground"
+        ],
+        "forms": [
+          {
+            "title": "Asset Information",
+            "template": "bd48326e6365bcb7d53f0aa0f964faa0-Asset Information",
+            "fields": {
+              "Attachment Type Code": "MT - Maintenance",
+              "Change Flag Code": "E - Existing",
+              "Pole Location": "na",
+              "NJUNS": "",
+              "Engineering Cost": "0",
+              "MakeReady Cost": "0",
+              "Lead ID": "0",
+              "Transmission": "No",
+              "Lead-Location": "0"
             }
-        }
-    ]
+          },
+          {
+            "title": "Billing Code",
+            "template": "bd48326e6365bcb7d53f0aa0f964faa0-Billing Code",
+            "fields": {
+              "Transmission Pole?": "true",
+              "Change Flag": "N/A",
+              "Billing Code": "CP",
+              "CE Description": "N/A",
+              "Note": "",
+              "Existing Attachers with Work": "0",
+              "Transmission Analysis Not Done (Clearance Violation)": "false"
+            }
+          }
+        ],
+        "images": [
+          {
+            "url": "37790105D16005-1.jpg",
+            "link": {
+              "source": "filefortAssetService",
+              "id": "45678"
+            }
+          },
+          {
+            "url": "37790105D16005-2.jpg",
+            "link": {
+              "source": "filefortAssetService",
+              "id": "56789"
+            }
+          },
+          {
+            "url": "37790105D16005-3.jpg",
+            "link": {
+              "source": "filefortAssetService",
+              "id": "1"
+            }
+          }
+        ],
+        "designs": [
+          {
+            "id": "53e390a944ae3953e03b3a08",
+            "label": "Existing"
+          },
+          {
+            "id": "53e390a944ae3953e03b3a09",
+            "label": "Proposed"
+          },
+          {
+            "id": "53e390a944ae3953e03b3a0a",
+            "label": "Remedy"
+          }
+        ],
+        "label": "37790105D16005",
+        "id": "53e390a944ae3953e03b3a02"
+      }
+    },
+    {
+      "dateModified": 1407422633570,
+      "id": "53e390a944ae3953e03b3a03",
+      "projectLabel": "exampleProject",
+      "projectId": "53e390a944ae3953e03b3a11",
+      "clientFile": "AEP.client",
+      "clientFileVersion": "bd48326e6365bcb7d53f0aa0f964faa0",
+      "calcLocation": {
+        "mapNumber": "",
+        "comments": "",
+        "address": {
+          "number": "123",
+          "street": "Some St.",
+          "city": "Somewhere",
+          "county": "N/A",
+          "state": "Ohio",
+          "zip_code": "44444"
+        },
+        "geographicCoordinate": {
+          "type": "Point",
+          "coordinates": [
+            -79.13624572753906,
+            37.40470886230469
+          ]
+        },
+        "remedies": [
+          {
+            "description": "New Telecom:"
+          },
+          {
+            "description": "- do some stuff"
+          },
+          {
+            "description": "- do some more stuff"
+          },
+          {
+            "description": "Super Power Co:"
+          },
+          {
+            "description": "- Do some other stuff"
+          }
+        ],
+        "poleTags": [
+          {
+            "type": "MAP",
+            "value": "37790105D16004"
+          },
+          {
+            "type": "Pole Number",
+            "value": "ESSL4428"
+          },
+          {
+            "type": "Trans",
+            "value": "442-8"
+          }
+        ],
+        "summaryNotes": [],
+        "forms": [
+          {
+            "title": "Asset Information",
+            "template": "bd48326e6365bcb7d53f0aa0f964faa0-Asset Information",
+            "fields": {
+              "Attachment Type Code": "MT - Maintenance",
+              "Change Flag Code": "E - Existing",
+              "Pole Location": "na",
+              "NJUNS": "",
+              "Engineering Cost": "0",
+              "MakeReady Cost": "0",
+              "Lead ID": "0",
+              "Transmission": "No",
+              "Lead-Location": "0"
+            }
+          },
+          {
+            "title": "Billing Code",
+            "template": "bd48326e6365bcb7d53f0aa0f964faa0-Billing Code",
+            "fields": {
+              "Transmission Pole?": "true",
+              "Change Flag": "N/A",
+              "Billing Code": "SP",
+              "CE Description": "N/A",
+              "Note": "",
+              "Existing Attachers with Work": "0",
+              "Transmission Analysis Not Done (Clearance Violation)": "false"
+            }
+          }
+        ],
+        "images": [
+          {
+            "url": "37790105D16004-1.jpg",
+            "link": {
+              "source": "filefortAssetService",
+              "id": "2"
+            }
+          },
+          {
+            "url": "37790105D16004-2.jpg",
+            "link": {
+              "source": "filefortAssetService",
+              "id": "3"
+            }
+          },
+          {
+            "url": "37790105D16004-3.jpg",
+            "link": {
+              "source": "filefortAssetService",
+              "id": "4"
+            }
+          }
+        ],
+        "designs": [
+          {
+            "id": "53e390a944ae3953e03b3a0b",
+            "label": "Existing"
+          },
+          {
+            "id": "53e390a944ae3953e03b3a0c",
+            "label": "Proposed"
+          },
+          {
+            "id": "53e390a944ae3953e03b3a0d",
+            "label": "Remedy"
+          }
+        ],
+        "label": "37790105D16004",
+        "id": "53e390a944ae3953e03b3a03"
+      }
+    },
+    {
+      "dateModified": 1407422633621,
+      "id": "53e390a944ae3953e03b3a04",
+      "projectLabel": "exampleProject",
+      "projectId": "53e390a944ae3953e03b3a11",
+      "clientFile": "AEP.client",
+      "clientFileVersion": "bd48326e6365bcb7d53f0aa0f964faa0",
+      "calcLocation": {
+        "mapNumber": "",
+        "comments": "",
+        "address": {
+          "number": "123",
+          "street": "Some St.",
+          "city": "Somewhere",
+          "county": "N/A",
+          "state": "Ohio",
+          "zip_code": "44444"
+        },
+        "geographicCoordinate": {
+          "type": "Point",
+          "coordinates": [
+            -79.13603973388672,
+            37.40487289428711
+          ]
+        },
+        "remedies": [
+          {
+            "description": "New Telecom:"
+          },
+          {
+            "description": "- do some stuff"
+          },
+          {
+            "description": "- do some more stuff"
+          },
+          {
+            "description": "Super Power Co:"
+          },
+          {
+            "description": "- Do some other stuff"
+          }
+        ],
+        "poleTags": [
+          {
+            "type": "MAP",
+            "value": "37790105D16003"
+          },
+          {
+            "type": "Pole Number",
+            "value": "ESSL4427"
+          },
+          {
+            "type": "Trans",
+            "value": "442-7"
+          }
+        ],
+        "summaryNotes": [],
+        "forms": [
+          {
+            "title": "Asset Information",
+            "template": "bd48326e6365bcb7d53f0aa0f964faa0-Asset Information",
+            "fields": {
+              "Attachment Type Code": "MT - Maintenance",
+              "Change Flag Code": "E - Existing",
+              "Pole Location": "na",
+              "NJUNS": "",
+              "Engineering Cost": "0",
+              "MakeReady Cost": "0",
+              "Lead ID": "0",
+              "Transmission": "No",
+              "Lead-Location": "0"
+            }
+          },
+          {
+            "title": "Billing Code",
+            "template": "bd48326e6365bcb7d53f0aa0f964faa0-Billing Code",
+            "fields": {
+              "Transmission Pole?": "true",
+              "Change Flag": "N/A",
+              "Billing Code": "OK to Attach",
+              "CE Description": "N/A",
+              "Note": "",
+              "Existing Attachers with Work": "0",
+              "Transmission Analysis Not Done (Clearance Violation)": "false"
+            }
+          }
+        ],
+        "images": [
+          {
+            "url": "37790105D16003-1.jpg"
+          },
+          {
+            "url": "37790105D16003-2.jpg"
+          },
+          {
+            "url": "37790105D16003-3.jpg"
+          }
+        ],
+        "designs": [
+          {
+            "id": "53e390a944ae3953e03b3a0e",
+            "label": "Existing"
+          },
+          {
+            "id": "53e390a944ae3953e03b3a0f",
+            "label": "Proposed"
+          },
+          {
+            "id": "53e390a944ae3953e03b3a10",
+            "label": "Remedy"
+          }
+        ],
+        "label": "37790105D16003",
+        "id": "53e390a944ae3953e03b3a04"
+      }
+    }
+  ]
 }

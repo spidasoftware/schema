@@ -1,7 +1,7 @@
 {
   "name": "project-1",
   "clientFile": "Demo.client",
-  "schema": "https://raw.github.com/spidasoftware/schema/master/resources/schema/spidacalc/calc/project.schema",
+  "schema": "https://raw.github.com/spidasoftware/schema/master/resources/v1/schema/spidacalc/calc/project.schema",
   "leads": [
     {
       "locations": [
@@ -11,42 +11,42 @@
               "design": {
                 "pole": {
                   "agl": {
-                    "unit": "FOOT", 
+                    "unit": "FOOT",
                     "value": 16
-                  }, 
+                  },
                   "clientItem": {
-                    "classOfPole": "5", 
+                    "classOfPole": "5",
                     "height": {
-                      "unit": "FOOT", 
+                      "unit": "FOOT",
                       "value": 40
-                    }, 
+                    },
                     "species": "Southern Pine"
-                  }, 
-                  "environment": "STREET", 
+                  },
+                  "environment": "STREET",
                   "glc": {
-                    "unit": "FOOT", 
+                    "unit": "FOOT",
                     "value": 1.9642857101595517
-                  }, 
+                  },
                   "owner": {
-                    "industry": "UTILITY", 
-                    "name": "Acme Power", 
+                    "industry": "UTILITY",
+                    "name": "Acme Power",
                     "uuid": "706e1c60-20f6-4447-b381-c9060cb51337"
-                  }, 
-                  "stressRatio": 1, 
+                  },
+                  "stressRatio": 1,
                   "temperature": {
-                    "unit": "FAHRENHEIT", 
+                    "unit": "FAHRENHEIT",
                     "value": 60
                   }
                 }
               }
             }
-          ], 
+          ],
           "geographicCoordinate": {
-            "latitude": 40.609780700000002, 
+            "latitude": 40.609780700000002,
             "longitude": -81.3688492
           }
         }
       ]
     }
-  ] 
+  ]
 }
