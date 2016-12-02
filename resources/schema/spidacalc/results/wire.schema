@@ -3,7 +3,7 @@
   "id": "#/spidacalc/results/wire.schema",
   "description": "The forces on a single component item.",
   "required": [
-    "id", "sag", "tension", "windForce", "verticalForce", "actingOn"
+    "id", "sag", "tension", "windForce", "verticalForce", "actingOn", "tensionMethod"
   ],
   "properties": {
     "id": {
@@ -28,6 +28,9 @@
     },
     "actingOn": {
       "$ref": "../../general/acting_on.schema"
+    },
+    "tensionMethod":{
+      "enum":["STATIC", "DYNAMIC", "DISPLACEMENT", "UNKNOWN"]
     }
   },
   "additionalProperties": false
