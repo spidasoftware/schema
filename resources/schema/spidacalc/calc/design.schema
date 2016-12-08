@@ -49,7 +49,9 @@
         "geographicCoordinate": {
             "$ref": "../../general/geometry.schema"
         },
-
+        "mapLocation": {
+            "$ref": "../../general/geometry.schema"
+        },
         "structure": {
             "$ref": "../../spidacalc/calc/structure.schema"
         }

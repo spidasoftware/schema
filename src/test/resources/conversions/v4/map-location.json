@@ -1,0 +1,113 @@
+{
+  "label": "Project",
+  "clientFile": "Master_1.1.client",
+  "date": "2016-12-01",
+  "schema": "/v1/schema/spidacalc/calc/project.schema",
+  "version": 3,
+  "engineer": "",
+  "comments": "",
+  "generalLocation": "",
+  "address":   {
+    "number": "",
+    "street": "",
+    "city": "",
+    "county": "",
+    "state": "",
+    "zip_code": ""
+  },
+  "userDefinedValues": {},
+  "clientFileVersion": "55feb0d7d0afc5d6eba0110c43475df4",
+  "forms": [],
+  "leads": [  {
+    "label": "Lead",
+    "locations": [    {
+      "label": "Location-12-01-2016-12-42-42-197",
+      "mapNumber": "",
+      "comments": "",
+      "address":       {
+        "number": "",
+        "street": "",
+        "city": "",
+        "county": "",
+        "state": "",
+        "zip_code": ""
+      },
+      "technician": "",
+      "crossStreet1": "",
+      "crossStreet2": "",
+      "geographicCoordinate":       {
+        "type": "Point",
+        "coordinates":         [
+          -82,
+          40
+        ]
+      },
+      "remedies": [],
+      "poleTags": [],
+      "userDefinedValues": {},
+      "summaryNotes": [],
+      "forms": [],
+      "images": [],
+      "designs": [      {
+        "label": "Measured Design",
+        "mapLocation":       {
+          "type": "Point",
+          "coordinates":         [
+            -82,
+            40
+          ]
+        },
+        "structure":         {
+          "pole":           {
+            "glc":             {
+              "unit": "FOOT",
+              "value": 2.820175546572386
+            },
+            "agl":             {
+              "unit": "FOOT",
+              "value": 20
+            },
+            "environment": "STREET",
+            "temperature":             {
+              "unit": "FAHRENHEIT",
+              "value": 60
+            },
+            "stressRatio": 1,
+            "leanAngle": 0,
+            "leanDirection": 0,
+            "clientItem":             {
+              "species": "Douglas Fir",
+              "classOfPole": "1",
+              "height":               {
+                "unit": "FOOT",
+                "value": 25
+              }
+            },
+            "externalId": "584061127d84fd2b32007fe5",
+            "owner":             {
+              "id": "AEP",
+              "industry": "UTILITY",
+              "externalId": "f5a59c7e-e8d9-4b0a-9be2-34765b3cae77"
+            }
+          },
+          "wireEndPoints": [],
+          "spanPoints": [],
+          "anchors": [],
+          "notePoints": [],
+          "pointLoads": [],
+          "damages": [],
+          "wires": [],
+          "spanGuys": [],
+          "guys": [],
+          "equipments": [],
+          "crossArms": [],
+          "insulators": [],
+          "pushBraces": [],
+          "sidewalkBraces": [],
+          "foundations": []
+        },
+        "analysis": []
+      }]
+    }]
+  }]
+}
