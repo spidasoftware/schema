@@ -1,0 +1,149 @@
+{
+  "clientData": {
+    "wires": [],
+    "anchors": [],
+    "equipments": [],
+    "poles": [
+      {
+        "taper": 0,
+        "poissonRatio": 0.3,
+        "shape": "ROUND",
+        "density": {
+          "unit": "POUND_PER_CUBIC_FOOT",
+          "value": 10
+        },
+        "classOfPole": "10\" Series II",
+        "materialCategory": "WOOD",
+        "allowable": {
+          "unit": "POUND_FORCE_PER_SQUARE_INCH",
+          "value": 10000
+        },
+        "species": "Fiberglass",
+        "wallThickness": {
+          "unit": "INCH",
+          "value": -1
+        },
+        "ptc": {
+          "unit": "INCH",
+          "value": 24.73695
+        },
+        "modulus": {
+          "unit": "POUND_FORCE_PER_SQUARE_INCH",
+          "value": 1.0E+7
+        },
+        "height": {
+          "unit": "FOOT",
+          "value": 40
+        }
+      }
+    ],
+    "insulators": [],
+    "foundations": [
+      {
+        "soilClassificationConstant": 70,
+        "name": "Average",
+        "typeLabel": "Basic (Seiler)"
+      }
+    ],
+    "crossArms": [],
+    "braces": []
+  },
+  "analysisCase": {
+    "addByDefault": false,
+    "analysisMethod": "DIRECT_STIFFNESS",
+    "analyzeGroundLineOnly": false,
+    "analyzeWithAverageSpan": false,
+    "analyzeWithoutLinearConstant": false,
+    "connectionType": "CONTINUATION",
+    "constructionGrade": "B",
+    "constructionType": "NEW",
+    "displacementBasedLoadChangesLevel": "NONE",
+    "loadZone": "HEAVY",
+    "maximumAllowableTensionedDisplacement": {
+      "unit": "METRE",
+      "value": 0.1
+    },
+    "maximumLoadingRatio": 1,
+    "minimumDisplacementLoadingTension": {
+      "unit": "NEWTON",
+      "value": 225
+    },
+    "name": "NESC 2007",
+    "pretensionGuys": false,
+    "staticPretensionMultiplier": 0.25,
+    "sweepIncrement": "DEGREE_1",
+    "type": "ZONE_LOAD_CASE",
+    "useStrengthResults": false,
+    "windEndAngle": {
+      "unit": "DEGREE_ANGLE",
+      "value": 3.6E+2
+    },
+    "windStartAngle": {
+      "unit": "DEGREE_ANGLE",
+      "value": 0
+    },
+    "windType": "SWEEP"
+  },
+  "structure": {
+    "pole": {
+      "glc": {
+        "unit": "FOOT",
+        "value": 2.0614125023555077
+      },
+      "agl": {
+        "unit": "FOOT",
+        "value": 30
+      },
+      "environment": "STREET",
+      "temperature": {
+        "unit": "FAHRENHEIT",
+        "value": 60
+      },
+      "stressRatio": 1,
+      "leanAngle": 0,
+      "leanDirection": 0,
+      "clientItemVersion": "7a9a9cae0c616f2603083e95a2620ed4",
+      "clientItem": {
+        "species": "Fiberglass",
+        "classOfPole": "10\" Series II",
+        "height": {
+          "unit": "FOOT",
+          "value": 40
+        }
+      },
+      "externalId": "5751a56145687738fb3b483d",
+      "owner": {
+        "id": "Pig",
+        "industry": "UTILITY",
+        "externalId": "5751a56145687738fb3b4841"
+      },
+      "foundation": "Foundation"
+    },
+    "wireEndPoints": [],
+    "spanPoints": [],
+    "anchors": [],
+    "notePoints": [],
+    "pointLoads": [],
+    "damages": [],
+    "wires": [],
+    "spanGuys": [],
+    "guys": [],
+    "equipments": [],
+    "crossArms": [],
+    "insulators": [],
+    "pushBraces": [],
+    "sidewalkBraces": [],
+    "foundations": [
+      {
+        "id": "Foundation",
+        "externalId": "5751a56145687738fb3b483e",
+        "clientItem": "Average",
+        "clientItemVersion": "9c9da5d8aae04f8567063a7b09b90b4e",
+        "groundWaterLevel": {
+          "unit": "INCH",
+          "value": -120
+        }
+      }
+    ]
+  }
+}
