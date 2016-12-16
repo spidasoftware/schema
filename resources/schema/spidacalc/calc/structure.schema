@@ -737,17 +737,9 @@
           "direction",
           "glc"
         ],
-        "anyOf": [
-          {
-            "required": [
-              "clientItem"
-            ]
-          },
-          {
-            "required": [
-              "clientItemVersion"
-            ]
-          }
+        "anyOf":[
+          {"required":["clientItem"]},
+          {"required":["clientItemVersion"]}
         ],
         "additionalProperties": false,
         "properties": {
