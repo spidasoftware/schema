@@ -18,11 +18,12 @@ class AssembliesChangeSet extends ChangeSet {
 
 	@Override
 	void apply(JSONObject json) throws ConversionException {
-		forEachLocation(json, {JSONObject location ->
-			location.designs?.each {JSONObject design ->
-				design.remove("framingPlan")
-			}
-		})
+		// TODO: Apply this after assemblies are finalized
+//		forEachLocation(json, {JSONObject location ->
+//			location.designs?.each {JSONObject design ->
+//				design.remove("framingPlan")
+//			}
+//		})
 	}
 
 	@Override

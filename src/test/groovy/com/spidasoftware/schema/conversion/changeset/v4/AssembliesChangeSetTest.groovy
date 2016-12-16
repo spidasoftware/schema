@@ -8,7 +8,37 @@ import spock.lang.Specification
 
 class AssembliesChangeSetTest extends Specification {
 
-	def "Apply"() {
+	// TODO: Apply this when new assembly changes are complete.
+//	def "Apply"() {
+//		String jsonString = """{
+//		"leads": [
+//			{
+//			"locations": [
+//			{
+//				"designs": [
+//					{
+//						"framingPlan": {
+//						}
+//					},
+//					{
+//						"framingPlan": {
+//						}
+//					}
+//				]
+//				}
+//			]
+//			}
+//		]
+//	}
+//"""
+//		def json = JSONSerializer.toJSON(jsonString)
+//		AssembliesChangeSet changeSet = new AssembliesChangeSet()
+//		changeSet.apply(json)
+//		expect:
+//			json.leads.first().locations.first().designs.every {it.containsKey("framingPlan") == false}
+//	}
+
+	def "revert"() {
 		String jsonString = """{
 		"leads": [
 			{
@@ -16,11 +46,9 @@ class AssembliesChangeSetTest extends Specification {
 			{
 				"designs": [
 					{
-						"framingPlan": {
-						}
-					},
-					{
-						"framingPlan": {
+						"structure": {
+							"assemblies": [],
+							"assemblyPlan": []
 						}
 					}
 				]
@@ -32,11 +60,11 @@ class AssembliesChangeSetTest extends Specification {
 """
 		def json = JSONSerializer.toJSON(jsonString)
 		AssembliesChangeSet changeSet = new AssembliesChangeSet()
-		changeSet.apply(json)
+		changeSet.revert(json)
 		expect:
-			json.leads.first().locations.first().designs.every {it.containsKey("framingPlan") == false}
-	}
-
-	def "Revert"() {
+			json.leads.first().locations.first().designs.every {design ->
+				(design.structure.containsKey("assemblies") == false) &&
+				(design.structure.containsKey("assemblyPlan") == false)
+			}
 	}
 }
