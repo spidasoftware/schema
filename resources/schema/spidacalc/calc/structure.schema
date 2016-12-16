@@ -17,9 +17,17 @@
         "required": [
           "id"
         ],
-        "anyOf":[
-          {"required":["clientItem"]},
-          {"required":["clientItemVersion"]}
+        "anyOf": [
+          {
+            "required": [
+              "clientItem"
+            ]
+          },
+          {
+            "required": [
+              "clientItemVersion"
+            ]
+          }
         ],
         "additionalProperties": false,
         "properties": {
@@ -51,14 +59,14 @@
       "description": "List of all anchors in this structure.",
       "type": "array",
       "items": {
-        "$ref":"../../spidacalc/calc/anchor.schema"
+        "$ref": "../../spidacalc/calc/anchor.schema"
       }
     },
     "wireEndPoints": {
       "description": "List of all wire end points in the structure. Wire end points are the poles/buildings at the other end of your wires.",
       "type": "array",
       "items": {
-        "$ref":"../../spidacalc/calc/wire_end_point.schema"
+        "$ref": "../../spidacalc/calc/wire_end_point.schema"
       }
     },
     "spanPoints": {
@@ -323,9 +331,17 @@
           "owner",
           "usageGroup"
         ],
-        "anyOf":[
-          {"required":["clientItem"]},
-          {"required":["clientItemVersion"]}
+        "anyOf": [
+          {
+            "required": [
+              "clientItem"
+            ]
+          },
+          {
+            "required": [
+              "clientItemVersion"
+            ]
+          }
         ],
         "additionalProperties": false,
         "properties": {
@@ -360,7 +376,7 @@
             "type": "number",
             "description": "Additional wire-specific tension adjustment in addition to load case tension multipliers."
           },
-          "connectionId":{
+          "connectionId": {
             "description": "The shared connection id.  Represents the unique connection between two objects.  Must be two and only two objects with the same id.",
             "pattern": "[a-f0-9]{24}",
             "type": "string"
@@ -390,9 +406,17 @@
           "height",
           "type"
         ],
-        "anyOf":[
-          {"required":["clientItem"]},
-          {"required":["clientItemVersion"]}
+        "anyOf": [
+          {
+            "required": [
+              "clientItem"
+            ]
+          },
+          {
+            "required": [
+              "clientItemVersion"
+            ]
+          }
         ],
         "additionalProperties": false,
         "properties": {
@@ -416,8 +440,11 @@
           "height": {
             "$ref": "../../general/measurable.schema"
           },
-          "type":{
-            "enum":["SUPPORT", "LOAD"]
+          "type": {
+            "enum": [
+              "SUPPORT",
+              "LOAD"
+            ]
           },
           "clientItem": {
             "$ref": "../../spidacalc/calc/client_references/wire.schema",
@@ -442,9 +469,17 @@
           "attachmentHeight",
           "owner"
         ],
-        "anyOf":[
-          {"required":["clientItem"]},
-          {"required":["clientItemVersion"]}
+        "anyOf": [
+          {
+            "required": [
+              "clientItem"
+            ]
+          },
+          {
+            "required": [
+              "clientItemVersion"
+            ]
+          }
         ],
         "additionalProperties": false,
         "properties": {
@@ -496,9 +531,17 @@
           "owner",
           "guys"
         ],
-        "anyOf":[
-          {"required":["clientItem"]},
-          {"required":["clientItemVersion"]}
+        "anyOf": [
+          {
+            "required": [
+              "clientItem"
+            ]
+          },
+          {
+            "required": [
+              "clientItemVersion"
+            ]
+          }
         ],
         "additionalProperties": false,
         "properties": {
@@ -556,9 +599,17 @@
           "direction",
           "bottomHeight"
         ],
-        "anyOf":[
-          {"required":["clientItem"]},
-          {"required":["clientItemVersion"]}
+        "anyOf": [
+          {
+            "required": [
+              "clientItem"
+            ]
+          },
+          {
+            "required": [
+              "clientItemVersion"
+            ]
+          }
         ],
         "additionalProperties": false,
         "properties": {
@@ -609,9 +660,17 @@
           "direction",
           "offset"
         ],
-        "anyOf":[
-          {"required":["clientItem"]},
-          {"required":["clientItemVersion"]}
+        "anyOf": [
+          {
+            "required": [
+              "clientItem"
+            ]
+          },
+          {
+            "required": [
+              "clientItemVersion"
+            ]
+          }
         ],
         "additionalProperties": false,
         "properties": {
@@ -676,9 +735,17 @@
           "direction",
           "offset"
         ],
-        "anyOf":[
-          {"required":["clientItem"]},
-          {"required":["clientItemVersion"]}
+        "anyOf": [
+          {
+            "required": [
+              "clientItem"
+            ]
+          },
+          {
+            "required": [
+              "clientItemVersion"
+            ]
+          }
         ],
         "additionalProperties": false,
         "properties": {
@@ -737,9 +804,17 @@
           "direction",
           "glc"
         ],
-        "anyOf":[
-          {"required":["clientItem"]},
-          {"required":["clientItemVersion"]}
+        "anyOf": [
+          {
+            "required": [
+              "clientItem"
+            ]
+          },
+          {
+            "required": [
+              "clientItemVersion"
+            ]
+          }
         ],
         "additionalProperties": false,
         "properties": {
@@ -778,6 +853,26 @@
             "pattern": "[a-f0-9]{32}",
             "description": "Hash of the client item containing the engineering properties for this push brace."
           }
+        }
+      }
+    },
+    "assemblies": {
+      "description": "List of all assemblies that *have been* applied to the pole.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Placehold for assembly object. Replace with real object after implementation is stable",
+        "additionalProperties": true,
+        "properties": {}
+      },
+      "assemblyPlan": {
+        "description": "List of all assemblies that should be stacked on the pole.",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "description": "Placehold for assembly object. Replace with real object after implementation is stable",
+          "additionalProperties": true,
+          "properties": {}
         }
       }
     }
