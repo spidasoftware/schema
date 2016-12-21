@@ -129,6 +129,7 @@ class Converter {
     	calcProjectConverter.addChangeSet(4, new LocationWepChangeSet())
     	calcProjectConverter.addChangeSet(4, new WireConnectionIdChangeSet())
 		calcProjectConverter.addChangeSet(4, new MapLocationChangeSet())
+		calcProjectConverter.addChangeSet(4, new AssembliesChangeSet())
 		// add calc project changesets here
 		converters.put(calcProjectConverter.schemaPath, calcProjectConverter)
 	}

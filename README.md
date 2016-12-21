@@ -9,7 +9,7 @@ Look at the [Release](https://github.com/spidasoftware/schema/releases) page for
 
 License
 -------
-By accessing, downloading or using the APIs defined here you are agreeing to these terms of use [here.](https://github.com/spidasoftware/schema/raw/master/2013_10_25%20SPIDA%20API%20Terms%20of%20Service.pdf)
+By accessing, downloading or using the APIs defined here you are agreeing to these terms of use [here.](https://github.com/spidasoftware/schema/raw/master/SPIDAWeb API Terms of Service (18 May 2016).pdf)
 
 General Overview of the Schema
 --------------------------------
