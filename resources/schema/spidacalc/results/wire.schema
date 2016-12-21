@@ -10,9 +10,17 @@
       "type": "string",
       "description": "The id of the item."
     },
-    "description":{
-      "type":"string",
-      "description":"a readable string that is used for display"
+    "clientItem": {
+      "type": "string",
+      "description": "the name of the component in the client file"
+    },
+    "owner": {
+      "type": "string",
+      "description": "the name of the company that owns the physical wire"
+    },
+    "position": {
+      "description": "height on pole, anchor lead, or insulator position on cross arm",
+      "$ref": "../../general/measurable.schema"
     },
     "sag": {
       "$ref": "../../general/measurable.schema"

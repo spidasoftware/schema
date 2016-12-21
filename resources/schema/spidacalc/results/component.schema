@@ -2,16 +2,24 @@
   "description": "A copmeonnt is an compination of an individual item and analysis type i.e. Pole Buckling",
   "type": "object",
   "required": [
-    "itemId", "itemDescription", "poles", "actual", "actualEngineering", "ratio", "allowable", "allowableEngineering", "failingRatio", "status", "resultsType", "analysisType"
+    "id", "poles", "actual", "actualEngineering", "ratio", "allowable", "allowableEngineering", "failingRatio", "status", "resultsType", "analysisType"
   ],
   "properties": {
-    "itemId": {
+    "id": {
       "type": "string",
       "description": "the unique per structure of the item that was being examined"
     },
-    "itemDescription": {
+    "clientItem": {
       "type": "string",
-      "description": "the readable description of the item that was being examined"
+      "description": "the name of the component in the client file"
+    },
+    "owner": {
+      "type": "string",
+      "description": "the name of the company that owns the physical component"
+    },
+    "position": {
+      "description": "height on pole, anchor lead, or insulator position on cross arm",
+      "$ref": "../../general/measurable.schema"
     },
     "analysisType": {
       "$ref": "../../general/analysis_type.schema"

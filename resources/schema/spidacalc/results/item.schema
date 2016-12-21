@@ -3,16 +3,24 @@
   "id": "#/spidacalc/results/item.schema",
   "description": "The forces on a single component item.",
   "required": [
-    "id", "description"
+    "id"
   ],
   "properties": {
     "id": {
       "type": "string",
       "description": "The id of the item."
     },
-    "description":{
-      "type":"string",
-      "description":"a readable string that is used for display"
+    "clientItem": {
+      "type": "string",
+      "description": "the name of the component in the client file"
+    },
+    "owner": {
+      "type": "string",
+      "description": "the name of the company that owns the physical component"
+    },
+    "position": {
+      "description": "height on pole, anchor lead, or insulator position on cross arm",
+      "$ref": "../../general/measurable.schema"
     },
     "applied": {
       "$ref": "../../general/point_load.schema"
