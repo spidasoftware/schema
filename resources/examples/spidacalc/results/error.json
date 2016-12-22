@@ -5,8 +5,8 @@
     "analysisDate": 1465409694124,
     "engineVersion": "7.0.0.0-SNAPSHOT",
     "components": [{
-      "itemId": "itemId",
-      "itemDescription": "itemId",
+      "id": "Pole",
+      "clientItem": "40' Class 4 Southern Yellow Pine",
       "resultsType": "PERCENT_LOADED",
       "analysisType": "STRESS",
       "failingRatio": 0.0,
@@ -78,7 +78,7 @@
       "message": "Basic Exception",
       "poles": [{
         "id": "Pole",
-        "description": "40' Class 4 Southern Yellow Pine"
+        "clientItem": "40' Class 4 Southern Yellow Pine"
       }]
     }]
   }]

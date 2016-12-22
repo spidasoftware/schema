@@ -22,8 +22,7 @@ class SchemaValidationTest extends GroovyTestCase {
 				log.info "Loading Json from ${schemaFile.absolutePath}"
 				def schemaNode = JsonLoader.fromPath(schemaFile.absolutePath)
 				report = schemaValidator.validateSchema(schemaNode)
-				report.each{ log.info "${schemaFile.absolutePath} validation report "+it.toString() }
-				assertTrue "the schema should be valid", report.isSuccess()
+				assertTrue "this schema should be valid \n${report.toString()}", report.isSuccess()
   			}
   		}
 	}
