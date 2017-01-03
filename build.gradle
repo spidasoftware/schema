@@ -52,7 +52,7 @@ buildscript {
 
 repositories {
 	mavenCentral()
-	maven { url m2Settings.exposed }
+	maven { url System.getenv("ARTIFACTORY_URL_EXPOSED") }
 }
 
 uploadArchives {
