@@ -58,7 +58,7 @@ repositories {
 uploadArchives {
 	repositories.mavenDeployer {
 		repository(url: System.getenv("ARTIFACTORY_URL_EXPOSED")) {
-			authentication(userName: System.getenv("ARTIFACTORY_USERNAME"), System.getenv("ARTIFACTORY_PASSWORD"))
+			authentication(userName: System.getenv("ARTIFACTORY_USERNAME"), password: System.getenv("ARTIFACTORY_PASSWORD"))
 		}
 	}
 }
