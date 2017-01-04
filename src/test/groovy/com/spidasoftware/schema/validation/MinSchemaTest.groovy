@@ -62,60 +62,52 @@ class MinSchemaTest extends GroovyTestCase {
 		def instance = '{"name":"blah","companyId": 42,"uuid":"blahblah", "bytes":"abc","associations":[{"level":"COMPANY","product": "CALC_DB","sourceId": "42", "latitude": 7, "longitude": 8}]}'
 		def schema = factory.getJsonSchema("schema/spidamin/asset/attachment.schema")
 		report = schema.validate(JsonLoader.fromString(instance))
-		report.each{ log.info "validation report "+it.toString() }
-		assertTrue "should be a valid instance against the schema", report.isSuccess()
+		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
 	}
 
 	void testProjectRequestBadStations(){
 		def schema = factory.getJsonSchema("schema/spidamin/project/project.schema")
 		report = schema.validate(JsonLoader.fromString("""{ "name": "Project4", "flowId": 3359184, "draft": false, "deleted": false, "stations": [ { "other": "val" } ]	}"""))
-		report.each{ log.info "validation report "+it.toString() }
-		assertFalse "should be invalid instance against the schema", report.isSuccess()
+		assertFalse "this instance should NOT be valid against the schema \n${report.toString()}", report.isSuccess()
 	}
 
 	void testExampleGetStations(){
 		def schema = factory.getJsonSchema("schema/spidamin/asset/stations.schema")
 		report = schema.validate(JsonLoader.fromString(new File("resources/examples/spidamin/asset/getStations_response.json").text))
-		report.each{ log.info "validation report "+it.toString() }
-		assertTrue "should be a valid instance against the schema", report.isSuccess()
+		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
 	}
 
 	void testExampleProjectRequest(){
 		def schema = factory.getJsonSchema("schema/spidamin/project/project.schema")
 		report = schema.validate(JsonLoader.fromString(new File("resources/examples/spidamin/project/createOrUpdate_request.json").text))
-		report.each{ log.info "validation report "+it.toString() }
-		assertTrue "should be a valid instance against the schema", report.isSuccess()
+		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
 	}
 
 	void testExampleProjectResponse(){
 		log.info "testExampleProjectResponse()"
 		def schema = factory.getJsonSchema("schema/spidamin/project/projects.schema")
 		report = schema.validate(JsonLoader.fromString(new File("resources/examples/spidamin/project/getProjects_response.json").text))
-		report.each{ log.info "validation report "+it.toString() }
-		assertTrue "should be a valid instance against the schema", report.isSuccess()
+		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
 	}
 
 	void testExampleGetLinksResponse(){
 		log.info "testExampleGetLinksResponse()"
 		def schema = factory.getJsonSchema("schema/spidamin/project/station_links.schema")
 		report = schema.validate(JsonLoader.fromString(new File("resources/examples/spidamin/project/getLinks_response.json").text))
-		report.each{ log.info "validation report "+it.toString() }
-		assertTrue "should be a valid instance against the schema", report.isSuccess()
+		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
 	}
 
 	void testExampleGetFlows(){
 		def schema = factory.getJsonSchema("schema/spidamin/project/flows.schema")
 		report = schema.validate(JsonLoader.fromString(new File("resources/examples/spidamin/project/getFlows_response.json").text))
-		report.each{ log.info "validation report "+it.toString() }
-		assertTrue "should be a valid instance against the schema", report.isSuccess()
+		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
 	}
 
 	void testExampleUser(){
 		["user_response.json", "createOrUpdate_create_request.json", "createOrUpdate_update_request.json"].each {
 			def schema = factory.getJsonSchema("schema/spidamin/user/user.schema")
 			report = schema.validate(JsonLoader.fromString(new File("resources/examples/spidamin/user/${it}").text))
-			report.each{ log.info "validation report "+it.toString() }
-			assertTrue "should be a valid instance against the schema", report.isSuccess()
+			assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
 		}
 	}
 

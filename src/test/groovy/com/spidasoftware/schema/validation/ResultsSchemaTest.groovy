@@ -17,9 +17,13 @@ class ResultsSchemaTest extends GroovyTestCase {
 	void testErrorResult(){
 		def schema = factory.getJsonSchema("schema/spidacalc/results/results.schema")
 		report = schema.validate(JsonLoader.fromString(new File("resources/examples/spidacalc/results/error.json").text))
-		report.each{ log.info "testErrorResult validation report "+it.toString() }
-		println report.toString()
-		assertTrue "this instance should be valid against the schema", report.isSuccess()
+		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
+	}
+
+	void testSimpleResult(){
+		def schema = factory.getJsonSchema("schema/spidacalc/results/results.schema")
+		report = schema.validate(JsonLoader.fromString(new File("resources/examples/spidacalc/results/simple-pole.json").text))
+		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
 	}
 
 }

@@ -19,7 +19,7 @@ class ValidatorTest extends TestCase {
 		def schema = "/schema/spidacalc/calc/structure.schema"
 		def instance = new File("resources/examples/spidacalc/designs/one_of_everything.json").text
 		def report = new Validator().validateAndReport(schema, instance)
-		assertTrue "the instance should be valid against a schema", report.isSuccess()
+		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
 
 		def exception = null
 		try {
@@ -34,7 +34,7 @@ class ValidatorTest extends TestCase {
 		def schema = "/schema/spidacalc/calc/structure.schema"
 		def instance = '{"id":"externalId", "distance":{"unit":"FOOT", "value":10}, "direction":0}'
 		def report = new Validator().validateAndReport(schema, instance)
-		assertFalse "the instance should be valid against a schema", report.isSuccess()
+		assertFalse "this instance should NOT be valid against the schema \n${report.toString()}", report.isSuccess()
 
 		def exception = null
 		try {
@@ -84,8 +84,7 @@ class ValidatorTest extends TestCase {
 '''
 		def instance = '{"properties":{"externalId":"abc123"}}'
 		def report = new Validator().validateAndReportFromText(schemaText, instance)
-		report.each{println it}
-		assertTrue "the instance should be valid against a schema", report.isSuccess()
+		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
 
 		def exception = null
 		try {
@@ -100,7 +99,7 @@ class ValidatorTest extends TestCase {
 		def schemaFile = new File("resources/schema/spidacalc/calc/structure.schema")
 		def instance = new File("resources/examples/spidacalc/designs/one_of_everything.json").text
 		def report = new Validator().validateAndReport(schemaFile, instance)
-		assertTrue "the instance should be valid against a schema", report.isSuccess()
+		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
 
 		def exception = null
 		try {
@@ -115,7 +114,7 @@ class ValidatorTest extends TestCase {
 		def schemaURL = this.getClass().getResource("/schema/spidacalc/calc/structure.schema")
 		def instance = new File("resources/examples/spidacalc/designs/one_of_everything.json").text
 		def report = new Validator().validateAndReport(schemaURL, instance)
-		assertTrue "the instance should be valid against a schema", report.isSuccess()
+		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
 
 		def exception = null
 		try {

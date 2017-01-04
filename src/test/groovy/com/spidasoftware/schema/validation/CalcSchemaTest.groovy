@@ -18,100 +18,86 @@ class CalcSchemaTest extends GroovyTestCase {
 		def schema = factory.getJsonSchema("schema/spidacalc/calc/project.schema")
 		report = schema.validate(JsonLoader.fromString(new File("resources/examples/spidacalc/projects/minimal_project_with_forms.json").text))
 		report.each{ log.info "testProjectWithGPSObject validation report "+it.toString() }
-		println report.toString()
-		assertTrue "this instance should be valid against the schema", report.isSuccess()
+		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
 	}
 
 	void testClientPoleObject(){
 		def instance = '{"species":"pine", "height":{"unit":"FOOT", "value":100}, "classOfPole":"h2"}'
 		def schema = factory.getJsonSchema("schema/spidacalc/calc/client_references/pole.schema")
 		report = schema.validate(JsonLoader.fromString(instance))
-		report.each{ log.info "testClientPoleObject validation report "+it.toString() }
-		assertTrue "this instance should be valid against the schema", report.isSuccess()
+		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
 	}
 
 	void testBasicDesignObject(){
 		def schema = factory.getJsonSchema("schema/spidacalc/calc/structure.schema")
 		report = schema.validate(JsonLoader.fromString(new File("resources/examples/spidacalc/designs/empty_pole.json").text))
-		report.each{ log.info "testBasicDesignObject validation report "+it.toString() }
-		assertTrue "this instance should be valid against the schema", report.isSuccess()
+		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
 	}
 
 	void testOneOfEverythingObject(){
 		def schema = factory.getJsonSchema("schema/spidacalc/calc/structure.schema")
 		report = schema.validate(JsonLoader.fromString(new File("resources/examples/spidacalc/designs/one_of_everything.json").text))
-		report.each{ log.info "testOneOfEverythingObject validation report "+it.toString() }
-		assertTrue "this instance should be valid against the schema", report.isSuccess()
+		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
 	}
 
 	void testDamagesObject(){
 		def schema = factory.getJsonSchema("schema/spidacalc/calc/structure.schema")
 		report = schema.validate(JsonLoader.fromString(new File("resources/examples/spidacalc/designs/damages.json").text))
-		report.each{ log.info "testOneOfEverythingObject validation report "+it.toString() }
-		assertTrue "this instance should be valid against the schema", report.isSuccess()
+		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
 	}
 
 	void testBisectorObject(){
 		def schema = factory.getJsonSchema("schema/spidacalc/calc/structure.schema")
 		report = schema.validate(JsonLoader.fromString(new File("resources/examples/spidacalc/designs/bisector.json").text))
-		report.each{ log.info "testBisectorObject validation report "+it.toString() }
-		assertTrue "this instance should be valid against the schema", report.isSuccess()
+		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
 	}
 	void testInsulatorObject(){
 		def schema = factory.getJsonSchema("schema/spidacalc/calc/structure.schema")
 		report = schema.validate(JsonLoader.fromString(new File("resources/examples/spidacalc/designs/insulator.json").text))
-		report.each{ log.info "testInsulatorObject validation report "+it.toString() }
-		assertTrue "this instance should be valid against the schema", report.isSuccess()
+		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
 	}
 
 	void testWireObject(){
 		def schema = factory.getJsonSchema("schema/spidacalc/calc/structure.schema")
 		report = schema.validate(JsonLoader.fromString(new File("resources/examples/spidacalc/designs/wire.json").text))
-		report.each{ log.info "testWireObject validation report "+it.toString() }
-		assertTrue "this instance should be valid against the schema", report.isSuccess()
+		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
 	}
 
 	void testXArmObject(){
 		def schema = factory.getJsonSchema("schema/spidacalc/calc/structure.schema")
 		report = schema.validate(JsonLoader.fromString(new File("resources/examples/spidacalc/designs/xarm.json").text))
-		report.each{ log.info "testXArmObject validation report "+it.toString() }
-		assertTrue "this instance should be valid against the schema", report.isSuccess()
+		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
 	}
 
 
 	void testProjectWithGPSObject(){
 		def schema = factory.getJsonSchema("schema/spidacalc/calc/project.schema")
 		report = schema.validate(JsonLoader.fromString(new File("resources/examples/spidacalc/projects/minimal_project_with_gps.json").text))
-		report.each{ log.info "testProjectWithGPSObject validation report "+it.toString() }
-		assertTrue "this instance should be valid against the schema", report.isSuccess()
+		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
 	}
 
 	void testFraming(){
 		def schema = factory.getJsonSchema("schema/spidacalc/calc/project.schema")
 		report = schema.validate(JsonLoader.fromString(new File("resources/examples/spidacalc/projects/minimum_project_framing_gps.json").text))
-		report.each{ log.info "testFraming validation report "+it.toString() }
-		assertTrue "this instance should be valid against the schema", report.isSuccess()
+		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
 	}
 
 	void testFullProjectObject(){
 		def schema = factory.getJsonSchema("schema/spidacalc/calc/project.schema")
 		report = schema.validate(JsonLoader.fromString(new File("resources/examples/spidacalc/projects/full_project.json").text))
-		report.each{ log.info "testFullProjectObject validation report "+it.toString() }
-		assertTrue "this instance should be valid against the schema", report.isSuccess()
+		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
 	}
 
 	void testMinimalProjectObject(){
 		def schema = factory.getJsonSchema("schema/spidacalc/calc/project.schema")
 		report = schema.validate(JsonLoader.fromString(new File("resources/examples/spidacalc/projects/minimal_project_no_designs.json").text))
-		report.each{ log.info "testMinimalProjectObject validation report "+it.toString() }
-		assertTrue "this instance should be valid against the schema", report.isSuccess()
+		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
 	}
 
 	void testMultipleProjects(){
 		def schema = factory.getJsonSchema("schema/spidacalc/calc/projects.schema")
 		report = schema.validate(JsonLoader.fromString(new File("resources/examples/spidacalc/projects/multiple_projects.json").text))
-		report.each{ log.info "testMultipleProjects validation report "+it.toString() }
-		assertTrue "this instance should be valid against the schema", report.isSuccess()
+		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
 	}
 
 	void testProjectAdditionalProperties() {
@@ -119,17 +105,17 @@ class CalcSchemaTest extends GroovyTestCase {
 		JSONObject json = JSONObject.fromObject(new File("resources/examples/spidacalc/projects/full_project.json").text)
 		json.put("an additional property", "shouldn't validate")
 		report = schema.validate(JsonLoader.fromString(json.toString()))
-		assertFalse "this instance should be valid against the schema", report.isSuccess()
+		assertFalse "this instance should NOT be valid against the schema \n${report.toString()}", report.isSuccess()
 
 		json = JSONObject.fromObject(new File("resources/examples/spidacalc/projects/full_project.json").text)
 		json.getJSONArray("leads").getJSONObject(0).put("an additional property", "shouldn't validate")
 		report = schema.validate(JsonLoader.fromString(json.toString()))
-		assertFalse "this instance should be valid against the schema", report.isSuccess()
+		assertFalse "this instance should NOT be valid against the schema \n${report.toString()}", report.isSuccess()
 
 		json = JSONObject.fromObject(new File("resources/examples/spidacalc/projects/full_project.json").text)
 		json.getJSONArray("leads").getJSONObject(0).getJSONArray("locations").getJSONObject(0).put("an additional property", "shouldn't validate")
 		report = schema.validate(JsonLoader.fromString(json.toString()))
-		assertFalse "this instance should be valid against the schema", report.isSuccess()
+		assertFalse "this instance should NOT be valid against the schema \n${report.toString()}", report.isSuccess()
 
 		def testFailues = []
 		def locationComponents = ["geographicCoordinate", "remedies", "poleTags", "images"]
@@ -150,12 +136,12 @@ class CalcSchemaTest extends GroovyTestCase {
 		json = JSONObject.fromObject(new File("resources/examples/spidacalc/projects/full_project.json").text)
 		json.getJSONArray("leads").getJSONObject(0).getJSONArray("locations").getJSONObject(0).getJSONArray("designs").getJSONObject(0).put("an additional property", "shouldn't validate")
 		report = schema.validate(JsonLoader.fromString(json.toString()))
-		assertFalse "this instance should be valid against the schema", report.isSuccess()
+		assertFalse "this instance should NOT be valid against the schema \n${report.toString()}", report.isSuccess()
 
 		json = JSONObject.fromObject(new File("resources/examples/spidacalc/projects/full_project.json").text)
 		json.getJSONArray("leads").getJSONObject(0).getJSONArray("locations").getJSONObject(0).getJSONArray("designs").getJSONObject(0).getJSONArray("analysis").getJSONObject(0).put("an additional property", "shouldn't validate")
 		report = schema.validate(JsonLoader.fromString(json.toString()))
-		assertFalse "this instance should be valid against the schema", report.isSuccess()
+		assertFalse "this instance should NOT be valid against the schema \n${report.toString()}", report.isSuccess()
 	}
 
 	void testStructureAddidtionalProperties() {
@@ -169,13 +155,13 @@ class CalcSchemaTest extends GroovyTestCase {
 	    JSONObject json = JSONObject.fromObject(oneOfEverythingText)
 	    json.put("an additional property", "shouldn't validate")
 	    report = schema.validate(JsonLoader.fromString(json.toString()))
-	    assertFalse "Added an additional property to the structure, it should not validate", report.isSuccess()
+		assertFalse "this instance should NOT be valid against the schema \n${report.toString()}", report.isSuccess()
 
 	    // Test the pole object
 	    json = JSONObject.fromObject(oneOfEverythingText)
 		json.getJSONObject("pole").put("an additional property", "shouldn't validate")
 		report = schema.validate(JsonLoader.fromString(json.toString()))
-		assertFalse "Added an additional property to the pole, it should not validate", report.isSuccess()
+		assertFalse "this instance should NOT be valid against the schema \n${report.toString()}", report.isSuccess()
 
 		// Test all of the other properties of the structure
 	    allStructureComponents.each { item ->
@@ -196,10 +182,10 @@ class CalcSchemaTest extends GroovyTestCase {
 		location.getJSONArray("images").add(new JSONObject(["url":"/some/url", "link":["source":"FFF","id":"3432432432"]]))
 		def schema = factory.getJsonSchema("schema/spidacalc/calc/location.schema")
 		report = schema.validate(JsonLoader.fromString(location.toString()))
-		assertTrue "Valid images added, should validate", report.isSuccess()
+		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
 
 		location.getJSONArray("images").add(new JSONObject(["link":["source":"FFF","id":"3432432432"]]))
 		report = schema.validate(JsonLoader.fromString(location.toString()))
-		assertFalse "Invalid image added, url is required should not validate", report.isSuccess()
+		assertFalse "this instance should NOT be valid against the schema \n${report.toString()}", report.isSuccess()
 	}
 }
