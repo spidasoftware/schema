@@ -1,49 +1,42 @@
 package com.spidasoftware.schema.conversion.changeset.v4
 
-import com.spidasoftware.schema.conversion.changeset.ChangeSet
+import com.spidasoftware.schema.conversion.changeset.AbstractDesignChangeset
 import com.spidasoftware.schema.conversion.changeset.ConversionException
 import net.sf.json.JSONObject
 import net.sf.json.JSONArray
 
-class SupportTypeChangeSet extends ChangeSet{
+class SupportTypeChangeSet extends AbstractDesignChangeset {
 
     @Override
-    String getSchemaPath() {
-        return "/schema/spidacalc/calc/project.schema"
+    void applyToDesign(JSONObject design) throws ConversionException {
+		JSONObject structure = design.get("structure")
+		structure?.get('anchors')?.each({ JSONObject anchor ->
+			def supportType = anchor.get('supportType')
+			if (supportType) {
+				anchor.remove('supportType')
+				anchor.put('supportedWEPs', getSupportedWEPs(supportType, structure))
+			}
+		})
+		structure?.get('crossArms')?.each({ JSONObject crossArm ->
+			def associatedBacking = crossArm.get('associatedBacking')
+			if (associatedBacking) {
+				crossArm.remove('associatedBacking')
+				crossArm.put('supportedWEPs', getSupportedWEPs(associatedBacking, structure))
+			}
+		})
     }
 
     @Override
-    void apply(JSONObject json) throws ConversionException {
-		forEachStructure(json) { structure -> 
-			structure.get('anchors')?.each({ JSONObject anchor ->
-				def supportType = anchor.get('supportType')
-				if (supportType) {
-					anchor.remove('supportType')
-					anchor.put('supportedWEPs', getSupportedWEPs(supportType, structure))
-				}
-			})
-			structure.get('crossArms')?.each({ JSONObject crossArm ->
-				def associatedBacking = crossArm.get('associatedBacking')
-				if (associatedBacking) {
-					crossArm.remove('associatedBacking')
-					crossArm.put('supportedWEPs', getSupportedWEPs(associatedBacking, structure))
-				}
-			})
-		}
-    }
-
-    @Override
-    void revert(JSONObject json) throws ConversionException {
-		forEachStructure(json) { structure -> 
-			structure.get('anchors')?.each({ JSONObject anchor ->
-				anchor.put('supportType', getSupportType(anchor.get('supportedWEPs')))
-				anchor.remove('supportedWEPs')
-			})
-			structure.get('crossArms')?.each({ JSONObject crossArm ->
-				crossArm.put('associatedBacking', getSupportType(crossArm.get('supportedWEPs')))
-				crossArm.remove('supportedWEPs')
-			})
-		}
+    void revertDesign(JSONObject design) throws ConversionException {
+		JSONObject structure = design.get("structure")
+		structure?.get('anchors')?.each({ JSONObject anchor ->
+			anchor.put('supportType', getSupportType(anchor.get('supportedWEPs')))
+			anchor.remove('supportedWEPs')
+		})
+		structure?.get('crossArms')?.each({ JSONObject crossArm ->
+			crossArm.put('associatedBacking', getSupportType(crossArm.get('supportedWEPs')))
+			crossArm.remove('supportedWEPs')
+		})
 	}
 
 	private String getSupportType(JSONArray supportedWEPs) {

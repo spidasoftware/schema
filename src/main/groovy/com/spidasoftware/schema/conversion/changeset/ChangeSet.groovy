@@ -10,43 +10,48 @@ import net.sf.json.JSONObject
 @Log4j
 @CompileStatic
 abstract class ChangeSet {
-
-	/**
-	 * Get the schema this changeset applies to
-	 * @return
-	 */
-	abstract String getSchemaPath()
-
-	/**
-	 * Apply the changes to the json object in place
+	/***
+	 * Apply the changes to the project json object in place
 	 * @param json
 	 * @return
 	 */
-	abstract void apply(JSONObject json) throws ConversionException
+	abstract void applyToProject(JSONObject projectJSON) throws ConversionException
 
 	/**
-	 * Reverse the changes to the json object in place
+	 * Reverse the changes to the project json object in place
 	 * @param json
 	 */
-	abstract void revert(JSONObject json) throws ConversionException
+	abstract void revertProject(JSONObject projectJSON) throws ConversionException
+
+	 /**
+	 * Apply the changes to the location json object in place
+	 * @param json
+	 * @return
+	 */
+	abstract void applyToLocation(JSONObject locationJSON) throws ConversionException
+
+	/**
+	 * Reverse the changes to the location json object in place
+	 * @param json
+	 */
+	abstract void revertLocation(JSONObject locationJSON) throws ConversionException
+
+	/**
+	 * Apply the changes to the design json object in place
+	 * @param json
+	 * @return
+	 */
+	abstract void applyToDesign(JSONObject designJSON) throws ConversionException
+
+	 /**
+	 * Reverse the changes to the design json object in place
+	 * @param json
+	 */
+	 abstract void revertDesign(JSONObject designJSON) throws ConversionException
 
 	public void forEachLocation(JSONObject json, Closure closure) {
 		json.get("leads")?.each { JSONObject lead ->
 			lead.get("locations")?.each(closure)
 		}
 	}
-
-	public void forEachImage(JSONObject json, Closure closure) {
-		forEachLocation(json, { JSONObject location -> location.get('images')?.each(closure) })
-	}
-
-	public void forEachStructure(JSONObject json, Closure closure){
-		forEachLocation(json, { JSONObject location ->
-			location.get("designs")?.each { JSONObject design ->
-				def structure = design.get("structure")
-				closure(structure)
-			}
-		})
-	}
-
 }

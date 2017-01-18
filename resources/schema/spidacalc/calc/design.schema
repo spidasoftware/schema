@@ -7,6 +7,14 @@
             "description": "Primary Key and unique identifier for project component",
             "type": "string"
         },
+        "schema": {
+            "type": "string",
+            "description": "Full URL of the calc schema. /schema/spidacalc/calc/design.schema"
+        },
+        "version": {
+            "type": "number",
+            "description": "This is a schema version integer."
+        },
         "label": {
             "description": "Display name for project component",
             "type": "string"

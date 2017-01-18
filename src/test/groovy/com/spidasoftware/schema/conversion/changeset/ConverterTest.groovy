@@ -12,14 +12,14 @@ import spock.lang.Specification
 class ConverterTest extends Specification {
 
 	JSONObject json
-	Converter converter
+	AbstractConverter converter
 
 	ChangeSet oneToTwo
 	ChangeSet twoToThreeA
 	ChangeSet twoToThreeB
 
 	void setup() {
-		converter = new Converter()
+		converter = new ProjectConverter()
 		json = new JSONObject()
 
 		oneToTwo = GroovyMock()

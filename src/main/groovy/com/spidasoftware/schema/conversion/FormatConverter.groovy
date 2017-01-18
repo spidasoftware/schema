@@ -10,6 +10,7 @@ import org.bson.types.ObjectId
 
 class FormatConverter {
     private static final def log = Logger.getLogger(this)
+    public static final double INFINITE_RESULT = Double.MAX_VALUE
 
      Collection<CalcDBProjectComponent> convertCalcProject(Map calcProject) {
         List<CalcDBProjectComponent> components = []
@@ -161,8 +162,17 @@ class FormatConverter {
     private static List collectPoleResults(List originalAnalysisResults){
         List allPoleResults = []
         originalAnalysisResults.each { loadCase ->
-            def poleResults = loadCase.results.findAll { it.component.startsWith("Pole") }
-            allPoleResults.addAll(poleResults)
+            loadCase.results.each { JSONObject resultObject ->
+                if(resultObject.containsKey("component") && resultObject.containsKey("component") == "Pole") { // Old pre v4 analysis summary object
+                    allPoleResults.add(resultObject)
+                } else {
+                    resultObject.get("components").each { JSONObject componentResult ->
+                        if(componentResult.get("id") == "Pole") {
+                            allPoleResults.add(convertDetailedResultToSummaryResults(resultObject, componentResult))
+                        }
+                    }
+                }
+            }
         }
         return allPoleResults
     }
@@ -186,7 +196,7 @@ class FormatConverter {
                 normalizedResult = result.getDouble("allowable") / result.getDouble("actual")
             }
 
-            if (normalizedResult < worstNormalizedResult){
+            if (normalizedResult < worstNormalizedResult) {
                 worstNormalizedResult = normalizedResult
                 worstResult = JSONObject.fromObject(result)
             }
@@ -200,12 +210,36 @@ class FormatConverter {
         analysisList.each { loadCase ->
             loadCase.get("results").each { result ->
                 JSONObject resultObject = (JSONObject) result
-                if (resultObject.get("component") == componentId) {
-                    results.add(resultObject)
+                if(resultObject.containsKey("component")) { // Old pre v4 analysis summary object
+                    if (resultObject.get("component") == componentId) {
+                        results.add(resultObject)
+                    }
+                } else {
+                    resultObject.get("components").each { JSONObject componentResult ->
+                        if(componentResult.get("id") == componentId) {
+                            results.add(convertDetailedResultToSummaryResults(resultObject, componentResult))
+                        }
+                    }
                 }
             }
         }
         return results
+    }
+
+    public static JSONObject convertDetailedResultToSummaryResults(JSONObject loadCaseResults, JSONObject componentResult) {
+        JSONObject analysisAsset = new JSONObject()
+        double actual = componentResult.getDouble("actual")
+        actual = Math.min(INFINITE_RESULT, actual)
+        analysisAsset.put("actual", actual);
+        analysisAsset.put("allowable", componentResult.getDouble("allowable"))
+        String resultsType = componentResult.getString("resultsType") == "PERCENT_LOADED" ? "PERCENT" : "SF"
+        analysisAsset.put("unit", resultsType)
+        analysisAsset.put("analysisDate", loadCaseResults.get("analysisDate"))
+        analysisAsset.put("component", componentResult.getString("id"))
+        analysisAsset.put("loadInfo", loadCaseResults.getString("analysisCase"))
+        analysisAsset.put("passes", componentResult.getString("status") == "PASSING")
+        analysisAsset.put("analysisType", componentResult.getString("analysisType"))
+        return analysisAsset
     }
 
     private static Map addDBIdsToProject(Map calcProject){

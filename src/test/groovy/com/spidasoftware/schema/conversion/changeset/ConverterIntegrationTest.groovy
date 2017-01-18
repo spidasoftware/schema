@@ -18,7 +18,7 @@ class ConverterIntegrationTest extends Specification {
 		def json = new JsonSlurper().parse(leanStream)
 
 		when:
-			Converter.convertJSON(json, 1)
+			AbstractConverter.convertJSON(json, 1)
 
 			def pole = json.leads.first().locations.first().designs.first().structure.pole
 		then:
