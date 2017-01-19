@@ -16,7 +16,6 @@ import org.apache.log4j.Logger
  *  -- a list of changesets is kept separately per versioned root schema - calc project, for example
  *
  */
-@Log4j
 @CompileStatic
 abstract class AbstractConverter {
 

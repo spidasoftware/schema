@@ -163,9 +163,9 @@ class FormatConverter {
         List allPoleResults = []
         originalAnalysisResults.each { loadCase ->
             loadCase.results.each { JSONObject resultObject ->
-                if(resultObject.containsKey("component") && resultObject.containsKey("component") == "Pole") { // Old pre v4 analysis summary object
+                if(resultObject.containsKey("component") && resultObject.getString("component").startsWith("Pole")) { // Old pre v4 analysis summary object
                     allPoleResults.add(resultObject)
-                } else {
+                } else { // TODO: Test this
                     resultObject.get("components").each { JSONObject componentResult ->
                         if(componentResult.get("id") == "Pole") {
                             allPoleResults.add(convertDetailedResultToSummaryResults(resultObject, componentResult))
@@ -210,6 +210,16 @@ class FormatConverter {
         analysisList.each { loadCase ->
             loadCase.get("results").each { result ->
                 JSONObject resultObject = (JSONObject) result
+                if (resultObject.get("component") == componentId) {
+                    results.add(resultObject)
+                }
+            }
+        }
+        return results
+        /*JSONArray results = new JSONArray()
+        analysisList.each { loadCase ->
+            loadCase.get("results").each { result ->
+                JSONObject resultObject = (JSONObject) result
                 if(resultObject.containsKey("component")) { // Old pre v4 analysis summary object
                     if (resultObject.get("component") == componentId) {
                         results.add(resultObject)
@@ -223,7 +233,7 @@ class FormatConverter {
                 }
             }
         }
-        return results
+        return results*/
     }
 
     public static JSONObject convertDetailedResultToSummaryResults(JSONObject loadCaseResults, JSONObject componentResult) {

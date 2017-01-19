@@ -13,8 +13,10 @@ import com.spidasoftware.schema.conversion.changeset.v4.PhotoDirectionChangeSet
 import com.spidasoftware.schema.conversion.changeset.v4.SpanGuyTypeChangeSet
 import com.spidasoftware.schema.conversion.changeset.v4.SupportTypeChangeSet
 import com.spidasoftware.schema.conversion.changeset.v4.WireConnectionIdChangeSet
+import groovy.util.logging.Log4j
 import net.sf.json.JSONObject
 
+@Log4j
 class ConverterUtils {
 
     static {

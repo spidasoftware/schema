@@ -16,6 +16,6 @@ class ProjectConverter extends AbstractConverter {
 
     @Override
     void revertChangeset(ChangeSet changeSet, JSONObject json) {
-        changeSet.revertProject(project)
+        changeSet.revertProject(json)
     }
 }
