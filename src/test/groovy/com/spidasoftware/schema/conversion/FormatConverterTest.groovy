@@ -203,6 +203,31 @@ class FormatConverterTest extends Specification {
 			"strength-is-worst"   | 0.4 	  | 0.36 		| 0.34 	   | 2.20 			| 0.40 		    | 0.46 			 | 0.1
 	}
 
+	@Unroll
+	void "test detailed results get converted correctly to worstCaseAnalysisResults jsonKey=#jsonKey"() {
+		setup:
+			def project = getCalcProject("ProjectWithDetailedResults.json")
+		when:
+			def design = converter.convertCalcDesign(project.leads[0].locations[0].designs[0], null, null).getJSON()
+		then:
+			assertEquals("Worst Pole actual should be correct", actual, design.worstCaseAnalysisResults.get(jsonKey).actual, 0.01)
+			assertEquals("Worst Pole allowable should be correct", allowable, design.worstCaseAnalysisResults.get(jsonKey).allowable, 0.1)
+			design.worstCaseAnalysisResults.get(jsonKey).unit == unit
+			design.worstCaseAnalysisResults.get(jsonKey).analysisDate == analysisDate
+			design.worstCaseAnalysisResults.get(jsonKey).component == component
+			design.worstCaseAnalysisResults.get(jsonKey).loadInfo == loadInfo
+			design.worstCaseAnalysisResults.get(jsonKey).passes == passes
+			design.worstCaseAnalysisResults.get(jsonKey).analysisType == analysisType
+		where:
+			jsonKey      | actual | allowable | unit      | analysisDate  | component     | loadInfo | passes | analysisType
+			"pole"       | 4.47   | 100.0     | "PERCENT" | 1484845969502 | "Pole"        | "Medium" | true   | "STRESS"
+			"anchors"    | 1.45   | 100.0     | "PERCENT" | 1484845969502 | "Anchor#2"    | "Medium" | true   | "FORCE"
+			"guys"       | 0.48   | 100.0     | "PERCENT" | 1484845969502 | "Guy#2"       | "Medium" | true   | "FORCE"
+			"pushBraces" | 0.16   | 100.0     | "PERCENT" | 1484845969502 | "PushBrace#1" | "Medium" | true   | "STRESS"
+			"crossArms"  | 6.88   | 100.0     | "PERCENT" | 1484845969502 | "CrossArm#2"  | "Medium" | true   | "STRESS"
+			"insulators" | 4.17   | 100.0     | "PERCENT" | 1484845969502 | "Insulator#1" | "Medium" | true   | "FORCE"
+	}
+
 	void "Project data should get copied to locations and designs"(){
 		setup:
 			def project

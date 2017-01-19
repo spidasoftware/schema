@@ -5,7 +5,7 @@ import com.spidasoftware.schema.conversion.changeset.v2.PoleLeanChangeSet
 import com.spidasoftware.schema.conversion.changeset.v3.WEPEnvironmentChangeSet
 import com.spidasoftware.schema.conversion.changeset.v4.AnalysisTypeChangeSet
 import com.spidasoftware.schema.conversion.changeset.v4.AssembliesChangeSet
-import com.spidasoftware.schema.conversion.changeset.v4.DetailsResultsChangeset
+import com.spidasoftware.schema.conversion.changeset.v4.DetailedResultsChangeset
 import com.spidasoftware.schema.conversion.changeset.v4.InsulatorAttachHeightChangeSet
 import com.spidasoftware.schema.conversion.changeset.v4.LocationWepChangeSet
 import com.spidasoftware.schema.conversion.changeset.v4.MapLocationChangeSet
@@ -33,7 +33,7 @@ class ConverterUtils {
             converter.addChangeSet(4, new WireConnectionIdChangeSet())
             converter.addChangeSet(4, new MapLocationChangeSet())
             converter.addChangeSet(4, new AssembliesChangeSet())
-            converter.addChangeSet(4, new DetailsResultsChangeset())
+            converter.addChangeSet(4, new DetailedResultsChangeset())
             // add calc changesets here
 
             converters.put(converter.schemaPath, converter)

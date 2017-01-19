@@ -6,7 +6,9 @@ import com.spidasoftware.schema.conversion.changeset.ConversionException
 import net.sf.json.JSONArray
 import net.sf.json.JSONObject
 
-class DetailsResultsChangeset extends AbstractDesignChangeset {
+import java.text.Format
+
+class DetailedResultsChangeset extends AbstractDesignChangeset {
 
     @Override
     void applyToDesign(JSONObject design) throws ConversionException {
@@ -24,14 +26,13 @@ class DetailsResultsChangeset extends AbstractDesignChangeset {
                     summaryAnalysisResults.add(analysisObject)
                 }  else {
                     JSONArray summaryAnalysis = new JSONArray()
-                    resultsObject.each { JSONObject loadCaseResults ->
-                        String loadCaseName = loadCaseResults.getString("analysisCase")
-                        JSONArray resultsArray = new JSONArray()
-                        loadCaseResults.getJSONArray("components").each { JSONObject componentResult ->
-                            resultsArray.add(FormatConverter.convertDetailedResultToSummaryResults(componentResult))
+                    resultsObject.each { JSONObject loadCase ->
+                        loadCase.get("components").each { JSONObject componentResult ->
+                            summaryAnalysis.add(FormatConverter.convertDetailedResultToSummaryResults(loadCase, componentResult))
                         }
-                        summaryAnalysisResults.add(JSONObject.fromObject(id: loadCaseName, results: resultsArray))
+                        summaryAnalysisResults.add(JSONObject.fromObject(id: loadCase.analysisCase, results: summaryAnalysis))
                     }
+
                 }
             }
             design.put("analysis", summaryAnalysisResults)

@@ -206,34 +206,24 @@ class FormatConverter {
 
 
     private static JSONArray getResultsForComponent(String componentId, List analysisList) {
-        JSONArray results = new JSONArray()
-        analysisList.each { loadCase ->
-            loadCase.get("results").each { result ->
-                JSONObject resultObject = (JSONObject) result
-                if (resultObject.get("component") == componentId) {
-                    results.add(resultObject)
-                }
-            }
-        }
-        return results
-        /*JSONArray results = new JSONArray()
-        analysisList.each { loadCase ->
-            loadCase.get("results").each { result ->
-                JSONObject resultObject = (JSONObject) result
-                if(resultObject.containsKey("component")) { // Old pre v4 analysis summary object
-                    if (resultObject.get("component") == componentId) {
-                        results.add(resultObject)
-                    }
-                } else {
-                    resultObject.get("components").each { JSONObject componentResult ->
-                        if(componentResult.get("id") == componentId) {
-                            results.add(convertDetailedResultToSummaryResults(resultObject, componentResult))
-                        }
-                    }
-                }
-            }
-        }
-        return results*/
+      JSONArray results = new JSONArray()
+       analysisList.each { loadCase ->
+           loadCase.get("results").each { result ->
+               JSONObject resultObject = (JSONObject) result
+               if(resultObject.containsKey("component")) { // Old pre v4 analysis summary object
+                   if (resultObject.get("component") == componentId) {
+                       results.add(resultObject)
+                   }
+               } else {
+                   resultObject.get("components").each { JSONObject componentResult ->
+                       if(componentResult.get("id") == componentId) {
+                           results.add(convertDetailedResultToSummaryResults(resultObject, componentResult))
+                       }
+                   }
+               }
+           }
+       }
+       return results
     }
 
     public static JSONObject convertDetailedResultToSummaryResults(JSONObject loadCaseResults, JSONObject componentResult) {
