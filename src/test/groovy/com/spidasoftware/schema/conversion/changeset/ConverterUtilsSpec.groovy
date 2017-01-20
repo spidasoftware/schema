@@ -44,6 +44,13 @@ class ConverterUtilsSpec extends Specification {
 			1 == designJSON.version
 	}
 
+	def "test getConverterInstance"() {
+		expect:
+			ConverterUtils.getConverterInstance("/schema/spidacalc/calc/project.schema") instanceof ProjectConverter
+			ConverterUtils.getConverterInstance("/schema/spidacalc/calc/location.schema") instanceof LocationConverter
+			ConverterUtils.getConverterInstance("/schema/spidacalc/calc/design.schema") instanceof DesignConverter
+	}
+
 	def "pole-lean validation"() {
 		expect:
 			validateProjectSchema("/conversions/v2/pole-lean.json")

@@ -20,123 +20,62 @@ class DetailedResultsChangesetSpec extends Specification {
         when:
             changeset.revertProject(projectJSON)
             JSONArray analysis = projectJSON.leads[0].locations[0].designs[0].analysis
-            log.info("analysis = ${analysis.toString(2)}")
         then:
             analysis.size() == 1
             analysis.first().id == "Medium"
-            analysis.first().results.size() == 1
-            analysis.first().results.every { JSONObject newSummary ->
-                JSONObject summaryResult = summaryAnalysis.first().results.find { it.component == newSummary }
-                newSummary.actual == summaryResult.actual
-                newSummary.actual == summaryResult.actual
-            }
-
-
+            analysis.first().results.size() == 10
+            def result = analysis.first().results.find { it.component == component }
+            Math.abs(result.actual - actual) < 0.01
+            Math.abs(result.allowable - allowable) < 0.01
+            result.unit == unit
+            result.analysisDate == analysisDate
+            result.component == component
+            result.loadInfo == loadInfo
+            result.passes == passes
+            result.analysisType == analysisType
+        when:
+            changeset.revertLocation(locationJSON)
+            analysis = locationJSON.designs[0].analysis
+        then:
+            analysis.size() == 1
+            analysis.first().id == "Medium"
+            analysis.first().results.size() == 10
+            def resultFromLocation = analysis.first().results.find { it.component == component }
+            Math.abs(resultFromLocation.actual - actual) < 0.01
+            Math.abs(resultFromLocation.allowable - allowable) < 0.01
+            resultFromLocation.unit == unit
+            resultFromLocation.analysisDate == analysisDate
+            resultFromLocation.component == component
+            resultFromLocation.loadInfo == loadInfo
+            resultFromLocation.passes == passes
+            resultFromLocation.analysisType == analysisType
+        when:
+            changeset.revertDesign(designJSON)
+            analysis = designJSON.analysis
+        then:
+            analysis.size() == 1
+            analysis.first().id == "Medium"
+            analysis.first().results.size() == 10
+            def resultFromDesign = analysis.first().results.find { it.component == component }
+            Math.abs(resultFromDesign.actual - actual) < 0.01
+            Math.abs(resultFromDesign.allowable - allowable) < 0.01
+            resultFromDesign.unit == unit
+            resultFromDesign.analysisDate == analysisDate
+            resultFromDesign.component == component
+            resultFromDesign.loadInfo == loadInfo
+            resultFromDesign.passes == passes
+            resultFromDesign.analysisType == analysisType
+        where:
+            component     | actual | allowable | unit      | analysisDate  | loadInfo | passes | analysisType
+            "Pole"        | 4.47   | 100.0     | "PERCENT" | 1484845969502 | "Medium" | true   | "STRESS"
+            "CrossArm#1"  | 6.88   | 100.0     | "PERCENT" | 1484845969502 | "Medium" | true   | "STRESS"
+            "Insulator#1" | 4.17   | 100.0     | "PERCENT" | 1484845969502 | "Medium" | true   | "FORCE"
+            "PushBrace#1" | 0.16   | 100.0     | "PERCENT" | 1484845969502 | "Medium" | true   | "STRESS"
+            "CrossArm#2"  | 6.88   | 100.0     | "PERCENT" | 1484845969502 | "Medium" | true   | "STRESS"
+            "Insulator#2" | 4.17   | 100.0     | "PERCENT" | 1484845969502 | "Medium" | true   | "FORCE"
+            "Anchor#1"    | 1.31   | 100.0     | "PERCENT" | 1484845969502 | "Medium" | true   | "FORCE"
+            "Guy#1"       | 0.43   | 100.0     | "PERCENT" | 1484845969502 | "Medium" | true   | "FORCE"
+            "Anchor#2"    | 1.45   | 100.0     | "PERCENT" | 1484845969502 | "Medium" | true   | "FORCE"
+            "Guy#2"       | 0.48   | 100.0     | "PERCENT" | 1484845969502 | "Medium" | true   | "FORCE"
     }
-
-    JSONArray summaryAnalysis = JSONArray.fromObject("""[        {
-          "id": "Medium",
-          "results":           [
-                        {
-              "actual": 4.473572344493995,
-              "allowable": 100,
-              "unit": "PERCENT",
-              "analysisDate": 1484845969502,
-              "component": "Pole",
-              "loadInfo": "Medium",
-              "passes": true,
-              "analysisType": "STRESS"
-            },
-                        {
-              "actual": 6.889231343242787,
-              "allowable": 100,
-              "unit": "PERCENT",
-              "analysisDate": 1484845969502,
-              "component": "CrossArm#1",
-              "loadInfo": "Medium",
-              "passes": true,
-              "analysisType": "STRESS"
-            },
-                        {
-              "actual": 4.17332194322955,
-              "allowable": 100,
-              "unit": "PERCENT",
-              "analysisDate": 1484845982075,
-              "component": "Insulator#1",
-              "loadInfo": "Medium",
-              "passes": true,
-              "analysisType": "FORCE"
-            },
-                        {
-              "actual": 0.16891023296250338,
-              "allowable": 100,
-              "unit": "PERCENT",
-              "analysisDate": 1484845969502,
-              "component": "PushBrace#1",
-              "loadInfo": "Medium",
-              "passes": true,
-              "analysisType": "STRESS"
-            },
-                        {
-              "actual": 6.889231344314371,
-              "allowable": 100,
-              "unit": "PERCENT",
-              "analysisDate": 1484845969502,
-              "component": "CrossArm#2",
-              "loadInfo": "Medium",
-              "passes": true,
-              "analysisType": "STRESS"
-            },
-                        {
-              "actual": 4.173321943191756,
-              "allowable": 100,
-              "unit": "PERCENT",
-              "analysisDate": 1484845969502,
-              "component": "Insulator#2",
-              "loadInfo": "Medium",
-              "passes": true,
-              "analysisType": "FORCE"
-            },
-                        {
-              "actual": 1.3114711790481888,
-              "allowable": 100,
-              "unit": "PERCENT",
-              "analysisDate": 1484845969502,
-              "component": "Anchor#1",
-              "loadInfo": "Medium",
-              "passes": true,
-              "analysisType": "FORCE"
-            },
-                        {
-              "actual": 0.4322765183465587,
-              "allowable": 100,
-              "unit": "PERCENT",
-              "analysisDate": 1484845969502,
-              "component": "Guy#1",
-              "loadInfo": "Medium",
-              "passes": true,
-              "analysisType": "FORCE"
-            },
-                        {
-              "actual": 1.459755589306103,
-              "allowable": 100,
-              "unit": "PERCENT",
-              "analysisDate": 1484845969502,
-              "component": "Anchor#2",
-              "loadInfo": "Medium",
-              "passes": true,
-              "analysisType": "FORCE"
-            },
-                        {
-              "actual": 0.48115282582125657,
-              "allowable": 100,
-              "unit": "PERCENT",
-              "analysisDate": 1484845969502,
-              "component": "Guy#2",
-              "loadInfo": "Medium",
-              "passes": true,
-              "analysisType": "FORCE"
-            }
-          ]
-        }]""")
 }

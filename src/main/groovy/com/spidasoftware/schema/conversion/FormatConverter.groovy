@@ -165,7 +165,7 @@ class FormatConverter {
             loadCase.results.each { JSONObject resultObject ->
                 if(resultObject.containsKey("component") && resultObject.getString("component").startsWith("Pole")) { // Old pre v4 analysis summary object
                     allPoleResults.add(resultObject)
-                } else { // TODO: Test this
+                } else {
                     resultObject.get("components").each { JSONObject componentResult ->
                         if(componentResult.get("id") == "Pole") {
                             allPoleResults.add(convertDetailedResultToSummaryResults(resultObject, componentResult))
