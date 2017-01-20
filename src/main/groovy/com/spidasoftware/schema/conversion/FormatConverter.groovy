@@ -1,15 +1,16 @@
 package com.spidasoftware.schema.conversion
 
+import groovy.util.logging.Log4j
 import net.sf.json.JSONObject
 import net.sf.json.JSONArray
-import org.apache.log4j.Logger
 import org.bson.types.ObjectId
 
 //import java.text.ParseException
 //import java.text.SimpleDateFormat
 
+@Log4j
 class FormatConverter {
-    private static final def log = Logger.getLogger(this)
+
     public static final double INFINITE_RESULT = Double.MAX_VALUE
 
      Collection<CalcDBProjectComponent> convertCalcProject(Map calcProject) {
@@ -159,7 +160,7 @@ class FormatConverter {
         }
     }
 
-    private static List collectPoleResults(List originalAnalysisResults){
+    private static List collectPoleResults(List originalAnalysisResults) {
         List allPoleResults = []
         originalAnalysisResults.each { loadCase ->
             loadCase.results.each { JSONObject resultObject ->

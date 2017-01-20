@@ -17,12 +17,11 @@ import org.apache.log4j.Logger
  *
  */
 @CompileStatic
-abstract class AbstractConverter {
+abstract class AbstractConverter implements Converter {
 
 	int defaultVersion = 1
 	protected TreeMap<Integer, List<ChangeSet>> versions = new TreeMap<>() // each list will be applied when going from N-1 to N
 
-	abstract String getSchemaPath()
 	abstract void applyChangeset(ChangeSet changeSet, JSONObject json)
 	abstract void revertChangeset(ChangeSet changeSet, JSONObject json)
 
