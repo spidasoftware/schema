@@ -3,4 +3,4 @@ env:
   global:
     - GRADLE_OPTS="-Xms128m -Xmx512m"
 sudo: false
-script: ./gradlew :test --debug --stacktrace
+script: ./gradlew :test --debug
