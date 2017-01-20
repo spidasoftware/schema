@@ -9,7 +9,6 @@ import spock.lang.Specification
 @Log4j
 class DetailedResultsChangesetSpec extends Specification {
 
-    /*
     void "test revert"() {
         setup:
             def leanStream = AnalysisTypeChangeSet.getResourceAsStream("/conversions/v4/ProjectWithDetailedResults.json")
@@ -78,5 +77,5 @@ class DetailedResultsChangesetSpec extends Specification {
             "Guy#1"       | 0.43   | 100.0     | "PERCENT" | 1484845969502 | "Medium" | true   | "FORCE"
             "Anchor#2"    | 1.45   | 100.0     | "PERCENT" | 1484845969502 | "Medium" | true   | "FORCE"
             "Guy#2"       | 0.48   | 100.0     | "PERCENT" | 1484845969502 | "Medium" | true   | "FORCE"
-    }*/
+    }
 }
