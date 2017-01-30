@@ -11,10 +11,20 @@ class DetailedResultsChangesetSpec extends Specification {
 
     void "test revert"() {
         setup:
+            int mb = 1024*1024
+            Runtime runtime = Runtime.getRuntime()
+            println("Used Memory BEFORE:" + (runtime.totalMemory() - runtime.freeMemory()) / mb)
+            println("Free Memory BEFORE:" + runtime.freeMemory() / mb)
+            println("Total Memory BEFORE:" + runtime.totalMemory() / mb)
+            println("Max Memory BEFORE:" + runtime.maxMemory() / mb)
             DetailedResultsChangeset changeset = new DetailedResultsChangeset()
             def leanStream = AnalysisTypeChangeSet.getResourceAsStream("/conversions/v4/project-with-detailed-results.json")
 
             JSONObject projectJSON = new JsonSlurper().parse(leanStream)
+            println("Used Memory AFTER:" + (runtime.totalMemory() - runtime.freeMemory()) / mb)
+            println("Free Memory AFTER:" + runtime.freeMemory() / mb)
+            println("Total Memory AFTER:" + runtime.totalMemory() / mb)
+            println("Max Memory AFTER:" + runtime.maxMemory() / mb)
             JSONObject locationJSON = JSONObject.fromObject(projectJSON.leads[0].locations[0])
             JSONObject designJSON = JSONObject.fromObject(projectJSON.leads[0].locations[0].designs[0])
         when:
