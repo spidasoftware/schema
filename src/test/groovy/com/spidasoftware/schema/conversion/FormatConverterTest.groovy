@@ -206,6 +206,7 @@ class FormatConverterTest extends Specification {
 	@Unroll
 	void "test detailed results get converted correctly to worstCaseAnalysisResults jsonKey=#jsonKey"() {
 		setup:
+			log.info("jsonKeyjsonKeyjsonKeyjsonKey = ${jsonKey}")
 			def project
 			try {
 				log.info("test detailed results get converted correctly to worstCaseAnalysisResults 1")

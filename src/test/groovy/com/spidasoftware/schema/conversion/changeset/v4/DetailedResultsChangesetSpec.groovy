@@ -12,30 +12,20 @@ class DetailedResultsChangesetSpec extends Specification {
     void "test revert"() {
         setup:
             DetailedResultsChangeset changeset = new DetailedResultsChangeset()
-            JSONObject projectJSON
-            try {
-            log.info("DetailedResultsChangesetSpec test revert 1")
             def leanStream = AnalysisTypeChangeSet.getResourceAsStream("/conversions/v4/project-with-detailed-results.json")
             def resource = AnalysisTypeChangeSet.getResource("/conversions/v4/project-with-detailed-results.json")
-            log.info("resource.file = ${resource.file}")
-            log.info("new File(resource.file).exists() = ${new File(resource.file).exists()}")
-            log.info("DetailedResultsChangesetSpec test revert 2")
 
-            projectJSON = new JsonSlurper().parse(leanStream)
-            log.info("DetailedResultsChangesetSpec test revert 3")
+            JSONObject projectJSON = new JsonSlurper().parse(leanStream)
             JSONObject locationJSON = JSONObject.fromObject(projectJSON.leads[0].locations[0])
             JSONObject designJSON = JSONObject.fromObject(projectJSON.leads[0].locations[0].designs[0])
-            log.info("DetailedResultsChangesetSpec test revert 4")
-
-            } catch(e) {
-                log.error("ERRRRRRRRRRR", e)
-                log.info("ANOTHER ERROR 1")
-                log.info("ANOTHER ERROR 2")
-            }
-            log.info("ANOTHER ERROR 3")
         when:
             changeset.revertProject(projectJSON)
             JSONArray analysis = projectJSON.leads[0].locations[0].designs[0].analysis
+            log.info("component = ${component}")
+            log.info("analysis.size() == 1 = ${analysis.size() == 1}")
+            log.info("analysis.first().id == \"Medium\" = ${analysis.first().id == "Medium"}")
+        log.info("analysis.first().results.size() == 10 = ${analysis.first().results.size() == 10}")
+        log.info("Math.abs(result.actual - actual) < 0.01 = ${Math.abs(result.actual - actual) < 0.01}")
         then:
             analysis.size() == 1
             analysis.first().id == "Medium"
@@ -50,7 +40,6 @@ class DetailedResultsChangesetSpec extends Specification {
             result.passes == passes
             result.analysisType == analysisType
         when:
-            log.info("DetailedResultsChangesetSpec test revert 5")
             changeset.revertLocation(locationJSON)
             analysis = locationJSON.designs[0].analysis
         then:
