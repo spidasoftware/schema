@@ -11,18 +11,22 @@ class DetailedResultsChangesetSpec extends Specification {
 
     void "test revert"() {
         setup:
+            DetailedResultsChangeset changeset = new DetailedResultsChangeset()
+            JSONObject projectJSON
+            try {
             log.info("DetailedResultsChangesetSpec test revert 1")
             def leanStream = AnalysisTypeChangeSet.getResourceAsStream("/conversions/v4/project-with-detailed-results.json")
             def resource = AnalysisTypeChangeSet.getResource("/conversions/v4/project-with-detailed-results.json")
             log.info("resource.file = ${resource.file}")
             log.info("new File(resource.file).exists() = ${new File(resource.file).exists()}")
             log.info("DetailedResultsChangesetSpec test revert 2")
-            JSONObject projectJSON = new JsonSlurper().parse(leanStream)
+            projectJSON = new JsonSlurper().parse(leanStream)
             log.info("DetailedResultsChangesetSpec test revert 3")
             JSONObject locationJSON = JSONObject.fromObject(projectJSON.leads[0].locations[0])
             JSONObject designJSON = JSONObject.fromObject(projectJSON.leads[0].locations[0].designs[0])
             log.info("DetailedResultsChangesetSpec test revert 4")
-            DetailedResultsChangeset changeset = new DetailedResultsChangeset()
+
+            } catch(e) { log.error("ERRRRRRRRRRR", e)}
         when:
             changeset.revertProject(projectJSON)
             JSONArray analysis = projectJSON.leads[0].locations[0].designs[0].analysis
