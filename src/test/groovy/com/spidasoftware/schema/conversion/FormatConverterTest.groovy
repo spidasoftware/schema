@@ -214,12 +214,17 @@ class FormatConverterTest extends Specification {
 			} catch(e) {
 				log.error("ERRRORRRRRR", e)
 			}
-		when:
-			def design = converter.convertCalcDesign(project.leads[0].locations[0].designs[0], null, null).getJSON()
 			log.info("test detailed results get converted correctly to worstCaseAnalysisResults 3")
+			log.info("test detailed results get converted correctly to worstCaseAnalysisResults 4")
+			log.info("test detailed results get converted correctly to worstCaseAnalysisResults 5")
+		when:
+			log.info("test detailed results get converted correctly to worstCaseAnalysisResults 6")
+			def design = converter.convertCalcDesign(project.leads[0].locations[0].designs[0], null, null).getJSON()
+			log.info("test detailed results get converted correctly to worstCaseAnalysisResults 7")
+			log.info("test detailed results get converted correctly to worstCaseAnalysisResults 8")
 		then:
-			assertEquals("Worst Pole actual should be correct", actual, design.worstCaseAnalysisResults.get(jsonKey).actual, 0.01)
-			assertEquals("Worst Pole allowable should be correct", allowable, design.worstCaseAnalysisResults.get(jsonKey).allowable, 0.1)
+			Math.abs(actual - design.worstCaseAnalysisResults.get(jsonKey).actual) < 0.01
+			Math.abs(allowable - design.worstCaseAnalysisResults.get(jsonKey).allowable) < 0.01
 			design.worstCaseAnalysisResults.get(jsonKey).unit == unit
 			design.worstCaseAnalysisResults.get(jsonKey).analysisDate == analysisDate
 			design.worstCaseAnalysisResults.get(jsonKey).component == component
@@ -298,9 +303,9 @@ class FormatConverterTest extends Specification {
 		log.info("resource.file = ${resource.file}")
 		log.info("new File(resource.file).exists() = ${new File(resource.file).exists()}")
 		String designString = getClass().getResourceAsStream("/formats/calc/${type}s/${name}").text
-		log.info("designString = ${designString}")
+		log.info("designString != null = ${designString != null}")
 		def result = JSONObject.fromObject(designString)
-		log.info("resultresultresultresult = ${result}")
+		log.info("resultresultresultresult = ${result != null}")
 		return result
 	}
 
