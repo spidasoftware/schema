@@ -11,11 +11,14 @@ class DetailedResultsChangesetSpec extends Specification {
 
     void "test revert"() {
         setup:
-            def leanStream = AnalysisTypeChangeSet.getResourceAsStream("/conversions/v4/ProjectWithDetailedResults.json")
+            log.info("DetailedResultsChangesetSpec test revert 1")
+            def leanStream = AnalysisTypeChangeSet.getResourceAsStream("/conversions/v4/project-with-detailed-results.json")
+            log.info("DetailedResultsChangesetSpec test revert 2")
             JSONObject projectJSON = new JsonSlurper().parse(leanStream)
+            log.info("DetailedResultsChangesetSpec test revert 3")
             JSONObject locationJSON = JSONObject.fromObject(projectJSON.leads[0].locations[0])
             JSONObject designJSON = JSONObject.fromObject(projectJSON.leads[0].locations[0].designs[0])
-
+            log.info("DetailedResultsChangesetSpec test revert 4")
             DetailedResultsChangeset changeset = new DetailedResultsChangeset()
         when:
             changeset.revertProject(projectJSON)
@@ -34,6 +37,7 @@ class DetailedResultsChangesetSpec extends Specification {
             result.passes == passes
             result.analysisType == analysisType
         when:
+            log.info("DetailedResultsChangesetSpec test revert 5")
             changeset.revertLocation(locationJSON)
             analysis = locationJSON.designs[0].analysis
         then:

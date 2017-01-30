@@ -206,7 +206,7 @@ class FormatConverterTest extends Specification {
 	@Unroll
 	void "test detailed results get converted correctly to worstCaseAnalysisResults jsonKey=#jsonKey"() {
 		setup:
-			def project = getCalcProject("ProjectWithDetailedResults.json")
+			def project = getCalcProject("project-with-detailed-results.json")
 		when:
 			def design = converter.convertCalcDesign(project.leads[0].locations[0].designs[0], null, null).getJSON()
 		then:
