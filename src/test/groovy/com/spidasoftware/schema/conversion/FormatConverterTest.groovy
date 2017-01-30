@@ -206,23 +206,9 @@ class FormatConverterTest extends Specification {
 	@Unroll
 	void "test detailed results get converted correctly to worstCaseAnalysisResults jsonKey=#jsonKey"() {
 		setup:
-			log.info("jsonKeyjsonKeyjsonKeyjsonKey = ${jsonKey}")
-			def project
-			try {
-				log.info("test detailed results get converted correctly to worstCaseAnalysisResults 1")
-				project = getCalcProject("project-with-detailed-results.json")
-				log.info("test detailed results get converted correctly to worstCaseAnalysisResults 2")
-			} catch(e) {
-				log.error("ERRRORRRRRR", e)
-			}
-			log.info("test detailed results get converted correctly to worstCaseAnalysisResults 3")
-			log.info("test detailed results get converted correctly to worstCaseAnalysisResults 4")
-			log.info("test detailed results get converted correctly to worstCaseAnalysisResults 5")
+			def project = getCalcProject("project-with-detailed-results.json")
 		when:
-			log.info("test detailed results get converted correctly to worstCaseAnalysisResults 6")
 			def design = converter.convertCalcDesign(project.leads[0].locations[0].designs[0], null, null).getJSON()
-			log.info("test detailed results get converted correctly to worstCaseAnalysisResults 7")
-			log.info("test detailed results get converted correctly to worstCaseAnalysisResults 8")
 		then:
 			Math.abs(actual - design.worstCaseAnalysisResults.get(jsonKey).actual) < 0.01
 			Math.abs(allowable - design.worstCaseAnalysisResults.get(jsonKey).allowable) < 0.01
