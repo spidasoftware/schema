@@ -298,8 +298,10 @@ class FormatConverterTest extends Specification {
 		log.info("resource.file = ${resource.file}")
 		log.info("new File(resource.file).exists() = ${new File(resource.file).exists()}")
 		String designString = getClass().getResourceAsStream("/formats/calc/${type}s/${name}").text
-		log.info("designString != null = ${designString != null}")
-		return JSONObject.fromObject(designString)
+		log.info("designString = ${designString}")
+		def result = JSONObject.fromObject(designString)
+		log.info("resultresultresultresult = ${result}")
+		return result
 	}
 
 	private JSONObject getCalcDesign(String name) {
