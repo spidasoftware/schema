@@ -285,15 +285,8 @@ class FormatConverterTest extends Specification {
 	}
 
 	private JSONObject getCalcObject(String name, String type) {
-		log.info("getCalcObjectgetCalcObjectgetCalcObjectgetCalcObjectgetCalcObjectgetCalcObjectgetCalcObject")
-		def resource = getClass().getResource("/formats/calc/${type}s/${name}")
-		log.info("resource.file = ${resource.file}")
-		log.info("new File(resource.file).exists() = ${new File(resource.file).exists()}")
 		String designString = getClass().getResourceAsStream("/formats/calc/${type}s/${name}").text
-		log.info("designString != null = ${designString != null}")
-		def result = JSONObject.fromObject(designString)
-		log.info("resultresultresultresult = ${result != null}")
-		return result
+		return JSONObject.fromObject(designString)
 	}
 
 	private JSONObject getCalcDesign(String name) {
@@ -309,10 +302,6 @@ class FormatConverterTest extends Specification {
 	}
 
 	private JSONArray loadJson(String project, String type) {
-		def resource = getClass().getResource("/formats/calcdb/${project}/${type}.json")
-
-		log.info("resource.file = ${resource.file}")
-		log.info("new File(resource.file).exists() = ${new File(resource.file).exists()}")
 		String text = getClass().getResourceAsStream("/formats/calcdb/${project}/${type}.json").text
 		JSONObject json = JSONObject.fromObject(text)
 		return json.getJSONArray(type)
