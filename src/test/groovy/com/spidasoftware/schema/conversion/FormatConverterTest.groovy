@@ -305,6 +305,10 @@ class FormatConverterTest extends Specification {
 	}
 
 	private JSONArray loadJson(String project, String type) {
+		def resource = getClass().getResource("/formats/calcdb/${project}/${type}.json")
+
+		log.info("resource.file = ${resource.file}")
+		log.info("new File(resource.file).exists() = ${new File(resource.file).exists()}")
 		String text = getClass().getResourceAsStream("/formats/calcdb/${project}/${type}.json").text
 		JSONObject json = JSONObject.fromObject(text)
 		return json.getJSONArray(type)

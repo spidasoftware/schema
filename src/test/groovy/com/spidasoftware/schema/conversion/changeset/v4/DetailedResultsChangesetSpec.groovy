@@ -13,6 +13,9 @@ class DetailedResultsChangesetSpec extends Specification {
         setup:
             log.info("DetailedResultsChangesetSpec test revert 1")
             def leanStream = AnalysisTypeChangeSet.getResourceAsStream("/conversions/v4/project-with-detailed-results.json")
+            def resource = AnalysisTypeChangeSet.getResource("/conversions/v4/project-with-detailed-results.json")
+            log.info("resource.file = ${resource.file}")
+            log.info("new File(resource.file).exists() = ${new File(resource.file).exists()}")
             log.info("DetailedResultsChangesetSpec test revert 2")
             JSONObject projectJSON = new JsonSlurper().parse(leanStream)
             log.info("DetailedResultsChangesetSpec test revert 3")
