@@ -5,6 +5,7 @@ import com.spidasoftware.schema.conversion.changeset.v2.PoleLeanChangeSet
 import com.spidasoftware.schema.conversion.changeset.v3.WEPEnvironmentChangeSet
 import com.spidasoftware.schema.conversion.changeset.v4.AnalysisTypeChangeSet
 import com.spidasoftware.schema.conversion.changeset.v4.AssembliesChangeSet
+import com.spidasoftware.schema.conversion.changeset.v4.ClientItemVersionChangeSet
 import com.spidasoftware.schema.conversion.changeset.v4.DetailedResultsChangeset
 import com.spidasoftware.schema.conversion.changeset.v4.InsulatorAttachHeightChangeSet
 import com.spidasoftware.schema.conversion.changeset.v4.LocationWepChangeSet
@@ -20,7 +21,7 @@ import net.sf.json.JSONObject
 class ConverterUtils {
 
     static {
-        Closure addConverter = { AbstractConverter converter ->
+        Closure addConverter = { Converter converter ->
             converter.addChangeSet(2, new PoleLeanChangeSet())
             converter.addChangeSet(2, new FoundationChangeSet())
             converter.addChangeSet(3, new WEPEnvironmentChangeSet())
@@ -34,6 +35,7 @@ class ConverterUtils {
             converter.addChangeSet(4, new MapLocationChangeSet())
             converter.addChangeSet(4, new AssembliesChangeSet())
             converter.addChangeSet(4, new DetailedResultsChangeset())
+            converter.addChangeSet(4, new ClientItemVersionChangeSet())
             // add calc changesets here
 
             converters.put(converter.schemaPath, converter)
@@ -46,19 +48,19 @@ class ConverterUtils {
 
     }
 
-    static AbstractConverter getConverterInstance(String schemaPath) {
+    static Converter getConverterInstance(String schemaPath) {
         String schema = getV1Root(schemaPath)
         return converters.get(schema)
     }
 
-    protected static final Map<String, AbstractConverter> converters = [:]
+    protected static final Map<String, Converter> converters = [:]
 
 
 
 
     static void convertJSON(JSONObject json, int toVersion) throws ConversionException {
         if (json.containsKey("schema")) {
-            AbstractConverter converter = getConverterInstance(json.getString("schema"))
+            Converter converter = getConverterInstance(json.getString("schema"))
             if (converter == null) {
                 throw new ConversionException("No converter found for ${json.getString("schema")}")
             }
@@ -73,7 +75,7 @@ class ConverterUtils {
      */
     static void convertJSON(JSONObject json) throws ConversionException {
         if (json.containsKey("schema")) {
-            AbstractConverter converter = getConverterInstance(json.getString("schema"))
+            Converter converter = getConverterInstance(json.getString("schema"))
             if (converter == null) {
                 throw new ConversionException("No converter found for ${json.getString("schema")}")
             }

@@ -73,7 +73,7 @@ abstract class AbstractConverter implements Converter {
 	 * @param version
 	 * @param changeSet
 	 */
-	protected void addChangeSet(int version, ChangeSet changeSet) {
+	void addChangeSet(int version, ChangeSet changeSet) {
 		if (!versions.containsKey(version)) {
 			versions.put(version, [])
 		}

@@ -7,4 +7,5 @@ interface Converter {
     String getSchemaPath()
     public void convert(JSONObject json, int toVersion) throws ConversionException
     int getCurrentVersion()
+    void addChangeSet(int version, ChangeSet changeSet)
 }
