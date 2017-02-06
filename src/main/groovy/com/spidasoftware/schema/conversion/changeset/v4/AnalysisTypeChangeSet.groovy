@@ -2,8 +2,10 @@ package com.spidasoftware.schema.conversion.changeset.v4
 
 import com.spidasoftware.schema.conversion.changeset.AbstractDesignChangeset
 import com.spidasoftware.schema.conversion.changeset.ConversionException
+import groovy.util.logging.Log4j
 import net.sf.json.JSONObject
 
+@Log4j
 class AnalysisTypeChangeSet extends AbstractDesignChangeset {
 
     @Override
@@ -36,6 +38,7 @@ class AnalysisTypeChangeSet extends AbstractDesignChangeset {
                 } else if (component.contains("Foundation") || isPoleMoment) {
                     analysisType = "MOMENT"
                 }
+
                 result.put("analysisType", analysisType)
             }
         }

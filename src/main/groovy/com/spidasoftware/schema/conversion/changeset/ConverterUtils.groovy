@@ -11,8 +11,11 @@ import com.spidasoftware.schema.conversion.changeset.v4.InsulatorAttachHeightCha
 import com.spidasoftware.schema.conversion.changeset.v4.LocationWepChangeSet
 import com.spidasoftware.schema.conversion.changeset.v4.MapLocationChangeSet
 import com.spidasoftware.schema.conversion.changeset.v4.PhotoDirectionChangeSet
+import com.spidasoftware.schema.conversion.changeset.v4.PointLoadElevationAndRotationChangeSet
+import com.spidasoftware.schema.conversion.changeset.v4.PoleTemperatureChangeset
 import com.spidasoftware.schema.conversion.changeset.v4.SpanGuyTypeChangeSet
 import com.spidasoftware.schema.conversion.changeset.v4.SupportTypeChangeSet
+import com.spidasoftware.schema.conversion.changeset.v4.WEPInclinationChangeSet
 import com.spidasoftware.schema.conversion.changeset.v4.WireConnectionIdChangeSet
 import groovy.util.logging.Log4j
 import net.sf.json.JSONObject
@@ -36,6 +39,9 @@ class ConverterUtils {
             converter.addChangeSet(4, new AssembliesChangeSet())
             converter.addChangeSet(4, new DetailedResultsChangeset())
             converter.addChangeSet(4, new ClientItemVersionChangeSet())
+            converter.addChangeSet(4, new PoleTemperatureChangeset())
+            converter.addChangeSet(4, new PointLoadElevationAndRotationChangeSet())
+            converter.addChangeSet(4, new WEPInclinationChangeSet())
             // add calc changesets here
 
             converters.put(converter.schemaPath, converter)
@@ -44,8 +50,6 @@ class ConverterUtils {
         addConverter(new ProjectConverter())
         addConverter(new LocationConverter())
         addConverter(new DesignConverter())
-        
-
     }
 
     static Converter getConverterInstance(String schemaPath) {
