@@ -29,12 +29,7 @@
       "$ref": "../../general/measurable.schema"
     },
     "reaction": {
-        "oneOf": [{
-                "$ref": "../../general/point_load.schema"
-            }, {
-                "$ref": "../../general/triad.schema"
-            }
-        ]
+      "$ref": "../../general/point_load.schema"
     },
     "actingOn": {
       "$ref": "../../general/acting_on.schema"
