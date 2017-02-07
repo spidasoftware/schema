@@ -12,7 +12,7 @@ class PoleTemperatureChangeset extends AbstractDesignChangeset {
     }
 
     @Override
-    void revertDesign(JSONObject designJSON) throws ConversionException { // TODO: Test this!
+    void revertDesign(JSONObject designJSON) throws ConversionException { 
         JSONObject pole = designJSON.get("structure")?.get("pole")
         JSONObject temperature = pole?.get("temperature")
         if(temperature?.get("unit") == "CELSIUS") {
