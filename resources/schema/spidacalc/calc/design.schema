@@ -33,7 +33,14 @@
                         "description": "Results for all components.",
                         "type": "array",
                         "items": {
-                            "$ref": "../../spidacalc/results/result.schema"
+                            "oneOf":[
+                              {
+                                "$ref": "../../spidamin/asset/standard_details/analysis_asset.schema"
+                              },
+                              {
+                                "$ref": "../../spidacalc/results/result.schema"
+                              }
+                            ]
                         }
                     }
                 },
