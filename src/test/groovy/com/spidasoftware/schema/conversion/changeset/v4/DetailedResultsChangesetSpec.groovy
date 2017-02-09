@@ -9,13 +9,23 @@ import spock.lang.Specification
 @Log4j
 class DetailedResultsChangesetSpec extends Specification {
 
+    JSONObject projectJSON
+    JSONObject locationJSON
+    JSONObject designJSON
+
+    DetailedResultsChangeset changeset
+
+    void setup() {
+        changeset = new DetailedResultsChangeset()
+        def leanStream = DetailedResultsChangesetSpec.getResourceAsStream("/conversions/v4/project-with-detailed-results.json")
+        projectJSON = new JsonSlurper().parse(leanStream)
+        locationJSON = JSONObject.fromObject(projectJSON.leads[0].locations[0])
+        designJSON = JSONObject.fromObject(projectJSON.leads[0].locations[0].designs[0])
+    }
+
     void "test revert"() {
         setup:
-            DetailedResultsChangeset changeset = new DetailedResultsChangeset()
-            def leanStream = AnalysisTypeChangeSet.getResourceAsStream("/conversions/v4/project-with-detailed-results.json")
-            JSONObject projectJSON = new JsonSlurper().parse(leanStream)
-            JSONObject locationJSON = JSONObject.fromObject(projectJSON.leads[0].locations[0])
-            JSONObject designJSON = JSONObject.fromObject(projectJSON.leads[0].locations[0].designs[0])
+
         when:
             changeset.revertProject(projectJSON)
             JSONArray analysis = projectJSON.leads[0].locations[0].designs[0].analysis
@@ -76,5 +86,24 @@ class DetailedResultsChangesetSpec extends Specification {
             "Guy#1"       | 0.43   | 100.0     | "PERCENT" | 1484845969502 | "Medium" | true   | "FORCE"
             "Anchor#2"    | 1.45   | 100.0     | "PERCENT" | 1484845969502 | "Medium" | true   | "FORCE"
             "Guy#2"       | 0.48   | 100.0     | "PERCENT" | 1484845969502 | "Medium" | true   | "FORCE"
+    }
+
+    void "test revert when no analysis doesn't error"() {
+        setup:
+            projectJSON.leads[0].locations[0].designs[0].analysis = new JSONArray()
+            locationJSON.designs[0].analysis = new JSONArray()
+            designJSON.analysis = new JSONArray()
+        when:
+            changeset.revertProject(projectJSON)
+        then:
+            notThrown(Exception)
+        when:
+            changeset.revertLocation(locationJSON)
+        then:
+            notThrown(Exception)
+        when:
+            changeset.revertDesign(designJSON)
+        then:
+            notThrown(Exception)
     }
 }

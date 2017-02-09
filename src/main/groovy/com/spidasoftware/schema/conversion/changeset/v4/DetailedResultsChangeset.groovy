@@ -21,18 +21,21 @@ class DetailedResultsChangeset extends AbstractDesignChangeset {
             JSONArray currentAnalysis = design.getJSONArray("analysis")
             JSONArray summaryAnalysisResults = new JSONArray()
             currentAnalysis.each { JSONObject analysisObject ->
-                JSONArray resultsObject = analysisObject.getJSONArray("results")
-                if(resultsObject.size() > 0 && resultsObject.first().containsKey("component")) { // Already pre v4 analysis summary
-                    summaryAnalysisResults.add(analysisObject)
-                }  else {
-                    JSONArray summaryAnalysis = new JSONArray()
-                    resultsObject.each { JSONObject loadCase ->
-                        loadCase.get("components").each { JSONObject componentResult ->
-                            summaryAnalysis.add(FormatConverter.convertDetailedResultToSummaryResults(loadCase, componentResult))
+                if(analysisObject.containsKey("results") && analysisObject.getJSONArray("results").size() > 0) {
+                    JSONArray resultsObject = analysisObject.getJSONArray("results")
+                    if (resultsObject.size() > 0 && resultsObject.first().containsKey("component")) {
+                        // Already pre v4 analysis summary
+                        summaryAnalysisResults.add(analysisObject)
+                    } else {
+                        JSONArray summaryAnalysis = new JSONArray()
+                        resultsObject.each { JSONObject loadCase ->
+                            loadCase.get("components").each { JSONObject componentResult ->
+                                summaryAnalysis.add(FormatConverter.convertDetailedResultToSummaryResults(loadCase, componentResult))
+                            }
+                            summaryAnalysisResults.add(JSONObject.fromObject(id: loadCase.analysisCase, results: summaryAnalysis))
                         }
-                        summaryAnalysisResults.add(JSONObject.fromObject(id: loadCase.analysisCase, results: summaryAnalysis))
-                    }
 
+                    }
                 }
             }
             design.put("analysis", summaryAnalysisResults)

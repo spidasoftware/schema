@@ -8,7 +8,7 @@ class PoleTemperatureChangesetSpec extends Specification {
 
     def "test revert"() {
         setup:
-            def leanStream = AnalysisTypeChangeSet.getResourceAsStream("/conversions/v4/project-v4.json")
+            def leanStream = PoleTemperatureChangesetSpec.getResourceAsStream("/conversions/v4/project-v4.json")
             JSONObject projectJSON = new JsonSlurper().parse(leanStream)
             JSONObject locationJSON = JSONObject.fromObject(projectJSON.leads[0].locations[0])
             JSONObject designJSON = JSONObject.fromObject(projectJSON.leads[0].locations[0].designs[0])
