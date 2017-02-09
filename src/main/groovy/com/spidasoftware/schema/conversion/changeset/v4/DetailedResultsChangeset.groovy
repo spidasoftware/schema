@@ -23,7 +23,7 @@ class DetailedResultsChangeset extends AbstractDesignChangeset {
             currentAnalysis.each { JSONObject analysisObject ->
                 if(analysisObject.containsKey("results") && analysisObject.getJSONArray("results").size() > 0) {
                     JSONArray resultsObject = analysisObject.getJSONArray("results")
-                    if (resultsObject.size() > 0 && resultsObject.first().containsKey("component")) {
+                    if (resultsObject.first().containsKey("component")) {
                         // Already pre v4 analysis summary
                         summaryAnalysisResults.add(analysisObject)
                     } else {
