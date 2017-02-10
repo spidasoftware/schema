@@ -3,20 +3,7 @@ package com.spidasoftware.schema.conversion.changeset
 import com.spidasoftware.schema.conversion.changeset.v2.FoundationChangeSet
 import com.spidasoftware.schema.conversion.changeset.v2.PoleLeanChangeSet
 import com.spidasoftware.schema.conversion.changeset.v3.WEPEnvironmentChangeSet
-import com.spidasoftware.schema.conversion.changeset.v4.AnalysisTypeChangeSet
-import com.spidasoftware.schema.conversion.changeset.v4.AssembliesChangeSet
-import com.spidasoftware.schema.conversion.changeset.v4.ClientItemVersionChangeSet
-import com.spidasoftware.schema.conversion.changeset.v4.DetailedResultsChangeset
-import com.spidasoftware.schema.conversion.changeset.v4.InsulatorAttachHeightChangeSet
-import com.spidasoftware.schema.conversion.changeset.v4.LocationWepChangeSet
-import com.spidasoftware.schema.conversion.changeset.v4.MapLocationChangeSet
-import com.spidasoftware.schema.conversion.changeset.v4.PhotoDirectionChangeSet
-import com.spidasoftware.schema.conversion.changeset.v4.PointLoadElevationAndRotationChangeSet
-import com.spidasoftware.schema.conversion.changeset.v4.PoleTemperatureChangeset
-import com.spidasoftware.schema.conversion.changeset.v4.SpanGuyTypeChangeSet
-import com.spidasoftware.schema.conversion.changeset.v4.SupportTypeChangeSet
-import com.spidasoftware.schema.conversion.changeset.v4.WEPInclinationChangeSet
-import com.spidasoftware.schema.conversion.changeset.v4.WireConnectionIdChangeSet
+import com.spidasoftware.schema.conversion.changeset.v4.*
 import groovy.util.logging.Log4j
 import net.sf.json.JSONObject
 
@@ -42,6 +29,7 @@ class ConverterUtils {
             converter.addChangeSet(4, new PoleTemperatureChangeset())
             converter.addChangeSet(4, new PointLoadElevationAndRotationChangeSet())
             converter.addChangeSet(4, new WEPInclinationChangeSet())
+            converter.addChangeSet(4, new WireEndPointPlacementChangeSet())
             // add calc changesets here
 
             converters.put(converter.schemaPath, converter)
