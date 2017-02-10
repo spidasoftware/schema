@@ -4,29 +4,35 @@
 package com.spidasoftware.schema.conversion.changeset.v4
 
 import groovy.util.logging.Log4j
+import net.sf.json.JSONObject
 import net.sf.json.groovy.JsonSlurper
 import spock.lang.Specification
 
 @Log4j
 class PhotoDirectionChangeSetTest extends Specification {
 
-	PhotoDirectionChangeSet changeSet
-
 	def "apply and revert"() {
-
-		def leanStream = PhotoDirectionChangeSetTest.getResourceAsStream("/conversions/v4/photo-direction.json")
-			def json = new JsonSlurper().parse(leanStream)
-			changeSet = new PhotoDirectionChangeSet()
-
-		when:
-			changeSet.apply(json)
+		setup:
+			def leanStream = PhotoDirectionChangeSetTest.getResourceAsStream("/conversions/v4/photo-direction.json")
+			JSONObject projectJSON = new JsonSlurper().parse(leanStream)
+			JSONObject locationJSON = JSONObject.fromObject(projectJSON.leads[0].locations[0])
+			PhotoDirectionChangeSet changeSet = new PhotoDirectionChangeSet()
+		when: "applyToProject"
+			changeSet.applyToProject(projectJSON)
 		then:
-			json.leads.first().locations.first().images.first().direction == 'N/A'
-
-		when:
-			changeSet.revert(json)
+			projectJSON.leads.first().locations.first().images.first().direction == 'N/A'
+		when: "revertProject"
+			changeSet.revertProject(projectJSON)
 		then:
-			json.leads.first().locations.first().images.first().direction == null
+			projectJSON.leads.first().locations.first().images.first().direction == null
+		when: "applyToLocation"
+			changeSet.applyToLocation(locationJSON)
+		then:
+			locationJSON.images.first().direction == 'N/A'
+		when: "revertLocation"
+			changeSet.revertLocation(locationJSON)
+		then:
+			locationJSON.images.first().direction == null
 	}
 
 }

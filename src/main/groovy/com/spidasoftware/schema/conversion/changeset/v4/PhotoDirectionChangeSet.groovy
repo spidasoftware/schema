@@ -10,31 +10,42 @@ import net.sf.json.JSONObject
 
 @Log4j
 class PhotoDirectionChangeSet extends ChangeSet {
-	/**
-	 * Get the schema this changeset applies to
-	 * @return
-	 */
+
 	@Override
-	String getSchemaPath() {
-		"/v1/schema/spidacalc/calc/project.schema"
+	void applyToProject(JSONObject projectJSON) throws ConversionException {
+		forEachLocation(projectJSON, { JSONObject locationJSON ->
+			applyToLocation(locationJSON)
+		})
 	}
 
-	/**
-	 * Apply the changes to the json object in place
-	 * @param json
-	 * @return
-	 */
 	@Override
-	void apply(JSONObject json) throws ConversionException {
-		forEachImage(json, { image -> image.put('direction', 'N/A') })
+	void revertProject(JSONObject projectJSON) throws ConversionException {
+		forEachLocation(projectJSON, { JSONObject locationJSON ->
+			revertLocation(locationJSON)
+		})
 	}
 
-	/**
-	 * Reverse the changes to the json object in place
-	 * @param json
-	 */
 	@Override
-	void revert(JSONObject json) throws ConversionException {
-		forEachImage(json, { image -> image.remove('direction') })
+	void applyToLocation(JSONObject locationJSON) throws ConversionException {
+		locationJSON.get("images")?.each { JSONObject imageJSON ->
+			imageJSON.put('direction', 'N/A')
+		}
+	}
+
+	@Override
+	void revertLocation(JSONObject locationJSON) throws ConversionException {
+		locationJSON.get("images")?.each { JSONObject imageJSON ->
+			imageJSON.remove('direction')
+		}
+	}
+
+	@Override
+	void applyToDesign(JSONObject designJSON) throws ConversionException {
+
+	}
+
+	@Override
+	void revertDesign(JSONObject designJSON) throws ConversionException {
+
 	}
 }
