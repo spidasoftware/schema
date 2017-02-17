@@ -1,4 +1,5 @@
 {
+    "id": "#/spidacalc/calc/damage.schema",
     "type": "object",
     "required": [
         "id",
@@ -60,7 +61,7 @@
             "$ref": "../../general/measurable.schema"
         },
         "remainingSectionModulus": {
-          "description":"A percent or ratio measurable of the remaining section modulus.  If this value is present than the damage was collected in this manner, and will be used as the contolling input.",
+          "description":"A percent or ratio measurable of the remaining section modulus.  If this value is present than the damage was collected in this manner, and will be used as the contolling input if present.",
           "$ref": "../../general/measurable.schema"
         }
     },
@@ -90,7 +91,7 @@
         }]
     }, {
         "type": "object",
-        "required":"direction",
+        "required":["direction"],
         "properties": {
             "damageType": {
                 "enum": ["ARC", "POCKET", "SLICE", "THROUGH_BOLT", "WEDGE", "WOODPECKER"]
