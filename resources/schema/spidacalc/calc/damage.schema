@@ -1,0 +1,101 @@
+{
+    "id": "#/spidacalc/calc/damage.schema",
+    "type": "object",
+    "required": [
+        "id",
+        "attachHeight",
+        "damageType",
+        "damageHeight"
+    ],
+    "additionalProperties": false,
+    "properties": {
+        "id": {
+            "type": "string",
+            "description": "Id unique within structure"
+        },
+        "externalId": {
+            "type": "string",
+            "description": "Optional external id"
+        },
+        "damageType": {
+            "$ref": "../../spidacalc/calc/enums/damage_type.schema",
+            "description": "Type/Shape of damage on pole."
+        },
+        "attachHeight": {
+            "$ref": "../../general/measurable.schema",
+            "description": "Height above ground line of the top of the damage."
+        },
+        "damageHeight": {
+            "$ref": "../../general/measurable.schema",
+            "description": "Height of the damage itself."
+        },
+        "direction": {
+            "$ref": "../../general/bearing.schema",
+            "description": "Bearing around pole of damage"
+        },
+        "arc": {
+            "$ref": "../../general/measurable.schema"
+        },
+        "width": {
+            "$ref": "../../general/measurable.schema"
+        },
+        "depth": {
+            "$ref": "../../general/measurable.schema"
+        },
+        "circumference": {
+            "$ref": "../../general/measurable.schema"
+        },
+        "nestDepth": {
+            "$ref": "../../general/measurable.schema"
+        },
+        "shellThickness": {
+            "$ref": "../../general/measurable.schema"
+        },
+        "neckDepth": {
+            "$ref": "../../general/measurable.schema"
+        },
+        "neckDiameter": {
+            "$ref": "../../general/measurable.schema"
+        },
+        "neckOffset": {
+            "$ref": "../../general/measurable.schema"
+        },
+        "remainingSectionModulus": {
+          "description":"A percent or ratio measurable of the remaining section modulus.  If this value is present than the damage was collected in this manner, and will be used as the contolling input if present.",
+          "$ref": "../../general/measurable.schema"
+        }
+    },
+    "oneOf": [{
+        "type": "object",
+        "properties": {
+            "damageType": {
+                "enum": ["SHELL"]
+            }
+        },
+        "anyOf": [{
+            "required": ["remainingSectionModulus"]
+        }, {
+            "required": ["circumference"]
+        }]
+    }, {
+        "type": "object",
+        "properties": {
+            "damageType": {
+                "enum": ["HEART"]
+            }
+        },
+        "anyOf": [{
+            "required": ["remainingSectionModulus"]
+        }, {
+            "required": ["shellThickness"]
+        }]
+    }, {
+        "type": "object",
+        "required":["direction"],
+        "properties": {
+            "damageType": {
+                "enum": ["ARC", "POCKET", "SLICE", "THROUGH_BOLT", "WEDGE", "WOODPECKER"]
+            }
+        }
+    }]
+}

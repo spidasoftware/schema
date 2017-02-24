@@ -248,67 +248,7 @@
       "description": "List of damages found on pole. See calc documentation for available types,their meaning, and properties that match each",
       "type": "array",
       "items": {
-        "type": "object",
-        "required": [
-          "id",
-          "attachHeight",
-          "damageType",
-          "damageHeight"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "Id unique within structure"
-          },
-          "externalId": {
-            "type": "string",
-            "description": "Optional external id"
-          },
-          "damageType": {
-            "$ref": "../../spidacalc/calc/enums/damage_type.schema",
-            "description": "Type/Shape of damage on pole."
-          },
-          "attachHeight": {
-            "$ref": "../../general/measurable.schema",
-            "description": "Height above ground line of the top of the damage."
-          },
-          "damageHeight": {
-            "$ref": "../../general/measurable.schema",
-            "description": "Height of the damage itself."
-          },
-          "direction": {
-            "$ref": "../../general/bearing.schema",
-            "description": "Bearing around pole of damage"
-          },
-          "arc": {
-            "$ref": "../../general/measurable.schema"
-          },
-          "width": {
-            "$ref": "../../general/measurable.schema"
-          },
-          "depth": {
-            "$ref": "../../general/measurable.schema"
-          },
-          "circumference": {
-            "$ref": "../../general/measurable.schema"
-          },
-          "nestDepth": {
-            "$ref": "../../general/measurable.schema"
-          },
-          "shellThickness": {
-            "$ref": "../../general/measurable.schema"
-          },
-          "neckDepth": {
-            "$ref": "../../general/measurable.schema"
-          },
-          "neckDiameter": {
-            "$ref": "../../general/measurable.schema"
-          },
-          "neckOffset": {
-            "$ref": "../../general/measurable.schema"
-          }
-        }
+        "$ref":"../../spidacalc/calc/damage.schema"
       }
     },
     "wires": {
