@@ -14,6 +14,16 @@
           "analysisType": "STRESS",
           "failingRatio": 1,
           "allowable": 100,
+          "usage": [
+            {
+              "owner": "ABC",
+              "value": 0.75
+            },
+            {
+              "owner": "DEF",
+              "value": 0.25
+            }
+          ],
           "additionalValues": [],
           "allowableEngineering": {
             "unit": "PASCAL",
