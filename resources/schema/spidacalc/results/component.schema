@@ -146,13 +146,13 @@
       "type": "array",
       "description": "The estimated portion of the pole that each owner uses.  Only applies to pole stress and moment results.",
       "items": {
-        "required": ["owner", "value"],
+        "required": ["owner", "portion"],
         "properties": {
           "owner": {
             "type": "string"
           },
-          "value": {
-            "type": "number"
+          "portion": {
+            "$ref": "../../general/measurable.schema"
           }
         },
         "additionalProperties": false

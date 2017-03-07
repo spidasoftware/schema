@@ -17,11 +17,17 @@
           "usage": [
             {
               "owner": "ABC",
-              "value": 0.75
+              "portion": {
+                "value": 0.75,
+                "unit": "RATIO"
+              }
             },
             {
               "owner": "DEF",
-              "value": 0.25
+              "portion": {
+                "value": 0.25,
+                "unit": "RATIO"
+              }
             }
           ],
           "additionalValues": [],
