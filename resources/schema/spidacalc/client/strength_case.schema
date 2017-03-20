@@ -8,7 +8,6 @@
     "addByDefault",
     "includeThroughBolts",
     "minimumAllowableRatio",
-    "sweepIncrement",
     "heightToIncludeAtGroundline"
   ],
   "properties": {
@@ -32,9 +31,6 @@
     },
     "minimumAllowableRatio":{
       "type":"number"
-    },
-    "sweepIncrement":{
-      "$ref":"../../general/measurable.schema"
     },
     "heightToIncludeAtGroundline":{
       "description":"any damage at this height and below will be treated as if the all occur at ground line",
