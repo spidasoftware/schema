@@ -54,6 +54,13 @@
         "$ref":"../../spidacalc/calc/anchor.schema"
       }
     },
+    "guyAttachPoints": {
+      "description": "List of all guy attach points in this structure.",
+      "type": "array",
+      "items": {
+        "$ref":"../../spidacalc/calc/guyAttachPoint.schema"
+      }
+    },
     "wireEndPoints": {
       "description": "List of all wire end points in the structure. Wire end points are the poles/buildings at the other end of your wires.",
       "type": "array",

@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "id": "#/spidacalc/calc/guyAttachPoint.schema",
+  "description": "A single guy attach point in a structure.",
+  "required": [
+    "id",
+    "attachHeight",
+    "supportedWEPs"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "A display id for the object. Must be unique to the pole."
+    },
+    "externalId": {
+      "type": "string",
+      "description": "An optional id for mapping to external systems. Calc does not use this ID, but does preserve it."
+    },
+    "attachHeight": {
+      "description": "Attach height of the guy attach point.",
+      "$ref": "../../general/measurable.schema"
+    },
+    "supportedWEPs": {
+      "description": "WEP IDs supported by this anchor",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "guy": {
+      "type": "string",
+      "description": "Guy ID of guy associated with this guy attach point."
+    }
+  },
+  "additionalProperties": false
+}
