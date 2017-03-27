@@ -108,7 +108,8 @@
                 "properties": {
                     "type": {
                         "description": "Can be anything, but values known by calc are FIELD, MAP, and FOREIGN", 
-                        "type": "string"
+                        "type": "string",
+                        "minLength": 1
                     }, 
                     "value": {
                         "type": "string"
