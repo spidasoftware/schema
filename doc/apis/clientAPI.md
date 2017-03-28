@@ -225,6 +225,7 @@ Return the client equipments in the client file.
 #### Parameters
 
 1. clientFile: a _required_ `string` of the client file name to pull from
+1. industry: a `string` filter on the industry of the equipment.
 1. details: a `boolean` on if the complete details should be returned.
 
 #### Returns
