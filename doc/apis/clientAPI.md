@@ -69,7 +69,7 @@ Return a client anchor from the client file.
 
 #### Parameters
 
-1. type: a _required_ `string` of the anchor to retrieve.
+1. anchor: a _required_ `string` of the anchor name to retrieve.
 1. clientFile: a _required_ `string` of the client file name to pull from
 
 #### Returns
@@ -113,7 +113,7 @@ Return a client insulator from the client file.
 
 #### Parameters
 
-1. type: a _required_ `string` of the insulator to retrieve.
+1. insulator: a _required_ `string` of the insulator name to retrieve.
 1. clientFile: a _required_ `string` of the client file name to pull from
 
 #### Returns
