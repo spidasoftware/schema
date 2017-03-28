@@ -225,7 +225,6 @@ Return the client equipments in the client file.
 #### Parameters
 
 1. clientFile: a _required_ `string` of the client file name to pull from
-1. industry: a `string` filter on the industry of the equipment.
 1. details: a `boolean` on if the complete details should be returned.
 
 #### Returns
@@ -291,7 +290,7 @@ Return a client crossArm from the client file.
 
 #### Parameters
 
-1. crossArm: a _required_ `string` of the crossArm to retrieve.
+1. crossArm: a _required_ `string` of the crossArm name to retrieve.
 1. clientFile: a _required_ `string` of the client file name to pull from
 
 #### Returns
@@ -335,7 +334,7 @@ Return a client foundation from the client file.
 
 #### Parameters
 
-1. foundation: a _required_ `string` of the foundation to retrieve.
+1. foundation: a _required_ `string` of the foundation name to retrieve.
 1. clientFile: a _required_ `string` of the client file name to pull from
 
 #### Returns
@@ -501,7 +500,7 @@ Return the owners in the client file.
 
 #### URL
 
-`http://localhost:4560/clientData/framingUnits`
+`http://localhost:4560/clientData/owners`
 
 #### Allowed Methods
 
