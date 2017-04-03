@@ -39,6 +39,12 @@
       "minLength": 1,
       "maxLength": 50
     },
+    "roles": {
+      "items": {
+        "type": "string"
+      },
+      "description": "The user's roles.  Read-Only.  Ignored when creating."
+    },
     "foreignCompanies": {
       "type": "array",
       "items": {
