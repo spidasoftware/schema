@@ -266,15 +266,15 @@
               },
               "fz":               {
                 "unit": "NEWTON",
-                "value": 889.6443230521
+                "value": -129.239403929
               },
               "mx":               {
                 "unit": "NEWTON_METRE",
-                "value": 0
+                "value": 102.3049389588
               },
               "my":               {
                 "unit": "NEWTON_METRE",
-                "value": 0
+                "value": -30.3954893933
               },
               "mz":               {
                 "unit": "NEWTON_METRE",
