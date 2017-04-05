@@ -91,10 +91,42 @@
         }]
     }, {
         "type": "object",
-        "required":["direction"],
+        "required":["direction", "depth", "arc"],
         "properties": {
             "damageType": {
-                "enum": ["ARC", "POCKET", "SLICE", "THROUGH_BOLT", "WEDGE", "WOODPECKER"]
+                "enum": ["ARC", "WEDGE"]
+            }
+        }
+    }, {
+        "type": "object",
+        "required":["direction", "shellThickness", "depth"],
+        "properties": {
+            "damageType": {
+                "enum": ["POCKET"]
+            }
+        }
+    }, {
+        "type": "object",
+        "required":["direction", "depth"],
+        "properties": {
+            "damageType": {
+                "enum": ["THROUGH_BOLT"]
+            }
+        }
+    }, {
+        "type": "object",
+        "required":["direction", "width"],
+        "properties": {
+            "damageType": {
+                "enum": ["SLICE"]
+            }
+        }
+    }, {
+        "type": "object",
+        "required":["direction", "neckDepth", "neckDiameter", "neckOffset", "nestDepth" ],
+        "properties": {
+            "damageType": {
+                "enum": ["WOODPECKER"]
             }
         }
     }]
