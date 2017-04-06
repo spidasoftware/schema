@@ -385,7 +385,9 @@ class FormatConverter {
 
         List designsArray = []
         Map convertedDesign = convertCalcDBDesign(calcDBDesign)
-        locationObject.version = convertedDesign.version
+        if(convertedDesign.version){
+            locationObject.version = convertedDesign.version
+        }
         designsArray.add(convertedDesign)
         locationObject.put("designs", designsArray)
 
