@@ -1,0 +1,63 @@
+{
+  "label": "As Is",
+  "structure":         {
+    "pointLoads":           [
+    {
+      "id": "PointLoad#1",
+      "externalId": "5898d1417d841285855f3b32",
+      "owner":               {
+      "id": "SCE",
+      "industry": "UTILITY",
+      "externalId": "b2ad09d4-7ddb-4c68-be8e-60c57cd3bcd0"
+      },
+      "elevation":               {
+        "unit": "RADIAN",
+        "value": 0.5235987755982988
+      },
+      "attachmentHeight":               {
+        "unit": "METRE",
+        "value": 9.067800000000002
+      },
+      "rotation":               {
+        "unit": "RADIAN",
+        "value": 0.7853981633974483
+      },
+      "x":               {
+        "unit": "METRE",
+        "value": 0
+      },
+      "y":               {
+        "unit": "METRE",
+        "value": 0
+      },
+      "z":               {
+        "unit": "METRE",
+        "value": 9.067800000000002
+      },
+      "fx":               {
+        "unit": "NEWTON",
+        "value": 889.6443230521
+      },
+      "fy":               {
+        "unit": "NEWTON",
+        "value": 889.6443230521
+      },
+      "fz":               {
+        "unit": "NEWTON",
+        "value": -129.239403929
+      },
+      "mx":               {
+        "unit": "NEWTON_METRE",
+        "value": 102.3049389588
+      },
+      "my":               {
+        "unit": "NEWTON_METRE",
+        "value": -30.3954893933
+      },
+      "mz":               {
+        "unit": "NEWTON_METRE",
+        "value": 0
+      }
+    }]
+  }
+}

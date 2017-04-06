@@ -6,18 +6,18 @@ import net.sf.json.groovy.JsonSlurper
 import spock.lang.Specification
 
 @Log4j
-class PointLoadNewtonToPoundForceSpec extends Specification {
+class PointLoadItemChangeSetSpec extends Specification {
 
     def "test revert"() {
         setup:
-            def leanStream = PointLoadElevationAndRotationChangeSetSpec.getResourceAsStream("/conversions/v4/project-v4.json")
+            def leanStream = PointLoadItemChangeSetSpec.getResourceAsStream("/conversions/v4/project-v4.json")
             JSONObject projectJSON = new JsonSlurper().parse(leanStream)
             JSONObject locationJSON = JSONObject.fromObject(projectJSON.leads[0].locations[0])
             JSONObject designJSON = JSONObject.fromObject(projectJSON.leads[0].locations[0].designs[0])
 
-            PointLoadNewtonToPoundForceChangeset pointLoadNewtonToPoundForceChangeset = new PointLoadNewtonToPoundForceChangeset()
+            PointLoadItemChangeSet changeSet = new PointLoadItemChangeSet()
         when:
-            pointLoadNewtonToPoundForceChangeset.revertProject(projectJSON)
+            changeSet.revertProject(projectJSON)
             JSONObject structure = projectJSON.get("leads")[0].get("locations")[0].get("designs")[0].get("structure")
             JSONObject pointLoad = structure.get("pointLoads").find { it.id == "PointLoad#1" }
         then:
@@ -27,14 +27,17 @@ class PointLoadNewtonToPoundForceSpec extends Specification {
             pointLoad.getJSONObject("fy").get("unit") == 'POUND_FORCE'
             Math.abs(pointLoad.getJSONObject("fz").getDouble("value") - (-29.05417390379112D)) < 0.000001
             pointLoad.getJSONObject("fz").get("unit") == 'POUND_FORCE'
-            Math.abs(pointLoad.getJSONObject("mx").getDouble("value") - 75.45625066010481D) < 0.000001
             pointLoad.getJSONObject("mx").get("unit") == 'POUND_FORCE_FOOT'
-            Math.abs(pointLoad.getJSONObject("my").getDouble("value") - (-22.418562485248607D)) < 0.000001
             pointLoad.getJSONObject("my").get("unit") == 'POUND_FORCE_FOOT'
-            Math.abs(pointLoad.getJSONObject("mz").getDouble("value") - 0) < 0.000001
             pointLoad.getJSONObject("mz").get("unit") == 'POUND_FORCE_FOOT'
+            structure.get("pointLoads")[0].get("elevation").get("unit") == 'DEGREE_ANGLE'
+            structure.get("pointLoads")[0].get("rotation").get("unit") == 'DEGREE_ANGLE'
+            structure.get("pointLoads")[1].get("elevation").getDouble("value") == 0.0D
+            structure.get("pointLoads")[1].get("elevation").get("unit") == 'DEGREE_ANGLE'
+            structure.get("pointLoads")[1].get("rotation").getDouble("value") == 0.0D
+            structure.get("pointLoads")[1].get("rotation").get("unit") == 'DEGREE_ANGLE'
         when: "revertLocation"
-            pointLoadNewtonToPoundForceChangeset.revertLocation(locationJSON)
+            changeSet.revertLocation(locationJSON)
             structure = locationJSON.get("designs")[0].get("structure")
             pointLoad = structure.get("pointLoads").find { it.id == "PointLoad#1" }
         then:
@@ -44,14 +47,17 @@ class PointLoadNewtonToPoundForceSpec extends Specification {
             pointLoad.getJSONObject("fy").get("unit") == 'POUND_FORCE'
             Math.abs(pointLoad.getJSONObject("fz").getDouble("value") - (-29.05417390379112D)) < 0.000001
             pointLoad.getJSONObject("fz").get("unit") == 'POUND_FORCE'
-            Math.abs(pointLoad.getJSONObject("mx").getDouble("value") - 75.45625066010481D) < 0.000001
             pointLoad.getJSONObject("mx").get("unit") == 'POUND_FORCE_FOOT'
-            Math.abs(pointLoad.getJSONObject("my").getDouble("value") - (-22.418562485248607D)) < 0.000001
             pointLoad.getJSONObject("my").get("unit") == 'POUND_FORCE_FOOT'
-            Math.abs(pointLoad.getJSONObject("mz").getDouble("value") - 0) < 0.000001
             pointLoad.getJSONObject("mz").get("unit") == 'POUND_FORCE_FOOT'
+            structure.get("pointLoads")[0].get("elevation").get("unit") == 'DEGREE_ANGLE'
+            structure.get("pointLoads")[0].get("rotation").get("unit") == 'DEGREE_ANGLE'
+            structure.get("pointLoads")[1].get("elevation").getDouble("value") == 0.0D
+            structure.get("pointLoads")[1].get("elevation").get("unit") == 'DEGREE_ANGLE'
+            structure.get("pointLoads")[1].get("rotation").getDouble("value") == 0.0D
+            structure.get("pointLoads")[1].get("rotation").get("unit") == 'DEGREE_ANGLE'
         when: "revertDesign"
-            pointLoadNewtonToPoundForceChangeset.revertDesign(designJSON)
+            changeSet.revertDesign(designJSON)
             structure = designJSON.get("structure")
             pointLoad = structure.get("pointLoads").find { it.id == "PointLoad#1" }
         then:
@@ -61,11 +67,31 @@ class PointLoadNewtonToPoundForceSpec extends Specification {
             pointLoad.getJSONObject("fy").get("unit") == 'POUND_FORCE'
             Math.abs(pointLoad.getJSONObject("fz").getDouble("value") - (-29.05417390379112D)) < 0.000001
             pointLoad.getJSONObject("fz").get("unit") == 'POUND_FORCE'
-            Math.abs(pointLoad.getJSONObject("mx").getDouble("value") - 75.45625066010481D) < 0.000001
             pointLoad.getJSONObject("mx").get("unit") == 'POUND_FORCE_FOOT'
-            Math.abs(pointLoad.getJSONObject("my").getDouble("value") - (-22.418562485248607D)) < 0.000001
             pointLoad.getJSONObject("my").get("unit") == 'POUND_FORCE_FOOT'
-            Math.abs(pointLoad.getJSONObject("mz").getDouble("value") - 0) < 0.000001
             pointLoad.getJSONObject("mz").get("unit") == 'POUND_FORCE_FOOT'
+            structure.get("pointLoads")[0].get("elevation").get("unit") == 'DEGREE_ANGLE'
+            structure.get("pointLoads")[0].get("rotation").get("unit") == 'DEGREE_ANGLE'
+            structure.get("pointLoads")[1].get("elevation").getDouble("value") == 0.0D
+            structure.get("pointLoads")[1].get("elevation").get("unit") == 'DEGREE_ANGLE'
+            structure.get("pointLoads")[1].get("rotation").getDouble("value") == 0.0D
+            structure.get("pointLoads")[1].get("rotation").get("unit") == 'DEGREE_ANGLE'
+    }
+
+    def "test apply"() {
+        def leanStream = PointLoadItemChangeSetSpec.getResourceAsStream("/conversions/v4/designWithOldPointLoadItems.json")
+        JSONObject designJSON = new JsonSlurper().parse(leanStream) as JSONObject
+        def changeSet = new PointLoadItemChangeSet()
+
+        when:
+            def oldPointLoad = JSONObject.fromObject(designJSON.structure.pointLoads.first())
+            changeSet.applyToDesign(designJSON)
+            def pointLoad = designJSON.structure.pointLoads.first()
+        then:
+            !["elevation", "rotation", "x", "y", "z", "fx", "fy", "fz", "mx", "my", "mz"].any { pointLoad.containsKey(it) }
+            pointLoad.attachHeight == oldPointLoad.attachmentHeight
+            pointLoad.XForce == oldPointLoad.fx
+            pointLoad.YForce == oldPointLoad.fy
+            pointLoad.ZForce == oldPointLoad.fz
     }
 }
