@@ -1,13 +1,8 @@
 package com.spidasoftware.schema.conversion
 
-import com.spidasoftware.schema.conversion.changeset.ConverterUtils
+import com.spidasoftware.schema.conversion.changeset.ChangeSet
 import groovy.util.logging.Log4j
-import net.sf.json.JSONObject
-import net.sf.json.JSONArray
 import org.bson.types.ObjectId
-
-//import java.text.ParseException
-//import java.text.SimpleDateFormat
 
 @Log4j
 class FormatConverter {
@@ -18,12 +13,12 @@ class FormatConverter {
     Collection<CalcDBProjectComponent> convertCalcProject(Map calcProject) {
         List<CalcDBProjectComponent> components = []
         addDBIdsToProject(calcProject)
-        JSONObject referencedProject = new JSONObject()
+        Map referencedProject = [:]
         referencedProject.put('id', calcProject.id)
         referencedProject.put("dateModified", new Date().time)
 
         //Project JSON that will get added to the referencedProject
-        JSONObject convertedProject = JSONObject.fromObject(calcProject)
+        Map convertedProject = ChangeSet.duplicateAsJson(calcProject)
         convertedProject.leads.each { lead ->
             lead.locations.each { location ->
                 components.addAll(convertCalcLocation(location, calcProject))
@@ -51,7 +46,7 @@ class FormatConverter {
         ArrayList<CalcDBProjectComponent> components = []
         addDBIdsToLocation(calcLocation)
 
-        JSONObject referencedLocation = new JSONObject()
+        Map referencedLocation = [:]
         referencedLocation.put("dateModified", new Date().time)
         referencedLocation.put('id', calcLocation.id)
 
@@ -63,7 +58,7 @@ class FormatConverter {
         }
 
         //the calc location that will get saved as part of the referenced location
-        JSONObject convertedLocation = JSONObject.fromObject(calcLocation)
+        Map convertedLocation = ChangeSet.duplicateAsJson(calcLocation)
         convertedLocation.get("designs").each { design ->
             components.add(convertCalcDesign(design, calcLocation, calcProject))
 
@@ -92,7 +87,7 @@ class FormatConverter {
     CalcDBDesign convertCalcDesign(Map calcDesign, Map calcLocation, Map calcProject) {
         addDBIdToDesign(calcDesign)
 
-        JSONObject referencedDesign = new JSONObject()
+        Map referencedDesign = [:]
         referencedDesign.put("dateModified", new Date().time)
         referencedDesign.put('id', calcDesign.id)
 
@@ -107,7 +102,7 @@ class FormatConverter {
             referencedDesign.put("clientFileVersion", calcProject.get("clientFileVersion"))
         }
 
-        JSONObject convertedDesign = JSONObject.fromObject(calcDesign)
+        Map convertedDesign = ChangeSet.duplicateAsJson(calcDesign)
         referencedDesign.put("calcDesign", convertedDesign)
         addAnalysisResultsToNewDesign(calcDesign, referencedDesign)
 
@@ -121,7 +116,7 @@ class FormatConverter {
         }
 
         //create the container for the worst-case results
-        referencedDesign.worstCaseAnalysisResults = new JSONObject()
+        referencedDesign.worstCaseAnalysisResults = [:]
 
         List allOriginalAnalysisResults = originalDesignObject.analysis
         // Pole is a special Case, dealt with separately
@@ -165,12 +160,12 @@ class FormatConverter {
     private static List collectPoleResults(List originalAnalysisResults) {
         List allPoleResults = []
         originalAnalysisResults.each { loadCase ->
-            loadCase.results.each { JSONObject resultObject ->
-                if (resultObject.containsKey("component") && resultObject.getString("component").startsWith("Pole")) {
+            loadCase.results.each { Map resultObject ->
+                if (resultObject.containsKey("component") && resultObject.get("component").startsWith("Pole")) {
                     // Old pre v4 analysis summary object
                     allPoleResults.add(resultObject)
                 } else {
-                    resultObject.get("components").each { JSONObject componentResult ->
+                    resultObject.get("components").each { Map componentResult ->
                         if (componentResult.get("id") == "Pole") {
                             allPoleResults.add(convertDetailedResultToSummaryResults(resultObject, componentResult))
                         }
@@ -181,8 +176,8 @@ class FormatConverter {
         return allPoleResults
     }
 
-    private static JSONObject getWorstResult(List resultsArray) {
-        JSONObject worstResult = null
+    private static Map getWorstResult(List resultsArray) {
+        Map worstResult = null
         double worstNormalizedResult = Double.MAX_VALUE
         resultsArray.each { result ->
             /*
@@ -194,32 +189,32 @@ class FormatConverter {
             */
             def normalizedResult
             if (result.unit == "SF" || result.component == "Pole-Strength") {
-                normalizedResult = result.getDouble("actual") / result.getDouble("allowable")
+                normalizedResult = result.get("actual") / result.get("allowable")
             } else {
                 // unit is PERCENT
-                normalizedResult = result.getDouble("allowable") / result.getDouble("actual")
+                normalizedResult = result.get("allowable") / result.get("actual")
             }
 
             if (normalizedResult < worstNormalizedResult) {
                 worstNormalizedResult = normalizedResult
-                worstResult = JSONObject.fromObject(result)
+                worstResult = ChangeSet.duplicateAsJson(result)
             }
         }
         return worstResult
     }
 
 
-    private static JSONArray getResultsForComponent(String componentId, List analysisList) {
-        JSONArray results = new JSONArray()
+    private static List getResultsForComponent(String componentId, List analysisList) {
+        List results = []
         analysisList.each { loadCase ->
             loadCase.get("results").each { result ->
-                JSONObject resultObject = (JSONObject) result
+                Map resultObject = (Map) result
                 if (resultObject.containsKey("component")) { // Old pre v4 analysis summary object
                     if (resultObject.get("component") == componentId) {
                         results.add(resultObject)
                     }
                 } else {
-                    resultObject.get("components").each { JSONObject componentResult ->
+                    resultObject.get("components").each { Map componentResult ->
                         if (componentResult.get("id") == componentId) {
                             results.add(convertDetailedResultToSummaryResults(resultObject, componentResult))
                         }
@@ -231,19 +226,19 @@ class FormatConverter {
     }
 
     public
-    static JSONObject convertDetailedResultToSummaryResults(JSONObject loadCaseResults, JSONObject componentResult) {
-        JSONObject analysisAsset = new JSONObject()
-        double actual = componentResult.getDouble("actual")
+    static Map convertDetailedResultToSummaryResults(Map loadCaseResults, Map componentResult) {
+        Map analysisAsset = [:]
+        double actual = componentResult.get("actual")
         actual = Math.min(INFINITE_RESULT, actual)
         analysisAsset.put("actual", actual);
-        analysisAsset.put("allowable", componentResult.getDouble("allowable"))
-        String resultsType = componentResult.getString("resultsType") == "PERCENT_LOADED" ? "PERCENT" : "SF"
+        analysisAsset.put("allowable", componentResult.get("allowable"))
+        String resultsType = componentResult.get("resultsType") == "PERCENT_LOADED" ? "PERCENT" : "SF"
         analysisAsset.put("unit", resultsType)
         analysisAsset.put("analysisDate", loadCaseResults.get("analysisDate"))
-        analysisAsset.put("component", componentResult.getString("id"))
-        analysisAsset.put("loadInfo", loadCaseResults.getString("analysisCase"))
-        analysisAsset.put("passes", componentResult.getString("status") == "PASSING")
-        analysisAsset.put("analysisType", componentResult.getString("analysisType"))
+        analysisAsset.put("component", componentResult.get("id"))
+        analysisAsset.put("loadInfo", loadCaseResults.get("analysisCase"))
+        analysisAsset.put("passes", componentResult.get("status") == "PASSING")
+        analysisAsset.put("analysisType", componentResult.get("analysisType"))
         return analysisAsset
     }
 
@@ -274,27 +269,27 @@ class FormatConverter {
         return thing
     }
 
-    JSONObject convertCalcDBProject(CalcDBProject calcDBProject, Collection<CalcDBLocation> calcDBLocations, Collection<CalcDBDesign> calcDBDesigns) {
+    Map convertCalcDBProject(CalcDBProject calcDBProject, Collection<CalcDBLocation> calcDBLocations, Collection<CalcDBDesign> calcDBDesigns) {
         Map<String, CalcDBLocation> calcDBLocationMap = buildCalcDBIdMap(calcDBLocations)
         Map<String, CalcDBDesign> calcDBDesignMap = buildCalcDBIdMap(calcDBDesigns)
         return convertCalcDBProject(calcDBProject, calcDBLocationMap, calcDBDesignMap)
     }
 
-    JSONObject convertCalcDBProject(CalcDBProject calcDBProject, Map<String, CalcDBLocation> calcDBLocationMap, Map<String, CalcDBDesign> calcDBDesignMap) {
+    Map convertCalcDBProject(CalcDBProject calcDBProject, Map<String, CalcDBLocation> calcDBLocationMap, Map<String, CalcDBDesign> calcDBDesignMap) {
         // new project json object that we can keep adding to
-        JSONObject convertedProject = JSONObject.fromObject(calcDBProject.getCalcJSON())
+        Map convertedProject = ChangeSet.duplicateAsJson(calcDBProject.getCalcJSON())
 
         // first match up projects with their child locations and designs
         List<String> locationIds = calcDBProject.getChildLocationIds()
 
-        JSONArray newLeadsArray = new JSONArray()
+        List newLeadsArray = []
 
         //first get all the child locations that are referenced in the project
-        convertedProject.getJSONArray('leads').each { JSONObject leadStub ->
-            JSONArray calcLocations = new JSONArray()
+        convertedProject.get('leads').each { Map leadStub ->
+            List calcLocations = []
 
             log.trace("iterating through locations in the referenced lead to look for matches in the calcDBLocationMap")
-            leadStub.getJSONArray('locations').each { JSONObject locationStub ->
+            leadStub.get('locations').each { Map locationStub ->
                 if (calcDBLocationMap.containsKey(locationStub.id)) {
                     log.debug("Adding location: ${locationStub.id} to the converted project")
                     calcLocations.add(convertCalcDBLocation(calcDBLocationMap.get(locationStub.id), calcDBDesignMap))
@@ -306,7 +301,7 @@ class FormatConverter {
             //If any locations were added, then add the new lead
             if (!calcLocations.isEmpty()) {
                 log.trace("Adding lead to the calc project")
-                JSONObject calcLead = new JSONObject()
+                Map calcLead = [:]
                 if (leadStub.containsKey('label')) {
                     calcLead.put('label', leadStub.label)
                 }
@@ -316,11 +311,11 @@ class FormatConverter {
         }
 
         // now go through whatever locations and designs are left (not members of a selected project
-        JSONArray extraCalcLocations = new JSONArray() //will get added as the 'locations' in a lead
+        List extraCalcLocations = [] //will get added as the 'locations' in a lead
 
         calcDBLocationMap.values().each { CalcDBLocation location ->
             log.debug("adding orphaned CalcDB Location: ${location.getCalcDBId()}")
-            JSONObject locationJson = convertCalcDBLocation(location, calcDBDesignMap)
+            Map locationJson = convertCalcDBLocation(location, calcDBDesignMap)
             extraCalcLocations.add(locationJson)
             calcDBLocationMap.remove(location.getCalcDBId())
         }
@@ -328,13 +323,13 @@ class FormatConverter {
         // finally, for whatever designs are left without a location, add the design to a new location
         calcDBDesignMap.values().each { CalcDBDesign design ->
             log.debug("Adding orphaned CalcDB Design: " + design.calcDBId)
-            JSONObject locationFromDesign = createLocationJsonForDesign(design)
+            Map locationFromDesign = createLocationJsonForDesign(design)
             calcDBDesignMap.remove(design.calcDBId)
             extraCalcLocations.add(locationFromDesign)
         }
 
         if (!extraCalcLocations.isEmpty()) {
-            JSONObject extLead = new JSONObject()
+            Map extLead = [:]
             extLead.put('locations', extraCalcLocations)
             newLeadsArray.add(extLead)
         }
@@ -345,7 +340,7 @@ class FormatConverter {
         return convertedProject
     }
 
-    JSONObject convertCalcDBLocation(CalcDBLocation calcDBLocation, Collection<CalcDBDesign> calcDBDesigns) {
+    Map convertCalcDBLocation(CalcDBLocation calcDBLocation, Collection<CalcDBDesign> calcDBDesigns) {
         Map<String, CalcDBDesign> calcDBDesignMap = buildCalcDBIdMap(calcDBDesigns)
         return convertCalcDBLocation(calcDBLocation, calcDBDesignMap)
     }
@@ -360,17 +355,17 @@ class FormatConverter {
      * @param calcDBDesignMap map of calcDBId to CalcDBDesign
      * @return a calc Location JSONObject that will be valid agians the location schema
      */
-    JSONObject convertCalcDBLocation(CalcDBLocation calcDBLocation, Map<String, CalcDBDesign> calcDBDesignMap) {
+    Map convertCalcDBLocation(CalcDBLocation calcDBLocation, Map<String, CalcDBDesign> calcDBDesignMap) {
         log.debug("Adding CalcDBLocation: " + calcDBLocation.getName())
-        JSONObject convertedLocation = JSONObject.fromObject(calcDBLocation.getCalcJSON())
+        Map convertedLocation = ChangeSet.duplicateAsJson(calcDBLocation.getCalcJSON())
 
-        JSONArray convertedDesigns = new JSONArray()
+        List convertedDesigns = []
         calcDBLocation.getDesignIds().each { String designId ->
             CalcDBDesign calcDBDesign = calcDBDesignMap.get(designId)
             if (calcDBDesign != null) {
                 log.debug("Adding CalcDBDesign: " + designId + " to the Location")
                 calcDBDesignMap.remove(designId)
-                JSONObject convertedDesign = convertCalcDBDesign(calcDBDesign)
+                Map convertedDesign = convertCalcDBDesign(calcDBDesign)
                 convertedDesigns.add(convertedDesign)
             } else {
                 log.debug("Could not find a CalcDBDesign with the id: " + designId)
@@ -381,15 +376,15 @@ class FormatConverter {
         return convertedLocation
     }
 
-    JSONObject createLocationJsonForDesign(CalcDBDesign calcDBDesign) {
-        JSONObject locationObject = new JSONObject(schema: LOCATION_SCHEMA_PATH)
+    Map createLocationJsonForDesign(CalcDBDesign calcDBDesign) {
+        Map locationObject = [schema: LOCATION_SCHEMA_PATH]
         String locationLabel = calcDBDesign.getParentLocationName()
         if (locationLabel != null && !locationLabel.isEmpty()) {
             locationObject.put("label", locationLabel)
         }
 
-        JSONArray designsArray = new JSONArray()
-        JSONObject convertedDesign = convertCalcDBDesign(calcDBDesign)
+        List designsArray = []
+        Map convertedDesign = convertCalcDBDesign(calcDBDesign)
         locationObject.version = convertedDesign.version
         designsArray.add(convertedDesign)
         locationObject.put("designs", designsArray)
@@ -398,8 +393,8 @@ class FormatConverter {
         return locationObject
     }
 
-    JSONObject convertCalcDBDesign(CalcDBDesign calcDBDesign) {
-        return JSONObject.fromObject(calcDBDesign.getCalcJSON())
+    Map convertCalcDBDesign(CalcDBDesign calcDBDesign) {
+        return ChangeSet.duplicateAsJson(calcDBDesign.getCalcJSON())
     }
 
     private static String newPrimaryKey() {

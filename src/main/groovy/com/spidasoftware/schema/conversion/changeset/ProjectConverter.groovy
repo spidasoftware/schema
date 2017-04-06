@@ -1,6 +1,5 @@
 package com.spidasoftware.schema.conversion.changeset
 
-import net.sf.json.JSONObject
 
 class ProjectConverter extends AbstractConverter {
 
@@ -10,12 +9,12 @@ class ProjectConverter extends AbstractConverter {
     }
 
     @Override
-    void applyChangeset(ChangeSet changeSet, JSONObject json) {
+    void applyChangeset(ChangeSet changeSet, Map json) {
         changeSet.applyToProject(json)
     }
 
     @Override
-    void revertChangeset(ChangeSet changeSet, JSONObject json) {
+    void revertChangeset(ChangeSet changeSet, Map json) {
         changeSet.revertProject(json)
     }
 }

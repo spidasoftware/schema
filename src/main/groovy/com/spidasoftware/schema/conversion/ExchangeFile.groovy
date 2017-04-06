@@ -1,7 +1,8 @@
 package com.spidasoftware.schema.conversion
 
 import com.google.common.io.Files
-import net.sf.json.JSONObject
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
 import org.apache.log4j.Logger
 import org.apache.tools.ant.BuildException
 /**
@@ -39,9 +40,9 @@ public class ExchangeFile {
 	public static final String PHOTO_DIR_NAME = 'Photos'
 
 	/**
-	 * A JSONObject that should conform to the SpidaCalc project schema. Reference here so it can be cached
+	 * A Map that should conform to the SpidaCalc project schema. Reference here so it can be cached
 	 */
-	JSONObject projectJSON
+	Map projectJSON
 
 	/**
 	 * directory used to unzip file contents to and to write to prior to zipping. may not be null.
@@ -91,10 +92,10 @@ public class ExchangeFile {
 	 * will simply be added to the photos directory in the zip archive.
 	 * @return the exchangeFile, ready to be written
 	 */
-	static ExchangeFile createFromProjectJSON(JSONObject projectJson, Collection<File> photoFiles = null) {
+	static ExchangeFile createFromProjectJSON(Map projectJson, Collection<File> photoFiles = null) {
 		ExchangeFile exf = new ExchangeFile(Files.createTempDir())
 		exf.setProjectJSON(projectJson)
-		exf.getProjectJSONFile() << projectJson.toString(4)
+		exf.getProjectJSONFile() << JsonOutput.toJson(projectJson)
 		log.debug("Creating exchange file from JSON")
 		if (photoFiles) {
 			File photoDir = exf.getPhotoDir()
@@ -121,10 +122,10 @@ public class ExchangeFile {
 		return new ExchangeFile(dir)
 	}
 
-	JSONObject getProjectJSON() {
+	Map getProjectJSON() {
 		if (!projectJSON && getProjectJSONFile().isFile()) {
 			log.debug("parsing exchange file json")
-			projectJSON = JSONObject.fromObject(getProjectJSONFile().getText("UTF-8"))
+			projectJSON = new JsonSlurper().parse(getProjectJSONFile())
 		}
 		return projectJSON
 	}

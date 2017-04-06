@@ -1,55 +1,46 @@
 package com.spidasoftware.schema.conversion
 
-import net.sf.json.JSONException
-import net.sf.json.JSONObject
 import org.apache.log4j.Logger
-
-import java.text.ParseException
-import java.text.SimpleDateFormat
 
 /**
  * Abstract class for SPIDAdb project components that handles some of the boiler plate stuff
- * User: pfried
- * Date: 2/10/14
- * Time: 2:28 PM
- * To change this template use File | Settings | File Templates.
  */
 abstract class AbstractCalcDBComponent implements CalcDBProjectComponent {
     private static final Logger log = Logger.getLogger(AbstractCalcDBComponent.class)
-    JSONObject json
+    Map json
 
-    public AbstractCalcDBComponent(JSONObject json){
+    public AbstractCalcDBComponent(Map json){
         this.json = json
     }
 
     @Override
-    public JSONObject getJSON() {
+    public Map getMap() {
         return this.json
     }
 
     @Override
-    public void setJSON(JSONObject json) {
+    public void setMap(Map json) {
         this.json = json
     }
 
     @Override
     public String getName() {
-        return getCalcJSON().optString("label")
+        return getCalcJSON().get("label")
     }
 
     @Override
     public String getCalcDBId() {
-	    return getJSON().getString("id")
+	    return getMap().get("id")
     }
 
     @Override
     public String getClientFileName() {
-	    return getJSON().getString("clientFile")
+	    return getMap().get("clientFile")
     }
 
     @Override
     public Date getDateModified() {
-	    long time = json.getLong('dateModified')
+	    long time = json.get('dateModified')
 	    return new Date(time)
     }
 
@@ -63,8 +54,8 @@ abstract class AbstractCalcDBComponent implements CalcDBProjectComponent {
 	 *
 	 * @return
 	 */
-	JSONObject getUser(){
-		return getJSON().optJSONObject('user')
+	Map getUser(){
+		return getMap().user
 	}
 
 	/**
@@ -73,12 +64,12 @@ abstract class AbstractCalcDBComponent implements CalcDBProjectComponent {
 	 * @param email
 	 */
 	void setUser(String id, String email) {
-		JSONObject user = new JSONObject()
-		user.elementOpt('id', id)
-		user.elementOpt('email', email)
-		getJSON().put('user', user)
+		Map user = [:]
+		user.put('id', id)
+		user.put('email', email)
+		getMap().put('user', user)
 	}
 
-	abstract JSONObject getCalcJSON()
+	abstract Map getCalcJSON()
 
 }

@@ -1,11 +1,13 @@
 package com.spidasoftware.schema.conversion
 
+import com.spidasoftware.schema.conversion.changeset.ChangeSet
+import groovy.json.JsonSlurper
 import groovy.util.logging.Log4j
-import net.sf.json.JSONArray
-import net.sf.json.JSONObject
 import org.junit.Before
 import org.junit.Test
-import static org.junit.Assert.*
+
+import static org.junit.Assert.assertEquals
+import static org.junit.Assert.assertNotNull
 
 @Log4j
 public class CalcDBComponentTest {
@@ -37,7 +39,7 @@ public class CalcDBComponentTest {
     @Test
     public void testGetDateModified() throws Exception {
         ["project", "location", "design"].each {
-            log.debug "${it} dateModified= " + this."$it".getDateModified() + ", dateLong= ${this."$it".getJSON().getLong("dateModified")}"
+            log.debug "${it} dateModified= " + this."$it".getDateModified() + ", dateLong= ${this."$it".getMap().get("dateModified")}"
             assertNotNull("getDateModified should return the Date", this."$it".getDateModified())
         }
     }
@@ -51,24 +53,23 @@ public class CalcDBComponentTest {
     }
 
     private CalcDBLocation loadLocation(String resourceString) {
-        JSONObject json = getResource(resourceString)
-        return new CalcDBLocation(json.getJSONArray("locations").getJSONObject(0))
+        Map json = getResource(resourceString)
+        return new CalcDBLocation(json.get("locations").get(0))
     }
 
     private CalcDBDesign loadDesign(String resourceString) {
-        JSONObject json = getResource(resourceString)
-        return new CalcDBDesign(json.getJSONArray('designs').getJSONObject(0))
+        Map json = getResource(resourceString)
+        return new CalcDBDesign(json.get('designs').get(0))
     }
 
     private CalcDBProject loadProject(String resourceString) {
-        JSONObject json = getResource(resourceString)
-        JSONArray ray = json.getJSONArray("projects")
-        JSONObject projectJson = ray.getJSONObject(0)
+        Map json = getResource(resourceString)
+        List ray = json.get("projects")
+        Map projectJson = ray.get(0)
         return new CalcDBProject(projectJson)
     }
 
-    private JSONObject getResource(String resourceString) {
-        String text = getClass().getResourceAsStream(resourceString).text
-        return JSONObject.fromObject(text)
+    private Map getResource(String resourceString) {
+        return new JsonSlurper().parse(getClass().getResourceAsStream(resourceString))
     }
 }

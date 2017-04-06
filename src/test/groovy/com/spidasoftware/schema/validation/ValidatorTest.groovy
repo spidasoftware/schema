@@ -2,12 +2,6 @@ package com.spidasoftware.schema.validation
 
 import junit.framework.TestCase
 
-/**
- * Created with IntelliJ IDEA.
- * User: mford
- * Date: 7/24/13
- * Time: 2:45 PM
- */
 class ValidatorTest extends TestCase {
 
 	@Override

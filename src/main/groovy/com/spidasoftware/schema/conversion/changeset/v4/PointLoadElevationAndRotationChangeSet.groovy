@@ -2,7 +2,7 @@ package com.spidasoftware.schema.conversion.changeset.v4
 
 import com.spidasoftware.schema.conversion.changeset.AbstractDesignChangeset
 import com.spidasoftware.schema.conversion.changeset.ConversionException
-import net.sf.json.JSONObject
+
 
 class PointLoadElevationAndRotationChangeSet extends AbstractDesignChangeset {
 
@@ -12,15 +12,15 @@ class PointLoadElevationAndRotationChangeSet extends AbstractDesignChangeset {
 
 
     @Override
-    void applyToDesign(JSONObject designJSON) throws ConversionException {
+    void applyToDesign(Map designJSON) throws ConversionException {
 
     }
 
     @Override
-    void revertDesign(JSONObject designJSON) throws ConversionException {
-        designJSON.get("structure")?.get("pointLoads")?.each { JSONObject pointLoad ->
+    void revertDesign(Map designJSON) throws ConversionException {
+        designJSON.get("structure")?.get("pointLoads")?.each { Map pointLoad ->
             ["elevation", "rotation"].each { String key ->
-                JSONObject measureable = pointLoad.get(key)
+                Map measureable = pointLoad.get(key)
                 if (measureable?.get("unit") == RADIAN) {
                     double radianValue = measureable.get("value")
                     double degreeAngleValue = radianValue * DEGREES_PER_RADIAN

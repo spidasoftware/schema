@@ -1,10 +1,7 @@
 package com.spidasoftware.schema.conversion.changeset
 
 import groovy.util.logging.Log4j
-import net.sf.json.JSONObject
-import spock.lang.Shared
 import spock.lang.Specification
-import sun.security.krb5.internal.crypto.Des
 
 /**
  * Created: 11/17/14
@@ -14,7 +11,7 @@ import sun.security.krb5.internal.crypto.Des
 
 class ConverterTest extends Specification {
 
-	JSONObject json = new JSONObject()
+    Map json = [:]
 	ChangeSet oneToTwo = GroovyMock()
 	ChangeSet twoToThreeA = GroovyMock()
 	ChangeSet twoToThreeB = GroovyMock()

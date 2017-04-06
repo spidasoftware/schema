@@ -5,7 +5,6 @@ import com.spidasoftware.schema.conversion.changeset.v2.PoleLeanChangeSet
 import com.spidasoftware.schema.conversion.changeset.v3.WEPEnvironmentChangeSet
 import com.spidasoftware.schema.conversion.changeset.v4.*
 import groovy.util.logging.Log4j
-import net.sf.json.JSONObject
 
 @Log4j
 class ConverterUtils {
@@ -51,11 +50,11 @@ class ConverterUtils {
 
 
 
-    static void convertJSON(JSONObject json, int toVersion) throws ConversionException {
+    static void convertJSON(Map json, int toVersion) throws ConversionException {
         if (json.containsKey("schema")) {
-            Converter converter = getConverterInstance(json.getString("schema"))
+            Converter converter = getConverterInstance(json.get("schema"))
             if (converter == null) {
-                throw new ConversionException("No converter found for ${json.getString("schema")}")
+                throw new ConversionException("No converter found for ${json.get("schema")}")
             }
             converter.convert(json, toVersion)
         } else {
@@ -66,11 +65,11 @@ class ConverterUtils {
     /**
      * convert to the current version
      */
-    static void convertJSON(JSONObject json) throws ConversionException {
+    static void convertJSON(Map json) throws ConversionException {
         if (json.containsKey("schema")) {
-            Converter converter = getConverterInstance(json.getString("schema"))
+            Converter converter = getConverterInstance(json.get("schema"))
             if (converter == null) {
-                throw new ConversionException("No converter found for ${json.getString("schema")}")
+                throw new ConversionException("No converter found for ${json.get("schema")}")
             }
             converter.convert(json, converter.getCurrentVersion())
         } else {

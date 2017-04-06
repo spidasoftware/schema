@@ -1,8 +1,6 @@
 package com.spidasoftware.schema.conversion.changeset
 
 import groovy.transform.CompileStatic
-import groovy.util.logging.Log4j
-import net.sf.json.JSONObject
 import org.apache.log4j.Logger
 
 /**
@@ -22,17 +20,17 @@ abstract class AbstractConverter implements Converter {
 	int defaultVersion = 1
 	protected TreeMap<Integer, List<ChangeSet>> versions = new TreeMap<>() // each list will be applied when going from N-1 to N
 
-	abstract void applyChangeset(ChangeSet changeSet, JSONObject json)
-	abstract void revertChangeset(ChangeSet changeSet, JSONObject json)
+	abstract void applyChangeset(ChangeSet changeSet, Map json)
+	abstract void revertChangeset(ChangeSet changeSet, Map json)
 
 	int getCurrentVersion() {
 		return versions.lastKey()
 	}
 
-	public void convert(JSONObject json, int toVersion) throws ConversionException {
+	public void convert(Map json, int toVersion) throws ConversionException {
 		int fromVersion = defaultVersion
 		if (json.containsKey("version")) {
-			fromVersion = json.getInt("version")
+			fromVersion = json.get("version")
 		}
 
 		if (fromVersion == toVersion) {

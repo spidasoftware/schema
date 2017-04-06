@@ -1,6 +1,6 @@
 package com.spidasoftware.schema.conversion
 
-import net.sf.json.JSONObject
+
 import spock.lang.Specification
 
 public class ExchangeFileSpec extends Specification {
@@ -16,7 +16,7 @@ public class ExchangeFileSpec extends Specification {
 		exf.getProjectJSONFile().isFile()
 		exf.getPhotoDir().isDirectory()
 		exf.getAllPhotos().size() == 2
-		exf.getProjectJSON() instanceof JSONObject
+		exf.getProjectJSON() instanceof Map
 
 		cleanup:
 		exf.delete()
@@ -24,7 +24,7 @@ public class ExchangeFileSpec extends Specification {
 
 	void "exchange files should be created from JSON and written out to a zip file"(){
 		given:
-		JSONObject json = JSONObject.fromObject(['name': 'testProject', 'clientFile':'Demo.client', 'leads':[]])
+	    Map json = ['name': 'testProject', 'clientFile':'Demo.client', 'leads':[]]
 		File mockPhoto = File.createTempFile("mockPhoto", ".jpg")
 		mockPhoto << "mockPhotoBytes"
 		ExchangeFile exf = ExchangeFile.createFromProjectJSON(json, [mockPhoto])

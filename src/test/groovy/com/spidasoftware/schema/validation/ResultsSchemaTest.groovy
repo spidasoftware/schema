@@ -4,8 +4,7 @@ import com.github.fge.jackson.JsonLoader
 import com.github.fge.jsonschema.load.configuration.LoadingConfiguration
 import com.github.fge.jsonschema.main.JsonSchemaFactory
 import com.github.fge.jsonschema.uri.*
-import net.sf.json.JSONObject
-import org.apache.log4j.Logger;
+import org.apache.log4j.Logger
 
 class ResultsSchemaTest extends GroovyTestCase {
 

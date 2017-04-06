@@ -1,7 +1,7 @@
 package com.spidasoftware.schema.conversion.changeset.v4
 
-import net.sf.json.JSONObject
-import net.sf.json.groovy.JsonSlurper
+import com.spidasoftware.schema.conversion.changeset.ChangeSet
+import groovy.json.JsonSlurper
 import spock.lang.Specification
 
 class LocationWepChangeSetTest extends Specification {
@@ -9,9 +9,9 @@ class LocationWepChangeSetTest extends Specification {
     def "revert"() {
         setup:
             def leanStream = SpanGuyTypeChangeSetTest.getResourceAsStream("/conversions/v4/location-wep.json")
-            JSONObject projectJSON = new JsonSlurper().parse(leanStream)
-            JSONObject locationJSON = JSONObject.fromObject(projectJSON.leads[0].locations[0])
-            JSONObject designJSON = JSONObject.fromObject(projectJSON.leads[0].locations[0].designs[0])
+            Map projectJSON = new JsonSlurper().parse(leanStream)
+            Map locationJSON = ChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0])
+            Map designJSON = ChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0].designs[0])
             LocationWepChangeSet changeSet = new LocationWepChangeSet()
         when: "revertProject"
             changeSet.revertProject(projectJSON)

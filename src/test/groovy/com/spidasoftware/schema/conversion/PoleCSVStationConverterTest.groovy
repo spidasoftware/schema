@@ -1,12 +1,7 @@
-package com.spidasoftware.schema.utils
+package com.spidasoftware.schema.conversion
 
 import org.junit.Test
-/**
- * Created with IntelliJ IDEA.
- * User: mford
- * Date: 7/24/13
- * Time: 2:45 PM
- */
+
 class PoleCSVStationConverterTest {
 
 	@Test
