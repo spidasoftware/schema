@@ -157,7 +157,7 @@ Return a client pole from the client file.
 
 #### Parameters
 
-1. type: a _required_ [pole_reference](../../resources/schema/spidacalc/calc/client_references/pole.schema) of the pole to retrieve.
+1. type: a _required_ [pole_reference](../../resources/schema/spidacalc/calc/client_references/pole.schema) of the pole to retrieve. {species,classOfPole,height{unit,value}}
 1. clientFile: a _required_ `string` of the client file name to pull from
 
 #### Returns
@@ -202,7 +202,7 @@ Return a client wire from the client file.
 
 #### Parameters
 
-1. wire: a _required_ [wire reference](../../resources/schema/spidacalc/calc/client_references/wire.schema) of the wire to retrieve.
+1. wire: a _required_ [wire reference](../../resources/schema/spidacalc/calc/client_references/wire.schema) of the wire to retrieve. {size,coreStrands,conductorStrands}
 1. clientFile: a _required_ `string` of the client file name to pull from
 
 #### Returns
@@ -247,8 +247,8 @@ Return a client equipment from the client file.
 
 #### Parameters
 
-1. equipment: a _required_ [equipment reference](../../resources/schema/spidacalc/calc/client_references/equipment.schema) of the equipment to retrieve.
-1. clientFile: a _required_ `string` of the client file name to pull from
+1. equipment: a _required_ [equipment reference](../../resources/schema/spidacalc/calc/client_references/equipment.schema) of the equipment to retrieve. {size,type}
+1. clientFile: a _required_ `string` of the client file name to pull from 
 
 #### Returns
 
@@ -402,19 +402,21 @@ Return the load cases in the client file.
 #### Parameters
 
 1. clientFile: a _required_ `string` of the client file name to pull from
+1. details: a `boolean` on if the complete details should be returned.
 
 #### Returns
 
 A `array` of load cases
 
-List Wire Load Cases
+
+List Assemblies
 -----
 
-Return the load cases in the client file.
+Return the framing units in the client file.
 
 #### URL
 
-`http://localhost:4560/clientData/wireLoadCases`
+`http://localhost:4560/clientData/assemblies`
 
 #### Allowed Methods
 
@@ -424,31 +426,11 @@ Return the load cases in the client file.
 
 1. clientFile: a _required_ `string` of the client file name to pull from
 1. details: a `boolean` on if the complete details should be returned.
+1. assemblyType: an _optional_ 'string' of the assembly type (FRAMING or SUPPORT)
 
 #### Returns
 
-A `array` of wire load cases
-
-List Framing Units
------
-
-Return the framing units in the client file.
-
-#### URL
-
-`http://localhost:4560/clientData/framingUnits`
-
-#### Allowed Methods
-
-`GET`
-
-#### Parameters
-
-1. clientFile: a _required_ `string` of the client file name to pull from
-
-#### Returns
-
-A `array` of framing units
+A `array` of assemblies
 
 
 List Scripts
