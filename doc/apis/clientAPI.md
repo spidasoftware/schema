@@ -11,7 +11,7 @@ for constructing and validating structures outside the SPIDACalc interface.
 Methods
 =======
 
-List Client Files
+Client Files
 -----
 
 Return the available client files to be used in many of the queries.
@@ -69,8 +69,8 @@ Return a client anchor from the client file.
 
 #### Parameters
 
-1. anchor: a _required_ `string` of the anchor name to retrieve.
 1. clientFile: a _required_ `string` of the client file name to pull from
+1. anchor: a _required_ `string` of the anchor name to retrieve.
 
 #### Returns
 
@@ -113,8 +113,8 @@ Return a client insulator from the client file.
 
 #### Parameters
 
-1. insulator: a _required_ `string` of the insulator name to retrieve.
 1. clientFile: a _required_ `string` of the client file name to pull from
+1. insulator: a _required_ `string` of the insulator name to retrieve.
 
 #### Returns
 
@@ -157,8 +157,8 @@ Return a client pole from the client file.
 
 #### Parameters
 
-1. type: a _required_ [pole_reference](../../resources/schema/spidacalc/calc/client_references/pole.schema) of the pole to retrieve. {species,classOfPole,height{unit,value}}
 1. clientFile: a _required_ `string` of the client file name to pull from
+1. type: a _required_ [pole_reference](../../resources/schema/spidacalc/calc/client_references/pole.schema) of the pole to retrieve. {species,classOfPole,height{unit,value}}
 
 #### Returns
 
@@ -202,14 +202,14 @@ Return a client wire from the client file.
 
 #### Parameters
 
-1. wire: a _required_ [wire reference](../../resources/schema/spidacalc/calc/client_references/wire.schema) of the wire to retrieve. {size,coreStrands,conductorStrands}
 1. clientFile: a _required_ `string` of the client file name to pull from
+1. wire: a _required_ [wire reference](../../resources/schema/spidacalc/calc/client_references/wire.schema) of the wire to retrieve. {size,coreStrands,conductorStrands}
 
 #### Returns
 
 A [client wire](../../resources/schema/spidacalc/client/wire.schema)
 
-List Equipment
+Equipments
 -----
 
 Return the client equipments in the client file.
@@ -232,7 +232,7 @@ Return the client equipments in the client file.
 
 A `array` of client equipments
 
-Get Equipment
+Equipment
 -----
 
 Return a client equipment from the client file.
@@ -247,14 +247,14 @@ Return a client equipment from the client file.
 
 #### Parameters
 
-1. equipment: a _required_ [equipment reference](../../resources/schema/spidacalc/calc/client_references/equipment.schema) of the equipment to retrieve. {size,type}
 1. clientFile: a _required_ `string` of the client file name to pull from 
+1. equipment: a _required_ [equipment reference](../../resources/schema/spidacalc/calc/client_references/equipment.schema) of the equipment to retrieve. {size,type}
 
 #### Returns
 
 A [client equipment](../../resources/schema/spidacalc/client/equipment.schema)
 
-List Cross Arms
+Cross Arms
 -----
 
 Return the client crossArms in the client file.
@@ -276,7 +276,7 @@ Return the client crossArms in the client file.
 
 A `array` of client crossArms
 
-Get Cross Arm
+Cross Arm
 -----
 
 Return a client crossArm from the client file.
@@ -291,14 +291,14 @@ Return a client crossArm from the client file.
 
 #### Parameters
 
-1. crossArm: a _required_ `string` of the crossArm name to retrieve.
 1. clientFile: a _required_ `string` of the client file name to pull from
+1. crossArm: a _required_ `string` of the crossArm name to retrieve.
 
 #### Returns
 
 A [client crossArm](../../resources/schema/spidacalc/client/crossArm.schema)
 
-List Foundations
+Foundations
 -----
 
 Return the client foundations in the client file.
@@ -320,7 +320,7 @@ Return the client foundations in the client file.
 
 A `array` of client foundations
 
-Get Foundation
+Foundation
 -----
 
 Return a client foundation from the client file.
@@ -335,14 +335,14 @@ Return a client foundation from the client file.
 
 #### Parameters
 
-1. foundation: a _required_ `string` of the foundation name to retrieve.
 1. clientFile: a _required_ `string` of the client file name to pull from
+1. foundation: a _required_ `string` of the foundation name to retrieve.
 
 #### Returns
 
 A [client foundation](../../resources/schema/spidacalc/client/foundation.schema)
 
-List Sidewalk Braces
+Sidewalk Braces
 -----
 
 Return the client sidewalkBraces in the client file.
@@ -364,7 +364,7 @@ Return the client sidewalkBraces in the client file.
 
 A `array` of client sidewalkBraces
 
-Get Sidewalk Brace
+Sidewalk Brace
 -----
 
 Return a client sidewalkBrace from the client file.
@@ -379,14 +379,14 @@ Return a client sidewalkBrace from the client file.
 
 #### Parameters
 
-1. sidewalkBrace: a _required_ `string` of the sidewalkBrace to retrieve.
 1. clientFile: a _required_ `string` of the client file name to pull from
+1. sidewalkBrace: a _required_ `string` of the sidewalkBrace to retrieve.
 
 #### Returns
 
 A [client sidewalkBrace](../../resources/schema/spidacalc/client/sidewalkBrace.schema)
 
-List Load Cases
+Load Cases
 -----
 
 Return the load cases in the client file.
@@ -409,7 +409,7 @@ Return the load cases in the client file.
 A `array` of load cases
 
 
-List Assemblies
+Assemblies
 -----
 
 Return the framing units in the client file.
@@ -433,7 +433,7 @@ Return the framing units in the client file.
 A `array` of assemblies
 
 
-List Scripts
+Scripts
 -----
 
 Return the scripts in the client file.
@@ -454,7 +454,7 @@ Return the scripts in the client file.
 
 A `array` of scripts
 
-List Report
+Report
 -----
 
 Return the reports in the client file.
@@ -476,7 +476,7 @@ Return the reports in the client file.
 A `array` of reports
 
 
-List Owners
+Owners
 -----
 
 Return the owners in the client file.
