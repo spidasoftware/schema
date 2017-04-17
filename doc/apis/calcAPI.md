@@ -115,28 +115,6 @@ none
 
 a complete [project object](../../resources/schema/spidacalc/calc/project.schema) with results.
 
-Analyze Current Project
------
-
-Analyze the currently opened project
-
-#### URL
-
-`http://localhost:4560/calc/analyzeCurrentProject`
-
-#### Allowed Methods
-
-`POST`
-
-#### Parameters
-
-1. `loadCases`: an `array` of load case names to filter on.
-1. `strengthCase`: a `string` strength case to include in the analysis. If not included it will use the existing strength case.
-
-#### Returns
-
-none
-
 Generate a report
 -----
 

@@ -172,19 +172,11 @@
         "id": "pointLoad",
         "required": [
           "id",
-          "attachmentHeight",
+          "attachHeight",
           "owner",
-          "elevation",
-          "rotation",
-          "x",
-          "y",
-          "z",
-          "fx",
-          "fy",
-          "fz",
-          "mx",
-          "my",
-          "mz"
+          "XForce",
+          "YForce",
+          "ZForce"
         ],
         "additionalProperties": false,
         "properties": {
@@ -200,57 +192,77 @@
             "$ref": "../../general/owner.schema",
             "description": "The company who is applying this load"
           },
-          "attachmentHeight": {
+          "attachHeight": {
             "$ref": "../../general/measurable.schema",
             "description": "Height above ground on pole to attach load."
           },
-          "elevation": {
-            "$ref": "../../general/measurable.schema",
-            "description": "Additional translation on load."
-          },
-          "rotation": {
-            "$ref": "../../general/measurable.schema",
-            "description": "Additional rotation on load"
-          },
-          "x": {
-            "$ref": "../../general/measurable.schema",
-            "description": "X (east)position of load"
-          },
-          "y": {
-            "$ref": "../../general/measurable.schema",
-            "description": "Y (North) Position of load"
-          },
-          "z": {
-            "$ref": "../../general/measurable.schema",
-            "description": "Z (Up) Position of load"
-          },
-          "fx": {
+          "XForce": {
             "$ref": "../../general/measurable.schema",
             "description": "X component of force"
           },
-          "fy": {
+          "YForce": {
             "$ref": "../../general/measurable.schema",
             "description": "Y component of force"
           },
-          "fz": {
+          "ZForce": {
             "$ref": "../../general/measurable.schema",
             "description": "z component of force"
-          },
-          "mx": {
-            "$ref": "../../general/measurable.schema",
-            "description": "x component of moment"
-          },
-          "my": {
-            "$ref": "../../general/measurable.schema",
-            "description": "y component of moment"
-          },
-          "mz": {
-            "$ref": "../../general/measurable.schema",
-            "description": "z component of moment"
           }
         }
       }
     },
+     "wirePointLoads": {
+       "description": "Additional loads to be applied to wires on the structure.",
+       "type": "array",
+       "items": {
+         "type": "object",
+         "id": "pointLoad",
+         "required": [
+           "id",
+           "distance",
+           "owner",
+           "XForce",
+           "YForce",
+           "ZForce",
+           "wire"
+         ],
+         "additionalProperties": false,
+         "properties": {
+           "id": {
+             "type": "string",
+             "description": "The display ID for the attachment. Must be unique within the pole."
+           },
+           "externalId": {
+             "type": "string",
+             "description": "An optional externalId for the item."
+           },
+           "owner": {
+             "$ref": "../../general/owner.schema",
+             "description": "The company who is applying this load"
+           },
+           "distance": {
+             "$ref": "../../general/measurable.schema",
+             "description": "Distance along the wire."
+           },
+           "XForce": {
+             "$ref": "../../general/measurable.schema",
+             "description": "X component of force"
+           },
+           "YForce": {
+             "$ref": "../../general/measurable.schema",
+             "description": "Y component of force"
+           },
+           "ZForce": {
+             "$ref": "../../general/measurable.schema",
+             "description": "z component of force"
+           },
+          "wire": {
+            "type": "string",
+            "description": "Wire ID that this point load is attached to."
+          }
+         }
+       }
+     },
     "damages": {
       "description": "List of damages found on pole. See calc documentation for available types,their meaning, and properties that match each",
       "type": "array",

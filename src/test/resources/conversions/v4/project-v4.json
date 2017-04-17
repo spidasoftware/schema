@@ -232,53 +232,21 @@
                 "industry": "UTILITY",
                 "externalId": "b2ad09d4-7ddb-4c68-be8e-60c57cd3bcd0"
               },
-              "elevation":               {
-                "unit": "RADIAN",
-                "value": 0.5235987755982988
-              },
-              "attachmentHeight":               {
+              "attachHeight":               {
                 "unit": "METRE",
                 "value": 9.067800000000002
               },
-              "rotation":               {
-                "unit": "RADIAN",
-                "value": 0.7853981633974483
-              },
-              "x":               {
-                "unit": "METRE",
-                "value": 0
-              },
-              "y":               {
-                "unit": "METRE",
-                "value": 0
-              },
-              "z":               {
-                "unit": "METRE",
-                "value": 9.067800000000002
-              },
-              "fx":               {
+              "XForce":               {
                 "unit": "NEWTON",
                 "value": 889.6443230521
               },
-              "fy":               {
+              "YForce":               {
                 "unit": "NEWTON",
                 "value": 889.6443230521
               },
-              "fz":               {
+              "ZForce":               {
                 "unit": "NEWTON",
                 "value": -129.239403929
-              },
-              "mx":               {
-                "unit": "NEWTON_METRE",
-                "value": 102.3049389588
-              },
-              "my":               {
-                "unit": "NEWTON_METRE",
-                "value": -30.3954893933
-              },
-              "mz":               {
-                "unit": "NEWTON_METRE",
-                "value": 0
               }
             },
                         {
@@ -289,53 +257,21 @@
                 "industry": "UTILITY",
                 "externalId": "b2ad09d4-7ddb-4c68-be8e-60c57cd3bcd0"
               },
-              "elevation":               {
-                "unit": "RADIAN",
-                "value": 0
-              },
-              "attachmentHeight":               {
+              "attachHeight":               {
                 "unit": "METRE",
                 "value": 5.7658000000000005
               },
-              "rotation":               {
-                "unit": "RADIAN",
-                "value": 0
-              },
-              "x":               {
-                "unit": "METRE",
-                "value": 0
-              },
-              "y":               {
-                "unit": "METRE",
-                "value": 0
-              },
-              "z":               {
-                "unit": "METRE",
-                "value": 5.7658000000000005
-              },
-              "fx":               {
+              "XForce":               {
                 "unit": "NEWTON",
                 "value": 4.4482216152605005
               },
-              "fy":               {
+              "YForce":               {
                 "unit": "NEWTON",
                 "value": 4.4482216152605005
               },
-              "fz":               {
+              "ZForce":               {
                 "unit": "NEWTON",
                 "value": 4.4482216152605005
-              },
-              "mx":               {
-                "unit": "NEWTON_METRE",
-                "value": 0
-              },
-              "my":               {
-                "unit": "NEWTON_METRE",
-                "value": 0
-              },
-              "mz":               {
-                "unit": "NEWTON_METRE",
-                "value": 0
               }
             }
           ],
