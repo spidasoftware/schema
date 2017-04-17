@@ -2,7 +2,6 @@ package com.spidasoftware.schema.conversion.changeset.v4
 
 import com.spidasoftware.schema.conversion.changeset.AbstractDesignChangeset
 import com.spidasoftware.schema.conversion.changeset.ConversionException
-import net.sf.json.JSONObject
 
 import java.util.Map.Entry
 
@@ -21,9 +20,9 @@ class PointLoadItemChangeSet extends AbstractDesignChangeset {
 									  "fx":"XForce", "fy":"YForce", "fz":"ZForce"]
 
 	@Override
-	void applyToDesign(JSONObject designJSON) throws ConversionException {
+	void applyToDesign(Map designJSON) throws ConversionException {
 
-		designJSON.get("structure")?.get("pointLoads")?.each { JSONObject pointLoad ->
+		designJSON.get("structure")?.get("pointLoads")?.each { Map pointLoad ->
 			itemsToRemoveMap.keySet().each { String itemToRemove ->
 				pointLoad.remove(itemToRemove)
 			}
@@ -37,13 +36,13 @@ class PointLoadItemChangeSet extends AbstractDesignChangeset {
 	}
 
 	@Override
-	void revertDesign(JSONObject designJSON) throws ConversionException {
+	void revertDesign(Map designJSON) throws ConversionException {
 		designJSON.get("structure")?.remove("wirePointLoads")
 		//these fields always had values of zero. Put them back in with appropriate unit
-		designJSON.get("structure")?.get("pointLoads")?.each { JSONObject pointLoad ->
+		designJSON.get("structure")?.get("pointLoads")?.each { Map pointLoad ->
 			itemsToRemoveMap.entrySet().each { Entry<String, String> entry ->
-				def measurable = new JSONObject()
-				measurable.put("value", "0")
+				def measurable = [:]
+				measurable.put("value", 0)
 				measurable.put("unit", entry.value)
 				pointLoad.put(entry.key, measurable)
 			}
@@ -52,12 +51,12 @@ class PointLoadItemChangeSet extends AbstractDesignChangeset {
 				//this is the reverse
 				def from = entry.value
 				def to = entry.key
-				def object = pointLoad.get(from) as JSONObject
+				def object = pointLoad.get(from)
 				pointLoad.remove(from)
 
 				if (object.get("unit") == "NEWTON") {
 					object.put("unit", "POUND_FORCE")
-					object.put("value", object.getDouble("value") * POUND_FORCE_PER_NEWTON)
+					object.put("value", object.get("value") * POUND_FORCE_PER_NEWTON)
 				}
 
 				pointLoad.put(to, object)
