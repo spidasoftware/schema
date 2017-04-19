@@ -20,3 +20,4 @@ reports
 *.imlgit 
 *.iml
 out/
+*.ipr

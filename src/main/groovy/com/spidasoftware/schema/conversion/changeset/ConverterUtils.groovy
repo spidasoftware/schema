@@ -30,6 +30,7 @@ class ConverterUtils {
             converter.addChangeSet(4, new WEPInclinationChangeSet())
             converter.addChangeSet(4, new WireEndPointPlacementChangeSet())
             converter.addChangeSet(4, new PointLoadItemChangeSet())
+            converter.addChangeSet(4, new DesignLayerChangeSet())
             // add calc changesets here
 
             converters.put(converter.schemaPath, converter)
