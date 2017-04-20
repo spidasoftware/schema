@@ -3,7 +3,7 @@
 	"$schema": "http://json-schema.org/draft-04/schema#",
 	"description": "The loading information used to generate analysis",
 	"type": "object",
-	"required": ["name", "type", "maximumLoadingRatio", "analyzeGroundLineOnly"],
+	"required": ["name", "type", "maximumLoadingRatio"],
 	"properties": {
 		"id": {
 			"description": "the id of this result",
@@ -25,7 +25,7 @@
 			"type": "boolean"
 		},
 		"maximumLoadingRatio": {
-			"type": "integer"
+			"type": "number"
 		},
 		"useStrengthResults": {
 			"type": "boolean"
@@ -268,18 +268,35 @@
 	},
 	"oneOf": [{
 		"type": "object",
-		"required": ["linearConstant", "temperature", "windPressure", "loadMultipliersIncludedInDisplacementBasedLoadChanges", "iceThickness"],
+		"required": ["pretensionGuys", "staticPretensionMultiplier","hybridShearZone", "minimumHybridTension" ,"maximumHybridSupportAngle","minimumDisplacementLoadingTension", "loadingStepCountMultiplier"],
 		"properties": {
-			"type": {
-				"enum": ["CUSTOM_LOAD_CASE"]
+			"analysisMethod": {
+				"enum": ["CO_ROTATIONAL"]
 			}
 		}
 	}, {
 		"type": "object",
-		"required": ["rural"],
+		"required": ["analyzeGroundLineOnly"],
+		"properties": {
+			"analysisMethod": {
+				"enum": ["DIRECT_STIFFNESS"]
+			}
+		}
+	}],
+	"oneOf": [{
+		"type": "object",
+		"required": ["linearConstant", "temperature", "windPressure", "loadMultipliersIncludedInDisplacementBasedLoadChanges", "iceThickness"],
 		"properties": {
 			"type": {
-				"enum": ["GO95_LOAD_CASE", "GO95_LOAD_CASE2014"]
+				"enum": ["Custom"]
+			}
+		}
+	}, {
+		"type": "object",
+		"required": ["rural", "loadZone", "constructionGrade"],
+		"properties": {
+			"type": {
+				"enum": ["GO95 01-2012", "GO95 02-2014"]
 			}
 		}
 	}, {
@@ -287,7 +304,7 @@
 		"required": ["ice", "windSpeed", "constructionGrade"],
 		"properties": {
 			"type": {
-				"enum": ["EXTREME_ICE_LOAD_CASE", "EXTREME_ICE_LOAD_CASE2012"]
+				"enum": ["NESC Extreme Ice 2007", "NESC Extreme Ice 2012"]
 			}
 		}
 	},{
@@ -296,8 +313,8 @@
 		"properties": {
 			"type": {
 				"enum": [
-					"EXTREME_WIND_LOAD_CASE",
-					"EXTREME_WIND_LOAD_CASE2012"
+					"NESC Extreme Wind 2007",
+					"NESC Extreme Wind 2012"
 				]
 			}
 		}
@@ -307,11 +324,11 @@
 		"properties": {
 			"type": {
 				"enum": [
-          "ZONE_LOAD_CASE",
-					"ZONE_LOAD_CASE2012",
-					"CSA_LOAD_CASE",
-					"CSA_LINEAR_LOAD_CASE",
-					"CSA2015_NON_LINEAR_LOAD_CASE"
+          "NESC 2007",
+					"NESC 2012",
+					"CSA (Linear) 2010",
+					"CSA 2010",
+					"CSA 2015"
 				]
 			}
 		}

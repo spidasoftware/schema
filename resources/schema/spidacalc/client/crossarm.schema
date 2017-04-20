@@ -8,7 +8,7 @@
     "height",
     "length",
     "modulus",
-    "poisson",
+    "poissonRatio",
     "size",
     "stressAllow",
     "wallThickness",
@@ -21,7 +21,7 @@
     "version": {
       "type": "string"
     },
-    "poisson": {
+    "poissonRatio": {
       "type": "number"
     },
     "doubleCrossArm": {

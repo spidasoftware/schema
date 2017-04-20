@@ -29,7 +29,7 @@ abstract class AbstractConverter implements Converter {
 
 	public void convert(Map json, int toVersion) throws ConversionException {
 		int fromVersion = defaultVersion
-		if (json.containsKey("version")) {
+		if (json.containsKey("version") && json.get('version')!=null) {
 			fromVersion = json.get("version")
 		}
 
