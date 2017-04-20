@@ -16,8 +16,18 @@
             "description": "This is a schema version integer."
         },
         "label": {
-            "description": "Display name for project component",
+            "description": "Display name for project component. Designs with the same label can be connected if they are not draft types",
             "type": "string"
+        },
+        "layerType": {
+            "description": "Type of the design layer. Draft will not be added to a project layer.",
+            "type": "string",
+            "enum": [
+                "Measured",
+                "Theoretical",
+                "Recommended",
+                "Draft"
+            ]
         },
         "analysis": {
             "description": "List of load cases and their results. On exports the results will be filled in if they exist. On import results are ignored, but load cases will be pre-assigned.",
