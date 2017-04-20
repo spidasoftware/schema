@@ -12,6 +12,14 @@
       "description": "The company's name.",
       "minLength": 1,
       "maxLength": 50
+    },
+    "subscriptionStartDate": {
+        "type": "number",
+        "description": "Start date of subscription (ms since Unix epoch)"
+    },
+    "subscriptionEndDate": {
+        "type": "number",
+        "description": "End date of subscription (ms since Unix epoch)"
     }
   },
   "additionalProperties": false
