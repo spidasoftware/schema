@@ -125,7 +125,14 @@ public class ExchangeFile {
 	Map getProjectJSON() {
 		if (!projectJSON && getProjectJSONFile().isFile()) {
 			log.debug("parsing exchange file json")
-			projectJSON = new JsonSlurper().parse(getProjectJSONFile())
+
+			//This is because if you are using an old version (below 2.3) of groovy, you don't have the parse method
+			def slurper = new JsonSlurper()
+			if(slurper.respondsTo("parse", File)){
+				projectJSON = slurper.parse(getProjectJSONFile())
+			}else{
+				projectJSON = slurper.parseText(getProjectJSONFile().text)
+			}
 		}
 		return projectJSON
 	}
