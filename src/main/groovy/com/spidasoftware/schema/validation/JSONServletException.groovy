@@ -1,6 +1,5 @@
 package com.spidasoftware.schema.validation
 
-import net.sf.json.JSONObject
 
 /**
  * Exception for servlets to throw when they have an error. Will be communicated back to the calling client.
@@ -29,14 +28,14 @@ public class JSONServletException extends Exception {
 		this.code = code;
 	}
 
-	public JSONObject toJSON() {
-		JSONObject error = new JSONObject();
+	public Map toJSON() {
+		Map error = [:]
 		error.put("code", code);
 		error.put("message", this.getMessage());
 		return error;
 	}
 
-	public static JSONServletException fromJSON(JSONObject json) {
+	public static JSONServletException fromJSON(Map json) {
 		String code = ((String)json.get("code"))
 		String message =(String)json.get("message")
 

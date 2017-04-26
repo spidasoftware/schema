@@ -1,10 +1,9 @@
 package com.spidasoftware.schema.conversion.changeset
 
-import com.spidasoftware.schema.validation.Validator
 import com.spidasoftware.schema.conversion.changeset.v2.PoleLeanChangeSetTest
+import com.spidasoftware.schema.validation.Validator
+import groovy.json.JsonSlurper
 import groovy.util.logging.Log4j
-import net.sf.json.JSONObject
-import net.sf.json.groovy.JsonSlurper
 import spock.lang.Specification
 
 @Log4j
@@ -13,11 +12,11 @@ class ConverterUtilsSpec extends Specification {
 	def "pole-lean"() {
 		setup:
 			def leanStream = PoleLeanChangeSetTest.getResourceAsStream("/conversions/v2/pole-lean.json")
-			JSONObject projectJSON = new JsonSlurper().parse(leanStream)
-			JSONObject locationJSON = JSONObject.fromObject(projectJSON.leads[0].locations[0])
+		    Map projectJSON = new JsonSlurper().parse(leanStream)
+		    Map locationJSON = ChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0])
 			locationJSON.schema = "/v1/schema/spidacalc/calc/location.schema"
 			locationJSON.version = 2
-			JSONObject designJSON = JSONObject.fromObject(projectJSON.leads[0].locations[0].designs[0])
+		    Map designJSON = ChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0].designs[0])
 			designJSON.schema = "/v1/schema/spidacalc/calc/design.schema"
 			designJSON.version = 2
 

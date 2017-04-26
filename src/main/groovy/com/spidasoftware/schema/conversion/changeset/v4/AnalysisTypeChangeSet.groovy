@@ -3,13 +3,13 @@ package com.spidasoftware.schema.conversion.changeset.v4
 import com.spidasoftware.schema.conversion.changeset.AbstractDesignChangeset
 import com.spidasoftware.schema.conversion.changeset.ConversionException
 import groovy.util.logging.Log4j
-import net.sf.json.JSONObject
+
 
 @Log4j
 class AnalysisTypeChangeSet extends AbstractDesignChangeset {
 
     @Override
-    void applyToDesign(JSONObject design) throws ConversionException {
+    void applyToDesign(Map design) throws ConversionException {
         def analyses = design.get("analysis")
         analyses?.each { analysis ->
             analysis.get("results")?.each { result ->
@@ -45,7 +45,7 @@ class AnalysisTypeChangeSet extends AbstractDesignChangeset {
     }
 
     @Override
-    void revertDesign(JSONObject design) throws ConversionException {
+    void revertDesign(Map design) throws ConversionException {
         def analyses = design.get("analysis")
         analyses?.each { analysis ->
             analysis.get("results")?.each { result ->

@@ -1,6 +1,5 @@
 package com.spidasoftware.schema.conversion
 
-import net.sf.json.JSONObject
 import org.apache.commons.codec.binary.Base64
 
 /**
@@ -9,15 +8,10 @@ import org.apache.commons.codec.binary.Base64
  * Photos are currently weird. The SPIDAdb api currently (3/31/14) just returns the base64 encoded
  * bytes without any context information like fileName or anything else. So, the uuid and fileName are
  * taken from me the parent Location. This needs to get fixed and updated at some point.
- *
- * User: pfried
- * Date: 1/28/14
- * Time: 9:04 PM
- * To change this template use File | Settings | File Templates.
  */
 public class CalcDBPhoto implements CalcDBProjectComponent {
     static final String NO_NAME = "unknown-photo"
-    private JSONObject json
+    private Map json
 
     String base64Bytes
     String uuid
@@ -57,12 +51,12 @@ public class CalcDBPhoto implements CalcDBProjectComponent {
     }
 
     @Override
-    public JSONObject getJSON() {
+    public Map getMap() {
         return this.json
     }
 
     @Override
-    public void setJSON(JSONObject json) {
+    public void setMap(Map json) {
         this.json = json
     }
 

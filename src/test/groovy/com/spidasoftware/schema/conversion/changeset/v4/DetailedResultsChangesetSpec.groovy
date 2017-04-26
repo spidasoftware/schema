@@ -1,17 +1,16 @@
 package com.spidasoftware.schema.conversion.changeset.v4
 
+import com.spidasoftware.schema.conversion.changeset.ChangeSet
+import groovy.json.JsonSlurper
 import groovy.util.logging.Log4j
-import net.sf.json.JSONArray
-import net.sf.json.JSONObject
-import net.sf.json.groovy.JsonSlurper
 import spock.lang.Specification
 
 @Log4j
 class DetailedResultsChangesetSpec extends Specification {
 
-    JSONObject projectJSON
-    JSONObject locationJSON
-    JSONObject designJSON
+    Map projectJSON
+    Map locationJSON
+    Map designJSON
 
     DetailedResultsChangeset changeset
 
@@ -19,8 +18,8 @@ class DetailedResultsChangesetSpec extends Specification {
         changeset = new DetailedResultsChangeset()
         def leanStream = DetailedResultsChangesetSpec.getResourceAsStream("/conversions/v4/project-with-detailed-results.json")
         projectJSON = new JsonSlurper().parse(leanStream)
-        locationJSON = JSONObject.fromObject(projectJSON.leads[0].locations[0])
-        designJSON = JSONObject.fromObject(projectJSON.leads[0].locations[0].designs[0])
+        locationJSON = ChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0])
+        designJSON = ChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0].designs[0])
     }
 
     void "test revert"() {
@@ -28,7 +27,7 @@ class DetailedResultsChangesetSpec extends Specification {
 
         when:
             changeset.revertProject(projectJSON)
-            JSONArray analysis = projectJSON.leads[0].locations[0].designs[0].analysis
+            List analysis = projectJSON.leads[0].locations[0].designs[0].analysis
         then:
             analysis.size() == 1
             analysis.first().id == "Medium"
@@ -90,9 +89,9 @@ class DetailedResultsChangesetSpec extends Specification {
 
     void "test revert when no analysis doesn't error"() {
         setup:
-            projectJSON.leads[0].locations[0].designs[0].analysis = new JSONArray()
-            locationJSON.designs[0].analysis = new JSONArray()
-            designJSON.analysis = new JSONArray()
+            projectJSON.leads[0].locations[0].designs[0].analysis = []
+            locationJSON.designs[0].analysis = []
+            designJSON.analysis = []
         when:
             changeset.revertProject(projectJSON)
         then:

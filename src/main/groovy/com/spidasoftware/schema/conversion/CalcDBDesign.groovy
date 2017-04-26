@@ -1,20 +1,15 @@
 package com.spidasoftware.schema.conversion
 
 import groovy.transform.CompileStatic
-import net.sf.json.JSONObject
 
 /**
  * Represents a Design that exists in SPIDAdb
- * User: pfried
- * Date: 1/23/14
- * Time: 3:22 PM
- * To change this template use File | Settings | File Templates.
  */
 @CompileStatic
 class CalcDBDesign extends AbstractCalcDBComponent {
 
 
-    public CalcDBDesign(JSONObject json) {
+    public CalcDBDesign(Map json) {
         super(json)
     }
 
@@ -25,9 +20,9 @@ class CalcDBDesign extends AbstractCalcDBComponent {
 
 	void updateLocationIds(Map<String, String> oldToNew){
 
-		def locationId = getJSON().getString("locationId")
+		def locationId = getMap().get("locationId")
 		if(oldToNew.get(locationId)){
-			getJSON().put("locationId", oldToNew.get(locationId) )
+			getMap().put("locationId", oldToNew.get(locationId) )
 		}
 
 	}
@@ -36,12 +31,12 @@ class CalcDBDesign extends AbstractCalcDBComponent {
      * returns the JSONObject representing the worst analysis result
      * @return JSONObject in the format created by ResultJSON class, or null if it's not found
      */
-    public JSONObject getWorstPoleLoadingResult() {
-        return getWorstCaseAnalysisResults()?.optJSONObject('pole')
+    public Map getWorstPoleLoadingResult() {
+        return getWorstCaseAnalysisResults()?.get('pole')
     }
 
-	public JSONObject getWorstCaseAnalysisResults(){
-		return getJSON().optJSONObject('worstCaseAnalysisResults')
+	public Map getWorstCaseAnalysisResults(){
+		return getMap().get('worstCaseAnalysisResults')
 	}
 
     /**
@@ -50,7 +45,7 @@ class CalcDBDesign extends AbstractCalcDBComponent {
      * @return
      */
     public String getParentLocationName() {
-	    getJSON().optString("locationLabel")
+	    getMap().get("locationLabel")
     }
 
     /**
@@ -59,12 +54,12 @@ class CalcDBDesign extends AbstractCalcDBComponent {
      * @return
      */
     public String getParentLocationId() {
-	    getJSON().optString("locationId")
+	    getMap().get("locationId")
     }
 
 	@Override
-	JSONObject getCalcJSON() {
-		return getJSON().getJSONObject('calcDesign')
+	Map getCalcJSON() {
+		return getMap().get('calcDesign')
 	}
 
     /**
@@ -73,7 +68,7 @@ class CalcDBDesign extends AbstractCalcDBComponent {
      * @return
      */
     public String getParentProjectName() {
-	    getJSON().optString("projectLabel")
+	    getMap().get("projectLabel")
     }
 
     /**
@@ -81,7 +76,7 @@ class CalcDBDesign extends AbstractCalcDBComponent {
      * @return
      */
     String getParentProjectId() {
-	    getJSON().optString("projectId")
+	    getMap().get("projectId")
     }
 
 }

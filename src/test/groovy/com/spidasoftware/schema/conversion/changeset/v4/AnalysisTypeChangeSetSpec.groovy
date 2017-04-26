@@ -1,9 +1,9 @@
 package com.spidasoftware.schema.conversion.changeset.v4
 
-import net.sf.json.JSONObject
-import spock.lang.Specification
+import com.spidasoftware.schema.conversion.changeset.ChangeSet
+import groovy.json.JsonSlurper
 import groovy.util.logging.Log4j
-import net.sf.json.groovy.JsonSlurper
+import spock.lang.Specification
 
 @Log4j
 class AnalysisTypeChangeSetSpec extends Specification {
@@ -11,9 +11,9 @@ class AnalysisTypeChangeSetSpec extends Specification {
     def "apply and revert"() {
         setup:
             def leanStream = AnalysisTypeChangeSet.getResourceAsStream("/conversions/v4/analysis-type.json")
-            JSONObject projectJSON = new JsonSlurper().parse(leanStream)
-            JSONObject locationJSON = JSONObject.fromObject(projectJSON.leads[0].locations[0])
-            JSONObject designJSON = JSONObject.fromObject(projectJSON.leads[0].locations[0].designs[0])
+            Map projectJSON = new JsonSlurper().parse(leanStream)
+            Map locationJSON = ChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0])
+            Map designJSON = ChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0].designs[0])
 
             AnalysisTypeChangeSet analysisTypeChangeSet = new AnalysisTypeChangeSet()
         when: "applyToProject"

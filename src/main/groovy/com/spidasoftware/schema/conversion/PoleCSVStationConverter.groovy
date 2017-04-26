@@ -1,8 +1,7 @@
-package com.spidasoftware.schema.utils
+package com.spidasoftware.schema.conversion
 
-import net.sf.json.JSONObject
-import net.sf.json.JSONArray
 import com.spidasoftware.schema.validation.Validator
+import groovy.json.JsonSlurper
 
 class PoleCSVStationConverter {
 
@@ -29,7 +28,7 @@ class PoleCSVStationConverter {
 			return
 		}
 
-		def poleSchema = JSONObject.fromObject(Validator.class.getResourceAsStream("/schema/spidamin/asset/standard_details/pole_asset.schema").text)
+		def poleSchema = new JsonSlurper().parse(Validator.class.getResourceAsStream("/schema/spidamin/asset/standard_details/pole_asset.schema"))
 		for(p in poleSchema.get("properties")){
 			schemaProperties.add p.key
 		}
@@ -78,16 +77,16 @@ class PoleCSVStationConverter {
 				def values = line.tokenize(",")
 				println values
 				println "   reading line: $lineNumber that has ${values.size()} values."
-				def stationJSON = new JSONObject()
+				def stationJSON = [:]
 				stationJSON.primaryAssetType = "POLE"
 				stationJSON.dataProviderId = companyId
 				stationJSON.primaryAssetOwnerId = companyId
-				stationJSON.stationAssets = new JSONArray()
-				stationJSON.assetTypes = JSONArray.fromObject(["POLE"])
+				stationJSON.stationAssets = []
+				stationJSON.assetTypes = ["POLE"]
 
-				def poleTags = new JSONArray()
-				def poleDetails = new JSONArray()
-				def poleJSON = new JSONObject(["primaryAsset":true, "ownerId":companyId, "assetAttachments":[], "assetType":"POLE"])
+				def poleTags = []
+				def poleDetails = []
+				def poleJSON = ["primaryAsset":true, "ownerId":companyId, "assetAttachments":[], "assetType":"POLE"]
 				def latitude
 				def longitude
 				fileHeaderToSchemaPropertyMap.each{k,v->
@@ -95,7 +94,7 @@ class PoleCSVStationConverter {
 					if(v=="s" || value=="" || value==null){
 						//Do nothing
 					}else if(v=="i"){
-						poleTags.add JSONObject.fromObject(["value":value, "name":headers.get(k), "primary":true])
+						poleTags.add(["value":value, "name":headers.get(k), "primary":true])
 					}else if(v=="g"){
 						try {
 							longitude = Double.parseDouble(value)
@@ -111,9 +110,9 @@ class PoleCSVStationConverter {
 							return
 						}
 					}else if(v=="n"){
-						poleDetails.add JSONObject.fromObject(["value":value, "name":headers.get(k)])
+						poleDetails.add(["value":value, "name":headers.get(k)])
 					}else{
-						poleDetails.add JSONObject.fromObject(["value":value, "name":schemaProperties.get(v)])
+						poleDetails.add(["value":value, "name":schemaProperties.get(v)])
 					}
 				}
 				if(longitude==null) {
@@ -125,7 +124,7 @@ class PoleCSVStationConverter {
 				poleJSON.assetDetails = poleDetails
 				poleJSON.assetTags = poleTags
 				stationJSON.stationAssets.add poleJSON
-				stationJSON.geometry = JSONObject.fromObject(["type":"Point", "coordinates":[longitude, latitude]])
+				stationJSON.geometry = ["type":"Point", "coordinates":[longitude, latitude]]
 				jsonFile.append stationJSON.toString()+"\n"
 			}
 			lineNumber++

@@ -4,8 +4,8 @@ import com.github.fge.jackson.JsonLoader
 import com.github.fge.jsonschema.load.configuration.LoadingConfiguration
 import com.github.fge.jsonschema.main.JsonSchemaFactory
 import com.github.fge.jsonschema.uri.*
-import net.sf.json.JSONObject
-import org.apache.log4j.Logger;
+import groovy.json.JsonOutput
+import org.apache.log4j.Logger
 
 class MinSchemaTest extends GroovyTestCase {
 
@@ -39,10 +39,10 @@ class MinSchemaTest extends GroovyTestCase {
 	}
 
 	void testInvalidDateFields() {
-		def analysisDateJSON = new JSONObject()
+		def analysisDateJSON = [:]
 		analysisDateJSON.put("analysisDate", new Date())
 		def schemaToJson = [
-			"schema/spidamin/asset/standard_details/analysis_asset.schema":analysisDateJSON.toString(),
+			"schema/spidamin/asset/standard_details/analysis_asset.schema":JsonOutput.toJson(analysisDateJSON.toString()),
 			"schema/spidamin/asset/standard_details/pole_asset.schema":'{"createdDate":"Thu Feb 13 12:04:50 EST 2014","dateInspected":"Wed Feb 26 13:28:19 EST 2014","modifiedDate":"Thu Feb 13 13:04:07 EST 2014"}',
 			"schema/spidamin/asset/standard_details/file_asset.schema":'{"dateCreated":"Thu Feb 13 13:04:07 EST 2014"}, "dateUpdated":"Thu Feb 13 12:04:50 EST 2014"}',
 		]

@@ -2,22 +2,21 @@ package com.spidasoftware.schema.conversion.changeset.v4
 
 import com.spidasoftware.schema.conversion.changeset.AbstractDesignChangeset
 import com.spidasoftware.schema.conversion.changeset.ConversionException
-import net.sf.json.JSONObject
-import net.sf.json.JSONArray
+
 
 class SupportTypeChangeSet extends AbstractDesignChangeset {
 
     @Override
-    void applyToDesign(JSONObject design) throws ConversionException {
-		JSONObject structure = design.get("structure")
-		structure?.get('anchors')?.each({ JSONObject anchor ->
+    void applyToDesign(Map design) throws ConversionException {
+		Map structure = design.get("structure")
+		structure?.get('anchors')?.each({ Map anchor ->
 			def supportType = anchor.get('supportType')
 			if (supportType) {
 				anchor.remove('supportType')
 				anchor.put('supportedWEPs', getSupportedWEPs(supportType, structure))
 			}
 		})
-		structure?.get('crossArms')?.each({ JSONObject crossArm ->
+		structure?.get('crossArms')?.each({ Map crossArm ->
 			def associatedBacking = crossArm.get('associatedBacking')
 			if (associatedBacking) {
 				crossArm.remove('associatedBacking')
@@ -27,19 +26,19 @@ class SupportTypeChangeSet extends AbstractDesignChangeset {
     }
 
     @Override
-    void revertDesign(JSONObject design) throws ConversionException {
-		JSONObject structure = design.get("structure")
-		structure?.get('anchors')?.each({ JSONObject anchor ->
+    void revertDesign(Map design) throws ConversionException {
+		Map structure = design.get("structure")
+		structure?.get('anchors')?.each({ Map anchor ->
 			anchor.put('supportType', getSupportType(anchor.get('supportedWEPs')))
 			anchor.remove('supportedWEPs')
 		})
-		structure?.get('crossArms')?.each({ JSONObject crossArm ->
+		structure?.get('crossArms')?.each({ Map crossArm ->
 			crossArm.put('associatedBacking', getSupportType(crossArm.get('supportedWEPs')))
 			crossArm.remove('supportedWEPs')
 		})
 	}
 
-	private String getSupportType(JSONArray supportedWEPs) {
+	private String getSupportType(List supportedWEPs) {
 		if (supportedWEPs) {
 			if (supportedWEPs.size() > 1) {
 				return 'Bisector'
@@ -51,7 +50,7 @@ class SupportTypeChangeSet extends AbstractDesignChangeset {
 		}
 	}
 
-	private JSONArray getSupportedWEPs(String supportType, JSONObject structure) {
+	private List getSupportedWEPs(String supportType, Map structure) {
 		def wireEndPoints = structure.get('wireEndPoints')
 		if (supportType != 'Other' && wireEndPoints) {
 			if (supportType == 'Bisector') {
@@ -60,18 +59,18 @@ class SupportTypeChangeSet extends AbstractDesignChangeset {
 
 
 				if (nextWEP && previousWEP) {
-					return JSONArray.fromObject([nextWEP, previousWEP])
+					return [nextWEP, previousWEP]
 				}
 			} else {
-				return JSONArray.fromObject([supportType])
+				return [supportType]
 			}
 		}
 
-		return new JSONArray()
+		return []
 	}
 
-	private String getWEPFor(String type, JSONArray wireEndPoints) {
-		wireEndPoints.find({ JSONObject wep -> wep.get('type') == type})?.get('id')
+	private String getWEPFor(String type, List wireEndPoints) {
+		wireEndPoints.find({ Map wep -> wep.get('type') == type})?.get('id')
 	}
 
 }

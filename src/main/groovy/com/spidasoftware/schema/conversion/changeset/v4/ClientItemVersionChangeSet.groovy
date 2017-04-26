@@ -2,19 +2,19 @@ package com.spidasoftware.schema.conversion.changeset.v4
 
 import com.spidasoftware.schema.conversion.changeset.AbstractDesignChangeset
 import com.spidasoftware.schema.conversion.changeset.ConversionException
-import net.sf.json.JSONObject
+
 
 class ClientItemVersionChangeSet extends AbstractDesignChangeset {
 
     @Override
-    void applyToDesign(JSONObject designJSON) throws ConversionException {
+    void applyToDesign(Map designJSON) throws ConversionException {
 
     }
 
     @Override
-    void revertDesign(JSONObject designJSON) throws ConversionException {
-        JSONObject structure = designJSON.get("structure")
-        structure?.getJSONObject("pole")?.remove("clientItemVersion")
+    void revertDesign(Map designJSON) throws ConversionException {
+        Map structure = designJSON.get("structure")
+        structure?.get("pole")?.remove("clientItemVersion")
         ["anchors",
          "wires",
          "spanGuys",
@@ -26,7 +26,7 @@ class ClientItemVersionChangeSet extends AbstractDesignChangeset {
          "sidewalkBraces",
          "foundations",
          "assemblies"].each { key ->
-            structure?.getJSONArray(key)*.remove("clientItemVersion")
+            structure?.get(key)*.remove("clientItemVersion")
         }
     }
 }

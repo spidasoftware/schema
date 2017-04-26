@@ -1,6 +1,6 @@
 package com.spidasoftware.schema.validation
 
-import org.apache.log4j.*
+import org.apache.log4j.Logger
 
 class LoggingTest extends GroovyTestCase {
 

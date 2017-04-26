@@ -1,7 +1,6 @@
 package com.spidasoftware.schema.conversion
 
-import net.sf.json.JSONArray
-import net.sf.json.JSONObject
+import groovy.json.JsonSlurper
 import spock.lang.Specification
 
 class CalcDBComponentSpec extends Specification{
@@ -12,25 +11,25 @@ class CalcDBComponentSpec extends Specification{
 	CalcDBDesign design
 
 	private CalcDBLocation loadLocation(String resourceString) {
-		JSONObject json = getResource(resourceString)
-		return new CalcDBLocation(json.getJSONArray("locations").getJSONObject(0))
+	    Map json = getResource(resourceString)
+		return new CalcDBLocation(json.get("locations").get(0))
 	}
 
 	private CalcDBDesign loadDesign(String resourceString) {
-		JSONObject json = getResource(resourceString)
-		return new CalcDBDesign(json.getJSONArray('designs').getJSONObject(0))
+	    Map json = getResource(resourceString)
+		return new CalcDBDesign(json.get('designs').get(0))
 	}
 
 	private CalcDBProject loadProject(String resourceString) {
-		JSONObject json = getResource(resourceString)
-		JSONArray ray = json.getJSONArray("projects")
-		JSONObject projectJson = ray.getJSONObject(0)
+	    Map json = getResource(resourceString)
+		List ray = json.get("projects")
+	    Map projectJson = ray.get(0)
 		return new CalcDBProject(projectJson)
 	}
 
-	private JSONObject getResource(String resourceString) {
+	private Map getResource(String resourceString) {
 		String text = getClass().getResourceAsStream(resourceString).text
-		return JSONObject.fromObject(text)
+		return new JsonSlurper().parseText(text)
 	}
 
     def setup() throws Exception {
@@ -58,6 +57,6 @@ class CalcDBComponentSpec extends Specification{
 		when:
 			design.updateLocationIds(["53e3906d44ae3953e03b39fd":"replaced"])
 		then:
-			design.getJSON().locationId=="replaced"
+			design.getMap().locationId=="replaced"
 	}
 }

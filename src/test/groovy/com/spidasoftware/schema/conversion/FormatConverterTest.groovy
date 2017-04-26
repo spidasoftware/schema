@@ -2,15 +2,14 @@ package com.spidasoftware.schema.conversion
 
 import com.github.fge.jsonschema.report.ProcessingReport
 import com.spidasoftware.schema.validation.Validator
-import groovy.util.logging.Log4j
-import net.sf.json.JSONArray
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
 import spock.lang.Specification
 import spock.lang.Unroll
-import net.sf.json.JSONObject
+
 import static org.junit.Assert.assertEquals
 import static org.junit.Assert.assertTrue
 
-@Log4j
 class FormatConverterTest extends Specification {
 
 	double epsilon = 0.000001
@@ -27,20 +26,20 @@ class FormatConverterTest extends Specification {
 
 		then: "the project should validate against the schema"
 			def refProject = refCompList.find{it instanceof CalcDBProject}
-			def projectReport = validator.validateAndReport("/schema/spidamin/spidadb/referenced_project.schema", refProject.getJSON().toString())
+			def projectReport = validator.validateAndReport("/schema/spidamin/spidadb/referenced_project.schema", JsonOutput.toJson(refProject.getMap()))
 			projectReport.isSuccess()
 
 		then: "the locations should validate against the schema"
 			def refLocations = refCompList.findAll{ it instanceof CalcDBLocation}
 			refLocations.each{
-				def locationReport = validator.validateAndReport("/schema/spidamin/spidadb/referenced_location.schema", it.getJSON().toString())
+				def locationReport = validator.validateAndReport("/schema/spidamin/spidadb/referenced_location.schema", JsonOutput.toJson(it.getMap()))
 				assert locationReport.isSuccess(), "location: ${it.getName()} failed validation: \n${locationReport}"
 			}
 
 		then: "the designs should validate against the schema"
 			def refDesigns = refCompList.findAll{it instanceof CalcDBDesign}
 			refDesigns.each{CalcDBDesign it->
-				def designReport = validator.validateAndReport("/schema/spidamin/spidadb/referenced_design.schema", it.getJSON().toString())
+				def designReport = validator.validateAndReport("/schema/spidamin/spidadb/referenced_design.schema", JsonOutput.toJson(it.getMap()))
 				assert designReport.isSuccess(), "Design: ${it.getName()} at ${it.getParentLocationName()} in invalid \n${designReport}"
 			}
 
@@ -66,7 +65,7 @@ class FormatConverterTest extends Specification {
 			CalcDBProject p = calcdbComponents.find{it instanceof CalcDBProject}
 			List calcdbLocations = calcdbComponents.findAll{ it instanceof CalcDBLocation }
 			List calcdbDesigns = calcdbComponents.findAll{ it instanceof CalcDBDesign }
-			JSONObject reconstitutedCalcProject = converter.convertCalcDBProject(p, calcdbLocations, calcdbDesigns)
+		    Map reconstitutedCalcProject = converter.convertCalcDBProject(p, calcdbLocations, calcdbDesigns)
 
 		then: "the reconstituted project should be valid against the schema"
 			jsonIsValid(reconstitutedCalcProject)
@@ -108,7 +107,7 @@ class FormatConverterTest extends Specification {
 			def components = converter.convertCalcProject(project)
 
 		when: "convert the project"
-			def designs = components.findAll {it instanceof CalcDBDesign}*.getJSON()
+			def designs = components.findAll {it instanceof CalcDBDesign}*.getMap()
 
 		then: "all the worst*Results should be correct and the results should be attached to the correct components"
 			designs.size() == 18
@@ -143,11 +142,11 @@ class FormatConverterTest extends Specification {
 
 	def "designs should be converted by themselves"(){
 		when:
-			def design = converter.convertCalcDesign(current, null, null)?.getJSON()
+			def design = converter.convertCalcDesign(current, null, null)?.getMap()
 
 		then:
-			design.getLong('dateModified')
-			design.worstCaseAnalysisResults instanceof JSONObject
+			design.get('dateModified')
+			design.worstCaseAnalysisResults instanceof Map
 			design.worstCaseAnalysisResults.containsKey('pole')
 
 		where:
@@ -161,9 +160,9 @@ class FormatConverterTest extends Specification {
 			notThrown(Exception)
 			fourPoles != null
 			def components = converter.convertCalcProject(fourPoles)
-			def project = components.find {it instanceof CalcDBProject}.getJSON()
-			def locations = components.findAll {it instanceof CalcDBLocation}*.getJSON()
-			def designs = components.findAll {it instanceof CalcDBDesign}*.getJSON()
+			def project = components.find {it instanceof CalcDBProject}.getMap()
+			def locations = components.findAll {it instanceof CalcDBLocation}*.getMap()
+			def designs = components.findAll {it instanceof CalcDBDesign}*.getMap()
 			project != null
 			locations != null
 			designs != null
@@ -185,7 +184,7 @@ class FormatConverterTest extends Specification {
 
 		when: "add analysisResults to the current design"
 			def currentDesign = designs.find{ it.label == currentDesignName }
-			def design = converter.convertCalcDesign(currentDesign, null, null).getJSON()
+			def design = converter.convertCalcDesign(currentDesign, null, null).getMap()
 
 		then: "the correct worst results should be set"
 			assertEquals("Worst Pole result should be correct", worstPole, design.worstCaseAnalysisResults.pole.actual, e)
@@ -208,7 +207,7 @@ class FormatConverterTest extends Specification {
 		setup:
 			def project = getCalcProject("project-with-detailed-results.json")
 		when:
-			def design = converter.convertCalcDesign(project.leads[0].locations[0].designs[0], null, null).getJSON()
+			def design = converter.convertCalcDesign(project.leads[0].locations[0].designs[0], null, null).getMap()
 		then:
 			Math.abs(actual - design.worstCaseAnalysisResults.get(jsonKey).actual) < 0.01
 			Math.abs(allowable - design.worstCaseAnalysisResults.get(jsonKey).allowable) < 0.01
@@ -236,9 +235,9 @@ class FormatConverterTest extends Specification {
 
 		when:
 			def components = converter.convertCalcProject(current)
-			project = components.find {it instanceof CalcDBProject}.getJSON()
-			locations = components.findAll {it instanceof CalcDBLocation}*.getJSON()
-			designs = components.findAll {it instanceof CalcDBDesign}*.getJSON()
+			project = components.find {it instanceof CalcDBProject}.getMap()
+			locations = components.findAll {it instanceof CalcDBLocation}*.getMap()
+			designs = components.findAll {it instanceof CalcDBDesign}*.getMap()
 
 		then:
 			notThrown(Exception)
@@ -257,24 +256,24 @@ class FormatConverterTest extends Specification {
 	void "CalcDB components should be converted into calc-ready JSON"() {
 		/* Just recreate a CalcDB project from it's component parts and make sure it goes together okay */
 		when:
-			CalcDBProject calcDBProject = new CalcDBProject(loadJson("exampleProject", "projects")[0] as JSONObject)
+			CalcDBProject calcDBProject = new CalcDBProject(loadJson("exampleProject", "projects")[0] as Map)
 			Map calcDBLocations = [:]
 			Map calcDBDesigns = [:]
 			loadJson("exampleProject", "locations").each { location ->
-				calcDBLocations.put(location."_id", new CalcDBLocation(location as JSONObject))
+				calcDBLocations.put(location."_id", new CalcDBLocation(location as Map))
 			}
 			loadJson("exampleProject", "designs").each { design ->
-				calcDBDesigns.put(design."_id", new CalcDBDesign(design as JSONObject))
+				calcDBDesigns.put(design."_id", new CalcDBDesign(design as Map))
 			}
 
-			JSONObject projectJson = converter.convertCalcDBProject(calcDBProject, calcDBLocations, calcDBDesigns)
+		    Map projectJson = converter.convertCalcDBProject(calcDBProject, calcDBLocations, calcDBDesigns)
 			def schema = "/schema/spidacalc/calc/project.schema"
-			def report = new Validator().validateAndReport(schema, projectJson.toString())
+			def report = new Validator().validateAndReport(schema, JsonOutput.toJson(projectJson))
 
 		then:
 			notThrown(Exception)
 			// the projectJson should contain the correct label
-			"exampleProject" == projectJson.getString("label")
+			"exampleProject" == projectJson.get("label")
 
 			// each JSON location should have 3 designs
 			projectJson.leads[0].locations.each {
@@ -284,31 +283,29 @@ class FormatConverterTest extends Specification {
 			report.isSuccess()
 	}
 
-	private JSONObject getCalcObject(String name, String type) {
-		String designString = getClass().getResourceAsStream("/formats/calc/${type}s/${name}").text
-		return JSONObject.fromObject(designString)
+	private Map getCalcObject(String name, String type) {
+		return new JsonSlurper().parse(getClass().getResourceAsStream("/formats/calc/${type}s/${name}"))
 	}
 
-	private JSONObject getCalcDesign(String name) {
+	private Map getCalcDesign(String name) {
 		return getCalcObject(name, "design")
 	}
 
-	private List<JSONObject> getCalcDesignsList(String name, int num) {
+	private List<Map> getCalcDesignsList(String name, int num) {
 		return (0..num).collect { getCalcDesign(name + '-'+ it + '.json') }
 	}
 
-	private JSONObject getCalcProject(String name) {
+	private Map getCalcProject(String name) {
 		return getCalcObject(name, "project")
 	}
 
-	private JSONArray loadJson(String project, String type) {
-		String text = getClass().getResourceAsStream("/formats/calcdb/${project}/${type}.json").text
-		JSONObject json = JSONObject.fromObject(text)
-		return json.getJSONArray(type)
+	private List loadJson(String project, String type) {
+	    Map json = new JsonSlurper().parse(getClass().getResourceAsStream("/formats/calcdb/${project}/${type}.json"))
+		return json.get(type)
 	}
 
-	boolean jsonIsValid(JSONObject projectJson) {
-		ProcessingReport report = new Validator().validateAndReport("/schema/spidacalc/calc/project.schema", projectJson.toString())
+	boolean jsonIsValid(Map projectJson) {
+		ProcessingReport report = new Validator().validateAndReport("/schema/spidacalc/calc/project.schema", JsonOutput.toJson(projectJson))
 		if (!report.isSuccess()) {
 			println "JSON does not validate against schema:"
 			println report.toString()

@@ -3,14 +3,13 @@
  */
 package com.spidasoftware.schema.conversion.changeset.v4
 
-import net.sf.json.JSONObject
 import spock.lang.Specification
 
 class DesignLayerChangeSetTest extends Specification {
 
 	DesignLayerChangeSet designLayerChangeSet = new DesignLayerChangeSet()
 	def "ApplyToDesign"() {
-		def design = [:] as JSONObject
+		def design = [:]
 		when:
 			designLayerChangeSet.applyToDesign(design)
 		then:
@@ -19,7 +18,7 @@ class DesignLayerChangeSetTest extends Specification {
 	}
 
 	def "RevertDesign"() {
-		def design = [layerType: "Measured"] as JSONObject
+		def design = [layerType: "Measured"]
 		when:
 			designLayerChangeSet.revertDesign(design)
 		then:

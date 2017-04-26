@@ -752,16 +752,6 @@
         "description": "Placehold for assembly object. Replace with real object after implementation is stable",
         "additionalProperties": true,
         "properties": {}
-      },
-      "assemblyPlan": {
-        "description": "List of all assemblies that should be stacked on the pole.",
-        "type": "array",
-        "items": {
-          "type": "object",
-          "description": "Placehold for assembly object. Replace with real object after implementation is stable",
-          "additionalProperties": true,
-          "properties": {}
-        }
       }
     }
   }

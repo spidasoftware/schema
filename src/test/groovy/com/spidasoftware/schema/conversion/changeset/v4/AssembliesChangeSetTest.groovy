@@ -3,8 +3,8 @@
  */
 package com.spidasoftware.schema.conversion.changeset.v4
 
-import net.sf.json.JSONObject
-import net.sf.json.JSONSerializer
+import com.spidasoftware.schema.conversion.changeset.ChangeSet
+import groovy.json.JsonSlurper
 import spock.lang.Specification
 
 class AssembliesChangeSetTest extends Specification {
@@ -60,9 +60,9 @@ class AssembliesChangeSetTest extends Specification {
 			]
 		}
 	"""
-			JSONObject projectJSON = JSONSerializer.toJSON(jsonString)
-			JSONObject locationJSON = JSONObject.fromObject(projectJSON.leads[0].locations[0])
-			JSONObject designJSON = JSONObject.fromObject(projectJSON.leads[0].locations[0].designs[0])
+		    Map projectJSON = new JsonSlurper().parseText(jsonString)
+		    Map locationJSON = projectJSON.leads[0].locations[0]
+		    Map designJSON = ChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0].designs[0])
 			AssembliesChangeSet changeSet = new AssembliesChangeSet()
 		when: "revertProject"
 			changeSet.revertProject(projectJSON)
