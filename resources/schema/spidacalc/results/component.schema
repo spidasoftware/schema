@@ -2,7 +2,7 @@
   "description": "A copmeonnt is an compination of an individual item and analysis type i.e. Pole Buckling",
   "type": "object",
   "required": [
-    "id", "poles", "actual", "actualEngineering", "ratio", "allowable", "allowableEngineering", "failingRatio", "status", "resultsType", "analysisType"
+    "id", "poles", "actual", "ratio", "allowable", "failingRatio", "status", "resultsType", "analysisType"
   ],
   "properties": {
     "id": {
@@ -43,7 +43,7 @@
       "description": "a list of direction in degrees to the 'actualEngineering' reported at that wind direction",
       "items": {
         "type": "object",
-        "required":["direction", "value", "status"],
+        "required":["direction", "value", "status", "ratio"],
         "additionalProperties":false,
         "properties": {
           "direction": {
@@ -54,6 +54,10 @@
           },
           "status": {
             "$ref": "../../spidacalc/results/enums/status.schema"
+          },
+          "ratio": {
+            "description": "the ratio between actual and allowable at this direction",
+            "type": "number"
           }
         }
       }
@@ -90,6 +94,10 @@
           },
           "status": {
             "$ref": "../../spidacalc/results/enums/status.schema"
+          },
+          "ratio": {
+            "description": "the ratio between actual and allowable at this height",
+            "type": "number"
           },
           "components": {
             "type": "array"

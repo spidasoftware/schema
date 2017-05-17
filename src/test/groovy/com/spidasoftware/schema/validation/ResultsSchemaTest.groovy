@@ -13,16 +13,17 @@ class ResultsSchemaTest extends GroovyTestCase {
 	final LoadingConfiguration cfg = LoadingConfiguration.newBuilder().setNamespace(new File("resources").toURI().toString()).freeze()
     final JsonSchemaFactory factory = JsonSchemaFactory.newBuilder().setLoadingConfiguration(cfg).freeze()
 
-	void testErrorResult(){
+	void testResultFiles(){
 		def schema = factory.getJsonSchema("schema/spidacalc/results/results.schema")
-		report = schema.validate(JsonLoader.fromString(new File("resources/examples/spidacalc/results/error.json").text))
-		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
-	}
-
-	void testSimpleResult(){
-		def schema = factory.getJsonSchema("schema/spidacalc/results/results.schema")
-		report = schema.validate(JsonLoader.fromString(new File("resources/examples/spidacalc/results/simple-pole.json").text))
-		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
+		[
+			new File("resources/examples/spidacalc/results/simple-pole.json"),
+			new File("resources/examples/spidacalc/results/simple-pole-converted-from-6.4.json"),
+			new File("resources/examples/spidacalc/results/error.json"),
+			new File("resources/examples/spidacalc/results/error-converted-from-6.4.json")
+		].each {
+			report = schema.validate(JsonLoader.fromString(it.text))
+			assertTrue "${it.name} should be valid against the schema \n${report.toString()}", report.isSuccess()
+		}
 	}
 
 }
