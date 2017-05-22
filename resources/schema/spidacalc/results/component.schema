@@ -43,7 +43,7 @@
       "description": "a list of direction in degrees to the 'actualEngineering' reported at that wind direction",
       "items": {
         "type": "object",
-        "required":["direction", "value", "status", "ratio"],
+        "required":["direction", "value", "status"],
         "additionalProperties":false,
         "properties": {
           "direction": {
@@ -54,6 +54,10 @@
           },
           "status": {
             "$ref": "../../spidacalc/results/enums/status.schema"
+          },
+          "actual": {
+            "description": "S.F. or percent at this direction",
+            "type": "number"
           },
           "ratio": {
             "description": "the ratio between actual and allowable at this direction",
@@ -90,6 +94,7 @@
             "$ref": "../../general/measurable.schema"
           },
           "actual": {
+            "description": "S.F. or percent at this height",
             "type": "number"
           },
           "status": {
