@@ -1,185 +1,211 @@
 {
-	"id": "#/spidacalc/results/load_case.schema",
-	"$schema": "http://json-schema.org/draft-04/schema#",
-	"description": "The loading information used to generate analysis",
-	"type": "object",
-	"required": ["name", "type", "maximumLoadingRatio"],
-	"properties": {
-		"id": {
-			"description": "the id of this result",
-			"type": "string"
-		},
-		"name": {
-			"type": "string"
-		},
-		"version": {
-			"description": "The version hash of the load case used to generate the results.",
-			"pattern": "[a-f0-9]{32}",
-			"type": "string"
-		},
-		"type": {
-			"description": "the kind of load case this is. enum is defined below",
-			"type": "string"
-		},
-		"analyzeWithExtremeWindOnAll": {
-			"type": "boolean"
-		},
-		"maximumLoadingRatio": {
-			"type": "number"
-		},
-		"useStrengthResults": {
-			"type": "boolean"
-		},
-		"displacementBasedLoadChangesLevel": {
-			"enum": ["NONE", "PARTIAL", "ALL"]
-		},
-		"analyzeGroundLineOnly": {
-			"type": "boolean"
-		},
-		"analyzeWithExtremeIceOnAll": {
-			"type": "boolean"
-		},
-		"analyzeWithoutLinearConstant": {
-			"type": "boolean"
-		},
-		"analyzeWithAverageSpan": {
-			"type": "boolean"
-		},
-		"loadingStepCountMultiplier":{
-			"description":"the multipler to use to apply the forces in more steps than standard",
-			"type":"number"
-		},
-		"addByDefault": {
-			"type": "boolean"
-		},
-		"pretensionGuys": {
-			"type": "boolean"
-		},
+  "id": "#/spidacalc/results/load_case.schema",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "The loading information used to generate analysis",
+  "type": "object",
+  "required": [
+    "name",
+    "type",
+    "maximumLoadingRatio"
+  ],
+  "properties": {
+    "id": {
+      "description": "the id of this result",
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "version": {
+      "description": "The version hash of the load case used to generate the results.",
+      "pattern": "[a-f0-9]{32}",
+      "type": "string"
+    },
+    "type": {
+      "description": "the kind of load case this is. enum is defined below",
+      "type": "string"
+    },
+    "analyzeWithExtremeWindOnAll": {
+      "type": "boolean"
+    },
+    "maximumLoadingRatio": {
+      "type": "number"
+    },
+    "useStrengthResults": {
+      "type": "boolean"
+    },
+    "displacementBasedLoadChangesLevel": {
+      "enum": [
+        "NONE",
+        "PARTIAL",
+        "ALL"
+      ]
+    },
+    "analyzeGroundLineOnly": {
+      "type": "boolean"
+    },
+    "analyzeWithExtremeIceOnAll": {
+      "type": "boolean"
+    },
+    "analyzeWithoutLinearConstant": {
+      "type": "boolean"
+    },
+    "analyzeWithAverageSpan": {
+      "type": "boolean"
+    },
+    "loadingStepCountMultiplier": {
+      "description": "the multipler to use to apply the forces in more steps than standard",
+      "type": "number"
+    },
+    "addByDefault": {
+      "type": "boolean"
+    },
+    "pretensionGuys": {
+      "type": "boolean"
+    },
     "rural": {
       "type": "boolean"
     },
-		"hybridShearZone":{
-			"$ref": "../../general/measurable.schema"
-		},
-		"minimumHybridTension":{
-			"$ref": "../../general/measurable.schema"
-		},
-		"maximumHybridSupportAngle":{
-			"$ref": "../../general/measurable.schema"
-		},
-		"minimumDisplacementLoadingTension":{
-			"$ref": "../../general/measurable.schema"
-		},
-		"components": {
-      "type":"array",
-      "items":{
-		  	"enum": [
-		  		"ANCHOR",
-		  		"GUY",
-		  		"PUSHBRACE",
-		  		"CROSSARM",
-		  		"INSULATOR",
-		  		"POLE",
-		  		"SIDEWALK_BRACE",
-		  		"FOUNDATION"
-			  ]
+    "hybridShearZone": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "minimumHybridTension": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "maximumHybridSupportAngle": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "minimumDisplacementLoadingTension": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "components": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "ANCHOR",
+          "GUY",
+          "PUSHBRACE",
+          "CROSSARM",
+          "INSULATOR",
+          "POLE",
+          "SIDEWALK_BRACE",
+          "FOUNDATION"
+        ]
       }
-		},
-		"constructionGrade": {
-			"enum": [
-				"B",
-				"C",
-				"C_WITH_CROSSINGS",
-				"N",
-				"ONE",
-				"TWO",
-				"THREE",
-				"A",
-				"F"
-			]
-		},
-		"constructionType": {
-			"enum": [
-				"NEW",
-				"REPLACEMENT"
-			]
-		},
-		"loadZone": {
-			"enum": [
-				"LIGHT",
-				"MEDIUM",
-				"HEAVY",
-				"MEDIUM_A",
-				"MEDIUM_B",
-				"SEVERE",
+    },
+    "constructionGrade": {
+      "enum": [
+        "B",
+        "C",
+        "C_WITH_CROSSINGS",
+        "N",
+        "ONE",
+        "TWO",
+        "THREE",
+        "A",
+        "F"
+      ]
+    },
+    "constructionType": {
+      "enum": [
+        "NEW",
+        "REPLACEMENT"
+      ]
+    },
+    "loadZone": {
+      "enum": [
+        "LIGHT",
+        "MEDIUM",
+        "HEAVY",
+        "MEDIUM_A",
+        "MEDIUM_B",
+        "SEVERE",
         "WARM_ISLAND_UNDER_9000_FT",
         "WARM_ISLAND_OVER_9000_FT"
-			]
-		},
-		"connectionType": {
-			"enum": [
-				"CONTINUATION", "ARM"
-			]
-		},
-		"analysisMethod": {
-			"enum": [
-				"DIRECT_STIFFNESS", "CO_ROTATIONAL"
-			]
-		},
-		"staticPretensionMultiplier": {
-			"type": "number"
-		},
-		"windType": {
-			"enum": [
-				"SWEEP", "FIXED", "RANGE"
-			]
-		},
-		"windStartAngle": {
-			"$ref": "../../general/measurable.schema"
-		},
-		"windEndAngle": {
-			"$ref": "../../general/measurable.schema"
-		},
-		"sweepIncrement": {
-			"enum": [
-				"DEGREE_1", "DEGREE_2", "DEGREE_5", "DEGREE_10", "DEGREE_15", "DEGREE_25", "DEGREE_45"
-			]
-		},
-		"windSpeed": {
-			"enum": [
-				"MPH_30",
-				"MPH_40",
-				"MPH_50",
-				"MPH_60",
-				"MPH_90",
-				"MPH_95",
-				"MPH_100",
-				"MPH_105",
-				"MPH_110",
-				"MPH_115",
-				"MPH_120",
-				"MPH_125",
-				"MPH_130",
-				"MPH_135",
-				"MPH_140",
-				"MPH_145",
-				"MPH_150",
-				"MPH_155",
-				"MPH_160",
-				"MPH_165",
-				"MPH_170"
-			]
-		},
-		"ice": {
-      "oneOf":[
-        {"enum": [
-          "INCH_000", "INCH_025", "INCH_050", "INCH_075", "INCH_100", "INCH_125", "INCH_150"
-        ]},
+      ]
+    },
+    "connectionType": {
+      "enum": [
+        "CONTINUATION",
+        "ARM"
+      ]
+    },
+    "analysisMethod": {
+      "enum": [
+        "DIRECT_STIFFNESS",
+        "CO_ROTATIONAL"
+      ]
+    },
+    "staticPretensionMultiplier": {
+      "type": "number"
+    },
+    "windType": {
+      "enum": [
+        "SWEEP",
+        "FIXED",
+        "RANGE"
+      ]
+    },
+    "windStartAngle": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "windEndAngle": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "sweepIncrement": {
+      "enum": [
+        "DEGREE_1",
+        "DEGREE_2",
+        "DEGREE_5",
+        "DEGREE_10",
+        "DEGREE_15",
+        "DEGREE_25",
+        "DEGREE_45"
+      ]
+    },
+    "windSpeed": {
+      "enum": [
+        "MPH_30",
+        "MPH_40",
+        "MPH_50",
+        "MPH_60",
+        "MPH_90",
+        "MPH_95",
+        "MPH_100",
+        "MPH_105",
+        "MPH_110",
+        "MPH_115",
+        "MPH_120",
+        "MPH_125",
+        "MPH_130",
+        "MPH_135",
+        "MPH_140",
+        "MPH_145",
+        "MPH_150",
+        "MPH_155",
+        "MPH_160",
+        "MPH_165",
+        "MPH_170"
+      ]
+    },
+    "ice": {
+      "oneOf": [
+        {
+          "enum": [
+            "INCH_000",
+            "INCH_025",
+            "INCH_050",
+            "INCH_075",
+            "INCH_100",
+            "INCH_125",
+            "INCH_150"
+          ]
+        },
         {
           "$ref": "../../general/measurable.schema"
         }
       ]
-		},
+    },
     "linearConstant": {
       "description": "contant option for custom load cases",
       "$ref": "../../general/measurable.schema"
@@ -201,14 +227,25 @@
       "type": "boolean"
     },
     "overrides": {
+      "description": "strength factors and multipliers to override (not equal to the default values)",
       "type": "object"
     },
-    "deflectionCase":{
+    "valuesApplied": {
+      "description": "(Read-Only) all final strength factors and multipliers used during analysis (including default values)",
+      "type": "object"
+    },
+    "deflectionCase": {
       "type": "object",
-      "required":["type"],
-      "properties":{
+      "required": [
+        "type"
+      ],
+      "properties": {
         "type": {
-          "enum":["FIXED_DISTANCE_DEFLECTION", "ANGLE_DEFLECTION", "PERCENT_OF_HEIGHT_DEFLECTION"]
+          "enum": [
+            "FIXED_DISTANCE_DEFLECTION",
+            "ANGLE_DEFLECTION",
+            "PERCENT_OF_HEIGHT_DEFLECTION"
+          ]
         },
         "distance": {
           "description": "option for fixed distance",
@@ -220,118 +257,150 @@
         },
         "percent": {
           "description": "option for percent deflection",
-          "type":"number"
+          "type": "number"
         }
       }
     },
-    "bucklingCase":{
+    "bucklingCase": {
       "type": "object",
-      "required":["bucklingCoefficient","unguyedConstant","guyedConstants","analysisMethod","sectionHeightMode"],
-      "properties":{
+      "required": [
+        "bucklingCoefficient",
+        "unguyedConstant",
+        "guyedConstants",
+        "analysisMethod",
+        "sectionHeightMode"
+      ],
+      "properties": {
         "bucklingCoefficient": {
-          "type":"number"
+          "type": "number"
         },
         "loadingHeightPercent": {
-          "type":"number"
+          "type": "number"
         },
         "guyedConstants": {
-          "type":"array",
-          "items":{
-            "type":"object",
-            "properties":{
-              "constant":{
-                "type":"number"
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "constant": {
+                "type": "number"
               },
-              "angle":{
+              "angle": {
                 "$ref": "../../general/measurable.schema"
               }
             }
           }
         },
         "unguyedConstant": {
-          "type":"number"
+          "type": "number"
         },
         "diameterHeightPercent": {
-          "type":"number"
+          "type": "number"
         },
         "analysisMethod": {
-          "enum":["AITC", "TRADITIONAL_EULER"]
+          "enum": [
+            "AITC",
+            "TRADITIONAL_EULER"
+          ]
         },
         "diameterMethod": {
-          "enum":["TAPERED_DIAMETER", "CONSTANT_DIAMETER"]
+          "enum": [
+            "TAPERED_DIAMETER",
+            "CONSTANT_DIAMETER"
+          ]
         },
-        "sectionHeightMode":{
-          "enum":["PERCENT", "LOAD"]
+        "sectionHeightMode": {
+          "enum": [
+            "PERCENT",
+            "LOAD"
+          ]
         }
       }
     }
-	},
-	"oneOf": [{
-		"type": "object",
-		"required": ["pretensionGuys", "staticPretensionMultiplier","hybridShearZone", "minimumHybridTension" ,"maximumHybridSupportAngle","minimumDisplacementLoadingTension", "loadingStepCountMultiplier"],
-		"properties": {
-			"analysisMethod": {
-				"enum": ["CO_ROTATIONAL"]
-			}
-		}
-	}, {
-		"type": "object",
-		"required": ["analyzeGroundLineOnly"],
-		"properties": {
-			"analysisMethod": {
-				"enum": ["DIRECT_STIFFNESS"]
-			}
-		}
-	}],
-	"oneOf": [{
-		"type": "object",
-		"required": ["linearConstant", "temperature", "windPressure", "loadMultipliersIncludedInDisplacementBasedLoadChanges", "iceThickness"],
-		"properties": {
-			"type": {
-				"enum": ["Custom"]
-			}
-		}
-	}, {
-		"type": "object",
-		"required": ["rural", "loadZone", "constructionGrade"],
-		"properties": {
-			"type": {
-				"enum": ["GO95 01-2012", "GO95 02-2014"]
-			}
-		}
-	}, {
-		"type": "object",
-		"required": ["ice", "windSpeed", "constructionGrade"],
-		"properties": {
-			"type": {
-				"enum": ["NESC Extreme Ice 2007", "NESC Extreme Ice 2012"]
-			}
-		}
-	},{
-		"type": "object",
-    "required": ["windSpeed", "constructionGrade"],
-		"properties": {
-			"type": {
-				"enum": [
-					"NESC Extreme Wind 2007",
-					"NESC Extreme Wind 2012"
-				]
-			}
-		}
-	},{
-		"type": "object",
-    "required": ["loadZone", "constructionGrade"],
-		"properties": {
-			"type": {
-				"enum": [
-          "NESC 2007",
-					"NESC 2012",
-					"CSA (Linear) 2010",
-					"CSA 2010",
-					"CSA 2015"
-				]
-			}
-		}
-	}],
-	"additionalProperties": false
+  },
+  "oneOf": [
+    {
+      "type": "object",
+      "required": [
+        "linearConstant",
+        "temperature",
+        "windPressure",
+        "loadMultipliersIncludedInDisplacementBasedLoadChanges",
+        "iceThickness"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "Custom"
+          ]
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "rural",
+        "loadZone",
+        "constructionGrade"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "GO95 01-2012",
+            "GO95 02-2014"
+          ]
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "ice",
+        "windSpeed",
+        "constructionGrade"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "NESC Extreme Ice 2007",
+            "NESC Extreme Ice 2012"
+          ]
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "windSpeed",
+        "constructionGrade"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "NESC Extreme Wind 2007",
+            "NESC Extreme Wind 2012"
+          ]
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "loadZone",
+        "constructionGrade"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "NESC 2007",
+            "NESC 2012",
+            "CSA (Linear) 2010",
+            "CSA 2010",
+            "CSA 2015"
+          ]
+        }
+      }
+    }
+  ],
+  "additionalProperties": false
 }
