@@ -554,6 +554,15 @@
               "value": 9.728200000000001
             }
           }],
+          "guyAttachPoints": [{
+            "id": "GuyAttachPoint#1",
+            "externalId": "5898d1b27d841285855f6b94",
+            "attachmentHeight":             {
+              "unit": "METRE",
+              "value": 9.728200000000001
+            },
+            "supportedWEPs": []
+          }],
           "equipments": [          {
             "id": "Equip#1",
             "externalId": "5898d1c17d841285855f7a6f",
