@@ -31,6 +31,7 @@ class ConverterUtils {
             converter.addChangeSet(4, new PointLoadItemChangeSet())
             converter.addChangeSet(4, new GuyAttachPointChangeSet())
             converter.addChangeSet(4, new DesignLayerChangeSet())
+            converter.addChangeSet(4, new DamageRsmChangeSet())
             // add calc changesets here
 
             converters.put(converter.schemaPath, converter)
