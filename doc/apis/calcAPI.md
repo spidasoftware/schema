@@ -135,7 +135,8 @@ Generate a report for the current project. Returns file location of report.
 
 #### Returns
 
-A `string` to the file location
+A `string` to the file location {"reportPath":"/pathToReport/report.pdf"}
+
 
 Run Script
 -----
