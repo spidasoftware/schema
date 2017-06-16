@@ -9,8 +9,14 @@ apply plugin: 'idea'
 apply plugin: 'project-report'
 apply plugin: 'releaseNotes'
 
+
 group = 'com.spidasoftware'
-version = '4.0-SNAPSHOT' //for nightly build, ensure that this is the first "version" in the file and keep single quotes
+version = '4.0-SNAPSHOT'
+def schemaReleaseVersion = System.getenv("SCHEMA_RELEASE_VERSION")
+if(schemaReleaseVersion){
+	println "Using ENV version $schemaReleaseVersion"
+	version = schemaReleaseVersion
+}
 description = "Schema"
 
 sourceCompatibility = 1.7
