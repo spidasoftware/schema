@@ -158,7 +158,7 @@ Return a client pole from the client file.
 #### Parameters
 
 1. clientFile: a _required_ `string` of the client file name to pull from
-1. type: a _required_ [pole_reference](../../resources/schema/spidacalc/calc/client_references/pole.schema) of the pole to retrieve. {species,classOfPole,height{unit,value}}
+1. pole: a _required_ [pole_reference](../../resources/schema/spidacalc/calc/client_references/pole.schema) of the pole to retrieve. {species,classOfPole,height{unit,value}}
 
 #### Returns
 
