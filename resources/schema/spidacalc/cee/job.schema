@@ -104,6 +104,10 @@
       "description": "The job's place in line for analysis.  For example, position 1 means this job is next, position 2 means there is one job ahead of this one (READ ONLY)",
       "type": "number"
     },
+    "analyisType" {
+        "description": "The type of analysis (STRENGTH, LINEAR, NON-LINEAR).  (READ ONLY)",
+        "type": "string"
+    },
     "output": {
       "description": "The output of the analysis.  Either an error object, the results object, or null (READ ONLY)",
       "oneOf": [
