@@ -1,6 +1,7 @@
 {
   "callbackUrl": "https://post/job/here/when/done",
   "engineVersion": "7.0.0.0-SNAPSHOT",
+  "label": "Big project location 1",
   "payload": {
     "clientData": {
       "wires": [],
