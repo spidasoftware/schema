@@ -13,7 +13,7 @@
       "type": "string"
     },
     "label":{
-      "description":"The human readable value to be displayed for this job in various interfaces",
+      "description":"The human readable value to be displayed for this job in various interfaces.  It will be divided on commas for display purposes.",
       "type":"string"
     },
     "engineVersion": {
