@@ -25,7 +25,7 @@
       "$ref": "../../spidacalc/cee/analysis.schema"
     },
     "callbackUrl": {
-      "description": "URL for CEE to POST the job upon completion (Not required if just asking for results later)",
+      "description": "URL for CEE to POST the job upon completion. Not required if polling for results later.",
       "type": "string"
     },
     "externalId": {
