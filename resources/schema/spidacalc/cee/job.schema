@@ -4,12 +4,17 @@
   "type": "object",
   "required": [
     "engineVersion",
+    "label",
     "payload"
   ],
   "properties": {
     "id": {
       "description": "Unique id for this job given by CEE",
       "type": "string"
+    },
+    "label":{
+      "description":"The human readable value to be displayed for this job in various interfaces.  It will be divided on commas for display purposes.",
+      "type":"string"
     },
     "engineVersion": {
       "description": "Version of the SPIDACalc engine to use for this analysis. i.e. 7.0.0.0-SNAPSHOT",
@@ -20,11 +25,11 @@
       "$ref": "../../spidacalc/cee/analysis.schema"
     },
     "callbackUrl": {
-      "description": "URL for CEE to POST the job upon completion (Not required if just asking for results later)",
+      "description": "URL for CEE to POST the job upon completion. Not required if polling for results later.",
       "type": "string"
     },
     "externalId": {
-      "description": "An external id that can be used for reference.  It is not checked for uniquenss.",
+      "description": "An external id that can be used for reference.  It is not checked for uniqueness.",
       "type": "string"
     },
     "userEmail": {
