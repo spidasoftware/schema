@@ -55,6 +55,10 @@ class ClientSchemaTest extends GroovyTestCase {
 		test("crossarm")
 	}
 
+	void testClientDataObject(){
+		test('data')
+	}
+
 
 
 }

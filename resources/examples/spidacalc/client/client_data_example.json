@@ -1,0 +1,369 @@
+ {
+   "anchors": [],
+   "assemblies": [{
+     "assemblyStructure": {
+       "anchors": [],
+       "assemblies": [],
+       "crossArms": [],
+       "damages": [],
+       "equipments": [],
+       "foundations": [],
+       "guyAttachPoints": [{
+         "attachHeight": {
+           "unit": "METRE",
+           "value": -0.5842
+         },
+         "externalId": "58d0021e4cc695e00ef7c332",
+         "id": "GuyAttachPoint#1",
+         "supportedWEPs": ["WEP#1", "WEP#2"]
+       }],
+       "guys": [],
+       "insulators": [{
+         "clientItem": "13.2 kV Pin Type Insulator (Pole Top)",
+         "clientItemVersion": "242f2caa07428e62c1424fabcad9ee6c",
+         "direction": 0,
+         "doubleInsulator": true,
+         "externalId": "58d0021e4cc695e00ef7c326",
+         "id": "Insulator#1",
+         "offset": {
+           "unit": "METRE",
+           "value": 0
+         },
+         "owner": {
+           "externalId": "58d0021e4cc695e00ef7c327",
+           "id": "none",
+           "industry": "UTILITY"
+         },
+         "wires": ["Wire#1", "Wire#2"]
+       }, {
+         "clientItem": "3\" Spool Bolt",
+         "clientItemVersion": "e88a3ba7208e629c3d5a46156cbb8d86",
+         "direction": 0,
+         "doubleInsulator": false,
+         "externalId": "58d0021e4cc695e00ef7c32c",
+         "id": "Insulator#2",
+         "offset": {
+           "unit": "METRE",
+           "value": -0.9652000000000001
+         },
+         "owner": {
+           "externalId": "58d0021e4cc695e00ef7c32d",
+           "id": "none",
+           "industry": "UTILITY"
+         },
+         "wires": ["Wire#3", "Wire#4"]
+       }],
+       "notePoints": [],
+       "pointLoads": [],
+       "pushBraces": [],
+       "sidewalkBraces": [],
+       "spanGuys": [],
+       "spanPoints": [],
+       "wireEndPoints": [{
+         "comments": "",
+         "direction": 0,
+         "distance": {
+           "unit": "METRE",
+           "value": 0.3048
+         },
+         "environment": "NONE",
+         "externalId": "58d0021e4cc695e00ef7c324",
+         "id": "WEP#1",
+         "inclination": {
+           "unit": "RADIAN",
+           "value": 0
+         },
+         "spanGuys": [],
+         "spanPoints": [],
+         "type": "PREVIOUS_POLE",
+         "wires": ["Wire#1", "Wire#3"]
+       }, {
+         "comments": "",
+         "direction": 180,
+         "distance": {
+           "unit": "METRE",
+           "value": 0.3048
+         },
+         "environment": "NONE",
+         "externalId": "58d0021e4cc695e00ef7c325",
+         "id": "WEP#2",
+         "inclination": {
+           "unit": "RADIAN",
+           "value": 0
+         },
+         "spanGuys": [],
+         "spanPoints": [],
+         "type": "NEXT_POLE",
+         "wires": ["Wire#2", "Wire#4"]
+       }],
+       "wirePointLoads": [],
+       "wires": [{
+         "attachmentHeight": {
+           "unit": "METRE",
+           "value": 0.45720000000000005
+         },
+         "externalId": "58d0021e4cc695e00ef7c328",
+         "id": "Wire#1",
+         "midspanHeight": {
+           "unit": "METRE",
+           "value": 0
+         },
+         "owner": {
+           "externalId": "58d0021e4cc695e00ef7c329",
+           "id": "none",
+           "industry": "UTILITY"
+         },
+         "tensionAdjustment": 1,
+         "tensionGroup": "Full",
+         "usageGroup": "PRIMARY"
+       }, {
+         "attachmentHeight": {
+           "unit": "METRE",
+           "value": 0.45720000000000005
+         },
+         "externalId": "58d0021e4cc695e00ef7c32a",
+         "id": "Wire#2",
+         "midspanHeight": {
+           "unit": "METRE",
+           "value": 0
+         },
+         "owner": {
+           "externalId": "58d0021e4cc695e00ef7c32b",
+           "id": "none",
+           "industry": "UTILITY"
+         },
+         "tensionAdjustment": 1,
+         "tensionGroup": "Full",
+         "usageGroup": "PRIMARY"
+       }, {
+         "attachmentHeight": {
+           "unit": "METRE",
+           "value": -0.9652000000000002
+         },
+         "externalId": "58d0021e4cc695e00ef7c32e",
+         "id": "Wire#3",
+         "midspanHeight": {
+           "unit": "METRE",
+           "value": 0
+         },
+         "owner": {
+           "externalId": "58d0021e4cc695e00ef7c32f",
+           "id": "none",
+           "industry": "UTILITY"
+         },
+         "tensionAdjustment": 1,
+         "tensionGroup": "Full",
+         "usageGroup": "NEUTRAL"
+       }, {
+         "attachmentHeight": {
+           "unit": "METRE",
+           "value": -0.9652000000000002
+         },
+         "externalId": "58d0021e4cc695e00ef7c330",
+         "id": "Wire#4",
+         "midspanHeight": {
+           "unit": "METRE",
+           "value": 0
+         },
+         "owner": {
+           "externalId": "58d0021e4cc695e00ef7c331",
+           "id": "none",
+           "industry": "UTILITY"
+         },
+         "tensionAdjustment": 1,
+         "tensionGroup": "Full",
+         "usageGroup": "NEUTRAL"
+       }]
+     },
+     "assemblyType": "FRAMING",
+     "code": "A1-1",
+     "distanceFromPoleTop": {
+       "unit": "METRE",
+       "value": 0.1016
+     },
+     "distanceToUnderbuild": {
+       "unit": "METRE",
+       "value": 0.9144000000000001
+     },
+     "group": "Converted",
+     "maximumLineAngle": {
+       "unit": "RADIAN",
+       "value": 0.08726646259971647
+     },
+     "minimumLineAngle": {
+       "unit": "RADIAN",
+       "value": 0
+     }
+   }],
+   "braces": [],
+   "crossArms": [],
+   "equipments": [],
+   "foundations": [],
+   "insulators": [{
+     "aliases": [],
+     "horizontalOffset": {
+       "unit": "METRE",
+       "value": 0.0254
+     },
+     "lateralArea": {
+       "unit": "SQUARE_METRE",
+       "value": 0.027973105344
+     },
+     "poleSideArea": {
+       "unit": "SQUARE_METRE",
+       "value": 0.027973105344
+     },
+     "shape": "ROUND",
+     "size": "13.2 kV Pin Type Insulator (Pole Top)",
+     "strength": {
+       "unit": "NEWTON",
+       "value": 11120.55403815125
+     },
+     "throughHoleDiameter": {
+       "unit": "METRE",
+       "value": -0.0015875
+     },
+     "type": "POLE_TOP",
+     "verticalOffset": {
+       "unit": "METRE",
+       "value": 0.4572
+     },
+     "weight": {
+       "unit": "NEWTON",
+       "value": 4.4482216152605
+     }
+   }, {
+     "aliases": [],
+     "horizontalOffset": {
+       "unit": "METRE",
+       "value": 0
+     },
+     "lateralArea": {
+       "unit": "SQUARE_METRE",
+       "value": 0.00580644
+     },
+     "poleSideArea": {
+       "unit": "SQUARE_METRE",
+       "value": 0.00580644
+     },
+     "shape": "ROUND",
+     "size": "3\" Spool Bolt",
+     "strength": {
+       "unit": "NEWTON",
+       "value": 13344.6648457815
+     },
+     "throughHoleDiameter": {
+       "unit": "METRE",
+       "value": -0.0015875
+     },
+     "type": "CLAMP",
+     "verticalOffset": {
+       "unit": "METRE",
+       "value": 0
+     },
+     "weight": {
+       "unit": "NEWTON",
+       "value": 5.3378659383126
+     }
+   }],
+   "poles": [{
+     "aliases": [],
+     "allowable": {
+       "unit": "PASCAL",
+       "value": 55158058.34534689
+     },
+     "classOfPole": "1",
+     "density": {
+       "unit": "KILOGRAM_PER_CUBIC_METRE",
+       "value": 496.5723645927643
+     },
+     "height": {
+       "unit": "METRE",
+       "value": 13.716000000000001
+     },
+     "materialCategory": "WOOD",
+     "modulus": {
+       "unit": "PASCAL",
+       "value": 13237934002.88325
+     },
+     "poissonRatio": 0.3,
+     "ptc": {
+       "unit": "METRE",
+       "value": 0.6858000000000001
+     },
+     "shape": "ROUND",
+     "species": "Douglas Fir",
+     "taper": 0.131,
+     "wallThickness": {
+       "unit": "METRE",
+       "value": -1
+     }
+   }],
+   "wires": [{
+     "aliases": [],
+     "calculation": "DYNAMIC",
+     "conductorStrands": 7,
+     "coreStrands": 0,
+     "crossArea": {
+       "unit": "SQUARE_METRE",
+       "value": 0.000042387012
+     },
+     "description": "Pansy",
+     "diameter": {
+       "unit": "METRE",
+       "value": 0.008331200000000002
+     },
+     "expansionCoefficient": {
+       "unit": "PER_CELSIUS",
+       "value": 0.00002303999999999999
+     },
+     "modulus": {
+       "unit": "PASCAL",
+       "value": 61363339909.19842
+     },
+     "numberOfConductors": 1,
+     "size": "1 AAC",
+     "strength": {
+       "unit": "NEWTON",
+       "value": 7295.08344902722
+     },
+     "tensionGroups": [{
+       "groups": [{
+         "distance": {
+           "unit": "METRE",
+           "value": 1523.6952
+         },
+         "tension": {
+           "unit": "NEWTON",
+           "value": 875.4100138832664
+         }
+       }],
+       "name": "Full",
+       "temperature": {
+         "unit": "CELSIUS",
+         "value": 15.55555555555555
+       }
+     }, {
+       "groups": [{
+         "distance": {
+           "unit": "METRE",
+           "value": 1523.6952
+         },
+         "tension": {
+           "unit": "NEWTON",
+           "value": 182.3770862256805
+         }
+       }],
+       "name": "Slack",
+       "temperature": {
+         "unit": "CELSIUS",
+         "value": 15.55555555555555
+       }
+     }],
+     "usageGroups": ["PRIMARY", "NEUTRAL"],
+     "weight": {
+       "unit": "NEWTON_PER_METRE",
+       "value": 1.144161990276978
+     }
+   }]
+ }
