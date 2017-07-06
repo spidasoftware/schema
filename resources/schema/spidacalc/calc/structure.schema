@@ -58,7 +58,7 @@
       "description": "List of all guy attach points in this structure.",
       "type": "array",
       "items": {
-        "$ref":"../../spidacalc/calc/guyAttachPoint.schema"
+        "$ref":"../../spidacalc/calc/guy_attach_point.schema"
       }
     },
     "wireEndPoints": {
@@ -274,70 +274,7 @@
       "description": "List of wires on the pole and their properties. Each span is considered a separate wire",
       "type": "array",
       "items": {
-        "type": "object",
-        "id": "wire",
-        "required": [
-          "id",
-          "attachmentHeight",
-          "owner",
-          "usageGroup"
-        ],
-        "anyOf":[
-          {"required":["clientItem"]},
-          {"required":["clientItemVersion"]}
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "The display ID for the attachment. Must be unique within the pole."
-          },
-          "externalId": {
-            "type": "string",
-            "description": "An optional externalId for the item."
-          },
-          "owner": {
-            "$ref": "../../general/owner.schema",
-            "description": "Company who owns the wire"
-          },
-          "attachmentHeight": {
-            "$ref": "../../general/measurable.schema",
-            "description": "Height at the which the wire is attached to the pole."
-          },
-          "usageGroup": {
-            "$ref": "../../spidacalc/calc/enums/usage_group.schema"
-          },
-          "tensionGroup": {
-            "type": "string",
-            "description": "Which client-wire-defined tension group the wire is in."
-          },
-          "midspanHeight": {
-            "$ref": "../../general/measurable.schema",
-            "description": "Height of the midspan, if collected."
-          },
-          "tensionAdjustment": {
-            "type": "number",
-            "description": "Additional wire-specific tension adjustment in addition to load case tension multipliers."
-          },
-          "connectionId":{
-            "description": "The shared connection id.  Represents the unique connection between two objects.  Must be two and only two objects with the same id.",
-            "pattern": "[a-f0-9]{24}",
-            "type": "string"
-          },
-          "clientItem": {
-            "$ref": "../../spidacalc/calc/client_references/wire.schema",
-            "description": "Reference of the client item with the engineering properties for this wire."
-          },
-          "wireEndPointPlacement":{
-            "description": "The optional placement at the opposite end from the pole. The measurement is in relation to the base of the associated wire end point.",
-            "$ref": "../../general/triad.schema"
-          },
-          "clientItemVersion": {
-            "type": "string",
-            "pattern": "[a-f0-9]{32}",
-            "description": "Hash of the client item containing the engineering properties for this wire"
-          }
-        }
+        "$ref":"../../spidacalc/calc/wire.schema"
       }
     },
     "spanGuys": {

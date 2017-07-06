@@ -61,6 +61,12 @@
 				"$ref":"../../spidacalc/client/equipment.schema"
 			}
 		},
+		"assemblies":{
+			"type": "array",
+			"items": {
+				"$ref":"../../spidacalc/client/assembly.schema"
+			}
+		},
 		"analysisCases": {
 			"type": "array",
 			"items": {
