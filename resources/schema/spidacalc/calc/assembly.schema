@@ -20,9 +20,8 @@
       "description": "Optional external ID."
     },
     "source": {
-      "type": {
-        "enum":["CLIENT_ASSEMBLIES", "LOCAL_ASSEMBLIES"]
-      }
+      "type": "string",
+      "enum":["CLIENT_ASSEMBLIES", "LOCAL_ASSEMBLIES"]
     },
     "clientItemVersion": {
       "type": "string",
@@ -41,5 +40,5 @@
       }
     }
   },
-  "additionalProperties": "false"
+  "additionalProperties": false
 }

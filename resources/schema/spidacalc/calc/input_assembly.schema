@@ -44,7 +44,7 @@
             }
           }
         },
-        "additionalProperties": "false"
+        "additionalProperties": false
       }
     },
     "support": {
@@ -77,11 +77,11 @@
                   "description": "An optional externalId for the item."
                 }
               },
-              "additionalProperties": "false"
+              "additionalProperties": false
             }
           }
         },
-        "additionalProperties": "false"
+        "additionalProperties": false
       }
     },
     "externalId": {
