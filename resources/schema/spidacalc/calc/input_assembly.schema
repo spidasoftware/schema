@@ -1,0 +1,93 @@
+{
+  "type": "object",
+  "id": "#/spidacalc/calc/input_assembly.schema",
+  "description": "an input assembly to be framed",
+  "required": [
+    "clientItem",
+    "wireEndPoints"
+  ],
+  "properties": {
+    "clientItem": {
+      "type": "string",
+      "description": "Alias or Code for this assembly's client assembly."
+    },
+    "attachHeight": {
+      "$ref": "../../general/measurable.schema",
+      "description": "Height at the which the highest component in the assembly is attached to the pole."
+    },
+    "owner": {
+      "$ref": "../../general/owner.schema",
+      "description": "The owner for the utility-industry components in the assembly, or for all components if the assembly contains only communication-industry components."
+    },
+    "commOwner": {
+      "$ref": "../../general/owner.schema",
+      "description": "The owner for the communication-industry components in the assembly."
+    },
+    "wireEndPoints": {
+      "description": "enumerates the wire end points to which this assembly will attach, and the client wire alias for each wire usage group going to each of the wire end points",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The item ID of a wire end point."
+          },
+          "wires": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "description": "Each property must be a wire usage group; the value should be the alias for the client wire of that usage group to use."
+            }
+          }
+        },
+        "additionalProperties": "false"
+      }
+    },
+    "support": {
+      "description": "TODO",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "supportItem"
+        ],
+        "properties": {
+          "supportItem": {
+            "type": "string",
+            "description": "client anchor size or alias, support assembly alias or code, or wire endpoint id"
+          },
+          "attachments": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "attachmentItem"
+              ],
+              "properties": {
+                "attachmentItem": {
+                  "type": "string",
+                  "description": "client guy wire alias, or support assembly alias or code"
+                },
+                "externalId": {
+                  "type": "string",
+                  "description": "An optional externalId for the item."
+                }
+              },
+              "additionalProperties": "false"
+            }
+          }
+        },
+        "additionalProperties": "false"
+      }
+    },
+    "externalId": {
+      "type": "string",
+      "description": "An optional externalId for the item."
+    }
+  },
+  "additionalProperties": false
+}
