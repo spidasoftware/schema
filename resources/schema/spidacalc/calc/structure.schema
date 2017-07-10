@@ -682,13 +682,13 @@
       }
     },
     "assemblies": {
-      "description": "List of all assemblies that *have been* applied to the pole.",
+      "description": "List of all input assemblies to be framed and assemblies that have been applied to the pole.",
       "type": "array",
       "items": {
-        "type": "object",
-        "description": "Placehold for assembly object. Replace with real object after implementation is stable",
-        "additionalProperties": true,
-        "properties": {}
+        "anyOf":[
+          {"$ref": "../../spidacalc/client/client_wire_alias.schema"},
+          {"$ref": "../../spidacalc/client/wire_alias.schema"}
+        ]
       }
     }
   }
