@@ -101,14 +101,14 @@
               },
               "additionalProperties": false
             }
+          },
+          "direction": {
+            "$ref": "../../general/bearing.schema",
+            "description": "Optional direction for the anchors supporting the assembly."
           }
         },
         "additionalProperties": false
       }
-    },
-    "direction": {
-      "$ref": "../../general/bearing.schema",
-      "description": "Optional direction for the anchors supporting the assembly."
     },
     "externalId": {
       "type": "string",
