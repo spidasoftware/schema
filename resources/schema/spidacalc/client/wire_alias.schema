@@ -1,6 +1,6 @@
 {
   "description": "An alias for a client wire. Used for integrations",
-  "id": "#/spidacalc/client/client_alias.schema",
+  "id": "#/spidacalc/client/wire_alias.schema",
   "type": "object",
   "required": [
     "id"
