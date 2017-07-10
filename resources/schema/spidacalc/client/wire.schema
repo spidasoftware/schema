@@ -77,7 +77,7 @@
       "description": "A list of alternative aliases/framing codes for this item in integrations. All tensionGroupName fields must reference a tension group in this wire.",
       "type": "array",
       "items": {
-        "$ref": "../../spidacalc/client/client_wire_alias.schema"
+        "$ref": "../../spidacalc/client/wire_alias.schema"
       }
     }
   },
