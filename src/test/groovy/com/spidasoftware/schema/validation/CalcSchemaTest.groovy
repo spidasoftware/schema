@@ -3,8 +3,6 @@ package com.spidasoftware.schema.validation
 import com.github.fge.jackson.JsonLoader
 import com.github.fge.jsonschema.load.configuration.LoadingConfiguration
 import com.github.fge.jsonschema.main.JsonSchemaFactory
-import com.github.fge.jsonschema.uri.*
-import com.spidasoftware.schema.conversion.changeset.ChangeSet
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
 import org.apache.log4j.Logger
@@ -194,6 +192,13 @@ class CalcSchemaTest extends GroovyTestCase {
 	void testProjectWithInputAssemblies() {
 		def schema = factory.getJsonSchema("schema/spidacalc/calc/project.schema")
 		report = schema.validate(JsonLoader.fromString(new File("resources/examples/spidacalc/projects/project-with-input-assemblies.json").text))
+		report.each{ log.info "testProjectWithGPSObject validation report "+it.toString() }
+		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
+	}
+
+	void testProjectWithAssemblies() {
+		def schema = factory.getJsonSchema("schema/spidacalc/calc/project.schema")
+		report = schema.validate(JsonLoader.fromString(new File("resources/examples/spidacalc/projects/project-with-assemblies.json").text))
 		report.each{ log.info "testProjectWithGPSObject validation report "+it.toString() }
 		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
 	}
