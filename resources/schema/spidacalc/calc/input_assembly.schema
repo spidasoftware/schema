@@ -47,7 +47,7 @@
       }
     },
     "support": {
-      "description": "TODO",
+      "description": "Optional support assemblies, anchors, guys, and weps supporting this assembly.",
       "type": "array",
       "items": {
         "type": "object",
