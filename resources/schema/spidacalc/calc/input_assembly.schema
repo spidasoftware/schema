@@ -3,8 +3,7 @@
   "id": "#/spidacalc/calc/input_assembly.schema",
   "description": "an input assembly to be framed",
   "required": [
-    "clientItem",
-    "wireEndPoints"
+    "clientItem"
   ],
   "properties": {
     "clientItem": {
@@ -83,6 +82,10 @@
         },
         "additionalProperties": false
       }
+    },
+    "direction": {
+      "$ref": "../../general/bearing.schema",
+      "description": "Optional direction for the anchors supporting the assembly."
     },
     "externalId": {
       "type": "string",
