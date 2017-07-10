@@ -9,35 +9,34 @@ import spock.lang.Specification
 
 class AssembliesChangeSetTest extends Specification {
 
-	// TODO: Apply this when new assembly changes are complete.
-//	def "Apply"() {
-//		String jsonString = """{
-//		"leads": [
-//			{
-//			"locations": [
-//			{
-//				"designs": [
-//					{
-//						"framingPlan": {
-//						}
-//					},
-//					{
-//						"framingPlan": {
-//						}
-//					}
-//				]
-//				}
-//			]
-//			}
-//		]
-//	}
-//"""
-//		def json = JSONSerializer.toJSON(jsonString)
-//		AssembliesChangeSet changeSet = new AssembliesChangeSet()
-//		changeSet.apply(json)
-//		expect:
-//			json.leads.first().locations.first().designs.every {it.containsKey("framingPlan") == false}
-//	}
+	def "apply"() {
+		String jsonString = """{
+		"leads": [
+			{
+			"locations": [
+			{
+				"designs": [
+					{
+						"framingPlan": {
+						}
+					},
+					{
+						"framingPlan": {
+						}
+					}
+				]
+				}
+			]
+			}
+		]
+	}
+"""
+		def json = new JsonSlurper().parseText(jsonString)
+		AssembliesChangeSet changeSet = new AssembliesChangeSet()
+		changeSet.applyToProject(json)
+		expect:
+			json.leads.first().locations.first().designs.every {it.containsKey("framingPlan") == false}
+	}
 
 	def "revert"() {
 		setup:
@@ -49,8 +48,7 @@ class AssembliesChangeSetTest extends Specification {
 					"designs": [
 						{
 							"structure": {
-								"assemblies": [],
-								"assemblyPlan": []
+								"assemblies": []
 							}
 						}
 					]
