@@ -38,8 +38,17 @@
           "wires": {
             "type": "array",
             "items": {
-              "type": "object",
-              "description": "Each property must be a wire usage group; the value should be the alias for the client wire of that usage group to use."
+              "anyOf": [
+                { "PRIMARY": "string" },
+                { "NEUTRAL": "string" },
+                { "SECONDARY": "string" },
+                { "OPEN_WIRE": "string" },
+                { "UTILITY_SERVICE": "string" },
+                { "GUY": "string" },
+                { "COMMUNICATION": "string" },
+                { "COMMUNICATION_SERVICE": "string" }
+              ],
+              "description": "The value of each property must be the alias for the client wire to use for that usage group."
             }
           }
         },
