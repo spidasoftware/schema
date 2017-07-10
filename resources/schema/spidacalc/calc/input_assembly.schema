@@ -36,20 +36,34 @@
             "description": "The item ID of a wire end point."
           },
           "wires": {
-            "type": "array",
-            "items": {
-              "anyOf": [
-                { "PRIMARY": "string" },
-                { "NEUTRAL": "string" },
-                { "SECONDARY": "string" },
-                { "OPEN_WIRE": "string" },
-                { "UTILITY_SERVICE": "string" },
-                { "GUY": "string" },
-                { "COMMUNICATION": "string" },
-                { "COMMUNICATION_SERVICE": "string" }
-              ],
-              "description": "The value of each property must be the alias for the client wire to use for that usage group."
-            }
+            "type": "object",
+            "properties": {
+                "PRIMARY": {
+                  "type": "string"
+                },
+                "NEUTRAL": {
+                  "type": "string"
+                },
+                "SECONDARY": {
+                  "type": "string"
+                },
+                "OPEN_WIRE": {
+                  "type": "string"
+                },
+                "UTILITY_SERVICE": {
+                  "type": "string"
+                },
+                "GUY": {
+                  "type": "string"
+                },
+                "COMMUNICATION": {
+                  "type": "string"
+                },
+                "COMMUNICATION_SERVICE": {
+                  "type": "string"
+                }
+            },
+            "description": "The value of each property must be the alias for the client wire to use for that usage group."
           }
         },
         "additionalProperties": false
