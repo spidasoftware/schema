@@ -686,8 +686,8 @@
       "type": "array",
       "items": {
         "anyOf":[
-          {"$ref": "../../spidacalc/client/client_wire_alias.schema"},
-          {"$ref": "../../spidacalc/client/wire_alias.schema"}
+          {"$ref": "input_assembly.schema"},
+          {"$ref": "assembly.schema"}
         ]
       }
     }
