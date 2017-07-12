@@ -1,0 +1,720 @@
+{
+  "clientFile": "TrainingDemo_7.X_Matt.client", 
+  "label": "Project", 
+  "leads": [
+    {
+      "label": "Lead", 
+      "locations": [
+        {
+          "designs": [
+            {
+              "label": "7 Assemblies", 
+              "layerType": "Recommended", 
+              "structure": {
+                "assemblies": [
+                  {
+                    "clientItem": "C1", 
+                    "wireEndPoints": [
+                      {
+                        "id": "WEP#1", 
+                        "wires": {
+                          "NEUTRAL": "1/0 ACSR", 
+                          "PRIMARY": "1/0 ACSR"
+                        }
+                      }, 
+                      {
+                        "id": "WEP#2", 
+                        "wires": {
+                          "NEUTRAL": "1/0 ACSR", 
+                          "PRIMARY": "1/0 ACSR"
+                        }
+                      }
+                    ]
+                  }
+                ], 
+                "pole": {
+                  "clientItem": {
+                    "classOfPole": "5", 
+                    "height": {
+                      "unit": "METRE", 
+                      "value": 13.716000000000001
+                    }, 
+                    "species": "Southern Pine"
+                  }, 
+                  "owner": {
+                    "id": "Acme Power", 
+                    "industry": "UTILITY"
+                  }
+                }, 
+                "wireEndPoints": [
+                  {
+                    "comments": "", 
+                    "direction": 180, 
+                    "distance": {
+                      "unit": "METRE", 
+                      "value": 53.03520000000002
+                    }, 
+                    "environment": "NONE", 
+                    "id": "WEP#1", 
+                    "inclination": {
+                      "unit": "RADIAN", 
+                      "value": 0.0
+                    }, 
+                    "spanGuys": [], 
+                    "spanPoints": [], 
+                    "type": "PREVIOUS_POLE", 
+                    "wires": []
+                  }, 
+                  {
+                    "direction": 3, 
+                    "distance": {
+                      "unit": "METRE", 
+                      "value": 48.15840000000001
+                    }, 
+                    "environment": "NONE", 
+                    "externalId": "595d1c26da0699cd91c4724f", 
+                    "id": "WEP#2", 
+                    "inclination": {
+                      "unit": "RADIAN", 
+                      "value": 0.0
+                    }, 
+                    "spanGuys": [], 
+                    "spanPoints": [], 
+                    "type": "NEXT_POLE", 
+                    "wires": []
+                  }
+                ]
+              }
+            }
+          ], 
+          "label": "Location-1"
+        }, 
+        {
+          "designs": [
+            {
+              "label": "7 Assemblies", 
+              "layerType": "Recommended", 
+              "structure": {
+                "assemblies": [
+                  {
+                    "clientItem": "C1", 
+                    "support": [
+                      {
+                        "attachments": [
+                          {
+                            "attachmentItem": "E1.1L.3/8"
+                          }
+                        ], 
+                        "supportItem": "F1.10"
+                      }
+                    ], 
+                    "wireEndPoints": [
+                      {
+                        "id": "WEP#1", 
+                        "wires": {
+                          "NEUTRAL": "1/0 ACSR", 
+                          "PRIMARY": "1/0 ACSR"
+                        }
+                      }, 
+                      {
+                        "id": "WEP#2", 
+                        "wires": {
+                          "NEUTRAL": "1/0 ACSR", 
+                          "PRIMARY": "1/0 ACSR"
+                        }
+                      }
+                    ]
+                  }
+                ], 
+                "pole": {
+                  "clientItem": {
+                    "classOfPole": "5", 
+                    "height": {
+                      "unit": "METRE", 
+                      "value": 13.716000000000001
+                    }, 
+                    "species": "Southern Pine"
+                  }, 
+                  "owner": {
+                    "id": "Acme Power", 
+                    "industry": "UTILITY"
+                  }
+                }, 
+                "wireEndPoints": [
+                  {
+                    "direction": 180, 
+                    "distance": {
+                      "unit": "METRE", 
+                      "value": 63.09360000000001
+                    }, 
+                    "environment": "NONE", 
+                    "externalId": "595d1c26da0699cd91c47285", 
+                    "id": "WEP#1", 
+                    "inclination": {
+                      "unit": "RADIAN", 
+                      "value": 0.0
+                    }, 
+                    "spanGuys": [], 
+                    "spanPoints": [], 
+                    "type": "PREVIOUS_POLE", 
+                    "wires": []
+                  }, 
+                  {
+                    "direction": 5, 
+                    "distance": {
+                      "unit": "METRE", 
+                      "value": 67.05600000000001
+                    }, 
+                    "environment": "NONE", 
+                    "externalId": "595d1c26da0699cd91c47287", 
+                    "id": "WEP#2", 
+                    "inclination": {
+                      "unit": "RADIAN", 
+                      "value": 0.0
+                    }, 
+                    "spanGuys": [], 
+                    "spanPoints": [], 
+                    "type": "NEXT_POLE", 
+                    "wires": []
+                  }
+                ]
+              }
+            }
+          ], 
+          "label": "Location-2"
+        }, 
+        {
+          "designs": [
+            {
+              "label": "7 Assemblies", 
+              "layerType": "Recommended", 
+              "structure": {
+                "assemblies": [
+                  {
+                    "clientItem": "A6", 
+                    "support": [
+                      {
+                        "attachments": [
+                          {
+                            "attachmentItem": "E1.1L.3/8"
+                          }
+                        ], 
+                        "supportItem": "F1.10"
+                      }
+                    ], 
+                    "wireEndPoints": [
+                      {
+                        "id": "WEP#1", 
+                        "wires": {
+                          "NEUTRAL": "1/0 ACSR - S", 
+                          "PRIMARY": "1/0 ACSR - S"
+                        }
+                      }, 
+                      {
+                        "id": "WEP#2", 
+                        "wires": {
+                          "NEUTRAL": "1/0 ACSR", 
+                          "PRIMARY": "1/0 ACSR"
+                        }
+                      }
+                    ]
+                  }
+                ], 
+                "pole": {
+                  "clientItem": {
+                    "classOfPole": "5", 
+                    "height": {
+                      "unit": "METRE", 
+                      "value": 13.716000000000001
+                    }, 
+                    "species": "Southern Pine"
+                  }, 
+                  "owner": {
+                    "id": "Acme Power", 
+                    "industry": "UTILITY"
+                  }
+                }, 
+                "wireEndPoints": [
+                  {
+                    "direction": 190, 
+                    "distance": {
+                      "unit": "FOOT", 
+                      "value": 50
+                    }, 
+                    "environment": "NONE", 
+                    "id": "WEP#1", 
+                    "inclination": {
+                      "unit": "RADIAN", 
+                      "value": 0.0
+                    }, 
+                    "spanGuys": [], 
+                    "spanPoints": [], 
+                    "type": "PREVIOUS_POLE", 
+                    "wires": []
+                  }, 
+                  {
+                    "direction": 0, 
+                    "distance": {
+                      "unit": "FOOT", 
+                      "value": 180
+                    }, 
+                    "environment": "NONE", 
+                    "id": "WEP#2", 
+                    "inclination": {
+                      "unit": "RADIAN", 
+                      "value": 0.0
+                    }, 
+                    "spanGuys": [], 
+                    "spanPoints": [], 
+                    "type": "NEXT_POLE", 
+                    "wires": []
+                  }
+                ]
+              }
+            }
+          ], 
+          "label": "Location-3"
+        }, 
+        {
+          "designs": [
+            {
+              "label": "7 Assemblies", 
+              "layerType": "Recommended", 
+              "structure": {
+                "assemblies": [
+                  {
+                    "clientItem": "C5.21", 
+                    "support": [
+                      {
+                        "attachments": [
+                          {
+                            "attachmentItem": "E1.1L.3/8"
+                          }
+                        ], 
+                        "supportItem": "F1.10"
+                      }
+                    ], 
+                    "wireEndPoints": [
+                      {
+                        "id": "WEP#1", 
+                        "wires": {
+                          "NEUTRAL": "336.4 ACSR", 
+                          "PRIMARY": "336.4 ACSR"
+                        }
+                      }
+                    ]
+                  }, 
+                  {
+                    "clientItem": "C5.21", 
+                    "support": [
+                      {
+                        "attachments": [
+                          {
+                            "attachmentItem": "E1.1L.3/8"
+                          }
+                        ], 
+                        "supportItem": "F1.10"
+                      }
+                    ], 
+                    "wireEndPoints": [
+                      {
+                        "id": "WEP#2", 
+                        "wires": {
+                          "NEUTRAL": "336.4 ACSR", 
+                          "PRIMARY": "336.4 ACSR"
+                        }
+                      }
+                    ]
+                  }, 
+                  {
+                    "clientItem": "G1.2.37kVA", 
+                    "support": [], 
+                    "wireEndPoints": []
+                  }, 
+                  {
+                    "clientItem": "K1.1", 
+                    "support": [], 
+                    "wireEndPoints": [
+                      {
+                        "id": "WEP#3", 
+                        "wires": {
+                          "UTILITY_SERVICE": "1/0 AAC Triplex - S"
+                        }
+                      }
+                    ]
+                  }, 
+                  {
+                    "clientItem": "K1.1", 
+                    "support": [], 
+                    "wireEndPoints": [
+                      {
+                        "id": "WEP#4", 
+                        "wires": {
+                          "UTILITY_SERVICE": "1/0 AAC Triplex - S"
+                        }
+                      }
+                    ]
+                  }
+                ], 
+                "pole": {
+                  "clientItem": {
+                    "classOfPole": "5", 
+                    "height": {
+                      "unit": "METRE", 
+                      "value": 13.716000000000001
+                    }, 
+                    "species": "Southern Pine"
+                  }, 
+                  "owner": {
+                    "id": "Acme Power", 
+                    "industry": "UTILITY"
+                  }
+                }, 
+                "wireEndPoints": [
+                  {
+                    "comments": "", 
+                    "direction": 90, 
+                    "distance": {
+                      "unit": "METRE", 
+                      "value": 53.34000000000002
+                    }, 
+                    "environment": "NONE", 
+                    "externalId": "595d1c26da0699cd91c472c6", 
+                    "id": "WEP#1", 
+                    "inclination": {
+                      "unit": "RADIAN", 
+                      "value": 0.0
+                    }, 
+                    "spanGuys": [], 
+                    "spanPoints": [], 
+                    "type": "PREVIOUS_POLE", 
+                    "wires": []
+                  }, 
+                  {
+                    "comments": "", 
+                    "direction": 180, 
+                    "distance": {
+                      "unit": "METRE", 
+                      "value": 15.240000000000002
+                    }, 
+                    "environment": "NONE", 
+                    "externalId": "595d1c26da0699cd91c472d0", 
+                    "id": "WEP#2", 
+                    "inclination": {
+                      "unit": "RADIAN", 
+                      "value": 0.0
+                    }, 
+                    "spanGuys": [], 
+                    "spanPoints": [], 
+                    "type": "OTHER_POLE", 
+                    "wires": []
+                  }, 
+                  {
+                    "comments": "", 
+                    "direction": 135, 
+                    "distance": {
+                      "unit": "METRE", 
+                      "value": 13.716000000000003
+                    }, 
+                    "environment": "NONE", 
+                    "id": "WEP#3", 
+                    "inclination": {
+                      "unit": "RADIAN", 
+                      "value": 0.0
+                    }, 
+                    "spanGuys": [], 
+                    "spanPoints": [], 
+                    "type": "OTHER_POLE", 
+                    "wires": []
+                  }, 
+                  {
+                    "comments": "", 
+                    "direction": 225, 
+                    "distance": {
+                      "unit": "METRE", 
+                      "value": 15.240000000000002
+                    }, 
+                    "environment": "NONE", 
+                    "id": "WEP#4", 
+                    "inclination": {
+                      "unit": "RADIAN", 
+                      "value": 0.0
+                    }, 
+                    "spanGuys": [], 
+                    "spanPoints": [], 
+                    "type": "OTHER_POLE", 
+                    "wires": []
+                  }
+                ], 
+                "wirePointLoads": []
+              }
+            }
+          ], 
+          "label": "Location-4"
+        }, 
+        {
+          "designs": [
+            {
+              "label": "7 Assemblies", 
+              "layerType": "Recommended", 
+              "structure": {
+                "assemblies": [
+                  {
+                    "clientItem": "A1", 
+                    "support": [], 
+                    "wireEndPoints": [
+                      {
+                        "id": "WEP#1", 
+                        "wires": {
+                          "NEUTRAL": "336.4 ACSR", 
+                          "PRIMARY": "336.4 ACSR"
+                        }
+                      }, 
+                      {
+                        "id": "WEP#2", 
+                        "wires": {
+                          "NEUTRAL": "336.4 ACSR", 
+                          "PRIMARY": "336.4 ACSR"
+                        }
+                      }
+                    ]
+                  }, 
+                  {
+                    "clientItem": "A5", 
+                    "support": [
+                      {
+                        "attachments": [
+                          {
+                            "attachmentItem": "E1.1L.3/8"
+                          }
+                        ], 
+                        "supportItem": "F1.10"
+                      }
+                    ], 
+                    "wireEndPoints": [
+                      {
+                        "id": "WEP#3", 
+                        "wires": {
+                          "NEUTRAL": "336.4 ACSR", 
+                          "PRIMARY": "336.4 ACSR"
+                        }
+                      }
+                    ]
+                  }
+                ], 
+                "pole": {
+                  "clientItem": {
+                    "classOfPole": "5", 
+                    "height": {
+                      "unit": "FOOT", 
+                      "value": 45
+                    }, 
+                    "species": "Southern Pine"
+                  }, 
+                  "owner": {
+                    "id": "Acme Power", 
+                    "industry": "UTILITY"
+                  }
+                }, 
+                "wireEndPoints": [
+                  {
+                    "direction": 180, 
+                    "distance": {
+                      "unit": "FOOT", 
+                      "value": 175
+                    }, 
+                    "environment": "NONE", 
+                    "id": "WEP#1", 
+                    "inclination": {
+                      "unit": "RADIAN", 
+                      "value": 0.0
+                    }, 
+                    "spanGuys": [], 
+                    "spanPoints": [], 
+                    "type": "PREVIOUS_POLE", 
+                    "wires": []
+                  }, 
+                  {
+                    "direction": 0, 
+                    "distance": {
+                      "unit": "FOOT", 
+                      "value": 175
+                    }, 
+                    "environment": "NONE", 
+                    "id": "WEP#2", 
+                    "inclination": {
+                      "unit": "RADIAN", 
+                      "value": 0.0
+                    }, 
+                    "spanGuys": [], 
+                    "spanPoints": [], 
+                    "type": "NEXT_POLE", 
+                    "wires": []
+                  }, 
+                  {
+                    "direction": 90, 
+                    "distance": {
+                      "unit": "FOOT", 
+                      "value": 125
+                    }, 
+                    "environment": "NONE", 
+                    "id": "WEP#3", 
+                    "inclination": {
+                      "unit": "RADIAN", 
+                      "value": 0.0
+                    }, 
+                    "spanGuys": [], 
+                    "spanPoints": [], 
+                    "type": "OTHER_POLE", 
+                    "wires": []
+                  }
+                ]
+              }
+            }
+          ], 
+          "label": "Location-5"
+        }, 
+        {
+          "designs": [
+            {
+              "label": "7 Assemblies", 
+              "layerType": "Recommended", 
+              "structure": {
+                "assemblies": [
+                  {
+                    "clientItem": "C1", 
+                    "support": [], 
+                    "wireEndPoints": [
+                      {
+                        "id": "WEP#1", 
+                        "wires": {
+                          "NEUTRAL": "336.4 ACSR", 
+                          "PRIMARY": "336.4 ACSR"
+                        }
+                      }, 
+                      {
+                        "id": "WEP#2", 
+                        "wires": {
+                          "NEUTRAL": "336.4 ACSR", 
+                          "PRIMARY": "336.4 ACSR"
+                        }
+                      }
+                    ]
+                  }, 
+                  {
+                    "clientItem": "A1.11", 
+                    "support": [], 
+                    "wireEndPoints": [
+                      {
+                        "id": "WEP#3", 
+                        "wires": {
+                          "NEUTRAL": "336.4 ACSR", 
+                          "PRIMARY": "336.4 ACSR"
+                        }
+                      }, 
+                      {
+                        "id": "WEP#4", 
+                        "wires": {
+                          "NEUTRAL": "336.4 ACSR", 
+                          "PRIMARY": "336.4 ACSR"
+                        }
+                      }
+                    ]
+                  }
+                ], 
+                "pole": {
+                  "clientItem": {
+                    "classOfPole": "5", 
+                    "height": {
+                      "unit": "FOOT", 
+                      "value": 45
+                    }, 
+                    "species": "Southern Pine"
+                  }, 
+                  "owner": {
+                    "id": "Acme Power", 
+                    "industry": "UTILITY"
+                  }
+                }, 
+                "wireEndPoints": [
+                  {
+                    "direction": 180, 
+                    "distance": {
+                      "unit": "FOOT", 
+                      "value": 125
+                    }, 
+                    "environment": "NONE", 
+                    "id": "WEP#1", 
+                    "inclination": {
+                      "unit": "RADIAN", 
+                      "value": 0.0
+                    }, 
+                    "spanGuys": [], 
+                    "spanPoints": [], 
+                    "type": "PREVIOUS_POLE", 
+                    "wires": []
+                  }, 
+                  {
+                    "direction": 0, 
+                    "distance": {
+                      "unit": "FOOT", 
+                      "value": 125
+                    }, 
+                    "environment": "NONE", 
+                    "id": "WEP#2", 
+                    "inclination": {
+                      "unit": "RADIAN", 
+                      "value": 0.0
+                    }, 
+                    "spanGuys": [], 
+                    "spanPoints": [], 
+                    "type": "NEXT_POLE", 
+                    "wires": []
+                  }, 
+                  {
+                    "direction": 270, 
+                    "distance": {
+                      "unit": "FOOT", 
+                      "value": 125
+                    }, 
+                    "environment": "NONE", 
+                    "id": "WEP#3", 
+                    "inclination": {
+                      "unit": "RADIAN", 
+                      "value": 0.0
+                    }, 
+                    "spanGuys": [], 
+                    "spanPoints": [], 
+                    "type": "OTHER_POLE", 
+                    "wires": []
+                  }, 
+                  {
+                    "direction": 90, 
+                    "distance": {
+                      "unit": "FOOT", 
+                      "value": 125
+                    }, 
+                    "environment": "NONE", 
+                    "id": "WEP#4", 
+                    "inclination": {
+                      "unit": "RADIAN", 
+                      "value": 0.0
+                    }, 
+                    "spanGuys": [], 
+                    "spanPoints": [], 
+                    "type": "OTHER_POLE", 
+                    "wires": []
+                  }
+                ]
+              }
+            }
+          ], 
+          "label": "Location-6"
+        }
+      ]
+    }
+  ], 
+  "schema": "/schema/spidacalc/calc/project.schema", 
+  "userDefinedValues": {}, 
+  "version": 4
+}

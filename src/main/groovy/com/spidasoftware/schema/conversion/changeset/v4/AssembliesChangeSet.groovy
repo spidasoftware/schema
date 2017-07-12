@@ -12,8 +12,7 @@ class AssembliesChangeSet extends AbstractDesignChangeset {
 
 	@Override
 	void applyToDesign(Map design) {
-		// TODO: Apply this after assemblies are finalized
-		//	design.remove("framingPlan")
+		design.remove("framingPlan")
 	}
 
 	@Override

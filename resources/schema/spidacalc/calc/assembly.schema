@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "id": "#/spidacalc/calc/assembly.schema",
+  "description": "an assembly",
+  "required": [
+    "id",
+    "source"
+  ],
+  "anyOf":[
+    {"required":["clientItem"]},
+    {"required":["clientItemVersion"]}
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The display ID for the assembly. Must be unique within the pole."
+    },
+    "externalId": {
+      "type": "string",
+      "description": "Optional external ID."
+    },
+    "source": {
+      "type": "string",
+      "enum":["CLIENT_ASSEMBLIES", "LOCAL_ASSEMBLIES"]
+    },
+    "clientItemVersion": {
+      "type": "string",
+      "pattern": "[a-f0-9]{32}",
+      "description": "Hash of the client item for this assembly."
+    },
+    "clientItem": {
+      "type": "string",
+      "description": "Code of the client item for this assembly."
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "description": "item id of an item in the structure that is a part of this assembly"
+      }
+    }
+  },
+  "additionalProperties": false
+}
