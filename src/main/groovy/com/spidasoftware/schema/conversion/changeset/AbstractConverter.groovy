@@ -58,7 +58,7 @@ abstract class AbstractConverter implements Converter {
 			}
 			// need to revert in reverse order
 			toApply.reverseEach { ChangeSet changeSet ->
-				Logger.getLogger(AbstractConverter).info("changeset.revert json = ${json}")
+				Logger.getLogger(AbstractConverter).info("Applying changest: ${changeSet.class.simpleName}")
 				revertChangeset(changeSet, json)
 			}
 		}
