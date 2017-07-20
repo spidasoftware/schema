@@ -319,6 +319,26 @@
           "type":{
             "enum":["SUPPORT", "LOAD"]
           },
+          "loads":{
+            "description": "List of load case names to load values",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "loadCase",
+                "load"
+              ],
+              "properties": {
+                "loadCase": {
+                  "type": "string"
+                },
+                "load": {
+                  "$ref": "../../general/measurable.schema"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
           "clientItem": {
             "$ref": "../../spidacalc/calc/client_references/wire.schema",
             "description": "Reference of the client item with the engineering properties for this span guy."
