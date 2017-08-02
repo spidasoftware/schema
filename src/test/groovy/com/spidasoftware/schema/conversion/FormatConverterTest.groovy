@@ -202,6 +202,19 @@ class FormatConverterTest extends Specification {
 			"strength-is-worst"   | 0.4 	  | 0.36 		| 0.34 	   | 2.20 			| 0.40 		    | 0.46 			 | 0.1
 	}
 
+	void "test getWorstResult doesn't throw java.lang.ArithmeticException: Division by zero"() {
+		setup:
+			List resultsArray = [
+			        [id: "1", unit: "SF", actual: 100, allowable: 0],
+					[id: "2", unit: "PRECENT", actual: 0, allowable: 100],
+					[id: "3", unit: "PRECENT", actual: 100, allowable: 100]
+			]
+		when:
+			Map worstResult = converter.getWorstResult(resultsArray)
+		then:
+			worstResult .id == "3"
+	}
+
 	@Unroll
 	void "test detailed results get converted correctly to worstCaseAnalysisResults jsonKey=#jsonKey"() {
 		setup:

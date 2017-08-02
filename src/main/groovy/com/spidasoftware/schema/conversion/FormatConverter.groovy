@@ -176,7 +176,7 @@ class FormatConverter {
         return allPoleResults
     }
 
-    private static Map getWorstResult(List resultsArray) {
+    protected static Map getWorstResult(List resultsArray) {
         Map worstResult = null
         double worstNormalizedResult = Double.MAX_VALUE
         resultsArray.each { result ->
@@ -187,15 +187,17 @@ class FormatConverter {
             * though the unit is PERCENT, lower numbers mean a worse result. This is the
             * opposite of any other % based analysis result.
             */
-            def normalizedResult
+            def normalizedResult = Double.MAX_VALUE
             if (result.unit == "SF" || result.component == "Pole-Strength") {
-                normalizedResult = result.get("actual") / result.get("allowable")
-            } else {
+                if(result.get("allowable") != 0) {
+                    normalizedResult = result.get("actual") / result.get("allowable")
+                }
+            } else if(result.get("actual") != 0) {
                 // unit is PERCENT
                 normalizedResult = result.get("allowable") / result.get("actual")
             }
 
-            if (normalizedResult < worstNormalizedResult) {
+            if (normalizedResult < worstNormalizedResult || worstResult == null) {
                 worstNormalizedResult = normalizedResult
                 worstResult = ChangeSet.duplicateAsJson(result)
             }
