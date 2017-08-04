@@ -202,17 +202,41 @@ class FormatConverterTest extends Specification {
 			"strength-is-worst"   | 0.4 	  | 0.36 		| 0.34 	   | 2.20 			| 0.40 		    | 0.46 			 | 0.1
 	}
 
-	void "test getWorstResult doesn't throw java.lang.ArithmeticException: Division by zero"() {
-		setup:
-			List resultsArray = [
-			        [id: "1", unit: "SF", actual: 100, allowable: 0],
-					[id: "2", unit: "PRECENT", actual: 0, allowable: 100],
-					[id: "3", unit: "PRECENT", actual: 100, allowable: 100]
-			]
+	@Unroll("expectedResultId=#expectedResultId")
+	void "test getWorstResult"() {
 		when:
 			Map worstResult = converter.getWorstResult(resultsArray)
 		then:
-			worstResult .id == "3"
+			worstResult.id == expectedResultId
+		where:
+			resultsArray << [[
+									 [id: "2", unit: "SF", actual: 0, allowable: 0],
+									 [id: "3", unit: "PERCENT", actual: 0, allowable: Double.MAX_VALUE],
+									 [id: "1", unit: "PERCENT", actual: 1, allowable: Double.MAX_VALUE]
+
+							 ],
+							 [
+									 [id: "1", unit: "SF", actual: 0, allowable: 0],
+									 [id: "2", unit: "SF", actual: Double.MAX_VALUE, allowable: 1],
+									 [id: "3", unit: "PERCENT", actual: 0, allowable: Double.MAX_VALUE],
+
+							 ],
+							 [
+									 [id: "1", unit: "SF", actual: 0, allowable: 0],
+									 [id: "2", unit: "PERCENT", actual: 0, allowable: 100],
+									 [id: "3", unit: "SF", actual: 1, allowable: 1],
+									 [id: "4", unit: "PERCENT", actual: 80, allowable: 100],
+									 [id: "5", unit: "PERCENT", actual: 1, allowable: Double.MAX_VALUE]
+							 ],
+							 [
+									 [id: "1", unit: "SF", actual: 0, allowable: 0],
+									 [id: "2", unit: "SF", actual: 2, allowable: 1],
+									 [id: "3", unit: "PERCENT", actual: 0, allowable: 100],
+									 [id: "4", unit: "PERCENT", actual: 100, allowable: 100],
+									 [id: "5", unit: "PERCENT", actual: 1, allowable: Double.MAX_VALUE]
+							 ]
+			]
+			expectedResultId << ["1", "2", "3", "4"]
 	}
 
 	@Unroll
