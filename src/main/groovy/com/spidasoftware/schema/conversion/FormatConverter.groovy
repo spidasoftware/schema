@@ -176,31 +176,40 @@ class FormatConverter {
         return allPoleResults
     }
 
-    private static Map getWorstResult(List resultsArray) {
-        Map worstResult = null
-        double worstNormalizedResult = Double.MAX_VALUE
+    protected static Map getWorstResult(List resultsArray) {
+        Map worstResult = resultsArray?.size() > 0 ? resultsArray[0] : null
+        Double worstNormalizedResult = worstResult ? getNormalizedResult(worstResult) : null
         resultsArray.each { result ->
-            /*
-            * Since results can be either SF or PERCENT, we'll have to check the unit
-            * before we compare the relative 'badness' of each result (how does the actual
-            * compare to the allowable). Strength results are a special case because even
-            * though the unit is PERCENT, lower numbers mean a worse result. This is the
-            * opposite of any other % based analysis result.
-            */
-            def normalizedResult
-            if (result.unit == "SF" || result.component == "Pole-Strength") {
-                normalizedResult = result.get("actual") / result.get("allowable")
-            } else {
-                // unit is PERCENT
-                normalizedResult = result.get("allowable") / result.get("actual")
-            }
-
-            if (normalizedResult < worstNormalizedResult) {
+            def normalizedResult = getNormalizedResult(result)
+            // If SF and allowable is 0 or PERCENT and actual is 0 getNormalizedResult returns null
+            if (normalizedResult != null && (worstNormalizedResult == null || normalizedResult < worstNormalizedResult)) {
                 worstNormalizedResult = normalizedResult
                 worstResult = ChangeSet.duplicateAsJson(result)
             }
         }
         return worstResult
+    }
+
+    /*
+     * Since results can be either SF or PERCENT, we'll have to check the unit
+     * before we compare the relative 'badness' of each result (how does the actual
+     * compare to the allowable). Strength results are a special case because even
+     * though the unit is PERCENT, lower numbers mean a worse result. This is the
+     * opposite of any other % based analysis result.
+     * This will return null if the unit is SF and the allowable is 0 (Always passes)
+     * This will return null if the unit is PERCENT and the actualy is 0 (No load)
+     */
+    private static def getNormalizedResult(Map result) {
+        def normalizedResult
+        def isSFResult = result.unit == "SF" || result.component == "Pole-Strength"
+        def isPercentResult = !isSFResult
+
+        if (isSFResult && result.get("allowable") != 0) {
+            normalizedResult = result.get("actual") / result.get("allowable")
+        } else if(isPercentResult && result.get("actual") != 0) {
+            normalizedResult = result.get("allowable") / result.get("actual")
+        }
+        return normalizedResult
     }
 
 
