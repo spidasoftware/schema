@@ -197,7 +197,7 @@ class FormatConverter {
      * though the unit is PERCENT, lower numbers mean a worse result. This is the
      * opposite of any other % based analysis result.
      * This will return null if the unit is SF and the allowable is 0 (Always passes)
-     * This will return null if the unit is PERCENT and the actualy is 0 (No load)
+     * This will return null if the unit is PERCENT and the actual is 0 (No load)
      */
     private static def getNormalizedResult(Map result) {
         def normalizedResult
