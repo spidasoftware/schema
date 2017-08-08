@@ -24,8 +24,8 @@ class DetailedResultsChangeset extends AbstractDesignChangeset {
                         // Already pre v4 analysis summary
                         summaryAnalysisResults.add(analysisObject)
                     } else {
-                        List summaryAnalysis = []
                         resultsObject.each { Map loadCase ->
+                            List summaryAnalysis = []
                             loadCase.get("components").each { Map componentResult ->
                                 summaryAnalysis.add(FormatConverter.convertDetailedResultToSummaryResults(loadCase, componentResult))
                             }
