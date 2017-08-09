@@ -87,6 +87,102 @@ class DetailedResultsChangesetSpec extends Specification {
             "Guy#2"       | 0.48   | 100.0     | "PERCENT" | 1484845969502 | "Medium" | true   | "FORCE"
     }
 
+    void "test revert with multiple load cases"() {
+        setup:
+            def leanStream = DetailedResultsChangesetSpec.getResourceAsStream("/conversions/v4/project-multiple-load-cases-detailed-results.json")
+            projectJSON = new JsonSlurper().parse(leanStream)
+            locationJSON = ChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0])
+            designJSON = ChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0].designs[0])
+        when:
+            changeset.revertProject(projectJSON)
+            List analysis = projectJSON.leads[0].locations[0].designs[0].analysis
+        then:
+            analysis.size() == 2
+            analysis.find { it.id == "New, Light, 8 lb, Grade A" }.results.size() == 1
+            analysis.find { it.id == "GO95" }.results.size() == 1
+        when:
+            changeset.revertLocation(locationJSON)
+            analysis = locationJSON.designs[0].analysis
+        then:
+            analysis.size() == 2
+            analysis.find { it.id == "New, Light, 8 lb, Grade A" }.results.size() == 1
+            analysis.find { it.id == "GO95" }.results.size() == 1
+        when:
+            changeset.revertDesign(designJSON)
+            analysis = designJSON.analysis
+        then:
+            analysis.size() == 2
+            analysis.find { it.id == "New, Light, 8 lb, Grade A" }.results.size() == 1
+            analysis.find { it.id == "GO95" }.results.size() == 1
+    }
+
+    void "test revert already v3 results"() {
+        setup:
+            projectJSON.leads[0].locations[0].designs[0].analysis = [[id: "LoadCase", results: [[component: "Pole"]]]]
+            locationJSON.designs[0].analysis = [[id: "LoadCase", results: [[component: "Pole"]]]]
+            designJSON.analysis = [[id: "LoadCase", results: [[component: "Pole"]]]]
+        when:
+            changeset.revertProject(projectJSON)
+            List analysis = projectJSON.leads[0].locations[0].designs[0].analysis
+        then:
+            analysis.size() == 1
+            analysis.first().id == "LoadCase"
+            analysis.first().results.size() == 1
+            analysis.first().results.first().component == "Pole"
+        when:
+            changeset.revertLocation(locationJSON)
+            analysis = locationJSON.designs[0].analysis
+        then:
+            analysis.size() == 1
+            analysis.first().id == "LoadCase"
+            analysis.first().results.size() == 1
+            analysis.first().results.first().component == "Pole"
+        when:
+            changeset.revertDesign(designJSON)
+            analysis = designJSON.analysis
+        then:
+            analysis.size() == 1
+            analysis.first().id == "LoadCase"
+            analysis.first().results.size() == 1
+            analysis.first().results.first().component == "Pole"
+    }
+
+    void "test revert detailed results and summary (v3) results"() {
+        setup:
+            def leanStream = DetailedResultsChangesetSpec.getResourceAsStream("/conversions/v4/project-multiple-load-cases-detailed-results.json")
+            projectJSON = new JsonSlurper().parse(leanStream)
+            locationJSON = ChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0])
+            designJSON = ChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0].designs[0])
+
+            projectJSON.leads[0].locations[0].designs[0].analysis.add([id: "LoadCase", results: [[component: "Pole"]]])
+            locationJSON.designs[0].analysis.add([id: "LoadCase", results: [[component: "Pole"]]])
+            designJSON.analysis.add([id: "LoadCase", results: [[component: "Pole"]]])
+        when:
+            changeset.revertProject(projectJSON)
+            List analysis = projectJSON.leads[0].locations[0].designs[0].analysis
+        then:
+            analysis.size() == 3
+            analysis.find { it.id == "New, Light, 8 lb, Grade A" }.results.size() == 1
+            analysis.find { it.id == "GO95" }.results.size() == 1
+            analysis.find { it.id == "LoadCase" }.results.size() == 1
+        when:
+            changeset.revertLocation(locationJSON)
+            analysis = locationJSON.designs[0].analysis
+        then:
+            analysis.size() == 3
+            analysis.find { it.id == "New, Light, 8 lb, Grade A" }.results.size() == 1
+            analysis.find { it.id == "GO95" }.results.size() == 1
+            analysis.find { it.id == "LoadCase" }.results.size() == 1
+        when:
+            changeset.revertDesign(designJSON)
+            analysis = designJSON.analysis
+        then:
+            analysis.size() == 3
+            analysis.find { it.id == "New, Light, 8 lb, Grade A" }.results.size() == 1
+            analysis.find { it.id == "GO95" }.results.size() == 1
+            analysis.find { it.id == "LoadCase" }.results.size() == 1
+    }
+
     void "test revert when no analysis doesn't error"() {
         setup:
             projectJSON.leads[0].locations[0].designs[0].analysis = []
