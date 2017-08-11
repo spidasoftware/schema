@@ -313,7 +313,7 @@ Response JSON:
 }
 ```
 
-###Callback
+### Callback
 A new project is created with 3 new stations.  The SPIDAMin server then makes 2 calls to the callback URL.  The first call is for a stationsAdded event, when the stations are added to the new project.  It lists the user who added the stations, the stations added, and the project the stations where added to.
 
 Direction: SPIDAMin -> Callback Server  
