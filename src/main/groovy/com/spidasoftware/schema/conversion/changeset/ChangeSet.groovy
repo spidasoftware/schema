@@ -1,7 +1,7 @@
 package com.spidasoftware.schema.conversion.changeset
 
+import com.fasterxml.jackson.databind.ObjectMapper
 import groovy.json.JsonOutput
-import groovy.json.JsonSlurper
 import groovy.transform.CompileStatic
 import groovy.util.logging.Log4j
 /**
@@ -57,6 +57,7 @@ abstract class ChangeSet {
 	}
 
 	public static Map duplicateAsJson(Map map){
-		return (Map) new JsonSlurper().parseText(JsonOutput.toJson(map))
+		ObjectMapper mapper = new ObjectMapper()
+		return mapper.readValue(JsonOutput.toJson(map), Map)
 	}
 }
