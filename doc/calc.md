@@ -1,15 +1,15 @@
 Calc Integration API
 ====================
 
-#SPIDACalc API Capabilities Overview
+# SPIDACalc API Capabilities Overview
 
-##There are three parts to the Calc APIs
+## There are three parts to the Calc APIs
 
 - A data transfer format for moving project, structure, and results information in and out of SPIDACalc.
 - A REST-like remote control interface for controlling a running instance of calc.
 - A REST interface for querying calc client engineering data.
 
-##Data Format
+## Data Format
 
 Calc defines an open, human readable format for importing pole and project information. It is in JSON, an industry standard that can be written from any source language. The data format is defined by the schemas available in this project, which can also be used to validate files before they are sent to Calc.
 
@@ -49,7 +49,7 @@ One thing to note is that the exchange file format is not entirely portable, bec
 then the user must have Demo.client in their clients directory in order to properly open the file.
 
 
-####Supported Structure Fields
+#### Supported Structure Fields
 
 The calc import API supports the following attributes of a structure.
 
@@ -68,13 +68,13 @@ The calc import API supports the following attributes of a structure.
 - Point Loads
 - Span Points
 
-##Web Services
+## Web Services
 
 When calc is running on a client machine, it also starts up a small web server that will only accept requests from the local computer. This is how we intend integrators to work directly with calc. It allows integration from any language on any platform - integrators just need to implement a few web service calls and they can be sending their data in and out of calc very easily.
 
 Currently, even though it is done in a web service style, this is only available as a client integration. Calc will still be running on the local machine, and it does not require an internet connection -- integrations will work fine in the field! But it also means that you cannot set up a single calc server somewhere to handle all of your analysis.
 
-##Calc Service
+## Calc Service
 
 The Calc service is best thought of as a remote control for a running copy of calc. Once Calc is started, an integrating program can make basic commands that can do the same thing as a user would do in the UI. These options include:
 
@@ -84,53 +84,57 @@ The Calc service is best thought of as a remote control for a running copy of ca
 - Generating reports.
 - Running custom scripts that SPIDA has provided to the client.
 
-##Client Data Service
+## Client Data Service
 
 The client data service allows querying of our client-specific materials libraries. This should allow data-collection type integrations to show the user the available attachments in their own interface and to select them when building a design to send to calc for analysis.
 
-#Developer Guide
+# Developer Guide
 
 These are the Integration API descriptions for SPIDACalc. There are two types of schemas.
 
-####Data schemas
+#### Data schemas
 
 This describes the data format  supported by calc. It is available broken into logical units in v1/calc or as a single file for simpler validation in public/v1/calc. Example data files are in the examples directory. The format is best approached after learning basic calc functionality. All properties mirror the calc user interface pretty closely.
 
-#####structure.schema
+##### structure.schema
 
 Schema for an individual detailed pole structure. It will define individual attachments, end points, and other physical components. This is for import from another data collection or pole design tool.
 
-#####framing_plan.schema
+##### framing_plan.schema
 
-Schema for a simplified framing plan. It defines a pole design in very broad terms in code units. This tends to be a more useful way to import from a staking tool or GIS database.
+Framing Plans are no longer supported in 7.0. See the input assembly provisional documentation
 
-#####calc_project.schema
+https://docs.google.com/presentation/d/1A11Xd8BvymF0RekHb0DqCZYM4rgOwUHk6eoI3FSQTJU/edit?usp=sharing
+
+~~Schema for a simplified framing plan. It defines a pole design in very broad terms in code units. This tends to be a more useful way to import from a staking tool or GIS database.~~
+
+##### calc_project.schema
 
 Schema for a calc project. Includes information on GPS positions, street addresses, photos, remedies, and design structure defined by either design.schema or framing_plan.schema. This is the format that be opened and exported directly by SPIDACalc.
 
-####RPC Interfaces
+#### RPC Interfaces
 
 RPC interfaces are exposed at http://localhost:4560/ while SPIDACalc is running. They allow control over core operations of SPIDACalc from another programming running locally via basic HTTP POST requests. There is an example script using these methods in examples/scripts/example_RPC_client.coffee.
 
-#####client_data.json
+##### client_data.json
 
 Located at http://localhost:4560/clientData/<method name>. This interface provides basic querying methods for what client items are available in a client file.
 
-#####calc.json
+##### calc.json
 
 located at http://localhost:4560/calc/<method name>. Provides stateful control methods to a running instance of SPIDACalc. Includes methods to open a file, run analysis, run a report, etc.
 
-####Schema Public access
+#### Schema Public access
 
 The schemas are published and available online at http://github.com/spidasoftware/schema
 
-####Using the examples
+#### Using the examples
 
 The example data files are json files that can be opened in any text editor. They can be found in  The RPC example script is a coffeescript file that can be run using the node-js coffeescript package. http://coffeescript.org/
 
 The JSON examples are in [https://github.com/spidasoftware/schema/tree/master/resources/examples/spidacalc)
 
-####Looking around
+#### Looking around
 
 An easy way to start playing with what is available in the SPIDACalc API is to open Calc, then open a web browser to
 
@@ -140,29 +144,29 @@ Your web browser will show you the JSON version of the currently open project (t
 
 If you change something in SPIDACalc and refresh your browser, the changes will be reflected in the browser window.
 
-####More definition of terms
+#### More definition of terms
 
 Some of the schemas use terms that are specific to SPIDACalc or the utility industry. A basic description of the values is included in the schema itself. For a more complete definition of those terms, please see the help menu in SPIDACalc.
 
-####External IDs
+#### External IDs
 
 Calc stores external ids for all components on the pole. They aren't used as identifiers by the program - they are for interfacing with other applications. You may include them if you have track them, but the id field is the one that is important for building the pole.
 
-####Useful JSON Development tools:
+#### Useful JSON Development tools:
 
 - [jsonlint.com] - validates that your json is correctly formed with more useful errors.
 - node_modules/JSV/examples/index.html - provides an easy to use interface for schema validation and viewing errors
 - [https://chrome.google.com/webstore/detail/chklaanhfefbnpoihckbnefhakgolnmc] JSONView or similar - a browser extension that will format JSON output cleanly.
 
 
-####Limitations and known issues:
+#### Limitations and known issues:
 
 - parameters sent to RPC interface must be in the order specified in the interface description.
 - ~~All ID on the structure must conform to the Calc naming conventions. All wires must be named with something starting with "Wire#", all equipment with "Equip#". This will be fixed in a later version to allow generic labeling. Correct ID Form is CASE SENSITIVE. EQUIP#1 is not a correct ID. Equip#1 is.~~ This has been fixed in Calc 5.3 ID's may be any alphanumeric string.
 - ~~UUIDs must be actual UUIDs and in the canonical form xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx  http://en.wikipedia.org/wiki/Universally_unique_identifier In future versions this will be more generic.~~ As of version 5.3 UUIDs have been removed. externalIds can be in any form.
 - ~~Load case names are case-sensitive, to what is in the client file. This can be different from what is shown in calc.~~ This has been fixed in calc 5.3.
 
-##Calc Project Structure
+## Calc Project Structure
 
 Calc uses a single pole model of analysis. It offers the ability to organize locations and to pull collected data from other locations, but it is not a connected model. All spans on a pole are defined in terms of that pole alone.
 
@@ -189,11 +193,11 @@ Calc uses load cases to handle NESC, GO95, and CSA loading standards. These are 
 If Results are included, they will be listed per component. When loaded into calc they will show the summary of the result, and that the results are out of date and need to be re-analyzed to get full results.
 
 
-##Calc Pole Structure
+## Calc Pole Structure
 
 The calc structure is a model of a single pole under analysis and everything directly attached to it.
 
-####Attachments
+#### Attachments
 
 Components attaching directly to the pole have structure in common
 
@@ -207,13 +211,13 @@ Components at a distance from the pole have structure in common
 - distance: The distance from the pole to the item.
 - direction: The bearing of the object relative to the pole.
 
-####Directions
+#### Directions
 
 Directions are in degrees. 0 is North, 90 is East, 180 is South, 270 is west. They are the bearing from the main pole to that item. This matches the display in Calc.
 
 *Note* in the 4.4.2 release, there is a bug in the direction handling. The rotation is reversed. 0 is North, 270 is East, 180 is South, 90 is West.
 
-####Wire End Points
+#### Wire End Points
 
 Calc uses the concept of wire end points to describe spans. A Wire End Point is something that the spans on your pole are going to. It could be another pole, it could be a building. It holds the distance and direction and the list of wires going to it.
 
@@ -245,9 +249,9 @@ Custom equipment types are supported. However, the following types are recognize
 - POWER_SUPPLY
 - SPLICE_CASE
 
-##FAQ
+## FAQ
 
-####I send my request to calc, but it says that I'm missing required parameters?
+#### I send my request to calc, but it says that I'm missing required parameters?
 
 The individual parameters are passed as URL or POST FORM encoded parameters, even if the parameters themselves are JSON strings. make sure you set the following on your question:
 
@@ -256,15 +260,15 @@ The individual parameters are passed as URL or POST FORM encoded parameters, eve
 
 This design decision was made to make it easy to test basic requests, but it seems to cause some confusion.
 
-####Can I use this to run my own analysis server?
+#### Can I use this to run my own analysis server?
 
 No, it is not supported by the terms of use of calc or the schema.
 
-####What reports are available?
+#### What reports are available?
 
 The report ID is any report named in your client file, as well as two of the reports available in the calc menu: "Project Summary Report" and "Project Details Report"
 
 
-####Questions/Support
+#### Questions/Support
 
 For questions about the SPIDACalc API, please contact SPIDA support at support@spidasoftware.com.
