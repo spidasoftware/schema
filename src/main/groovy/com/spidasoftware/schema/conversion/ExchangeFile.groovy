@@ -2,7 +2,6 @@ package com.spidasoftware.schema.conversion
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.google.common.io.Files
-import groovy.json.JsonOutput
 import org.apache.log4j.Logger
 import org.apache.tools.ant.BuildException
 /**
@@ -95,7 +94,8 @@ public class ExchangeFile {
 	static ExchangeFile createFromProjectJSON(Map projectJson, Collection<File> photoFiles = null) {
 		ExchangeFile exf = new ExchangeFile(Files.createTempDir())
 		exf.setProjectJSON(projectJson)
-		exf.getProjectJSONFile() << JsonOutput.toJson(projectJson)
+		ObjectMapper mapper = new ObjectMapper()
+		mapper.writeValue(exf.getProjectJSONFile(), projectJson)
 		log.debug("Creating exchange file from JSON")
 		if (photoFiles) {
 			File photoDir = exf.getPhotoDir()
