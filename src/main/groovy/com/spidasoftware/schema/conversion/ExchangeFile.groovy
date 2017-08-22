@@ -1,8 +1,7 @@
 package com.spidasoftware.schema.conversion
 
+import com.fasterxml.jackson.databind.ObjectMapper
 import com.google.common.io.Files
-import groovy.json.JsonOutput
-import groovy.json.JsonSlurper
 import org.apache.log4j.Logger
 import org.apache.tools.ant.BuildException
 /**
@@ -95,7 +94,8 @@ public class ExchangeFile {
 	static ExchangeFile createFromProjectJSON(Map projectJson, Collection<File> photoFiles = null) {
 		ExchangeFile exf = new ExchangeFile(Files.createTempDir())
 		exf.setProjectJSON(projectJson)
-		exf.getProjectJSONFile() << JsonOutput.toJson(projectJson)
+		ObjectMapper mapper = new ObjectMapper()
+		mapper.writeValue(exf.getProjectJSONFile(), projectJson)
 		log.debug("Creating exchange file from JSON")
 		if (photoFiles) {
 			File photoDir = exf.getPhotoDir()
@@ -126,13 +126,9 @@ public class ExchangeFile {
 		if (!projectJSON && getProjectJSONFile().isFile()) {
 			log.debug("parsing exchange file json")
 
-			//This is because if you are using an old version (below 2.3) of groovy, you don't have the parse method
-			def slurper = new JsonSlurper()
-			if(slurper.respondsTo("parse", File)){
-				projectJSON = slurper.parse(getProjectJSONFile())
-			}else{
-				projectJSON = slurper.parseText(getProjectJSONFile().text)
-			}
+			// there are bugs in jsonslurper that break large values
+			ObjectMapper objectMapper = new ObjectMapper()
+			projectJSON = objectMapper.readValue(getProjectJSONFile(), LinkedHashMap)
 		}
 		return projectJSON
 	}

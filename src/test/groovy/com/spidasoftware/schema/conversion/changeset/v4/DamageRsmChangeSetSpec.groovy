@@ -1,7 +1,5 @@
 package com.spidasoftware.schema.conversion.changeset.v4
 
-import com.spidasoftware.schema.conversion.changeset.ChangeSet
-import groovy.json.JsonSlurper
 import spock.lang.Specification
 
 class DamageRsmChangeSetSpec extends Specification {
