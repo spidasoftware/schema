@@ -54,6 +54,10 @@
       "pattern": "[a-f0-9]{24}",
       "type": "string"
     },
+    "connectedWire": {
+      "description": "The id of an associated wire on the same structure. ",
+      "type": "string"
+    },
     "wireEndPointPlacement":{
       "description": "The optional placement at the opposite end from the pole. The measurement is in relation to the base of the associated wire end point.",
       "$ref": "../../general/triad.schema"
