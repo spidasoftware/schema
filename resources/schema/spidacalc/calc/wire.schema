@@ -55,7 +55,7 @@
       "type": "string"
     },
     "connectedWire": {
-      "description": "The id of an associated wire on the same structure. ",
+      "description": "The id of a connected wire on the same structure. ",
       "type": "string"
     },
     "wireEndPointPlacement":{
