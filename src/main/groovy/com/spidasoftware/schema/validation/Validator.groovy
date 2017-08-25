@@ -93,10 +93,7 @@ class Validator {
 		JsonNode schemaNode = JsonLoader.fromResource(schemaPath)
 
 		JsonSchema schema = factory.getJsonSchema(schemaNode)
-		log.info("schema.validate(jsonNode)")
-		def report = schema.validate(jsonNode)
-		log.info("schema.validate(jsonNode) DONE")
-		return report
+		return schema.validate(jsonNode)
 	}
 
 	private void handleReport(ProcessingReport report) throws JSONServletException {
