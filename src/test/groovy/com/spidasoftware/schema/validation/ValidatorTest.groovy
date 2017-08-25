@@ -1,8 +1,10 @@
 package com.spidasoftware.schema.validation
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import groovy.util.logging.Log4j
 import spock.lang.Specification
 
+@Log4j
 class ValidatorTest extends Specification {
 
 	void "test OneOfEverythingObject validate as a String"() {
@@ -54,6 +56,33 @@ class ValidatorTest extends Specification {
 			def badInstance = "{{"
 		when:
 			new Validator().validate(schema, badInstance)
+		then:
+			thrown(JSONServletException)
+	}
+	void "test validateAndReportFromText"() {
+		setup:
+			def schemaText=  '''
+{
+  "description": "This is for testing schemas as text instead of as paths to a file.",
+  "type": "object",
+  "required": [
+    "properties"
+  ],
+  "properties": {
+    "externalId": {
+      "description": "Option unique id for tracking within integrator systems.",
+      "type": "string"
+    }
+  }
+}
+'''
+		def instance = '{"properties":{"externalId":"abc123"}}'
+		when:
+			def report = new Validator().validateAndReportFromText(schemaText, instance)
+		then:
+			report.isSuccess()
+		when:
+			new Validator().validateFromText(schemaText, instance)
 		then:
 			thrown(JSONServletException)
 	}

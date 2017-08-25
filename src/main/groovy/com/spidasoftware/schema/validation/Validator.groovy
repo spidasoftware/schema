@@ -18,8 +18,7 @@ import org.apache.commons.io.FilenameUtils
 class Validator {
 
 	/**
-	 *
-	 * @param schemaPath resource URL to the schema. eg, "/v1/schema/spidacalc/calc/project.schema"
+\	 * @param schemaPath resource URL to the schema. eg, "/v1/schema/spidacalc/calc/project.schema"
 	 * @param json string representation of json to be validated.
 	 * @return The fge schema-validator report
 	 */
@@ -31,8 +30,7 @@ class Validator {
 	}
 
 	/**
-	 *
-	 * @param schemaPath resource URL to the schema. eg, "/v1/schema/spidacalc/calc/project.schema"
+\	 * @param schemaPath resource URL to the schema. eg, "/v1/schema/spidacalc/calc/project.schema"
 	 * @param json JSONObject to be validated.
 	 * @return The fge schema-validator report
 	 */
@@ -44,8 +42,19 @@ class Validator {
 	}
 
 	/**
-	 *
-	 * @param schemaPath resource URL to the schema. eg, "/spidacalc/calc/project.schema"
+\	 * @param schemaText A schema in plain text.
+	 * @param son string representation of json to be validated.
+	 * @return The fge schema-validator report
+	 */
+	ProcessingReport validateAndReportFromText(String schemaText, String json) {
+		catchAndLogExceptions {
+			JsonNode jsonNode = new ObjectMapper().valueToTree(json)
+			return validateUsingSchemaText(schemaText, jsonNode)
+		}
+	}
+
+	/**
+\	 * @param schemaPath resource URL to the schema. eg, "/spidacalc/calc/project.schema"
 	 * @param json string representation of json to be validated.
 	 * @throws JSONServletException Throws an exception if validation failed. This exception will include a more detailed report
 	 */
@@ -54,13 +63,21 @@ class Validator {
 	}
 
 	/**
-	 *
-	 * @param schemaPath resource URL to the schema. eg, "/spidacalc/calc/project.schema"
+\	 * @param schemaPath resource URL to the schema. eg, "/spidacalc/calc/project.schema"
 	 * @param json JSONObject to be validated.
 	 * @throws JSONServletException Throws an exception if validation failed. This exception will include a more detailed report
 	 */
 	void validate(String schemaPath, Map json) throws JSONServletException {
 		handleReport(validateAndReport(schemaPath, json))
+	}
+
+	/**
+\	 * @param schemaText A schema in plain text.
+	 * @param son string representation of json to be validated.
+	 * @throws JSONServletException Throws an exception if validation failed. This exception will include a more detailed report
+	 */
+	void validateFromText(String schemaText, String json) {
+		handleReport(validateAndReportFromText(schemaText, json))
 	}
 
 	private def catchAndLogExceptions(closure) {
@@ -92,6 +109,13 @@ class Validator {
 		JsonSchemaFactory factory = getFactoryWithNamespace(namespaceString)
 		JsonNode schemaNode = JsonLoader.fromResource(schemaPath)
 
+		JsonSchema schema = factory.getJsonSchema(schemaNode)
+		return schema.validate(jsonNode)
+	}
+
+	private ProcessingReport validateUsingSchemaText(String schemaText, JsonNode jsonNode) {
+		JsonSchemaFactory factory = JsonSchemaFactory.byDefault()
+		JsonNode schemaNode = JsonLoader.fromString(schemaText)
 		JsonSchema schema = factory.getJsonSchema(schemaNode)
 		return schema.validate(jsonNode)
 	}
