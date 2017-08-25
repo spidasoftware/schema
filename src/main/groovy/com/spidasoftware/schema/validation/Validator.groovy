@@ -48,7 +48,7 @@ class Validator {
 	 */
 	ProcessingReport validateAndReportFromText(String schemaText, String json) {
 		catchAndLogExceptions {
-			JsonNode jsonNode = new ObjectMapper().valueToTree(json)
+			JsonNode jsonNode = JsonLoader.fromString(json)
 			return validateUsingSchemaText(schemaText, jsonNode)
 		}
 	}

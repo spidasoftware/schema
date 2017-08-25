@@ -50,6 +50,20 @@ class ValidatorTest extends Specification {
 			thrown(JSONServletException)
 	}
 
+	void "test an object that is not valid Map"() {
+		setup:
+			def schema = "/schema/spidacalc/calc/structure.schema"
+			def instance = [id: "externalId", distance: [unit: "FOOT", value: 10], direction: 0]
+		when:
+			def report = new Validator().validateAndReport(schema, instance)
+		then:
+			!report.isSuccess() // this instance should NOT be valid against the schema
+		when:
+			new Validator().validate(schema, instance)
+		then:
+			thrown(JSONServletException)
+	}
+
 	void "test invalid json"() {
 		setup:
 			def schema = "/schema/spidacalc/calc/structure.schema"
@@ -59,14 +73,15 @@ class ValidatorTest extends Specification {
 		then:
 			thrown(JSONServletException)
 	}
-	void "test validateAndReportFromText"() {
+
+	void "test validateAndReportFromText and validateFromText"() {
 		setup:
 			def schemaText=  '''
 {
   "description": "This is for testing schemas as text instead of as paths to a file.",
   "type": "object",
   "required": [
-    "properties"
+    "externalId"
   ],
   "properties": {
     "externalId": {
@@ -76,14 +91,24 @@ class ValidatorTest extends Specification {
   }
 }
 '''
-		def instance = '{"properties":{"externalId":"abc123"}}'
+			def invalidInstance = '{"properties":{"externalId":"abc123"}}'
+			def validInstance = '{"externalId":"abc123"}'
 		when:
-			def report = new Validator().validateAndReportFromText(schemaText, instance)
+			def report = new Validator().validateAndReportFromText(schemaText, validInstance)
 		then:
 			report.isSuccess()
 		when:
-			new Validator().validateFromText(schemaText, instance)
+			new Validator().validateFromText(schemaText, validInstance)
+		then:
+			notThrown(JSONServletException)
+		when:
+			report = new Validator().validateAndReportFromText(schemaText, invalidInstance)
+		then:
+			!report.isSuccess()
+		when:
+			new Validator().validateFromText(schemaText, invalidInstance)
 		then:
 			thrown(JSONServletException)
+
 	}
 }
