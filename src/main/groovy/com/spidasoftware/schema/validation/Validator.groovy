@@ -18,7 +18,7 @@ import org.apache.commons.io.FilenameUtils
 class Validator {
 
 	/**
-\	 * @param schemaPath resource URL to the schema. eg, "/v1/schema/spidacalc/calc/project.schema"
+	 * @param schemaPath resource URL to the schema. eg, "/v1/schema/spidacalc/calc/project.schema"
 	 * @param json string representation of json to be validated.
 	 * @return The fge schema-validator report
 	 */
@@ -30,7 +30,7 @@ class Validator {
 	}
 
 	/**
-\	 * @param schemaPath resource URL to the schema. eg, "/v1/schema/spidacalc/calc/project.schema"
+	 * @param schemaPath resource URL to the schema. eg, "/v1/schema/spidacalc/calc/project.schema"
 	 * @param json JSONObject to be validated.
 	 * @return The fge schema-validator report
 	 */
@@ -42,7 +42,7 @@ class Validator {
 	}
 
 	/**
-\	 * @param schemaText A schema in plain text.
+	 * @param schemaText A schema in plain text.
 	 * @param son string representation of json to be validated.
 	 * @return The fge schema-validator report
 	 */
@@ -54,7 +54,7 @@ class Validator {
 	}
 
 	/**
-\	 * @param schemaPath resource URL to the schema. eg, "/spidacalc/calc/project.schema"
+	 * @param schemaPath resource URL to the schema. eg, "/spidacalc/calc/project.schema"
 	 * @param json string representation of json to be validated.
 	 * @throws JSONServletException Throws an exception if validation failed. This exception will include a more detailed report
 	 */
@@ -63,7 +63,7 @@ class Validator {
 	}
 
 	/**
-\	 * @param schemaPath resource URL to the schema. eg, "/spidacalc/calc/project.schema"
+	 * @param schemaPath resource URL to the schema. eg, "/spidacalc/calc/project.schema"
 	 * @param json JSONObject to be validated.
 	 * @throws JSONServletException Throws an exception if validation failed. This exception will include a more detailed report
 	 */
@@ -72,7 +72,7 @@ class Validator {
 	}
 
 	/**
-\	 * @param schemaText A schema in plain text.
+	 * @param schemaText A schema in plain text.
 	 * @param son string representation of json to be validated.
 	 * @throws JSONServletException Throws an exception if validation failed. This exception will include a more detailed report
 	 */
