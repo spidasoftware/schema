@@ -92,6 +92,13 @@
       "items": {
           "$ref": "../../general/form.schema"
       }
+    },
+    "files": {
+        "type": "array",
+        "description": "Metadata of attached files.  File content can be retrieved from assetFileAPI.",
+        "items": {
+            "$ref": "../../spidamin/project/file.schema"
+        }
     }
   },
   "additionalProperties": false
