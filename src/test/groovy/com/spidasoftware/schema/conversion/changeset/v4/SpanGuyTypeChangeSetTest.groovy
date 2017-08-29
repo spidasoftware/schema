@@ -23,11 +23,13 @@ class SpanGuyTypeChangeSetTest extends Specification {
 	  		def spanGuy = projectJSON.leads.first().locations.first().designs.first().structure.spanGuys.first()
 	  	then:
 			spanGuy.type == "SUPPORT"
-		when: "revertProject"
+		when: " add loads and revertProject"
+			spanGuy.loads = [["test": "test"]]
 	  		changeSet.revertProject(projectJSON)
 	  		spanGuy = projectJSON.leads.first().locations.first().designs.first().structure.spanGuys.first()
 	  	then:
 	  		spanGuy.type == null
+			spanGuy.loads == null
 		when: "applyToLocation"
 			changeSet.applyToLocation(locationJSON)
 			spanGuy = locationJSON.designs.first().structure.spanGuys.first()

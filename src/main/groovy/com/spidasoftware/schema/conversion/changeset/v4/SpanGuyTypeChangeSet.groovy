@@ -24,6 +24,9 @@ class SpanGuyTypeChangeSet extends AbstractDesignChangeset {
 			if (spanGuy.containsKey("type")) {
 			  spanGuy.remove("type")
 			}
+			if (spanGuy.containsKey("loads")) {
+				spanGuy.remove("loads")
+			}
       	}
 	}
 }
