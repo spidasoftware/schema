@@ -258,10 +258,10 @@ Anything in the response will be ignored by the server.
 	</tbody>
 </table>
 
-##Webhook Example
+## Webhook Example
 In these examples the SPIDAMin server is running at https://spidamin.example.com and the webhook callback server is running at https://callback.example.com.  An API token "API_TOKEN" has been created for an admin user.
 
-###Register
+### Register
 The below example registers a new webhook that will create a callback request for all events on the "Project" channel.
 
 Direction: Callback Server -> SPIDAMin  
