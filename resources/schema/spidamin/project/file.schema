@@ -1,0 +1,37 @@
+{
+  "id": "#/spidamin/project/file.schema",
+  "description": "Metadata for files attached to a Project.  File content can be retrived from a assetFileAPI service.",
+  "type": "object",
+  "required": [
+    "type"
+  ],
+  "properties": {
+    "id": {
+      "type": "number",
+      "description": "Media Item Id of file"
+    },
+    "uuid": {
+      "type": "string",
+      "description": "UUID of file, can be used to get file content from assetFileAPI service"
+    },
+    "fileName": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "VIDEO",
+        "PHOTO",
+        "AUDIO",
+        "DOCUMENT",
+        "SPREADSHEET",
+        "SPIDA",
+        "CLIENT",
+        "ARCHIVE",
+        "GENERIC"
+      ],
+      "description": "This is always required for creating and updating.  If userGroupName is used, the same type will be the used for all users in the group."
+    }
+  },
+  "additionalProperties": false
+}
