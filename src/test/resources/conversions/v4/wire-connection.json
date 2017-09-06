@@ -14,7 +14,8 @@
                 "damages": [],
                 "wires": [
                   {
-                    "connectionId": "123456789012345678901234"
+                    "connectionId": "123456789012345678901234",
+                    "connectedWire": "Wire#2"
                   }
                 ],
                 "spanGuys": [],
