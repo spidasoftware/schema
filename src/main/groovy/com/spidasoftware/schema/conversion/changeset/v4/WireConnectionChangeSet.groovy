@@ -9,7 +9,7 @@ import groovy.util.logging.Log4j
 
 
 @Log4j
-class WireConnectionIdChangeSet extends AbstractDesignChangeset {
+class WireConnectionChangeSet extends AbstractDesignChangeset {
 
 	@Override
 	void applyToDesign(Map json) throws ConversionException {
@@ -20,6 +20,7 @@ class WireConnectionIdChangeSet extends AbstractDesignChangeset {
 	void revertDesign(Map design) throws ConversionException {
 		design.get("structure")?.get("wires")?.each { wire ->
 			wire.remove("connectionId")
+			wire.remove("connectedWire")
 		}
 	}
 }
