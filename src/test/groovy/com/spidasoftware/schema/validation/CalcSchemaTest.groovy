@@ -76,12 +76,6 @@ class CalcSchemaTest extends GroovyTestCase {
 		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
 	}
 
-	void testFraming(){
-		def schema = factory.getJsonSchema("schema/spidacalc/calc/project.schema")
-		report = schema.validate(JsonLoader.fromString(new File("resources/examples/spidacalc/projects/minimum_project_framing_gps.json").text))
-		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
-	}
-
 	void testFullProjectObject(){
 		def schema = factory.getJsonSchema("schema/spidacalc/calc/project.schema")
 		report = schema.validate(JsonLoader.fromString(new File("resources/examples/spidacalc/projects/full_project.json").text))
