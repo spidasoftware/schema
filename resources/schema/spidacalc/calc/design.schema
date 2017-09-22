@@ -61,9 +61,6 @@
             },
             "type": "array"
         },
-        "framingPlan": {
-            "$ref": "../../spidacalc/client/framing_plan.schema"
-        },
         "geographicCoordinate": {
             "$ref": "../../general/geometry.schema"
         },
