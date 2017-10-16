@@ -29,9 +29,6 @@ class ConnectivityChangeSet extends AbstractDesignChangeset {
 			}
 			structure.spanPoints?.each {spanPoint ->
 				spanPoint.remove("connectionId")
-				spanPoint.heights.each {height ->
-					height.remove("connectionId")
-				}
 			}
 			// wire point loads are also connected, but they are removed entirely
 			structure.spanGuys?.each {spanGuy ->
