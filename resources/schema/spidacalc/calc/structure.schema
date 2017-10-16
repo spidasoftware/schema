@@ -115,9 +115,19 @@
                 },
                 "height": {
                   "$ref": "../../general/measurable.schema"
+                },
+                "connectionId":{
+                  "description": "The shared connection id.  Represents the unique connection between two objects.  Must be two and only two objects with the same id.",
+                  "pattern": "[a-f0-9]{24}",
+                  "type": "string"
                 }
               }
             }
+          },
+          "connectionId":{
+            "description": "The shared connection id.  Represents the unique connection between two objects.  Must be two and only two objects with the same id.",
+            "pattern": "[a-f0-9]{24}",
+            "type": "string"
           }
         }
       }
@@ -259,7 +269,12 @@
           "wire": {
             "type": "string",
             "description": "Wire ID that this point load is attached to."
-          }
+          },
+           "connectionId":{
+             "description": "The shared connection id.  Represents the unique connection between two objects.  Must be two and only two objects with the same id.",
+             "pattern": "[a-f0-9]{24}",
+             "type": "string"
+           }
          }
        }
      },
@@ -347,6 +362,11 @@
             "type": "string",
             "pattern": "[a-f0-9]{32}",
             "description": "Hash of the client item containing the engineering properties for this span guy."
+          },
+          "connectionId":{
+            "description": "The shared connection id.  Represents the unique connection between two objects.  Must be two and only two objects with the same id.",
+            "pattern": "[a-f0-9]{24}",
+            "type": "string"
           }
         }
       }
