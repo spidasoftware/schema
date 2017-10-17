@@ -73,9 +73,8 @@ class ConnectivityChangeSetTest extends Specification {
             new ConnectivityChangeSet().revertDesign(design)
         then:
             design.structure.spanGuys.first().connectionId == null
-
-
     }
+
     def "revert spanPoints"() {
         def design
         when:
@@ -83,7 +82,7 @@ class ConnectivityChangeSetTest extends Specification {
                     spanPoints: [
                             [heights:
                                      [
-                                             [connectionId: "1234",
+                                             [
                                               wire        : "Wire#1",
                                               height      : [value: 1,
                                                              unit : "FOOT"]
@@ -99,7 +98,5 @@ class ConnectivityChangeSetTest extends Specification {
             design.structure.spanPoints.first().connectionId == null
             design.structure.spanPoints.first().heights.first().wire == "Wire#1"
             design.structure.spanPoints.first().heights.first().height.value  == 1
-            design.structure.spanPoints.first().heights.first().connectionId  == null
-
     }
 }
