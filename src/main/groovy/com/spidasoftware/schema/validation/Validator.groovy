@@ -122,7 +122,9 @@ class Validator {
 		if (node != null) {
 			if (node.isObject()) {
 				ObjectNode objectNode = node as ObjectNode
-				objectNode.set("additionalProperties", BooleanNode.valueOf(true))
+				if (objectNode.get("additionalProperties")?.isBoolean()){
+					objectNode.set("additionalProperties", BooleanNode.valueOf(true))
+				}
 			}
 			for (int i = 0; i < node.size(); i++) {
 				disableAdditionalPropertiesCheck(node.get(i))
@@ -130,9 +132,12 @@ class Validator {
 		}
 	}
 
-	private ProcessingReport validateUsingSchemaText(String schemaText, JsonNode jsonNode) {
+	private ProcessingReport validateUsingSchemaText(String schemaText, JsonNode jsonNode, boolean ignoreAdditionalProperties = false) {
 		JsonSchemaFactory factory = JsonSchemaFactory.byDefault()
 		JsonNode schemaNode = JsonLoader.fromString(schemaText)
+		if (ignoreAdditionalProperties) {
+			disableAdditionalPropertiesCheck(schemaNode)
+		}
 		JsonSchema schema = factory.getJsonSchema(schemaNode)
 		return schema.validate(jsonNode)
 	}
