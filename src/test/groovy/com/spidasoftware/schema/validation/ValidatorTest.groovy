@@ -111,4 +111,20 @@ class ValidatorTest extends Specification {
 			thrown(JSONServletException)
 
 	}
+
+	void "test ignore additionalValues"() {
+		setup:
+			def schema = "/schema/spidacalc/calc/structure.schema"
+			File jsonFile = new File("resources/examples/spidacalc/designs/one_of_everything.json")
+			Map jsonObject = new ObjectMapper().readValue(jsonFile, LinkedHashMap)
+			jsonObject.extraValue = "extraValue"
+		when:
+			def report = new Validator().validateAndReport(schema, jsonObject, true)
+		then:
+			report.isSuccess() // this instance should be valid against the schema
+		when:
+			new Validator().validate(schema, jsonObject, true)
+		then:
+			notThrown(JSONServletException) // Should not have thrown a servlet exception
+	}
 }
