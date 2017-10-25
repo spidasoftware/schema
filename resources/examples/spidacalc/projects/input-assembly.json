@@ -105,7 +105,11 @@
                             "attachmentItem": "E1.1L.3/8"
                           }
                         ], 
-                        "supportItem": "F1.10"
+                        "supportItem": "F1.10",
+                        "distance": {
+                          "value": 15,
+                          "unit": "FOOT"
+                        }
                       }
                     ], 
                     "wireEndPoints": [
