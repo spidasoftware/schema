@@ -86,6 +86,10 @@
             "type": "string",
             "description": "client anchor size or alias, support assembly alias or code, or wire endpoint id"
           },
+          "externalId": {
+            "type": "string",
+            "description": "An optional externalId for the item."
+          },
           "attachments": {
             "type": "array",
             "items": {
