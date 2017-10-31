@@ -160,7 +160,9 @@
         "DEGREE_10",
         "DEGREE_15",
         "DEGREE_25",
-        "DEGREE_45"
+        "DEGREE_45",
+        "DEGREE_90",
+        "DEGREE_180"
       ]
     },
     "windSpeed": {
