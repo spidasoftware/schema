@@ -27,6 +27,10 @@ There are few concepts to keep in mind:
 3. Schema files end in .schema. The .schema files are used to validate the objects passed into specific API endpoints. The [Doc](doc) folder has descriptions of the services to which you pass those objects.
 4. The CalcDB api follows REpresentational State Transfer (REST) conventions, which makes it somewhat different from out other APIs, which use Remote Procedure Call (RPC) conventions. This document contains general information that is mostly only relevant to RPC, although some information is relevant to both. For information on using the CalcDB api, check out [this link.](http://github.com/spidasoftware/schema/blob/master/doc/apis/spidadbAPI.md)
 
+Calc QuickStart
+---------------
+[Calc Integration Guide](doc/calc.md)
+
 Services
 ------------
 
