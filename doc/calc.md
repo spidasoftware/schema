@@ -100,13 +100,17 @@ This describes the data format  supported by calc. It is available broken into l
 
 Schema for an individual detailed pole structure. It will define individual attachments, end points, and other physical components. This is for import from another data collection or pole design tool.
 
-##### framing_plan.schema
+##### ~~~framing_plan.schema~~
 
-Framing Plans are no longer supported in 7.0. See the input assembly provisional documentation
-
-https://docs.google.com/presentation/d/1A11Xd8BvymF0RekHb0DqCZYM4rgOwUHk6eoI3FSQTJU/edit?usp=sharing
+Framing Plans are no longer supported in 7.0. See input assemblies.
 
 ~~Schema for a simplified framing plan. It defines a pole design in very broad terms in code units. This tends to be a more useful way to import from a staking tool or GIS database.~~
+
+#### input_assembly.schema
+
+Schema for input assemblies, which allow stacking of assemblies like dropping in the graphic view.
+
+See the [Input Assembly Guide](input_assemblies.md)
 
 ##### calc_project.schema
 
@@ -317,7 +321,7 @@ Design connectivity is maintained by a connectionId between each two *items* tha
 }]
 ```
 
-(Connectivity Example)[../resources/examples/spidacalc/projects/connectivity_two_locations.json]
+[Connectivity Example](resources/examples/spidacalc/projects/connectivity_two_locations.json)
 
 ## FAQ
 
