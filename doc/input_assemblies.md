@@ -62,11 +62,11 @@ Calc will read both Input and Final assemblies, but always output Final assembli
 
 ### Input Assembly Properties
 
-(Input Assembly Schema)[../resources/schema/spidacalc/calc/input_assembly.schema]
+[Input Assembly Schema](../resources/schema/spidacalc/calc/input_assembly.schema)
 
-(Multiple Examples)[../resources/examples/spidacalc/projects/input-assembly.json]
+[Multiple Examples](../resources/examples/spidacalc/projects/input-assembly.json)
 
-(Simpler Example with Demo Client File)[../resources/examples/spidacalc/projects/input_assembly_c5.json]
+[Simpler Example with Demo Client File](../resources/examples/spidacalc/projects/input_assembly_c5.json)
 
 ### Required Changes from Framing Plan
 
@@ -77,6 +77,6 @@ Calc will read both Input and Final assemblies, but always output Final assembli
 
 ### Final Assembly Properties
 
-(Final Assembly Schema)[../resources/schema/spidacalc/calc/assembly.schema]
+[Final Assembly Schema)](../resources/schema/spidacalc/calc/assembly.schema)
 
-(Example Final Assembly)[../resources/examples/spidacalc/projects/project-with-assemblies.json]
+[Example Final Assembly](../resources/examples/spidacalc/projects/project-with-assemblies.json)
