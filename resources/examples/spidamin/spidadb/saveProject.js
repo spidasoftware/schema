@@ -36,7 +36,7 @@ var projectPath = path.join(__dirname, "../spidacalc/projects/full_project.json"
 //the text of the project json to be saved to spida db
 var projectText = fs.readFileSync(projectPath, {encoding: 'utf8'});
 
-//the base url. i.e.- http://www.spidamin.com/calcdb
+//the base url. i.e.- http://www.spidamin.com/spidadb
 var baseUrl = args[0];
 var opts = URL.parse(baseUrl);
 

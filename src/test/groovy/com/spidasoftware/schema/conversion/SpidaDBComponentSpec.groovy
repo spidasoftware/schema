@@ -3,28 +3,28 @@ package com.spidasoftware.schema.conversion
 import groovy.json.JsonSlurper
 import spock.lang.Specification
 
-class CalcDBComponentSpec extends Specification{
+class SpidaDBComponentSpec extends Specification{
 
 
-	CalcDBProject project
-	CalcDBLocation location
-	CalcDBDesign design
+	SpidaDBProject project
+	SpidaDBLocation location
+	SpidaDBDesign design
 
-	private CalcDBLocation loadLocation(String resourceString) {
+	private SpidaDBLocation loadLocation(String resourceString) {
 	    Map json = getResource(resourceString)
-		return new CalcDBLocation(json.get("locations").get(0))
+		return new SpidaDBLocation(json.get("locations").get(0))
 	}
 
-	private CalcDBDesign loadDesign(String resourceString) {
+	private SpidaDBDesign loadDesign(String resourceString) {
 	    Map json = getResource(resourceString)
-		return new CalcDBDesign(json.get('designs').get(0))
+		return new SpidaDBDesign(json.get('designs').get(0))
 	}
 
-	private CalcDBProject loadProject(String resourceString) {
+	private SpidaDBProject loadProject(String resourceString) {
 	    Map json = getResource(resourceString)
 		List ray = json.get("projects")
 	    Map projectJson = ray.get(0)
-		return new CalcDBProject(projectJson)
+		return new SpidaDBProject(projectJson)
 	}
 
 	private Map getResource(String resourceString) {
@@ -33,9 +33,9 @@ class CalcDBComponentSpec extends Specification{
 	}
 
     def setup() throws Exception {
-		project = loadProject("/formats/calcdb/minimal-project-valid/projects.json")
-		location = loadLocation("/formats/calcdb/minimal-project-valid/locations.json")
-		design = loadDesign("/formats/calcdb/minimal-project-valid/designs.json")
+		project = loadProject("/formats/spidadb/minimal-project-valid/projects.json")
+		location = loadLocation("/formats/spidadb/minimal-project-valid/locations.json")
+		design = loadDesign("/formats/spidadb/minimal-project-valid/designs.json")
 	}
 
 	def "replace locations ids on project"(){
@@ -49,7 +49,7 @@ class CalcDBComponentSpec extends Specification{
 		when:
 			location.updateLocationIds(["53e3906d44ae3953e03b39fd":"replaced"])
 		then:
-			location.getCalcDBId()=="replaced"
+			location.getSpidaDBId()=="replaced"
 			location.getCalcJSON().id=="replaced"
 	}
 

@@ -25,20 +25,20 @@ class FormatConverterTest extends Specification {
 			def refCompList = converter.convertCalcProject(calcProject)
 
 		then: "the project should validate against the schema"
-			def refProject = refCompList.find{it instanceof CalcDBProject}
+			def refProject = refCompList.find{it instanceof SpidaDBProject}
 			def projectReport = validator.validateAndReport("/schema/spidamin/spidadb/referenced_project.schema", JsonOutput.toJson(refProject.getMap()))
 			projectReport.isSuccess()
 
 		then: "the locations should validate against the schema"
-			def refLocations = refCompList.findAll{ it instanceof CalcDBLocation}
+			def refLocations = refCompList.findAll{ it instanceof SpidaDBLocation}
 			refLocations.each{
 				def locationReport = validator.validateAndReport("/schema/spidamin/spidadb/referenced_location.schema", JsonOutput.toJson(it.getMap()))
 				assert locationReport.isSuccess(), "location: ${it.getName()} failed validation: \n${locationReport}"
 			}
 
 		then: "the designs should validate against the schema"
-			def refDesigns = refCompList.findAll{it instanceof CalcDBDesign}
-			refDesigns.each{CalcDBDesign it->
+			def refDesigns = refCompList.findAll{it instanceof SpidaDBDesign}
+			refDesigns.each{ SpidaDBDesign it->
 				def designReport = validator.validateAndReport("/schema/spidamin/spidadb/referenced_design.schema", JsonOutput.toJson(it.getMap()))
 				assert designReport.isSuccess(), "Design: ${it.getName()} at ${it.getParentLocationName()} in invalid \n${designReport}"
 			}
@@ -55,17 +55,17 @@ class FormatConverterTest extends Specification {
 		and: "validate json to make sure it's valid before format conversion"
 			assert jsonIsValid(calcProject), "Starting project JSON is valid against schema"
 
-		when: "convert the project to calcdb components"
-			def calcdbComponents = converter.convertCalcProject(calcProject)
+		when: "convert the project to spidadb components"
+			def spidadbComponents = converter.convertCalcProject(calcProject)
 
 		then: "just a quick check to make sure it converted all of the components"
-			calcdbComponents.size() == 17
+			spidadbComponents.size() == 17
 
 		when: "convert the project back to calc format"
-			CalcDBProject p = calcdbComponents.find{it instanceof CalcDBProject}
-			List calcdbLocations = calcdbComponents.findAll{ it instanceof CalcDBLocation }
-			List calcdbDesigns = calcdbComponents.findAll{ it instanceof CalcDBDesign }
-		    Map reconstitutedCalcProject = converter.convertCalcDBProject(p, calcdbLocations, calcdbDesigns)
+			SpidaDBProject p = spidadbComponents.find{it instanceof SpidaDBProject}
+			List spidadbLocations = spidadbComponents.findAll{ it instanceof SpidaDBLocation }
+			List spidadbDesigns = spidadbComponents.findAll{ it instanceof SpidaDBDesign }
+		    Map reconstitutedCalcProject = converter.convertSpidaDBProject(p, spidadbLocations, spidadbDesigns)
 
 		then: "the reconstituted project should be valid against the schema"
 			jsonIsValid(reconstitutedCalcProject)
@@ -107,7 +107,7 @@ class FormatConverterTest extends Specification {
 			def components = converter.convertCalcProject(project)
 
 		when: "convert the project"
-			def designs = components.findAll {it instanceof CalcDBDesign}*.getMap()
+			def designs = components.findAll {it instanceof SpidaDBDesign}*.getMap()
 
 		then: "all the worst*Results should be correct and the results should be attached to the correct components"
 			designs.size() == 18
@@ -132,7 +132,7 @@ class FormatConverterTest extends Specification {
 			projectJson.remove('clientFile')
 			projectJson.remove('clientFileVersion')
 
-		when: "convert the project json into calcdb components"
+		when: "convert the project json into spidadb components"
 			converter.convertCalcProject(projectJson)
 
 		then: "shouldn't throw any exceptions"
@@ -153,16 +153,16 @@ class FormatConverterTest extends Specification {
 			current << getCalcDesignsList("busy-trans-with-results", 4)
 	}
 
-	void "Converting to calcDB objects should not throw any exceptions"(){
+	void "Converting to spidaDB objects should not throw any exceptions"(){
 		when:
 			def fourPoles = getCalcProject("four-locations-one-lead-project.json")
 		then:
 			notThrown(Exception)
 			fourPoles != null
 			def components = converter.convertCalcProject(fourPoles)
-			def project = components.find {it instanceof CalcDBProject}.getMap()
-			def locations = components.findAll {it instanceof CalcDBLocation}*.getMap()
-			def designs = components.findAll {it instanceof CalcDBDesign}*.getMap()
+			def project = components.find {it instanceof SpidaDBProject}.getMap()
+			def locations = components.findAll {it instanceof SpidaDBLocation}*.getMap()
+			def designs = components.findAll {it instanceof SpidaDBDesign}*.getMap()
 			project != null
 			locations != null
 			designs != null
@@ -272,9 +272,9 @@ class FormatConverterTest extends Specification {
 
 		when:
 			def components = converter.convertCalcProject(current)
-			project = components.find {it instanceof CalcDBProject}.getMap()
-			locations = components.findAll {it instanceof CalcDBLocation}*.getMap()
-			designs = components.findAll {it instanceof CalcDBDesign}*.getMap()
+			project = components.find {it instanceof SpidaDBProject}.getMap()
+			locations = components.findAll {it instanceof SpidaDBLocation}*.getMap()
+			designs = components.findAll {it instanceof SpidaDBDesign}*.getMap()
 
 		then:
 			notThrown(Exception)
@@ -290,20 +290,20 @@ class FormatConverterTest extends Specification {
 			current << [getCalcProject("single-full-pole.json"), getCalcProject("four-locations-one-lead-project.json"), getCalcProject("minimal-project-valid.json")]
 	}
 
-	void "CalcDB components should be converted into calc-ready JSON"() {
-		/* Just recreate a CalcDB project from it's component parts and make sure it goes together okay */
+	void "SpidaDB components should be converted into calc-ready JSON"() {
+		/* Just recreate a SpidaDB project from it's component parts and make sure it goes together okay */
 		when:
-			CalcDBProject calcDBProject = new CalcDBProject(loadJson("exampleProject", "projects")[0] as Map)
-			Map calcDBLocations = [:]
-			Map calcDBDesigns = [:]
+			SpidaDBProject spidaDBProject = new SpidaDBProject(loadJson("exampleProject", "projects")[0] as Map)
+			Map spidaDBLocations = [:]
+			Map spidaDBDesigns = [:]
 			loadJson("exampleProject", "locations").each { location ->
-				calcDBLocations.put(location."_id", new CalcDBLocation(location as Map))
+				spidaDBLocations.put(location."_id", new SpidaDBLocation(location as Map))
 			}
 			loadJson("exampleProject", "designs").each { design ->
-				calcDBDesigns.put(design."_id", new CalcDBDesign(design as Map))
+				spidaDBDesigns.put(design."_id", new SpidaDBDesign(design as Map))
 			}
 
-		    Map projectJson = converter.convertCalcDBProject(calcDBProject, calcDBLocations, calcDBDesigns)
+		    Map projectJson = converter.convertSpidaDBProject(spidaDBProject, spidaDBLocations, spidaDBDesigns)
 			def schema = "/schema/spidacalc/calc/project.schema"
 			def report = new Validator().validateAndReport(schema, JsonOutput.toJson(projectJson))
 
@@ -337,7 +337,7 @@ class FormatConverterTest extends Specification {
 	}
 
 	private List loadJson(String project, String type) {
-	    Map json = new JsonSlurper().parse(getClass().getResourceAsStream("/formats/calcdb/${project}/${type}.json"))
+	    Map json = new JsonSlurper().parse(getClass().getResourceAsStream("/formats/spidadb/${project}/${type}.json"))
 		return json.get(type)
 	}
 

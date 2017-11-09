@@ -1,6 +1,6 @@
 {
     "type": "object",
-    "description": "The Design data, as it is stored in CalcDB",
+    "description": "The Design data, as it is stored in SpidaDB",
     "required": [
         "id",
         "calcDesign",
@@ -28,7 +28,7 @@
         },
         "projectId": {
             "type": "string",
-            "description": "The id (in calcdb) of the parent Project"
+            "description": "The id (in spidadb) of the parent Project"
         },
         "projectLabel": {
             "type": "string",
@@ -59,7 +59,7 @@
         },
         "worstCaseAnalysisResults": {
             "type": "object",
-            "description": "Holds the worst-case analysis results for each *type* of component. CalcDB will set these properties automatically when a design is saved. The data here is all duplicated in the 'analysis' property. It is reproduced here only to make it easier to query the data",
+            "description": "Holds the worst-case analysis results for each *type* of component. SpidaDB will set these properties automatically when a design is saved. The data here is all duplicated in the 'analysis' property. It is reproduced here only to make it easier to query the data",
             "properties": {
                 "pole": {
                     "$ref": "../../spidamin/asset/standard_details/analysis_asset.schema"

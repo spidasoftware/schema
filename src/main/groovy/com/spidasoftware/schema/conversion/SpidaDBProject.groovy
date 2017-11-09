@@ -1,16 +1,16 @@
 package com.spidasoftware.schema.conversion
 
 /**
- * Represents a Project that exists in SPIDAdb.
+ * Represents a Project that exists in SPIDA DB.
  */
-class CalcDBProject extends AbstractCalcDBComponent {
+class SpidaDBProject extends AbstractSpidaDBComponent {
 
-    CalcDBProject(Map calcdbProjectJson) {
-        super(calcdbProjectJson)
+    SpidaDBProject(Map spidadbProjectJson) {
+        super(spidadbProjectJson)
     }
 
     /**
-     * @return the SPIDAdb ids of the locations contained in this project
+     * @return the SPIDA DB ids of the locations contained in this project
      */
     List<String> getChildLocationIds(){
         return getCalcJSON().get("leads")?.collect{Map lead-> lead.locations}?.flatten()?.collect {Map location-> location.id }

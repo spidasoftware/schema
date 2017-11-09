@@ -189,11 +189,6 @@ The response:
 The response will include the photo bytes as a base64 encoded string in the body of the JSON response. This would then be decoded by the client and written to a file. There is currently no support for any other request type or options for photos.
 
 
-# REST API Descriptor
-
-The available fields that can be added to requests as parameters are listed in [restAPI.json](https://github.com/spidasoftware/schema/blob/master/resources/schema/calcdb/interfaces/restAPI.json). For each item in "resources" (project, location, design, photo), there is an object for each type of API call: 'list', 'show', 'save', 'update', 'delete'. Each of these objects has a 'parameters' array that lists the possible parameters for it. Some will be required, others are optional. List requests have the most parameters since all the searchable fields will be enumerated. All list parameters are implicitly combined with a logical AND. So, if you pass the params, "id=myCalcId\&label=MyProject", then SPIDA DB will only return projects that match both of those.
-
-
 # The Finer Points
 
 #### Saving or Updating Projects
