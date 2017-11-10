@@ -3,7 +3,7 @@ package com.spidasoftware.schema.conversion
 import org.apache.log4j.Logger
 
 /**
- * Abstract class for SPIDA DB project components that handles some of the boiler plate stuff
+ * Abstract class for SPIDAdb project components that handles some of the boiler plate stuff
  */
 abstract class AbstractSpidaDBComponent implements SpidaDBProjectComponent {
     private static final Logger log = Logger.getLogger(AbstractSpidaDBComponent.class)

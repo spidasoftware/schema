@@ -1,7 +1,7 @@
 package com.spidasoftware.schema.conversion
 
 /**
- * Represents a Project that exists in SPIDA DB.
+ * Represents a Project that exists in SPIDAdb.
  */
 class SpidaDBProject extends AbstractSpidaDBComponent {
 
@@ -10,7 +10,7 @@ class SpidaDBProject extends AbstractSpidaDBComponent {
     }
 
     /**
-     * @return the SPIDA DB ids of the locations contained in this project
+     * @return the SPIDAdb ids of the locations contained in this project
      */
     List<String> getChildLocationIds(){
         return getCalcJSON().get("leads")?.collect{Map lead-> lead.locations}?.flatten()?.collect {Map location-> location.id }

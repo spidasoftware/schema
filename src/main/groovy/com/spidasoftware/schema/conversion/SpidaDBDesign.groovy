@@ -3,7 +3,7 @@ package com.spidasoftware.schema.conversion
 import groovy.transform.CompileStatic
 
 /**
- * Represents a Design that exists in SPIDA DB
+ * Represents a Design that exists in SPIDAdb
  */
 @CompileStatic
 class SpidaDBDesign extends AbstractSpidaDBComponent {

@@ -3,9 +3,9 @@ package com.spidasoftware.schema.conversion
 import org.apache.commons.codec.binary.Base64
 
 /**
- * Represents a photo that is part of a SPIDA DB Location.
+ * Represents a photo that is part of a SPIDAdb Location.
  *
- * Photos are currently weird. The SPIDA DB api currently (3/31/14) just returns the base64 encoded
+ * Photos are currently weird. The SPIDAdb api currently (3/31/14) just returns the base64 encoded
  * bytes without any context information like fileName or anything else. So, the uuid and fileName are
  * taken from me the parent Location. This needs to get fixed and updated at some point.
  */

@@ -37,7 +37,7 @@ REST is a specific type of data service, and a few of our more data centric serv
 
 1. [webhooks](apis/webhookAPI.md) - Listen to activity in SPIDAMin from another system
 1. [action](apis/actionAPI.md) - Trigger any of the actions in a work flow with this service.
-1. [spidadb](apis/spidadbAPI.md) - Push and pull projects into SPIDA DB.
+1. [spidadb](apis/spidadbAPI.md) - Push and pull projects into SPIDAdb.
 
 ##### SPIDACalc
 

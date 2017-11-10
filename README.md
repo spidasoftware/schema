@@ -25,7 +25,7 @@ There are few concepts to keep in mind:
 1. Our services rely heavily on the JSON format.  If you are not familiar with JSON, you will need to be to understand what it is your are submitting to the service.  Try this short [tutorial](http://www.w3schools.com/json/default.asp).
 2. We have two main areas for our services. SPIDACalc and SPIDAMin, don't confuse the two.  They each have some overlap in naming, but fundamentally different structures.  SPIDAMin is an online application that is primarily used to manage assets.  SPIDACalc is a client application for analyzing utility pole structures.  Both have a project, but each is unique and different.  Make sure you are using the correct one.
 3. Schema files end in .schema. The .schema files are used to validate the objects passed into specific API endpoints. The [Doc](doc) folder has descriptions of the services to which you pass those objects.
-4. The SPIDA DB api follows REpresentational State Transfer (REST) conventions, which makes it somewhat different from out other APIs, which use Remote Procedure Call (RPC) conventions. This document contains general information that is mostly only relevant to RPC, although some information is relevant to both. For information on using the SPIDA DB api, check out [this link.](http://github.com/spidasoftware/schema/blob/master/doc/apis/spidadbAPI.md)
+4. The SPIDAdb api follows REpresentational State Transfer (REST) conventions, which makes it somewhat different from out other APIs, which use Remote Procedure Call (RPC) conventions. This document contains general information that is mostly only relevant to RPC, although some information is relevant to both. For information on using the SPIDAdb api, check out [this link.](http://github.com/spidasoftware/schema/blob/master/doc/apis/spidadbAPI.md)
 
 Services
 ------------
@@ -56,7 +56,7 @@ As of October 9, 2014, the v1 Schemas are considered stable, and will not have a
 Development
 -------------
 
-Any parts of the exposed APIs should allow clients to continue to use the v1 schemas. In SPIDACalc and SPIDA DB, this can be specified simply as a property of project JSON, "version". The version property should hold an integer value that specifies which version of the schema to use, 1 or 2. This could also be accomplished by having a separate namespace in the URL for apis that use the v2 schemas, for example `/api/v2/project/createOrUpdate`. A way to specify schema version should be implemented as needed by each application and documented here.
+Any parts of the exposed APIs should allow clients to continue to use the v1 schemas. In SPIDACalc and SPIDAdb, this can be specified simply as a property of project JSON, "version". The version property should hold an integer value that specifies which version of the schema to use, 1 or 2. This could also be accomplished by having a separate namespace in the URL for apis that use the v2 schemas, for example `/api/v2/project/createOrUpdate`. A way to specify schema version should be implemented as needed by each application and documented here.
 
 Any changes to the v2 schema should be accompanied by a modification to a `v1 -> v2` changeset. This will allow us to simplify our handling of the JSON on the backend by allowing us to use the same classes to deal with all of the JSON. Checking for and running the changeset should be implemented in each project as it is required by changes to the schema.
 

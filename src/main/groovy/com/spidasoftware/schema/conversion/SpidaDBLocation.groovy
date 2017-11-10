@@ -3,13 +3,13 @@ package com.spidasoftware.schema.conversion
 import groovy.transform.CompileStatic
 
 /**
- * Represents a Location that exists in SPIDA DB.
+ * Represents a Location that exists in SPIDAdb.
  */
 @CompileStatic
 class SpidaDBLocation extends AbstractSpidaDBComponent {
 
     /**
-     * creates a new SPIDA DB Location using the JSON returned from the SPIDA DB api
+     * creates a new SPIDAdb Location using the JSON returned from the SPIDAdb api
      */
     SpidaDBLocation(Map locationJson) {
         super(locationJson)
@@ -30,7 +30,7 @@ class SpidaDBLocation extends AbstractSpidaDBComponent {
     }
 
     /**
-     * gets a list of each of the Design ids belonging to this location that exist in SPIDA DB.
+     * gets a list of each of the Design ids belonging to this location that exist in SPIDAdb.
      * @return
      */
     public List<String> getDesignIds() {
@@ -48,7 +48,7 @@ class SpidaDBLocation extends AbstractSpidaDBComponent {
     }
 
     /**
-     * gets a list of ids for this location's photos that exist in SPIDA DB
+     * gets a list of ids for this location's photos that exist in SPIDAdb
      * @return
      */
     public List<String> getPhotoIds() {
