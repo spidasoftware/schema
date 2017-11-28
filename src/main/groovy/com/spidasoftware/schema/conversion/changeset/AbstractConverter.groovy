@@ -1,6 +1,5 @@
 package com.spidasoftware.schema.conversion.changeset
 
-import groovy.transform.CompileStatic
 import org.apache.log4j.Logger
 
 /**
@@ -13,8 +12,9 @@ import org.apache.log4j.Logger
  *  -- conversion will bring data up or down to new version
  *  -- a list of changesets is kept separately per versioned root schema - calc project, for example
  *
+ * NOTE: Removed @CompileStatic because it was throwing an exception when
+ *       called from MIN -> NoSuchMethodError: groovy.lang.IntRange.<init>(ZII)V
  */
-@CompileStatic
 abstract class AbstractConverter implements Converter {
 
 	int defaultVersion = 1
@@ -36,10 +36,8 @@ abstract class AbstractConverter implements Converter {
 		if (fromVersion == toVersion) {
 			return // no conversion necessary
 		}
+
 		List<ChangeSet> toApply = []
-
-
-
 		if (toVersion > fromVersion) {
 			// all changesets to go TO fromVersion have already been applied to json
 			((fromVersion + 1)..toVersion).each { int index ->
