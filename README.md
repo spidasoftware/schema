@@ -9,7 +9,7 @@ Look at the [Release](https://github.com/spidasoftware/schema/releases) page for
 
 License
 -------
-By accessing, downloading or using the APIs defined here you are agreeing to these terms of use [here.](https://github.com/spidasoftware/schema/raw/master/SPIDAWeb API Terms of Service (18 May 2016).pdf)
+By accessing, downloading or using the APIs defined here you are agreeing to these terms of use [here.](https://github.com/spidasoftware/schema/raw/master/SPIDAWeb%20API%20Terms%20of%20Service%20(Updated%204%20October%202017).pdf)
 
 General Overview of the Schema
 --------------------------------
@@ -26,6 +26,10 @@ There are few concepts to keep in mind:
 2. We have two main areas for our services. SPIDACalc and SPIDAMin, don't confuse the two.  They each have some overlap in naming, but fundamentally different structures.  SPIDAMin is an online application that is primarily used to manage assets.  SPIDACalc is a client application for analyzing utility pole structures.  Both have a project, but each is unique and different.  Make sure you are using the correct one.
 3. Schema files end in .schema. The .schema files are used to validate the objects passed into specific API endpoints. The [Doc](doc) folder has descriptions of the services to which you pass those objects.
 4. The SPIDAdb api follows REpresentational State Transfer (REST) conventions, which makes it somewhat different from out other APIs, which use Remote Procedure Call (RPC) conventions. This document contains general information that is mostly only relevant to RPC, although some information is relevant to both. For information on using the SPIDAdb api, check out [this link.](http://github.com/spidasoftware/schema/blob/master/doc/apis/spidadbAPI.md)
+
+Calc Quick Start Guide
+---------------
+[Calc Integration Guide](doc/calc.md)
 
 Services
 ------------
@@ -46,20 +50,10 @@ Folder Structure
   1. [examples](resources/examples) - used in tests, good example objects.
 1. [src](src) - some utilities that can be used in Java as well as the tests.
 
-Versions
+Standards
 --------
 
 Our schemas currently conform to the "json-schema-draft-03" version, but we are looking to always keep that current until the official release of that standard.
-
-As of October 9, 2014, the v1 Schemas are considered stable, and will not have any more breaking changes. This of course means that no new features will be added to v1 either. All new development will be done under the 'v2' namespace. This will allow existing integrations to continue to work as changes are made to Schema v2. V2 is currently undergoing development, and will be considered unstable until its release. V1 may have minor bug fixes, but only as long as they do not break any existing integrations.
-
-Development
--------------
-
-Any parts of the exposed APIs should allow clients to continue to use the v1 schemas. In SPIDACalc and SPIDAdb, this can be specified simply as a property of project JSON, "version". The version property should hold an integer value that specifies which version of the schema to use, 1 or 2. This could also be accomplished by having a separate namespace in the URL for apis that use the v2 schemas, for example `/api/v2/project/createOrUpdate`. A way to specify schema version should be implemented as needed by each application and documented here.
-
-Any changes to the v2 schema should be accompanied by a modification to a `v1 -> v2` changeset. This will allow us to simplify our handling of the JSON on the backend by allowing us to use the same classes to deal with all of the JSON. Checking for and running the changeset should be implemented in each project as it is required by changes to the schema.
-
 
 Testing
 -------
@@ -101,5 +95,5 @@ The jar can be compiled with:
 
 ***
 
-SPIDA® is a registered trademark of SPIDAWeb LLC. Copyright © 2012 SPIDAWeb LLC. All rights reserved. All other brands or product names are the property of their respective holders.
+SPIDA® is a registered trademark of SPIDAWeb LLC. Copyright © 2017 SPIDAWeb LLC. All rights reserved. All other brands or product names are the property of their respective holders.
 [spidasoftware.com](http://www.spidasoftware.com/)
