@@ -6,10 +6,10 @@ import groovy.transform.CompileStatic
  * Represents a Design that exists in SPIDAdb
  */
 @CompileStatic
-class CalcDBDesign extends AbstractCalcDBComponent {
+class SpidaDBDesign extends AbstractSpidaDBComponent {
 
 
-    public CalcDBDesign(Map json) {
+    public SpidaDBDesign(Map json) {
         super(json)
     }
 
@@ -49,7 +49,7 @@ class CalcDBDesign extends AbstractCalcDBComponent {
     }
 
     /**
-     * returns the CalcDB _id of this design's parent location if it has one.
+     * returns the SpidaDB _id of this design's parent location if it has one.
      * otherwise returns null
      * @return
      */

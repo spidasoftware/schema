@@ -1,6 +1,6 @@
 {
     "type": "object",
-    "description": "Location data, as it is stored in CalcDB",
+    "description": "Location data, as it is stored in SpidaDB",
     "required": [
         "calcLocation",
         "dateModified",
@@ -23,7 +23,7 @@
         },
         "projectId": {
             "type": "string",
-            "description": "The id (in calcdb) of the parent Project"
+            "description": "The id (in spidadb) of the parent Project"
         },
         "projectLabel": {
             "type": "string",

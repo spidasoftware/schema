@@ -73,7 +73,7 @@
                         "type": "string"
                     },
                     "link": {
-                        "description":"link to the source of the photo along with the id for that source. NOTE: this is only to be used with CalcDB, Calc will currently ignore the link.",
+                        "description":"link to the source of the photo along with the id for that source. NOTE: this is only to be used with SpidaDB, Calc will currently ignore the link.",
                         "type": "object",
                         "additionalProperties": false,
                         "required": [

@@ -1,6 +1,6 @@
 {
     "type": "object",
-    "description": "The project, as it is stored in CalcDB",
+    "description": "The project, as it is stored in SpidaDB",
     "required": [
         "calcProject",
         "dateModified",

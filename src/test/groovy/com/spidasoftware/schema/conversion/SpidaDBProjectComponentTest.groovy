@@ -7,7 +7,7 @@ import spock.lang.Specification
 import static org.junit.Assert.assertEquals
 
 @Log4j
-public class CalcDBProjectComponentTest extends Specification {
+public class SpidaDBProjectComponentTest extends Specification {
     Map projectJSON
 
     def setup() {
@@ -17,7 +17,7 @@ public class CalcDBProjectComponentTest extends Specification {
 	void "components should get and set users"(){
 		setup:
 	    Map json = [:]
-		CalcDBProject project = new CalcDBProject(json)
+		SpidaDBProject project = new SpidaDBProject(json)
 		String id = "12345"
 		String email = "test@test.com"
 
@@ -29,7 +29,7 @@ public class CalcDBProjectComponentTest extends Specification {
 		project.getUser().email == email
 	}
 
-    public void testCalcDBDesign() throws Exception {
+    public void testSpidaDBDesign() throws Exception {
 	    setup:
         Map location = projectJSON.get('leads').get(0).get('locations').get(0)
         Map calcJson = location.get('designs').get(0)
@@ -42,7 +42,7 @@ public class CalcDBProjectComponentTest extends Specification {
         designJson.put('projectId', '678910')
 
 	    when:
-        CalcDBDesign design = new CalcDBDesign(designJson)
+        SpidaDBDesign design = new SpidaDBDesign(designJson)
 
 	    then:
         assertEquals("the name should be right", "Measured Design", design.getName())
@@ -52,7 +52,7 @@ public class CalcDBProjectComponentTest extends Specification {
         assertEquals("the project id should be right", "678910", design.getParentProjectId())
     }
 
-    public void testCalcDBLocation() throws Exception {
+    public void testSpidaDBLocation() throws Exception {
 	    setup:
         Map calcJson = projectJSON.get('leads').get(0).get('locations').get(0)
 	    calcJson.designs = []
@@ -68,7 +68,7 @@ public class CalcDBProjectComponentTest extends Specification {
         locationJson.put('dateModified', dateMod)
 
 		when:
-        CalcDBLocation location = new CalcDBLocation(locationJson)
+        SpidaDBLocation location = new SpidaDBLocation(locationJson)
 
 		then:
         "ExistingLocation" == location.getName()
@@ -80,7 +80,7 @@ public class CalcDBProjectComponentTest extends Specification {
         equivalentDate == location.getDateModified()
     }
 
-    void testCalcDBProject() throws Exception {
+    void testSpidaDBProject() throws Exception {
 	    setup:
         projectJSON.leads = []
 	    projectJSON.leads.add(['locations': [ ['id': '1234', 'label': 'testPole'], ['id': '5678', 'label': 'test2'] ]] as Map)
@@ -92,13 +92,13 @@ public class CalcDBProjectComponentTest extends Specification {
 	    refJson.put('id', '12345')
 
 	    when:
-        CalcDBProject calcDBProject = new CalcDBProject(refJson)
+        SpidaDBProject spidaDBProject = new SpidaDBProject(refJson)
 
 	    then:
-        assertEquals("the name should be right", 'ImportTestProject', calcDBProject.getName())
-        assertEquals("the client file should be right", "Master_1.1.client", calcDBProject.getClientFileName())
-        assertEquals("the id should be right", "12345", calcDBProject.getCalcDBId())
-        assertEquals("the child location ids should be right", ['1234', '5678'], calcDBProject.getChildLocationIds())
+        assertEquals("the name should be right", 'ImportTestProject', spidaDBProject.getName())
+        assertEquals("the client file should be right", "Master_1.1.client", spidaDBProject.getClientFileName())
+        assertEquals("the id should be right", "12345", spidaDBProject.getSpidaDBId())
+        assertEquals("the child location ids should be right", ['1234', '5678'], spidaDBProject.getChildLocationIds())
     }
 
     private Map getProject(String name) {

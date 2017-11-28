@@ -5,11 +5,11 @@ import org.apache.log4j.Logger
 /**
  * Abstract class for SPIDAdb project components that handles some of the boiler plate stuff
  */
-abstract class AbstractCalcDBComponent implements CalcDBProjectComponent {
-    private static final Logger log = Logger.getLogger(AbstractCalcDBComponent.class)
+abstract class AbstractSpidaDBComponent implements SpidaDBProjectComponent {
+    private static final Logger log = Logger.getLogger(AbstractSpidaDBComponent.class)
     Map json
 
-    public AbstractCalcDBComponent(Map json){
+    public AbstractSpidaDBComponent(Map json){
         this.json = json
     }
 
@@ -29,7 +29,7 @@ abstract class AbstractCalcDBComponent implements CalcDBProjectComponent {
     }
 
     @Override
-    public String getCalcDBId() {
+    public String getSpidaDBId() {
 	    return getMap().get("id")
     }
 
