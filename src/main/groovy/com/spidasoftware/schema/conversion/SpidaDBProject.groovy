@@ -3,10 +3,10 @@ package com.spidasoftware.schema.conversion
 /**
  * Represents a Project that exists in SPIDAdb.
  */
-class CalcDBProject extends AbstractCalcDBComponent {
+class SpidaDBProject extends AbstractSpidaDBComponent {
 
-    CalcDBProject(Map calcdbProjectJson) {
-        super(calcdbProjectJson)
+    SpidaDBProject(Map spidadbProjectJson) {
+        super(spidadbProjectJson)
     }
 
     /**

@@ -37,7 +37,7 @@ REST is a specific type of data service, and a few of our more data centric serv
 
 1. [webhooks](apis/webhookAPI.md) - Listen to activity in SPIDAMin from another system
 1. [action](apis/actionAPI.md) - Trigger any of the actions in a work flow with this service.
-1. [spidadb](apis/spidadbAPI.md) - Push and pull projects into SPIDA DB.
+1. [spidadb](apis/spidadbAPI.md) - Push and pull projects into SPIDAdb.
 
 ##### SPIDACalc
 
@@ -75,11 +75,25 @@ Once the API Token is successfully authenticated the user will be logged into th
 
 To switch the the assetmaster session:
 
+    curl -g 'https://test.spidasoftware.com/assetmaster/switchcompany?coselect=123'
+
+To switch the projectmanager session:
+
+    curl -g 'https://test.spidasoftware.com/projectmanager/switchcompany?coselect=123'
+
+---
+
+*Prior to 11-27-2017 coselect value was the company name*
+
+To switch the the assetmaster session:
+
     curl -g 'https://test.spidasoftware.com/assetmaster/switchcompany?coselect=TestCompany'
 
 To switch the projectmanager session:
 
     curl -g 'https://test.spidasoftware.com/projectmanager/switchcompany?coselect=TestCompany'
+
+---
 
 To switch to a different user make a call to:
 

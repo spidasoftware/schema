@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
 /*
-This example node script will take a SPIDACalc example project and save it to SPIDA DB.
+This example node script will take a SPIDACalc example project and save it to SPIDAdb.
  This is just to give an idea of how to save a project using the api.
 The project saved is located at: v1/examples/spidacalc/projects/full_project.json
 The response will be printed to stdout.
 
-This example requires node.js in order to run. The SPIDA DB api can be used with any language, though.
+This example requires node.js in order to run. The SPIDAdb api can be used with any language, though.
  */
 
 var http = require('http');
@@ -27,7 +27,7 @@ var args = process.argv.slice(2);
 
 //make sure we at least have the baseUrl and the apiToken
 if (args.length < 2) {
-    errorOut("must supply both a base URL and an apiToken for for SPIDA DB")
+    errorOut("must supply both a base URL and an apiToken for for SPIDAdb")
 }
 
 //the path to the project json file to be uploaded
@@ -36,7 +36,7 @@ var projectPath = path.join(__dirname, "../spidacalc/projects/full_project.json"
 //the text of the project json to be saved to spida db
 var projectText = fs.readFileSync(projectPath, {encoding: 'utf8'});
 
-//the base url. i.e.- http://www.spidamin.com/calcdb
+//the base url. i.e.- http://www.spidamin.com/spidadb
 var baseUrl = args[0];
 var opts = URL.parse(baseUrl);
 

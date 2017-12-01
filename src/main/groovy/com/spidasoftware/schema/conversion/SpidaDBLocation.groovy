@@ -6,12 +6,12 @@ import groovy.transform.CompileStatic
  * Represents a Location that exists in SPIDAdb.
  */
 @CompileStatic
-class CalcDBLocation extends AbstractCalcDBComponent {
+class SpidaDBLocation extends AbstractSpidaDBComponent {
 
     /**
      * creates a new SPIDAdb Location using the JSON returned from the SPIDAdb api
      */
-    CalcDBLocation(Map locationJson) {
+    SpidaDBLocation(Map locationJson) {
         super(locationJson)
     }
 

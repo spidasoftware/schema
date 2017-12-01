@@ -50,8 +50,10 @@ class ConverterUtils {
 
     protected static final Map<String, Converter> converters = [:]
 
-
-
+    //example: [4, 3, 2]
+    static LinkedHashSet<Integer> getPossibleVersionsNewestToOldest(){
+    	return converters.values().collect{it.versions.keySet()}.flatten().sort().reverse()
+    }
 
     static void convertJSON(Map json, int toVersion) throws ConversionException {
         if (json.containsKey("schema")) {

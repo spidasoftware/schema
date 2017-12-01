@@ -50,6 +50,11 @@ class ConverterUtilsSpec extends Specification {
 			ConverterUtils.getConverterInstance("/schema/spidacalc/calc/design.schema") instanceof DesignConverter
 	}
 
+	def "test getPossibleVersionsNewestToOldest"() {
+		expect:
+			ConverterUtils.getPossibleVersionsNewestToOldest() == [4, 3, 2] as Set
+	}
+
 	def "pole-lean validation"() {
 		expect:
 			validateProjectSchema("/conversions/v2/pole-lean.json")

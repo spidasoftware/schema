@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
 /*
-This example node script is intended to retrieve a project and its locations and designs from SPIDA DB.
+This example node script is intended to retrieve a project and its locations and designs from SPIDAdb.
 It will retrieve the project in referenced format and write it to stdout. It will also make additional
 requests to retrieve the locations and designs, again in referenced format.
 
-This requires node.js be installed in order to run. This is just an example, though. The SPIDA DB api can be
+This requires node.js be installed in order to run. This is just an example, though. The SPIDAdb api can be
 used by any type of client written in any language.
  */
 

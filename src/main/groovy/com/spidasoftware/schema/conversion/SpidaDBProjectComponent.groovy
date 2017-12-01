@@ -6,7 +6,7 @@ import groovy.transform.CompileStatic
  * Common interface for all components stored in SPIDAdb.
  */
 @CompileStatic
-public interface CalcDBProjectComponent {
+public interface SpidaDBProjectComponent {
 
     /**
      * gets the json object associated with this component. This is the same json that is stored in SPIDAdb
@@ -24,7 +24,7 @@ public interface CalcDBProjectComponent {
     /**
      * @return the id of the component in SPIDAdb. REST api calls to SPIDAdb use this
      */
-    public String getCalcDBId()
+    public String getSpidaDBId()
 
     /**
      * gets the name of the client file used to create this item. Currently (3/31/14) this only gets set when an
