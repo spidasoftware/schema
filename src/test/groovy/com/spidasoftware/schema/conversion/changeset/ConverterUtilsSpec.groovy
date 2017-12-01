@@ -52,7 +52,7 @@ class ConverterUtilsSpec extends Specification {
 
 	def "test getPossibleVersionsNewestToOldest"() {
 		expect:
-			ConverterUtils.getPossibleVersionsNewestToOldest() == [4, 3, 2] as Set
+			ConverterUtils.getPossibleVersionsNewestToOldest() == [5, 4, 3, 2] as LinkedHashSet
 	}
 
 	def "pole-lean validation"() {
