@@ -3,7 +3,7 @@ SPIDA Software JSON Interfaces
 
 [![Build Status](https://travis-ci.org/spidasoftware/schema.svg?branch=master)](http://travis-ci.org/spidasoftware/schema)
 
-* LAST RELEASED VERSION: 1.11/3.0.1
+* LAST RELEASED VERSION: 4.0.0
 
 Look at the [Release](https://github.com/spidasoftware/schema/releases) page for your specific product version and the API documentation for it. 
 
