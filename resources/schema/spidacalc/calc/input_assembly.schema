@@ -14,6 +14,10 @@
       "$ref": "../../general/measurable.schema",
       "description": "Height at the which the highest component in the assembly is attached to the pole."
     },
+    "direction": {
+      "$ref": "../../general/bearing.schema",
+      "description": "Optional direction for equipment assemblies only. Other attachments will rotate with their associated wire end points."
+    },
     "owner": {
       "$ref": "../../general/owner.schema",
       "description": "The owner for the utility-industry components in the assembly, or for all components if the assembly contains only communication-industry components."
@@ -82,6 +86,10 @@
             "type": "string",
             "description": "client anchor size or alias, support assembly alias or code, or wire endpoint id"
           },
+          "externalId": {
+            "type": "string",
+            "description": "An optional externalId for the item."
+          },
           "attachments": {
             "type": "array",
             "items": {
@@ -101,6 +109,10 @@
               },
               "additionalProperties": false
             }
+          },
+          "distance": {
+            "$ref": "../../general/measurable.schema",
+            "description": "Distance from the pole at which the support is placed. Multiple anchors will maintain spacing and put the closest at this distance."
           },
           "direction": {
             "$ref": "../../general/bearing.schema",

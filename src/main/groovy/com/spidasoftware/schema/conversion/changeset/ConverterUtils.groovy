@@ -4,6 +4,7 @@ import com.spidasoftware.schema.conversion.changeset.v2.FoundationChangeSet
 import com.spidasoftware.schema.conversion.changeset.v2.PoleLeanChangeSet
 import com.spidasoftware.schema.conversion.changeset.v3.WEPEnvironmentChangeSet
 import com.spidasoftware.schema.conversion.changeset.v4.*
+import com.spidasoftware.schema.conversion.changeset.v5.InputAssemblyDistanceDirectionChangeset
 import groovy.util.logging.Log4j
 
 @Log4j
@@ -31,6 +32,7 @@ class ConverterUtils {
             converter.addChangeSet(4, new GuyAttachPointChangeSet())
             converter.addChangeSet(4, new DesignLayerChangeSet())
             converter.addChangeSet(4, new DamageRsmChangeSet())
+            converter.addChangeSet(5, new InputAssemblyDistanceDirectionChangeset())
             // add calc changesets here
 
             converters.put(converter.schemaPath, converter)
