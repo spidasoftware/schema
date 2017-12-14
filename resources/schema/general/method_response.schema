@@ -4,6 +4,14 @@
   "$schema": "http://json-schema.org/draft-04/schema",
   "description": "The response wrapper for all SPIDA API methods.  Result OR Error will be set but not both.",
   "properties": {
+    "schema": {
+      "type": "string",
+      "description": "Full URL of the calc schema. /schema/spidacalc/calc/project.schema"
+    },
+    "version": {
+      "type": "number",
+      "description": "This is a schema version integer."
+    },
     "result": {
       "type": [
         "object",

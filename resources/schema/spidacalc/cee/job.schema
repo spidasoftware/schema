@@ -8,6 +8,14 @@
     "payload"
   ],
   "properties": {
+    "schema": {
+      "type": "string",
+      "description": "Full URL of the calc schema. /schema/spidacalc/calc/project.schema"
+    },
+    "version": {
+      "type": "number",
+      "description": "This is a schema version integer."
+    },
     "id": {
       "description": "Unique id for this job given by CEE",
       "type": "string"

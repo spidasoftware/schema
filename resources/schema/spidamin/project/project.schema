@@ -3,6 +3,14 @@
   "description": "A ProjectManager project",
   "type": "object",
   "properties": {
+    "schema": {
+      "type": "string",
+      "description": "Full URL of the calc schema. /schema/spidacalc/calc/project.schema"
+    },
+    "version": {
+      "type": "number",
+      "description": "This is a schema version integer."
+    },
     "id": {
       "type": "number",
       "description": "This is a database ID created by ProjectManager.  Only set this value if you want to update an existing project.  Not required for project creation."

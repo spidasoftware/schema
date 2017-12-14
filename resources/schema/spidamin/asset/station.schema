@@ -8,6 +8,14 @@
     "assetTypes"
   ],
   "properties": {
+    "schema": {
+      "type": "string",
+      "description": "Full URL of the calc schema. /schema/spidacalc/calc/project.schema"
+    },
+    "version": {
+      "type": "number",
+      "description": "This is a schema version integer."
+    },
     "source": {
       "type": "string",
       "description": "The source of the 'stationId'.  The service name configured by SPIDA."
