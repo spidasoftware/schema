@@ -6,7 +6,7 @@
   "properties": {
     "schema": {
       "type": "string",
-      "description": "Full URL of the calc schema. /schema/spidacalc/calc/project.schema"
+      "description": "Full URL of the schema. /schema/path/to/example.schema"
     },
     "version": {
       "type": "number",
