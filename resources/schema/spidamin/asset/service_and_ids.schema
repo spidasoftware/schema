@@ -1,5 +1,5 @@
 {
-  "id": "#/spidamin/asset/asset/service_and_ids.schema",
+  "id": "#/spidamin/asset/service_and_ids.schema",
   "description": "A list of services and stationIds in those services to link together.",
   "type": "object",
   "additionalProperties": {

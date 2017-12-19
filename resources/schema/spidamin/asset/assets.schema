@@ -1,6 +1,6 @@
 {
   "id": "#/spidamin/asset/assets.schema",
-  "description": "A SPIDAMin assets, not required on return, but required for creation",
+  "description": "SPIDAMin assets",
   "type": "array",
   "items": {
     "$ref": "../../spidamin/asset/asset.schema"
