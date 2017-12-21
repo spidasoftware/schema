@@ -7,23 +7,14 @@ import com.github.fge.jsonschema.SchemaVersion
 import com.github.fge.jsonschema.cfg.ValidationConfiguration
 import com.github.fge.jsonschema.cfg.ValidationConfigurationBuilder
 import com.github.fge.jsonschema.exceptions.ProcessingException
-import com.github.fge.jsonschema.keyword.validator.KeywordValidator
-import com.github.fge.jsonschema.library.Dictionary
 import com.github.fge.jsonschema.library.DraftV4Library
-import com.github.fge.jsonschema.library.Library
-import com.github.fge.jsonschema.library.LibraryBuilder
-import com.github.fge.jsonschema.library.validator.CommonValidatorDictionary
-import com.github.fge.jsonschema.library.validator.DraftV4ValidatorDictionary
 import com.github.fge.jsonschema.load.configuration.LoadingConfiguration
 import com.github.fge.jsonschema.load.configuration.LoadingConfigurationBuilder
-import com.github.fge.jsonschema.main.JsonSchema
 import com.github.fge.jsonschema.main.JsonSchemaFactory
 import com.github.fge.jsonschema.ref.JsonRef
 import com.github.fge.jsonschema.report.ProcessingReport
 import groovy.util.logging.Log4j
 import org.apache.commons.io.FilenameUtils
-
-import java.lang.reflect.Constructor
 
 /**
  * Class to validate against our json schemas. Will references the schemas locally as a jar resource.
@@ -97,15 +88,15 @@ class Validator {
 	private ProcessingReport loadAndValidate(String schemaPath, JsonNode jsonNode) {
 		String namespace = convertToResourcePath(schemaPath)
 		JsonNode schemaNode = JsonLoader.fromResource(schemaPath)
-		return doWithStrictModeCheck(jsonNode, schemaNode, namespace)
+		return validateWithStrictModeCheck(jsonNode, schemaNode, namespace)
 	}
 
 	private ProcessingReport validateUsingSchemaText(String schemaText, JsonNode jsonNode) {
 		JsonNode schemaNode = JsonLoader.fromString(schemaText)
-		return doWithStrictModeCheck(jsonNode, schemaNode)
+		return validateWithStrictModeCheck(jsonNode, schemaNode)
 	}
 
-	private ProcessingReport doWithStrictModeCheck(JsonNode jsonNode, JsonNode schemaNode, String namespace = null){
+	private ProcessingReport validateWithStrictModeCheck(JsonNode jsonNode, JsonNode schemaNode, String namespace = null){
 		boolean ignoreAdditionalProperties = true
 		JsonNode strictNode = jsonNode.get('strict')
 		if(strictNode != null){
