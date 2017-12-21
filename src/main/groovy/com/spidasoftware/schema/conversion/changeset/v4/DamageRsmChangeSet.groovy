@@ -1,6 +1,6 @@
 package com.spidasoftware.schema.conversion.changeset.v4
 
-import com.spidasoftware.schema.conversion.changeset.AbstractDesignChangeset
+import com.spidasoftware.schema.conversion.changeset.calc.AbstractCalcDesignChangeset
 import com.spidasoftware.schema.conversion.changeset.ConversionException
 
 import java.util.Map.Entry
@@ -8,7 +8,7 @@ import java.util.Map.Entry
 /**
  * This version adds wire point loads and simplifies all point load items
  */
-class DamageRsmChangeSet extends AbstractDesignChangeset {
+class DamageRsmChangeSet extends AbstractCalcDesignChangeset {
 
 	@Override
 	void applyToDesign(Map designJSON) throws ConversionException {

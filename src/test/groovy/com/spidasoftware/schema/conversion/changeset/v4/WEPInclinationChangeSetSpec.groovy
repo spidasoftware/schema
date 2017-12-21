@@ -1,6 +1,6 @@
 package com.spidasoftware.schema.conversion.changeset.v4
 
-import com.spidasoftware.schema.conversion.changeset.ChangeSet
+import com.spidasoftware.schema.conversion.changeset.calc.CalcProjectChangeSet
 import groovy.json.JsonSlurper
 import spock.lang.Specification
 
@@ -10,8 +10,8 @@ class WEPInclinationChangeSetSpec extends Specification {
         setup:
             def leanStream = WEPInclinationChangeSetSpec.getResourceAsStream("/conversions/v4/project-v4.json")
             Map projectJSON = new JsonSlurper().parse(leanStream)
-            Map locationJSON = ChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0])
-            Map designJSON = ChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0].designs[0])
+            Map locationJSON = CalcProjectChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0])
+            Map designJSON = CalcProjectChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0].designs[0])
 
             WEPInclinationChangeSet wepInclinationChangeSet = new WEPInclinationChangeSet()
         when: "revertProject"

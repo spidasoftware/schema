@@ -1,12 +1,12 @@
 package com.spidasoftware.schema.conversion.changeset.v4
 
-import com.spidasoftware.schema.conversion.changeset.AbstractDesignChangeset
+import com.spidasoftware.schema.conversion.changeset.calc.AbstractCalcDesignChangeset
 import com.spidasoftware.schema.conversion.changeset.ConversionException
 import groovy.util.logging.Log4j
 
 
 @Log4j
-class AnalysisTypeChangeSet extends AbstractDesignChangeset {
+class AnalysisTypeChangeSet extends AbstractCalcDesignChangeset {
 
     @Override
     void applyToDesign(Map design) throws ConversionException {

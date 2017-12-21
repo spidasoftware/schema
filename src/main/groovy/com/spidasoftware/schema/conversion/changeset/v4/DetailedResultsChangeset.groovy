@@ -1,11 +1,11 @@
 package com.spidasoftware.schema.conversion.changeset.v4
 
 import com.spidasoftware.schema.conversion.FormatConverter
-import com.spidasoftware.schema.conversion.changeset.AbstractDesignChangeset
-import com.spidasoftware.schema.conversion.changeset.ChangeSet
+import com.spidasoftware.schema.conversion.changeset.calc.AbstractCalcDesignChangeset
+import com.spidasoftware.schema.conversion.changeset.calc.CalcProjectChangeSet
 import com.spidasoftware.schema.conversion.changeset.ConversionException
 
-class DetailedResultsChangeset extends AbstractDesignChangeset {
+class DetailedResultsChangeset extends AbstractCalcDesignChangeset {
 
     @Override
     void applyToDesign(Map design) throws ConversionException {
@@ -29,7 +29,7 @@ class DetailedResultsChangeset extends AbstractDesignChangeset {
                             loadCase.get("components").each { Map componentResult ->
                                 summaryAnalysis.add(FormatConverter.convertDetailedResultToSummaryResults(loadCase, componentResult))
                             }
-                            summaryAnalysisResults.add(ChangeSet.duplicateAsJson(id: loadCase.analysisCase, results: summaryAnalysis))
+                            summaryAnalysisResults.add(CalcProjectChangeSet.duplicateAsJson(id: loadCase.analysisCase, results: summaryAnalysis))
                         }
 
                     }

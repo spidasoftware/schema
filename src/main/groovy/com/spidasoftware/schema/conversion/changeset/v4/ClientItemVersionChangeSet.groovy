@@ -1,10 +1,10 @@
 package com.spidasoftware.schema.conversion.changeset.v4
 
-import com.spidasoftware.schema.conversion.changeset.AbstractDesignChangeset
+import com.spidasoftware.schema.conversion.changeset.calc.AbstractCalcDesignChangeset
 import com.spidasoftware.schema.conversion.changeset.ConversionException
 
 
-class ClientItemVersionChangeSet extends AbstractDesignChangeset {
+class ClientItemVersionChangeSet extends AbstractCalcDesignChangeset {
 
     @Override
     void applyToDesign(Map designJSON) throws ConversionException {

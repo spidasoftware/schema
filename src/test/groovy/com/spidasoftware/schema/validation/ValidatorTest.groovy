@@ -8,6 +8,29 @@ import spock.lang.Specification
 @Log4j
 class ValidatorTest extends Specification {
 
+	void "test strict works on nested schemas"() {
+		setup:
+			String schema = "/schema/spidamin/asset/station.schema"
+			String jsonString =""" {
+				"strict":false, 
+				"EXTRA_PROPERTY":"1",
+				"dataProviderId":123,
+				"geometry":{"type":"Point", "coordinates":[0,0]},
+				"assetTypes":["POLE"],
+				"stationAssets":[
+					{ "EXTRA_PROPERTY":"2", "ownerId":123, "primaryAsset":true, "assetType":"POLE" } 
+				]
+			} """
+		when:
+			ProcessingReport report = new Validator().validateAndReport(schema, jsonString)
+		then:
+			report.isSuccess() // this instance should be valid against the schema
+		when:
+			new Validator().validate(schema, jsonString)
+		then:
+			notThrown(JSONServletException) // Should not have thrown a servlet exception
+	}
+
 	void "test OneOfEverythingObject validate as a String"() {
 		setup:
 			String schema = "/schema/spidacalc/calc/structure.schema"

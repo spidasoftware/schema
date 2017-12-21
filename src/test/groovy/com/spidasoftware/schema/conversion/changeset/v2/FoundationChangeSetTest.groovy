@@ -1,6 +1,6 @@
 package com.spidasoftware.schema.conversion.changeset.v2
 
-import com.spidasoftware.schema.conversion.changeset.ChangeSet
+import com.spidasoftware.schema.conversion.changeset.calc.CalcProjectChangeSet
 import groovy.json.JsonSlurper
 import spock.lang.Specification
 
@@ -10,8 +10,8 @@ class FoundationChangeSetTest extends Specification {
 		setup:
 			def leanStream = PoleLeanChangeSetTest.getResourceAsStream("/conversions/v2/foundation.json")
 		    Map projectJSON = new JsonSlurper().parse(leanStream)
-		    Map locationJSON = ChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0])
-		    Map designJSON = ChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0].designs[0])
+		    Map locationJSON = CalcProjectChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0])
+		    Map designJSON = CalcProjectChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0].designs[0])
 			FoundationChangeSet changeset = new FoundationChangeSet()
 		expect: "start with foundation"
 			projectJSON.leads[0].locations[0].designs[0].structure.pole.containsKey("foundation") == true

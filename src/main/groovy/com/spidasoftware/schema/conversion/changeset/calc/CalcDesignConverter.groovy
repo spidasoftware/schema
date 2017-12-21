@@ -1,6 +1,8 @@
-package com.spidasoftware.schema.conversion.changeset
+package com.spidasoftware.schema.conversion.changeset.calc
 
-class DesignConverter extends AbstractConverter {
+import com.spidasoftware.schema.conversion.changeset.*
+
+class CalcDesignConverter extends AbstractConverter {
 
     @Override
     String getSchemaPath() {

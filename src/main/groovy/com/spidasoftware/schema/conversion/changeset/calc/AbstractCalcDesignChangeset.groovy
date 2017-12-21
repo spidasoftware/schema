@@ -1,6 +1,8 @@
-package com.spidasoftware.schema.conversion.changeset
+package com.spidasoftware.schema.conversion.changeset.calc
 
-abstract class AbstractDesignChangeset extends ChangeSet {
+import com.spidasoftware.schema.conversion.changeset.*
+
+abstract class AbstractCalcDesignChangeset extends CalcProjectChangeSet {
 
     @Override
     void applyToProject(Map projectJSON) throws ConversionException {
