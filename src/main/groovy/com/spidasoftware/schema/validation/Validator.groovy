@@ -8,6 +8,7 @@ import com.github.fge.jsonschema.cfg.ValidationConfiguration
 import com.github.fge.jsonschema.cfg.ValidationConfigurationBuilder
 import com.github.fge.jsonschema.exceptions.ProcessingException
 import com.github.fge.jsonschema.library.DraftV4Library
+import com.github.fge.jsonschema.library.Library
 import com.github.fge.jsonschema.load.configuration.LoadingConfiguration
 import com.github.fge.jsonschema.load.configuration.LoadingConfigurationBuilder
 import com.github.fge.jsonschema.main.JsonSchemaFactory
@@ -99,15 +100,17 @@ class Validator {
 	private ProcessingReport validateWithStrictModeCheck(JsonNode jsonNode, JsonNode schemaNode, String namespace = null){
 		boolean ignoreAdditionalProperties = true
 		JsonNode strictNode = jsonNode.get('strict')
+
+		//remove strict it so it doesn't effect validation
 		if(strictNode != null){
 			ignoreAdditionalProperties = !strictNode.booleanValue()
 			jsonNode.remove('strict')
 		}
 
 		def factory = createJsonSchemaFactory(namespace, ignoreAdditionalProperties)
-
 		def result = factory.getJsonSchema(schemaNode).validate(jsonNode)
 
+		//now revert the strict property change
 		if(strictNode != null){
 			jsonNode.put('strict', strictNode.booleanValue())
 		}
@@ -118,9 +121,10 @@ class Validator {
 	private createJsonSchemaFactory(String namespace = null, boolean ignoreAdditionalProperties = true){
 		ValidationConfigurationBuilder valCfgBuilder = ValidationConfiguration.newBuilder()
 		if(ignoreAdditionalProperties){
-			def lib = DraftV4Library.get().thaw().removeKeyword("additionalProperties").freeze()
+			//this removes the AdditionalPropertiesValidator (See CommonValidatorDictionary)
+			Library modifiedLib = DraftV4Library.get().thaw().removeKeyword("additionalProperties").freeze()
 			valCfgBuilder.libraries.remove(JsonRef.fromString(SchemaVersion.DRAFTV4.location.toString()))
-			valCfgBuilder.setDefaultLibrary(SchemaVersion.DRAFTV4.location.toString(), lib)
+			valCfgBuilder.setDefaultLibrary(SchemaVersion.DRAFTV4.location.toString(), modifiedLib)
 		}
 
 		LoadingConfigurationBuilder loadCfgBuilder = LoadingConfiguration.newBuilder()
