@@ -14,6 +14,7 @@ import com.github.fge.jsonschema.load.configuration.LoadingConfigurationBuilder
 import com.github.fge.jsonschema.main.JsonSchemaFactory
 import com.github.fge.jsonschema.ref.JsonRef
 import com.github.fge.jsonschema.report.ProcessingReport
+import com.github.fge.jsonschema.report.LogLevel
 import groovy.util.logging.Log4j
 import org.apache.commons.io.FilenameUtils
 
@@ -108,14 +109,15 @@ class Validator {
 		}
 
 		def factory = createJsonSchemaFactory(namespace, ignoreAdditionalProperties)
-		def result = factory.getJsonSchema(schemaNode).validate(jsonNode)
+		def report = factory.getJsonSchema(schemaNode).validate(jsonNode)
 
 		//now revert the strict property change
 		if(strictNode != null){
 			jsonNode.put('strict', strictNode.booleanValue())
 		}
 
-		return result
+		report.messages.retainAll{it.logLevel == LogLevel.ERROR}
+		return report
 	}
 
 	private createJsonSchemaFactory(String namespace = null, boolean ignoreAdditionalProperties = true){
