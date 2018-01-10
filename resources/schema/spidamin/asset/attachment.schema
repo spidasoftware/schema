@@ -1,5 +1,5 @@
 {
-    "id": "#/spidamin/asset/attachment.schema",
+    "id": "#/v7/spidamin/asset/attachment.schema",
     "description": "A SPIDAMin2-compatible file attachment",
     "type": "object",
     "required": ["name","companyId"],

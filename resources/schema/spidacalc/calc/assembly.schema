@@ -1,6 +1,6 @@
 {
   "type": "object",
-  "id": "#/spidacalc/calc/assembly.schema",
+  "id": "#/v7/spidacalc/calc/assembly.schema",
   "description": "an assembly",
   "required": [
     "id",

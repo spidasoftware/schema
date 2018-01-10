@@ -1,6 +1,6 @@
 {
   "type": "object",
-  "id": "#/spidacalc/results/wire.schema",
+  "id": "#/v7/spidacalc/results/wire.schema",
   "description": "The forces on a single component item.",
   "required": [
     "id", "sag", "tension", "windForce", "verticalForce", "actingOn", "tensionMethod"

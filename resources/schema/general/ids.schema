@@ -1,5 +1,5 @@
 {
-  "id": "#/general/ids.schema",
+  "id": "#/v7/general/ids.schema",
   "description": "An array of ids",
   "type": "array",
   "required": [

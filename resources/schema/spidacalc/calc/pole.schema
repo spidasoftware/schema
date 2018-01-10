@@ -1,5 +1,5 @@
 {
-  "id": "#/spidacalc/calc/pole.schema",
+  "id": "#/v7/spidacalc/calc/pole.schema",
   "description": "The properties for a pole in a structure.",
   "type": "object",
   "required": [

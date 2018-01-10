@@ -1,5 +1,5 @@
 {
-  "id": "#/spidacalc/results/results.schema",
+  "id": "#/v7/spidacalc/results/results.schema",
   "description": "SPIDACalc results",
   "type": "object",
   "required": [

@@ -1,6 +1,6 @@
 {
     "type": "object",
-    "id": "#/spidacalc/calc/location.schema", 
+    "id": "#/v7/spidacalc/calc/location.schema", 
     "description": "A location is single physical location that has a pole", 
     "additionalProperties": false, 
     "properties": {

@@ -1,5 +1,5 @@
 {
-  "id": "#/spidamin/asset/standard_details/pole_asset.schema",
+  "id": "#/v7/spidamin/asset/standard_details/pole_asset.schema",
   "description": "A SPIDA pole asset",
   "type": "object",
   "properties": {

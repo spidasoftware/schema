@@ -1,5 +1,5 @@
 {
-  "id": "#/spidamin/project/station_links.schema",
+  "id": "#/v7/spidamin/project/station_links.schema",
   "description": "StationLinker Links",
   "type": "object",
   "required": [

@@ -1,6 +1,6 @@
 {
   "description": "Engineering properties for a wire",
-  "id": "#/spidacalc/client/wire.schema",
+  "id": "#/v7/spidacalc/client/wire.schema",
   "type": "object",
   "required": [
     "calculation",

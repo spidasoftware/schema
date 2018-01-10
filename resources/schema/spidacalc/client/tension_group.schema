@@ -1,6 +1,6 @@
 {
   "description": "Tension information for a client wire.",
-  "id": "#/spidacalc/client/tension_group.schema",
+  "id": "#/v7/spidacalc/client/tension_group.schema",
   "type": "object",
   "required": [
     "temperature",

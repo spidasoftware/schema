@@ -1,6 +1,6 @@
 {
   "description": "Advanced properties for a foundation/soil.",
-  "id": "#/spidacalc/client/advanced_foundation_properties.schema",
+  "id": "#/v7/spidacalc/client/advanced_foundation_properties.schema",
   "type": "object",
   "required": [
     "unitWeight",

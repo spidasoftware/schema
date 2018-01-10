@@ -1,7 +1,7 @@
 {
   "description": "A wire and an offset from the center of the cable.",
   "type": "object",
-  "id": "#/spidacalc/client/wire_placement.schema",
+  "id": "#/v7/spidacalc/client/wire_placement.schema",
   "required": [
     "x",
     "y",

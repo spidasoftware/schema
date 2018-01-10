@@ -1,5 +1,5 @@
 {
-      "id": "#/spidacalc/calc/client_references/equipment.schema",
+      "id": "#/v7/spidacalc/calc/client_references/equipment.schema",
   "type": "object",
   "description": "A reference to a client equipment",
   "required": [

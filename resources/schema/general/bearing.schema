@@ -1,5 +1,5 @@
 {
-  "id": "#/general/bearing.schema",
+  "id": "#/v7/general/bearing.schema",
   "$schema": "http://json-schema.org/draft-04/schema",
   "type": "integer",
   "maximum": 360,

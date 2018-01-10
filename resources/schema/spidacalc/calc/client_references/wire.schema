@@ -1,5 +1,5 @@
 {
-  "id": "#/spidacalc/calc/client_references/wire.schema",
+  "id": "#/v7/spidacalc/calc/client_references/wire.schema",
   "type": "object",
   "description": "A reference to a client wire",
   "required": [

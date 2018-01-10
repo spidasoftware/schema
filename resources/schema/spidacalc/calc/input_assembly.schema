@@ -1,6 +1,6 @@
 {
   "type": "object",
-  "id": "#/spidacalc/calc/input_assembly.schema",
+  "id": "#/v7/spidacalc/calc/input_assembly.schema",
   "description": "an input assembly to be framed",
   "required": [
     "clientItem"

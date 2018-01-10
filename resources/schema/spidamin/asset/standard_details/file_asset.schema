@@ -1,5 +1,5 @@
 {
-  "id": "#/spidamin/asset/standard_details/file_asset.schema",
+  "id": "#/v7/spidamin/asset/standard_details/file_asset.schema",
   "description": "A SPIDA file asset",
   "type": "object",
   "properties": {

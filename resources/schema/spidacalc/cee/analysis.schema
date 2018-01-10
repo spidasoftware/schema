@@ -1,5 +1,5 @@
 {
-  "id": "#/spidacalc/cee/analysis.schema",
+  "id": "#/v7/spidacalc/cee/analysis.schema",
   "description": "SPIDA CEE analysis object.  The analysis objects are validated by the specific version of the engine that specified.",
   "type": "object",
   "required": [

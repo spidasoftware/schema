@@ -1,5 +1,5 @@
 {
-  "id": "#/spidamin/user/user.schema",
+  "id": "#/v7/spidamin/user/user.schema",
   "description": "A SPIDAMin user",
   "type": "object",
   "properties": {

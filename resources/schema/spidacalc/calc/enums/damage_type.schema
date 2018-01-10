@@ -1,5 +1,5 @@
 {
-	"id": "#/spidacalc/enums/damage_type.schema",
+	"id": "#/v7/spidacalc/enums/damage_type.schema",
 	"description": "Type of damage applied - shell, heart rot, etc",
 	"type": "string",
 	"enum": [

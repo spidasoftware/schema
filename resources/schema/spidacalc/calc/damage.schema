@@ -1,5 +1,5 @@
 {
-    "id": "#/spidacalc/calc/damage.schema",
+    "id": "#/v7/spidacalc/calc/damage.schema",
     "type": "object",
     "required": [
         "id",

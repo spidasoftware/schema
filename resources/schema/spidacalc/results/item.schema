@@ -1,6 +1,6 @@
 {
   "type": "object",
-  "id": "#/spidacalc/results/item.schema",
+  "id": "#/v7/spidacalc/results/item.schema",
   "description": "The forces on a single component item.",
   "required": [
     "id"

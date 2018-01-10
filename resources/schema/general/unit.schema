@@ -1,6 +1,6 @@
 {
    "$schema":"http://json-schema.org/draft-04/schema#",
-   "id":"#/general/unit.schema",
+   "id":"#/v7/general/unit.schema",
    "type":"string",
    "enum":[
       "CELSIUS",

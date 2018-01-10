@@ -1,5 +1,5 @@
 {
-  "id": "#/spidamin/user/external_id.schema",
+  "id": "#/v7/spidamin/user/external_id.schema",
   "description": "A SPIDAMin user's external id.  External IDs allow SPIDA users to be mapped to another Company's user repository.",
   "type": "object",
   "required": [

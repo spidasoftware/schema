@@ -1,6 +1,6 @@
 {
   "type": "object",
-  "id": "#/spidacalc/calc/anchor.schema",
+  "id": "#/v7/spidacalc/calc/anchor.schema",
   "description": "A single anchor in a structure.",
   "required": [
     "id",

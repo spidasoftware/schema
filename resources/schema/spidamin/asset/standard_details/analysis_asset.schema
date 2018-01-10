@@ -1,5 +1,5 @@
 {
-  "id": "#/spidamin/asset/standard_details/analysis_asset.schema",
+  "id": "#/v7/spidamin/asset/standard_details/analysis_asset.schema",
   "description": "A SPIDA analysis asset",
   "type": "object",
   "required": [

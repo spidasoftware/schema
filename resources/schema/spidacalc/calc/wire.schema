@@ -1,6 +1,6 @@
 {
   "type": "object",
-  "id": "#/spidacalc/calc/wire.schema",
+  "id": "#/v7/spidacalc/calc/wire.schema",
   "description": "A single wire in a structure.",
   "required": [
     "id",

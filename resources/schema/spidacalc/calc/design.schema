@@ -1,6 +1,6 @@
 {
     "type": "object",
-    "id": "#/spidacalc/calc/design.schema",
+    "id": "#/v7/spidacalc/calc/design.schema",
     "additionalProperties": false,
     "properties": {
         "id": {

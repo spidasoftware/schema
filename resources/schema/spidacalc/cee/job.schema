@@ -1,5 +1,5 @@
 {
-  "id": "#/spidacalc/cee/job.schema",
+  "id": "#/v7/spidacalc/cee/job.schema",
   "description": "SPIDA CEE job object.  A job is one analysis that has been submitted.",
   "type": "object",
   "required": [

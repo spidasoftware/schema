@@ -1,5 +1,5 @@
 {
-  "id": "#/user/company.schema",
+  "id": "#/v7/user/company.schema",
   "description": "A SPIDAMin company.",
   "type": "object",
   "properties": {

@@ -1,5 +1,5 @@
 {
-  "id": "#/spidamin/project/log_message.schema",
+  "id": "#/v7/spidamin/project/log_message.schema",
   "description": "A ProjectManager Project log message.",
   "type": "object",
   "required": [

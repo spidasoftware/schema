@@ -1,5 +1,5 @@
 {
-  "id": "#/spidamin/asset/assets.schema",
+  "id": "#/v7/spidamin/asset/assets.schema",
   "description": "SPIDAMin assets",
   "type": "array",
   "items": {

@@ -1,5 +1,5 @@
 {
-  "id": "#/spidamin/asset/find_query.schema",
+  "id": "#/v7/spidamin/asset/find_query.schema",
   "type": "object",
   "required":["find_params"],
   "properties": {

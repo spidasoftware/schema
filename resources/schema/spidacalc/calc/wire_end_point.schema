@@ -1,5 +1,5 @@
 {
-  "id": "#/spidacalc/calc/wire_end_point.schema",
+  "id": "#/v7/spidacalc/calc/wire_end_point.schema",
   "description": "A wire end point describes something that wires go to from the current pole under analysis. It is usually another pole, but it can be a building. One wire end point will have multiple wires running to it. In a single structure, you can have one NEXT_POLE and one PREVIOUS_POLE wire end point, and as many OTHER_POLE or BUILDING type wire end points as you want.",
   "type": "object",
   "required": [

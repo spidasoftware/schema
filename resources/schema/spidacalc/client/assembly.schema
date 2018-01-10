@@ -1,6 +1,6 @@
 {
     "type": "object",
-    "id": "#/spidacalc/client/assemby.schema",
+    "id": "#/v7/spidacalc/client/assemby.schema",
     "description": "An assembly is a set of items that will go on a pole. Can be saved as a client assembly or a user assembly. Can be either a framing assembly or a support assembly",
     "additionalProperties": false,
     "required": [

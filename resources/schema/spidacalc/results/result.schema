@@ -1,5 +1,5 @@
 {
-  "id": "#/spidacalc/results/result.schema",
+  "id": "#/v7/spidacalc/results/result.schema",
   "description": "SPIDA CEE analysis result",
   "type": "object",
   "required": [
@@ -37,7 +37,7 @@
       }
     },
     "components": {
-      "id": "#/spidacalc/results/component.schema",
+      "id": "#/v7/spidacalc/results/component.schema",
       "description": "A map of the values for each component.",
       "type": "array",
       "items": {

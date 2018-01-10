@@ -1,6 +1,6 @@
 {
   "type": "object",
-  "id": "#/spidacalc/calc/guy_attach_point.schema",
+  "id": "#/v7/spidacalc/calc/guy_attach_point.schema",
   "description": "A single guy attach point in a structure.",
   "required": [
     "id",

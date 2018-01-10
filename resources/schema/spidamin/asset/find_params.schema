@@ -1,6 +1,6 @@
 {
   "type": "array",
-  "id": "#/spidamin/asset/find_params.schema",
+  "id": "#/v7/spidamin/asset/find_params.schema",
   "required": ["items"],
   "items": {
     "type": "array",

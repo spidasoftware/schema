@@ -1,5 +1,5 @@
 {
-  "id": "#/general/form.schema",
+  "id": "#/v7/general/form.schema",
   "type": "object",
   "description": "Either a Location or a Project form, with field and values stored as <fieldName>: <value>",
   "required": [

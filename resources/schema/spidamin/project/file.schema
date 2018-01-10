@@ -1,5 +1,5 @@
 {
-  "id": "#/spidamin/project/file.schema",
+  "id": "#/v7/spidamin/project/file.schema",
   "description": "Metadata for files attached to a Project.  File content can be retrived from a assetFileAPI service.",
   "type": "object",
   "required": [

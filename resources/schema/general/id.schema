@@ -1,5 +1,5 @@
 {
-  "id": "#/general/id.schema",
+  "id": "#/v7/general/id.schema",
   "type": "object",
   "description": "General id holder for success responses",
   "properties": {

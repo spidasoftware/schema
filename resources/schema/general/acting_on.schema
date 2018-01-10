@@ -1,5 +1,5 @@
 {
-  "id":"#/general/acting_on.schema",
+  "id":"#/v7/general/acting_on.schema",
   "type": "array",
   "minItems":1,
   "items": {

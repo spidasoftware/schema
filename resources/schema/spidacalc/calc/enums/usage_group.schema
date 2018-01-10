@@ -1,5 +1,5 @@
 {
-	"id": "#/spidacalc/enums/usage_group.schema",
+	"id": "#/v7/spidacalc/enums/usage_group.schema",
 	"description": "Usage group for a wire.",
 	"type": "string",
 	"enum": [

@@ -1,6 +1,6 @@
 {
   "description": "Engineering properties for an insulator",
-  "id": "#/spidacalc/client/insulator.schema",
+  "id": "#/v7/spidacalc/client/insulator.schema",
   "type": "object",
   "required": [
     "horizontalOffset",

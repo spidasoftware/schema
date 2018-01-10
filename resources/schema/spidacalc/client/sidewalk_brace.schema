@@ -1,6 +1,6 @@
 {
   "description": "Engineering properties for a Sidewalk Brace AKA Queen Post AKA Sidewalk Strut",
-  "id": "#/spidacalc/client/sidewalk_brace.schema",
+  "id": "#/v7/spidacalc/client/sidewalk_brace.schema",
   "type": "object",
   "required": [
     "density",

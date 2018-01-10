@@ -1,5 +1,5 @@
 {
-	"id": "#/spidacalc/results/status.schema",
+	"id": "#/v7/spidacalc/results/status.schema",
 	"description": "At a given point the overall status of the analysis results",
 	"enum": [
 		"PASSING",

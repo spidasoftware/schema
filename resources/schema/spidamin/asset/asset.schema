@@ -1,5 +1,5 @@
 {
-  "id": "#/spidamin/asset/asset.schema",
+  "id": "#/v7/spidamin/asset/asset.schema",
   "type": "object",
   "required": [
     "ownerId",

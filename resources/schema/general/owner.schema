@@ -1,5 +1,5 @@
 {
-  "id": "#/general/owner.schema",
+  "id": "#/v7/general/owner.schema",
   "$schema": "http://json-schema.org/draft-04/schema",
   "type": "object",
   "description": "A company that owns components at a location.",

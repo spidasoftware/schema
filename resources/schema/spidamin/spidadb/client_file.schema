@@ -1,6 +1,6 @@
 {
 	"description": "Properties for a client file",
-	"id": "#/spidamin/spidadb/client_file.schema",
+	"id": "#/v7/spidamin/spidadb/client_file.schema",
 	"type": "object",
 	"anyOf": [
 

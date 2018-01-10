@@ -1,6 +1,6 @@
 {
 	"description": "Properties for a client file",
-	"id": "#/spidacalc/client/data.schema",
+	"id": "#/v7/spidacalc/client/data.schema",
 	"type": "object",
 	"properties": {
     "schema": {

@@ -1,5 +1,5 @@
 {
-  "id": "#/spidamin/project/project.schema",
+  "id": "#/v7/spidamin/project/project.schema",
   "description": "A ProjectManager project",
   "type": "object",
   "properties": {

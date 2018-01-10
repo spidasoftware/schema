@@ -1,5 +1,5 @@
 {
-  "id": "#/spidacalc/calc/projects.schema",
+  "id": "#/v7/spidacalc/calc/projects.schema",
   "description": "SPIDACalc projects",
   "type": "object",
   "required": [

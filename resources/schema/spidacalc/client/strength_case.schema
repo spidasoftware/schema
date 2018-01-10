@@ -1,5 +1,5 @@
 {
-  "id": "#/spidacalc/results/load_case.schema",
+  "id": "#/v7/spidacalc/results/load_case.schema",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "The loading information used to generate analysis",
   "type": "object",

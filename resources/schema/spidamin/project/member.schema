@@ -1,5 +1,5 @@
 {
-  "id": "#/spidamin/project/member.schema",
+  "id": "#/v7/spidamin/project/member.schema",
   "description": "A ProjectManager member.  One of the following is required to associate a user to a member: userId, email, externalId, userGroupName",
   "type": "object",
   "required": [

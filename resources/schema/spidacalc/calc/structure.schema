@@ -1,5 +1,5 @@
 {
-  "id": "#/spidacalc/calc/structure.schema",
+  "id": "#/v7/spidacalc/calc/structure.schema",
   "description": "Structural Description of a calc Design",
   "type": "object",
   "additionalProperties": false,

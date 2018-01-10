@@ -1,6 +1,6 @@
 {
   "description": "A bundle of communication wires with a messenger.",
-  "id": "#/spidacalc/client/bundle.schema",
+  "id": "#/v7/spidacalc/client/bundle.schema",
   "type": "object",
   "required": [
     "numberOfConductors",

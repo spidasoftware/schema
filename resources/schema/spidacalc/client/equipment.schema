@@ -1,6 +1,6 @@
 {
   "description": "Engineering properties for an equipment",
-  "id": "#/spidacalc/client/equipment.schema",
+  "id": "#/v7/spidacalc/client/equipment.schema",
   "type": "object",
   "required": [
     "distanceToBottom",

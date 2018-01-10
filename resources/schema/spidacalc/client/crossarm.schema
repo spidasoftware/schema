@@ -1,6 +1,6 @@
 {
   "description": "Engineering properties for a cross arm",
-  "id": "#/spidacalc/client/cross_arm.schema",
+  "id": "#/v7/spidacalc/client/cross_arm.schema",
   "type": "object",
   "required": [
     "density",
