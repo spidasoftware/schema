@@ -85,7 +85,7 @@ dependencies {
 	compile group: 'commons-io', name: 'commons-io', version:'2.4'
 	compile group: 'com.github.fge', name: 'json-schema-validator', version:'2.1.6'
     compile group: 'org.mongodb', name:'mongo-java-driver', version:'2.11.1'
-
+	compile group: 'com.spidasoftware', name: 'schema-v4', version:'0.1-SNAPSHOT'
 	compile group: 'junit', name: 'junit', version:'4.9'
     testCompile group: 'org.spockframework', name: 'spock-core', version: '1.0-groovy-2.4'
     testCompile group: 'cglib', name: 'cglib-nodep', version: '2.2'

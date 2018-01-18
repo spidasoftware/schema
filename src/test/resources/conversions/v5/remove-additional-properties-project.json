@@ -1,0 +1,2773 @@
+{
+  "label": "Project",
+  "clientFile": "SCE.client",
+  "date": "2017-08-08",
+  "schema": "/schema/spidacalc/calc/project.schema",
+  "version": 4,
+  "engineer": "",
+  "comments": "",
+  "generalLocation": "",
+  "projectAdditionalProperty": "projectAdditionalProperty",
+  "address": {
+    "number": "",
+    "city": "",
+    "street": "",
+    "county": "",
+    "state": "",
+    "zip_code": "",
+    "projectAddressAdditionalProperty": "projectAddressAdditionalProperty",
+  },
+  "userDefinedValues": {"test": "test"},
+  "clientFileVersion": "9193d9104fabd741dcc2092c29a2efb9",
+  "forms": [
+    {
+      "projectFormAdditionalProperty": "projectFormAdditionalProperty",
+      "title": "Project Info",
+      "template": "9193d9104fabd741dcc2092c29a2efb9-Project Info",
+      "fields": {
+        "Year Installed": "",
+        "Location": "",
+        "Technician/Planner": "",
+        "TD #": "",
+        "District": "22- Montebello"
+      }
+    },
+    {
+      "title": "Company Information",
+      "template": "9193d9104fabd741dcc2092c29a2efb9-Company Information",
+      "fields": {
+        "Company Code": "SCE",
+        "Sub Unity Project": "No"
+      }
+    }
+  ],
+  "leads": [
+    {
+      "leadAdditionalProperty": "leadAdditionalProperty",
+      "label": "Lead",
+      "locations": [
+        {
+          "locationAdditionalProperty": "locationAdditionalProperty",
+          "label": "Location-08-08-2017-07-39-09-202",
+          "mapNumber": "",
+          "comments": "",
+          "address": {
+            "locationAddressAdditionalProperty": "locationAddressAdditionalProperty",
+            "number": "",
+            "city": "",
+            "street": "",
+            "county": "",
+            "state": "",
+            "zip_code": ""
+          },
+          "technician": "",
+          "crossStreet1": "",
+          "crossStreet2": "",
+          "remedies": [],
+          "poleTags": [],
+          "userDefinedValues": {},
+          "summaryNotes": [],
+          "forms": [
+            {
+              "locationFormAdditionalProperty": "locationFormAdditionalProperty",
+              "title": "SAP",
+              "template": "9193d9104fabd741dcc2092c29a2efb9-SAP",
+              "fields": {
+                "Field Inspection Date": "08/08/2017",
+                "Grandfather": "No",
+                "High Fire": "No",
+                "Special Project": "No",
+                "Associated Poles": "",
+                "Pole Type": "ED",
+                "District": "--",
+                "Region": "--",
+                "Above 3000 Ft Elevation": "--",
+                "As Is POA": "--",
+                "As Designed POA": "--",
+                "Recommended POA": "--",
+                "SCE QC POA": "--",
+                "Rework POA": "--",
+                "SCE TSP POA": "--",
+                "As Built POA": "--",
+                "As Designed Work Type": "--",
+                "Access Notes": ""
+              }
+            },
+            {
+              "title": "Pole Info Form",
+              "template": "9193d9104fabd741dcc2092c29a2efb9-Pole Info Form",
+              "fields": {
+                "Pole Equipment #": "",
+                "Previous Inspection Date": "",
+                "Year Installed": "",
+                "As Is POA Height": "",
+                "As Is POA Diameter": "",
+                "As Designed POA Height": "",
+                "As Designed POA Diameter": "",
+                "Thomas Guide/Quadrant": "",
+                "Circuit ": "",
+                "Substation": "",
+                "FIM": "",
+                "Location": "",
+                "City": "",
+                "Brand Height": "",
+                "Date Pole Load Performed": "",
+                "Comments": "",
+                "GPS Location": ""
+              }
+            },
+            {
+              "title": "QC Comments",
+              "template": "9193d9104fabd741dcc2092c29a2efb9-QC Comments",
+              "fields": {
+                "QC Comments": ""
+              }
+            }
+          ],
+          "images": [{
+            "url": "url",
+            "imageAdditionalProperty": "imageAdditionalProperty"
+          }],
+          "designs": [
+            {
+              "designAdditionalProperty": "designAdditionalProperty",
+              "label": "As Is",
+              "layerType": "Measured",
+              "structure": {
+                "structureAdditionalProperty": "structureAdditionalProperty",
+                "pole": {
+                  "poleAdditionalProperty": "poleAdditionalProperty",
+                  "glc": {
+                    "glcAdditionalProperty": "glcAdditionalProperty",
+                    "unit": "METRE",
+                    "value": 0.6565562684145742
+                  },
+                  "agl": {
+                    "aglAdditionalProperty": "aglAdditionalProperty",
+                    "unit": "METRE",
+                    "value": 6.096000000000001
+                  },
+                  "environment": "PARALLEL_TO_STREET",
+                  "temperature": {
+                    "temperatureAdditionalProperty": "temperatureAdditionalProperty",
+                    "unit": "CELSIUS",
+                    "value": 15.555555555555555
+                  },
+                  "stressRatio": 1.0,
+                  "leanAngle": 0,
+                  "leanDirection": 0,
+                  "clientItemVersion": "9650756fb7772dc97c2ada388121a7b2",
+                  "clientItem": {
+                    "clientItemAdditionalProperty": "clientItemAdditionalProperty",
+                    "species": "Douglas Fir",
+                    "classOfPole": "5",
+                    "height": {
+                      "unit": "METRE",
+                      "value": 7.620000000000001
+                    }
+                  },
+                  "externalId": "5989a2dd4568ea90b5eea355",
+                  "owner": {
+                    "ownerAdditionalProperty": "ownerAdditionalProperty",
+                    "id": "SCE",
+                    "industry": "UTILITY",
+                    "externalId": "b2ad09d4-7ddb-4c68-be8e-60c57cd3bcd0"
+                  }
+                },
+                "wireEndPoints": [{
+                  "wireEndPointAdditionalProperty": "wireEndPointAdditionalProperty",
+                  "comments": "",
+                  "direction": 28,
+                  "distance":       {
+                    "unit": "FOOT",
+                    "value": 138
+                  },
+                  "id": "WEP#1",
+                  "inclination":       {
+                    "unit": "DEGREE_ANGLE",
+                    "value": 0
+                  },
+                  "spanGuys": [],
+                  "spanPoints": ["SpanPoint#1"],
+                  "type": "NEXT_POLE",
+                  "externalId": "5d81d90a-2638-4be3-966b-05f0b792ccb8",
+                  "wires":       [
+                    "Wire#1"
+                  ]
+                }],
+                "spanPoints": [{
+                  "spanPointAdditionalProperty": "spanPointAdditionalProperty",
+                  "distance":     {
+                    "unit": "FOOT",
+                    "value": 69.22572178477691
+                  },
+                  "environment": "STREET",
+                  "heights":     [
+                    {
+                      "height":         {
+                        "unit": "FOOT",
+                        "value": 0
+                      },
+                      "wireId": "Wire#1"
+                    },
+                    {
+                      "height":         {
+                        "unit": "FOOT",
+                        "value": 0
+                      },
+                      "wireId": "Wire#4"
+                    },
+                    {
+                      "height":         {
+                        "unit": "FOOT",
+                        "value": 0
+                      },
+                      "wireId": "Wire#7"
+                    },
+                    {
+                      "height":         {
+                        "unit": "FOOT",
+                        "value": 0
+                      },
+                      "wireId": "Wire#6"
+                    }
+                  ],
+                  "id": "SpanPoint#1",
+                  "externalId": "bd5c1257-1840-42ab-8b97-33144c90e5a9"
+                }],
+                "anchors": [{
+                  "anchorAdditionalProperty": "anchorAdditionalProperty",
+                  "clientItem": "10\" - 12\" - 14\" Triple Helix (Class 4) 3/4\" Rod",
+                  "direction": 0,
+                  "distance":       {
+                    "unit": "FOOT",
+                    "value": 20.341207349081365
+                  },
+                  "guys":       [
+                    "Guy#1",
+                    "Guy#2"
+                  ],
+                  "height":       {
+                    "unit": "FOOT",
+                    "value": 0
+                  },
+                  "id": "Anchor#1",
+                  "owner":       {
+                    "industry": "UTILITY",
+                    "id": "Acme Power",
+                    "externalId": "6f831f3c-c7b1-4d49-ab10-e57249f2e60b"
+                  },
+                  "supportedWEPs": [],
+                  "externalId": "d87aa235-a100-4d8e-a0ec-5f8bbff4a365"
+                }],
+                "notePoints": [{
+                  "notePointAdditionalProperty": "notePointAdditionalProperty",
+                  "direction": 181,
+                  "distance":     {
+                    "unit": "FOOT",
+                    "value": 0
+                  },
+                  "height":     {
+                    "unit": "FOOT",
+                    "value": 15.41994750656168
+                  },
+                  "id": "NotePoint#1",
+                  "note": "There are no notes in this client file.",
+                  "externalId": "48d6a270-d331-4a41-8ec0-c82c6998af83"
+                }],
+                "pointLoads": [{
+                  "pointLoadAdditionalProperty": "pointLoadAdditionalProperty",
+                  "id": "PointLoad#1",
+                  "owner":     {
+                    "industry": "UTILITY",
+                    "id": "Acme Power",
+                    "externalId": "8fe035f6-7f2c-4fbb-bed1-13dbfc437dbd"
+                  },
+                  "externalId": "d1244d32-b641-4590-b7bf-c52fa1c5c0af",
+                  "attachHeight":     {
+                    "unit": "FOOT",
+                    "value": 4.363517060367454
+                  },
+                  "XForce":     {
+                    "unit": "POUND_FORCE",
+                    "value": 11.240447154985524
+                  },
+                  "YForce":     {
+                    "unit": "POUND_FORCE",
+                    "value": 0
+                  },
+                  "ZForce":     {
+                    "unit": "POUND_FORCE",
+                    "value": 0
+                  }
+                }],
+                "wirePointLoads": [{
+                  "wirePointLoadAdditionalProperty": "wirePointLoadAdditionalProperty",
+                  "id": "WirePointLoad#1",
+                  "owner":     {
+                    "wirePointLoadOwnerAdditionalProperty": "wirePointLoadOwnerAdditionalProperty",
+                    "industry": "UTILITY",
+                    "id": "Acme Power",
+                    "externalId": "8fe035f6-7f2c-4fbb-bed1-13dbfc437dbd"
+                  },
+                  "externalId": "d1244d32-b641-4590-b7bf-c52fa1c5c0af",
+                  "distance":     {
+                    "wirePointLoadDistanceAdditionalProperty": "wirePointLoadDistanceAdditionalProperty",
+                    "unit": "FOOT",
+                    "value": 4.363517060367454
+                  },
+                  "XForce":     {
+                    "unit": "POUND_FORCE",
+                    "value": 11.240447154985524
+                  },
+                  "YForce":     {
+                    "unit": "POUND_FORCE",
+                    "value": 0
+                  },
+                  "ZForce":     {
+                    "unit": "POUND_FORCE",
+                    "value": 0
+                  },
+                  "wire": "Wire#1"
+                }],
+                "damages": [
+                  {
+                    "damageAdditionalProperty": "damageAdditionalProperty",
+                    "id": "Damage#1",
+                    "externalId": "5989a2e34568ea90b5eea56b",
+                    "attachHeight": {
+                      "damagAattachHeightAdditionalProperty": "damagAattachHeightAdditionalProperty",
+                      "unit": "METRE",
+                      "value": 4.724400000000001
+                    },
+                    "damageHeight": {
+                      "unit": "METRE",
+                      "value": 0.025400000000000002
+                    },
+                    "damageType": "ARC",
+                    "direction": 0,
+                    "arc": {
+                      "unit": "METRE",
+                      "value": 0.041739212831462334
+                    },
+                    "depth": {
+                      "unit": "METRE",
+                      "value": 0.025400000000000002
+                    }
+                  }
+                ],
+                "wires": [{
+                  "wireAdditionalProperty": "wireAdditionalProperty",
+                  "attachmentHeight":       {
+                    "unit": "FOOT",
+                    "value": 14.166666666666666
+                  },
+                  "clientItem":       {
+                    "conductorStrands": 7,
+                    "coreStrands": 0,
+                    "size": "1 AAC"
+                  },
+                  "id": "Wire#1",
+                  "midspanHeight":       {
+                    "wireMidspanHeightAdditionalProperty": "wireMidspanHeightAdditionalProperty",
+                    "unit": "FOOT",
+                    "value": 0
+                  },
+                  "owner":       {
+                    "industry": "UTILITY",
+                    "id": "Acme Power",
+                    "externalId": "002b5901-e45d-49de-9490-f77a1d383fff"
+                  },
+                  "tensionAdjustment": 1,
+                  "tensionGroup": "Full",
+                  "usageGroup": "PRIMARY",
+                  "externalId": "b1036065-2811-4046-a210-64f02fb08c64"
+                }],
+                "spanGuys": [{
+                  "spanGuyAdditionalProperty": "spanGuyAdditionalProperty",
+                  "attachmentHeight":     {
+                    "unit": "FOOT",
+                    "value": 13.6
+                  },
+                  "clientItem":     {
+                    "spanGuyClientItemAdditionalProperty": "spanGuyClientItemAdditionalProperty",
+                    "conductorStrands": 19,
+                    "coreStrands": 0,
+                    "size": "1\" EHS"
+                  },
+                  "height":     {
+                    "unit": "FOOT",
+                    "value": 13.6
+                  },
+                  "id": "SpanGuy#1",
+                  "midspanHeight":     {
+                    "unit": "FOOT",
+                    "value": 12.6
+                  },
+                  "type": "SUPPORT",
+                  "owner":     {
+                    "industry": "UTILITY",
+                    "id": "Acme Power",
+                    "externalId": "30919e4b-b70e-48bc-b6dc-5feddf0ee5f0"
+                  },
+                  "externalId": "3e37d950-4aa0-4846-b7a1-5e2efadcd47e"
+                }],
+                "guys": [{
+                  "guyAdditionalProperty": "guyAdditionalProperty",
+                  "attachmentHeight":       {
+                    "guyAttachmentHeightAdditionalProperty": "guyAttachmentHeightAdditionalProperty",
+                    "unit": "FOOT",
+                    "value": 8.956692913385826
+                  },
+                  "clientItem":       {
+                    "conductorStrands": 7,
+                    "coreStrands": 0,
+                    "size": "1/2\" EHS"
+                  },
+                  "id": "Guy#1",
+                  "owner":       {
+                    "industry": "UTILITY",
+                    "id": "Acme Power",
+                    "externalId": "a39ffa86-4224-457d-8a03-1967268f42c6"
+                  },
+                  "externalId": "e285ec40-4bfc-44c4-a300-221edc586bbd"
+                }],
+                "equipments": [{
+                  "equipmentAdditionalProperty": "equipmentAdditionalProperty",
+                  "attachmentHeight":       {
+                    "unit": "FOOT",
+                    "value": 8.956692913385826
+                  },
+                  "bottomHeight":       {
+                    "equipmentBottomHeightAdditionalProperty": "equipmentBottomHeightAdditionalProperty",
+                    "unit": "FOOT",
+                    "value": 7.316272965879265
+                  },
+                  "clientItem":       {
+                    "size": "3-Unit Rack 300 Kvar (Switched)",
+                    "type": "CAPACITOR"
+                  },
+                  "direction": 181,
+                  "id": "Equip#1",
+                  "owner":       {
+                    "industry": "UTILITY",
+                    "id": "Acme Power",
+                    "externalId": "edfb3652-07d4-450c-b4d4-c98d47ab51e4"
+                  },
+                  "externalId": "f4b51738-16ab-4a13-8d1b-91935ab4fdf5"
+                }],
+                "guyAttachPoints": [{
+                  "guyAttachPointAdditionalProperty": "guyAttachPointAdditionalProperty",
+                  "id": "GuyAttachPoint#1",
+                  "attachHeight": {
+                    "guyAttachPointAttachHeightAdditionalProperty": "guyAttachPointAttachHeightAdditionalProperty",
+                    "unit": "FOOT",
+                    "value": 7.316272965879265
+                  },
+                  "supportedWEPs": ["WEP#1"]
+                }],
+                "crossArms": [{
+                  "crossArmAdditionalProperty": "crossArmAdditionalProperty",
+                  "supportedWEPs": ["WEP#1"],
+                  "attachmentHeight":     {
+                    "unit": "FOOT",
+                    "value": 13.583333333333332
+                  },
+                  "clientItem": "10 Foot Cross Arm",
+                  "direction": 118,
+                  "id": "CrossArm#1",
+                  "insulators": ["Insulator#1"],
+                  "offset":     {
+                    "crossArmOffsetAdditionalProperty": "crossArmOffsetAdditionalProperty",
+                    "unit": "INCH",
+                    "value": 60
+                  },
+                  "owner":     {
+                    "industry": "UTILITY",
+                    "id": "Acme Power",
+                    "externalId": "0b4db31d-aa56-4ba8-a542-2aa43de4ca85"
+                  },
+                  "externalId": "1459c088-b46d-4b92-b603-acc8425d5eb1"
+                }],
+                "insulators": [{
+                  "insulatorAdditionalProperty": "insulatorAdditionalProperty",
+                  "clientItem": "13.2 kV Pin Type Insulator (16\" Bracket)",
+                  "direction": 118,
+                  "doubleInsulator": false,
+                  "id": "Insulator#2",
+                  "offset":       {
+                    "unit": "INCH",
+                    "value": 125
+                  },
+                  "owner":       {
+                    "insulatorOwnerAdditionalProperty": "insulatorOwnerAdditionalProperty",
+                    "industry": "UTILITY",
+                    "id": "Acme Power",
+                    "externalId": "567bbaec-0ef8-49ad-8dc8-118b8a94e943"
+                  },
+                  "externalId": "ed8a300d-eba8-4510-a2b6-1af7bf83e4bc",
+                  "wires":       [
+                    "Wire#7",
+                    "Wire#8"
+                  ]
+                }],
+                "pushBraces": [ {
+                  "pushBraceAdditionalProperty": "pushBraceAdditionalProperty",
+                  "attachmentHeight":     {
+                    "unit": "FOOT",
+                    "value": 8.923884514435697
+                  },
+                  "clientItem":     {
+                    "classOfPole": "1",
+                    "height":       {
+                      "unit": "FOOT",
+                      "value": 25,
+                      "pushBraceClientItemHeightAdditionalProperty": "pushBraceClientItemHeightAdditionalProperty",
+
+                    },
+                    "species": "Douglas Fir"
+                  },
+                  "direction": 181,
+                  "distance":     {
+                    "unit": "INCH",
+                    "value": 120
+                  },
+                  "glc":     {
+                    "unit": "INCH",
+                    "value": 30
+                  },
+                  "id": "PushBrace#1",
+                  "owner":     {
+                    "industry": "UTILITY",
+                    "id": "Acme Power",
+                    "externalId": "ee751f19-4ad4-4aef-8eb0-7035f11d4f78"
+                  },
+                  "externalId": "f85c03f7-3d84-4c3a-97cf-37551d311cfc"
+                }],
+                "sidewalkBraces": [{
+                  "sidewalkBraceAdditionalProperty": "sidewalkBraceAdditionalProperty",
+                  "attachmentHeight": {
+                    "unit": "FOOT",
+                    "value": 8.923884514435697
+                  },
+                  "length": {
+                    "sidewalkBraceLengthAdditionalProperty": "sidewalkBraceLengthAdditionalProperty",
+                    "unit": "FOOT",
+                    "value": 8.923884514435697
+                  },
+                  "direction": 181,
+                  "id": "SidewalkBrace#1",
+                  "owner":     {
+                    "industry": "UTILITY",
+                    "id": "Acme Power",
+                    "externalId": "ee751f19-4ad4-4aef-8eb0-7035f11d4f78"
+                  },
+                  "guys": ["Guy#1"],
+                  "clientItemVersion": "9650756fb7772dc97c2ada388121a7b4"
+                }],
+                "foundations": [{
+                  "foundationAdditionalProperty": "foundationAdditionalProperty",
+                  "id": "Foundation#1",
+                  "clientItemVersion": "9650756fb7772dc97c2ada388121a7b2"
+                }],
+                "assemblies": []
+              },
+              "analysis": [
+                {
+                  "analysisAdditionalProperties": "analysisAdditionalProperties",
+                  "id": "5989a2f24568ea90b5eea589",
+                  "results": [
+                    {
+                      "resultAdditionalProperties": "resultAdditionalProperties",
+                      "analysisCase": "New, Light, 8 lb, Grade A",
+                      "analysisCaseVersion": "7a56eaf8c2a8a2b182cb18a74f391382",
+                      "analysisDate": 1502192375069,
+                      "components": [
+                        {
+                          "actual": 38.861707330955994,
+                          "actualEngineering": {
+                            "unit": "PASCAL",
+                            "value": 1419342.1270868804
+                          },
+                          "additionalValues": [
+                            {
+                              "name": "heightOfMaximumStress",
+                              "tags": [
+                                "ATTACH_HEIGHT"
+                              ],
+                              "value": {
+                                "unit": "METRE",
+                                "value": 0.02
+                              }
+                            }
+                          ],
+                          "allowable": 4,
+                          "allowableEngineering": {
+                            "unit": "PASCAL",
+                            "value": 55158058.34534689
+                          },
+                          "analysisType": "STRESS",
+                          "anchors": [],
+                          "atDirection": [
+                            {
+                              "actual": 38.86170733292008,
+                              "direction": {
+                                "unit": "RADIAN",
+                                "value": 0
+                              },
+                              "ratio": 0.10292908558373003,
+                              "status": "PASSING",
+                              "value": {
+                                "unit": "PASCAL",
+                                "value": 1419342.127015146
+                              }
+                            },
+                            {
+                              "actual": 38.86170733243884,
+                              "direction": {
+                                "unit": "RADIAN",
+                                "value": 0.17453292519943295
+                              },
+                              "ratio": 0.10292908558500465,
+                              "status": "PASSING",
+                              "value": {
+                                "unit": "PASCAL",
+                                "value": 1419342.1270327223
+                              }
+                            },
+                            {
+                              "actual": 38.861707331851285,
+                              "direction": {
+                                "unit": "RADIAN",
+                                "value": 0.3490658503988659
+                              },
+                              "ratio": 0.10292908558656085,
+                              "status": "PASSING",
+                              "value": {
+                                "unit": "PASCAL",
+                                "value": 1419342.1270541816
+                              }
+                            },
+                            {
+                              "actual": 38.861707331799984,
+                              "direction": {
+                                "unit": "RADIAN",
+                                "value": 0.5235987755982988
+                              },
+                              "ratio": 0.10292908558669672,
+                              "status": "PASSING",
+                              "value": {
+                                "unit": "PASCAL",
+                                "value": 1419342.1270560555
+                              }
+                            },
+                            {
+                              "actual": 38.86170733132199,
+                              "direction": {
+                                "unit": "RADIAN",
+                                "value": 0.6981317007977318
+                              },
+                              "ratio": 0.10292908558796274,
+                              "status": "PASSING",
+                              "value": {
+                                "unit": "PASCAL",
+                                "value": 1419342.127073513
+                              }
+                            },
+                            {
+                              "actual": 38.86170733116333,
+                              "direction": {
+                                "unit": "RADIAN",
+                                "value": 0.8726646259971648
+                              },
+                              "ratio": 0.10292908558838296,
+                              "status": "PASSING",
+                              "value": {
+                                "unit": "PASCAL",
+                                "value": 1419342.1270793078
+                              }
+                            },
+                            {
+                              "actual": 38.86170733182916,
+                              "direction": {
+                                "unit": "RADIAN",
+                                "value": 1.0471975511965976
+                              },
+                              "ratio": 0.10292908558661945,
+                              "status": "PASSING",
+                              "value": {
+                                "unit": "PASCAL",
+                                "value": 1419342.1270549898
+                              }
+                            },
+                            {
+                              "actual": 38.86170733221404,
+                              "direction": {
+                                "unit": "RADIAN",
+                                "value": 1.2217304763960306
+                              },
+                              "ratio": 0.10292908558560006,
+                              "status": "PASSING",
+                              "value": {
+                                "unit": "PASCAL",
+                                "value": 1419342.127040933
+                              }
+                            },
+                            {
+                              "actual": 38.86170733254744,
+                              "direction": {
+                                "unit": "RADIAN",
+                                "value": 1.3962634015954636
+                              },
+                              "ratio": 0.10292908558471701,
+                              "status": "PASSING",
+                              "value": {
+                                "unit": "PASCAL",
+                                "value": 1419342.127028756
+                              }
+                            },
+                            {
+                              "actual": 38.86170733276517,
+                              "direction": {
+                                "unit": "RADIAN",
+                                "value": 1.5707963267948966
+                              },
+                              "ratio": 0.10292908558414032,
+                              "status": "PASSING",
+                              "value": {
+                                "unit": "PASCAL",
+                                "value": 1419342.127020804
+                              }
+                            },
+                            {
+                              "actual": 38.86170733250258,
+                              "direction": {
+                                "unit": "RADIAN",
+                                "value": 1.7453292519943295
+                              },
+                              "ratio": 0.10292908558483582,
+                              "status": "PASSING",
+                              "value": {
+                                "unit": "PASCAL",
+                                "value": 1419342.1270303945
+                              }
+                            },
+                            {
+                              "actual": 38.86170733178628,
+                              "direction": {
+                                "unit": "RADIAN",
+                                "value": 2.0943951023931953
+                              },
+                              "ratio": 0.10292908558673303,
+                              "status": "PASSING",
+                              "value": {
+                                "unit": "PASCAL",
+                                "value": 1419342.127056556
+                              }
+                            },
+                            {
+                              "actual": 38.86170733153052,
+                              "direction": {
+                                "unit": "RADIAN",
+                                "value": 2.2689280275926285
+                              },
+                              "ratio": 0.10292908558741043,
+                              "status": "PASSING",
+                              "value": {
+                                "unit": "PASCAL",
+                                "value": 1419342.127065897
+                              }
+                            },
+                            {
+                              "actual": 38.86170733114505,
+                              "direction": {
+                                "unit": "RADIAN",
+                                "value": 2.443460952792061
+                              },
+                              "ratio": 0.10292908558843138,
+                              "status": "PASSING",
+                              "value": {
+                                "unit": "PASCAL",
+                                "value": 1419342.1270799756
+                              }
+                            },
+                            {
+                              "actual": 38.861707331686276,
+                              "direction": {
+                                "unit": "RADIAN",
+                                "value": 2.6179938779914944
+                              },
+                              "ratio": 0.10292908558699788,
+                              "status": "PASSING",
+                              "value": {
+                                "unit": "PASCAL",
+                                "value": 1419342.1270602082
+                              }
+                            },
+                            {
+                              "actual": 38.86170733256348,
+                              "direction": {
+                                "unit": "RADIAN",
+                                "value": 2.792526803190927
+                              },
+                              "ratio": 0.10292908558467452,
+                              "status": "PASSING",
+                              "value": {
+                                "unit": "PASCAL",
+                                "value": 1419342.12702817
+                              }
+                            },
+                            {
+                              "actual": 38.861707332899236,
+                              "direction": {
+                                "unit": "RADIAN",
+                                "value": 2.9670597283903604
+                              },
+                              "ratio": 0.10292908558378525,
+                              "status": "PASSING",
+                              "value": {
+                                "unit": "PASCAL",
+                                "value": 1419342.1270159076
+                              }
+                            },
+                            {
+                              "actual": 38.86170733270172,
+                              "direction": {
+                                "unit": "RADIAN",
+                                "value": 3.141592653589793
+                              },
+                              "ratio": 0.10292908558430838,
+                              "status": "PASSING",
+                              "value": {
+                                "unit": "PASCAL",
+                                "value": 1419342.1270231213
+                              }
+                            },
+                            {
+                              "actual": 38.86170733251163,
+                              "direction": {
+                                "unit": "RADIAN",
+                                "value": 3.316125578789226
+                              },
+                              "ratio": 0.10292908558481186,
+                              "status": "PASSING",
+                              "value": {
+                                "unit": "PASCAL",
+                                "value": 1419342.1270300641
+                              }
+                            },
+                            {
+                              "actual": 38.86170733203223,
+                              "direction": {
+                                "unit": "RADIAN",
+                                "value": 3.665191429188092
+                              },
+                              "ratio": 0.10292908558608159,
+                              "status": "PASSING",
+                              "value": {
+                                "unit": "PASCAL",
+                                "value": 1419342.127047573
+                              }
+                            },
+                            {
+                              "actual": 38.861707330955994,
+                              "direction": {
+                                "unit": "RADIAN",
+                                "value": 3.839724354387525
+                              },
+                              "ratio": 0.10292908558893211,
+                              "status": "PASSING",
+                              "value": {
+                                "unit": "PASCAL",
+                                "value": 1419342.1270868804
+                              }
+                            },
+                            {
+                              "actual": 38.86170733119436,
+                              "direction": {
+                                "unit": "RADIAN",
+                                "value": 4.014257279586958
+                              },
+                              "ratio": 0.10292908558830077,
+                              "status": "PASSING",
+                              "value": {
+                                "unit": "PASCAL",
+                                "value": 1419342.1270781744
+                              }
+                            },
+                            {
+                              "actual": 38.86170733177727,
+                              "direction": {
+                                "unit": "RADIAN",
+                                "value": 4.1887902047863905
+                              },
+                              "ratio": 0.10292908558675688,
+                              "status": "PASSING",
+                              "value": {
+                                "unit": "PASCAL",
+                                "value": 1419342.127056885
+                              }
+                            },
+                            {
+                              "actual": 38.86170733238864,
+                              "direction": {
+                                "unit": "RADIAN",
+                                "value": 4.537856055185257
+                              },
+                              "ratio": 0.10292908558513761,
+                              "status": "PASSING",
+                              "value": {
+                                "unit": "PASCAL",
+                                "value": 1419342.127034556
+                              }
+                            },
+                            {
+                              "actual": 38.86170733272214,
+                              "direction": {
+                                "unit": "RADIAN",
+                                "value": 4.71238898038469
+                              },
+                              "ratio": 0.1029290855842543,
+                              "status": "PASSING",
+                              "value": {
+                                "unit": "PASCAL",
+                                "value": 1419342.1270223756
+                              }
+                            },
+                            {
+                              "actual": 38.86170733263912,
+                              "direction": {
+                                "unit": "RADIAN",
+                                "value": 4.886921905584122
+                              },
+                              "ratio": 0.10292908558447418,
+                              "status": "PASSING",
+                              "value": {
+                                "unit": "PASCAL",
+                                "value": 1419342.1270254077
+                              }
+                            },
+                            {
+                              "actual": 38.86170733182916,
+                              "direction": {
+                                "unit": "RADIAN",
+                                "value": 5.235987755982989
+                              },
+                              "ratio": 0.10292908558661945,
+                              "status": "PASSING",
+                              "value": {
+                                "unit": "PASCAL",
+                                "value": 1419342.1270549898
+                              }
+                            },
+                            {
+                              "actual": 38.86170733122813,
+                              "direction": {
+                                "unit": "RADIAN",
+                                "value": 5.410520681182422
+                              },
+                              "ratio": 0.10292908558821133,
+                              "status": "PASSING",
+                              "value": {
+                                "unit": "PASCAL",
+                                "value": 1419342.127076941
+                              }
+                            },
+                            {
+                              "actual": 38.861707331316794,
+                              "direction": {
+                                "unit": "RADIAN",
+                                "value": 5.585053606381854
+                              },
+                              "ratio": 0.1029290855879765,
+                              "status": "PASSING",
+                              "value": {
+                                "unit": "PASCAL",
+                                "value": 1419342.1270737029
+                              }
+                            },
+                            {
+                              "actual": 38.86170733164097,
+                              "direction": {
+                                "unit": "RADIAN",
+                                "value": 5.759586531581287
+                              },
+                              "ratio": 0.10292908558711789,
+                              "status": "PASSING",
+                              "value": {
+                                "unit": "PASCAL",
+                                "value": 1419342.127061863
+                              }
+                            },
+                            {
+                              "actual": 38.86170733247179,
+                              "direction": {
+                                "unit": "RADIAN",
+                                "value": 6.1086523819801535
+                              },
+                              "ratio": 0.10292908558491738,
+                              "status": "PASSING",
+                              "value": {
+                                "unit": "PASCAL",
+                                "value": 1419342.127031519
+                              }
+                            }
+                          ],
+                          "atHeight": [
+                            {
+                              "actual": 39.12209554124762,
+                              "actualEngineering": {
+                                "unit": "PASCAL",
+                                "value": 1409895.2927302187
+                              },
+                              "applied": {
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    -0.6128902798730294,
+                                    -0.5142760077935987,
+                                    -3.2295888618961586
+                                  ]
+                                }
+                              },
+                              "components": [],
+                              "deflection": {
+                                "unit": "METRE",
+                                "vector": [
+                                  0,
+                                  0,
+                                  0
+                                ]
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 0
+                              },
+                              "internal": {
+                                "rotational": {
+                                  "unit": "NEWTON_METRE",
+                                  "vector": [
+                                    -791.174817844125,
+                                    942.8854315392406,
+                                    2.631312465443611E-9
+                                  ]
+                                },
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    323.7002962575951,
+                                    271.6167971145172,
+                                    1491.6699202399705
+                                  ]
+                                }
+                              },
+                              "ratio": 0.102244011847031,
+                              "status": "PASSING"
+                            },
+                            {
+                              "actual": 38.861707330955994,
+                              "actualEngineering": {
+                                "unit": "PASCAL",
+                                "value": 1419342.1270868804
+                              },
+                              "applied": {
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    -1.8373168684756624,
+                                    -1.5416919066937234,
+                                    -9.67450512573976
+                                  ]
+                                }
+                              },
+                              "components": [],
+                              "deflection": {
+                                "unit": "METRE",
+                                "vector": [
+                                  -1.5371657091415025E-7,
+                                  -1.2898351796693015E-7,
+                                  -6.646316632469285E-8
+                                ]
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 0.02
+                              },
+                              "internal": {
+                                "rotational": {
+                                  "unit": "NEWTON_METRE",
+                                  "vector": [
+                                    -785.7423075535119,
+                                    936.4112178794581,
+                                    2.631381883222428E-9
+                                  ]
+                                },
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    321.8629772157982,
+                                    270.07510520776185,
+                                    1481.995415066596
+                                  ]
+                                }
+                              },
+                              "ratio": 0.10292908558893211,
+                              "status": "PASSING"
+                            },
+                            {
+                              "actual": 39.001730302960155,
+                              "actualEngineering": {
+                                "unit": "PASCAL",
+                                "value": 1414246.442834371
+                              },
+                              "applied": {
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    -2.4468222204901293,
+                                    -2.0531276227696402,
+                                    -12.868469890783631
+                                  ]
+                                }
+                              },
+                              "components": [],
+                              "deflection": {
+                                "unit": "METRE",
+                                "vector": [
+                                  -0.0000013798167445195972,
+                                  -0.000001157803721477212,
+                                  -1.9884850750717664E-7
+                                ]
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 0.06
+                              },
+                              "internal": {
+                                "rotational": {
+                                  "unit": "NEWTON_METRE",
+                                  "vector": [
+                                    -774.9378143923587,
+                                    923.5349243026646,
+                                    2.630294719443288E-9
+                                  ]
+                                },
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    319.41615323016276,
+                                    268.0219775849574,
+                                    1469.12694526084
+                                  ]
+                                }
+                              },
+                              "ratio": 0.1025595523308464,
+                              "status": "PASSING"
+                            },
+                            {
+                              "actual": 39.34486621862003,
+                              "actualEngineering": {
+                                "unit": "PASCAL",
+                                "value": 1401912.463975878
+                              },
+                              "applied": {
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    -7.300524512739344,
+                                    -6.125867426040275,
+                                    -38.18655844409212
+                                  ]
+                                }
+                              },
+                              "components": [],
+                              "deflection": {
+                                "unit": "METRE",
+                                "vector": [
+                                  -0.000003822565987917678,
+                                  -0.0000032075137107800646,
+                                  -3.306145361231527E-7
+                                ]
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 0.1
+                              },
+                              "internal": {
+                                "rotational": {
+                                  "unit": "NEWTON_METRE",
+                                  "vector": [
+                                    -764.2139593209718,
+                                    910.7547315125702,
+                                    2.6306206154375067E-9
+                                  ]
+                                },
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    312.1156301279312,
+                                    261.89611015901534,
+                                    1430.9403869545906
+                                  ]
+                                }
+                              },
+                              "ratio": 0.10166510613542239,
+                              "status": "PASSING"
+                            },
+                            {
+                              "actual": 39.259252148936916,
+                              "actualEngineering": {
+                                "unit": "PASCAL",
+                                "value": 1404969.665140208
+                              },
+                              "applied": {
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    -12.102098915966693,
+                                    -10.15486673685861,
+                                    -62.96248634493088
+                                  ]
+                                }
+                              },
+                              "components": [],
+                              "deflection": {
+                                "unit": "METRE",
+                                "vector": [
+                                  -0.000034093557868035465,
+                                  -0.000028607891847564314,
+                                  -9.827432294606808E-7
+                                ]
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 0.3
+                              },
+                              "internal": {
+                                "rotational": {
+                                  "unit": "NEWTON_METRE",
+                                  "vector": [
+                                    -711.7985616521787,
+                                    848.2884930395453,
+                                    2.6265664417740586E-9
+                                  ]
+                                },
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    300.0135312527137,
+                                    251.74124342222498,
+                                    1367.977900437781
+                                  ]
+                                }
+                              },
+                              "ratio": 0.10188681090575268,
+                              "status": "PASSING"
+                            },
+                            {
+                              "actual": 41.01211874940054,
+                              "actualEngineering": {
+                                "unit": "PASCAL",
+                                "value": 1344920.9654927452
+                              },
+                              "applied": {
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    -20.855412492448956,
+                                    -17.499768930463954,
+                                    -106.84941401654518
+                                  ]
+                                }
+                              },
+                              "components": [],
+                              "deflection": {
+                                "unit": "METRE",
+                                "vector": [
+                                  -0.0000935483465879512,
+                                  -0.00007849638317509547,
+                                  -0.0000016286635087792156
+                                ]
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 0.5
+                              },
+                              "internal": {
+                                "rotational": {
+                                  "unit": "NEWTON_METRE",
+                                  "vector": [
+                                    -661.3822292187757,
+                                    788.2046477359407,
+                                    2.6140254856532597E-9
+                                  ]
+                                },
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    279.15811876061684,
+                                    234.24147449390193,
+                                    1261.128486428208
+                                  ]
+                                }
+                              },
+                              "ratio": 0.09753214713049826,
+                              "status": "PASSING"
+                            },
+                            {
+                              "actual": 42.18946715733944,
+                              "actualEngineering": {
+                                "unit": "PASCAL",
+                                "value": 1307389.3097450836
+                              },
+                              "applied": {
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    -29.332854448458335,
+                                    -24.613187349078224,
+                                    -147.97058650448145
+                                  ]
+                                }
+                              },
+                              "components": [],
+                              "deflection": {
+                                "unit": "METRE",
+                                "vector": [
+                                  -0.00036383009556979713,
+                                  -0.00030528969960723053,
+                                  -0.0000032521192064871585
+                                ]
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 1
+                              },
+                              "internal": {
+                                "rotational": {
+                                  "unit": "NEWTON_METRE",
+                                  "vector": [
+                                    -543.9758567402268,
+                                    648.2851815419255,
+                                    2.4610864804430754E-9
+                                  ]
+                                },
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    249.82526432038895,
+                                    209.62828715150752,
+                                    1113.1579000090774
+                                  ]
+                                }
+                              },
+                              "ratio": 0.09481039390904335,
+                              "status": "PASSING"
+                            },
+                            {
+                              "actual": 47.875673389779536,
+                              "actualEngineering": {
+                                "unit": "PASCAL",
+                                "value": 1152110.3399690664
+                              },
+                              "applied": {
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    -28.664331196392162,
+                                    -24.052229734836054,
+                                    -141.30448639502657
+                                  ]
+                                }
+                              },
+                              "components": [],
+                              "deflection": {
+                                "unit": "METRE",
+                                "vector": [
+                                  -0.0007921516636425808,
+                                  -0.0006646941706118415,
+                                  -0.000004948578925745295
+                                ]
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 1.5
+                              },
+                              "internal": {
+                                "rotational": {
+                                  "unit": "NEWTON_METRE",
+                                  "vector": [
+                                    -438.76199486326965,
+                                    522.8961836608394,
+                                    2.1585658867978585E-9
+                                  ]
+                                },
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    221.1609331370206,
+                                    185.57605742886395,
+                                    971.853413547181
+                                  ]
+                                }
+                              },
+                              "ratio": 0.08354973866234781,
+                              "status": "PASSING"
+                            },
+                            {
+                              "actual": 55.19660098801034,
+                              "actualEngineering": {
+                                "unit": "PASCAL",
+                                "value": 999301.7207224079
+                              },
+                              "applied": {
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    -27.995807944325982,
+                                    -23.49127212059389,
+                                    -134.79014104068767
+                                  ]
+                                }
+                              },
+                              "components": [],
+                              "deflection": {
+                                "unit": "METRE",
+                                "vector": [
+                                  -0.0013603223496975174,
+                                  -0.0011414459853963008,
+                                  -0.000006765151652876611
+                                ]
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 2
+                              },
+                              "internal": {
+                                "rotational": {
+                                  "unit": "NEWTON_METRE",
+                                  "vector": [
+                                    -345.51097038085675,
+                                    411.76394022251986,
+                                    1.7890114641441746E-9
+                                  ]
+                                },
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    193.16512521353218,
+                                    162.08478532507337,
+                                    837.0632723722932
+                                  ]
+                                }
+                              },
+                              "ratio": 0.07246823044174168,
+                              "status": "PASSING"
+                            },
+                            {
+                              "actual": 65.15921895500335,
+                              "actualEngineering": {
+                                "unit": "PASCAL",
+                                "value": 846511.9630030723
+                              },
+                              "applied": {
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    -27.33574701190622,
+                                    -22.937415235645936,
+                                    -128.5100105092411
+                                  ]
+                                }
+                              },
+                              "components": [],
+                              "deflection": {
+                                "unit": "METRE",
+                                "vector": [
+                                  -0.002049605339977652,
+                                  -0.0017198230902883166,
+                                  -0.000008718149922870566
+                                ]
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 2.5
+                              },
+                              "internal": {
+                                "rotational": {
+                                  "unit": "NEWTON_METRE",
+                                  "vector": [
+                                    -263.9847560348423,
+                                    314.6047813874486,
+                                    1.4085310461389722E-9
+                                  ]
+                                },
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    165.8293782238878,
+                                    139.14737010812553,
+                                    708.5532620212438
+                                  ]
+                                }
+                              },
+                              "ratio": 0.06138809003776209,
+                              "status": "PASSING"
+                            },
+                            {
+                              "actual": 79.09454616045554,
+                              "actualEngineering": {
+                                "unit": "PASCAL",
+                                "value": 697368.6685482742
+                              },
+                              "applied": {
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    -26.66722375984004,
+                                    -22.376457621403773,
+                                    -122.30306581270108
+                                  ]
+                                }
+                              },
+                              "components": [],
+                              "deflection": {
+                                "unit": "METRE",
+                                "vector": [
+                                  -0.002840793013211846,
+                                  -0.002383708377243494,
+                                  -0.000010800502298735637
+                                ]
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 3
+                              },
+                              "internal": {
+                                "rotational": {
+                                  "unit": "NEWTON_METRE",
+                                  "vector": [
+                                    -193.94096264540147,
+                                    231.12983897752818,
+                                    1.0503340883670498E-9
+                                  ]
+                                },
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    139.1621544831445,
+                                    116.77091250520785,
+                                    586.2501961207064
+                                  ]
+                                }
+                              },
+                              "ratio": 0.050572387025084896,
+                              "status": "PASSING"
+                            },
+                            {
+                              "actual": 99.39324308838601,
+                              "actualEngineering": {
+                                "unit": "PASCAL",
+                                "value": 554947.7673879428
+                              },
+                              "applied": {
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    -25.998700507773865,
+                                    -21.815500007161607,
+                                    -116.24787587127693
+                                  ]
+                                }
+                              },
+                              "components": [],
+                              "deflection": {
+                                "unit": "METRE",
+                                "vector": [
+                                  -0.0037147692541820267,
+                                  -0.003117061520950278,
+                                  -0.000012986169994899655
+                                ]
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 3.5
+                              },
+                              "internal": {
+                                "rotational": {
+                                  "unit": "NEWTON_METRE",
+                                  "vector": [
+                                    -135.12583318666256,
+                                    161.03669714817661,
+                                    7.374381964450616E-10
+                                  ]
+                                },
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    113.16345399663547,
+                                    94.95541251333181,
+                                    470.00232030544737
+                                  ]
+                                }
+                              },
+                              "ratio": 0.0402441843701888,
+                              "status": "PASSING"
+                            },
+                            {
+                              "actual": 131.52380452567095,
+                              "actualEngineering": {
+                                "unit": "PASCAL",
+                                "value": 419376.9982876452
+                              },
+                              "applied": {
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    -25.338639575354097,
+                                    -21.26164312221365,
+                                    -110.4210886589108
+                                  ]
+                                }
+                              },
+                              "components": [],
+                              "deflection": {
+                                "unit": "METRE",
+                                "vector": [
+                                  -0.0046527724906246445,
+                                  -0.00390413969299033,
+                                  -0.000015231116748282147
+                                ]
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 4
+                              },
+                              "internal": {
+                                "rotational": {
+                                  "unit": "NEWTON_METRE",
+                                  "vector": [
+                                    -87.27841152809872,
+                                    104.01436049222472,
+                                    4.78395431721592E-10
+                                  ]
+                                },
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    87.82481443541575,
+                                    73.69376940175734,
+                                    359.5812316038406
+                                  ]
+                                }
+                              },
+                              "ratio": 0.030412745543862942,
+                              "status": "PASSING"
+                            },
+                            {
+                              "actual": 186.9766240777929,
+                              "actualEngineering": {
+                                "unit": "PASCAL",
+                                "value": 294999.75527634943
+                              },
+                              "applied": {
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    -17.38671367715226,
+                                    -14.589185033883428,
+                                    -74.37067035093864
+                                  ]
+                                }
+                              },
+                              "components": [],
+                              "deflection": {
+                                "unit": "METRE",
+                                "vector": [
+                                  -0.005636849474416279,
+                                  -0.0047298783294563735,
+                                  -0.00001748228271303276
+                                ]
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 4.5
+                              },
+                              "internal": {
+                                "rotational": {
+                                  "unit": "NEWTON_METRE",
+                                  "vector": [
+                                    -50.134772599987,
+                                    59.74829535906357,
+                                    2.7671483018105927E-10
+                                  ]
+                                },
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    70.43810072818417,
+                                    59.1045843306751,
+                                    285.2105616803953
+                                  ]
+                                }
+                              },
+                              "ratio": 0.021393048568123536,
+                              "status": "PASSING"
+                            },
+                            {
+                              "actual": 301.63368371504157,
+                              "actualEngineering": {
+                                "unit": "PASCAL",
+                                "value": 182864.38592002756
+                              },
+                              "applied": {
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    -5.5017220179450375,
+                                    -4.6164929160976005,
+                                    -23.194653202303133
+                                  ]
+                                }
+                              },
+                              "components": [
+                                "Damage#1"
+                              ],
+                              "deflection": {
+                                "unit": "METRE",
+                                "vector": [
+                                  -0.006037506469239858,
+                                  -0.005066069466965106,
+                                  -0.00001836668772892125
+                                ]
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 4.699000000000001
+                              },
+                              "internal": {
+                                "rotational": {
+                                  "unit": "NEWTON_METRE",
+                                  "vector": [
+                                    -38.27712728105517,
+                                    45.61690397783973,
+                                    2.5816936906496624E-10
+                                  ]
+                                },
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    64.93637766914341,
+                                    54.48808881786027,
+                                    262.0159087165091
+                                  ]
+                                }
+                              },
+                              "ratio": 0.013261118422632358,
+                              "status": "PASSING"
+                            },
+                            {
+                              "actual": 315.8162176822051,
+                              "actualEngineering": {
+                                "unit": "PASCAL",
+                                "value": 174652.39356659807
+                              },
+                              "applied": {
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    -7.283128466979118,
+                                    -6.111270410458925,
+                                    -30.30285700131795
+                                  ]
+                                }
+                              },
+                              "components": [
+                                "Damage#1"
+                              ],
+                              "deflection": {
+                                "unit": "METRE",
+                                "vector": [
+                                  -0.006088934322207482,
+                                  -0.005109222559540383,
+                                  -0.0000184803301692682
+                                ]
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 4.724400000000001
+                              },
+                              "internal": {
+                                "rotational": {
+                                  "unit": "NEWTON_METRE",
+                                  "vector": [
+                                    -36.881829175831385,
+                                    43.954052422871335,
+                                    2.0584978815648466E-10
+                                  ]
+                                },
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    57.653250274046215,
+                                    48.376821029120514,
+                                    231.7130513600195
+                                  ]
+                                }
+                              },
+                              "ratio": 0.012665594026032765,
+                              "status": "PASSING"
+                            },
+                            {
+                              "actual": 390.0118709498286,
+                              "actualEngineering": {
+                                "unit": "PASCAL",
+                                "value": 141426.61404386448
+                              },
+                              "applied": {
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    -18.49113455447376,
+                                    -15.515904184708381,
+                                    -75.81397394263621
+                                  ]
+                                }
+                              },
+                              "components": [],
+                              "deflection": {
+                                "unit": "METRE",
+                                "vector": [
+                                  -0.00665042185062289,
+                                  -0.005580366538823829,
+                                  -0.000019683334923747964
+                                ]
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 5
+                              },
+                              "internal": {
+                                "rotational": {
+                                  "unit": "NEWTON_METRE",
+                                  "vector": [
+                                    -23.440065282308254,
+                                    27.934782011316027,
+                                    1.3052344193190276E-10
+                                  ]
+                                },
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    39.16211573001032,
+                                    32.860916861483986,
+                                    155.89907709302813
+                                  ]
+                                }
+                              },
+                              "ratio": 0.01025609807788277,
+                              "status": "PASSING"
+                            },
+                            {
+                              "actual": 573.0085722260471,
+                              "actualEngineering": {
+                                "unit": "PASCAL",
+                                "value": 96260.4418483071
+                              },
+                              "applied": {
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    -23.324607499509163,
+                                    -19.57166955019295,
+                                    -93.56801054214196
+                                  ]
+                                }
+                              },
+                              "components": [],
+                              "deflection": {
+                                "unit": "METRE",
+                                "vector": [
+                                  -0.007680061533870504,
+                                  -0.006444336819603984,
+                                  -0.00002178113064754683
+                                ]
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 5.5
+                              },
+                              "internal": {
+                                "rotational": {
+                                  "unit": "NEWTON_METRE",
+                                  "vector": [
+                                    -6.874983613436563,
+                                    8.193286420740627,
+                                    3.861544357920097E-11
+                                  ]
+                                },
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    15.837508222968797,
+                                    13.289247307718831,
+                                    62.33106660025663
+                                  ]
+                                }
+                              },
+                              "ratio": 0.006980698359294411,
+                              "status": "PASSING"
+                            },
+                            {
+                              "actual": 1749.5114646638385,
+                              "actualEngineering": {
+                                "unit": "PASCAL",
+                                "value": 31527.691849647457
+                              },
+                              "applied": {
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    -13.667398308287854,
+                                    -11.46830887963732,
+                                    -53.89570030819379
+                                  ]
+                                }
+                              },
+                              "components": [],
+                              "deflection": {
+                                "unit": "METRE",
+                                "vector": [
+                                  -0.008715733565006776,
+                                  -0.007313368841272819,
+                                  -0.0000237321676976876
+                                ]
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 6
+                              },
+                              "internal": {
+                                "rotational": {
+                                  "unit": "NEWTON_METRE",
+                                  "vector": [
+                                    -0.1762181829518947,
+                                    0.2100086518031677,
+                                    3.4674134387706407E-13
+                                  ]
+                                },
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    2.1701097267464338,
+                                    1.8209382683465858,
+                                    8.435367034964763
+                                  ]
+                                }
+                              },
+                              "ratio": 0.0022863525508640113,
+                              "status": "PASSING"
+                            },
+                            {
+                              "actual": 45366.53396567407,
+                              "actualEngineering": {
+                                "unit": "PASCAL",
+                                "value": 1215.8314405742665
+                              },
+                              "applied": {
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    -2.1701097916382186,
+                                    -1.8209383257778327,
+                                    -8.435366311204525
+                                  ]
+                                }
+                              },
+                              "components": [],
+                              "deflection": {
+                                "unit": "METRE",
+                                "vector": [
+                                  -0.008914761997957649,
+                                  -0.007480373526401471,
+                                  -0.000024087058213773105
+                                ]
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 6.096000000000001
+                              },
+                              "internal": {
+                                "rotational": {
+                                  "unit": "NEWTON_METRE",
+                                  "vector": [
+                                    9.608723643621553E-9,
+                                    -1.0304534264667411E-8,
+                                    1.2138734711168902E-12
+                                  ]
+                                },
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    -2.1701097267464338,
+                                    -1.8209382683465858,
+                                    -8.435367034964763
+                                  ]
+                                }
+                              },
+                              "ratio": 0.00008817072080107645,
+                              "status": "PASSING"
+                            }
+                          ],
+                          "clientItem": "25'-5 Douglas Fir",
+                          "crossArms": [],
+                          "equipments": [],
+                          "failingRatio": 1,
+                          "guys": [],
+                          "id": "Pole",
+                          "insulators": [],
+                          "owner": "SCE",
+                          "pointLoads": [],
+                          "poles": [
+                            {
+                              "applied": {
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    -324.3131840500299,
+                                    -272.1310731223094,
+                                    -1494.8995091350496
+                                  ]
+                                }
+                              },
+                              "clientItem": "25'-5 Douglas Fir",
+                              "id": "Pole",
+                              "owner": "SCE",
+                              "reaction": {
+                                "rotational": {
+                                  "unit": "NEWTON_METRE",
+                                  "vector": [
+                                    -791.174817844125,
+                                    942.8854315392406,
+                                    2.631312465443611E-9
+                                  ]
+                                },
+                                "translational": {
+                                  "unit": "NEWTON",
+                                  "vector": [
+                                    323.7002962575951,
+                                    271.6167971145172,
+                                    1491.6699202399705
+                                  ]
+                                }
+                              }
+                            }
+                          ],
+                          "pushBraces": [],
+                          "ratio": 0.10292908558893211,
+                          "resultsType": "SAFETY_FACTOR",
+                          "sidewalkBraces": [],
+                          "spanGuys": [],
+                          "status": "PASSING",
+                          "usage": [
+                            {
+                              "owner": "SCE",
+                              "portion": {
+                                "unit": "RATIO",
+                                "value": 0.10292908558893211
+                              }
+                            },
+                            {
+                              "owner": "Remaining Capacity",
+                              "portion": {
+                                "unit": "RATIO",
+                                "value": 0.8970709144110679
+                              }
+                            }
+                          ],
+                          "windDirection": 220,
+                          "wires": []
+                        }
+                      ],
+                      "engineVersion": "7.0.0-SNAPSHOT"
+                    },
+                    {
+                      "analysisCase": "GO95",
+                      "analysisCaseVersion": "9439ff2516708191c85c2a2c29199630",
+                      "analysisDate": 1502192370651,
+                      "components": [
+                        {
+                          "actual": 79.46968394520029,
+                          "actualEngineering": {
+                            "unit": "CUBIC_METRE",
+                            "value": 0.0003588585637396578
+                          },
+                          "additionalValues": [
+                            {
+                              "name": "lowestRemainingMomentOfInertia",
+                              "tags": [],
+                              "value": {
+                                "unit": "PERCENT",
+                                "value": 83.04112912755366
+                              }
+                            },
+                            {
+                              "name": "lowestRemainingCrossSectionalArea",
+                              "tags": [],
+                              "value": {
+                                "unit": "PERCENT",
+                                "value": 94.04229438821469
+                              }
+                            },
+                            {
+                              "name": "heightOfLowestRemainingSectionModulus",
+                              "tags": [],
+                              "value": {
+                                "unit": "METRE",
+                                "value": 4.699000000000001
+                              }
+                            },
+                            {
+                              "name": "heightOfLowestRemainingCrossSectionalArea",
+                              "tags": [],
+                              "value": {
+                                "unit": "METRE",
+                                "value": 4.699000000000001
+                              }
+                            },
+                            {
+                              "name": "heightOfLowestRemainingMomentOfInertia",
+                              "tags": [],
+                              "value": {
+                                "unit": "METRE",
+                                "value": 4.699000000000001
+                              }
+                            }
+                          ],
+                          "allowable": 66.66666666666666,
+                          "allowableEngineering": {
+                            "unit": "CUBIC_METRE",
+                            "value": 0.0003010444116753713
+                          },
+                          "analysisType": "STRENGTH",
+                          "atHeight": [
+                            {
+                              "components": [],
+                              "crossArea": {
+                                "unit": "SQUARE_METRE",
+                                "value": 0.03430315298053563
+                              },
+                              "crossAreaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 0
+                              },
+                              "momentOfInertia": {
+                                "unit": "METRE_TO_THE_FOURTH",
+                                "value": 0.00009363931245680812
+                              },
+                              "momentOfInertiaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "sectionModulus": {
+                                "unit": "CUBIC_METRE",
+                                "value": 0.0008961199222478628
+                              },
+                              "sectionModulusPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              }
+                            },
+                            {
+                              "components": [],
+                              "crossArea": {
+                                "unit": "SQUARE_METRE",
+                                "value": 0.0342274555505576
+                              },
+                              "crossAreaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 0.02
+                              },
+                              "momentOfInertia": {
+                                "unit": "METRE_TO_THE_FOURTH",
+                                "value": 0.00009322649708633782
+                              },
+                              "momentOfInertiaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "sectionModulus": {
+                                "unit": "CUBIC_METRE",
+                                "value": 0.000893155331557285
+                              },
+                              "sectionModulusPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              }
+                            },
+                            {
+                              "components": [],
+                              "crossArea": {
+                                "unit": "SQUARE_METRE",
+                                "value": 0.03415184173435122
+                              },
+                              "crossAreaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 0.06
+                              },
+                              "momentOfInertia": {
+                                "unit": "METRE_TO_THE_FOURTH",
+                                "value": 0.00009281504816636763
+                              },
+                              "momentOfInertiaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "sectionModulus": {
+                                "unit": "CUBIC_METRE",
+                                "value": 0.0008901972864966467
+                              },
+                              "sectionModulusPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              }
+                            },
+                            {
+                              "components": [],
+                              "crossArea": {
+                                "unit": "SQUARE_METRE",
+                                "value": 0.03400086494325344
+                              },
+                              "crossAreaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 0.1
+                              },
+                              "momentOfInertia": {
+                                "unit": "METRE_TO_THE_FOURTH",
+                                "value": 0.00009199623760645504
+                              },
+                              "momentOfInertiaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "sectionModulus": {
+                                "unit": "CUBIC_METRE",
+                                "value": 0.0008843008043285569
+                              },
+                              "sectionModulusPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              }
+                            },
+                            {
+                              "components": [],
+                              "crossArea": {
+                                "unit": "SQUARE_METRE",
+                                "value": 0.033400302329728494
+                              },
+                              "crossAreaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 0.3
+                              },
+                              "momentOfInertia": {
+                                "unit": "METRE_TO_THE_FOURTH",
+                                "value": 0.00008877505128191352
+                              },
+                              "momentOfInertiaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "sectionModulus": {
+                                "unit": "CUBIC_METRE",
+                                "value": 0.0008609752540220105
+                              },
+                              "sectionModulusPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              }
+                            },
+                            {
+                              "components": [],
+                              "crossArea": {
+                                "unit": "SQUARE_METRE",
+                                "value": 0.032805090997589464
+                              },
+                              "crossAreaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 0.5
+                              },
+                              "momentOfInertia": {
+                                "unit": "METRE_TO_THE_FOURTH",
+                                "value": 0.00008563920549425921
+                              },
+                              "momentOfInertiaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "sectionModulus": {
+                                "unit": "CUBIC_METRE",
+                                "value": 0.00083806353118371
+                              },
+                              "sectionModulusPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              }
+                            },
+                            {
+                              "components": [],
+                              "crossArea": {
+                                "unit": "SQUARE_METRE",
+                                "value": 0.03141291101618877
+                              },
+                              "crossAreaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 1
+                              },
+                              "momentOfInertia": {
+                                "unit": "METRE_TO_THE_FOURTH",
+                                "value": 0.00007852473946482555
+                              },
+                              "momentOfInertiaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "sectionModulus": {
+                                "unit": "CUBIC_METRE",
+                                "value": 0.0007852850841219976
+                              },
+                              "sectionModulusPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              }
+                            },
+                            {
+                              "components": [],
+                              "crossArea": {
+                                "unit": "SQUARE_METRE",
+                                "value": 0.029980067775133477
+                              },
+                              "crossAreaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 1.5
+                              },
+                              "momentOfInertia": {
+                                "unit": "METRE_TO_THE_FOURTH",
+                                "value": 0.0000715245866435423
+                              },
+                              "momentOfInertiaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "sectionModulus": {
+                                "unit": "CUBIC_METRE",
+                                "value": 0.0007321734690566512
+                              },
+                              "sectionModulusPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              }
+                            },
+                            {
+                              "components": [],
+                              "crossArea": {
+                                "unit": "SQUARE_METRE",
+                                "value": 0.028580670042740168
+                              },
+                              "crossAreaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 2
+                              },
+                              "momentOfInertia": {
+                                "unit": "METRE_TO_THE_FOURTH",
+                                "value": 0.00006500323165374357
+                              },
+                              "momentOfInertiaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "sectionModulus": {
+                                "unit": "CUBIC_METRE",
+                                "value": 0.0006815122734785206
+                              },
+                              "sectionModulusPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              }
+                            },
+                            {
+                              "components": [],
+                              "crossArea": {
+                                "unit": "SQUARE_METRE",
+                                "value": 0.027282221099364692
+                              },
+                              "crossAreaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 2.5
+                              },
+                              "momentOfInertia": {
+                                "unit": "METRE_TO_THE_FOURTH",
+                                "value": 0.00005923107084428266
+                              },
+                              "momentOfInertiaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "sectionModulus": {
+                                "unit": "CUBIC_METRE",
+                                "value": 0.0006356011270297301
+                              },
+                              "sectionModulusPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              }
+                            },
+                            {
+                              "components": [],
+                              "crossArea": {
+                                "unit": "SQUARE_METRE",
+                                "value": 0.025948042108862247
+                              },
+                              "crossAreaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 3
+                              },
+                              "momentOfInertia": {
+                                "unit": "METRE_TO_THE_FOURTH",
+                                "value": 0.00005357958235880214
+                              },
+                              "momentOfInertiaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "sectionModulus": {
+                                "unit": "CUBIC_METRE",
+                                "value": 0.000589551791452933
+                              },
+                              "sectionModulusPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              }
+                            },
+                            {
+                              "components": [],
+                              "crossArea": {
+                                "unit": "SQUARE_METRE",
+                                "value": 0.024647308627021795
+                              },
+                              "crossAreaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 3.5
+                              },
+                              "momentOfInertia": {
+                                "unit": "METRE_TO_THE_FOURTH",
+                                "value": 0.00004834250406887608
+                              },
+                              "momentOfInertiaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "sectionModulus": {
+                                "unit": "CUBIC_METRE",
+                                "value": 0.0005457821492108012
+                              },
+                              "sectionModulusPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              }
+                            },
+                            {
+                              "components": [],
+                              "crossArea": {
+                                "unit": "SQUARE_METRE",
+                                "value": 0.023442590721671534
+                              },
+                              "crossAreaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 4
+                              },
+                              "momentOfInertia": {
+                                "unit": "METRE_TO_THE_FOURTH",
+                                "value": 0.00004373220212969384
+                              },
+                              "momentOfInertiaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "sectionModulus": {
+                                "unit": "CUBIC_METRE",
+                                "value": 0.0005062598433324099
+                              },
+                              "sectionModulusPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              }
+                            },
+                            {
+                              "components": [],
+                              "crossArea": {
+                                "unit": "SQUARE_METRE",
+                                "value": 0.022207075981721957
+                              },
+                              "crossAreaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 4.5
+                              },
+                              "momentOfInertia": {
+                                "unit": "METRE_TO_THE_FOURTH",
+                                "value": 0.00003924396620090619
+                              },
+                              "momentOfInertiaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "sectionModulus": {
+                                "unit": "CUBIC_METRE",
+                                "value": 0.0004667691450941386
+                              },
+                              "sectionModulusPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              }
+                            },
+                            {
+                              "components": [
+                                "Damage#1"
+                              ],
+                              "crossArea": {
+                                "unit": "SQUARE_METRE",
+                                "value": 0.020428088024804565
+                              },
+                              "crossAreaPercent": {
+                                "unit": "PERCENT",
+                                "value": 94.04229438821469
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 4.699000000000001
+                              },
+                              "momentOfInertia": {
+                                "unit": "METRE_TO_THE_FOURTH",
+                                "value": 0.000031181168802938585
+                              },
+                              "momentOfInertiaPercent": {
+                                "unit": "PERCENT",
+                                "value": 83.04112912755366
+                              },
+                              "sectionModulus": {
+                                "unit": "CUBIC_METRE",
+                                "value": 0.0003588585637396578
+                              },
+                              "sectionModulusPercent": {
+                                "unit": "PERCENT",
+                                "value": 79.46968394520029
+                              }
+                            },
+                            {
+                              "components": [],
+                              "crossArea": {
+                                "unit": "SQUARE_METRE",
+                                "value": 0.02166200594594561
+                              },
+                              "crossAreaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 4.724400000000001
+                              },
+                              "momentOfInertia": {
+                                "unit": "METRE_TO_THE_FOURTH",
+                                "value": 0.00003734113181939703
+                              },
+                              "momentOfInertiaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "sectionModulus": {
+                                "unit": "CUBIC_METRE",
+                                "value": 0.0004496898429751659
+                              },
+                              "sectionModulusPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              }
+                            },
+                            {
+                              "components": [],
+                              "crossArea": {
+                                "unit": "SQUARE_METRE",
+                                "value": 0.021005006750434364
+                              },
+                              "crossAreaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 5
+                              },
+                              "momentOfInertia": {
+                                "unit": "METRE_TO_THE_FOURTH",
+                                "value": 0.00003511040077726474
+                              },
+                              "momentOfInertiaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "sectionModulus": {
+                                "unit": "CUBIC_METRE",
+                                "value": 0.00042938741403798205
+                              },
+                              "sectionModulusPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              }
+                            },
+                            {
+                              "components": [],
+                              "crossArea": {
+                                "unit": "SQUARE_METRE",
+                                "value": 0.019836383027808747
+                              },
+                              "crossAreaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 5.5
+                              },
+                              "momentOfInertia": {
+                                "unit": "METRE_TO_THE_FOURTH",
+                                "value": 0.000031312309950203125
+                              },
+                              "momentOfInertiaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "sectionModulus": {
+                                "unit": "CUBIC_METRE",
+                                "value": 0.00039405677689188903
+                              },
+                              "sectionModulusPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              }
+                            },
+                            {
+                              "components": [],
+                              "crossArea": {
+                                "unit": "SQUARE_METRE",
+                                "value": 0.018757169393712584
+                              },
+                              "crossAreaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "height": {
+                                "unit": "METRE",
+                                "value": 6
+                              },
+                              "momentOfInertia": {
+                                "unit": "METRE_TO_THE_FOURTH",
+                                "value": 0.000027997853514076862
+                              },
+                              "momentOfInertiaPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              },
+                              "sectionModulus": {
+                                "unit": "CUBIC_METRE",
+                                "value": 0.0003623397856376977
+                              },
+                              "sectionModulusPercent": {
+                                "unit": "PERCENT",
+                                "value": 100
+                              }
+                            }
+                          ],
+                          "clientItem": "25'-5 Douglas Fir",
+                          "failingRatio": 0.6666666666666666,
+                          "id": "Pole",
+                          "owner": "SCE",
+                          "poles": [
+                            {
+                              "clientItem": "25'-5 Douglas Fir",
+                              "id": "Pole",
+                              "owner": "SCE"
+                            }
+                          ],
+                          "ratio": 0.7946968394520029,
+                          "resultsType": "PERCENT_LOADED",
+                          "status": "NEAR_FAILING"
+                        }
+                      ],
+                      "engineVersion": "7.0.0-SNAPSHOT"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
