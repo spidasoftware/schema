@@ -320,6 +320,7 @@ Design connectivity is maintained by a connectionId between each two *items* tha
     }]
 }]
 ```
+If a wire end point is connected, all of its children must be connected (wires, span guys, span points). Moreover, all of the properties must match between connected items. For example, two wires representing the same span should have the same midspan, tension group, and client wire. Connected wire end points must have the same distance and opposite directions. If connectivity is incomplete or incorrect, the wire end point will be disconnected and all item properties preserved on the two disconnected designs.
 
 [Connectivity Example](resources/examples/spidacalc/projects/connectivity_two_locations.json)
 
