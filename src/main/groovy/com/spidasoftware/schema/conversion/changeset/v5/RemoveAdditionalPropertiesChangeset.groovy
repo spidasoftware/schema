@@ -9,7 +9,7 @@ import groovy.util.logging.Log4j
 
 @Log4j
 class RemoveAdditionalPropertiesChangeset extends CalcProjectChangeSet {
-
+    // TODO: crossAreaPercent
     @Override
     void applyToProject(Map projectJSON) throws ConversionException {
         // Do nothing
@@ -44,7 +44,10 @@ class RemoveAdditionalPropertiesChangeset extends CalcProjectChangeSet {
         removeAdditionalProperties(json, JsonLoader.fromResource(v4SchemaPath))
     }
 
+    // These fields can have any value they want, these won't be checked
     private static final List<String> SCHEMA_ALLOWS_ANYTHING = ["userDefinedValues"]
+    // structure.sidewalkBraces doenn't have a type in the 7.0 schema, it is an array, it also doesn't have an id, use the description to identify.
+    private static final List<String> DESCRIPTION_ARRAY_TYPE_OVERRIDES = ["List of all sidewalk braces (AKA queen posts)"]
 
     // TODO: assemblies items: "anyOf
     private void removeAdditionalProperties(Map json, JsonNode schemaNode) {
@@ -56,30 +59,57 @@ class RemoveAdditionalPropertiesChangeset extends CalcProjectChangeSet {
                 if (schema == null) {
                     keysToRemove.add(key)
                 } else {
-                    if (schema.get("type")?.asText() == "object" && value instanceof Map) {
-                        removeAdditionalProperties(value, schema)
-                    } else if (schema.get("type")?.asText() == "array" && value instanceof List) {
+                    boolean isObject = schema.get("type")?.asText() == "object"
+                    boolean valueIsMap = (value instanceof Map)
+                    boolean isArray = (schema.get("type")?.asText() == "array" || DESCRIPTION_ARRAY_TYPE_OVERRIDES.contains(schema.get("description")?.asText()))
+                    boolean valueIsList = (value instanceof List)
+
+                    if (isObject && valueIsMap) {
+                        removeAdditionalProperties((Map) value, schema)
+                    } else if(isArray && valueIsList) {
                         removeAdditionalProperties((List) value, schema)
                     }
                 }
             }
+            log.trace("removing ${keysToRemove} from ${json}")
             keysToRemove.each { key ->
                 json.remove(key)
             }
         }
+
     }
 
     private void removeAdditionalProperties(List json, JsonNode schema) {
         JsonNode items = schema.get("items")
         if (items != null) { // "components": { "type": "array" }
             if (items.isObject()) {
-                if(items.get("oneOf")?.isArray() && items.get("oneOf").get(0)?.get("properties")?.get("damageType") == null) {
-                    // results
-                    log.info("RESULTS items = ${items.get("oneOf")}")
-                    // TODO: oneOf analysis asset
+                boolean isArray = items.get("oneOf")?.isArray()
+                boolean isResult = items.get("oneOf")?.any { it.get("id")?.asText() == "#/spidacalc/results/result.schema" }
+
+                if(isArray && isResult) {
+                    JsonNode summarySchema = items.get("oneOf").find { it.get("id").asText() == "#/spidamin/asset/standard_details/analysis_asset.schema" }
+                    JsonNode detailedSchema = items.get("oneOf").find { it.get("id").asText() == "#/spidacalc/results/result.schema" }
+
+                    json.each { val ->
+                        if(val instanceof Map) {
+                            Map result = (Map) val
+                            // component and loadInfo are required for a summary result, if it has one of them assume it is a summary result
+                            boolean isSummary = result.containsKey("component") || result.containsKey("loadInfo")
+                            // components and analysisCase are required for a detailed result, if it has one of them assume it is a detailed result
+                            boolean isDetailed = result.containsKey("components") || result.containsKey("analysisCase")
+
+                            if(isDetailed) {
+                                removeAdditionalProperties(result, detailedSchema)
+                            } else if(isSummary) {
+                                removeAdditionalProperties(result, summarySchema)
+                            } else {
+                                log.warn("Unable to determine analysis type, summary or detailed, not removing additional properties from the result object: ${val}")
+                            }
+                        }
+                    }
                 } else {
-                    boolean itemOneOfAllEnum = items.get("oneOf")?.every { it.get("enum") != null }
-                    // tags "oneOf": [ enum, enum ]
+                    boolean itemOneOfAllEnum = items.get("oneOf")?.every { it.get("enum") != null } // tags "oneOf": [ enum, enum ]
+
                     if (!itemOneOfAllEnum) {
                         json.each { val ->
                             if (val instanceof Map) {
@@ -90,7 +120,10 @@ class RemoveAdditionalPropertiesChangeset extends CalcProjectChangeSet {
                 }
             } else if(items.isArray()) {
                 json.eachWithIndex { val, index ->
-                    if (val instanceof Map && items.size() > index && items.get(index).get("type")?.asText() == "object") {
+                    boolean valIsMap = (val instanceof Map)
+                    boolean itemIsObject = (items.has(index) && items.get(index).get("type")?.asText() == "object")
+
+                    if (valIsMap && itemIsObject) {
                         removeAdditionalProperties((Map) val, items.get(index))
                     }
                 }

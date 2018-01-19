@@ -419,6 +419,7 @@
     },
     "sidewalkBraces": {
       "description": "List of all sidewalk braces (AKA queen posts)",
+      "type": "array",
       "items": {
         "type": "object",
         "description": "A single sidewalk brace.",

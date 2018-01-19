@@ -578,7 +578,6 @@
                   "id": "5989a2f24568ea90b5eea589",
                   "results": [
                     {
-                      "resultAdditionalProperties": "resultAdditionalProperties",
                       "analysisCase": "New, Light, 8 lb, Grade A",
                       "analysisCaseVersion": "7a56eaf8c2a8a2b182cb18a74f391382",
                       "analysisDate": 1502192375069,
@@ -610,6 +609,7 @@
                           "anchors": [],
                           "atDirection": [
                             {
+                              "atDirectionAdditionalProperties": "atDirectionAdditionalProperties",
                               "actual": 38.86170733292008,
                               "direction": {
                                 "unit": "RADIAN",
@@ -2071,6 +2071,7 @@
                           "status": "PASSING",
                           "usage": [
                             {
+                              "usageAdditionalProperty": "usageAdditionalProperty",
                               "owner": "SCE",
                               "portion": {
                                 "unit": "RATIO",
