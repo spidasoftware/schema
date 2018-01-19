@@ -73,7 +73,7 @@ If you are in need of actually validating some JSON data against the schema ther
 
 **Strict Mode**
 
-* You can add `"strict":true` to an object being validated.  This will means that the validator won't allow any additional properties. 
+* You can add `"strict":true` to an object being validated.  This means that the validator won't allow any additional properties. 
 * We recommend using this in dev and test to make sure you didn't misspell something or add the wrong key.
 * We recommend removing the strict property or setting it to false in production so that we can be more flexible when handling different schema versions.
 * The validator will not be strict by default.

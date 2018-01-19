@@ -2,7 +2,6 @@ package com.spidasoftware.schema.conversion.changeset
 
 import com.spidasoftware.schema.conversion.changeset.calc.*
 import com.spidasoftware.schema.conversion.changeset.v2.*
-import com.spidasoftware.schema.conversion.changeset.v2.*
 import com.spidasoftware.schema.conversion.changeset.v3.*
 import com.spidasoftware.schema.conversion.changeset.v4.*
 import com.spidasoftware.schema.conversion.changeset.v5.*
