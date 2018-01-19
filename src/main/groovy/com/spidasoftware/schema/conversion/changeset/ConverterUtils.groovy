@@ -33,6 +33,7 @@ class ConverterUtils {
             converter.addChangeSet(4, new GuyAttachPointChangeSet())
             converter.addChangeSet(4, new DesignLayerChangeSet())
             converter.addChangeSet(4, new DamageRsmChangeSet())
+            converter.addChangeSet(5, new RemoveAdditionalPropertiesChangeset())
             converter.addChangeSet(5, new InputAssemblyDistanceDirectionChangeset())
             // add calc changesets here
 
