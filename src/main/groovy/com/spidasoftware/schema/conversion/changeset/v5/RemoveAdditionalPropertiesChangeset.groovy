@@ -42,7 +42,7 @@ class RemoveAdditionalPropertiesChangeset extends CalcProjectChangeSet {
 
     // These fields can have any value they want, these won't be checked
     private static final List<String> SCHEMA_ALLOWS_ANYTHING = ["userDefinedValues"]
-    // structure.sidewalkBraces don't have a type in the 7.0 schema, it is an array, it also doesn't have an id, use the description to identify.
+    // structure.sidewalkBraces doesn't have a type in the 7.0 schema, it is an array, it also doesn't have an id, use the description to identify.
     private static final List<String> DESCRIPTION_ARRAY_TYPE_OVERRIDES = ["List of all sidewalk braces (AKA queen posts)"]
 
     private void removeAdditionalProperties(Map json, JsonNode schemaNode) {
