@@ -570,7 +570,21 @@
                   "id": "Foundation#1",
                   "clientItemVersion": "9650756fb7772dc97c2ada388121a7b2"
                 }],
-                "assemblies": []
+                "assemblies": [{
+                  "id": "AssemblyNotInputAssembly",
+                  "clientItemVersion": "9650756fb7772dc97c2ada388121a7b6",
+                  "source": "CLIENT_ASSEMBLIES",
+                  "assemblyAdditionalProperty": "assemblyAdditionalProperty",
+
+                }, {
+                  "clientItem": "InputAssembly",
+                  "inputAssemblyAdditionalProperty": "inputAssemblyAdditionalProperty",
+                  "attachHeight": {
+                    "unit": "FOOT",
+                    "value": 8.923884514435697,
+                    "inputAssemblyAttachHeightAdditionalProperty": "inputAssemblyAttachHeightAdditionalProperty",
+                  }
+                }]
               },
               "analysis": [
                 {

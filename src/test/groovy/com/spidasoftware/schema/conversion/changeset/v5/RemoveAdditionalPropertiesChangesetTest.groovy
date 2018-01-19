@@ -2,7 +2,6 @@ package com.spidasoftware.schema.conversion.changeset.v5
 
 import com.spidasoftware.schema.conversion.changeset.calc.CalcProjectChangeSet
 
-import com.spidasoftware.schema.conversion.changeset.v4.AnalysisTypeChangeSet
 import com.spidasoftware.schema.validation.Validator
 import groovy.json.JsonSlurper
 import groovy.util.logging.Log4j
@@ -16,7 +15,7 @@ class RemoveAdditionalPropertiesChangesetTest extends Specification {
     RemoveAdditionalPropertiesChangeset changeset = new RemoveAdditionalPropertiesChangeset()
 
     void setupSpec() {
-        def leanStream = AnalysisTypeChangeSet.getResourceAsStream("/conversions/v5/remove-additional-properties-project.json")
+        def leanStream = getClass().getResourceAsStream("/conversions/v5/remove-additional-properties-project.json")
         projectJSON = new JsonSlurper().parse(leanStream)
         locationJSON = CalcProjectChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0])
         designJSON = CalcProjectChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0].designs[0])
@@ -63,4 +62,15 @@ class RemoveAdditionalPropertiesChangesetTest extends Specification {
             new Validator().validateAndReport("/schema/spidacalc/calc/design-v4.schema", designJSON).isSuccess()
     }
 
+    // address should be an object, leads should be an array
+    void "test invalid values"() {
+        setup:
+            Map project = [schema: "/schema/spidacalc/calc/project.schema", clientFile: "Demo.client", address: [[test: "test"]], leads: ["test": "test"]]
+            Map copiedProject = project.clone()
+        when:
+            changeset.revertProject(project)
+            projectJSON.put("strict", true)
+        then:
+            copiedProject == project
+    }
 }
