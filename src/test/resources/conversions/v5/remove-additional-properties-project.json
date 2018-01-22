@@ -600,7 +600,8 @@
                           "actual": 38.861707330955994,
                           "actualEngineering": {
                             "unit": "PASCAL",
-                            "value": 1419342.1270868804
+                            "value": 1419342.1270868804,
+                            "actualEngineeringAdditionalProperty": "actualEngineeringAdditionalProperty",
                           },
                           "additionalValues": [
                             {
@@ -608,9 +609,11 @@
                               "tags": [
                                 "ATTACH_HEIGHT"
                               ],
+                              "anAdditionalValuesAdditionalProperty": "anAdditionalValuesAdditionalProperty",
                               "value": {
                                 "unit": "METRE",
-                                "value": 0.02
+                                "value": 0.02,
+                                "anAdditionalValuesValueAdditionalProperty": "anAdditionalValuesValueAdditionalProperty"
                               }
                             }
                           ],
@@ -623,15 +626,17 @@
                           "anchors": [],
                           "atDirection": [
                             {
-                              "atDirectionAdditionalProperties": "atDirectionAdditionalProperties",
+                              "atDirectionAdditionalProperty": "atDirectionAdditionalProperty",
                               "actual": 38.86170733292008,
                               "direction": {
+                                "atDirectionDirectionAdditionalProperty": "atDirectionDirectionAdditionalProperty",
                                 "unit": "RADIAN",
                                 "value": 0
                               },
                               "ratio": 0.10292908558373003,
                               "status": "PASSING",
                               "value": {
+                                "atDirectionValueAdditionalProperty": "atDirectionValueAdditionalProperty",
                                 "unit": "PASCAL",
                                 "value": 1419342.127015146
                               }
@@ -832,14 +837,17 @@
                               }
                             },
                             {
+                              "atDirectionAdditionalProperty2": "atDirectionAdditionalProperty2",
                               "actual": 38.861707332899236,
                               "direction": {
+                                "atDirectionDirectionAdditionalProperty2": "atDirectionDirectionAdditionalProperty2",
                                 "unit": "RADIAN",
                                 "value": 2.9670597283903604
                               },
                               "ratio": 0.10292908558378525,
                               "status": "PASSING",
                               "value": {
+                                "atDirectionValueAdditionalProperty2": "atDirectionValueAdditionalProperty2",
                                 "unit": "PASCAL",
                                 "value": 1419342.1270159076
                               }
@@ -1029,12 +1037,15 @@
                           ],
                           "atHeight": [
                             {
+                              "atHeightAdditionalProperty": "atHeightAdditionalProperty",
                               "actual": 39.12209554124762,
                               "actualEngineering": {
+                                "atHeightActualEngineeringAdditionalProperty": "atHeightActualEngineeringAdditionalProperty",
                                 "unit": "PASCAL",
                                 "value": 1409895.2927302187
                               },
                               "applied": {
+                                "atHeightAppliedAdditionalProperty": "atHeightAppliedAdditionalProperty",
                                 "translational": {
                                   "unit": "NEWTON",
                                   "vector": [
@@ -1046,6 +1057,7 @@
                               },
                               "components": [],
                               "deflection": {
+                                "atHeightDeflectionAdditionalProperty": "atHeightDeflectionAdditionalProperty",
                                 "unit": "METRE",
                                 "vector": [
                                   0,
@@ -1235,6 +1247,7 @@
                                 "value": 1404969.665140208
                               },
                               "applied": {
+                                "atHeightAppliedAdditionalProperty": "atHeightAppliedAdditionalProperty",
                                 "translational": {
                                   "unit": "NEWTON",
                                   "vector": [
@@ -2042,6 +2055,7 @@
                           "insulators": [],
                           "owner": "SCE",
                           "pointLoads": [],
+                          "componentAdditionalProperty": "componentAdditionalProperty",
                           "poles": [
                             {
                               "applied": {
@@ -2088,6 +2102,7 @@
                               "usageAdditionalProperty": "usageAdditionalProperty",
                               "owner": "SCE",
                               "portion": {
+                                "usagePortionAdditionalProperty": "usagePortionAdditionalProperty",
                                 "unit": "RATIO",
                                 "value": 0.10292908558893211
                               }
@@ -2107,6 +2122,7 @@
                       "engineVersion": "7.0.0-SNAPSHOT"
                     },
                     {
+                      "secondResultAdditionalProperty": "secondResultAdditionalProperty",
                       "analysisCase": "GO95",
                       "analysisCaseVersion": "9439ff2516708191c85c2a2c29199630",
                       "analysisDate": 1502192370651,
