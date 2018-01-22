@@ -61,7 +61,7 @@ class RemoveAdditionalPropertiesChangeset extends CalcProjectChangeSet {
                         boolean valueIsMap = (value instanceof Map)
                         boolean isArray = (schema.get("type")?.asText() == "array" || DESCRIPTION_ARRAY_TYPE_OVERRIDES.contains(schema.get("description")?.asText()))
                         boolean valueIsList = (value instanceof List)
-                        // If this items object has a properties map, we ignore the oneOf and anyOf, just check if the properties are allowed.
+                        // If this schema object has a properties map, we ignore the oneOf and anyOf, just check if the properties are allowed.
                         boolean hasProperties = schema.get("properties")?.isObject()
                         boolean schemaOneOfIsArray = !hasProperties && schema.get("oneOf")?.isArray()
                         boolean schemaAnyOfIsArray = !hasProperties && schema.get("anyOf")?.isArray()
