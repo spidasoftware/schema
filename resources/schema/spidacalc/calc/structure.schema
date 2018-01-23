@@ -43,7 +43,7 @@
           },
           "clientItemAliasId": {
             "type": "string",
-            "description": "Description goes here - An alias for a client foundation. Used for integration."
+            "description": "An alias for a client foundation. Used for integration."
           },
           "groundWaterLevel": {
             "description": "Ground water level at the foundation. Should be negative.",
@@ -306,8 +306,9 @@
           "type"
         ],
         "anyOf":[
+          {"required":["clientItemVersion"]},
           {"required":["clientItem"]},
-          {"required":["clientItemVersion"]}
+          {"required":["clientItemAliasId"]}
         ],
         "additionalProperties": false,
         "properties": {
@@ -363,6 +364,10 @@
             "pattern": "[a-f0-9]{32}",
             "description": "Hash of the client item containing the engineering properties for this span guy."
           },
+          "clientItemAliasId": {
+            "type": "string",
+            "description": "An alias for a client guy wire. Used for integration."
+          },
           "connectionId":{
             "description": "The shared connection id.  Represents the unique connection between two objects.  Must be two and only two objects with the same id.",
             "pattern": "[a-f0-9]{24}",
@@ -381,6 +386,11 @@
           "id",
           "attachmentHeight",
           "owner"
+        ],
+        "anyOf":[
+          {"required": ["clientItemVersion"]},
+          {"required": ["clientItem"]},
+          {"required": ["clientItemAliasId"]}
         ],
         "additionalProperties": false,
         "properties": {
@@ -417,7 +427,7 @@
           },
           "clientItemAliasId": {
             "type": "string",
-            "description": "Description goes here - An alias for a client equipment. Used for integration."
+            "description": "An alias for a client equipment. Used for integration."
           }
         }
       }
@@ -476,7 +486,7 @@
           },
 		  "clientItemAliasId": {
 		    "type": "string",
-		    "description": "Description goes here - An alias for a client brace. Used for integration."
+		    "description": "An alias for a client brace. Used for integration."
 		  },
           "guys": {
             "type": "array",
@@ -541,7 +551,7 @@
           },
 		  "clientItemAliasId": {
 			"type": "string",
-			"description": "Description goes here - An alias for a client equipment. Used for integration."
+			"description": "An alias for a client equipment. Used for integration."
 		  }
         }
       }
@@ -614,7 +624,7 @@
           },
 	      "clientItemAliasId": {
 	        "type": "string",
-	        "description": "Description goes here - An alias for a client crossarm. Used for integration."
+	        "description": "An alias for a client crossarm. Used for integration."
 		  }
         }
       }
@@ -679,7 +689,7 @@
           },
           "clientItemAliasId": {
             "type": "string",
-            "description": "Description goes here - An alias for a client equipment. Used for integration."
+            "description": "An alias for a client equipment. Used for integration."
           }
         }
       }
@@ -742,7 +752,7 @@
           },
           "clientItemAliasId": {
             "type": "string",
-            "description": "Description goes here - An alias for a client equipment. Used for integration."
+            "description": "An alias for a client equipment. Used for integration."
           }
         }
       }

@@ -24,7 +24,7 @@
     },
     "clientItemAliasId": {
       "type": "string",
-      "description": "Description goes here - An alias for a client wire. Used for integration."
+      "description": "An alias for a client wire. Used for integration."
     },
     "externalId": {
       "type": "string",
