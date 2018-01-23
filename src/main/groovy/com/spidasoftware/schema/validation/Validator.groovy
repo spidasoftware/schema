@@ -2,16 +2,22 @@ package com.spidasoftware.schema.validation
 
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.databind.node.BooleanNode
-import com.fasterxml.jackson.databind.node.ObjectNode
 import com.github.fge.jackson.JsonLoader
+import com.github.fge.jsonschema.SchemaVersion
+import com.github.fge.jsonschema.cfg.ValidationConfiguration
+import com.github.fge.jsonschema.cfg.ValidationConfigurationBuilder
 import com.github.fge.jsonschema.exceptions.ProcessingException
+import com.github.fge.jsonschema.library.DraftV4Library
+import com.github.fge.jsonschema.library.Library
 import com.github.fge.jsonschema.load.configuration.LoadingConfiguration
-import com.github.fge.jsonschema.main.JsonSchema
+import com.github.fge.jsonschema.load.configuration.LoadingConfigurationBuilder
 import com.github.fge.jsonschema.main.JsonSchemaFactory
+import com.github.fge.jsonschema.ref.JsonRef
 import com.github.fge.jsonschema.report.ProcessingReport
+import com.github.fge.jsonschema.report.LogLevel
 import groovy.util.logging.Log4j
 import org.apache.commons.io.FilenameUtils
+
 /**
  * Class to validate against our json schemas. Will references the schemas locally as a jar resource.
  */
@@ -23,10 +29,10 @@ class Validator {
 	 * @param json string representation of json to be validated.
 	 * @return The fge schema-validator report
 	 */
-	ProcessingReport validateAndReport(String schemaPath, String json, boolean ignoreAdditionalProperties = false) {
+	ProcessingReport validateAndReport(String schemaPath, String json) {
 		catchAndLogExceptions {
 			JsonNode jsonNode = JsonLoader.fromString(json)
-			return loadAndValidate(schemaPath, jsonNode, ignoreAdditionalProperties)
+			return loadAndValidate(schemaPath, jsonNode)
 		}
 	}
 
@@ -35,10 +41,10 @@ class Validator {
 	 * @param json JSONObject to be validated.
 	 * @return The fge schema-validator report
 	 */
-	ProcessingReport validateAndReport(String schemaPath, Map json, boolean ignoreAdditionalProperties = false) {
+	ProcessingReport validateAndReport(String schemaPath, Map json) {
 		catchAndLogExceptions {
 			JsonNode jsonNode = new ObjectMapper().valueToTree(json)
-			return loadAndValidate(schemaPath, jsonNode, ignoreAdditionalProperties)
+			return loadAndValidate(schemaPath, jsonNode)
 		}
 	}
 
@@ -47,10 +53,10 @@ class Validator {
 	 * @param son string representation of json to be validated.
 	 * @return The fge schema-validator report
 	 */
-	ProcessingReport validateAndReportFromText(String schemaText, String json, boolean ignoreAdditionalProperties = false) {
+	ProcessingReport validateAndReportFromText(String schemaText, String json) {
 		catchAndLogExceptions {
 			JsonNode jsonNode = JsonLoader.fromString(json)
-			return validateUsingSchemaText(schemaText, jsonNode, ignoreAdditionalProperties)
+			return validateUsingSchemaText(schemaText, jsonNode)
 		}
 	}
 
@@ -59,8 +65,8 @@ class Validator {
 	 * @param json string representation of json to be validated.
 	 * @throws JSONServletException Throws an exception if validation failed. This exception will include a more detailed report
 	 */
-	void validate(String schemaPath, String json, boolean ignoreAdditionalProperties = false) throws JSONServletException {
-		handleReport(validateAndReport(schemaPath, json, ignoreAdditionalProperties))
+	void validate(String schemaPath, String json) throws JSONServletException {
+		handleReport(validateAndReport(schemaPath, json))
 	}
 
 	/**
@@ -68,8 +74,8 @@ class Validator {
 	 * @param json JSONObject to be validated.
 	 * @throws JSONServletException Throws an exception if validation failed. This exception will include a more detailed report
 	 */
-	void validate(String schemaPath, Map json, boolean ignoreAdditionalProperties = false) throws JSONServletException {
-		handleReport(validateAndReport(schemaPath, json, ignoreAdditionalProperties))
+	void validate(String schemaPath, Map json) throws JSONServletException {
+		handleReport(validateAndReport(schemaPath, json))
 	}
 
 	/**
@@ -79,6 +85,68 @@ class Validator {
 	 */
 	void validateFromText(String schemaText, String json) {
 		handleReport(validateAndReportFromText(schemaText, json))
+	}
+
+	private ProcessingReport loadAndValidate(String schemaPath, JsonNode jsonNode) {
+		String namespace = convertToResourcePath(schemaPath)
+		JsonNode schemaNode = JsonLoader.fromResource(schemaPath)
+		return validateWithStrictModeCheck(jsonNode, schemaNode, namespace)
+	}
+
+	private ProcessingReport validateUsingSchemaText(String schemaText, JsonNode jsonNode) {
+		JsonNode schemaNode = JsonLoader.fromString(schemaText)
+		return validateWithStrictModeCheck(jsonNode, schemaNode)
+	}
+
+	private ProcessingReport validateWithStrictModeCheck(JsonNode jsonNode, JsonNode schemaNode, String namespace = null){
+		boolean ignoreAdditionalProperties = true
+		JsonNode strictNode = jsonNode.get('strict')
+
+		//remove strict it so it doesn't effect validation
+		if(strictNode != null){
+			ignoreAdditionalProperties = !strictNode.booleanValue()
+			jsonNode.remove('strict')
+		}
+
+		def factory = createJsonSchemaFactory(namespace, ignoreAdditionalProperties)
+		def report = factory.getJsonSchema(schemaNode).validate(jsonNode)
+
+		//now revert the strict property change
+		if(strictNode != null){
+			jsonNode.put('strict', strictNode.booleanValue())
+		}
+
+		report.messages.retainAll{it.logLevel == LogLevel.ERROR}
+		return report
+	}
+
+	private createJsonSchemaFactory(String namespace = null, boolean ignoreAdditionalProperties = true){
+		ValidationConfigurationBuilder valCfgBuilder = ValidationConfiguration.newBuilder()
+		if(ignoreAdditionalProperties){
+			//this removes the AdditionalPropertiesValidator (See CommonValidatorDictionary)
+			Library modifiedLib = DraftV4Library.get().thaw().removeKeyword("additionalProperties").freeze()
+			valCfgBuilder.libraries.remove(JsonRef.fromString(SchemaVersion.DRAFTV4.location.toString()))
+			valCfgBuilder.setDefaultLibrary(SchemaVersion.DRAFTV4.location.toString(), modifiedLib)
+		}
+
+		LoadingConfigurationBuilder loadCfgBuilder = LoadingConfiguration.newBuilder()
+		if(namespace){
+			loadCfgBuilder.setNamespace(namespace)
+		}
+
+		return JsonSchemaFactory.newBuilder()
+					.setLoadingConfiguration(loadCfgBuilder.freeze())
+					.setValidationConfiguration(valCfgBuilder.freeze())
+					.freeze()
+	}
+
+	private void handleReport(ProcessingReport report) throws JSONServletException {
+		if (report == null) {
+			throw new JSONServletException(JSONServletException.INTERNAL_ERROR, "An internal error occurred when validating JSON")
+		}
+		if (!report.isSuccess()) {
+			throw new JSONServletException(JSONServletException.BAD_REQUEST, report.toString())
+		}
 	}
 
 	private def catchAndLogExceptions(closure) {
@@ -92,62 +160,15 @@ class Validator {
 		return null
 	}
 
-	private JsonSchemaFactory getFactoryWithNamespace(String namespaceString) {
-		LoadingConfiguration cfg = LoadingConfiguration.newBuilder().setNamespace(namespaceString).freeze()
-		JsonSchemaFactory factory = JsonSchemaFactory.newBuilder().setLoadingConfiguration(cfg).freeze()
-		return factory
-	}
-
-	private ProcessingReport loadAndValidate(String schemaPath, JsonNode jsonNode, boolean ignoreAdditionalProperties = false) {
+	String convertToResourcePath(schemaPath){
 		//FilenameUtils.getPath(filepath) gets the parent folder and removes path prefix (windows drive letter or unix tilde)
 		//More Info: http://commons.apache.org/proper/commons-io/apidocs/org/apache/commons/io/FilenameUtils.html#getPathNoEndSeparator(java.lang.String)
 		String namespace = "/" + FilenameUtils.getPathNoEndSeparator(schemaPath)
 		namespace = FilenameUtils.separatorsToUnix(namespace)
 
-		String namespaceString = "resource:" + namespace + "/"
+		String namespaceString = "resource:${namespace}/"
 		log.trace "Validation: \nschemaPath=$schemaPath \nnamespace=$namespace \nnamespaceString=$namespaceString"
-		JsonNode schemaNode = JsonLoader.fromResource(schemaPath)
-		if (ignoreAdditionalProperties) {
-			disableAdditionalPropertiesCheck(schemaNode)
-		}
-
-		JsonSchemaFactory factory = getFactoryWithNamespace(namespaceString)
-
-		JsonSchema schema = factory.getJsonSchema(schemaNode)
-
-		return schema.validate(jsonNode)
+		return namespaceString
 	}
 
-	protected void disableAdditionalPropertiesCheck(JsonNode node) {
-		if (node != null) {
-			if (node.isObject()) {
-				ObjectNode objectNode = node as ObjectNode
-				if (objectNode.get("additionalProperties")?.isBoolean()){
-					objectNode.set("additionalProperties", BooleanNode.valueOf(true))
-				}
-			}
-			for (int i = 0; i < node.size(); i++) {
-				disableAdditionalPropertiesCheck(node.get(i))
-			}
-		}
-	}
-
-	private ProcessingReport validateUsingSchemaText(String schemaText, JsonNode jsonNode, boolean ignoreAdditionalProperties = false) {
-		JsonSchemaFactory factory = JsonSchemaFactory.byDefault()
-		JsonNode schemaNode = JsonLoader.fromString(schemaText)
-		if (ignoreAdditionalProperties) {
-			disableAdditionalPropertiesCheck(schemaNode)
-		}
-		JsonSchema schema = factory.getJsonSchema(schemaNode)
-		return schema.validate(jsonNode)
-	}
-
-	private void handleReport(ProcessingReport report) throws JSONServletException {
-		if (report == null) {
-			throw new JSONServletException(JSONServletException.INTERNAL_ERROR, "An internal error occurred when validating JSON")
-		}
-		if (!report.isSuccess()) {
-			throw new JSONServletException(JSONServletException.BAD_REQUEST, report.toString())
-		}
-	}
 }

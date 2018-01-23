@@ -1,4 +1,4 @@
-. Schema Files
+Schema Files
 =============
 
 The files contained in these folders are used to validate objects passed in some of our API methods.  

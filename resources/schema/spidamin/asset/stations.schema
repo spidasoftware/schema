@@ -1,6 +1,6 @@
 {
-  "id": "#/spidamin/asset/asset/stations.schema",
-  "description": "A SPIDAMin stations",
+  "id": "#/spidamin/asset/stations.schema",
+  "description": "SPIDAMin assets object returned in getStations response",
   "type": "object",
   "required": [
     "stations"

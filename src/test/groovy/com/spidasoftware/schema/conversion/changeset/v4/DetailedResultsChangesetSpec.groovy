@@ -1,6 +1,6 @@
 package com.spidasoftware.schema.conversion.changeset.v4
 
-import com.spidasoftware.schema.conversion.changeset.ChangeSet
+import com.spidasoftware.schema.conversion.changeset.calc.CalcProjectChangeSet
 import groovy.json.JsonSlurper
 import groovy.util.logging.Log4j
 import spock.lang.Specification
@@ -18,8 +18,8 @@ class DetailedResultsChangesetSpec extends Specification {
         changeset = new DetailedResultsChangeset()
         def leanStream = DetailedResultsChangesetSpec.getResourceAsStream("/conversions/v4/project-with-detailed-results.json")
         projectJSON = new JsonSlurper().parse(leanStream)
-        locationJSON = ChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0])
-        designJSON = ChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0].designs[0])
+        locationJSON = CalcProjectChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0])
+        designJSON = CalcProjectChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0].designs[0])
     }
 
     void "test revert"() {
@@ -91,8 +91,8 @@ class DetailedResultsChangesetSpec extends Specification {
         setup:
             def leanStream = DetailedResultsChangesetSpec.getResourceAsStream("/conversions/v4/project-multiple-load-cases-detailed-results.json")
             projectJSON = new JsonSlurper().parse(leanStream)
-            locationJSON = ChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0])
-            designJSON = ChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0].designs[0])
+            locationJSON = CalcProjectChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0])
+            designJSON = CalcProjectChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0].designs[0])
         when:
             changeset.revertProject(projectJSON)
             List analysis = projectJSON.leads[0].locations[0].designs[0].analysis
@@ -151,8 +151,8 @@ class DetailedResultsChangesetSpec extends Specification {
         setup:
             def leanStream = DetailedResultsChangesetSpec.getResourceAsStream("/conversions/v4/project-multiple-load-cases-detailed-results.json")
             projectJSON = new JsonSlurper().parse(leanStream)
-            locationJSON = ChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0])
-            designJSON = ChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0].designs[0])
+            locationJSON = CalcProjectChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0])
+            designJSON = CalcProjectChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0].designs[0])
 
             projectJSON.leads[0].locations[0].designs[0].analysis.add([id: "LoadCase", results: [[component: "Pole"]]])
             locationJSON.designs[0].analysis.add([id: "LoadCase", results: [[component: "Pole"]]])

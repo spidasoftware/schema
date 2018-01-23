@@ -2,6 +2,10 @@
   "id": "#/spidamin/asset/standard_details/analysis_asset.schema",
   "description": "A SPIDA analysis asset",
   "type": "object",
+  "required": [
+    "component",
+    "loadInfo"
+  ],
   "properties": {
     "actual": {
       "type": "number"

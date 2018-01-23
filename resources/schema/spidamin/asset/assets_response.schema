@@ -1,0 +1,14 @@
+{
+  "id": "#/spidamin/asset/assets_response.schema",
+  "description": "SPIDAMin assets object returned in getAssets response",
+  "type": "object",
+  "required": [
+    "assets"
+  ],
+  "properties": {
+    "assets": {
+      "$ref": "../../spidamin/asset/assets.schema"
+    }
+  },
+  "additionalProperties": false
+}

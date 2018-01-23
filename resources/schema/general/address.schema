@@ -1,5 +1,5 @@
 {
-  "id": "general/address.schema",
+  "id": "#/general/address.schema",
   "$schema": "http://json-schema.org/draft-04/schema",
   "type": "object",
   "description": "A street address.",

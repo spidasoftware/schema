@@ -1,10 +1,10 @@
 package com.spidasoftware.schema.conversion.changeset
 
-import com.spidasoftware.schema.conversion.changeset.v2.FoundationChangeSet
-import com.spidasoftware.schema.conversion.changeset.v2.PoleLeanChangeSet
-import com.spidasoftware.schema.conversion.changeset.v3.WEPEnvironmentChangeSet
+import com.spidasoftware.schema.conversion.changeset.calc.*
+import com.spidasoftware.schema.conversion.changeset.v2.*
+import com.spidasoftware.schema.conversion.changeset.v3.*
 import com.spidasoftware.schema.conversion.changeset.v4.*
-import com.spidasoftware.schema.conversion.changeset.v5.InputAssemblyDistanceDirectionChangeset
+import com.spidasoftware.schema.conversion.changeset.v5.*
 import groovy.util.logging.Log4j
 
 @Log4j
@@ -28,19 +28,21 @@ class ConverterUtils {
             converter.addChangeSet(4, new PoleTemperatureChangeset())
             converter.addChangeSet(4, new WEPInclinationChangeSet())
             converter.addChangeSet(4, new WireEndPointPlacementChangeSet())
+            converter.addChangeSet(4, new RemoveSchemaAndVersionChangeSet())
             converter.addChangeSet(4, new PointLoadItemChangeSet())
             converter.addChangeSet(4, new GuyAttachPointChangeSet())
             converter.addChangeSet(4, new DesignLayerChangeSet())
             converter.addChangeSet(4, new DamageRsmChangeSet())
+            converter.addChangeSet(5, new RemoveAdditionalPropertiesChangeset())
             converter.addChangeSet(5, new InputAssemblyDistanceDirectionChangeset())
             // add calc changesets here
 
             converters.put(converter.schemaPath, converter)
         }
 
-        addConverter(new ProjectConverter())
-        addConverter(new LocationConverter())
-        addConverter(new DesignConverter())
+        addConverter(new CalcProjectConverter())
+        addConverter(new CalcLocationConverter())
+        addConverter(new CalcDesignConverter())
     }
 
     static Converter getConverterInstance(String schemaPath) {
