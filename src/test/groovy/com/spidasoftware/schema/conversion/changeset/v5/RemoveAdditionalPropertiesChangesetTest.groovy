@@ -73,4 +73,44 @@ class RemoveAdditionalPropertiesChangesetTest extends Specification {
         then:
             copiedProject == project
     }
+
+    void testJunkJSON() {
+        setup:
+            Map badProjectJSON = new JsonSlurper().parseText("""{
+    "glossary": {
+        "title": "example glossary",
+        "GlossDiv": {
+            "title": "S",
+            "GlossList": {
+                "GlossEntry": {
+                    "ID": "SGML",
+                    "SortAs": "SGML",
+                    "GlossTerm": "Standard Generalized Markup Language",
+                    "Acronym": "SGML",
+                    "Abbrev": "ISO 8879:1986",
+                    "GlossDef": {
+                        "para": "A meta-markup language, used to create markup languages such as DocBook.",
+                        "GlossSeeAlso": ["GML", "XML"]
+                    },
+                    "GlossSee": "markup"
+                }
+            }
+        }
+    }
+}""")
+            Map badLocationJSON = CalcProjectChangeSet.duplicateAsJson(badProjectJSON)
+            Map badDesignJSON = CalcProjectChangeSet.duplicateAsJson(badProjectJSON)
+        when:
+            changeset.revertProject(badProjectJSON)
+        then:
+            badProjectJSON.isEmpty()
+        when:
+            changeset.revertLocation(badLocationJSON)
+        then:
+            badLocationJSON.isEmpty()
+        when:
+            changeset.revertDesign(badDesignJSON)
+        then:
+            badDesignJSON.isEmpty()
+    }
 }
