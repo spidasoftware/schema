@@ -28,6 +28,7 @@ class ConverterUtils {
             converter.addChangeSet(4, new PoleTemperatureChangeset())
             converter.addChangeSet(4, new WEPInclinationChangeSet())
             converter.addChangeSet(4, new WireEndPointPlacementChangeSet())
+            converter.addChangeSet(4, new RemoveSchemaAndVersionChangeSet())
             converter.addChangeSet(4, new PointLoadItemChangeSet())
             converter.addChangeSet(4, new GuyAttachPointChangeSet())
             converter.addChangeSet(4, new DesignLayerChangeSet())
