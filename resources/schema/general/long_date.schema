@@ -1,5 +1,5 @@
 {
-  "id": "general/long_date.schema",
+  "id": "#/general/long_date.schema",
   "$schema": "http://json-schema.org/draft-04/schema",
   "type": "number",
   "description": "The java long value for date."

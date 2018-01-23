@@ -30,7 +30,7 @@
       "type":"number",
       "description":"milliseconds from 1970-01-01 UTC"
     },
-    "warnings":{
+    "messages":{
       "type":"array",
       "items":{
         "type":"string"
@@ -44,5 +44,6 @@
         "$ref":"../../spidacalc/results/component.schema"
       }
     }
-  }
+  },
+  "additionalProperties": false
 }

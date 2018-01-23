@@ -17,6 +17,14 @@
 		}
 	],
 	"properties": {
+    "schema": {
+      "type": "string",
+      "description": "Full URL of the schema. /schema/path/to/example.schema"
+    },
+    "version": {
+      "type": "number",
+      "description": "This is a schema version integer."
+    },
 		"name": {
 			"type": "string"
 		},

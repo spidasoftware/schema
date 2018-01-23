@@ -1,5 +1,5 @@
 {
-  "id": "#/spidamin/asset/asset/asset_details.schema",
+  "id": "#/spidamin/asset/asset_details.schema",
   "description": "Possible details information for an asset",
   "type": "object",
   "properties": {

@@ -1,6 +1,6 @@
 package com.spidasoftware.schema.conversion.changeset.v2
 
-import com.spidasoftware.schema.conversion.changeset.AbstractDesignChangeset
+import com.spidasoftware.schema.conversion.changeset.calc.AbstractCalcDesignChangeset
 import com.spidasoftware.schema.conversion.changeset.ConversionException
 import groovy.util.logging.Log4j
 
@@ -10,7 +10,7 @@ import groovy.util.logging.Log4j
  * they are not added on apply, but they must be removed on revert
  */
 @Log4j
-class PoleLeanChangeSet extends AbstractDesignChangeset {
+class PoleLeanChangeSet extends AbstractCalcDesignChangeset {
 
 	@Override
 	void applyToDesign(Map json) throws ConversionException {

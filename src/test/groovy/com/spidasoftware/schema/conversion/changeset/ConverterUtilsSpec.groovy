@@ -1,5 +1,6 @@
 package com.spidasoftware.schema.conversion.changeset
 
+import com.spidasoftware.schema.conversion.changeset.calc.*
 import com.spidasoftware.schema.conversion.changeset.v2.PoleLeanChangeSetTest
 import com.spidasoftware.schema.validation.Validator
 import groovy.json.JsonSlurper
@@ -13,10 +14,10 @@ class ConverterUtilsSpec extends Specification {
 		setup:
 			def leanStream = PoleLeanChangeSetTest.getResourceAsStream("/conversions/v2/pole-lean.json")
 		    Map projectJSON = new JsonSlurper().parse(leanStream)
-		    Map locationJSON = ChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0])
+		    Map locationJSON = CalcProjectChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0])
 			locationJSON.schema = "/v1/schema/spidacalc/calc/location.schema"
 			locationJSON.version = 2
-		    Map designJSON = ChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0].designs[0])
+		    Map designJSON = CalcProjectChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0].designs[0])
 			designJSON.schema = "/v1/schema/spidacalc/calc/design.schema"
 			designJSON.version = 2
 
@@ -45,9 +46,9 @@ class ConverterUtilsSpec extends Specification {
 
 	def "test getConverterInstance"() {
 		expect:
-			ConverterUtils.getConverterInstance("/schema/spidacalc/calc/project.schema") instanceof ProjectConverter
-			ConverterUtils.getConverterInstance("/schema/spidacalc/calc/location.schema") instanceof LocationConverter
-			ConverterUtils.getConverterInstance("/schema/spidacalc/calc/design.schema") instanceof DesignConverter
+			ConverterUtils.getConverterInstance("/schema/spidacalc/calc/project.schema") instanceof CalcProjectConverter
+			ConverterUtils.getConverterInstance("/schema/spidacalc/calc/location.schema") instanceof CalcLocationConverter
+			ConverterUtils.getConverterInstance("/schema/spidacalc/calc/design.schema") instanceof CalcDesignConverter
 	}
 
 	def "test getPossibleVersionsNewestToOldest"() {

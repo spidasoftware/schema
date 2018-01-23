@@ -1,14 +1,10 @@
 package com.spidasoftware.schema.conversion.changeset
 
+import com.spidasoftware.schema.conversion.changeset.calc.*
 import groovy.util.logging.Log4j
 import spock.lang.Specification
 
-/**
- * Created: 11/17/14
- * Copyright SPIDAWeb
- */
 @Log4j
-
 class ConverterTest extends Specification {
 
     Map json = [:]
@@ -16,9 +12,9 @@ class ConverterTest extends Specification {
 	ChangeSet twoToThreeA = GroovyMock(){ getClass()>>ChangeSet }
 	ChangeSet twoToThreeB = GroovyMock(){ getClass()>>ChangeSet }
 	TreeMap versions = [2:[oneToTwo], 3: [twoToThreeA, twoToThreeB]]
-	ProjectConverter projectConverter = new ProjectConverter(versions: versions)
-	LocationConverter locationConverter = new LocationConverter(versions: versions)
-	DesignConverter designConverter = new DesignConverter(versions: versions)
+	CalcProjectConverter projectConverter = new CalcProjectConverter(versions: versions)
+	CalcLocationConverter locationConverter = new CalcLocationConverter(versions: versions)
+	CalcDesignConverter designConverter = new CalcDesignConverter(versions: versions)
 
 	def "Convert null-2"() {
 		when: "projectConverter"

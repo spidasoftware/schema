@@ -1,6 +1,8 @@
-package com.spidasoftware.schema.conversion.changeset
+package com.spidasoftware.schema.conversion.changeset.calc
 
-class LocationConverter extends AbstractConverter {
+import com.spidasoftware.schema.conversion.changeset.*
+
+class CalcLocationConverter extends AbstractConverter {
 
     @Override
     String getSchemaPath() {

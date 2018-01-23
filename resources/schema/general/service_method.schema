@@ -1,5 +1,5 @@
 {
-  "id": "general/service_method",
+  "id": "#/general/service_method",
   "$schema": "http://json-schema.org/draft-04/schema",
   "type": "object",
   "description": "A general rpc method. All methods should be called over POST.",

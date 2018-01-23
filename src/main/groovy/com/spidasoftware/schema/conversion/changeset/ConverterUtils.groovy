@@ -1,10 +1,11 @@
 package com.spidasoftware.schema.conversion.changeset
 
-import com.spidasoftware.schema.conversion.changeset.v2.FoundationChangeSet
-import com.spidasoftware.schema.conversion.changeset.v2.PoleLeanChangeSet
-import com.spidasoftware.schema.conversion.changeset.v3.WEPEnvironmentChangeSet
+import com.spidasoftware.schema.conversion.changeset.calc.*
+import com.spidasoftware.schema.conversion.changeset.v2.*
+import com.spidasoftware.schema.conversion.changeset.v2.*
+import com.spidasoftware.schema.conversion.changeset.v3.*
 import com.spidasoftware.schema.conversion.changeset.v4.*
-import com.spidasoftware.schema.conversion.changeset.v5.InputAssemblyDistanceDirectionChangeset
+import com.spidasoftware.schema.conversion.changeset.v5.*
 import groovy.util.logging.Log4j
 
 @Log4j
@@ -38,9 +39,9 @@ class ConverterUtils {
             converters.put(converter.schemaPath, converter)
         }
 
-        addConverter(new ProjectConverter())
-        addConverter(new LocationConverter())
-        addConverter(new DesignConverter())
+        addConverter(new CalcProjectConverter())
+        addConverter(new CalcLocationConverter())
+        addConverter(new CalcDesignConverter())
     }
 
     static Converter getConverterInstance(String schemaPath) {

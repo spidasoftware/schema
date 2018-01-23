@@ -1,6 +1,6 @@
 package com.spidasoftware.schema.conversion
 
-import com.spidasoftware.schema.conversion.changeset.ChangeSet
+import com.spidasoftware.schema.conversion.changeset.calc.CalcProjectChangeSet
 import groovy.util.logging.Log4j
 import org.bson.types.ObjectId
 
@@ -18,7 +18,7 @@ class FormatConverter {
         referencedProject.put("dateModified", new Date().time)
 
         //Project JSON that will get added to the referencedProject
-        Map convertedProject = ChangeSet.duplicateAsJson(calcProject)
+        Map convertedProject = CalcProjectChangeSet.duplicateAsJson(calcProject)
         convertedProject.leads.each { lead ->
             lead.locations.each { location ->
                 components.addAll(convertCalcLocation(location, calcProject))
@@ -58,7 +58,7 @@ class FormatConverter {
         }
 
         //the calc location that will get saved as part of the referenced location
-        Map convertedLocation = ChangeSet.duplicateAsJson(calcLocation)
+        Map convertedLocation = CalcProjectChangeSet.duplicateAsJson(calcLocation)
         convertedLocation.get("designs").each { design ->
             components.add(convertCalcDesign(design, calcLocation, calcProject))
 
@@ -102,7 +102,7 @@ class FormatConverter {
             referencedDesign.put("clientFileVersion", calcProject.get("clientFileVersion"))
         }
 
-        Map convertedDesign = ChangeSet.duplicateAsJson(calcDesign)
+        Map convertedDesign = CalcProjectChangeSet.duplicateAsJson(calcDesign)
         referencedDesign.put("calcDesign", convertedDesign)
         addAnalysisResultsToNewDesign(calcDesign, referencedDesign)
 
@@ -184,7 +184,7 @@ class FormatConverter {
             // If SF and allowable is 0 or PERCENT and actual is 0 getNormalizedResult returns null
             if (normalizedResult != null && (worstNormalizedResult == null || normalizedResult < worstNormalizedResult)) {
                 worstNormalizedResult = normalizedResult
-                worstResult = ChangeSet.duplicateAsJson(result)
+                worstResult = CalcProjectChangeSet.duplicateAsJson(result)
             }
         }
         return worstResult
@@ -286,7 +286,7 @@ class FormatConverter {
 
     Map convertSpidaDBProject(SpidaDBProject spidaDBProject, Map<String, SpidaDBLocation> spidaDBLocationMap, Map<String, SpidaDBDesign> spidaDBDesignMap) {
         // new project json object that we can keep adding to
-        Map convertedProject = ChangeSet.duplicateAsJson(spidaDBProject.getCalcJSON())
+        Map convertedProject = CalcProjectChangeSet.duplicateAsJson(spidaDBProject.getCalcJSON())
 
         // first match up projects with their child locations and designs
         List<String> locationIds = spidaDBProject.getChildLocationIds()
@@ -366,7 +366,7 @@ class FormatConverter {
      */
     Map convertSpidaDBLocation(SpidaDBLocation spidaDBLocation, Map<String, SpidaDBDesign> spidaDBDesignMap) {
         log.debug("Adding SpidaDBLocation: " + spidaDBLocation.getName())
-        Map convertedLocation = ChangeSet.duplicateAsJson(spidaDBLocation.getCalcJSON())
+        Map convertedLocation = CalcProjectChangeSet.duplicateAsJson(spidaDBLocation.getCalcJSON())
 
         List convertedDesigns = []
         spidaDBLocation.getDesignIds().each { String designId ->
@@ -405,7 +405,7 @@ class FormatConverter {
     }
 
     Map convertSpidaDBDesign(SpidaDBDesign spidaDBDesign) {
-        return ChangeSet.duplicateAsJson(spidaDBDesign.getCalcJSON())
+        return CalcProjectChangeSet.duplicateAsJson(spidaDBDesign.getCalcJSON())
     }
 
     private static String newPrimaryKey() {

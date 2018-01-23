@@ -1,9 +1,17 @@
 {
   "type": "object",
-  "id": "general/method_response.schema",
+  "id": "#/general/method_response.schema",
   "$schema": "http://json-schema.org/draft-04/schema",
   "description": "The response wrapper for all SPIDA API methods.  Result OR Error will be set but not both.",
   "properties": {
+    "schema": {
+      "type": "string",
+      "description": "Full URL of the schema. /schema/path/to/example.schema"
+    },
+    "version": {
+      "type": "number",
+      "description": "This is a schema version integer."
+    },
     "result": {
       "type": [
         "object",

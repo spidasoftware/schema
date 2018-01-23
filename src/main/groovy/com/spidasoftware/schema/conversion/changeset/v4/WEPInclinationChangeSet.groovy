@@ -1,10 +1,10 @@
 package com.spidasoftware.schema.conversion.changeset.v4
 
-import com.spidasoftware.schema.conversion.changeset.AbstractDesignChangeset
+import com.spidasoftware.schema.conversion.changeset.calc.AbstractCalcDesignChangeset
 import com.spidasoftware.schema.conversion.changeset.ConversionException
 
 
-class WEPInclinationChangeSet extends AbstractDesignChangeset {
+class WEPInclinationChangeSet extends AbstractCalcDesignChangeset {
 
     static final double DEGREES_PER_RADIAN = 57.29577951308232D
     static final String RADIAN = "RADIAN"

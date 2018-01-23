@@ -3,7 +3,7 @@
  */
 package com.spidasoftware.schema.conversion.changeset.v4
 
-import com.spidasoftware.schema.conversion.changeset.ChangeSet
+import com.spidasoftware.schema.conversion.changeset.calc.CalcProjectChangeSet
 import groovy.json.JsonSlurper
 import groovy.util.logging.Log4j
 import spock.lang.Specification
@@ -15,8 +15,8 @@ class InsulatorAttachHeightChangeSetSpec extends Specification {
 		setup:
 			def stream = InsulatorAttachHeightChangeSetSpec.getResourceAsStream("/conversions/v4/insulator-attach-height.json")
 		    Map projectJSON = new JsonSlurper().parse(stream)
-		    Map locationJSON = ChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0])
-		    Map designJSON = ChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0].designs[0])
+		    Map locationJSON = CalcProjectChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0])
+		    Map designJSON = CalcProjectChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0].designs[0])
 			InsulatorAttachHeightChangeSet changeSet = new InsulatorAttachHeightChangeSet()
 
 			def structure = projectJSON.leads[0].locations[0].designs[0].structure

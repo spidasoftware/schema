@@ -1,18 +1,42 @@
 package com.spidasoftware.schema.validation
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.github.fge.jsonschema.report.ProcessingReport
 import groovy.util.logging.Log4j
 import spock.lang.Specification
 
 @Log4j
 class ValidatorTest extends Specification {
 
+	void "test strict works on nested schemas"() {
+		setup:
+			String schema = "/schema/spidamin/asset/station.schema"
+			String jsonString =""" {
+				"strict":false, 
+				"EXTRA_PROPERTY":"1",
+				"dataProviderId":123,
+				"geometry":{"type":"Point", "coordinates":[0,0]},
+				"assetTypes":["POLE"],
+				"stationAssets":[
+					{ "EXTRA_PROPERTY":"2", "ownerId":123, "primaryAsset":true, "assetType":"POLE" } 
+				]
+			} """
+		when:
+			ProcessingReport report = new Validator().validateAndReport(schema, jsonString)
+		then:
+			report.isSuccess() // this instance should be valid against the schema
+		when:
+			new Validator().validate(schema, jsonString)
+		then:
+			notThrown(JSONServletException) // Should not have thrown a servlet exception
+	}
+
 	void "test OneOfEverythingObject validate as a String"() {
 		setup:
-			def schema = "/schema/spidacalc/calc/structure.schema"
+			String schema = "/schema/spidacalc/calc/structure.schema"
 			String jsonString = new File("resources/examples/spidacalc/designs/one_of_everything.json").text
 		when:
-			def report = new Validator().validateAndReport(schema, jsonString)
+			ProcessingReport report = new Validator().validateAndReport(schema, jsonString)
 		then:
 			report.isSuccess() // this instance should be valid against the schema
 		when:
@@ -27,7 +51,7 @@ class ValidatorTest extends Specification {
 			File jsonFile = new File("resources/examples/spidacalc/designs/one_of_everything.json")
 			Map jsonObject = new ObjectMapper().readValue(jsonFile, LinkedHashMap)
 		when:
-			def report = new Validator().validateAndReport(schema, jsonObject)
+			ProcessingReport report = new Validator().validateAndReport(schema, jsonObject)
 		then:
 			report.isSuccess() // this instance should be valid against the schema
 		when:
@@ -36,38 +60,66 @@ class ValidatorTest extends Specification {
 			notThrown(JSONServletException) // Should not have thrown a servlet exception
 	}
 
-	void "test an object that is not valid"() {
+	void "test an object that is not valid **when strict is true**"() {
 		setup:
-			def schema = "/schema/spidacalc/calc/structure.schema"
-			def instance = '{"id":"externalId", "distance":{"unit":"FOOT", "value":10}, "direction":0}'
+			String schema = "/schema/spidacalc/calc/structure.schema"
+			String instance = '{"id":"externalId", "strict":true, "distance":{"unit":"FOOT", "value":10}, "direction":0}'
 		when:
-			def report = new Validator().validateAndReport(schema, instance)
+			ProcessingReport report = new Validator().validateAndReport(schema, instance)
 		then:
-			!report.isSuccess() // this instance should NOT be valid against the schema
+			!report.isSuccess() // this instance should NOT be valid against the schema because strict is true
 		when:
 			new Validator().validate(schema, instance)
 		then:
 			thrown(JSONServletException)
 	}
 
-	void "test an object that is not valid Map"() {
+	void "test an object that is valid **when strict is false**"() {
 		setup:
-			def schema = "/schema/spidacalc/calc/structure.schema"
-			def instance = [id: "externalId", distance: [unit: "FOOT", value: 10], direction: 0]
+			String schema = "/schema/spidacalc/calc/structure.schema"
+			String instance = '{"id":"externalId", "strict":false, "distance":{"unit":"FOOT", "value":10}, "direction":0}'
 		when:
-			def report = new Validator().validateAndReport(schema, instance)
+			ProcessingReport report = new Validator().validateAndReport(schema, instance)
 		then:
-			!report.isSuccess() // this instance should NOT be valid against the schema
+			report.isSuccess() // this instance should be valid against the schema because strict is false
+		when:
+			new Validator().validate(schema, instance)
+		then:
+			notThrown(JSONServletException)
+	}
+
+	void "test an object that is not valid Map **when strict is true**"() {
+		setup:
+			String schema = "/schema/spidacalc/calc/structure.schema"
+			Map instance = [id: "externalId", strict:true, distance: [unit: "FOOT", value: 10], direction: 0]
+		when:
+			ProcessingReport report = new Validator().validateAndReport(schema, instance)
+		then:
+			!report.isSuccess() // this instance should NOT be valid against the schema because strict is true
 		when:
 			new Validator().validate(schema, instance)
 		then:
 			thrown(JSONServletException)
+	}
+
+	void "test an object that is not valid Map **when strict is false**"() {
+		setup:
+			String schema = "/schema/spidacalc/calc/structure.schema"
+			Map instance = [id: "externalId", strict:false, distance: [unit: "FOOT", value: 10], direction: 0]
+		when:
+			ProcessingReport report = new Validator().validateAndReport(schema, instance)
+		then:
+			report.isSuccess() // this instance should be valid against the schema because strict is false
+		when:
+			new Validator().validate(schema, instance)
+		then:
+			notThrown(JSONServletException)
 	}
 
 	void "test invalid json"() {
 		setup:
-			def schema = "/schema/spidacalc/calc/structure.schema"
-			def badInstance = "{{"
+			String schema = "/schema/spidacalc/calc/structure.schema"
+			String badInstance = "{{"
 		when:
 			new Validator().validate(schema, badInstance)
 		then:
@@ -76,7 +128,7 @@ class ValidatorTest extends Specification {
 
 	void "test validateAndReportFromText and validateFromText"() {
 		setup:
-			def schemaText=  '''
+			String schemaText=  '''
 {
   "description": "This is for testing schemas as text instead of as paths to a file.",
   "type": "object",
@@ -91,10 +143,10 @@ class ValidatorTest extends Specification {
   }
 }
 '''
-			def invalidInstance = '{"properties":{"externalId":"abc123"}}'
-			def validInstance = '{"externalId":"abc123"}'
+			String invalidInstance = '{"properties":{"externalId":"abc123"}}'
+			String validInstance = '{"externalId":"abc123"}'
 		when:
-			def report = new Validator().validateAndReportFromText(schemaText, validInstance)
+			ProcessingReport report = new Validator().validateAndReportFromText(schemaText, validInstance)
 		then:
 			report.isSuccess()
 		when:
@@ -112,19 +164,4 @@ class ValidatorTest extends Specification {
 
 	}
 
-	void "test ignore additionalValues"() {
-		setup:
-			def schema = "/schema/spidacalc/calc/structure.schema"
-			File jsonFile = new File("resources/examples/spidacalc/designs/one_of_everything.json")
-			Map jsonObject = new ObjectMapper().readValue(jsonFile, LinkedHashMap)
-			jsonObject.extraValue = "extraValue"
-		when:
-			def report = new Validator().validateAndReport(schema, jsonObject, true)
-		then:
-			report.isSuccess() // this instance should be valid against the schema
-		when:
-			new Validator().validate(schema, jsonObject, true)
-		then:
-			notThrown(JSONServletException) // Should not have thrown a servlet exception
-	}
 }

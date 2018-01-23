@@ -71,6 +71,13 @@ Tools
 
 If you are in need of actually validating some JSON data against the schema there several options depending on your language.  The one we use in our tests is the excellent library by [fge](https://github.com/fge/json-schema-validator).  It gives very good validation errors and also does all the references for you, so there is no need to load all the linked schema.  You will also notice in our tests we use a namespace of a file system.  This could be any location you put the file, you could even use a "resource:/" uri for referencing in a jar.
 
+**Strict Mode**
+
+* You can add `"strict":true` to an object being validated.  This will means that the validator won't allow any additional properties. 
+* We recommend using this in dev and test to make sure you didn't misspell something or add the wrong key.
+* We recommend removing the strict property or setting it to false in production so that we can be more flexible when handling different schema versions.
+* The validator will not be strict by default.
+
 ##### Command line validator
 
 We include a command line validator to validate against any of our included schemas. To run the command, use the validateJson gradle task

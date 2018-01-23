@@ -3,13 +3,13 @@
  */
 package com.spidasoftware.schema.conversion.changeset.v4
 
-import com.spidasoftware.schema.conversion.changeset.ChangeSet
+import com.spidasoftware.schema.conversion.changeset.calc.CalcProjectChangeSet
 import com.spidasoftware.schema.conversion.changeset.ConversionException
 import groovy.util.logging.Log4j
 
 
 @Log4j
-class PhotoDirectionChangeSet extends ChangeSet {
+class PhotoDirectionChangeSet extends CalcProjectChangeSet {
 
 	@Override
 	void applyToProject(Map projectJSON) throws ConversionException {
