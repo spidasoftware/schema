@@ -53,7 +53,7 @@
                             "ASSET_MASTER",
                             "TICKET_MANAGER",
                             "LICENSE_MANAGER",
-                            "CALC_DB"
+                            "SPIDA_DB"
                         ]
                     },
                     "sourceId": {
