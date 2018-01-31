@@ -387,11 +387,6 @@
           "attachmentHeight",
           "owner"
         ],
-        "anyOf":[
-          {"required": ["clientItemVersion"]},
-          {"required": ["clientItem"]},
-          {"required": ["clientItemAliasId"]}
-        ],
         "additionalProperties": false,
         "properties": {
           "id": {
