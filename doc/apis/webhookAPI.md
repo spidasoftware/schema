@@ -286,7 +286,7 @@ Response JSON:
 }
 ```
 
-###View
+### View
 The server can be queried for registered webhooks.  Here all webhooks registered with the callback url: https://callback.example.com/callback are queried.
 
 Direction: Callback Server -> SPIDAMin  
@@ -771,7 +771,7 @@ Request JSON:
 
 The server receiving the callback again responds with a 200 OK status.  Callback response content is ignored by SPIDAMin.
 
-###Renew
+### Renew
 Before the webhook expires it must be renewed.  This is required to keep SPIDAMin from sending callbacks that are no longer needed.
 
 Direction: Callback Server -> SPIDAMin  
@@ -796,7 +796,7 @@ Response JSON:
 }
 ```
 
-###Unregister
+### Unregister
 When the callback is now longer required.  The requesting application can either wait for the webhook to expire, or unregister the webhook.
 
 Direction: Callback Server -> SPIDAMin  
