@@ -59,7 +59,7 @@ class MinSchemaTest extends GroovyTestCase {
 	}
 
 	void testAttachment(){
-		def instance = '{"name":"blah","companyId": 42,"uuid":"blahblah", "bytes":"abc","associations":[{"level":"COMPANY","product": "CALC_DB","sourceId": "42", "latitude": 7, "longitude": 8}]}'
+		def instance = '{"name":"blah","companyId": 42,"uuid":"blahblah", "bytes":"abc","associations":[{"level":"COMPANY","product": "SPIDA_DB","sourceId": "42", "latitude": 7, "longitude": 8}]}'
 		def schema = factory.getJsonSchema("schema/spidamin/asset/attachment.schema")
 		report = schema.validate(JsonLoader.fromString(instance))
 		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
