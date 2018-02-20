@@ -74,6 +74,10 @@ When calc is running on a client machine, it also starts up a small web server t
 
 Currently, even though it is done in a web service style, this is only available as a client integration. Calc will still be running on the local machine, and it does not require an internet connection -- integrations will work fine in the field! But it also means that you cannot set up a single calc server somewhere to handle all of your analysis.
 
+[Calc Remote Control API definition](apis/calcAPI.md)
+
+We based our services on the json-rpc that can be found [here](http://www.simple-is-better.org/json-rpc/jsonrpc20-schema-service-descriptor.html).  
+
 ## Calc Service
 
 The Calc service is best thought of as a remote control for a running copy of calc. Once Calc is started, an integrating program can make basic commands that can do the same thing as a user would do in the UI. These options include:
