@@ -103,7 +103,7 @@ For example, to validate the "one of everything" structure example, from the sch
 The tool uses our included Validator java class.
 
 ### Changesets
-[Java Package](src/main/groovy/com/spidasoftware/schema/conversion/changeset)
+[Changesets Package](src/main/groovy/com/spidasoftware/schema/conversion/changeset)
 
 The included Validator tool will automatically convert some json  (primarily the Project exchange files used by SPIDAcalc and SPIDAdb) to the current version of the schema before validating. The same converter classes can be used to downgrade a json file to an earlier version of the schema for backwards compatibility purposes.
 
