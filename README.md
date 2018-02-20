@@ -5,6 +5,10 @@ SPIDA Software JSON Interfaces
 
 * LAST RELEASED VERSION: 4.0.0
 
+General Overview
+--------------------------------
+The SPIDAschema project documents the available services and data formats for third parties wanting to integrate with SPIDA Software applications.
+
 Versions
 -------
 The data formats, examples, and available web service interfaces will all change from version to version. Please make sure you are reading the correct documentation and validating against the correct schema for the version of the SPIDA product you are using.
@@ -18,10 +22,6 @@ The data formats, examples, and available web service interfaces will all change
 License
 -------
 By accessing, downloading or using the APIs defined here you are agreeing to these terms of use [here.](https://github.com/spidasoftware/schema/raw/master/SPIDAWeb%20API%20Terms%20of%20Service%20(Updated%204%20October%202017).pdf)
-
-General Overview
---------------------------------
-The SPIDAschema project documents the available services and data formats for third parties wanting to integrate with SPIDA Software applications.
 
 Products
 ----------
