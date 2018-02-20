@@ -1,19 +1,16 @@
-Overview
+SPIDAmin API Overview
 =========
 
 All of the specific endpoints in our APIs are described in the [apis](apis) folder.
 
-We have two main kinds of API's: RPC and REST.
+We have two main kinds of APIs: RPC and REST.
 
 ## RPC API
 
 RPC stands for "Remote Procedure Call" and is for "invoking an action on a remote system". Further specific information on our RPC type endpoints is given in [this additional file](rpc.md).
 
-#### Available Services
-
-##### SPIDAMin
-
-1. [project](apis/projectAPI.md) - SPIDAMin projects and services are defined here. This contains the primary means to interact with SPIDAMin.
+### Available RPC Services
+1. [project](apis/projectAPI.md) - SPIDAmin projects and services are defined here. This contains the primary means to interact with SPIDAmin.
 1. [users](apis/usersAPI.md) -  Interacting with users and user services are in this service.
 1. [asset](apis/assetAPI.md) -  These objects deal with the assets and asset services.  An example is an asset is a pole.
 1. [asset search](apis/assetSearchAPI.md) -  These methods allow the searching of assets and stations.
@@ -21,45 +18,27 @@ RPC stands for "Remote Procedure Call" and is for "invoking an action on a remot
 1. [asset file](apis/assetFileAPI.md) -  These methods allow the interaction with file based assets and stations.
 1. [station linker](apis/stationLinkerAPI.md) -  These methods allow for the association of related stations between services.
 
-##### SPIDACalc
-
-1. [calc](apis/calcAPI.md) - the ability to control the desktop version of SPIDACalc from external tools.
-
-We based our services on the json-rpc that can be found [here](http://www.simple-is-better.org/json-rpc/jsonrpc20-schema-service-descriptor.html).  
-
 ## REST API
 
 REST is a specific type of data service, and a few of our more data centric services can be represented this way.
 
-#### Available Services
-
-##### SPIDAMin
+### Available Services
 
 1. [webhooks](apis/webhookAPI.md) - Listen to activity in SPIDAMin from another system
 1. [action](apis/actionAPI.md) - Trigger any of the actions in a work flow with this service.
 1. [spidadb](apis/spidadbAPI.md) - Push and pull projects into SPIDAdb.
 
-##### SPIDACalc
+### License Agreement (EULA)
 
-1. [client](apis/calcAPI.md) - a REST endpoint to retrieve engineering information used in SPIDACalc from external tools.
-
-SPIDACalc
-========
-
-Information about the SPIDACalc exchange format JSON and integration API can be found in [The Calc API Developer Guide.](calc.md)
-
-SPIDAMin
-========
-
-There are some core concepts that apply to both types of services when used in a client/server relationship like SPIDAMin.
+All users must accept the License Agreement.  If this has not been accepted, all HTTP requests will be redirected to usersmaster/agreement.  Login to SPIDAmin and you will be redirected to the License Agreement.  Click the 'Accept' button at the bottom of the page.
 
 ## API Token
 
-For most of the calls against a SPIDAMin service you will need to include your apiToken parameter, this is in addition to any parameters required by the method.  This would be for the service interface if it is implemented on a server environment.  There are times when we implement the same service in the local environments, and then the apiToken would not be needed, but in most cases it will be required.  If you make a service call but get redirect to a security login, then your apiToken was not included or was invalid.
+For most of the calls against a SPIDAmin service you will need to include your apiToken parameter, this is in addition to any parameters required by the method.  This would be for the service interface if it is implemented on a server environment.  There are times when we implement the same service in the local environments, and then the apiToken would not be needed, but in most cases it will be required.  If you make a service call but get redirect to a security login, then your apiToken was not included or was invalid.
 
 ## Sessions
 
-When a call is made to SPIDAMin and the API Token is successfully authenticated a session is created.  A new session is created for each different application, a call to AssetMaster and a call to Project Manager will create two sessions.  Each session will have to be expired in separate calls, there are two ways to expire a session. Here is an example of expiring an AssetMaster session by calling logout:
+When a call is made to SPIDAmin and the API Token is successfully authenticated a session is created.  A new session is created for each different application, a call to AssetMaster and a call to Project Manager will create two sessions.  Each session will have to be expired in separate calls, there are two ways to expire a session. Here is an example of expiring an AssetMaster session by calling logout:
 
     curl -g 'https://test.spidasoftware.com/assetmaster/j_spring_security_logout'
 
