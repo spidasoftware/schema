@@ -348,4 +348,4 @@ The report ID is any report named in your client file, as well as two of the rep
 
 #### Questions/Support
 
-For questions about the SPIDACalc API, please submit a ticket at [spidasoftware.zendesk.com/hc/en-us](spidasoftware.zendesk.com/hc/en-us).
+For questions about the SPIDACalc API, please submit a ticket at <https://spidasoftware.zendesk.com/hc/en-us>
