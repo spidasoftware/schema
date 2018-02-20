@@ -31,7 +31,7 @@ Products
 Desktop pole modeling and loading analysis software.
 - [Developer Guide](doc/calc.md)
 - [Schema](resources/schema/spidacalc)
-- [Examples](resouces/examples/spidacalc)
+- [Examples](resources/examples/spidacalc)
 
 ### SPIDAmin
 Web based utility project and asset management software.
