@@ -63,7 +63,7 @@ Project Structure
 
 JSON
 --------
-Our services rely heavily on the JSON format and HTTP web services. [JSON tutorial](http://www.w3schools.com/json/default.asp).
+Our services rely heavily on the [JSON](https://en.wikipedia.org/wiki/JSON) format and HTTP web services.
 
 A JSON viewer plugin for you browser is highly recommended when working with these APIs.
 
