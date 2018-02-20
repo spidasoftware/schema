@@ -75,7 +75,7 @@ Schema files end in .schema. The .schema files are used to validate the objects 
 Tools
 -----
 ### Schema Validation
-The jar built by this project contains a [Validator](src/main/groovy/com/spidasoftware/schema/validation/Validator.groovy) utility class that cleanly handles local references within this project. If you are not working on the jvm, however, there are quality json schema validators available for almost any language.
+The jar built by this project contains a [Validator](src/main/groovy/com/spidasoftware/schema/validation/Validator.groovy) utility class that can be used to validate json against this schema. If you are not working on the jvm, however, there are quality json schema validators available for almost any language.
 
 ### Strict Mode
 Strict mode is supported as of version 5.0.0. Previous versions of the schema always parsed "additionalProperties=false" strictly. This made new formats incompatible with older SPIDA products, because any unknown fields violated the schema. Going forward, data loss of new feature may occur when processing new formats in order versions, but the fields that are known should transfer properly. This should make integrations less fragile and version dependent.
