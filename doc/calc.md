@@ -74,8 +74,6 @@ When calc is running on a client machine, it also starts up a small web server t
 
 Currently, even though it is done in a web service style, this is only available as a client integration. Calc will still be running on the local machine, and it does not require an internet connection -- integrations will work fine in the field! But it also means that you cannot set up a single calc server somewhere to handle all of your analysis.
 
-[Calc Remote Control API definition](apis/calcAPI.md)
-
 We based our services on the json-rpc that can be found [here](http://www.simple-is-better.org/json-rpc/jsonrpc20-schema-service-descriptor.html).  
 
 ## Calc Service
@@ -84,7 +82,6 @@ The Calc service is best thought of as a remote control for a running copy of ca
 
 - Opening a project.
 - Saving the project.
-- Analyzing that project.
 - Generating reports.
 - Running custom scripts that SPIDA has provided to the client.
 
@@ -124,23 +121,24 @@ Schema for a calc project. Includes information on GPS positions, street address
 
 RPC interfaces are exposed at http://localhost:4560/ while SPIDACalc is running. They allow control over core operations of SPIDACalc from another programming running locally via basic HTTP POST requests. There is an example script using these methods in examples/scripts/example_RPC_client.coffee.
 
-##### client_data.json
+##### [client_data](/doc/apis/clientAPI.md)
+
 
 Located at http://localhost:4560/clientData/<method name>. This interface provides basic querying methods for what client items are available in a client file.
 
-##### calc.json
+##### [calc](/doc/apis/calcAPI.md)
 
 located at http://localhost:4560/calc/<method name>. Provides stateful control methods to a running instance of SPIDACalc. Includes methods to open a file, run analysis, run a report, etc.
 
-#### Schema Public access
-
-The schemas are published and available online at http://github.com/spidasoftware/schema
-
 #### Using the examples
 
-The example data files are json files that can be opened in any text editor. They can be found in  The RPC example script is a coffeescript file that can be run using the node-js coffeescript package. http://coffeescript.org/
+The example data files are json files that can be opened in any text editor.
 
-The JSON examples are in [https://github.com/spidasoftware/schema/tree/master/resources/examples/spidacalc)
+[Example data files](/resources/examples/spidacalc)
+
+[Example Integration showing data export to KML](/resources/examples/spidacalc/demos/kml-demo)
+
+[Example RPC integration using coffescript](/resources/examples/spidacalc/example_RPC_client.coffee)
 
 #### Looking around
 
