@@ -13,16 +13,19 @@ The SPIDAschema project documents the available services and data formats for th
 Versions
 -------
 The data formats, examples, and available web service interfaces will all change from version to version. Please make sure you are reading the correct documentation and validating against the correct schema for the version of the SPIDA product you are using.
-- [v5.0.0-SNAPSHOT](https://github.com/spidasoftware/schema) SPIDAcalc 7.0.2, SPIDAstudio 18.0
-- [v4.0.0](https://github.com/spidasoftware/schema/releases/tag/v4.0.0) SPIDAcalc 7.0.0-7.0.1
-- [v3.0.1/v1.11](https://github.com/spidasoftware/schema/releases/tag/1.11) SPIDAmin 16.1
-- [v3.0.0/v1.09](https://github.com/spidasoftware/schema/releases/tag/v1.09) SPIDAcalc 6.1.2-6.4.0
-- [v2.0.0/v1.0.6](https://github.com/spidasoftware/schema/releases/tag/1.0.6) SPIDAcalc 6.0.0-6.1.1
-- [v1.0.0](https://github.com/spidasoftware/schema/releases/tag/1.0.0) SPIDAcalc 5.3.0-5.3.4
+
+| Schema version                                                            | SPIDAcalc               | SPIDAstudio      | SPIDAmin      |
+|---------------------------------------------------------------------------|-------------------------|------------------|---------------|
+| [5.0.0-SNAPSHOT](https://github.com/spidasoftware/schema)                 | SPIDAcalc 7.0.2         | SPIDAstudio 18.0 |               |
+| [4.0.0](https://github.com/spidasoftware/schema/releases/tag/v4.0.0)      | SPIDAcalc 7.0.0 - 7.0.1 |                  |               |
+| [3.0.1/1.11](https://github.com/spidasoftware/schema/releases/tag/1.11)   |                         |                  | SPIDAmin 16.1 |
+| [3.0.0/1.09](https://github.com/spidasoftware/schema/releases/tag/v1.09)  | SPIDAcalc 6.1.2 - 6.4.0 |                  |               |
+| [2.0.0/1.0.6](https://github.com/spidasoftware/schema/releases/tag/1.0.6) | SPIDAcalc 6.0.0 - 6.1.1 |                  |               |
+| [1.0.0](https://github.com/spidasoftware/schema/releases/tag/1.0.0)       | SPIDAcalc 5.3.0 - 5.3.4 |                  |               |
 
 License
 -------
-By accessing, downloading or using the APIs defined here you are agreeing to these terms of use [here.](https://github.com/spidasoftware/schema/raw/master/SPIDAWeb%20API%20Terms%20of%20Service%20(Updated%204%20October%202017).pdf)
+By accessing, downloading, or using the APIs defined here you are agreeing to these terms of use [here.](https://github.com/spidasoftware/schema/raw/master/SPIDAWeb%20API%20Terms%20of%20Service%20(Updated%204%20October%202017).pdf)
 
 Products
 ----------
