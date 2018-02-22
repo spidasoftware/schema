@@ -22,7 +22,7 @@
       "pattern": "[a-f0-9]{32}",
       "description": "Hash of the client item containing the engineering properties for this wire. clientItemVersion and/or clientItem must be present in non-assembly strcutures."
     },
-    "clientItemAliasId": {
+    "clientItemAlias": {
       "type": "string",
       "description": "An alias for a client wire. Used for integration."
     },

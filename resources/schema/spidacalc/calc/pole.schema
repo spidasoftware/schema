@@ -8,7 +8,7 @@
   "anyOf":[
     {"required":["clientItemVersion"]},
     {"required":["clientItem"]},
-    {"required":["clientItemAliasId"]}
+    {"required":["clientItemAlias"]}
   ],
   "properties": {
     "id": {
@@ -58,7 +58,7 @@
       "pattern": "[a-f0-9]{32}",
       "type": "string"
     },
-    "clientItemAliasId": {
+    "clientItemAlias": {
 	  "type": "string",
 	  "description": "An alias for a client pole. Used for integration."
    	},

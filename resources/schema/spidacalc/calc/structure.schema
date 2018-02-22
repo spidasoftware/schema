@@ -20,7 +20,7 @@
         "anyOf":[
           {"required":["clientItemVersion"]},
           {"required":["clientItem"]},
-		  {"required":["clientItemAliasId"]}
+		  {"required":["clientItemAlias"]}
         ],
         "additionalProperties": false,
         "properties": {
@@ -41,7 +41,7 @@
             "pattern": "[a-f0-9]{32}",
             "description": "Hash of the client item containing the engineering properties for this foundation"
           },
-          "clientItemAliasId": {
+          "clientItemAlias": {
             "type": "string",
             "description": "An alias for a client foundation. Used for integration."
           },
@@ -308,7 +308,7 @@
         "anyOf":[
           {"required":["clientItemVersion"]},
           {"required":["clientItem"]},
-          {"required":["clientItemAliasId"]}
+          {"required":["clientItemAlias"]}
         ],
         "additionalProperties": false,
         "properties": {
@@ -364,7 +364,7 @@
             "pattern": "[a-f0-9]{32}",
             "description": "Hash of the client item containing the engineering properties for this span guy."
           },
-          "clientItemAliasId": {
+          "clientItemAlias": {
             "type": "string",
             "description": "An alias for a client guy wire. Used for integration."
           },
@@ -390,7 +390,7 @@
         "anyOf":[
           {"required":["clientItemVersion"]},
           {"required":["clientItem"]},
-          {"required":["clientItemAliasId"]}
+          {"required":["clientItemAlias"]}
         ],
         "additionalProperties": false,
         "properties": {
@@ -425,7 +425,7 @@
             "pattern": "[a-f0-9]{32}",
             "description": "Hash of the client item containing the engineering properties for this guy."
           },
-          "clientItemAliasId": {
+          "clientItemAlias": {
             "type": "string",
             "description": "An alias for a client equipment. Used for integration."
           }
@@ -450,7 +450,7 @@
         "anyOf":[
           {"required":["clientItemVersion"]},
           {"required":["clientItem"]},
-          {"required":["clientItemAliasId"]}
+          {"required":["clientItemAlias"]}
         ],
         "additionalProperties": false,
         "properties": {
@@ -484,7 +484,7 @@
             "pattern": "[a-f0-9]{32}",
             "description": "Hash of the client item containing the engineering properties for this brace."
           },
-		  "clientItemAliasId": {
+		  "clientItemAlias": {
 		    "type": "string",
 		    "description": "An alias for a client brace. Used for integration."
 		  },
@@ -515,7 +515,7 @@
         "anyOf":[
           {"required":["clientItem"]},
           {"required":["clientItemVersion"]},
-          {"required":["clientItemAliasId"]}
+          {"required":["clientItemAlias"]}
         ],
         "additionalProperties": false,
         "properties": {
@@ -549,7 +549,7 @@
             "pattern": "[a-f0-9]{32}",
             "description": "Hash of the client item containing the engineering properties for this equipment."
           },
-		  "clientItemAliasId": {
+		  "clientItemAlias": {
 			"type": "string",
 			"description": "An alias for a client equipment. Used for integration."
 		  }
@@ -573,7 +573,7 @@
         "anyOf":[
           {"required":["clientItemVersion"]},
           {"required":["clientItem"]},
-          {"required":["clientItemAliasId"]}
+          {"required":["clientItemAlias"]}
         ],
         "additionalProperties": false,
         "properties": {
@@ -622,7 +622,7 @@
             "pattern": "[a-f0-9]{32}",
             "description": "Hash of the client item containing the engineering properties for this crossarm."
           },
-	      "clientItemAliasId": {
+	      "clientItemAlias": {
 	        "type": "string",
 	        "description": "An alias for a client crossarm. Used for integration."
 		  }
@@ -645,7 +645,7 @@
         "anyOf":[
           {"required":["clientItem"]},
           {"required":["clientItemVersion"]},
-          {"required":["clientItemAliasId"]}
+          {"required":["clientItemAlias"]}
         ],
         "additionalProperties": false,
         "properties": {
@@ -687,7 +687,7 @@
             "pattern": "[a-f0-9]{32}",
             "description": "Hash of the client item containing the engineering properties for this insulator."
           },
-          "clientItemAliasId": {
+          "clientItemAlias": {
             "type": "string",
             "description": "An alias for a client equipment. Used for integration."
           }
@@ -711,7 +711,7 @@
         "anyOf":[
           {"required":["clientItemVersion"]},
           {"required":["clientItem"]},
-          {"required":["clientItemAliasId"]}
+          {"required":["clientItemAlias"]}
         ],
         "additionalProperties": false,
         "properties": {
@@ -750,7 +750,7 @@
             "pattern": "[a-f0-9]{32}",
             "description": "Hash of the client item containing the engineering properties for this push brace."
           },
-          "clientItemAliasId": {
+          "clientItemAlias": {
             "type": "string",
             "description": "An alias for a client equipment. Used for integration."
           }
