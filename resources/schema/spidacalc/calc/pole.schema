@@ -6,8 +6,9 @@
     "owner"
   ],
   "anyOf":[
+    {"required":["clientItemVersion"]},
     {"required":["clientItem"]},
-    {"required":["clientItemVersion"]}
+    {"required":["clientItemAlias"]}
   ],
   "properties": {
     "id": {
@@ -57,6 +58,10 @@
       "pattern": "[a-f0-9]{32}",
       "type": "string"
     },
+    "clientItemAlias": {
+	  "type": "string",
+	  "description": "An alias for a client pole. Used for integration."
+   	},
     "owner": {
       "description": "Company who owns the pole.",
       "$ref": "../../general/owner.schema"

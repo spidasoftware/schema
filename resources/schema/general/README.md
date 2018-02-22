@@ -1,4 +1,4 @@
-General Object Schema's
+General Object Schemas
 ============
 
 1. address.schema - General address holder
