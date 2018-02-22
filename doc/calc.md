@@ -15,14 +15,13 @@ Calc defines an open, human readable format for importing pole and project infor
 
 Calc supports a project structure and information about locations. It can import and export addresses, GPS points, remedy information, and other expected meta-data surrounding pole collection and analysis.
 
-It also supports the import of what we call framing plans. Framing plans build assemblies on the pole from predefined standards using our best guess as to how the standard would be applied. This is often the best way to integrate with staking and design programs, or to do a quick first pass based on information about pole heads in a GIS or other accounting system where field specific measurements are not available.
-
 It supports detailed information at the level of a data collection program, allowing for the specification of every attachment to the pole at its exact height and direction, with appropriate material properties. This is the level that will give the most specific and reliable analysis results, and is best used by those looking to integrate Calc with their existing data collection programs. It is also how a structure created in calc will be exported, and can be used to generate custom reports or high-level analysis across multiple projects, or to import specific fields back into an accounting or work order system.
+
+It also supports defining structures on the level of prebuilt standards through our Input Assemblies concept. This is usually the easiest way to get started for integrations with Staking platforms and GIS applications.
 
 Finally, for export only it can include high level analysis results, including loading percentages or safety factors for all analyzed components on a pole.
 
 In short, for pretty much anything you can do in calc, you get it in or out through this simple and readable data format.
-
 
 #### Calc exchange file format ####
 
