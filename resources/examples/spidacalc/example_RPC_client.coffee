@@ -1,12 +1,17 @@
 # for more documentation on coffescript see coffeescript.org
-# once npm and coffeescript are installed, this can run this script with "coffee example_RPC_client.coffee"
+# once npm and coffeescript are installed
+# you need the querystring dependency:
+#
+# npm install querystring
+#
+# then this can run this script with "coffee example_RPC_client.coffee"
 # for documentation on node.js, see nodejs.org
 # deep knowledge of neither of these should be required to understand the point of this example, though
 # which is how to call the Calc RPC methods
 # Any languages HTTP library will work fine.
 # Calc must be running and have a license before this example will work
 
-queryString = require('queryString')
+queryString = require('querystring')
 http = require('http')
 fs = require('fs')
 util = require('util')
@@ -54,8 +59,8 @@ httpPost.write(postParameters)
 httpPost.end()
 
 # to load a project into calc
-projectData = fs.readFileSync('../projects/minimal_project_with_gps.json', 'UTF-8')
-#util.puts("read in project file\n #{projectData}")
+projectData = fs.readFileSync('./projects/minimal_project_with_gps.json', 'UTF-8')
+util.puts("read in project file\n #{projectData}")
 # we don't actually need to convert this to json... it's just going to go back to a string in the parameters
 # but we need to set up new query options and parameters.
 
@@ -78,6 +83,7 @@ queryOptions =
 
 onData = (data) ->
 	# load the response JSON
+	util.puts data
 	response = JSON.parse(data)
 	util.puts "Got response"
 	# check if the request threw an error
