@@ -19,6 +19,7 @@ abstract class AbstractConverter implements Converter {
 
 	int defaultVersion = 1
 	protected TreeMap<Integer, List<ChangeSet>> versions = new TreeMap<>() // each list will be applied when going from N-1 to N
+	protected static final int VERSION_ALLOWED_IN_LOCATION_DESIGN = 4
 
 	abstract void applyChangeset(ChangeSet changeSet, Map json)
 	abstract void revertChangeset(ChangeSet changeSet, Map json)
@@ -27,7 +28,7 @@ abstract class AbstractConverter implements Converter {
 		return versions.lastKey()
 	}
 
-	public void convert(Map json, int toVersion) throws ConversionException {
+	void convert(Map json, int toVersion) throws ConversionException {
 		int fromVersion = defaultVersion
 		if (json.containsKey("version") && json.get('version')!=null) {
 			fromVersion = json.get("version")
@@ -60,7 +61,7 @@ abstract class AbstractConverter implements Converter {
 				revertChangeset(changeSet, json)
 			}
 		}
-		json.put("version", toVersion)
+		updateVersion(json, toVersion)
 	}
 
 	/**

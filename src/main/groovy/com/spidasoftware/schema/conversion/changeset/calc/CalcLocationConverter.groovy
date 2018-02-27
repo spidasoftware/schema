@@ -1,12 +1,32 @@
 package com.spidasoftware.schema.conversion.changeset.calc
 
 import com.spidasoftware.schema.conversion.changeset.*
+import groovy.util.logging.Log4j
 
+@Log4j
 class CalcLocationConverter extends AbstractConverter {
 
     @Override
     String getSchemaPath() {
         return "/schema/spidacalc/calc/location.schema"
+    }
+
+    @Override
+    void updateVersion(Map json, int version) {
+        boolean versionAllowedInLocationAndDesign = (version >= VERSION_ALLOWED_IN_LOCATION_DESIGN)
+        if(versionAllowedInLocationAndDesign) {
+            json.put("version", version)
+        } else if(json.containsKey("version")) {
+            json.remove("version")
+        }
+
+        json.get("designs")?.each { Map designJSON ->
+            if(versionAllowedInLocationAndDesign) {
+                designJSON.put("version", version)
+            } else if(designJSON.containsKey("version")) {
+                designJSON.remove("version")
+            }
+        }
     }
 
     @Override
@@ -16,6 +36,7 @@ class CalcLocationConverter extends AbstractConverter {
 
     @Override
     void revertChangeset(ChangeSet changeSet, Map json) {
+        log.info("json = ${json}")
         changeSet.revertLocation(json)
     }
 }
