@@ -13,7 +13,7 @@ class CalcLocationConverter extends AbstractConverter {
 
     @Override
     void updateVersion(Map json, int version) {
-        boolean versionAllowedInLocationAndDesign = (version >= VERSION_ALLOWED_IN_LOCATION_DESIGN)
+        boolean versionAllowedInLocationAndDesign = isVersionAllowedInLocationAndDesign(version)
         if(versionAllowedInLocationAndDesign) {
             json.put("version", version)
         } else if(json.containsKey("version")) {
