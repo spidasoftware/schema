@@ -68,5 +68,5 @@ If retrieving only one job an alternate form can be used: `https://cee.spidastud
 
 ## Viewing results in results viewer
 
-SPIDAcee job results can also be viewed online.  A web-view of SPIDAcee results is available at `https://cee.spidastudio.com/results-viewer/results/<job id>`.  In order to view these results, a user must log in with the same username and password associated with the apiToken was used to submit the job.  Users will be prompted for their credentials if not already logged in to SPIDAcee.
+SPIDAcee job results can also be viewed online.  A web-view of SPIDAcee results is available at `https://cee.spidastudio.com/results-viewer/results/<job id>`.  In order to view these results, a user must log in with the same username and password associated with the apiToken used to submit the job.  Users will be prompted for their credentials if not already logged in to SPIDAcee.
  
