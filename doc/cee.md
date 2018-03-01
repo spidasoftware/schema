@@ -10,7 +10,7 @@ All requests to the SPIDAcee Job Submission API must contain a `User-Agent` head
 
 ## Job Submission
 
-In order to submit a job to SPIDAcee, make a POST request to `https://cee.spidastudio.com/job?aptToken=<aptToken>`.  The body of the request must contain a JSON array of object that match the schema at [#/spidacalc/cee/job.schema](https://github.com/spidasoftware/schema/blob/master/resources/schema/spidacalc/cee/job.schema).  The request must contain a `User-Agent` header and a `Content-Type` header of `application/json`.
+In order to submit a job to SPIDAcee, make a POST request to `https://cee.spidastudio.com/job?apiToken=<apiToken>`.  The body of the request must contain a JSON array of object that match the schema at [#/spidacalc/cee/job.schema](https://github.com/spidasoftware/schema/blob/master/resources/schema/spidacalc/cee/job.schema).  The request must contain a `User-Agent` header and a `Content-Type` header of `application/json`.
 
 The server will respond with an array of JSON objects matching [#/spidacalc/cee/job-action-response.schema](https://github.com/spidasoftware/schema/blob/master/resources/schema/spidacalc/cee/job-action-response.schema).  Each returned object corresponds to a submitted job.  These objects contain a success field.  If success is true, the job was submitted to SPIDAcee successfully and the job response object will contain an id field with a job id.  If false, the job was not submitted to SPIDAcee successfully and the job response object will contain an errors field containing an array of errors.  NOTE: the job is only validated at a high level when submitted.  Successful submission does not mean successful analysis.  The payload of the job will be further validated once the job is scheduled for analysis.
 
@@ -65,4 +65,8 @@ while length(pendingJobs) > 0 {
 Jobs can be retrieved from SPIDAcee by job id.  To retrieve SPIDAcee jobs, make a GET request to `https://cee.spidastudio.com/job?ids=<JSON array of ids>&apiToken=<apiToken>`.  SPIDAcee will respond with a JSON array of objects matching [#/spidacalc/cee/job.schema](https://github.com/spidasoftware/schema/blob/master/resources/schema/spidacalc/cee/job.schema).  If a job has finished, the job will contain an output field.  If output.success is true, output will contain a results field with analysis results.  If output.success is false, output will contain message and engineOutput fields with error information.
 
 If retrieving only one job an alternate form can be used: `https://cee.spidastudio.com/job/<job id>?apiToken=<apiToken>`
+
+## Viewing results in results viewer
+
+SPIDAcee job results can also be viewed online.  A web-view of SPIDAcee results is available at `https://cee.spidastudio.com/results-viewer/results/<job id>`.  In order to view these results, a user must log in with the same username and password associated with the apiToken was used to submit the job.  Users will be prompted for their credentials if not already logged in to SPIDAcee.
  
