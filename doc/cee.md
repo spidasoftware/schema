@@ -60,7 +60,7 @@ while length(pendingJobs) > 0 {
 }
 ```
 
-## Retrieving Jobs
+## Retrieving Jobs / Analysis Results
 
 Jobs can be retrieved from SPIDAcee by job id.  To retrieve SPIDAcee jobs, make a GET request to `https://cee.spidastudio.com/job?ids=<JSON array of ids>&apiToken=<apiToken>`.  SPIDAcee will respond with a JSON array of objects matching [#/spidacalc/cee/job.schema](https://github.com/spidasoftware/schema/blob/master/resources/schema/spidacalc/cee/job.schema).  If a job has finished, the job will contain an output field.  If output.success is true, output will contain a results field with analysis results.  If output.success is false, output will contain message and engineOutput fields with error information.
 
