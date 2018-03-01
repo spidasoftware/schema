@@ -38,7 +38,7 @@ If polling for only one job, an alternate form can be used: `https://cee.spidast
 
 Example pseudocode:
 
-```
+```psuedocode
 let pendingJobs = [job ids of unfinished jobs]
 while length(pendingJobs) > 0 {
 	try {
@@ -46,7 +46,7 @@ while length(pendingJobs) > 0 {
 		finishedJobs = pollCee(pendingJobs, 'FINISHED')
 	} catch {
 		//Request may timeout in the case of slow jobs.
-    finishedJobs = []
+		finishedJobs = []
 	}
 
 	//Remove finished jobs so they are not polled again
