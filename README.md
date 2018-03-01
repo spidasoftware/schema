@@ -62,7 +62,7 @@ Project Structure
       - [spidacalc](resources/schema/spidacalc) - Schemas for communication with SPIDACalc
       - [spidamin](resources/schema/spidamin) - Schemas for communication with SPIDAMin
     - [examples](resources/examples) - Example data files and simple integrations.
--[src](src) - Java utilities for schema validation and service communication.
+- [src](src) - Java utilities for schema validation and service communication.
 
 JSON
 --------
