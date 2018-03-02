@@ -214,11 +214,14 @@ class ConverterTest extends Specification {
 			projectConverter.convert(json, 4)
 		then:
 			json.version == 4
+			json.leads.first().locations.first().version == 4
+			json.leads.first().locations.first().designs.first().version == 4
 		when: "locationConverter"
 			json = [:]
 			locationConverter.convert(json, 4)
 		then:
 			json.version == 4
+			json.designs.first().version == 4
 		when: "locationConverter"
 			json = [:]
 			designConverter.convert(json, 4)
