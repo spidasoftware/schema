@@ -19,14 +19,6 @@ class CalcLocationConverter extends AbstractConverter {
         } else if(json.containsKey("version")) {
             json.remove("version")
         }
-
-        json.get("designs")?.each { Map designJSON ->
-            if(versionAllowedInLocationAndDesign) {
-                designJSON.put("version", version)
-            } else if(designJSON.containsKey("version")) {
-                designJSON.remove("version")
-            }
-        }
     }
 
     @Override

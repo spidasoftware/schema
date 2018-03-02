@@ -190,19 +190,16 @@ class ConverterTest extends Specification {
 
 	def "convert removes version"() {
 		setup:
-			json = [version: 5, leads: [[locations: [[version: 5, designs: [[version: 5]]]]]]]
+			json = [version: 5]
 		when: "projectConverter"
 			projectConverter.convert(json, 1)
 		then:
 			json.version == 1
-			!json.leads.first().locations.first().containsKey("version")
-			!json.leads.first().locations.first().designs.first().containsKey("version")
 		when: "locationConverter"
-			json = [version: 5, designs: [[version: 5]]]
+			json = [version: 5]
 			locationConverter.convert(json, 1)
 		then:
 			!json.containsKey("version")
-			!json.designs.first().containsKey("version")
 		when: "locationConverter"
 			json = [version: 5]
 			designConverter.convert(json, 1)
@@ -212,19 +209,16 @@ class ConverterTest extends Specification {
 
 	def "convert adds version"() {
 		setup:
-			json = [version: 1, leads: [[locations: [[designs: [[:]]]]]]]
+			json = [:]
 		when: "projectConverter"
 			projectConverter.convert(json, 4)
 		then:
 			json.version == 4
-			json.leads.first().locations.first().version == 4
-			json.leads.first().locations.first().designs.first().version == 4
 		when: "locationConverter"
-			json = [version: 1, designs: [[:]]]
+			json = [:]
 			locationConverter.convert(json, 4)
 		then:
 			json.version == 4
-			json.designs.first().version == 4
 		when: "locationConverter"
 			json = [:]
 			designConverter.convert(json, 4)
