@@ -19,14 +19,10 @@ class CalcProjectConverter extends AbstractConverter {
             leadJSON.get("locations")?.each { Map locationJSON ->
                 if(versionAllowedInLocationAndDesign) {
                     locationJSON.put("version", version)
-                } else if(locationJSON.containsKey("version")) {
-                    locationJSON.remove("version")
                 }
                 locationJSON.get("designs")?.each { Map designJSON ->
                     if(versionAllowedInLocationAndDesign) {
                         designJSON.put("version", version)
-                    } else if(designJSON.containsKey("version")) {
-                        designJSON.remove("version")
                     }
                 }
             }

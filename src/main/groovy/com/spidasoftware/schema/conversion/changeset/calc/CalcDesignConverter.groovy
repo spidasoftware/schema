@@ -16,8 +16,6 @@ class CalcDesignConverter extends AbstractConverter {
         boolean versionAllowedInLocationAndDesign = isVersionAllowedInLocationAndDesign(version)
         if(versionAllowedInLocationAndDesign) {
             json.put("version", version)
-        } else if(json.containsKey("version")) {
-            json.remove("version")
         }
     }
 
