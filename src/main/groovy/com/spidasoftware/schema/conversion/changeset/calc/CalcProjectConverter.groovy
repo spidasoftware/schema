@@ -15,13 +15,12 @@ class CalcProjectConverter extends AbstractConverter {
     void updateVersion(Map json, int version) {
         json.put("version", version)
         boolean versionAllowedInLocationAndDesign = isVersionAllowedInLocationAndDesign(version)
-        json.get("leads")?.each { Map leadJSON ->
-            leadJSON.get("locations")?.each { Map locationJSON ->
-                if(versionAllowedInLocationAndDesign) {
+        if(versionAllowedInLocationAndDesign) {
+            json.get("leads")?.each { Map leadJSON ->
+                leadJSON.get("locations")?.each { Map locationJSON ->
                     locationJSON.put("version", version)
-                }
-                locationJSON.get("designs")?.each { Map designJSON ->
-                    if(versionAllowedInLocationAndDesign) {
+
+                    locationJSON.get("designs")?.each { Map designJSON ->
                         designJSON.put("version", version)
                     }
                 }

@@ -16,10 +16,8 @@ class CalcLocationConverter extends AbstractConverter {
         boolean versionAllowedInLocationAndDesign = isVersionAllowedInLocationAndDesign(version)
         if(versionAllowedInLocationAndDesign) {
             json.put("version", version)
-        }
 
-        json.get("designs")?.each { Map designJSON ->
-            if(versionAllowedInLocationAndDesign) {
+            json.get("designs")?.each { Map designJSON ->
                 designJSON.put("version", version)
             }
         }
@@ -32,7 +30,6 @@ class CalcLocationConverter extends AbstractConverter {
 
     @Override
     void revertChangeset(ChangeSet changeSet, Map json) {
-        log.info("json = ${json}")
         changeSet.revertLocation(json)
     }
 }

@@ -203,7 +203,7 @@ class ConverterTest extends Specification {
 		then:
 			json.version == 4
 			json.designs.first().version == 4
-		when: "locationConverter"
+		when: "designConverter"
 			json = [:]
 			designConverter.convert(json, 4)
 		then:
@@ -225,7 +225,7 @@ class ConverterTest extends Specification {
 		then:
 			!json.containsKey("version")
 			!json.designs.first().containsKey("version")
-		when: "locationConverter"
+		when: "designConverter"
 			json = [:]
 			designConverter.convert(json, 3)
 		then:
