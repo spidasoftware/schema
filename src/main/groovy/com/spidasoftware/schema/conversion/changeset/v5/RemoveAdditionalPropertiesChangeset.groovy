@@ -144,11 +144,14 @@ class RemoveAdditionalPropertiesChangeset extends CalcProjectChangeSet {
     }
 
     private int getNumPropertiesMatchRequired(Map json, JsonNode schema) {
+        int result = 0
         if(schema.get("required")?.isArray()) {
-            return schema.get("required").count { required ->
-                return json.containsKey(required.asText())
+            schema.get("required").each { required ->
+                if(json.containsKey(required.asText())) {
+                    result++
+                }
             }
         }
-        return 0
+        return result
     }
 }

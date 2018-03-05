@@ -1,17 +1,16 @@
 package com.spidasoftware.schema.conversion.changeset
 
 import com.spidasoftware.schema.conversion.changeset.calc.*
-import groovy.util.logging.Log4j
 import spock.lang.Specification
 
-@Log4j
 class ConverterTest extends Specification {
 
     Map json = [:]
 	ChangeSet oneToTwo = GroovyMock(){ getClass()>>ChangeSet }
 	ChangeSet twoToThreeA = GroovyMock(){ getClass()>>ChangeSet }
 	ChangeSet twoToThreeB = GroovyMock(){ getClass()>>ChangeSet }
-	TreeMap versions = [2:[oneToTwo], 3: [twoToThreeA, twoToThreeB]]
+	ChangeSet fiveToOne = GroovyMock(){ getClass()>>ChangeSet }
+	TreeMap versions = [2:[oneToTwo], 3: [twoToThreeA, twoToThreeB], 5: [fiveToOne]]
 	CalcProjectConverter projectConverter = new CalcProjectConverter(versions: versions)
 	CalcLocationConverter locationConverter = new CalcLocationConverter(versions: versions)
 	CalcDesignConverter designConverter = new CalcDesignConverter(versions: versions)
@@ -187,6 +186,49 @@ class ConverterTest extends Specification {
 			1*oneToTwo.revertDesign(json)
 			0 * _.applyToDesign(_) // no others should be applied
 			0 * _.revertDesign(_) // no others should be applied
+	}
 
+	def "convert sets version"() {
+		setup:
+			json = [version: 5, leads: [[locations: [[version: 5, designs: [[version: 5]]]]]]]
+		when: "projectConverter"
+			projectConverter.convert(json, 4)
+		then:
+			json.version == 4
+			json.leads.first().locations.first().version == 4
+			json.leads.first().locations.first().designs.first().version == 4
+		when: "locationConverter"
+			json = [version: 5, designs: [[version: 5]]]
+			locationConverter.convert(json, 4)
+		then:
+			json.version == 4
+			json.designs.first().version == 4
+		when: "designConverter"
+			json = [:]
+			designConverter.convert(json, 4)
+		then:
+			json.version == 4
+	}
+
+	def "convert doesn't set version when version is less than 4"() {
+		setup:
+			json = [version: 5, leads: [[locations: [[designs: [[:]]]]]]]
+		when: "projectConverter"
+			projectConverter.convert(json, 3)
+		then:
+			json.version == 3
+			!json.leads.first().locations.first().containsKey("version")
+			!json.leads.first().locations.first().designs.first().containsKey("version")
+		when: "locationConverter"
+			json = [designs: [[:]]]
+			locationConverter.convert(json, 3)
+		then:
+			!json.containsKey("version")
+			!json.designs.first().containsKey("version")
+		when: "designConverter"
+			json = [:]
+			designConverter.convert(json, 3)
+		then:
+			!json.containsKey("version")
 	}
 }

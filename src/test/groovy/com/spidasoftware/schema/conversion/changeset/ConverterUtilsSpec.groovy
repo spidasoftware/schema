@@ -34,14 +34,14 @@ class ConverterUtilsSpec extends Specification {
 		then:
 			pole.containsKey("leanAngle") == false
 			pole.containsKey("leanDirection") == false
-			1 == locationJSON.version
+			2 == locationJSON.version
 		when: "designJSON"
 			ConverterUtils.convertJSON(designJSON, 1)
 			pole = designJSON.structure.pole
 		then:
 			pole.containsKey("leanAngle") == false
 			pole.containsKey("leanDirection") == false
-			1 == designJSON.version
+			2 == designJSON.version
 	}
 
 	def "test getConverterInstance"() {
