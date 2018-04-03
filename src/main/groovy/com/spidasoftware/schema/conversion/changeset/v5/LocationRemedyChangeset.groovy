@@ -7,35 +7,43 @@ import com.spidasoftware.schema.conversion.changeset.calc.CalcProjectChangeSet
 import groovy.util.logging.Log4j
 
 @Log4j
-class RemoveAdditionalPropertiesChangeset extends CalcProjectChangeSet {
+class LocationRemedyChangeset extends CalcProjectChangeSet {
 
-    @Override
-    void applyToProject(Map projectJSON) throws ConversionException {
-        // Do nothing
-    }
+	@Override
+	void applyToProject(Map projectJSON) throws ConversionException {
+		forEachLocation(projectJSON, { Map locationJSON ->
+			applyToLocation(locationJSON)
+		})
+	}
 
-    @Override
-    void revertProject(Map projectJSON) throws ConversionException {
-    	// Do nothing
-    }
+	@Override
+	void revertProject(Map projectJSON) throws ConversionException {
+		forEachLocation(projectJSON, { Map locationJSON ->
+			revertLocation(locationJSON)
+		})
+	}
 
     @Override
     void applyToLocation(Map locationJSON) throws ConversionException {
-    	if(locationJSON.remedies){
-    		locationJSON.remedy = []
+    	if(locationJSON.remedies != null){
+    		locationJSON.remedy = [statements:[]]
     		locationJSON.remedies.each{
-				locationJSON.remedy.add(it)
+				locationJSON.remedy.statements.add(it)
     		}
+			locationJSON.remove("remedies")
     	}
     }
 
     @Override
     void revertLocation(Map locationJSON) throws ConversionException {
-    	if(locationJSON.remedy){
+    	if(locationJSON.remedy != null){
     		locationJSON.remedies = []
-    		locationJSON.remedy.each{
-				locationJSON.remedies.add([description:it.description])
+    		if(locationJSON.remedy.statements != null){
+	    		locationJSON.remedy.statements.each{
+					locationJSON.remedies.add([description:it.description])
+	    		}
     		}
+			locationJSON.remove("remedy")
     	}
     }
 

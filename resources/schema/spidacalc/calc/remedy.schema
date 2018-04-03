@@ -41,7 +41,7 @@
           "comments": {
             "description": "remedy comments",
             "type": "string"
-          },
+          }
         },
         "type": "object"
       },
