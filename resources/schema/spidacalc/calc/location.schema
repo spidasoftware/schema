@@ -123,23 +123,9 @@
             }, 
             "type": "array"
         }, 
-        "remedies": {
-            "description": "List of remedies for the location", 
-            "items": {
-                "additionalProperties": false, 
-                "id": "remedy", 
-                "properties": {
-                    "description": {
-                        "type": "string"
-                    }
-                }, 
-                "required": [
-                    "description"
-                ], 
-                "type": "object"
-            }, 
-            "type": "array"
-        }, 
+        "remedy": {
+          "$ref": "../../spidacalc/calc/remedy.schema"
+        },
         "summaryNotes": {
             "description": "List of summary notes for the location", 
             "id": "summaryNotes", 
