@@ -8,7 +8,7 @@
       "description": "List of remedy statements.",
       "items": {
         "additionalProperties": false,
-        "id": "poleTag",
+        "id": "remedyStatement",
         "properties": {
           "owner": {
             "description": "the owner of the item",

@@ -23,38 +23,42 @@ class LocationRemedyChangeset extends CalcProjectChangeSet {
 		})
 	}
 
-    @Override
-    void applyToLocation(Map locationJSON) throws ConversionException {
-    	if(locationJSON.remedies != null){
-    		locationJSON.remedy = [statements:[]]
-    		locationJSON.remedies.each{
-				locationJSON.remedy.statements.add(it)
-    		}
+	@Override
+	void applyToLocation(Map locationJSON) throws ConversionException {
+		if(locationJSON.remedies != null){
+			locationJSON.remedy = [statements:[]]
+			locationJSON.remedies.each { Map oldRemedyObj ->
+				if(oldRemedyObj && oldRemedyObj.description){
+					locationJSON.remedy.statements.add(oldRemedyObj)
+				}
+			}
 			locationJSON.remove("remedies")
-    	}
-    }
+		}
+	}
 
-    @Override
-    void revertLocation(Map locationJSON) throws ConversionException {
-    	if(locationJSON.remedy != null){
-    		locationJSON.remedies = []
-    		if(locationJSON.remedy.statements != null){
-	    		locationJSON.remedy.statements.each{
-					locationJSON.remedies.add([description:it.description])
-	    		}
-    		}
+	@Override
+	void revertLocation(Map locationJSON) throws ConversionException {
+		if(locationJSON.remedy != null){
+			locationJSON.remedies = []
+			if(locationJSON.remedy.statements != null){
+				locationJSON.remedy.statements.each { Map stmtObj ->
+					if(stmtObj && stmtObj.description){
+						locationJSON.remedies.add([description:stmtObj.description])
+					}
+				}
+			}
 			locationJSON.remove("remedy")
-    	}
-    }
+		}
+	}
 
-    @Override
-    void applyToDesign(Map designJSON) throws ConversionException {
-        // Do nothing
-    }
+	@Override
+	void applyToDesign(Map designJSON) throws ConversionException {
+		// Do nothing
+	}
 
-    @Override
-    void revertDesign(Map designJSON) throws ConversionException {
-        // Do nothing
-    }
+	@Override
+	void revertDesign(Map designJSON) throws ConversionException {
+		// Do nothing
+	}
 
 }

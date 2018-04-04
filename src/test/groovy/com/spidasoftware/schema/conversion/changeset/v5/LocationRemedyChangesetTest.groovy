@@ -10,20 +10,23 @@ class LocationRemedyChangesetTest extends Specification {
 	LocationRemedyChangeset changeSet = new LocationRemedyChangeset()
 
 	def "applyToLocation"() {
-		def location = [remedies:[[description:"test 123"], [description:"test 456"]]]
+		setup:
+			def location = [remedies:[[description:"test 123"], [description:null]]]
 		when:
 			changeSet.applyToLocation(location)
 		then:
+			location.remedy.statements.size() == 1
 			location.remedy.statements[0].description == "test 123"
 			location.remedies == null
-
 	}
 
 	def "revertLocation"() {
-		def location = [remedy:[statements:[[description:"test 123"], [description:"test 456"]]]]
+		setup:
+			def location = [remedy:[statements:[[description:"test 123"], [description:null]]]]
 		when:
 			changeSet.revertLocation(location)
 		then:
+			location.remedies.size() == 1
 			location.remedies[0].description == "test 123"
 			location.remedy == null
 	}
