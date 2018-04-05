@@ -37,7 +37,7 @@
           "technician": "",
           "crossStreet1": "",
           "crossStreet2": "",
-          "remedies": [],
+          "remedy": {},
           "poleTags": [],
           "userDefinedValues": {},
           "summaryNotes": [],

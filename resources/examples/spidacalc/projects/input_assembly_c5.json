@@ -1,237 +1,263 @@
 {
-  "label" : "Project",
-  "clientFile" : "Demo.client",
-  "date" : "2017-11-03",
-  "schema" : "/schema/spidacalc/calc/project.schema",
-  "version" : 4,
-  "engineer" : "",
-  "comments" : "",
-  "generalLocation" : "",
-  "address" : {
-    "number" : "",
-    "city" : "",
-    "street" : "",
-    "county" : "",
-    "state" : "",
-    "zip_code" : ""
+  "label": "Project",
+  "clientFile": "Demo.client",
+  "date": "2017-11-03",
+  "schema": "/schema/spidacalc/calc/project.schema",
+  "version": 4,
+  "engineer": "",
+  "comments": "",
+  "generalLocation": "",
+  "address": {
+    "number": "",
+    "city": "",
+    "street": "",
+    "county": "",
+    "state": "",
+    "zip_code": ""
   },
-  "userDefinedValues" : { },
-  "clientFileVersion" : "69a7db9531aeb1d3056a4604a191e143",
-  "forms" : [ {
-    "title" : "Project Summary",
-    "template" : "69a7db9531aeb1d3056a4604a191e143-Project Summary",
-    "fields" : {
-      "Work Order #" : "",
-      "Total Estimated Cost" : "",
-      "Total Estimated Hours" : "",
-      "Pole Replacements" : "0",
-      "Rearrangements" : "0"
+  "userDefinedValues": {},
+  "clientFileVersion": "69a7db9531aeb1d3056a4604a191e143",
+  "forms": [
+    {
+      "title": "Project Summary",
+      "template": "69a7db9531aeb1d3056a4604a191e143-Project Summary",
+      "fields": {
+        "Work Order #": "",
+        "Total Estimated Cost": "",
+        "Total Estimated Hours": "",
+        "Pole Replacements": "0",
+        "Rearrangements": "0"
+      }
     }
-  } ],
-  "leads" : [ {
-    "label" : "Lead",
-    "locations" : [ {
-      "label" : "Location-11-03-2017-12-53-06-148",
-      "mapNumber" : "",
-      "comments" : "",
-      "address" : {
-        "number" : "",
-        "city" : "",
-        "street" : "",
-        "county" : "",
-        "state" : "",
-        "zip_code" : ""
-      },
-      "technician" : "",
-      "crossStreet1" : "",
-      "crossStreet2" : "",
-      "remedies" : [ ],
-      "poleTags" : [ ],
-      "userDefinedValues" : { },
-      "summaryNotes" : [ ],
-      "forms" : [ ],
-      "images" : [ ],
-      "designs" : [ {
-        "label" : "Measured Design",
-        "layerType" : "Measured",
-        "structure" : {
-          "pole" : {
-            "glc" : {
-              "unit" : "METRE",
-              "value" : 0.8636000000000001
-            },
-            "agl" : {
-              "unit" : "METRE",
-              "value" : 10.3632
-            },
-            "environment" : "STREET",
-            "temperature" : {
-              "unit" : "CELSIUS",
-              "value" : 15.555555555555555
-            },
-            "stressRatio" : 1.0,
-            "leanAngle" : 0,
-            "leanDirection" : 0,
-            "clientItemVersion" : "a4090ef12d2f9b9c21ca6509157d445c",
-            "clientItem" : {
-              "species" : "Fiberglass",
-              "classOfPole" : "10\" Series II",
-              "height" : {
-                "unit" : "METRE",
-                "value" : 12.192000000000002
-              }
-            },
-            "externalId" : "59fc9ef23aca53602399016e",
-            "owner" : {
-              "id" : "Acme Power",
-              "industry" : "UTILITY",
-              "externalId" : "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
-            }
+  ],
+  "leads": [
+    {
+      "label": "Lead",
+      "locations": [
+        {
+          "label": "Location-11-03-2017-12-53-06-148",
+          "mapNumber": "",
+          "comments": "",
+          "address": {
+            "number": "",
+            "city": "",
+            "street": "",
+            "county": "",
+            "state": "",
+            "zip_code": ""
           },
-          "wireEndPoints" : [ ],
-          "spanPoints" : [ ],
-          "anchors" : [ ],
-          "notePoints" : [ ],
-          "pointLoads" : [ ],
-          "wirePointLoads" : [ ],
-          "damages" : [ ],
-          "wires" : [ ],
-          "spanGuys" : [ ],
-          "guys" : [ ],
-          "equipments" : [ ],
-          "guyAttachPoints" : [ ],
-          "crossArms" : [ ],
-          "insulators" : [ ],
-          "pushBraces" : [ ],
-          "sidewalkBraces" : [ ],
-          "foundations" : [ ],
-          "assemblies" : [ ]
-        }
-      } ]
-    } ]
-  }, {
-    "label" : "Lead",
-    "locations" : [ {
-      "label" : "Location-11-03-2017-12-53-10-647",
-      "mapNumber" : "",
-      "comments" : "",
-      "address" : {
-        "number" : "",
-        "city" : "",
-        "street" : "",
-        "county" : "",
-        "state" : "",
-        "zip_code" : ""
-      },
-      "technician" : "",
-      "crossStreet1" : "",
-      "crossStreet2" : "",
-      "remedies" : [ ],
-      "poleTags" : [ ],
-      "userDefinedValues" : { },
-      "summaryNotes" : [ ],
-      "forms" : [ ],
-      "images" : [ ],
-      "designs" : [ {
-        "label" : "Measured Design",
-        "layerType" : "Measured",
-        "structure" : {
-          "pole" : {
-            "glc" : {
-              "unit" : "METRE",
-              "value" : 0.8636000000000001
-            },
-            "agl" : {
-              "unit" : "METRE",
-              "value" : 10.3632
-            },
-            "environment" : "STREET",
-            "temperature" : {
-              "unit" : "CELSIUS",
-              "value" : 15.555555555555555
-            },
-            "stressRatio" : 1.0,
-            "leanAngle" : 0,
-            "leanDirection" : 0,
-            "clientItemVersion" : "a4090ef12d2f9b9c21ca6509157d445c",
-            "clientItem" : {
-              "species" : "Fiberglass",
-              "classOfPole" : "10\" Series II",
-              "height" : {
-                "unit" : "METRE",
-                "value" : 12.192000000000002
+          "technician": "",
+          "crossStreet1": "",
+          "crossStreet2": "",
+          "remedy": {},
+          "poleTags": [],
+          "userDefinedValues": {},
+          "summaryNotes": [],
+          "forms": [],
+          "images": [],
+          "designs": [
+            {
+              "label": "Measured Design",
+              "layerType": "Measured",
+              "structure": {
+                "pole": {
+                  "glc": {
+                    "unit": "METRE",
+                    "value": 0.8636000000000001
+                  },
+                  "agl": {
+                    "unit": "METRE",
+                    "value": 10.3632
+                  },
+                  "environment": "STREET",
+                  "temperature": {
+                    "unit": "CELSIUS",
+                    "value": 15.555555555555555
+                  },
+                  "stressRatio": 1.0,
+                  "leanAngle": 0,
+                  "leanDirection": 0,
+                  "clientItemVersion": "a4090ef12d2f9b9c21ca6509157d445c",
+                  "clientItem": {
+                    "species": "Fiberglass",
+                    "classOfPole": "10\" Series II",
+                    "height": {
+                      "unit": "METRE",
+                      "value": 12.192000000000002
+                    }
+                  },
+                  "externalId": "59fc9ef23aca53602399016e",
+                  "owner": {
+                    "id": "Acme Power",
+                    "industry": "UTILITY",
+                    "externalId": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+                  }
+                },
+                "wireEndPoints": [],
+                "spanPoints": [],
+                "anchors": [],
+                "notePoints": [],
+                "pointLoads": [],
+                "wirePointLoads": [],
+                "damages": [],
+                "wires": [],
+                "spanGuys": [],
+                "guys": [],
+                "equipments": [],
+                "guyAttachPoints": [],
+                "crossArms": [],
+                "insulators": [],
+                "pushBraces": [],
+                "sidewalkBraces": [],
+                "foundations": [],
+                "assemblies": []
               }
-            },
-            "externalId" : "59fc9ef63aca536023990188",
-            "owner" : {
-              "id" : "Acme Power",
-              "industry" : "UTILITY",
-              "externalId" : "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
             }
-          },
-          "wireEndPoints" : [ {
-            "id" : "WEP#1",
-            "externalId" : "58cc0aae0348e5b489ce4b6b",
-            "distance" : {
-              "unit" : "METRE",
-              "value" : 55.778400000000005
-            },
-            "direction" : 329,
-            "inclination" : {
-              "unit" : "RADIAN",
-              "value" : 0.0
-            },
-            "type" : "OTHER_POLE",
-            "comments" : "",
-            "environment" : "NONE",
-            "wires" : [ ],
-            "spanGuys" : [ ],
-            "spanPoints" : [ ]
-          } ],
-          "spanPoints" : [ ],
-          "anchors" : [ ],
-          "notePoints" : [ ],
-          "pointLoads" : [ ],
-          "wirePointLoads" : [ ],
-          "damages" : [ ],
-          "wires" : [ ],
-          "spanGuys" : [ ],
-          "guys" : [ ],
-          "equipments" : [ ],
-          "guyAttachPoints" : [ ],
-          "crossArms" : [ ],
-          "insulators" : [ ],
-          "pushBraces" : [ ],
-          "sidewalkBraces" : [ ],
-          "foundations" : [ ],
-          "assemblies" : [ {
-            "clientItem" : "C5.1",
-            "owner" : {
-              "id" : "Acme Power",
-              "industry" : "UTILITY",
-              "externalId" : "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
-            },
-            "wireEndPoints" : [ {
-              "id" : "WEP#1",
-              "wires" : {
-                "PRIMARY" : "1/0 AAAC",
-                "NEUTRAL" : "1/0 AAAC"
-              }
-            } ],
-            "support" : [ {
-              "supportItem" : "Anchor",
-              "attachments" : [ {
-                "attachmentItem" : "Down Guy"
-              } ]
-            }, {
-              "supportItem" : "Anchor",
-              "attachments" : [ {
-                "attachmentItem" : "Down Guy"
-              } ]
-            } ]
-          } ]
+          ]
         }
-      } ]
-    } ]
-  } ]
+      ]
+    },
+    {
+      "label": "Lead",
+      "locations": [
+        {
+          "label": "Location-11-03-2017-12-53-10-647",
+          "mapNumber": "",
+          "comments": "",
+          "address": {
+            "number": "",
+            "city": "",
+            "street": "",
+            "county": "",
+            "state": "",
+            "zip_code": ""
+          },
+          "technician": "",
+          "crossStreet1": "",
+          "crossStreet2": "",
+          "remedy": {},
+          "poleTags": [],
+          "userDefinedValues": {},
+          "summaryNotes": [],
+          "forms": [],
+          "images": [],
+          "designs": [
+            {
+              "label": "Measured Design",
+              "layerType": "Measured",
+              "structure": {
+                "pole": {
+                  "glc": {
+                    "unit": "METRE",
+                    "value": 0.8636000000000001
+                  },
+                  "agl": {
+                    "unit": "METRE",
+                    "value": 10.3632
+                  },
+                  "environment": "STREET",
+                  "temperature": {
+                    "unit": "CELSIUS",
+                    "value": 15.555555555555555
+                  },
+                  "stressRatio": 1.0,
+                  "leanAngle": 0,
+                  "leanDirection": 0,
+                  "clientItemVersion": "a4090ef12d2f9b9c21ca6509157d445c",
+                  "clientItem": {
+                    "species": "Fiberglass",
+                    "classOfPole": "10\" Series II",
+                    "height": {
+                      "unit": "METRE",
+                      "value": 12.192000000000002
+                    }
+                  },
+                  "externalId": "59fc9ef63aca536023990188",
+                  "owner": {
+                    "id": "Acme Power",
+                    "industry": "UTILITY",
+                    "externalId": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+                  }
+                },
+                "wireEndPoints": [
+                  {
+                    "id": "WEP#1",
+                    "externalId": "58cc0aae0348e5b489ce4b6b",
+                    "distance": {
+                      "unit": "METRE",
+                      "value": 55.778400000000005
+                    },
+                    "direction": 329,
+                    "inclination": {
+                      "unit": "RADIAN",
+                      "value": 0.0
+                    },
+                    "type": "OTHER_POLE",
+                    "comments": "",
+                    "environment": "NONE",
+                    "wires": [],
+                    "spanGuys": [],
+                    "spanPoints": []
+                  }
+                ],
+                "spanPoints": [],
+                "anchors": [],
+                "notePoints": [],
+                "pointLoads": [],
+                "wirePointLoads": [],
+                "damages": [],
+                "wires": [],
+                "spanGuys": [],
+                "guys": [],
+                "equipments": [],
+                "guyAttachPoints": [],
+                "crossArms": [],
+                "insulators": [],
+                "pushBraces": [],
+                "sidewalkBraces": [],
+                "foundations": [],
+                "assemblies": [
+                  {
+                    "clientItem": "C5.1",
+                    "owner": {
+                      "id": "Acme Power",
+                      "industry": "UTILITY",
+                      "externalId": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+                    },
+                    "wireEndPoints": [
+                      {
+                        "id": "WEP#1",
+                        "wires": {
+                          "PRIMARY": "1/0 AAAC",
+                          "NEUTRAL": "1/0 AAAC"
+                        }
+                      }
+                    ],
+                    "support": [
+                      {
+                        "supportItem": "Anchor",
+                        "attachments": [
+                          {
+                            "attachmentItem": "Down Guy"
+                          }
+                        ]
+                      },
+                      {
+                        "supportItem": "Anchor",
+                        "attachments": [
+                          {
+                            "attachmentItem": "Down Guy"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
