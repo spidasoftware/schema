@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "id": "#/spidacalc/calc/remedy.schema",
+  "description": "A remedy for a pole",
+  "additionalProperties": false,
+  "properties": {
+    "statements": {
+      "description": "List of remedy statements.",
+      "items": {
+        "additionalProperties": false,
+        "id": "remedyStatement",
+        "properties": {
+          "owner": {
+            "description": "the owner of the item",
+            "$ref": "../../general/owner.schema"
+          },
+          "action": {
+            "description": "the remedy action",
+            "type": "string"
+          },
+          "description": {
+            "description": "the remedy statement",
+            "type": "string"
+          },
+          "itemId": {
+            "description": "the id of the item with the difference",
+            "type": "string"
+          },
+          "finalClientItemStr": {
+            "description": "the display string for the item",
+            "type": "string"
+          },
+          "finalDirection": {
+            "description": "the final direction",
+            "$ref": "../../general/measurable.schema"
+          },
+          "finalAttachHeight": {
+            "description": "the final attach height",
+            "$ref": "../../general/measurable.schema"
+          },
+          "comments": {
+            "description": "remedy comments",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    }
+  }
+}
