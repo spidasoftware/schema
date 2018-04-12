@@ -11,7 +11,7 @@ apply plugin: 'releaseNotes'
 
 
 group = 'com.spidasoftware'
-version = '5.1.0-SNAPSHOT'
+version = '5.1.11-SNAPSHOT'
 def schemaReleaseVersion = System.getenv("SCHEMA_RELEASE_VERSION")
 if(schemaReleaseVersion){
 	println "Using ENV version $schemaReleaseVersion"
