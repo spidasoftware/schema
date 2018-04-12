@@ -39,6 +39,15 @@
     },
     "tensionMethod":{
       "enum":["STATIC", "DYNAMIC", "DISPLACEMENT", "UNKNOWN"]
+    },
+    "distanceToSagPoint":{
+      "$ref": "../../general/measurable.schema"
+    },
+    "lowestPointBelowAttachment":{
+      "$ref": "../../general/measurable.schema"
+    },
+    "distanceToLowestPoint":{
+      "$ref": "../../general/measurable.schema"
     }
   },
   "additionalProperties": false
