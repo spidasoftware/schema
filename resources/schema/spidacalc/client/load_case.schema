@@ -402,6 +402,18 @@
           ]
         }
       }
+    },
+    "checkUtilityWireTension": {
+      "type": "boolean"
+    },
+    "maximumAllowableUtilityWireTensionRatio": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "checkCommWireTension": {
+      "type": "boolean"
+    },
+    "maximumAllowableCommunicationWireTensionRatio": {
+      "$ref": "../../general/measurable.schema"
     }
   ],
   "additionalProperties": false
