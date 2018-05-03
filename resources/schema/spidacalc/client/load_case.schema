@@ -320,7 +320,7 @@
       }
     },
     "checkUtilityWireTension": {
-     "type": "boolean"
+      "type": "boolean"
     },
     "maximumAllowableUtilityWireTensionRatio": {
       "$ref": "../../general/measurable.schema"
