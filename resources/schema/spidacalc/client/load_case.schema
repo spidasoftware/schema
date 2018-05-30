@@ -66,6 +66,13 @@
     "rural": {
       "type": "boolean"
     },
+    "retensionWiresAfterPretensionDisplacement": {
+        "description": "Whether a separate tensioning phase should be applied after pretension to bring DBL wires back to their installation tension",
+        "type": "boolean"
+    },
+    "hybridLoadingEnabled": {
+        "type": "boolean"
+    },
     "hybridShearZone": {
       "$ref": "../../general/measurable.schema"
     },
