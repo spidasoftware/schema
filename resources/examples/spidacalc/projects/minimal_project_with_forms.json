@@ -49,7 +49,7 @@
             "state": "",
             "zip_code": ""
           },
-          "remedies": [],
+          "remedy": {},
           "poleTags": [],
           "userDefinedValues": {},
           "summaryNotes": [],

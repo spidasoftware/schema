@@ -325,6 +325,22 @@
           ]
         }
       }
+    },
+    "checkUtilityWireTension": {
+      "description": "option to check utility wire tensions",
+      "type": "boolean"
+    },
+    "maximumAllowableUtilityWireTensionRatio": {
+      "description": "measurable percentage for maximum allowable utility wire tension",
+      "$ref": "../../general/measurable.schema"
+    },
+    "checkCommWireTension": {
+      "description": "option to check communication wire tensions",
+      "type": "boolean"
+    },
+    "maximumAllowableCommunicationWireTensionRatio": {
+      "description": "measurable percentage for maximum allowable communication wire tension",
+      "$ref": "../../general/measurable.schema"
     }
   },
   "oneOf": [
@@ -411,5 +427,6 @@
       }
     }
   ],
+  
   "additionalProperties": false
 }

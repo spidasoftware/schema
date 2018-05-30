@@ -4,7 +4,8 @@ SPIDA Software JSON Interfaces
 [![Build Status](https://travis-ci.org/spidasoftware/schema.svg?branch=master)](http://travis-ci.org/spidasoftware/schema)
 
 * LAST RELEASED VERSION: 5.0.0
-* CURRENT MASTER VERSION: 5.0.0-SNAPSHOT
+
+* CURRENT MASTER VERSION: 6.0.0-SNAPSHOT
 
 General Overview
 --------------------------------
@@ -16,6 +17,7 @@ The data formats, examples, and available web service interfaces will all change
 
 | Schema version                                                            | SPIDAcalc               | SPIDAstudio      | SPIDAmin      |
 |---------------------------------------------------------------------------|-------------------------|------------------|---------------|
+| [6.0.0-SNAPSHOT](https://github.com/spidasoftware/schema)                 | SPIDAcalc 7.1           | SPIDAstudio 18+  |               |
 | [5.0.0](https://github.com/spidasoftware/schema/releases/tag/v5.0.0)      | SPIDAcalc 7.0.2         | SPIDAstudio 18.0 |               |
 | [4.0.0](https://github.com/spidasoftware/schema/releases/tag/v4.0.0)      | SPIDAcalc 7.0.0 - 7.0.1 |                  |               |
 | [3.0.1/1.11](https://github.com/spidasoftware/schema/releases/tag/1.11)   |                         |                  | SPIDAmin 16.1 |
