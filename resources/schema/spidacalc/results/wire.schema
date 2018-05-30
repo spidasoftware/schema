@@ -3,7 +3,13 @@
   "id": "#/spidacalc/results/wire.schema",
   "description": "The forces on a single component item.",
   "required": [
-    "id", "sag", "tension", "windForce", "verticalForce", "actingOn", "tensionMethod"
+    "id",
+    "sag",
+    "tension",
+    "windForce",
+    "verticalForce",
+    "actingOn",
+    "tensionMethod"
   ],
   "properties": {
     "id": {
@@ -37,17 +43,45 @@
     "actingOn": {
       "$ref": "../../general/acting_on.schema"
     },
-    "tensionMethod":{
-      "enum":["STATIC", "DYNAMIC", "DISPLACEMENT", "UNKNOWN"]
+    "tensionMethod": {
+      "enum": [
+        "STATIC",
+        "DYNAMIC",
+        "DISPLACEMENT",
+        "UNKNOWN"
+      ]
     },
-    "distanceToSagPoint":{
+    "distanceToSagPoint": {
       "$ref": "../../general/measurable.schema"
     },
-    "lowestPointBelowAttachment":{
+    "lowestPointBelowAttachment": {
       "$ref": "../../general/measurable.schema"
     },
-    "distanceToLowestPoint":{
+    "distanceToLowestPoint": {
       "$ref": "../../general/measurable.schema"
+    },
+    "actual": {
+      "description": "S.F. or percent value for this wire. The allowable is the same as the parent component result.",
+      "type": "number"
+    },
+    "actualEngineering": {
+      "description": "actual engineering value that caused the 'actual' value.  This is the specific calculated value from wire tension check",
+      "$ref": "../../general/measurable.schema"
+    },
+    "allowableEngineering": {
+      "description": "allowable engineering value. The tension value at which this wire will fail the wire tension check.",
+      "$ref": "../../general/measurable.schema"
+    },
+    "ratio": {
+      "description": "the ratio between actual and allowable. The failing ratio is the same as the parent component result.",
+      "type": "number"
+    },
+    "strength": {
+      "description": "The rated strength of the wire from the client data",
+      "$ref": "../../general/measurable.schema"
+    },
+    "status": {
+      "$ref": "../../spidacalc/results/enums/status.schema"
     }
   },
   "additionalProperties": false
