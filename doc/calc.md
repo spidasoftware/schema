@@ -66,6 +66,8 @@ The calc import API supports the following attributes of a structure.
 - Note Points
 - Point Loads
 - Span Points
+- Foundations
+- Assemblies
 
 ## Web Services
 
