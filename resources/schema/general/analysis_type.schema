@@ -2,5 +2,5 @@
   "id": "#/general/analysis_type.schema",
   "description": "A general description of the type of value that is checked for this component",
   "type":"string",
-  "enum": ["STRESS", "MOMENT", "FORCE", "BUCKLING", "DEFLECTION", "STRENGTH"]
+  "enum": ["STRESS", "MOMENT", "FORCE", "BUCKLING", "DEFLECTION", "STRENGTH", "TENSION"]
 }
