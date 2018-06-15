@@ -37,6 +37,7 @@ public class ExchangeFile {
 	public static final String EXT_WITH_DOT = ".${EXT}"
 	public static final String PROJECT_FILE_NAME = 'project.json'
 	public static final String PHOTO_DIR_NAME = 'Photos'
+	public static final String RESULTS_DIR_NAME = 'Results'
 
 	/**
 	 * A Map that should conform to the SpidaCalc project schema. Reference here so it can be cached
@@ -59,6 +60,11 @@ public class ExchangeFile {
 	File photoDir
 
 	/**
+	 * located at tempDir/Results
+	 */
+	File resultsDir
+
+	/**
 	 * protected constructor. Use one of the static methods instead.
 	 * @param tempDir
 	 */
@@ -66,6 +72,7 @@ public class ExchangeFile {
 		this.tempDir = tempDir
 		this.projectJSONFile = new File(tempDir, PROJECT_FILE_NAME)
 		this.photoDir = new File(tempDir, PHOTO_DIR_NAME)
+		this.resultsDir = new File(tempDir, RESULTS_DIR_NAME)
 	}
 
 	/**
@@ -91,7 +98,7 @@ public class ExchangeFile {
 	 * will simply be added to the photos directory in the zip archive.
 	 * @return the exchangeFile, ready to be written
 	 */
-	static ExchangeFile createFromProjectJSON(Map projectJson, Collection<File> photoFiles = null) {
+	static ExchangeFile createFromProjectJSON(Map projectJson, Collection<File> photoFiles = null, Map<String, String> detailedResults = null) {
 		ExchangeFile exf = new ExchangeFile(Files.createTempDir())
 		exf.setProjectJSON(projectJson)
 		ObjectMapper mapper = new ObjectMapper()
@@ -104,6 +111,14 @@ public class ExchangeFile {
 			photoFiles.each{File photo->
 				File target = new File(photoDir, photo.name)
 				Files.copy(photo, target)
+			}
+		}
+		if(detailedResults) {
+			File resultsDir = exf.resultsDir
+			resultsDir.mkdir()
+			detailedResults.each { String id, String value ->
+				File target = new File(resultsDir, id)
+				target.text = value
 			}
 		}
 		return exf
@@ -131,6 +146,10 @@ public class ExchangeFile {
 			projectJSON = objectMapper.readValue(getProjectJSONFile(), LinkedHashMap)
 		}
 		return projectJSON
+	}
+
+	File getDetailedAnalysisResults(String id) {
+		return resultsDir.listFiles().find { it.name == id }
 	}
 
 	List<File> getAllPhotos() {

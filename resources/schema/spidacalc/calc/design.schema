@@ -52,10 +52,19 @@
                               }
                             ]
                         }
+                    },
+                    "uri": {
+                        "description": "Path to the results file that contains a results array.",
+                        "type": "string"
                     }
                 },
-                "required": [
-                    "id"
+                "oneOf": [
+                    {
+                        "required": [ "id" ],
+                    },
+                    {
+                        "required": [ "uri" ],
+                    }
                 ],
                 "type": "object"
             },
