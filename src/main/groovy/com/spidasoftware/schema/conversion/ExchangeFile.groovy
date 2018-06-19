@@ -148,10 +148,6 @@ public class ExchangeFile {
 		return projectJSON
 	}
 
-	File getDetailedAnalysisResults(String id) {
-		return resultsDir.listFiles().find { it.name == id }
-	}
-
 	List<File> getAllPhotos() {
 		if (getPhotoDir().isDirectory()) {
 			return getPhotoDir().listFiles().toList()

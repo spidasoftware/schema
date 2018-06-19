@@ -32,41 +32,50 @@
         "analysis": {
             "description": "List of load cases and their results. On exports the results will be filled in if they exist. On import results are ignored, but load cases will be pre-assigned.",
             "items": {
-                "additionalProperties": false,
-                "description": "A collection of results for a loading or strength case.",
-                "properties": {
-                    "id": {
-                        "description": "an id, usually the loadcase name",
-                        "type": "string"
-                    },
-                    "results": {
-                        "description": "Results for all components.",
-                        "type": "array",
-                        "items": {
-                            "oneOf":[
-                              {
-                                "$ref": "../../spidamin/asset/standard_details/analysis_asset.schema"
-                              },
-                              {
-                                "$ref": "../../spidacalc/results/result.schema"
-                              }
-                            ]
-                        }
-                    },
-                    "uri": {
-                        "description": "Path to the results file that contains a results array.",
-                        "type": "string"
-                    }
-                },
                 "oneOf": [
                     {
-                        "required": [ "id" ],
+                        "id": "results",
+                        "additionalProperties": false,
+                        "description": "A collection of results for a loading or strength case.",
+                        "properties": {
+                            "id": {
+                                "description": "an id, usually the loadcase name",
+                                "type": "string"
+                            },
+                            "results": {
+                                "description": "Results for all components.",
+                                "type": "array",
+                                "items": {
+                                    "oneOf":[
+                                      {
+                                        "$ref": "../../spidamin/asset/standard_details/analysis_asset.schema"
+                                      },
+                                      {
+                                        "$ref": "../../spidacalc/results/result.schema"
+                                      }
+                                    ]
+                                }
+                            }
+                        },
+                        "required": [
+                            "id"
+                        ],
+                        "type": "object"
                     },
                     {
-                        "required": [ "uri" ],
+                        "additionalProperties": false,
+                        "description": "Path to a results object, the object should be a /spidacalc/results/results.schema",
+                        "properties": {
+                            "uri": {
+                                "description": "Path to the results",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "uri"
+                        ]
                     }
-                ],
-                "type": "object"
+                ]
             },
             "type": "array"
         },
