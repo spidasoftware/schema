@@ -121,6 +121,13 @@ The jar can be compiled with:
 
     gradlew install
 
+### License Report
+
+The license report for this project will be generated in `build/reports/dependency-license` by running:
+```
+gradlew generateLicenseReport
+```
+
 ***
 
 SPIDA® is a registered trademark of SPIDAWeb LLC. Copyright © 2018 SPIDAWeb LLC. All rights reserved. All other brands or product names are the property of their respective holders.
