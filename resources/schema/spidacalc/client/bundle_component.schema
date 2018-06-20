@@ -1,0 +1,48 @@
+{
+  "description": "Engineering properties for a bundle component",
+  "id": "#/spidacalc/client/bundle_component.schema",
+  "type": "object",
+  "required": [
+    "size",
+    "abbreviation",
+    "diameter",
+    "weight"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "size": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "abbreviation": {
+      "type": "string"
+    },
+    "diameter": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "weight": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "groups": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "aliases": {
+      "description": "A list of alternative aliases/framing codes for this item in integrations.",
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/client/alias.schema"
+      }
+    }
+  },
+  "additionalProperties": false
+}
