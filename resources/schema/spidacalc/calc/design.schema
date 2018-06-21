@@ -45,22 +45,20 @@
                             "results": {
                                 "description": "Results for all components.",
                                 "type": "array",
-                                "items": {
-                                    "oneOf":[
-                                      {
+                                "items": [
+                                    {
                                         "$ref": "../../spidamin/asset/standard_details/analysis_asset.schema"
-                                      },
-                                      {
-                                        "$ref": "../../spidacalc/results/result.schema"
-                                      }
-                                    ]
-                                }
+                                    }
+                                ]
                             }
                         },
                         "required": [
                             "id"
                         ],
                         "type": "object"
+                    },
+                    {
+                        "$ref": "../../spidacalc/results/results.schema"
                     },
                     {
                         "additionalProperties": false,
