@@ -1,0 +1,96 @@
+{
+  "description": "Engineering properties for a bundle",
+  "id": "#/spidacalc/client/bundle.schema",
+  "type": "object",
+  "required": [
+    "size",
+    "group",
+    "messenger",
+    "bundleComponents"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "size": {
+      "type": "string"
+    },
+    "diameter": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "group": {
+      "type": "string"
+    },
+    "autoCalculateDiameter": {
+      "type": "boolean"
+    },
+    "weight": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "source": {
+      "enum": [
+        "CLIENT",
+        "PROJECT"
+      ]
+    },
+    "messenger": {
+      "type": "object",
+      "properties": {
+        "size": {
+          "type": "string",
+          "description": "size/coreStrands/conductorStrands are used together"
+        },
+        "coreStrands": {
+          "type": "number",
+          "description": "size/coreStrands/conductorStrands are used together"
+        },
+        "conductorStrands": {
+          "type": "number",
+          "description": "size/coreStrands/conductorStrands are used together"
+        },
+        "clientItemVersion": {
+          "type": "string",
+          "pattern": "[a-f0-9]{32}",
+          "description": "Hash of the client item for this assembly. Use hash or size or alias."
+        },
+        "clientItemAlias": {
+          "type": "string",
+          "description": "An alias for a client wire.  Use hash or size or alias."
+        }
+      }
+    },
+    "bundleComponents": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "size": {
+            "type": "string",
+            "description": "the size of the client bundle component"
+          },
+          "clientItemVersion": {
+            "type": "string",
+            "pattern": "[a-f0-9]{32}",
+            "description": "Hash of the client item for this assembly. Use hash or size or alias."
+          },
+          "clientItemAlias": {
+            "type": "string",
+            "description": "An alias for a client wire.  Use hash or size or alias."
+          }
+        }
+      }
+    },
+    "aliases": {
+      "description": "A list of alternative aliases/framing codes for this item in integrations.",
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/client/alias.schema"
+      }
+    }
+  },
+  "additionalProperties": false
+}

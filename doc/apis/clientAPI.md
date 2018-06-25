@@ -209,6 +209,94 @@ Return a client wire from the client file.
 
 A [client wire](../../resources/schema/spidacalc/client/wire.schema)
 
+Bundles
+-----
+
+Return the client bundles in the client file.
+
+#### URL
+
+`http://localhost:4560/clientData/bundles`
+
+#### Allowed Methods
+
+`GET`
+
+#### Parameters
+
+1. clientFile: a _required_ `string` of the client file name to pull from
+1. details: a `boolean` on if the complete details should be returned.
+
+#### Returns
+
+A `array` of client bundles
+
+Bundle
+-----
+
+Return a client bundle from the client file.
+
+#### URL
+
+`http://localhost:4560/clientData/bundle`
+
+#### Allowed Methods
+
+`GET`
+
+#### Parameters
+
+1. clientFile: a _required_ `string` of the client file name to pull from
+1. bundle: a _required_ [bundle reference](../../resources/schema/spidacalc/calc/client_references/bundle.schema) of the bundle to retrieve. {size}
+
+#### Returns
+
+A [client bundle](../../resources/schema/spidacalc/client/bundle.schema)
+
+Bundle Components
+-----
+
+Return the client bundle components in the client file.
+
+#### URL
+
+`http://localhost:4560/clientData/bundleComponents`
+
+#### Allowed Methods
+
+`GET`
+
+#### Parameters
+
+1. clientFile: a _required_ `string` of the client file name to pull from
+1. details: a `boolean` on if the complete details should be returned.
+
+#### Returns
+
+A `array` of client bundle Components
+
+Bundle Component
+-----
+
+Return a client bundle Component from the client file.
+
+#### URL
+
+`http://localhost:4560/clientData/bundleComponent`
+
+#### Allowed Methods
+
+`GET`
+
+#### Parameters
+
+1. clientFile: a _required_ `string` of the client file name to pull from
+1. bundleComponent: a _required_ [bundle Component reference](../../resources/schema/spidacalc/calc/client_references/bundle_component.schema) of the bundle Component to retrieve. {size}
+
+#### Returns
+
+A [client bundle Component](../../resources/schema/spidacalc/client/bundle_component.schema)
+
 Equipments
 -----
 

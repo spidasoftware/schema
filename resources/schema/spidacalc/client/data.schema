@@ -69,12 +69,24 @@
 				"$ref":"../../spidacalc/client/equipment.schema"
 			}
 		},
-		"assemblies":{
-			"type": "array",
-			"items": {
-				"$ref":"../../spidacalc/client/assembly.schema"
-			}
-		},
+    "assemblies":{
+      "type": "array",
+      "items": {
+        "$ref":"../../spidacalc/client/assembly.schema"
+      }
+    },
+    "bundles":{
+      "type": "array",
+      "items": {
+        "$ref":"../../spidacalc/client/bundle.schema"
+      }
+    },
+    "bundleComponents":{
+      "type": "array",
+      "items": {
+        "$ref":"../../spidacalc/client/bundle_components.schema"
+      }
+    },
 		"analysisCases": {
 			"type": "array",
 			"items": {
