@@ -9,12 +9,6 @@
     "bundleComponents"
   ],
   "properties": {
-    "id": {
-      "type": "string"
-    },
-    "version": {
-      "type": "string"
-    },
     "size": {
       "type": "string"
     },
@@ -38,6 +32,7 @@
     },
     "messenger": {
       "type": "object",
+      "description": "Use size/coreStrands/conductorStrands or version hash or an alias.",
       "properties": {
         "size": {
           "type": "string",
@@ -54,11 +49,11 @@
         "clientItemVersion": {
           "type": "string",
           "pattern": "[a-f0-9]{32}",
-          "description": "Hash of the client item for this assembly. Use hash or size or alias."
+          "description": "Hash of the client item for this assembly."
         },
         "clientItemAlias": {
           "type": "string",
-          "description": "An alias for a client wire.  Use hash or size or alias."
+          "description": "An alias for a client wire."
         }
       }
     },
@@ -67,6 +62,7 @@
       "minItems": 1,
       "items": {
         "type": "object",
+        "description": "Use size or version hash or an alias.",
         "properties": {
           "size": {
             "type": "string",
@@ -75,11 +71,11 @@
           "clientItemVersion": {
             "type": "string",
             "pattern": "[a-f0-9]{32}",
-            "description": "Hash of the client item for this assembly. Use hash or size or alias."
+            "description": "Hash of the client item for this assembly."
           },
           "clientItemAlias": {
             "type": "string",
-            "description": "An alias for a client wire.  Use hash or size or alias."
+            "description": "An alias for a client wire."
           }
         }
       }
