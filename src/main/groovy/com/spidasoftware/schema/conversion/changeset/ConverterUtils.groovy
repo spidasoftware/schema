@@ -58,7 +58,7 @@ class ConverterUtils {
 
     //example: [4, 3, 2]
     static LinkedHashSet<Integer> getPossibleVersionsNewestToOldest(){
-    	return currentVersion..1 as LinkedHashSet<Integer>
+    	return currentVersion..2 as LinkedHashSet<Integer>
     }
 
     static void convertJSON(Map json, int toVersion) throws ConversionException {
