@@ -61,15 +61,15 @@
                     },
                     {
                         "additionalProperties": false,
-                        "description": "Path to a results object, the object must be a /spidacalc/results/results.schema",
+                        "description": "Id of a results object, the object must be a /spidacalc/results/results.schema",
                         "properties": {
-                            "uri": {
-                                "description": "Path to the results",
+                            "resultId": {
+                                "description": "Id of the results",
                                 "type": "string"
                             }
                         },
                         "required": [
-                            "uri"
+                            "resultId"
                         ]
                     }
                 ]

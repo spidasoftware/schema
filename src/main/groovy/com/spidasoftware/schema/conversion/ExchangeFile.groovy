@@ -2,6 +2,8 @@ package com.spidasoftware.schema.conversion
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.google.common.io.Files
+import org.apache.commons.io.FileUtils
+import org.apache.commons.io.IOUtils
 import org.apache.log4j.Logger
 import org.apache.tools.ant.BuildException
 /**
@@ -95,10 +97,11 @@ public class ExchangeFile {
 	 *
 	 * @param projectJson a json object representing the project
 	 * @param photoDir an optional directory containing the photos for the project. Everything in here
+	 * @param resultsCopier The results directory will be the Closure argument, should copy the detailed results into the directory.
 	 * will simply be added to the photos directory in the zip archive.
 	 * @return the exchangeFile, ready to be written
 	 */
-	static ExchangeFile createFromProjectJSON(Map projectJson, Collection<File> photoFiles = null, Map<String, String> detailedResults = null) {
+	static ExchangeFile createFromProjectJSON(Map projectJson, Collection<File> photoFiles = null, Closure resultsCopier = null) {
 		ExchangeFile exf = new ExchangeFile(Files.createTempDir())
 		exf.setProjectJSON(projectJson)
 		ObjectMapper mapper = new ObjectMapper()
@@ -113,13 +116,9 @@ public class ExchangeFile {
 				Files.copy(photo, target)
 			}
 		}
-		if(detailedResults) {
-			File resultsDir = exf.resultsDir
-			resultsDir.mkdir()
-			detailedResults.each { String id, String value ->
-				File target = new File(resultsDir, id)
-				target.text = value
-			}
+		if(resultsCopier != null) {
+			exf.resultsDir.mkdir()
+			resultsCopier(exf.resultsDir)
 		}
 		return exf
 	}
