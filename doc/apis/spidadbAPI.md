@@ -190,14 +190,14 @@ The response will include the photo bytes as a base64 encoded string in the body
 
 ## Detailed Results
 
-Starting with the version 6 schema detailed results will be pushed from SPIDAcalc to SPIDAdb.  The detailed results are very large json objects so SPIDAdb will not send the detailed results nested in the objects returned from the API.  Instead a uri will be returned, you will have to make an extra request to retrieve the detailed results.
+Starting with the version 6 schema detailed results will be pushed from SPIDAcalc to SPIDAdb.  The detailed results are very large json objects so SPIDAdb will not send the detailed results nested in the objects returned from the API.  Instead a resultId will be returned, you will have to make an extra request to retrieve the detailed results.
 
-An example of a design with a uri:
+An example of a design with a resultId:
 
     {
     	"analysis": [
 		{
-        		"uri": "588a58e17d84ad3bd41c4562"
+        		"resultId": "588a58e17d84ad3bd41c4562"
 		}
 	]
     }
