@@ -5,13 +5,16 @@ import com.spidasoftware.schema.conversion.changeset.v2.*
 import com.spidasoftware.schema.conversion.changeset.v3.*
 import com.spidasoftware.schema.conversion.changeset.v4.*
 import com.spidasoftware.schema.conversion.changeset.v5.*
+import com.spidasoftware.schema.conversion.changeset.v6.RemoveDetailedResultsChangeset
 import groovy.util.logging.Log4j
 
 @Log4j
 class ConverterUtils {
 
+    static final int currentVersion = 6
+
     static {
-        Closure addConverter = { Converter converter ->
+        Closure addConverter = { AbstractConverter converter ->
             converter.addChangeSet(2, new PoleLeanChangeSet())
             converter.addChangeSet(2, new FoundationChangeSet())
             converter.addChangeSet(3, new WEPEnvironmentChangeSet())
@@ -36,8 +39,10 @@ class ConverterUtils {
             converter.addChangeSet(5, new RemoveAdditionalPropertiesChangeset())
             converter.addChangeSet(5, new InputAssemblyDistanceDirectionChangeset())
             converter.addChangeSet(5, new LocationRemedyChangeset())
+            converter.addChangeSet(6, new RemoveDetailedResultsChangeset())
             // add calc changesets here
 
+            converter.setCurrentVersion(currentVersion)
             converters.put(converter.schemaPath, converter)
         }
 
@@ -55,7 +60,7 @@ class ConverterUtils {
 
     //example: [4, 3, 2]
     static LinkedHashSet<Integer> getPossibleVersionsNewestToOldest(){
-    	return converters.values().collect{it.versions.keySet()}.flatten().sort().reverse()
+    	return currentVersion..2 as LinkedHashSet<Integer>
     }
 
     static void convertJSON(Map json, int toVersion) throws ConversionException {

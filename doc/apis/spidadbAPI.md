@@ -188,6 +188,23 @@ The response:
 
 The response will include the photo bytes as a base64 encoded string in the body of the JSON response. This would then be decoded by the client and written to a file. There is currently no support for any other request type or options for photos.
 
+## Detailed Results
+
+Starting with the version 6 schema detailed results will be pushed from SPIDAcalc to SPIDAdb.  The detailed results are very large json objects so SPIDAdb will not send the detailed results nested in the objects returned from the API.  Instead a resultId will be returned, you will have to make an extra request to retrieve the detailed results.
+
+An example of a design with a resultId:
+
+    {
+    	"analysis": [
+		{
+        		"resultId": "588a58e17d84ad3bd41c4562"
+		}
+	]
+    }
+    
+To retrieve the results for 588a58e17d84ad3bd41c4562:
+
+`curl https://www.example.com/spidadb/results/588a58e17d84ad3bd41c4562?apiToken=abc123`
 
 # The Finer Points
 
@@ -198,6 +215,8 @@ There are several possible ways to save/update a project.
 - **Plain old Project JSON**  This is what we did in the example. This would normally just be sent with a ContentType of "multipart/form-data", but "application/X-www-form-urlencoded" is also acceptable (just less efficient). No photos are saved, because none are sent. The request would be sent to `<base-url>/projects.calc` but the `.calc` format is optional since that is the default.
 
 - **Project JSON and Photos**  This is essentially the same as above, except that all the photos for the project must be sent with the request. This MUST be a 'multipart' request. Each photo file should be added to the request body as it's own 'part', and the 'name' of the part must match the photo name given in the 'url' property of the image. For example, given the image: `{"url":"myPhoto4.jpg"}`, the multipart request would need to have a part with it's name as "myPhoto4.jpg" and the ContentType as "image/jpeg".
+
+- **Project JSON and Detailed Results**  This is essentially the same as above, except that all the results for the project must be sent with the request. This MUST be a 'multipart' request.  Each result should be added to the request as its own 'part' with a Content-Type of "application/json" and the 'name' of the parameter must match the results id given in the 'resultId' property of the analysis array. For example, given the result: `{"resultId":"588a58e17d84ad3bd41c4562.json"}`, the request would need to have a part with its name as "588a58e17d84ad3bd41c4562.json".
 
 - **Upload an Exchange File**  Once you have an exchange file, it can simply be sent as part of a multipart POST request to `<base-url>/projects.exchange`. Notice the '.exchange' format - this is required if you're sending an exchange file. SPIDAdb will take care of unzipping the file and saving the project json and all the photos. This oftentimes tends to be the simplest way, since SPIDACalc can simply export projects directly to an exchange file.
 
