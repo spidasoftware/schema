@@ -204,14 +204,11 @@ class FormatConverter {
         def isSFResult = result.unit == "SF" || (result.component == "Pole" && result.analysisType == "STRENGTH")
         def isPercentResult = !isSFResult
 
-
         if (isSFResult && result.get("allowable") != 0) {
             normalizedResult = result.get("actual") / result.get("allowable")
         } else if(isPercentResult && result.get("actual") != 0) {
             normalizedResult = result.get("allowable") / result.get("actual")
         }
-
-        log.info("isSFResult = ${isSFResult} normalizedResult = ${normalizedResult} result = ${result}")
 
         return normalizedResult
     }
