@@ -1,6 +1,8 @@
 package com.spidasoftware.schema.conversion
 
 import com.github.fge.jsonschema.report.ProcessingReport
+import com.spidasoftware.schema.conversion.changeset.Converter
+import com.spidasoftware.schema.conversion.changeset.ConverterUtils
 import com.spidasoftware.schema.validation.Validator
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
@@ -180,6 +182,8 @@ class FormatConverterTest extends Specification {
 	void "Designs have the worstResults set to the correct result object"(){
 		setup: "load designs with a variety of load cases"
 			def project = getCalcProject("LoadCaseTest.json")
+			Converter projectConverter = ConverterUtils.getConverterInstance("/schema/spidacalc/calc/project.schema")
+			projectConverter.convert(project, projectConverter.currentVersion)
 			def designs = project.leads[0].locations[0].designs
 
 		when: "add analysisResults to the current design"
@@ -249,6 +253,8 @@ class FormatConverterTest extends Specification {
 	void "test detailed results get converted correctly to worstCaseAnalysisResults jsonKey=#jsonKey"() {
 		setup:
 			def project = getCalcProject("project-with-detailed-results.json")
+			Converter projectConverter = ConverterUtils.getConverterInstance("/schema/spidacalc/calc/project.schema")
+			projectConverter.convert(project, projectConverter.currentVersion)
 		when:
 			def design = converter.convertCalcDesign(project.leads[0].locations[0].designs[0], null, null).getMap()
 		then:
