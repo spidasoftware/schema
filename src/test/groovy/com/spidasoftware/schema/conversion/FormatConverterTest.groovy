@@ -4,6 +4,7 @@ import com.github.fge.jsonschema.report.ProcessingReport
 import com.spidasoftware.schema.validation.Validator
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
+import org.apache.log4j.Logger
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -205,6 +206,7 @@ class FormatConverterTest extends Specification {
 	@Unroll("expectedResultId=#expectedResultId")
 	void "test getWorstResult"() {
 		when:
+			Logger.getLogger(FormatConverterTest).info("converter.getWorstResult(${resultsArray})")
 			Map worstResult = converter.getWorstResult(resultsArray)
 		then:
 			worstResult.id == expectedResultId
@@ -234,9 +236,15 @@ class FormatConverterTest extends Specification {
 									 [id: "3", unit: "PERCENT", actual: 0, allowable: 100],
 									 [id: "4", unit: "PERCENT", actual: 100, allowable: 100],
 									 [id: "5", unit: "PERCENT", actual: 1, allowable: Double.MAX_VALUE]
+							 ],
+							 [
+									 [id: "1", unit: "SF", actual: 0, allowable: 0],
+									 [id: "2", unit: "PERCENT", actual: 50, allowable: 100, component: "Pole", analysisType: "STRENGTH"],
+									 [id: "3", unit: "PERCENT", actual: 1, allowable: 1],
+
 							 ]
 			]
-			expectedResultId << ["1", "2", "3", "4"]
+			expectedResultId << ["1", "2", "3", "4", "2"]
 	}
 
 	@Unroll
