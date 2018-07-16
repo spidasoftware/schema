@@ -113,39 +113,53 @@ if (System.env.TRAVIS == 'true') {
 // Command Line Tools
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-def csvFile = hasProperty('file') ? file : null
-def schema = hasProperty('schema') ? schema: null
-def jsonFile = hasProperty('jsonFile') ? jsonFile: null
+/**
+ * Searches the project properties first (where the properties should be kept),
+ * then the system properties (where older integrations might expect them),
+ * and returns null if the property is not set.
+ */
+private String findPropertyAnywhere(Project project, String propertyName) {
+	return project.findProperty(propertyName) ?: System.getProperty(propertyName)
+}
 
-task(csv, dependsOn: 'classes', type: JavaExec) {
+String csvFile = findPropertyAnywhere(project, 'file')
+String schema = findPropertyAnywhere(project, 'schema')
+String jsonFile = findPropertyAnywhere(project, 'jsonFile')
+
+task csv(type: JavaExec) {
+	dependsOn classes
+
+	classpath = sourceSets.main.runtimeClasspath
+	main = 'com.spidasoftware.schema.conversion.PoleCSVStationConverter'
+	standardInput = System.in
+	standardOutput = System.out
+
 	if(csvFile){
 		def file = new File("$csvFile")
 		args file.absolutePath
 	}
-	main = 'com.spidasoftware.schema.utils.PoleCSVStationConverter'
-	classpath = sourceSets.main.runtimeClasspath
-	standardInput = System.in
-	standardOutput = System.out
 }
 
-task(validateJson, dependsOn: 'classes', type: JavaExec) {
-	if (jsonFile && schema) {
+task validateJson(type: JavaExec) {
+	dependsOn classes
 
+	classpath = sourceSets.main.runtimeClasspath
+	main = 'com.spidasoftware.schema.validation.CommandLineValidator'
+	standardInput = System.in
+	standardOutput = System.out
+
+	if (jsonFile && schema) {
 		def jFile = new File("$jsonFile")
 		args schema
 		args jFile.absolutePath
 	}
-	main = 'com.spidasoftware.schema.validation.CommandLineValidator'
-	classpath = sourceSets.main.runtimeClasspath
-	standardInput = System.in
-	standardOutput = System.out
 }
 
 task printVersion() << {
 	println "SCHEMA_VERSION: ${version}"
 }
 
-task wrapper(type: Wrapper) {
+wrapper {
 	/*****************************************************************************************
 		NOTES:
 		1) This will also change gradle version for all subprojects.
@@ -153,5 +167,5 @@ task wrapper(type: Wrapper) {
 		3) If you only set gradleVersion, it will append "-bin".
 		http://www.gradle.org/docs/current/dsl/org.gradle.api.tasks.wrapper.Wrapper.html
  	 *****************************************************************************************/
-	 distributionUrl = 'https://services.gradle.org/distributions/gradle-2.9-all.zip'
+	 distributionUrl = 'https://services.gradle.org/distributions/gradle-4.8.1-all.zip'
 }
