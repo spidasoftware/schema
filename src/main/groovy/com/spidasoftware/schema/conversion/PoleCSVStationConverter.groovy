@@ -22,9 +22,9 @@ class PoleCSVStationConverter {
 	public static void main(String[] args) {
 		Random generator = new Random()
 		if(args==null || args.length==0){
-			println "usage: 'java -cp schema.jar com.spidasoftware.schema.utils.PoleCSVStationConverter path/to/import/file"
+			println "Usage: 'java -cp schema.jar com.spidasoftware.schema.conversion.PoleCSVStationConverter path/to/import/file"
 			println "   or"
-			println "usage: 'gradlew csv -Pfile=path/to/import/file"
+			println "Usage: 'gradlew csv -Pfile=path/to/import/file"
 			return
 		}
 
