@@ -1,9 +1,17 @@
-Demonstration of how to generate "Advisor" like design variations. Copies the first design in the current project in the active instance of SPIDAcalc and changes the wire end point distances, then opens again in SPIDAcalc
+Example projects using the SPIDAexchange format.
 
-To install (requires NodeJS and NPM)
+## csv
 
-```npm install```
+Examples of converting a CSV to a minimal project with and without input assemblies
 
-To run
+## kml-demo
 
-```node app.js```
+Example of converting a SPIDAexchange project to a KML layer
+
+## design
+
+Example of how to use the SPIDAexchange API to generate variants on a design
+
+## example_RPC_client.coffee
+
+An example of how to call the SPIDAcalc remote control web service

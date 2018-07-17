@@ -1,9 +1,5 @@
-Demonstration of how to generate "Advisor" like design variations. Copies the first design in the current project in the active instance of SPIDAcalc and changes the wire end point distances, then opens again in SPIDAcalc
+Demonstration of how to generate a kml file and google maps markers from a SPIDAexchange json file.
 
-To install (requires NodeJS and NPM)
+To use, open ```map.html``` in a web browser, and then open ```framings-import-with-results.json```
 
-```npm install```
-
-To run
-
-```node app.js```
+The code that generates the views is in ```calcdemo.js```
