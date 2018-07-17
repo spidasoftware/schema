@@ -5,9 +5,9 @@ infos = [];
 
 function addPlacemark(location) {
   var kmlString = '\n\t<Placemark>' +
-                       '\n\t\t<name>' + location.id + '</name>' +
+                       '\n\t\t<name>' + location.label + '</name>' +
                        '\n\t\t<Point>\n\t\t\t<coordinates>' +
-                       location.geographicCoordinate.latitude + "," + location.geographicCoordinate.longitude +
+                       location.geographicCoordinate.coordinates[1] + "," + location.geographicCoordinate.coordinates[0] +
                         '</coordinates> \n\t\t</Point>\n\t</Placemark>';
   return kmlString;
 }
@@ -35,18 +35,22 @@ function createMarkers(project) {
     var lead = project.leads[i];
     for (j=0; j<lead.locations.length; j++) {
       var location = lead.locations[j];
-      var point = new google.maps.LatLng(location.geographicCoordinate.latitude, location.geographicCoordinate.longitude);
+      var point = new google.maps.LatLng(location.geographicCoordinate.coordinates[1], location.geographicCoordinate.coordinates[0]);
       console.log("adding marker at " + point);
       var marker = new google.maps.Marker({
         position: point,
         map: map,
-        title: location.id
+        title: location.label
       });
 
-      var contentString = location.id;
+      var resultObj = location.designs[0].analysis[0].results.find (function(element) {
+      	return element.component == "Pole"
+      })
+      
+      
 
       var info = new google.maps.InfoWindow({
-           content: contentString
+           content: location.label + '<br>Pole Loading: ' + resultObj.actual.toFixed(2) + '%'
        });
 
       map.setCenter(point);

@@ -1,0 +1,738 @@
+{
+  "clientFile" : "Webinar Client File.client",
+  "leads" : [ {
+    "label" : "Worthington Rd",
+    "locations" : [ {
+      "label" : "Pole A",
+      "geographicCoordinate" : {
+        "type" : "point",
+        "coordinates" : [ -83.01621437, 40.09649074 ]
+      },
+      "designs" : [ {
+        "label" : "Measured Design",
+        "layerType" : "Measured",
+        "structure" : {
+          "pole" : {
+            "owner" : {
+              "id" : "Acme Power",
+              "industry" : "UTILITY",
+              "externalId" : "5b4cd2aa3aca37a0e9842618"
+            },
+            "clientItem" : {
+              "classOfPole" : "3",
+              "height" : {
+                "unit" : "METRE",
+                "value" : 13.716000000000001
+              },
+              "species" : "Southern Pine"
+            }
+          },
+          "wireEndPoints" : [ {
+            "id" : "WEP#2",
+            "type" : "NEXT_POLE",
+            "distance" : {
+              "unit" : "METRE",
+              "value" : 55.172701846455944
+            },
+            "direction" : 219,
+            "inclination" : {
+              "value" : 0,
+              "unit" : "DEGREE_ANGLE"
+            },
+            "spanGuys" : [ ],
+            "spanPoints" : [ ],
+            "wires" : [ ],
+            "connectionId" : "5b4cd2ab3aca37a0e9842619"
+          } ],
+          "assemblies" : [ {
+            "clientItem" : "C5.21",
+            "wireEndPoints" : [ {
+              "id" : "WEP#2",
+              "wires" : {
+                "PRIMARY" : "1/0 ACSR",
+                "NEUTRAL" : "1/0 ACSR"
+              }
+            } ],
+            "support":[ {
+              	"supportItem": "F1.6",
+              	"attachments": [
+              	{
+              		"attachmentItem": "E2.1.3/8"
+              	} ]
+              } ]
+          } ]
+        }
+      } ]
+    }, {
+      "label" : "Pole B",
+      "geographicCoordinate" : {
+        "type" : "point",
+        "coordinates" : [ -83.01580668, 40.09687648 ]
+      },
+      "designs" : [ {
+        "label" : "Measured Design",
+        "layerType" : "Measured",
+        "structure" : {
+          "pole" : {
+            "owner" : {
+              "id" : "Acme Power",
+              "industry" : "UTILITY",
+              "externalId" : "5b4cd2aa3aca37a0e9842618"
+            },
+            "clientItem" : {
+              "classOfPole" : "3",
+              "height" : {
+                "unit" : "METRE",
+                "value" : 13.716000000000001
+              },
+              "species" : "Southern Pine"
+            }
+          },
+          "wireEndPoints" : [ {
+            "id" : "WEP#1",
+            "type" : "PREVIOUS_POLE",
+            "distance" : {
+              "unit" : "METRE",
+              "value" : 55.172701846455944
+            },
+            "direction" : 39,
+            "inclination" : {
+              "value" : 0,
+              "unit" : "DEGREE_ANGLE"
+            },
+            "spanGuys" : [ ],
+            "spanPoints" : [ ],
+            "wires" : [ ],
+            "connectionId" : "5b4cd2ab3aca37a0e9842619"
+          }, {
+            "id" : "WEP#2",
+            "type" : "NEXT_POLE",
+            "distance" : {
+              "unit" : "METRE",
+              "value" : 62.61440971855629
+            },
+            "direction" : 224,
+            "inclination" : {
+              "value" : 0,
+              "unit" : "DEGREE_ANGLE"
+            },
+            "spanGuys" : [ ],
+            "spanPoints" : [ ],
+            "wires" : [ ],
+            "connectionId" : "5b4cd2ab3aca37a0e984261a"
+          } ],
+          "assemblies" : [ {
+            "clientItem" : "C1.11",
+            "wireEndPoints" : [ {
+              "id" : "WEP#1",
+              "wires" : {
+                "PRIMARY" : "1/0 ACSR",
+                "NEUTRAL" : "1/0 ACSR"
+              }
+            }, {
+              "id" : "WEP#2",
+              "wires" : {
+                "PRIMARY" : "1/0 ACSR",
+                "NEUTRAL" : "1/0 ACSR"
+              }
+            } ]
+          } ]
+        }
+      } ]
+    }, {
+      "label" : "Pole C",
+      "geographicCoordinate" : {
+        "type" : "point",
+        "coordinates" : [ -83.01529169, 40.09727862 ]
+      },
+      "designs" : [ {
+        "label" : "Measured Design",
+        "layerType" : "Measured",
+        "structure" : {
+          "pole" : {
+            "owner" : {
+              "id" : "Acme Power",
+              "industry" : "UTILITY",
+              "externalId" : "5b4cd2aa3aca37a0e9842618"
+            },
+            "clientItem" : {
+              "classOfPole" : "4",
+              "height" : {
+                "unit" : "METRE",
+                "value" : 13.716000000000001
+              },
+              "species" : "Southern Pine"
+            }
+          },
+          "wireEndPoints" : [ {
+            "id" : "WEP#1",
+            "type" : "PREVIOUS_POLE",
+            "distance" : {
+              "unit" : "METRE",
+              "value" : 62.61440971855629
+            },
+            "direction" : 44,
+            "inclination" : {
+              "value" : 0,
+              "unit" : "DEGREE_ANGLE"
+            },
+            "spanGuys" : [ ],
+            "spanPoints" : [ ],
+            "wires" : [ ],
+            "connectionId" : "5b4cd2ab3aca37a0e984261a"
+          }, {
+            "id" : "WEP#2",
+            "type" : "NEXT_POLE",
+            "distance" : {
+              "unit" : "METRE",
+              "value" : 55.88465273273883
+            },
+            "direction" : 232,
+            "inclination" : {
+              "value" : 0,
+              "unit" : "DEGREE_ANGLE"
+            },
+            "spanGuys" : [ ],
+            "spanPoints" : [ ],
+            "wires" : [ ],
+            "connectionId" : "5b4cd2ab3aca37a0e984261b"
+          } ],
+          "assemblies" : [ {
+            "clientItem" : "C1.11",
+            "wireEndPoints" : [ {
+              "id" : "WEP#1",
+              "wires" : {
+                "PRIMARY" : "1/0 ACSR",
+                "NEUTRAL" : "1/0 ACSR"
+              }
+            }, {
+              "id" : "WEP#2",
+              "wires" : {
+                "PRIMARY" : "1/0 ACSR",
+                "NEUTRAL" : "1/0 ACSR"
+              }
+            } ]
+          } ]
+        }
+      } ]
+    }, {
+      "label" : "Pole D",
+      "geographicCoordinate" : {
+        "type" : "point",
+        "coordinates" : [ -83.01477671, 40.09759049 ]
+      },
+      "designs" : [ {
+        "label" : "Measured Design",
+        "layerType" : "Measured",
+        "structure" : {
+          "pole" : {
+            "owner" : {
+              "id" : "Acme Power",
+              "industry" : "UTILITY",
+              "externalId" : "5b4cd2aa3aca37a0e9842618"
+            },
+            "clientItem" : {
+              "classOfPole" : "4",
+              "height" : {
+                "unit" : "METRE",
+                "value" : 13.716000000000001
+              },
+              "species" : "Southern Pine"
+            }
+          },
+          "wireEndPoints" : [ {
+            "id" : "WEP#1",
+            "type" : "PREVIOUS_POLE",
+            "distance" : {
+              "unit" : "METRE",
+              "value" : 55.88465273273883
+            },
+            "direction" : 52,
+            "inclination" : {
+              "value" : 0,
+              "unit" : "DEGREE_ANGLE"
+            },
+            "spanGuys" : [ ],
+            "spanPoints" : [ ],
+            "wires" : [ ],
+            "connectionId" : "5b4cd2ab3aca37a0e984261b"
+          }, {
+            "id" : "WEP#2",
+            "type" : "NEXT_POLE",
+            "distance" : {
+              "unit" : "METRE",
+              "value" : 71.42284770889007
+            },
+            "direction" : 231,
+            "inclination" : {
+              "value" : 0,
+              "unit" : "DEGREE_ANGLE"
+            },
+            "spanGuys" : [ ],
+            "spanPoints" : [ ],
+            "wires" : [ ],
+            "connectionId" : "5b4cd2ab3aca37a0e984261c"
+          } ],
+          "assemblies" : [ {
+            "clientItem" : "C1.11",
+            "wireEndPoints" : [ {
+              "id" : "WEP#1",
+              "wires" : {
+                "PRIMARY" : "1/0 ACSR",
+                "NEUTRAL" : "1/0 ACSR"
+              }
+            }, {
+              "id" : "WEP#2",
+              "wires" : {
+                "PRIMARY" : "1/0 ACSR",
+                "NEUTRAL" : "1/0 ACSR"
+              }
+            } ]
+          } ]
+        }
+      } ]
+    }, {
+      "label" : "Pole E",
+      "geographicCoordinate" : {
+        "type" : "point",
+        "coordinates" : [ -83.01412225, 40.09799263 ]
+      },
+      "designs" : [ {
+        "label" : "Measured Design",
+        "layerType" : "Measured",
+        "structure" : {
+          "pole" : {
+            "owner" : {
+              "id" : "Acme Power",
+              "industry" : "UTILITY",
+              "externalId" : "5b4cd2aa3aca37a0e9842618"
+            },
+            "clientItem" : {
+              "classOfPole" : "2",
+              "height" : {
+                "unit" : "METRE",
+                "value" : 13.716000000000001
+              },
+              "species" : "Southern Pine"
+            }
+          },
+          "wireEndPoints" : [ {
+            "id" : "WEP#1",
+            "type" : "PREVIOUS_POLE",
+            "distance" : {
+              "unit" : "METRE",
+              "value" : 71.42284770889007
+            },
+            "direction" : 51,
+            "inclination" : {
+              "value" : 0,
+              "unit" : "DEGREE_ANGLE"
+            },
+            "spanGuys" : [ ],
+            "spanPoints" : [ ],
+            "wires" : [ ],
+            "connectionId" : "5b4cd2ab3aca37a0e984261c"
+          }, {
+            "id" : "WEP#2",
+            "type" : "NEXT_POLE",
+            "distance" : {
+              "unit" : "METRE",
+              "value" : 57.88346357377871
+            },
+            "direction" : 232,
+            "inclination" : {
+              "value" : 0,
+              "unit" : "DEGREE_ANGLE"
+            },
+            "spanGuys" : [ ],
+            "spanPoints" : [ ],
+            "wires" : [ ],
+            "connectionId" : "5b4cd2ab3aca37a0e984261d"
+          } ],
+          "assemblies" : [ {
+            "clientItem" : "C1.11",
+            "wireEndPoints" : [ {
+              "id" : "WEP#1",
+              "wires" : {
+                "PRIMARY" : "1/0 ACSR",
+                "NEUTRAL" : "1/0 ACSR"
+              }
+            }, {
+              "id" : "WEP#2",
+              "wires" : {
+                "PRIMARY" : "1/0 ACSR",
+                "NEUTRAL" : "1/0 ACSR"
+              }
+            } ]
+          } ]
+        }
+      } ]
+    }, {
+      "label" : "Pole F",
+      "geographicCoordinate" : {
+        "type" : "point",
+        "coordinates" : [ -83.01358581, 40.0983127 ]
+      },
+      "designs" : [ {
+        "label" : "Measured Design",
+        "layerType" : "Measured",
+        "structure" : {
+          "pole" : {
+            "owner" : {
+              "id" : "Acme Power",
+              "industry" : "UTILITY",
+              "externalId" : "5b4cd2aa3aca37a0e9842618"
+            },
+            "clientItem" : {
+              "classOfPole" : "5",
+              "height" : {
+                "unit" : "METRE",
+                "value" : 13.716000000000001
+              },
+              "species" : "Southern Pine"
+            }
+          },
+          "wireEndPoints" : [ {
+            "id" : "WEP#1",
+            "type" : "PREVIOUS_POLE",
+            "distance" : {
+              "unit" : "METRE",
+              "value" : 57.88346357377871
+            },
+            "direction" : 52,
+            "inclination" : {
+              "value" : 0,
+              "unit" : "DEGREE_ANGLE"
+            },
+            "spanGuys" : [ ],
+            "spanPoints" : [ ],
+            "wires" : [ ],
+            "connectionId" : "5b4cd2ab3aca37a0e984261d"
+          }, {
+            "id" : "WEP#2",
+            "type" : "NEXT_POLE",
+            "distance" : {
+              "unit" : "METRE",
+              "value" : 57.47933092561624
+            },
+            "direction" : 237,
+            "inclination" : {
+              "value" : 0,
+              "unit" : "DEGREE_ANGLE"
+            },
+            "spanGuys" : [ ],
+            "spanPoints" : [ ],
+            "wires" : [ ],
+            "connectionId" : "5b4cd2ab3aca37a0e984261e"
+          } ],
+          "assemblies" : [ {
+            "clientItem" : "C1.11",
+            "wireEndPoints" : [ {
+              "id" : "WEP#1",
+              "wires" : {
+                "PRIMARY" : "1/0 ACSR",
+                "NEUTRAL" : "1/0 ACSR"
+              }
+            }, {
+              "id" : "WEP#2",
+              "wires" : {
+                "PRIMARY" : "1/0 ACSR",
+                "NEUTRAL" : "1/0 ACSR"
+              }
+            } ]
+          } ]
+        }
+      } ]
+    }, {
+      "label" : "Pole G",
+      "geographicCoordinate" : {
+        "type" : "point",
+        "coordinates" : [ -83.01301718, 40.09859174 ]
+      },
+      "designs" : [ {
+        "label" : "Measured Design",
+        "layerType" : "Measured",
+        "structure" : {
+          "pole" : {
+            "owner" : {
+              "id" : "Acme Power",
+              "industry" : "UTILITY",
+              "externalId" : "5b4cd2aa3aca37a0e9842618"
+            },
+            "clientItem" : {
+              "classOfPole" : "3",
+              "height" : {
+                "unit" : "METRE",
+                "value" : 13.716000000000001
+              },
+              "species" : "Southern Pine"
+            }
+          },
+          "wireEndPoints" : [ {
+            "id" : "WEP#1",
+            "type" : "PREVIOUS_POLE",
+            "distance" : {
+              "unit" : "METRE",
+              "value" : 57.47933092561624
+            },
+            "direction" : 57,
+            "inclination" : {
+              "value" : 0,
+              "unit" : "DEGREE_ANGLE"
+            },
+            "spanGuys" : [ ],
+            "spanPoints" : [ ],
+            "wires" : [ ],
+            "connectionId" : "5b4cd2ab3aca37a0e984261e"
+          }, {
+            "id" : "WEP#2",
+            "type" : "NEXT_POLE",
+            "distance" : {
+              "unit" : "METRE",
+              "value" : 51.442319858653754
+            },
+            "direction" : 243,
+            "inclination" : {
+              "value" : 0,
+              "unit" : "DEGREE_ANGLE"
+            },
+            "spanGuys" : [ ],
+            "spanPoints" : [ ],
+            "wires" : [ ],
+            "connectionId" : "5b4cd2ab3aca37a0e984261f"
+          } ],
+          "assemblies" : [ {
+            "clientItem" : "C1.11",
+            "wireEndPoints" : [ {
+              "id" : "WEP#1",
+              "wires" : {
+                "PRIMARY" : "1/0 ACSR",
+                "NEUTRAL" : "1/0 ACSR"
+              }
+            }, {
+              "id" : "WEP#2",
+              "wires" : {
+                "PRIMARY" : "1/0 ACSR",
+                "NEUTRAL" : "1/0 ACSR"
+              }
+            } ]
+          } ]
+        }
+      } ]
+    }, {
+      "label" : "Pole H",
+      "geographicCoordinate" : {
+        "type" : "point",
+        "coordinates" : [ -83.01248074, 40.09880511 ]
+      },
+      "designs" : [ {
+        "label" : "Measured Design",
+        "layerType" : "Measured",
+        "structure" : {
+          "pole" : {
+            "owner" : {
+              "id" : "Acme Power",
+              "industry" : "UTILITY",
+              "externalId" : "5b4cd2aa3aca37a0e9842618"
+            },
+            "clientItem" : {
+              "classOfPole" : "1",
+              "height" : {
+                "unit" : "METRE",
+                "value" : 13.716000000000001
+              },
+              "species" : "Southern Pine"
+            }
+          },
+          "wireEndPoints" : [ {
+            "id" : "WEP#1",
+            "type" : "PREVIOUS_POLE",
+            "distance" : {
+              "unit" : "METRE",
+              "value" : 51.442319858653754
+            },
+            "direction" : 63,
+            "inclination" : {
+              "value" : 0,
+              "unit" : "DEGREE_ANGLE"
+            },
+            "spanGuys" : [ ],
+            "spanPoints" : [ ],
+            "wires" : [ ],
+            "connectionId" : "5b4cd2ab3aca37a0e984261f"
+          }, {
+            "id" : "WEP#2",
+            "type" : "NEXT_POLE",
+            "distance" : {
+              "unit" : "METRE",
+              "value" : 63.688414730545894
+            },
+            "direction" : 243,
+            "inclination" : {
+              "value" : 0,
+              "unit" : "DEGREE_ANGLE"
+            },
+            "spanGuys" : [ ],
+            "spanPoints" : [ ],
+            "wires" : [ ],
+            "connectionId" : "5b4cd2ab3aca37a0e9842620"
+          } ],
+          "assemblies" : [ {
+            "clientItem" : "C1.11",
+            "wireEndPoints" : [ {
+              "id" : "WEP#1",
+              "wires" : {
+                "PRIMARY" : "1/0 ACSR",
+                "NEUTRAL" : "1/0 ACSR"
+              }
+            }, {
+              "id" : "WEP#2",
+              "wires" : {
+                "PRIMARY" : "1/0 ACSR",
+                "NEUTRAL" : "1/0 ACSR"
+              }
+            } ]
+          } ]
+        }
+      } ]
+    }, {
+      "label" : "Pole I",
+      "geographicCoordinate" : {
+        "type" : "point",
+        "coordinates" : [ -83.01181555, 40.09906773 ]
+      },
+      "designs" : [ {
+        "label" : "Measured Design",
+        "layerType" : "Measured",
+        "structure" : {
+          "pole" : {
+            "owner" : {
+              "id" : "Acme Power",
+              "industry" : "UTILITY",
+              "externalId" : "5b4cd2aa3aca37a0e9842618"
+            },
+            "clientItem" : {
+              "classOfPole" : "3",
+              "height" : {
+                "unit" : "METRE",
+                "value" : 13.716000000000001
+              },
+              "species" : "Southern Pine"
+            }
+          },
+          "wireEndPoints" : [ {
+            "id" : "WEP#1",
+            "type" : "PREVIOUS_POLE",
+            "distance" : {
+              "unit" : "METRE",
+              "value" : 63.688414730545894
+            },
+            "direction" : 63,
+            "inclination" : {
+              "value" : 0,
+              "unit" : "DEGREE_ANGLE"
+            },
+            "spanGuys" : [ ],
+            "spanPoints" : [ ],
+            "wires" : [ ],
+            "connectionId" : "5b4cd2ab3aca37a0e9842620"
+          }, {
+            "id" : "WEP#2",
+            "type" : "NEXT_POLE",
+            "distance" : {
+              "unit" : "METRE",
+              "value" : 79.26254349838034
+            },
+            "direction" : 241,
+            "inclination" : {
+              "value" : 0,
+              "unit" : "DEGREE_ANGLE"
+            },
+            "spanGuys" : [ ],
+            "spanPoints" : [ ],
+            "wires" : [ ],
+            "connectionId" : "5b4cd2ab3aca37a0e9842621"
+          } ],
+          "assemblies" : [ {
+            "clientItem" : "C1.11",
+            "wireEndPoints" : [ {
+              "id" : "WEP#1",
+              "wires" : {
+                "PRIMARY" : "1/0 ACSR",
+                "NEUTRAL" : "1/0 ACSR"
+              }
+            }, {
+              "id" : "WEP#2",
+              "wires" : {
+                "PRIMARY" : "1/0 ACSR",
+                "NEUTRAL" : "1/0 ACSR"
+              }
+            } ]
+          } ]
+        }
+      } ]
+    }, {
+      "label" : "Pole J",
+      "geographicCoordinate" : {
+        "type" : "point",
+        "coordinates" : [ -83.01100016, 40.09941242 ]
+      },
+      "designs" : [ {
+        "label" : "Measured Design",
+        "layerType" : "Measured",
+        "structure" : {
+          "pole" : {
+            "owner" : {
+              "id" : "Acme Power",
+              "industry" : "UTILITY",
+              "externalId" : "5b4cd2aa3aca37a0e9842618"
+            },
+            "clientItem" : {
+              "classOfPole" : "4",
+              "height" : {
+                "unit" : "METRE",
+                "value" : 13.716000000000001
+              },
+              "species" : "Southern Pine"
+            }
+          },
+          "wireEndPoints" : [ {
+            "id" : "WEP#1",
+            "type" : "PREVIOUS_POLE",
+            "distance" : {
+              "unit" : "METRE",
+              "value" : 79.26254349838034
+            },
+            "direction" : 61,
+            "inclination" : {
+              "value" : 0,
+              "unit" : "DEGREE_ANGLE"
+            },
+            "spanGuys" : [ ],
+            "spanPoints" : [ ],
+            "wires" : [ ],
+            "connectionId" : "5b4cd2ab3aca37a0e9842621"
+          } ],
+          "assemblies" : [ {
+            "clientItem" : "C5.21",
+            "wireEndPoints" : [ {
+              "id" : "WEP#1",
+              "wires" : {
+                "PRIMARY" : "1/0 ACSR",
+                "NEUTRAL" : "1/0 ACSR"
+              }
+            } ],
+            "support":[ {
+              	"supportItem": "F1.6",
+              	"attachments": [
+              	{
+              		"attachmentItem": "E2.1.3/8"
+              	} ]
+              } ]
+          } ]
+        }
+      } ]
+    } ]
+  } ],
+  "schema" : "/schema/spidacalc/calc/project.schema"
+}
