@@ -1,0 +1,278 @@
+{
+  "clientFile" : "Webinar Client File.client",
+  "leads" : [ {
+    "label" : "Worthington Rd",
+    "locations" : [ {
+      "label" : "Pole A",
+      "geographicCoordinate" : {
+        "type" : "point",
+        "coordinates" : [ -83.01621437, 40.09649074 ]
+      },
+      "designs" : [ {
+        "label" : "Measured Design",
+        "layerType" : "Measured",
+        "structure" : {
+          "pole" : {
+            "owner" : {
+              "id" : "Acme Power",
+              "industry" : "UTILITY",
+              "externalId" : "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+            },
+            "clientItem" : {
+              "classOfPole" : "3",
+              "height" : {
+                "unit" : "METRE",
+                "value" : 13.716000000000001
+              },
+              "species" : "Southern Pine"
+            }
+          }
+        }
+      } ]
+    }, {
+      "label" : "Pole B",
+      "geographicCoordinate" : {
+        "type" : "point",
+        "coordinates" : [ -83.01580668, 40.09687648 ]
+      },
+      "designs" : [ {
+        "label" : "Measured Design",
+        "layerType" : "Measured",
+        "structure" : {
+          "pole" : {
+            "owner" : {
+              "id" : "Acme Power",
+              "industry" : "UTILITY",
+              "externalId" : "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+            },
+            "clientItem" : {
+              "classOfPole" : "3",
+              "height" : {
+                "unit" : "METRE",
+                "value" : 13.716000000000001
+              },
+              "species" : "Southern Pine"
+            }
+          }
+        }
+      } ]
+    }, {
+      "label" : "Pole C",
+      "geographicCoordinate" : {
+        "type" : "point",
+        "coordinates" : [ -83.01529169, 40.09727862 ]
+      },
+      "designs" : [ {
+        "label" : "Measured Design",
+        "layerType" : "Measured",
+        "structure" : {
+          "pole" : {
+            "owner" : {
+              "id" : "Acme Power",
+              "industry" : "UTILITY",
+              "externalId" : "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+            },
+            "clientItem" : {
+              "classOfPole" : "4",
+              "height" : {
+                "unit" : "METRE",
+                "value" : 13.716000000000001
+              },
+              "species" : "Southern Pine"
+            }
+          }
+        }
+      } ]
+    }, {
+      "label" : "Pole D",
+      "geographicCoordinate" : {
+        "type" : "point",
+        "coordinates" : [ -83.01477671, 40.09759049 ]
+      },
+      "designs" : [ {
+        "label" : "Measured Design",
+        "layerType" : "Measured",
+        "structure" : {
+          "pole" : {
+            "owner" : {
+              "id" : "Acme Power",
+              "industry" : "UTILITY",
+              "externalId" : "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+            },
+            "clientItem" : {
+              "classOfPole" : "4",
+              "height" : {
+                "unit" : "METRE",
+                "value" : 13.716000000000001
+              },
+              "species" : "Southern Pine"
+            }
+          }
+        }
+      } ]
+    }, {
+      "label" : "Pole E",
+      "geographicCoordinate" : {
+        "type" : "point",
+        "coordinates" : [ -83.01412225, 40.09799263 ]
+      },
+      "designs" : [ {
+        "label" : "Measured Design",
+        "layerType" : "Measured",
+        "structure" : {
+          "pole" : {
+            "owner" : {
+              "id" : "Acme Power",
+              "industry" : "UTILITY",
+              "externalId" : "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+            },
+            "clientItem" : {
+              "classOfPole" : "2",
+              "height" : {
+                "unit" : "METRE",
+                "value" : 13.716000000000001
+              },
+              "species" : "Southern Pine"
+            }
+          }
+        }
+      } ]
+    }, {
+      "label" : "Pole F",
+      "geographicCoordinate" : {
+        "type" : "point",
+        "coordinates" : [ -83.01358581, 40.0983127 ]
+      },
+      "designs" : [ {
+        "label" : "Measured Design",
+        "layerType" : "Measured",
+        "structure" : {
+          "pole" : {
+            "owner" : {
+              "id" : "Acme Power",
+              "industry" : "UTILITY",
+              "externalId" : "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+            },
+            "clientItem" : {
+              "classOfPole" : "5",
+              "height" : {
+                "unit" : "METRE",
+                "value" : 13.716000000000001
+              },
+              "species" : "Southern Pine"
+            }
+          }
+        }
+      } ]
+    }, {
+      "label" : "Pole G",
+      "geographicCoordinate" : {
+        "type" : "point",
+        "coordinates" : [ -83.01301718, 40.09859174 ]
+      },
+      "designs" : [ {
+        "label" : "Measured Design",
+        "layerType" : "Measured",
+        "structure" : {
+          "pole" : {
+            "owner" : {
+              "id" : "Acme Power",
+              "industry" : "UTILITY",
+              "externalId" : "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+            },
+            "clientItem" : {
+              "classOfPole" : "3",
+              "height" : {
+                "unit" : "METRE",
+                "value" : 13.716000000000001
+              },
+              "species" : "Southern Pine"
+            }
+          }
+        }
+      } ]
+    }, {
+      "label" : "Pole H",
+      "geographicCoordinate" : {
+        "type" : "point",
+        "coordinates" : [ -83.01248074, 40.09880511 ]
+      },
+      "designs" : [ {
+        "label" : "Measured Design",
+        "layerType" : "Measured",
+        "structure" : {
+          "pole" : {
+            "owner" : {
+              "id" : "Acme Power",
+              "industry" : "UTILITY",
+              "externalId" : "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+            },
+            "clientItem" : {
+              "classOfPole" : "1",
+              "height" : {
+                "unit" : "METRE",
+                "value" : 13.716000000000001
+              },
+              "species" : "Southern Pine"
+            }
+          }
+        }
+      } ]
+    }, {
+      "label" : "Pole I",
+      "geographicCoordinate" : {
+        "type" : "point",
+        "coordinates" : [ -83.01181555, 40.09906773 ]
+      },
+      "designs" : [ {
+        "label" : "Measured Design",
+        "layerType" : "Measured",
+        "structure" : {
+          "pole" : {
+            "owner" : {
+              "id" : "Acme Power",
+              "industry" : "UTILITY",
+              "externalId" : "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+            },
+            "clientItem" : {
+              "classOfPole" : "3",
+              "height" : {
+                "unit" : "METRE",
+                "value" : 13.716000000000001
+              },
+              "species" : "Southern Pine"
+            }
+          }
+        }
+      } ]
+    }, {
+      "label" : "Pole J",
+      "geographicCoordinate" : {
+        "type" : "point",
+        "coordinates" : [ -83.01100016, 40.09941242 ]
+      },
+      "designs" : [ {
+        "label" : "Measured Design",
+        "layerType" : "Measured",
+        "structure" : {
+          "pole" : {
+            "owner" : {
+              "id" : "Acme Power",
+              "industry" : "UTILITY",
+              "externalId" : "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+            },
+            "clientItem" : {
+              "classOfPole" : "4",
+              "height" : {
+                "unit" : "METRE",
+                "value" : 13.716000000000001
+              },
+              "species" : "Southern Pine"
+            }
+          }
+        }
+      } ]
+    } ]
+  } ],
+  "schema" : "/schema/spidacalc/calc/project.schema"
+}
