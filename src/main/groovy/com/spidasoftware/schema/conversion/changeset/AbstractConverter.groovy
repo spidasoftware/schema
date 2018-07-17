@@ -20,12 +20,17 @@ abstract class AbstractConverter implements Converter {
 	int defaultVersion = 1
 	protected TreeMap<Integer, List<ChangeSet>> versions = new TreeMap<>() // each list will be applied when going from N-1 to N
 	private static final int VERSION_ALLOWED_IN_LOCATION_DESIGN = 4
+	private int currentVersion
 
 	abstract void applyChangeset(ChangeSet changeSet, Map json)
 	abstract void revertChangeset(ChangeSet changeSet, Map json)
 
 	int getCurrentVersion() {
-		return versions.lastKey()
+		return currentVersion
+	}
+
+	protected void setCurrentVersion(int version) {
+		currentVersion = version
 	}
 
 	void convert(Map json, int toVersion) throws ConversionException {

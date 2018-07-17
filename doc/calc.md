@@ -39,7 +39,7 @@ The exchange file format allows any valid project JSON to be put into a portable
 	    ...
 </pre>
 
-Note that while the file name can be any valid filename (with the .exchange.spida extension), the project json it contains MUST be named 'project.json'. The photos inside the photos directly can be directly referenced by setting the image 'url' property for each image in a location. Image urls will be resolved relative to the 'Photos' directory.
+Note that while the file name can be any valid filename (with the .exchange.spida extension), the project json it contains MUST be named 'project.json'. The photos inside the photos directory can be directly referenced by setting the image 'url' property for each image in a location. Image urls will be resolved relative to the 'Photos' directory.
 
 A user can easily import this file into Calc by selecting it in the normal open dialog or by double-clicking it on their desktop. When the project is subsequently saved, it will be saved as a normal .spida file, not in the exchange format.
 

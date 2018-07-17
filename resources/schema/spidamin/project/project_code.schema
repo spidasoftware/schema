@@ -23,7 +23,9 @@
         "NJUNS",
         "PARENT",
         "CHILD",
-        "AUUID"
+        "AUUID",
+        "EXTERNAL",
+        "OTHER"
       ]
     },
     "value": {
