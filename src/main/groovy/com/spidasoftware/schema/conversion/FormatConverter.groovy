@@ -201,7 +201,7 @@ class FormatConverter {
      */
     private static def getNormalizedResult(Map result) {
         def normalizedResult
-        def isSFResult = result.unit == "SF" || result.component == "Pole-Strength"
+        def isSFResult = result.unit == "SF" || (result.component == "Pole" && result.analysisType == "STRENGTH")
         def isPercentResult = !isSFResult
 
         if (isSFResult && result.get("allowable") != 0) {
@@ -209,6 +209,7 @@ class FormatConverter {
         } else if(isPercentResult && result.get("actual") != 0) {
             normalizedResult = result.get("allowable") / result.get("actual")
         }
+
         return normalizedResult
     }
 

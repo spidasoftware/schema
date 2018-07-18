@@ -1,0 +1,210 @@
+{
+  "label": "New Project",
+  "clientFile": "SCE.client",
+  "date": "2018-07-10",
+  "schema": "/schema/spidacalc/calc/project.schema",
+  "version": 6,
+  "engineer": "",
+  "comments": "",
+  "generalLocation": "",
+  "address": {
+    "number": "",
+    "city": "",
+    "street": "",
+    "county": "",
+    "state": "",
+    "zip_code": ""
+  },
+  "userDefinedValues": {},
+  "clientFileVersion": "4762c8f1e4cdcc6a63c24bf014cb3c9c",
+  "forms": [
+    {
+      "title": "Project Info",
+      "template": "4762c8f1e4cdcc6a63c24bf014cb3c9c-Project Info",
+      "fields": {
+        "Year Installed": "",
+        "Location": "",
+        "Technician/Planner": "",
+        "TD #": "",
+        "District": "22- Montebello"
+      }
+    },
+    {
+      "title": "Company Information",
+      "template": "4762c8f1e4cdcc6a63c24bf014cb3c9c-Company Information",
+      "fields": {
+        "Company Code": "SCE",
+        "Sub Unity Project": "No"
+      }
+    }
+  ],
+  "leads": [
+    {
+      "label": "Lead",
+      "locations": [
+        {
+          "label": "Location-07-10-2018-10-48-08-827",
+          "mapNumber": "",
+          "comments": "",
+          "address": {
+            "number": "",
+            "city": "",
+            "street": "",
+            "county": "",
+            "state": "",
+            "zip_code": ""
+          },
+          "technician": "",
+          "crossStreet1": "",
+          "crossStreet2": "",
+          "remedy": {
+            "statements": []
+          },
+          "poleTags": [],
+          "userDefinedValues": {},
+          "summaryNotes": [],
+          "forms": [
+            {
+              "title": "SAP",
+              "template": "4762c8f1e4cdcc6a63c24bf014cb3c9c-SAP",
+              "fields": {
+                "Field Inspection Date": "07/10/2018",
+                "Grandfather": "No",
+                "High Fire": "No",
+                "Special Project": "No",
+                "Associated Poles": "",
+                "Pole Type": "ED",
+                "District": "--",
+                "Region": "--",
+                "Above 3000 Ft Elevation": "--",
+                "As Is POA": "--",
+                "As Designed POA": "--",
+                "Recommended POA": "--",
+                "SCE QC POA": "--",
+                "Rework POA": "--",
+                "SCE TSP POA": "--",
+                "As Built POA": "--",
+                "As Designed Work Type": "--",
+                "Access Notes": ""
+              }
+            },
+            {
+              "title": "Pole Info Form",
+              "template": "4762c8f1e4cdcc6a63c24bf014cb3c9c-Pole Info Form",
+              "fields": {
+                "Pole Equipment #": "",
+                "Previous Inspection Date": "",
+                "Year Installed": "",
+                "As Is POA Height": "",
+                "As Is POA Diameter": "",
+                "As Designed POA Height": "",
+                "As Designed POA Diameter": "",
+                "Thomas Guide/Quadrant": "",
+                "Circuit ": "",
+                "Substation": "",
+                "FIM": "",
+                "Location": "",
+                "City": "",
+                "Brand Height": "",
+                "Date Pole Load Performed": "",
+                "Comments": "",
+                "GPS Location": ""
+              }
+            },
+            {
+              "title": "QC Comments",
+              "template": "4762c8f1e4cdcc6a63c24bf014cb3c9c-QC Comments",
+              "fields": {
+                "QC Comments": ""
+              }
+            }
+          ],
+          "images": [],
+          "designs": [
+            {
+              "label": "As Is",
+              "layerType": "Measured",
+              "structure": {
+                "pole": {
+                  "glc": {
+                    "unit": "METRE",
+                    "value": 1.1246310380696452
+                  },
+                  "agl": {
+                    "unit": "METRE",
+                    "value": 15.849599999999999
+                  },
+                  "environment": "NONE",
+                  "temperature": {
+                    "unit": "CELSIUS",
+                    "value": 15.555555555555555
+                  },
+                  "stressRatio": 1.0,
+                  "leanAngle": 0,
+                  "leanDirection": 0,
+                  "clientItemVersion": "2c787fabd5ba28ac097fafbfda475966",
+                  "clientItem": {
+                    "species": "Southern Pine",
+                    "classOfPole": "2",
+                    "height": {
+                      "unit": "METRE",
+                      "value": 18.288
+                    }
+                  },
+                  "clientItemAlias": "60-2 SP",
+                  "externalId": "5b44c7280f0c2bdf69e3cd7c",
+                  "owner": {
+                    "id": "SCE",
+                    "industry": "UTILITY",
+                    "externalId": "b2ad09d4-7ddb-4c68-be8e-60c57cd3bcd0"
+                  }
+                },
+                "wireEndPoints": [],
+                "spanPoints": [],
+                "anchors": [],
+                "notePoints": [],
+                "pointLoads": [],
+                "wirePointLoads": [],
+                "damages": [],
+                "wires": [],
+                "spanGuys": [],
+                "guys": [],
+                "equipments": [],
+                "guyAttachPoints": [],
+                "crossArms": [],
+                "insulators": [],
+                "pushBraces": [],
+                "sidewalkBraces": [],
+                "foundations": [],
+                "assemblies": []
+              },
+              "analysis": [
+                {
+                  "resultId": "5b44c7880f0c2bdf69e3cd9b"
+                },
+                {
+                  "id": "New, Light, 8 lb, Grade A",
+                  "results": [
+                    {
+                      "actual": 19.257762771137575,
+                      "allowable": 4.0,
+                      "unit": "SF",
+                      "analysisDate": 1531234249676,
+                      "component": "Pole",
+                      "loadInfo": "New, Light, 8 lb, Grade A",
+                      "passes": true,
+                      "analysisType": "STRESS"
+                    }
+                  ]
+                },
+                {
+                  "id": "GO95"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

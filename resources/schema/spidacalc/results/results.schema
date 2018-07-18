@@ -3,6 +3,7 @@
   "description": "SPIDACalc results",
   "type": "object",
   "required": [
+    "id",
     "results"
   ],
   "properties": {

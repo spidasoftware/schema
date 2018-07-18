@@ -32,32 +32,47 @@
         "analysis": {
             "description": "List of load cases and their results. On exports the results will be filled in if they exist. On import results are ignored, but load cases will be pre-assigned.",
             "items": {
-                "additionalProperties": false,
-                "description": "A collection of results for a loading or strength case.",
-                "properties": {
-                    "id": {
-                        "description": "an id, usually the loadcase name",
-                        "type": "string"
+                "oneOf": [
+                    {
+                        "additionalProperties": false,
+                        "description": "A collection of results for a loading or strength case.",
+                        "properties": {
+                            "id": {
+                                "description": "an id, usually the loadcase name",
+                                "type": "string"
+                            },
+                            "results": {
+                                "description": "Results for all components.",
+                                "type": "array",
+                                "items": [
+                                    {
+                                        "$ref": "../../spidamin/asset/standard_details/analysis_asset.schema"
+                                    }
+                                ]
+                            }
+                        },
+                        "required": [
+                            "id"
+                        ],
+                        "type": "object"
                     },
-                    "results": {
-                        "description": "Results for all components.",
-                        "type": "array",
-                        "items": {
-                            "oneOf":[
-                              {
-                                "$ref": "../../spidamin/asset/standard_details/analysis_asset.schema"
-                              },
-                              {
-                                "$ref": "../../spidacalc/results/result.schema"
-                              }
-                            ]
-                        }
+                    {
+                        "$ref": "../../spidacalc/results/results.schema"
+                    },
+                    {
+                        "additionalProperties": false,
+                        "description": "Id of a results object, the object must be a /spidacalc/results/results.schema",
+                        "properties": {
+                            "resultId": {
+                                "description": "Id of the results",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "resultId"
+                        ]
                     }
-                },
-                "required": [
-                    "id"
-                ],
-                "type": "object"
+                ]
             },
             "type": "array"
         },

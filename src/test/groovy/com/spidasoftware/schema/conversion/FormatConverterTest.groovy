@@ -1,6 +1,8 @@
 package com.spidasoftware.schema.conversion
 
 import com.github.fge.jsonschema.report.ProcessingReport
+import com.spidasoftware.schema.conversion.changeset.Converter
+import com.spidasoftware.schema.conversion.changeset.ConverterUtils
 import com.spidasoftware.schema.validation.Validator
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
@@ -180,6 +182,8 @@ class FormatConverterTest extends Specification {
 	void "Designs have the worstResults set to the correct result object"(){
 		setup: "load designs with a variety of load cases"
 			def project = getCalcProject("LoadCaseTest.json")
+			Converter projectConverter = ConverterUtils.getConverterInstance("/schema/spidacalc/calc/project.schema")
+			projectConverter.convert(project, projectConverter.currentVersion)
 			def designs = project.leads[0].locations[0].designs
 
 		when: "add analysisResults to the current design"
@@ -234,15 +238,23 @@ class FormatConverterTest extends Specification {
 									 [id: "3", unit: "PERCENT", actual: 0, allowable: 100],
 									 [id: "4", unit: "PERCENT", actual: 100, allowable: 100],
 									 [id: "5", unit: "PERCENT", actual: 1, allowable: Double.MAX_VALUE]
+							 ],
+							 [
+									 [id: "1", unit: "SF", actual: 0, allowable: 0],
+									 [id: "2", unit: "PERCENT", actual: 50, allowable: 100, component: "Pole", analysisType: "STRENGTH"],
+									 [id: "3", unit: "PERCENT", actual: 1, allowable: 1],
+
 							 ]
 			]
-			expectedResultId << ["1", "2", "3", "4"]
+			expectedResultId << ["1", "2", "3", "4", "2"]
 	}
 
 	@Unroll
 	void "test detailed results get converted correctly to worstCaseAnalysisResults jsonKey=#jsonKey"() {
 		setup:
 			def project = getCalcProject("project-with-detailed-results.json")
+			Converter projectConverter = ConverterUtils.getConverterInstance("/schema/spidacalc/calc/project.schema")
+			projectConverter.convert(project, projectConverter.currentVersion)
 		when:
 			def design = converter.convertCalcDesign(project.leads[0].locations[0].designs[0], null, null).getMap()
 		then:

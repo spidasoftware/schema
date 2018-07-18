@@ -3,6 +3,7 @@
   "date": "2014-02-26",
   "schema": "/v1/schema/spidacalc/project.schema",
   "clientFileVersion": "42527ee10d8c32bc995cb95af5bda3f2",
+  "version": 3,
   "forms": [],
   "leads": [
     {
