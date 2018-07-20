@@ -3,22 +3,23 @@
   "type": "object",
   "description": "A reference to a client wire",
   "required": [
-    "size",
-    "coreStrands",
-    "conductorStrands"
+    "size"
   ],
   "properties": {
     "size": {
-      "description": "The client data identifier for this type of wire.",
+      "description": "The client data identifier for this type of wire.  For most wires, just specify size, coreStrands, and conductorStrands.",
       "type": "string"
     },
     "coreStrands": {
-      "description": "Number of supportive strands in the wire.",
+      "description": "Number of supportive strands in the wire.  For most wires, just specify size, coreStrands, and conductorStrands.",
       "type": "integer"
     },
     "conductorStrands": {
-      "description": "Number of conducting strands in the wire.",
+      "description": "Number of conducting strands in the wire.  For most wires, just specify size, coreStrands, and conductorStrands.",
       "type": "integer"
+    },
+    "bundle": {
+      "$ref": "../../spidacalc/client/bundle.schema"
     }
   },
   "additionalProperties": false
