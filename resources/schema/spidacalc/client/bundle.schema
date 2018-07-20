@@ -5,8 +5,7 @@
   "required": [
     "size",
     "group",
-    "messenger",
-    "bundleComponents"
+    "messenger"
   ],
   "properties": {
     "size": {
