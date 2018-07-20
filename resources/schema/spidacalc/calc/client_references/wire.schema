@@ -9,15 +9,15 @@
   ],
   "properties": {
     "size": {
-      "description": "The client data identifier for this type of wire.  For most wires, just specify size, coreStrands, and conductorStrands.",
+      "description": "The client data identifier for this type of wire.",
       "type": "string"
     },
     "coreStrands": {
-      "description": "Number of supportive strands in the wire.  For most wires, just specify size, coreStrands, and conductorStrands.",
+      "description": "Number of supportive strands in the wire.",
       "type": "integer"
     },
     "conductorStrands": {
-      "description": "Number of conducting strands in the wire.  For most wires, just specify size, coreStrands, and conductorStrands.",
+      "description": "Number of conducting strands in the wire.",
       "type": "integer"
     }
   },
