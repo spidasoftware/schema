@@ -21,7 +21,7 @@
         },
         {
           "$ref": "../../spidacalc/client/bundle.schema",
-          "description": ""
+          "description": "The full bundle object containing the messenger and all components."
         }
       ]
     },
