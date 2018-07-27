@@ -44,44 +44,45 @@ class RemoveAdditionalPropertiesChangeset extends CalcProjectChangeSet {
 
     private void removeAdditionalProperties(Map json, JsonNode schemaNode) {
         if(schemaNode != null) {
-            boolean additionalProperties = schemaNode.get("additionalProperties")?.asBoolean(true)
+            boolean additionalPropertiesAllowed = true
+            if(schemaNode.has("additionalProperties")) {
+                additionalPropertiesAllowed = schemaNode.get("additionalProperties")?.asBoolean(true)
+            }
 
-            if (!additionalProperties) { // Only if additionalProperties aren't allowed we want to remove the properties.
-                List keysToRemove = []
-                json.each { key, value ->
-                    JsonNode schema = schemaNode.get("properties")?.get(key)
+            List keysToRemove = []
+            json.each { key, value ->
+                JsonNode schema = schemaNode.get("properties")?.get(key)
 
-                    // If there isn't a property for this key, it should be removed
-                    if (schema == null) {
-                        keysToRemove.add(key)
-                    } else {
-                        boolean isObject = schema.get("type")?.asText() == "object"
-                        boolean valueIsMap = (value instanceof Map)
-                        boolean isArray = (schema.get("type")?.asText() == "array" || DESCRIPTION_ARRAY_TYPE_OVERRIDES.contains(schema.get("description")?.asText()))
-                        boolean valueIsList = (value instanceof List)
-                        // If this schema object has a properties map, we ignore the oneOf and anyOf, just check if the properties are allowed.
-                        boolean hasProperties = schema.get("properties")?.isObject()
-                        boolean schemaOneOfIsArray = !hasProperties && schema.get("oneOf")?.isArray()
-                        boolean schemaAnyOfIsArray = !hasProperties && schema.get("anyOf")?.isArray()
+                // If there isn't a property for this key, it should be removed
+                if (!additionalPropertiesAllowed && schema == null) {
+                    keysToRemove.add(key)
+                } else if(schema != null) {
+                    boolean isObject = schema.get("type")?.asText() == "object"
+                    boolean valueIsMap = (value instanceof Map)
+                    boolean isArray = (schema.get("type")?.asText() == "array" || DESCRIPTION_ARRAY_TYPE_OVERRIDES.contains(schema.get("description")?.asText()))
+                    boolean valueIsList = (value instanceof List)
+                    // If this schema object has a properties map, we ignore the oneOf and anyOf, just check if the properties are allowed.
+                    boolean hasProperties = schema.get("properties")?.isObject()
+                    boolean schemaOneOfIsArray = !hasProperties && schema.get("oneOf")?.isArray()
+                    boolean schemaAnyOfIsArray = !hasProperties && schema.get("anyOf")?.isArray()
 
-                        if (valueIsMap && schemaOneOfIsArray) {
-                            JsonNode matchedSchema = findSchemaForJson(json, schema.get("oneOf"))
-                            removeAdditionalProperties((Map) value, matchedSchema)
-                        } else if (valueIsMap && schemaAnyOfIsArray) {
-                            JsonNode matchedSchema = findSchemaForJson(json, schema.get("anyOf"))
-                            removeAdditionalProperties((Map) value, matchedSchema)
-                        } else if (isObject && valueIsMap) {
-                            removeAdditionalProperties((Map) value, schema)
-                        } else if (isArray && valueIsList) {
-                            removeAdditionalProperties((List) value, schema)
-                        }
+                    if (valueIsMap && schemaOneOfIsArray) {
+                        JsonNode matchedSchema = findSchemaForJson(json, schema.get("oneOf"))
+                        removeAdditionalProperties((Map) value, matchedSchema)
+                    } else if (valueIsMap && schemaAnyOfIsArray) {
+                        JsonNode matchedSchema = findSchemaForJson(json, schema.get("anyOf"))
+                        removeAdditionalProperties((Map) value, matchedSchema)
+                    } else if (isObject && valueIsMap) {
+                        removeAdditionalProperties((Map) value, schema)
+                    } else if (isArray && valueIsList) {
+                        removeAdditionalProperties((List) value, schema)
                     }
                 }
+            }
 
-                log.trace("removing ${keysToRemove} from ${json}")
-                keysToRemove.each { key ->
-                    json.remove(key)
-                }
+            log.trace("removing ${keysToRemove} from ${json}")
+            keysToRemove.each { key ->
+                json.remove(key)
             }
         }
     }
