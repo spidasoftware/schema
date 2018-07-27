@@ -39,16 +39,14 @@ class RemoveAdditionalPropertiesChangeset extends CalcProjectChangeSet {
         removeAdditionalProperties(designJSON,  JsonLoader.fromResource("/schema/spidacalc/calc/design-v4.schema"))
     }
 
-    // These fields can have any value they want, these won't be checked
-    private static final List<String> SCHEMA_ALLOWS_ANYTHING = ["userDefinedValues"]
     // structure.sidewalkBraces doesn't have a type in the 7.0 schema, it is an array, it also doesn't have an id, use the description to identify.
     private static final List<String> DESCRIPTION_ARRAY_TYPE_OVERRIDES = ["List of all sidewalk braces (AKA queen posts)"]
 
     private void removeAdditionalProperties(Map json, JsonNode schemaNode) {
         if(schemaNode != null) {
-            boolean schemaAllowsAnything = SCHEMA_ALLOWS_ANYTHING.contains(schemaNode.get("id")?.asText())
+            boolean additionalProperties = schemaNode.get("additionalProperties")?.asBoolean(true)
 
-            if (!schemaAllowsAnything) { // userDefinedValues can be anything
+            if (!additionalProperties) { // userDefinedValues can be anything
                 List keysToRemove = []
                 json.each { key, value ->
                     JsonNode schema = schemaNode.get("properties")?.get(key)
