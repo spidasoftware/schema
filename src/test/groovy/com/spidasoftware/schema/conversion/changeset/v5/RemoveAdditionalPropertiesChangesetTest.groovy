@@ -36,6 +36,19 @@ class RemoveAdditionalPropertiesChangesetTest extends Specification {
             projectJSON.put("strict", true)
         then:
             new Validator().validateAndReport("/schema/spidacalc/calc/project-v4.schema", projectJSON).isSuccess()
+            projectJSON.forms[0].title == "Project Info"
+            projectJSON.forms[0].template == "9193d9104fabd741dcc2092c29a2efb9-Project Info"
+            projectJSON.forms[0].fields.size() == 5
+            projectJSON.forms[0].fields."Year Installed" == "2018"
+            projectJSON.forms[0].fields."Location" == "Ohio"
+            projectJSON.forms[0].fields."Technician/Planner" == "Someone"
+            projectJSON.forms[0].fields."TD #" == "123456789"
+            projectJSON.forms[0].fields."District" == "22- Montebello"
+            projectJSON.leads[0].locations[0].forms[0].title == "SAP"
+            projectJSON.leads[0].locations[0].forms[0].template == "9193d9104fabd741dcc2092c29a2efb9-SAP"
+            projectJSON.leads[0].locations[0].forms[0].fields.size() == 18
+            projectJSON.leads[0].locations[0].forms[0].fields."Field Inspection Date" == "08/08/2017"
+            projectJSON.leads[0].locations[0].forms[0].fields."Grandfather" == "No"
     }
 
     void testRevertLocation() {
@@ -48,6 +61,11 @@ class RemoveAdditionalPropertiesChangesetTest extends Specification {
             locationJSON.put("strict", true)
         then:
             new Validator().validateAndReport("/schema/spidacalc/calc/location-v4.schema", locationJSON).isSuccess()
+            locationJSON.forms[0].title == "SAP"
+            locationJSON.forms[0].template == "9193d9104fabd741dcc2092c29a2efb9-SAP"
+            locationJSON.forms[0].fields.size() == 18
+            locationJSON.forms[0].fields."Field Inspection Date" == "08/08/2017"
+            locationJSON.forms[0].fields."Grandfather" == "No"
     }
 
     void testRevertDesign() {

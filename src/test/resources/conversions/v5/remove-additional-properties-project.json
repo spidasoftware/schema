@@ -25,10 +25,10 @@
       "title": "Project Info",
       "template": "9193d9104fabd741dcc2092c29a2efb9-Project Info",
       "fields": {
-        "Year Installed": "",
-        "Location": "",
-        "Technician/Planner": "",
-        "TD #": "",
+        "Year Installed": "2018",
+        "Location": "Ohio",
+        "Technician/Planner": "Someone",
+        "TD #": "123456789",
         "District": "22- Montebello"
       }
     },
