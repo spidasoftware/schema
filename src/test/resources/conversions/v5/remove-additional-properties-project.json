@@ -65,7 +65,7 @@
           "crossStreet2": "",
           "remedies": [],
           "poleTags": [],
-          "userDefinedValues": {},
+          "userDefinedValues": {"locationUserDefinedValues": "locationUserDefinedValues"},
           "summaryNotes": [],
           "forms": [
             {
