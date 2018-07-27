@@ -46,7 +46,7 @@ class RemoveAdditionalPropertiesChangeset extends CalcProjectChangeSet {
         if(schemaNode != null) {
             boolean additionalProperties = schemaNode.get("additionalProperties")?.asBoolean(true)
 
-            if (!additionalProperties) { // userDefinedValues can be anything
+            if (!additionalProperties) { // Only if additionalProperties aren't allowed we want to remove the properties.
                 List keysToRemove = []
                 json.each { key, value ->
                     JsonNode schema = schemaNode.get("properties")?.get(key)
