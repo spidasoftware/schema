@@ -53,10 +53,10 @@ class RemoveAdditionalPropertiesChangeset extends CalcProjectChangeSet {
             json.each { key, value ->
                 JsonNode schema = schemaNode.get("properties")?.get(key)
 
-                // If there isn't a property for this key, it should be removed
+                // If we don't allow additional properties and there isn't a property for this key, it should be removed.
                 if (!additionalPropertiesAllowed && schema == null) {
                     keysToRemove.add(key)
-                } else if(schema != null) {
+                } else if(schema != null) { // If there is a schema for this key then we can attempt to remove additional properties.
                     boolean isObject = schema.get("type")?.asText() == "object"
                     boolean valueIsMap = (value instanceof Map)
                     boolean isArray = (schema.get("type")?.asText() == "array" || DESCRIPTION_ARRAY_TYPE_OVERRIDES.contains(schema.get("description")?.asText()))

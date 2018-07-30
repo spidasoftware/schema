@@ -14,7 +14,8 @@
       "type": "array",
       "items": {
         "$ref": "../../spidacalc/results/result.schema"
-      }
+      },
+      "minItems": 1
     }
   },
   "additionalProperties": false
