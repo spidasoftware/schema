@@ -1,5 +1,6 @@
 package com.spidasoftware.schema.conversion.changeset.v5
 
+import com.fasterxml.jackson.databind.ObjectMapper
 import com.spidasoftware.schema.conversion.changeset.calc.CalcProjectChangeSet
 
 import com.spidasoftware.schema.validation.Validator
@@ -11,15 +12,23 @@ import spock.lang.Specification
 @Log4j
 class RemoveAdditionalPropertiesChangesetTest extends Specification {
 
-    @Shared Map projectJSON, locationJSON, designJSON
+    @Shared Map projectJSON, locationJSON, designJSON, expectedProjectJSON, expectedLocationJSON, expectedDesignJSON
     RemoveAdditionalPropertiesChangeset changeset = new RemoveAdditionalPropertiesChangeset()
 
     void setupSpec() {
         def leanStream = getClass().getResourceAsStream("/conversions/v5/remove-additional-properties-project.json")
-        projectJSON = new JsonSlurper().parse(leanStream)
-        locationJSON = CalcProjectChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0])
-        designJSON = CalcProjectChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0].designs[0])
+        projectJSON = new JsonSlurper().parse(leanStream) as Map
+        locationJSON = CalcProjectChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0] as Map)
+        designJSON = CalcProjectChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0].designs[0] as Map)
 
+
+        leanStream = getClass().getResourceAsStream("/conversions/v5/remove-additional-properties-project-with-properties-removed.json")
+        expectedProjectJSON = new JsonSlurper().parse(leanStream) as Map
+        expectedProjectJSON.put("strict", true)
+        expectedLocationJSON = CalcProjectChangeSet.duplicateAsJson(expectedProjectJSON.leads[0].locations[0] as Map)
+        expectedLocationJSON.put("strict", true)
+        expectedDesignJSON = CalcProjectChangeSet.duplicateAsJson(expectedProjectJSON.leads[0].locations[0].designs[0] as Map)
+        expectedDesignJSON.put("strict", true)
         assert projectJSON.address.projectAddressAdditionalProperty != null
         assert projectJSON.leads[0].leadAdditionalProperty != null
         assert projectJSON.leads[0].locations[0].locationAdditionalProperty != null
@@ -34,6 +43,8 @@ class RemoveAdditionalPropertiesChangesetTest extends Specification {
         when:
             changeset.revertProject(projectJSON)
             projectJSON.put("strict", true)
+            log.info("projectJSON = ${new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(projectJSON)}")
+            log.info("expectedProjectJSON = ${new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(expectedProjectJSON)}")
         then:
             new Validator().validateAndReport("/schema/spidacalc/calc/project-v4.schema", projectJSON).isSuccess()
             projectJSON.userDefinedValues == [test: "test"]
@@ -51,6 +62,7 @@ class RemoveAdditionalPropertiesChangesetTest extends Specification {
             projectJSON.leads[0].locations[0].forms[0].fields.size() == 18
             projectJSON.leads[0].locations[0].forms[0].fields."Field Inspection Date" == "08/08/2017"
             projectJSON.leads[0].locations[0].forms[0].fields."Grandfather" == "No"
+            projectJSON == expectedProjectJSON
     }
 
     void testRevertLocation() {
@@ -69,6 +81,7 @@ class RemoveAdditionalPropertiesChangesetTest extends Specification {
             locationJSON.forms[0].fields.size() == 18
             locationJSON.forms[0].fields."Field Inspection Date" == "08/08/2017"
             locationJSON.forms[0].fields."Grandfather" == "No"
+            locationJSON == expectedLocationJSON
     }
 
     void testRevertDesign() {
@@ -81,6 +94,7 @@ class RemoveAdditionalPropertiesChangesetTest extends Specification {
             designJSON.put("strict", true)
         then:
             new Validator().validateAndReport("/schema/spidacalc/calc/design-v4.schema", designJSON).isSuccess()
+            designJSON == expectedDesignJSON
     }
 
     // address should be an object, leads should be an array
