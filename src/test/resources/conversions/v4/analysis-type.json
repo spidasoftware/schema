@@ -60,6 +60,88 @@
                       "passes": true,
                       "unit": "lb/in^2",
                       "designType": "Measured"
+                    },
+                    {
+                      "actual": 1000,
+                      "allowable": 2000,
+                      "analysisDate": 101010343343,
+                      "component": "Pole-Buckling",
+                      "loadInfo": "NESC Heavy",
+                      "passes": true,
+                      "unit": "lb/in^2",
+                      "designType": "Measured"
+                    },
+                    {
+                      "actual": 1000,
+                      "allowable": 2000,
+                      "analysisDate": 101010343343,
+                      "component": "Pole-Strength",
+                      "loadInfo": "NESC Heavy",
+                      "passes": true,
+                      "unit": "lb/in^2",
+                      "designType": "Measured"
+                    },
+                    {
+                      "actual": 1000,
+                      "allowable": 2000,
+                      "analysisDate": 101010343343,
+                      "component": "Pole-Deflection",
+                      "loadInfo": "NESC Heavy",
+                      "passes": true,
+                      "unit": "lb/in^2",
+                      "designType": "Measured"
+                    },
+                    {
+                      "actual": 1000,
+                      "allowable": 2000,
+                      "analysisDate": 101010343343,
+                      "component": "Insulator#1",
+                      "loadInfo": "NESC Heavy",
+                      "passes": true,
+                      "unit": "lb/in^2",
+                      "designType": "Measured"
+                    },
+                    {
+                      "actual": 1000,
+                      "allowable": 2000,
+                      "analysisDate": 101010343343,
+                      "component": "SidewalkBrace#1",
+                      "loadInfo": "NESC Heavy",
+                      "passes": true,
+                      "unit": "lb/in^2",
+                      "designType": "Measured"
+                    }
+                  ,
+                    {
+                      "actual": 1000,
+                      "allowable": 2000,
+                      "analysisDate": 101010343343,
+                      "component": "Anchor#1",
+                      "loadInfo": "NESC Heavy",
+                      "passes": true,
+                      "unit": "lb/in^2",
+                      "designType": "Measured"
+                    },
+                    {
+                      "actual": 1000,
+                      "allowable": 2000,
+                      "analysisDate": 101010343343,
+                      "component": "Guy#1",
+                      "loadInfo": "NESC Heavy",
+                      "passes": true,
+                      "unit": "lb/in^2",
+                      "designType": "Measured"
+                    }
+                  ,
+                    {
+                      "actual": 1000,
+                      "allowable": 2000,
+                      "analysisDate": 101010343343,
+                      "component": "Foundation",
+                      "loadInfo": "NESC Heavy",
+                      "passes": true,
+                      "unit": "lb/in^2",
+                      "designType": "Measured"
                     }
                   ]
                 }
