@@ -50,14 +50,12 @@ class AnalysisTypeChangeSet extends AbstractCalcDesignChangeset {
         analyses?.each { analysis ->
             analysis.get("results")?.each { result ->
                 def analysisType = result.remove("analysisType")
-                if(analysisType != null) {
-                    if(analysisType == "BUCKLING") {
-                        result.put("component", "Pole-Buckling")
-                    } else if(analysisType == "STRENGTH") {
-                        result.put("component", "Pole-Strength")
-                    } else if(analysisType == "DEFLECTION") {
-                        result.put("component", "Pole-Deflection")
-                    }
+                if(analysisType == "BUCKLING") {
+                    result.put("component", "Pole-Buckling")
+                } else if(analysisType == "STRENGTH") {
+                    result.put("component", "Pole-Strength")
+                } else if(analysisType == "DEFLECTION") {
+                    result.put("component", "Pole-Deflection")
                 }
             }
         }
