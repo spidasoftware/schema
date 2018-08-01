@@ -79,8 +79,12 @@ BUILD SUCCESSFUL in 0s
 			process.waitFor()
 			String output = process.text.trim()
 			int indexOfMajorVersion = output.indexOf("SCHEMA_VERSION: ") + "SCHEMA_VERSION: ".length()
+			String versionStart = output.substring(indexOfMajorVersion, output.length())
 		then:
-			output.substring(indexOfMajorVersion, output.length()).startsWith("${ConverterUtils.currentVersion}")
+			versionStart.startsWith("${ConverterUtils.currentVersion}")
+			ConverterUtils.converters.values().every { Converter converter ->
+				versionStart.startsWith("${converter.currentVersion}")
+			}
 	}
 
 	private boolean validateProjectSchema(String jsonPath) {
