@@ -1,8 +1,6 @@
 package com.spidasoftware.schema.conversion.changeset.v5
 
-import com.fasterxml.jackson.databind.ObjectMapper
 import com.spidasoftware.schema.conversion.changeset.calc.CalcProjectChangeSet
-
 import com.spidasoftware.schema.validation.Validator
 import groovy.json.JsonSlurper
 import groovy.util.logging.Log4j
@@ -43,8 +41,6 @@ class RemoveAdditionalPropertiesChangesetTest extends Specification {
         when:
             changeset.revertProject(projectJSON)
             projectJSON.put("strict", true)
-            log.info("projectJSON = ${new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(projectJSON)}")
-            log.info("expectedProjectJSON = ${new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(expectedProjectJSON)}")
         then:
             new Validator().validateAndReport("/schema/spidacalc/calc/project-v4.schema", projectJSON).isSuccess()
             projectJSON.userDefinedValues == [test: "test"]
