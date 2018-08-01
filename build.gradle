@@ -156,6 +156,11 @@ task validateJson(type: JavaExec) {
 	}
 }
 
+task printVersion() << {
+	println "SCHEMA_VERSION: ${version}"
+}
+
+
 wrapper {
 	/*****************************************************************************************
 		NOTES:
