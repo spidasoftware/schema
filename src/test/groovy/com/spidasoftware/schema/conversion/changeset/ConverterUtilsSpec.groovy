@@ -73,14 +73,14 @@ SCHEMA_VERSION: 6.0.0-SNAPSHOT
 
 BUILD SUCCESSFUL in 0s
 	 */
-	def "test ConverterUtils.currentVersion matches schema major version"() {
+	def testSchemaVersionMatchesCoverterUtilsVersion() {
 		when:
 			Process process = "./gradlew printVersion".execute()
 			process.waitFor()
 			String output = process.text.trim()
 			int indexOfMajorVersion = output.indexOf("SCHEMA_VERSION: ") + "SCHEMA_VERSION: ".length()
 		then:
-			output.substring(indexOfMajorVersion, indexOfMajorVersion + 3).startsWith("${ConverterUtils.currentVersion}")
+			output.substring(indexOfMajorVersion, output.length()).startsWith("${ConverterUtils.currentVersion}")
 	}
 
 	private boolean validateProjectSchema(String jsonPath) {
