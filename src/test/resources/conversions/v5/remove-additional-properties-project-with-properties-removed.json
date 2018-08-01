@@ -7,7 +7,6 @@
   "engineer": "",
   "comments": "",
   "generalLocation": "",
-  "projectAdditionalProperty": "projectAdditionalProperty",
   "address": {
     "number": "",
     "city": "",
@@ -15,13 +14,11 @@
     "county": "",
     "state": "",
     "zip_code": "",
-    "projectAddressAdditionalProperty": "projectAddressAdditionalProperty",
   },
   "userDefinedValues": {"test": "test"},
   "clientFileVersion": "9193d9104fabd741dcc2092c29a2efb9",
   "forms": [
     {
-      "projectFormAdditionalProperty": "projectFormAdditionalProperty",
       "title": "Project Info",
       "template": "9193d9104fabd741dcc2092c29a2efb9-Project Info",
       "fields": {
@@ -43,16 +40,13 @@
   ],
   "leads": [
     {
-      "leadAdditionalProperty": "leadAdditionalProperty",
       "label": "Lead",
       "locations": [
         {
-          "locationAdditionalProperty": "locationAdditionalProperty",
           "label": "Location-08-08-2017-07-39-09-202",
           "mapNumber": "",
           "comments": "",
           "address": {
-            "locationAddressAdditionalProperty": "locationAddressAdditionalProperty",
             "number": "",
             "city": "",
             "street": "",
@@ -69,7 +63,6 @@
           "summaryNotes": [],
           "forms": [
             {
-              "locationFormAdditionalProperty": "locationFormAdditionalProperty",
               "title": "SAP",
               "template": "9193d9104fabd741dcc2092c29a2efb9-SAP",
               "fields": {
@@ -126,30 +119,23 @@
           ],
           "images": [{
             "url": "url",
-            "imageAdditionalProperty": "imageAdditionalProperty"
           }],
           "designs": [
             {
-              "designAdditionalProperty": "designAdditionalProperty",
               "label": "As Is",
               "layerType": "Measured",
               "structure": {
-                "structureAdditionalProperty": "structureAdditionalProperty",
                 "pole": {
-                  "poleAdditionalProperty": "poleAdditionalProperty",
                   "glc": {
-                    "glcAdditionalProperty": "glcAdditionalProperty",
                     "unit": "METRE",
                     "value": 0.6565562684145742
                   },
                   "agl": {
-                    "aglAdditionalProperty": "aglAdditionalProperty",
                     "unit": "METRE",
                     "value": 6.096000000000001
                   },
                   "environment": "PARALLEL_TO_STREET",
                   "temperature": {
-                    "temperatureAdditionalProperty": "temperatureAdditionalProperty",
                     "unit": "CELSIUS",
                     "value": 15.555555555555555
                   },
@@ -158,7 +144,6 @@
                   "leanDirection": 0,
                   "clientItemVersion": "9650756fb7772dc97c2ada388121a7b2",
                   "clientItem": {
-                    "clientItemAdditionalProperty": "clientItemAdditionalProperty",
                     "species": "Douglas Fir",
                     "classOfPole": "5",
                     "height": {
@@ -168,14 +153,12 @@
                   },
                   "externalId": "5989a2dd4568ea90b5eea355",
                   "owner": {
-                    "ownerAdditionalProperty": "ownerAdditionalProperty",
                     "id": "SCE",
                     "industry": "UTILITY",
                     "externalId": "b2ad09d4-7ddb-4c68-be8e-60c57cd3bcd0"
                   }
                 },
                 "wireEndPoints": [{
-                  "wireEndPointAdditionalProperty": "wireEndPointAdditionalProperty",
                   "comments": "",
                   "direction": 28,
                   "distance":       {
@@ -196,7 +179,6 @@
                   ]
                 }],
                 "spanPoints": [{
-                  "spanPointAdditionalProperty": "spanPointAdditionalProperty",
                   "distance":     {
                     "unit": "FOOT",
                     "value": 69.22572178477691
@@ -236,7 +218,6 @@
                   "externalId": "bd5c1257-1840-42ab-8b97-33144c90e5a9"
                 }],
                 "anchors": [{
-                  "anchorAdditionalProperty": "anchorAdditionalProperty",
                   "clientItem": "10\" - 12\" - 14\" Triple Helix (Class 4) 3/4\" Rod",
                   "direction": 0,
                   "distance":       {
@@ -261,7 +242,6 @@
                   "externalId": "d87aa235-a100-4d8e-a0ec-5f8bbff4a365"
                 }],
                 "notePoints": [{
-                  "notePointAdditionalProperty": "notePointAdditionalProperty",
                   "direction": 181,
                   "distance":     {
                     "unit": "FOOT",
@@ -276,7 +256,6 @@
                   "externalId": "48d6a270-d331-4a41-8ec0-c82c6998af83"
                 }],
                 "pointLoads": [{
-                  "pointLoadAdditionalProperty": "pointLoadAdditionalProperty",
                   "id": "PointLoad#1",
                   "owner":     {
                     "industry": "UTILITY",
@@ -302,17 +281,14 @@
                   }
                 }],
                 "wirePointLoads": [{
-                  "wirePointLoadAdditionalProperty": "wirePointLoadAdditionalProperty",
                   "id": "WirePointLoad#1",
                   "owner":     {
-                    "wirePointLoadOwnerAdditionalProperty": "wirePointLoadOwnerAdditionalProperty",
                     "industry": "UTILITY",
                     "id": "Acme Power",
                     "externalId": "8fe035f6-7f2c-4fbb-bed1-13dbfc437dbd"
                   },
                   "externalId": "d1244d32-b641-4590-b7bf-c52fa1c5c0af",
                   "distance":     {
-                    "wirePointLoadDistanceAdditionalProperty": "wirePointLoadDistanceAdditionalProperty",
                     "unit": "FOOT",
                     "value": 4.363517060367454
                   },
@@ -332,11 +308,9 @@
                 }],
                 "damages": [
                   {
-                    "damageAdditionalProperty": "damageAdditionalProperty",
                     "id": "Damage#1",
                     "externalId": "5989a2e34568ea90b5eea56b",
                     "attachHeight": {
-                      "damagAattachHeightAdditionalProperty": "damagAattachHeightAdditionalProperty",
                       "unit": "METRE",
                       "value": 4.724400000000001
                     },
@@ -357,7 +331,6 @@
                   }
                 ],
                 "wires": [{
-                  "wireAdditionalProperty": "wireAdditionalProperty",
                   "attachmentHeight":       {
                     "unit": "FOOT",
                     "value": 14.166666666666666
@@ -369,7 +342,6 @@
                   },
                   "id": "Wire#1",
                   "midspanHeight":       {
-                    "wireMidspanHeightAdditionalProperty": "wireMidspanHeightAdditionalProperty",
                     "unit": "FOOT",
                     "value": 0
                   },
@@ -384,13 +356,11 @@
                   "externalId": "b1036065-2811-4046-a210-64f02fb08c64"
                 }],
                 "spanGuys": [{
-                  "spanGuyAdditionalProperty": "spanGuyAdditionalProperty",
                   "attachmentHeight":     {
                     "unit": "FOOT",
                     "value": 13.6
                   },
                   "clientItem":     {
-                    "spanGuyClientItemAdditionalProperty": "spanGuyClientItemAdditionalProperty",
                     "conductorStrands": 19,
                     "coreStrands": 0,
                     "size": "1\" EHS"
@@ -413,9 +383,7 @@
                   "externalId": "3e37d950-4aa0-4846-b7a1-5e2efadcd47e"
                 }],
                 "guys": [{
-                  "guyAdditionalProperty": "guyAdditionalProperty",
                   "attachmentHeight":       {
-                    "guyAttachmentHeightAdditionalProperty": "guyAttachmentHeightAdditionalProperty",
                     "unit": "FOOT",
                     "value": 8.956692913385826
                   },
@@ -433,13 +401,11 @@
                   "externalId": "e285ec40-4bfc-44c4-a300-221edc586bbd"
                 }],
                 "equipments": [{
-                  "equipmentAdditionalProperty": "equipmentAdditionalProperty",
                   "attachmentHeight":       {
                     "unit": "FOOT",
                     "value": 8.956692913385826
                   },
                   "bottomHeight":       {
-                    "equipmentBottomHeightAdditionalProperty": "equipmentBottomHeightAdditionalProperty",
                     "unit": "FOOT",
                     "value": 7.316272965879265
                   },
@@ -457,17 +423,14 @@
                   "externalId": "f4b51738-16ab-4a13-8d1b-91935ab4fdf5"
                 }],
                 "guyAttachPoints": [{
-                  "guyAttachPointAdditionalProperty": "guyAttachPointAdditionalProperty",
                   "id": "GuyAttachPoint#1",
                   "attachHeight": {
-                    "guyAttachPointAttachHeightAdditionalProperty": "guyAttachPointAttachHeightAdditionalProperty",
                     "unit": "FOOT",
                     "value": 7.316272965879265
                   },
                   "supportedWEPs": ["WEP#1"]
                 }],
                 "crossArms": [{
-                  "crossArmAdditionalProperty": "crossArmAdditionalProperty",
                   "supportedWEPs": ["WEP#1"],
                   "attachmentHeight":     {
                     "unit": "FOOT",
@@ -478,7 +441,6 @@
                   "id": "CrossArm#1",
                   "insulators": ["Insulator#1"],
                   "offset":     {
-                    "crossArmOffsetAdditionalProperty": "crossArmOffsetAdditionalProperty",
                     "unit": "INCH",
                     "value": 60
                   },
@@ -490,7 +452,6 @@
                   "externalId": "1459c088-b46d-4b92-b603-acc8425d5eb1"
                 }],
                 "insulators": [{
-                  "insulatorAdditionalProperty": "insulatorAdditionalProperty",
                   "clientItem": "13.2 kV Pin Type Insulator (16\" Bracket)",
                   "direction": 118,
                   "doubleInsulator": false,
@@ -500,7 +461,6 @@
                     "value": 125
                   },
                   "owner":       {
-                    "insulatorOwnerAdditionalProperty": "insulatorOwnerAdditionalProperty",
                     "industry": "UTILITY",
                     "id": "Acme Power",
                     "externalId": "567bbaec-0ef8-49ad-8dc8-118b8a94e943"
@@ -512,7 +472,6 @@
                   ]
                 }],
                 "pushBraces": [ {
-                  "pushBraceAdditionalProperty": "pushBraceAdditionalProperty",
                   "attachmentHeight":     {
                     "unit": "FOOT",
                     "value": 8.923884514435697
@@ -522,7 +481,6 @@
                     "height":       {
                       "unit": "FOOT",
                       "value": 25,
-                      "pushBraceClientItemHeightAdditionalProperty": "pushBraceClientItemHeightAdditionalProperty",
 
                     },
                     "species": "Douglas Fir"
@@ -545,13 +503,11 @@
                   "externalId": "f85c03f7-3d84-4c3a-97cf-37551d311cfc"
                 }],
                 "sidewalkBraces": [{
-                  "sidewalkBraceAdditionalProperty": "sidewalkBraceAdditionalProperty",
                   "attachmentHeight": {
                     "unit": "FOOT",
                     "value": 8.923884514435697
                   },
                   "length": {
-                    "sidewalkBraceLengthAdditionalProperty": "sidewalkBraceLengthAdditionalProperty",
                     "unit": "FOOT",
                     "value": 8.923884514435697
                   },
@@ -566,7 +522,6 @@
                   "clientItemVersion": "9650756fb7772dc97c2ada388121a7b4"
                 }],
                 "foundations": [{
-                  "foundationAdditionalProperty": "foundationAdditionalProperty",
                   "id": "Foundation#1",
                   "clientItemVersion": "9650756fb7772dc97c2ada388121a7b2"
                 }],
@@ -574,21 +529,17 @@
                   "id": "AssemblyNotInputAssembly",
                   "clientItemVersion": "9650756fb7772dc97c2ada388121a7b6",
                   "source": "CLIENT_ASSEMBLIES",
-                  "assemblyAdditionalProperty": "assemblyAdditionalProperty",
 
                 }, {
                   "clientItem": "InputAssembly",
-                  "inputAssemblyAdditionalProperty": "inputAssemblyAdditionalProperty",
                   "attachHeight": {
                     "unit": "FOOT",
                     "value": 8.923884514435697,
-                    "inputAssemblyAttachHeightAdditionalProperty": "inputAssemblyAttachHeightAdditionalProperty",
                   }
                 }]
               },
               "analysis": [
                 {
-                  "analysisAdditionalProperties": "analysisAdditionalProperties",
                   "id": "5989a2f24568ea90b5eea589",
                   "results": [
                     {
@@ -601,7 +552,6 @@
                           "actualEngineering": {
                             "unit": "PASCAL",
                             "value": 1419342.1270868804,
-                            "actualEngineeringAdditionalProperty": "actualEngineeringAdditionalProperty",
                           },
                           "additionalValues": [
                             {
@@ -609,11 +559,9 @@
                               "tags": [
                                 "ATTACH_HEIGHT"
                               ],
-                              "anAdditionalValuesAdditionalProperty": "anAdditionalValuesAdditionalProperty",
                               "value": {
                                 "unit": "METRE",
                                 "value": 0.02,
-                                "anAdditionalValuesValueAdditionalProperty": "anAdditionalValuesValueAdditionalProperty"
                               }
                             }
                           ],
@@ -626,17 +574,14 @@
                           "anchors": [],
                           "atDirection": [
                             {
-                              "atDirectionAdditionalProperty": "atDirectionAdditionalProperty",
                               "actual": 38.86170733292008,
                               "direction": {
-                                "atDirectionDirectionAdditionalProperty": "atDirectionDirectionAdditionalProperty",
                                 "unit": "RADIAN",
                                 "value": 0
                               },
                               "ratio": 0.10292908558373003,
                               "status": "PASSING",
                               "value": {
-                                "atDirectionValueAdditionalProperty": "atDirectionValueAdditionalProperty",
                                 "unit": "PASCAL",
                                 "value": 1419342.127015146
                               }
@@ -837,17 +782,14 @@
                               }
                             },
                             {
-                              "atDirectionAdditionalProperty2": "atDirectionAdditionalProperty2",
                               "actual": 38.861707332899236,
                               "direction": {
-                                "atDirectionDirectionAdditionalProperty2": "atDirectionDirectionAdditionalProperty2",
                                 "unit": "RADIAN",
                                 "value": 2.9670597283903604
                               },
                               "ratio": 0.10292908558378525,
                               "status": "PASSING",
                               "value": {
-                                "atDirectionValueAdditionalProperty2": "atDirectionValueAdditionalProperty2",
                                 "unit": "PASCAL",
                                 "value": 1419342.1270159076
                               }
@@ -1040,12 +982,10 @@
                               "atHeightAdditionalProperty": "atHeightAdditionalProperty",
                               "actual": 39.12209554124762,
                               "actualEngineering": {
-                                "atHeightActualEngineeringAdditionalProperty": "atHeightActualEngineeringAdditionalProperty",
                                 "unit": "PASCAL",
                                 "value": 1409895.2927302187
                               },
                               "applied": {
-                                "atHeightAppliedAdditionalProperty": "atHeightAppliedAdditionalProperty",
                                 "translational": {
                                   "unit": "NEWTON",
                                   "vector": [
@@ -1247,7 +1187,6 @@
                                 "value": 1404969.665140208
                               },
                               "applied": {
-                                "atHeightAppliedAdditionalProperty": "atHeightAppliedAdditionalProperty",
                                 "translational": {
                                   "unit": "NEWTON",
                                   "vector": [
@@ -2055,7 +1994,6 @@
                           "insulators": [],
                           "owner": "SCE",
                           "pointLoads": [],
-                          "componentAdditionalProperty": "componentAdditionalProperty",
                           "poles": [
                             {
                               "applied": {
@@ -2099,10 +2037,8 @@
                           "status": "PASSING",
                           "usage": [
                             {
-                              "usageAdditionalProperty": "usageAdditionalProperty",
                               "owner": "SCE",
                               "portion": {
-                                "usagePortionAdditionalProperty": "usagePortionAdditionalProperty",
                                 "unit": "RATIO",
                                 "value": 0.10292908558893211
                               }
@@ -2122,7 +2058,6 @@
                       "engineVersion": "7.0.0-SNAPSHOT"
                     },
                     {
-                      "secondResultAdditionalProperty": "secondResultAdditionalProperty",
                       "analysisCase": "GO95",
                       "analysisCaseVersion": "9439ff2516708191c85c2a2c29199630",
                       "analysisDate": 1502192370651,

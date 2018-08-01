@@ -1,7 +1,6 @@
 package com.spidasoftware.schema.conversion.changeset.v5
 
 import com.spidasoftware.schema.conversion.changeset.calc.CalcProjectChangeSet
-
 import com.spidasoftware.schema.validation.Validator
 import groovy.json.JsonSlurper
 import groovy.util.logging.Log4j
@@ -11,15 +10,23 @@ import spock.lang.Specification
 @Log4j
 class RemoveAdditionalPropertiesChangesetTest extends Specification {
 
-    @Shared Map projectJSON, locationJSON, designJSON
+    @Shared Map projectJSON, locationJSON, designJSON, expectedProjectJSON, expectedLocationJSON, expectedDesignJSON
     RemoveAdditionalPropertiesChangeset changeset = new RemoveAdditionalPropertiesChangeset()
 
     void setupSpec() {
         def leanStream = getClass().getResourceAsStream("/conversions/v5/remove-additional-properties-project.json")
-        projectJSON = new JsonSlurper().parse(leanStream)
-        locationJSON = CalcProjectChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0])
-        designJSON = CalcProjectChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0].designs[0])
+        projectJSON = new JsonSlurper().parse(leanStream) as Map
+        locationJSON = CalcProjectChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0] as Map)
+        designJSON = CalcProjectChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0].designs[0] as Map)
 
+
+        leanStream = getClass().getResourceAsStream("/conversions/v5/remove-additional-properties-project-with-properties-removed.json")
+        expectedProjectJSON = new JsonSlurper().parse(leanStream) as Map
+        expectedProjectJSON.put("strict", true)
+        expectedLocationJSON = CalcProjectChangeSet.duplicateAsJson(expectedProjectJSON.leads[0].locations[0] as Map)
+        expectedLocationJSON.put("strict", true)
+        expectedDesignJSON = CalcProjectChangeSet.duplicateAsJson(expectedProjectJSON.leads[0].locations[0].designs[0] as Map)
+        expectedDesignJSON.put("strict", true)
         assert projectJSON.address.projectAddressAdditionalProperty != null
         assert projectJSON.leads[0].leadAdditionalProperty != null
         assert projectJSON.leads[0].locations[0].locationAdditionalProperty != null
@@ -36,6 +43,22 @@ class RemoveAdditionalPropertiesChangesetTest extends Specification {
             projectJSON.put("strict", true)
         then:
             new Validator().validateAndReport("/schema/spidacalc/calc/project-v4.schema", projectJSON).isSuccess()
+            projectJSON.userDefinedValues == [test: "test"]
+            projectJSON.forms[0].title == "Project Info"
+            projectJSON.forms[0].template == "9193d9104fabd741dcc2092c29a2efb9-Project Info"
+            projectJSON.forms[0].fields.size() == 5
+            projectJSON.forms[0].fields."Year Installed" == "2018"
+            projectJSON.forms[0].fields."Location" == "Ohio"
+            projectJSON.forms[0].fields."Technician/Planner" == "Someone"
+            projectJSON.forms[0].fields."TD #" == "123456789"
+            projectJSON.forms[0].fields."District" == "22- Montebello"
+            projectJSON.leads[0].locations[0].userDefinedValues == [locationUserDefinedValues: "locationUserDefinedValues"]
+            projectJSON.leads[0].locations[0].forms[0].title == "SAP"
+            projectJSON.leads[0].locations[0].forms[0].template == "9193d9104fabd741dcc2092c29a2efb9-SAP"
+            projectJSON.leads[0].locations[0].forms[0].fields.size() == 18
+            projectJSON.leads[0].locations[0].forms[0].fields."Field Inspection Date" == "08/08/2017"
+            projectJSON.leads[0].locations[0].forms[0].fields."Grandfather" == "No"
+            projectJSON == expectedProjectJSON
     }
 
     void testRevertLocation() {
@@ -48,6 +71,13 @@ class RemoveAdditionalPropertiesChangesetTest extends Specification {
             locationJSON.put("strict", true)
         then:
             new Validator().validateAndReport("/schema/spidacalc/calc/location-v4.schema", locationJSON).isSuccess()
+            locationJSON.userDefinedValues == [locationUserDefinedValues: "locationUserDefinedValues"]
+            locationJSON.forms[0].title == "SAP"
+            locationJSON.forms[0].template == "9193d9104fabd741dcc2092c29a2efb9-SAP"
+            locationJSON.forms[0].fields.size() == 18
+            locationJSON.forms[0].fields."Field Inspection Date" == "08/08/2017"
+            locationJSON.forms[0].fields."Grandfather" == "No"
+            locationJSON == expectedLocationJSON
     }
 
     void testRevertDesign() {
@@ -60,6 +90,7 @@ class RemoveAdditionalPropertiesChangesetTest extends Specification {
             designJSON.put("strict", true)
         then:
             new Validator().validateAndReport("/schema/spidacalc/calc/design-v4.schema", designJSON).isSuccess()
+            designJSON == expectedDesignJSON
     }
 
     // address should be an object, leads should be an array

@@ -196,4 +196,18 @@ class CalcSchemaTest extends GroovyTestCase {
 		report.each{ log.info "testProjectWithGPSObject validation report "+it.toString() }
 		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
 	}
+
+	void testNoResultsValidation() {
+		def schema = factory.getJsonSchema("schema/spidacalc/calc/design.schema")
+		String json = """{
+		        "analysis": [
+						{"id": "Empty Results Array", "results": []},
+						{"id": "No Results Array"}
+						
+		        ]
+		}"""
+		report = schema.validate(JsonLoader.fromString(json))
+		report.each{ log.info "testNoResultsValidation validation report "+it.toString() }
+		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
+	}
 }
