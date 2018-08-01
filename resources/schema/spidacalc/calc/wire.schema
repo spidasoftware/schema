@@ -14,8 +14,16 @@
       "description": "The display ID for the attachment. Must be unique within the pole."
     },
     "clientItem": {
-      "$ref": "../../spidacalc/calc/client_references/wire.schema",
-      "description": "Reference of the client item with the engineering properties for this wire. clientItemVersion and/or clientItem must be present in non-assembly strcutures."
+      "oneOf": [
+        {
+          "$ref": "../../spidacalc/calc/client_references/wire.schema",
+          "description": "Reference of the client item with the engineering properties for this wire. clientItemVersion and/or clientItem must be present in non-assembly strcutures."
+        },
+        {
+          "$ref": "../../spidacalc/client/bundle.schema",
+          "description": "The full bundle object containing the messenger and all components."
+        }
+      ]
     },
     "clientItemVersion": {
       "type": "string",
@@ -53,7 +61,7 @@
       "type": "number",
       "description": "Additional wire-specific tension adjustment in addition to load case tension multipliers."
     },
-    "connectionId":{
+    "connectionId": {
       "description": "The shared connection id.  Represents the unique connection between two objects.  Must be two and only two objects with the same id.",
       "pattern": "[a-f0-9]{24}",
       "type": "string"
@@ -62,7 +70,7 @@
       "description": "The id of a connected wire on the same structure. ",
       "type": "string"
     },
-    "wireEndPointPlacement":{
+    "wireEndPointPlacement": {
       "description": "The optional placement at the opposite end from the pole. The measurement is in relation to the base of the associated wire end point.",
       "$ref": "../../general/triad.schema"
     }
