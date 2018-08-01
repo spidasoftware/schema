@@ -141,6 +141,10 @@ task(validateJson, dependsOn: 'classes', type: JavaExec) {
 	standardOutput = System.out
 }
 
+task printVersion() << {
+	println "SCHEMA_VERSION: ${version}"
+}
+
 task wrapper(type: Wrapper) {
 	/*****************************************************************************************
 		NOTES:
