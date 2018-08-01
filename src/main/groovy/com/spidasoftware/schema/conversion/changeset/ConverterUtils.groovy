@@ -38,7 +38,7 @@ class ConverterUtils {
             converter.addChangeSet(4, new DamageRsmChangeSet())
             converter.addChangeSet(5, new RemoveAdditionalPropertiesChangeset())
             converter.addChangeSet(5, new InputAssemblyDistanceDirectionChangeset())
-            converter.addChangeSet(5, new LocationRemedyChangeset())
+            converter.addChangeSet(6, new LocationRemedyChangeset())
             converter.addChangeSet(6, new RemoveDetailedResultsChangeset())
             // add calc changesets here
 
