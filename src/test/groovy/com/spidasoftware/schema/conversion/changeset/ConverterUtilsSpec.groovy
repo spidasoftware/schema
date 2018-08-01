@@ -83,7 +83,7 @@ BUILD SUCCESSFUL in 0s
 		then:
 			versionStart.startsWith("${ConverterUtils.currentVersion}")
 			ConverterUtils.converters.values().every { Converter converter ->
-				versionStart.startsWith("${converter.currentVersion}")
+				versionStart.startsWith("${converter.currentVersion}") && converter.currentVersion == ConverterUtils.currentVersion
 			}
 	}
 
