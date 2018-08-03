@@ -66,6 +66,27 @@ class ConverterUtilsSpec extends Specification {
 			validateProjectSchema("/conversions/v2/foundation.json")
 	}
 
+	/*
+	Output of "./gradlew printVersion" is:
+> Configure project :
+SCHEMA_VERSION: 6.0.0-SNAPSHOT
+
+BUILD SUCCESSFUL in 0s
+	 */
+	def testSchemaVersionMatchesCoverterUtilsVersion() {
+		when:
+			Process process = "./gradlew printVersion".execute()
+			process.waitFor()
+			String output = process.text.trim()
+			int indexOfMajorVersion = output.indexOf("SCHEMA_VERSION: ") + "SCHEMA_VERSION: ".length()
+			String versionStart = output.substring(indexOfMajorVersion, output.length())
+		then:
+			versionStart.startsWith("${ConverterUtils.currentVersion}")
+			ConverterUtils.converters.values().every { Converter converter ->
+				versionStart.startsWith("${converter.currentVersion}") && converter.currentVersion == ConverterUtils.currentVersion
+			}
+	}
+
 	private boolean validateProjectSchema(String jsonPath) {
 		def inputStream = PoleLeanChangeSetTest.getResourceAsStream(jsonPath)
 		String json = inputStream.text
