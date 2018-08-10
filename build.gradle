@@ -127,7 +127,8 @@ task assembleManifest(dependsOn:["buildInfo"]){
 	doLast {
 		jar {
 			manifest.attributes("VCSVersion": project.ext["revision"],
-								"VCSTimeStamp": project.ext["timestamp"])
+								"VCSTimeStamp": project.ext["timestamp"],
+								"Version": version)
 		}
 	}
 }
