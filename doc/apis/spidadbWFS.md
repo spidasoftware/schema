@@ -10,6 +10,8 @@ Above is the schema for the WFS, each table is a layer in the service and each r
 
 All of the pole and attachment values stored in metric, so make sure that you account for this in your queries.
 
+All of the date values are stored in as long values.  Which is the number of milliseconds since January 1, 1970, 00:00:00 GMT.
+
 To query on the details we use [CQL](http://docs.geoserver.org/stable/en/user/tutorials/cql/cql_tutorial.html), all of the available attributes are able to be queried on.
 
 ### Authentication
@@ -17,9 +19,10 @@ The apiToken from your Usersmaster profile page is required as a parameter to au
 
 # Examples
 To get the XML Schema Definition (XSD) for the service:  
-```curl https://example.spidastudio.com/spidadb/geoserver/wfs/DB?service=WFS&request=DescribeFeatureType&version=2.0.0&apiToken=abc123```
+```curl https://example.spidastudio.com/spidadb/geoserver/wfs/DB?service=WFS&request=DescribeFeatureType&version=2.0.0&apiToken=abc123```  
 The response (with everything but the pole schema removed):  
-```<?xml version="1.0" encoding="UTF-8"?>
+```
+<?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:DB="http://spida/db" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:wfs="http://www.opengis.net/wfs/2.0" elementFormDefault="qualified" targetNamespace="http://spida/db">
    <xsd:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://localhost:8080/geoserver/schemas/gml/3.2.1/gml.xsd" />
     ..........
@@ -53,9 +56,10 @@ The response (with everything but the pole schema removed):
 ```
 
 To find locations by label:  
-```curl https://example.spidastudio.com/spidadb/geoserver/wfs/DB?service=WFS&request=GetFeature&version=2.0.0&typeName=DB:location&apiToken=abc123&CQL_FILTER=label = '418'```
+```curl https://example.spidastudio.com/spidadb/geoserver/wfs/DB?service=WFS&request=GetFeature&version=2.0.0&typeName=DB:location&apiToken=abc123&CQL_FILTER=label = '418'```  
 The response:  
-```<wfs:FeatureCollection xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:DB="http://spida/db" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" numberMatched="4" numberReturned="4" timeStamp="2018-08-20T17:36:59.728Z" xsi:schemaLocation="http://www.opengis.net/gml/3.2 http://localhost:8080/geoserver/schemas/gml/3.2.1/gml.xsd http://spida/db http://localhost:8080/geoserver/wfs?service=WFS&version=2.0.0&request=DescribeFeatureType&typeName=DB%3Alocation http://www.opengis.net/wfs/2.0 http://localhost:8080/geoserver/schemas/wfs/2.0/wfs.xsd">
+```
+<wfs:FeatureCollection xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:DB="http://spida/db" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" numberMatched="4" numberReturned="4" timeStamp="2018-08-20T17:36:59.728Z" xsi:schemaLocation="http://www.opengis.net/gml/3.2 http://localhost:8080/geoserver/schemas/gml/3.2.1/gml.xsd http://spida/db http://localhost:8080/geoserver/wfs?service=WFS&version=2.0.0&request=DescribeFeatureType&typeName=DB%3Alocation http://www.opengis.net/wfs/2.0 http://localhost:8080/geoserver/schemas/wfs/2.0/wfs.xsd">
 	<wfs:member>
 		<DB:location gml:id="5a68e376cff47e000137789b">
 			<DB:geographicCoordinate>
@@ -85,4 +89,29 @@ The response:
 ```
 
 To find all poles between 40 and 45 feet inclusive:  
-```curl https://example.spidastudio.com/spidadb/geoserver/wfs/DB?service=WFS&request=GetFeature&version=2.0.0&typeName=DB:pole&apiToken=abc123&CQL_FILTER=length >= 12.192 AND length <= 13.716```
+```curl https://example.spidastudio.com/spidadb/geoserver/wfs/DB?service=WFS&request=GetFeature&version=2.0.0&typeName=DB:pole&apiToken=abc123&CQL_FILTER=length >= 12.192 AND length <= 13.716```  
+The response:  
+```
+<wfs:FeatureCollection xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:DB="http://spida/db" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" numberMatched="1302" numberReturned="1302" timeStamp="2018-08-20T17:48:02.156Z" xsi:schemaLocation="http://www.opengis.net/gml/3.2 http://localhost:8080/geoserver/schemas/gml/3.2.1/gml.xsd http://spida/db http://localhost:8080/geoserver/wfs?service=WFS&version=2.0.0&request=DescribeFeatureType&typeName=DB%3Apole http://www.opengis.net/wfs/2.0 http://localhost:8080/geoserver/schemas/wfs/2.0/wfs.xsd">
+	<wfs:member>
+		<DB:pole gml:id="5a68f736cff47e00013778fc">
+			<DB:designType>Design 1</DB:designType>
+			<DB:locationId>5a68f736cff47e00013778fd</DB:locationId>
+			<DB:locationLabel>407</DB:locationLabel>
+			<DB:clientFile>SPIDA Power Company.client</DB:clientFile>
+			<DB:clientFileVersion>8f0817e420f080bb6953a3ad07145c0a</DB:clientFileVersion>
+			<DB:dateModified>1516828470275</DB:dateModified>
+			<DB:glc>0.9768480063706583</DB:glc>
+			<DB:glcUnit>METRE</DB:glcUnit>
+			<DB:agl>10.363199999999999</DB:agl>
+			<DB:aglUnit>METRE</DB:aglUnit>
+			<DB:species>Douglas Fir</DB:species>
+			<DB:class>2</DB:class>
+			<DB:length>12.192</DB:length>
+			<DB:lengthUnit>METRE</DB:lengthUnit>
+			<DB:owner>SPIDA Power Company</DB:owner>
+			<DB:id>5a68f736cff47e00013778fc</DB:id>
+		</DB:pole>
+	</wfs:member>
+</wfs:FeatureCollection>
+```
