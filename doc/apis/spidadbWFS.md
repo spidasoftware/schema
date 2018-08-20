@@ -10,7 +10,7 @@ Above is the schema for the WFS, each table is a layer in the service and each r
 
 All of the pole and attachment values stored in metric, so make sure that you account for this in your queries.
 
-All of the date values are stored in as long values.  Which is the number of milliseconds since January 1, 1970, 00:00:00 GMT.
+All of the date values are stored as long values, wich is the number of milliseconds since January 1, 1970, 00:00:00 GMT.
 
 To query on the details we use [CQL](http://docs.geoserver.org/stable/en/user/tutorials/cql/cql_tutorial.html), all of the available attributes are able to be queried on.
 
