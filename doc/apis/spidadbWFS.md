@@ -6,7 +6,7 @@ You should familiarize yourself with the concepts in the [SPIDAdb API](apis/spid
 
 # General Concepts and Schema
 ![SPIDAdb WFS Schema](https://raw.githubusercontent.com/spidasoftware/schema/master/resources/schema/spidamin/asset/DbWFSSchema.png)
-Above is the schema for the WFS, each table is a layer in the service and each row is an attribute for that layer.  Each item on a pole is served up in its own layer and has a reference to what pole it is on by the poleId attribute.  Each pole then has locationId which references the location that the pole is in.
+Above is the schema for the WFS, each table is a layer in the service and each row is an attribute for that layer.  Each item on a pole is served up in its own layer and has a reference to what pole it is on by the poleId attribute, the arrows indicate the reference to pole.  Each pole then has locationId which references the location that the pole is in.
 
 All of the pole and attachment values stored in metric, so make sure that you account for this in your queries.
 
