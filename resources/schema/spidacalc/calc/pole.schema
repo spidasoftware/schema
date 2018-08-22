@@ -27,6 +27,14 @@
       "description": "Measurable height above ground line of pole. If omitted the default NESC embedment will be used.",
       "$ref": "../../general/measurable.schema"
     },
+    "autoGLC": {
+      "description": "enable or disable auto calculating the glc based on client pole properties",
+      "type": "boolean"
+    },
+    "autoAGL": {
+      "description": "enable or disable auto calculating the agl based on client pole properties",
+      "type": "boolean"
+    },
     "leanAngle": {
       "description": "Lean angle measured vertical.",
       "type": "integer",
