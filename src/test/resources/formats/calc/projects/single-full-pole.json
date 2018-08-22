@@ -57,8 +57,8 @@
             }
           ],
           "summaryNotes": [
-            "Super Power Co. install bisector guy to the N",
-            "Super Power Co. install span guy for span to the N"
+            {"description": "Super Power Co. install bisector guy to the N"},
+            {"description": "Super Power Co. install span guy for span to the N"}
           ],
           "forms": [
             {

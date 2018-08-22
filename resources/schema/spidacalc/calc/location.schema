@@ -112,7 +112,12 @@
                         "minLength": 1
                     }, 
                     "value": {
+                        "description": "the actual value of the pole tag", 
                         "type": "string"
+                    },
+                    "visible": {
+                        "description": "true if the tag is physically visible on the pole", 
+                        "type": "boolean"
                     }
                 }, 
                 "required": [
@@ -130,7 +135,23 @@
             "description": "List of summary notes for the location", 
             "id": "summaryNotes", 
             "items": {
-                "type": "string"
+                "additionalProperties": false, 
+                "id": "summaryNote", 
+                "properties": {
+                    "description": {
+                        "description": "the actual note value", 
+                        "type": "string",
+                        "minLength": 1
+                    }, 
+                    "direction": {
+                        "description": "the direction of the summary note", 
+                        "type": "string"
+                    }
+                }, 
+                "required": [
+                    "description"
+                ], 
+                "type": "object"
             }, 
             "type": "array"
         },
