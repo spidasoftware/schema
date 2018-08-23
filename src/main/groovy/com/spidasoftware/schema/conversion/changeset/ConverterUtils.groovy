@@ -40,6 +40,7 @@ class ConverterUtils {
             converter.addChangeSet(5, new InputAssemblyDistanceDirectionChangeset())
             converter.addChangeSet(6, new LocationRemedyChangeset())
             converter.addChangeSet(6, new RemoveDetailedResultsChangeset())
+            converter.addChangeSet(6, new SummaryNoteObjectChangeset())
             // add calc changesets here
 
             converter.setCurrentVersion(currentVersion)
