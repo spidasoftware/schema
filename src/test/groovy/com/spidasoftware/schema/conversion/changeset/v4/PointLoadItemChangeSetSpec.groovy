@@ -1,6 +1,5 @@
 package com.spidasoftware.schema.conversion.changeset.v4
 
-import com.spidasoftware.schema.conversion.changeset.calc.CalcProjectChangeSet
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
 import groovy.util.logging.Log4j
@@ -31,6 +30,7 @@ class PointLoadItemChangeSetSpec extends Specification {
             pointLoad.get("mx").get("unit") == 'POUND_FORCE_FOOT'
             pointLoad.get("my").get("unit") == 'POUND_FORCE_FOOT'
             pointLoad.get("mz").get("unit") == 'POUND_FORCE_FOOT'
+            pointLoad.z == pointLoad.attachmentHeight
             structure.get("pointLoads")[0].get("elevation").get("unit") == 'DEGREE_ANGLE'
             structure.get("pointLoads")[0].get("rotation").get("unit") == 'DEGREE_ANGLE'
             structure.get("pointLoads")[1].get("elevation").get("value") == 0
@@ -47,6 +47,7 @@ class PointLoadItemChangeSetSpec extends Specification {
             Math.abs(pointLoad.get("fy").get("value") - 200.00000068613937D) < 0.000001
             pointLoad.get("fy").get("unit") == 'POUND_FORCE'
             Math.abs(pointLoad.get("fz").get("value") - (-29.05417390379112D)) < 0.000001
+            pointLoad.z == pointLoad.attachmentHeight
             pointLoad.get("fz").get("unit") == 'POUND_FORCE'
             pointLoad.get("mx").get("unit") == 'POUND_FORCE_FOOT'
             pointLoad.get("my").get("unit") == 'POUND_FORCE_FOOT'
@@ -67,6 +68,7 @@ class PointLoadItemChangeSetSpec extends Specification {
             Math.abs(pointLoad.get("fy").get("value") - 200.00000068613937D) < 0.000001
             pointLoad.get("fy").get("unit") == 'POUND_FORCE'
             Math.abs(pointLoad.get("fz").get("value") - (-29.05417390379112D)) < 0.000001
+            pointLoad.z == pointLoad.attachmentHeight
             pointLoad.get("fz").get("unit") == 'POUND_FORCE'
             pointLoad.get("mx").get("unit") == 'POUND_FORCE_FOOT'
             pointLoad.get("my").get("unit") == 'POUND_FORCE_FOOT'
@@ -94,5 +96,6 @@ class PointLoadItemChangeSetSpec extends Specification {
             pointLoad.XForce == oldPointLoad.fx
             pointLoad.YForce == oldPointLoad.fy
             pointLoad.ZForce == oldPointLoad.fz
+
     }
 }
