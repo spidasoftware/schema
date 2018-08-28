@@ -61,6 +61,11 @@ class PointLoadItemChangeSet extends AbstractCalcDesignChangeset {
 
 				pointLoad.put(to, object)
 			}
+			def attachHeight = pointLoad.attachmentHeight // value name has already changed
+
+			// oh wait we actually used to use the z value. add that back in
+			pointLoad.z = [value:attachHeight.value, unit:attachHeight.unit]
+
 		}
 	}
 }
