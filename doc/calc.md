@@ -13,7 +13,7 @@ Calc Integration API
 
 Calc defines an open, human readable format for importing pole and project information. It is in JSON, an industry standard that can be written from any source language. The data format is defined by the schemas available in this project, which can also be used to validate files before they are sent to Calc.
 
-Calc supports a project structure and information about locations. It can import and export addresses, GPS points, remedy information, and other expected meta-data surrounding pole collection and analysis.
+Calc supports a project structure and information about locations. It can import and export addresses, GPS points, and other expected meta-data surrounding pole collection and analysis.
 
 It supports detailed information at the level of a data collection program, allowing for the specification of every attachment to the pole at its exact height and direction, with appropriate material properties. This is the level that will give the most specific and reliable analysis results, and is best used by those looking to integrate Calc with their existing data collection programs. It is also how a structure created in calc will be exported, and can be used to generate custom reports or high-level analysis across multiple projects, or to import specific fields back into an accounting or work order system.
 
@@ -146,7 +146,7 @@ The example data files are json files that can be opened in any text editor.
 An easy way to start playing with what is available in the SPIDACalc API is to open Calc, then open a web browser to
 
     http://localhost:4560/calc/getProject
-    
+
 Your web browser will show you the JSON version of the currently open project (this is where a browser extension that formats JSON is very useful for development.)
 
 If you change something in SPIDACalc and refresh your browser, the changes will be reflected in the browser window.
@@ -185,18 +185,18 @@ A location has many designs. A design is a specific version of the structure at 
 
 ### Load Cases and results
 
-Calc uses load cases to handle NESC, GO95, and CSA loading standards. These are referenced by the name in the client file. To specify the load cases to be applied to a design, send analysis objects using only the ID and 
+Calc uses load cases to handle NESC, GO95, and CSA loading standards. These are referenced by the name in the client file. To specify the load cases to be applied to a design, send analysis objects using only the ID and
 <pre>
 "analysis": [
     {
         "id": "CSA - Heavy One"
-    }, 
+    },
     {
         "id": "Csa Severe Two"
     }
 ]
 </pre>
-    
+
 If Results are included, they will be listed per component. When loaded into calc they will show the summary of the result, and that the results are out of date and need to be re-analyzed to get full results.
 
 
