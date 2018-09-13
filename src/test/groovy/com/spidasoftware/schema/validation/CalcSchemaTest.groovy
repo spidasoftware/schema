@@ -112,10 +112,10 @@ class CalcSchemaTest extends GroovyTestCase {
 		assertFalse "this instance should NOT be valid against the schema \n${report.toString()}", report.isSuccess()
 
 		def testFailues = []
-		def locationComponents = ["geographicCoordinate", "remedy", "poleTags", "images"]
+		def locationComponents = ["geographicCoordinate", "remedies", "poleTags", "images"]
 		locationComponents.each { component ->
 			json = new JsonSlurper().parse(new File("resources/examples/spidacalc/projects/full_project.json"))
-			if(component == "geographicCoordinate" || component == "remedy") {
+			if(component == "geographicCoordinate") {
 				json.get("leads").get(0).get("locations").get(0).get(component).put("an additional property", "shouldn't validate")
 			} else {
 				json.get("leads").get(0).get("locations").get(0).get(component).get(0).put("an additional property", "shouldn't validate")
