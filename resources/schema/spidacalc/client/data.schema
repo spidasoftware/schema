@@ -84,7 +84,7 @@
     "bundleComponents":{
       "type": "array",
       "items": {
-        "$ref":"../../spidacalc/client/bundle_components.schema"
+        "$ref":"../../spidacalc/client/bundle_component.schema"
       }
     },
 		"analysisCases": {
