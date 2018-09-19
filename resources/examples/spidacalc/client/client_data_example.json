@@ -196,6 +196,50 @@
      }
    }],
    "braces": [],
+   "bundleComponents": [
+     {
+       "abbreviation": "ANAA",
+       "aliases": [],
+       "description": "Uncommon Cable Type (Filled)",
+       "diameter": {
+         "unit": "METRE",
+         "value": 0.025908000000000004
+       },
+       "groups": [
+         "Uncommon Cable Type (Filled)"
+       ],
+       "size": "Unknown Size",
+       "weight": {
+         "unit": "NEWTON_PER_METRE",
+         "value": 9.413067394498105
+       }
+     }
+   ],
+   "bundles":[
+     {
+       "aliases": [],
+       "autoCalculateDiameter": true,
+       "bundleComponents": [
+         {
+           "clientItemVersion": "ad7ae32283d06d5d901195f4bed8b139",
+           "size": "Unknown Size"
+         }
+       ],
+       "diameter": {
+         "unit": "METRE",
+         "value": 0.04498634964796639
+       },
+       "group": "Test Bundle Group",
+       "messenger": {
+         "clientItemVersion": "7e7cb6efcd21371461975bef5f930aaa",
+         "conductorStrands": 19,
+         "coreStrands": 0,
+         "size": "1\" CG"
+       },
+       "size": "1\" CG BHAA BKMH BKMA",
+       "source": "CLIENT"
+     }
+   ],
    "crossArms": [],
    "equipments": [],
    "foundations": [],
