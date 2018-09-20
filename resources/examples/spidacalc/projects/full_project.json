@@ -26,13 +26,11 @@
               40.683
             ]
           },
-          "remedy": {
-            "statements": [
-              {
-                "description": "Remedy"
-              }
-            ]
-          },
+          "remedies": [
+            {
+              "description": "Remedy"
+            }
+          ],
           "poleTags": [
             {
               "type": "FIELD",
@@ -548,13 +546,11 @@
               40.683547457
             ]
           },
-          "remedy": {
-            "statements": [
-              {
-                "description": "Remedy"
-              }
-            ]
-          },
+          "remedies": [
+            {
+              "description": "Remedy"
+            }
+          ],
           "poleTags": [
             {
               "type": "FIELD",
@@ -976,13 +972,11 @@
               40.89237598023
             ]
           },
-          "remedy": {
-            "statements": [
-              {
-                "description": "Remedy"
-              }
-            ]
-          },
+          "remedies": [
+            {
+              "description": "Remedy"
+            }
+          ],
           "poleTags": [
             {
               "type": "FIELD",
@@ -1220,13 +1214,11 @@
               40.1023985762
             ]
           },
-          "remedy": {
-            "statements": [
-              {
-                "description": "Remedy"
-              }
-            ]
-          },
+          "remedies": [
+            {
+              "description": "Remedy"
+            }
+          ],
           "poleTags": [
             {
               "type": "FIELD",
