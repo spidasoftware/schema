@@ -22,6 +22,14 @@
       "type": "string",
       "pattern": "[a-f0-9]{32}"
     },
+    "analysisCaseDetails": {
+      "description": "Details for the analysis case used to generate the results.",
+      "oneOf": [{
+          "$ref": "../client/load_case.schema"
+        },{
+          "$ref": "../client/strength_case.schema"
+        }]
+    },
     "engineVersion":{
       "type":"string",
       "description": "the version of the engine that was used to generate these results"
