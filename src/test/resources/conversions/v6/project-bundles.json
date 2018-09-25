@@ -1,0 +1,279 @@
+{
+  "label": "New Project",
+  "clientFile": "bundles.client",
+  "date": "2018-09-25",
+  "schema": "/schema/spidacalc/calc/project.schema",
+  "version": 6,
+  "engineer": "",
+  "comments": "",
+  "generalLocation": "",
+  "address": {
+    "number": "",
+    "city": "",
+    "street": "",
+    "county": "",
+    "state": "",
+    "zip_code": ""
+  },
+  "userDefinedValues": {},
+  "clientFileVersion": "f39f86b6a3f2bedea6e4e067bd4adf7f",
+  "forms": [],
+  "leads": [
+    {
+      "label": "Lead",
+      "locations": [
+        {
+          "label": "Location-09-25-2018-15-04-37-382",
+          "mapNumber": "",
+          "comments": "",
+          "address": {
+            "number": "",
+            "city": "",
+            "street": "",
+            "county": "",
+            "state": "",
+            "zip_code": ""
+          },
+          "technician": "",
+          "crossStreet1": "",
+          "crossStreet2": "",
+          "remedies": [],
+          "poleTags": [],
+          "userDefinedValues": {},
+          "summaryNotes": [],
+          "forms": [],
+          "images": [],
+          "designs": [
+            {
+              "label": "Measured Design",
+              "layerType": "Measured",
+              "structure": {
+                "pole": {
+                  "glc": {
+                    "unit": "METRE",
+                    "value": 0.9467152878015642
+                  },
+                  "agl": {
+                    "unit": "METRE",
+                    "value": 11.734800000000002
+                  },
+                  "autoGLC": true,
+                  "autoAGL": true,
+                  "environment": "NONE",
+                  "temperature": {
+                    "unit": "CELSIUS",
+                    "value": 15.555555555555555
+                  },
+                  "stressRatio": 1,
+                  "leanAngle": 0,
+                  "leanDirection": 0,
+                  "clientItemVersion": "87f0db16a26bface44397e970cd61847",
+                  "clientItem": {
+                    "species": "Southern Pine",
+                    "classOfPole": "3",
+                    "height": {
+                      "unit": "METRE",
+                      "value": 13.716000000000001
+                    }
+                  },
+                  "clientItemAlias": "45-3",
+                  "externalId": "5baa86c5f1e8c62551d2c1ad",
+                  "owner": {
+                    "id": "Acme Power",
+                    "industry": "UTILITY",
+                    "externalId": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+                  }
+                },
+                "wireEndPoints": [
+                  {
+                    "id": "WEP#1",
+                    "externalId": "5baa86ccf1e8c62551d2c1bf",
+                    "distance": {
+                      "unit": "METRE",
+                      "value": 45.720000000000006
+                    },
+                    "direction": 8,
+                    "inclination": {
+                      "unit": "RADIAN",
+                      "value": 0
+                    },
+                    "type": "PREVIOUS_POLE",
+                    "comments": "",
+                    "environment": "NONE",
+                    "wires": [
+                      "Wire#1"
+                    ],
+                    "spanGuys": [],
+                    "spanPoints": []
+                  },
+                  {
+                    "id": "WEP#2",
+                    "externalId": "5baa86ccf1e8c62551d2c1c0",
+                    "distance": {
+                      "unit": "METRE",
+                      "value": 45.720000000000006
+                    },
+                    "direction": 188,
+                    "inclination": {
+                      "unit": "RADIAN",
+                      "value": 0
+                    },
+                    "type": "NEXT_POLE",
+                    "comments": "",
+                    "environment": "NONE",
+                    "wires": [
+                      "Wire#2"
+                    ],
+                    "spanGuys": [],
+                    "spanPoints": []
+                  }
+                ],
+                "spanPoints": [],
+                "anchors": [],
+                "notePoints": [],
+                "pointLoads": [],
+                "wirePointLoads": [],
+                "damages": [],
+                "wires": [
+                  {
+                    "id": "Wire#1",
+                    "externalId": "5baa86ccf1e8c62551d2c1c1",
+                    "owner": {
+                      "id": "Bob's Cable",
+                      "industry": "COMMUNICATION",
+                      "externalId": "8b576607-0529-40df-a376-09385ae3d637"
+                    },
+                    "clientItemVersion": "3e5a053ab4695f89381a7da008c36e94",
+                    "clientItem": {
+                      "aliases": [],
+                      "size": "1\" CG BHAA BKMH BKMA",
+                      "diameter": {
+                        "unit": "METRE",
+                        "value": 0.10124947758846527
+                      },
+                      "group": "Test Bundle Group",
+                      "autoCalculateDiameter": false,
+                      "source": "CLIENT",
+                      "messenger": {
+                        "size": "1\" CG",
+                        "conductorStrands": 19,
+                        "coreStrands": 0,
+                        "clientItemVersion": "7e7cb6efcd21371461975bef5f930aaa"
+                      },
+                      "bundleComponents": [
+                        {
+                          "size": "BHAA-25",
+                          "clientItemVersion": "ad7ae32283d06d5d901195f4bed8b139"
+                        },
+                        {
+                          "size": "BKMH-25",
+                          "clientItemVersion": "e318c4ba799f6c497cbf8952065ed805"
+                        },
+                        {
+                          "size": "BKMA-50",
+                          "clientItemVersion": "5bf19410199dd41a72c4e23b8ee4e06b"
+                        },
+                        {
+                          "size": "BKMH-1500",
+                          "clientItemVersion": "9711224fdeba888aa1586d86352e2bef"
+                        }
+                      ]
+                    },
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 10.515600000000001
+                    },
+                    "usageGroup": "COMMUNICATION_BUNDLE",
+                    "tensionGroup": "Full",
+                    "midspanHeight": {
+                      "unit": "METRE",
+                      "value": 0
+                    },
+                    "connectedWire": "Wire#2"
+                  },
+                  {
+                    "id": "Wire#2",
+                    "externalId": "5baa86ccf1e8c62551d2c1c2",
+                    "owner": {
+                      "id": "Bob's Cable",
+                      "industry": "COMMUNICATION",
+                      "externalId": "8b576607-0529-40df-a376-09385ae3d637"
+                    },
+                    "clientItemVersion": "3e5a053ab4695f89381a7da008c36e94",
+                    "clientItem": {
+                      "aliases": [],
+                      "size": "1\" CG BHAA BKMH BKMA",
+                      "diameter": {
+                        "unit": "METRE",
+                        "value": 0.10124947758846527
+                      },
+                      "group": "Test Bundle Group",
+                      "autoCalculateDiameter": false,
+                      "source": "CLIENT",
+                      "messenger": {
+                        "size": "1\" CG",
+                        "conductorStrands": 19,
+                        "coreStrands": 0,
+                        "clientItemVersion": "7e7cb6efcd21371461975bef5f930aaa"
+                      },
+                      "bundleComponents": [
+                        {
+                          "size": "BHAA-25",
+                          "clientItemVersion": "ad7ae32283d06d5d901195f4bed8b139"
+                        },
+                        {
+                          "size": "BKMH-25",
+                          "clientItemVersion": "e318c4ba799f6c497cbf8952065ed805"
+                        },
+                        {
+                          "size": "BKMA-50",
+                          "clientItemVersion": "5bf19410199dd41a72c4e23b8ee4e06b"
+                        },
+                        {
+                          "size": "BKMH-1500",
+                          "clientItemVersion": "9711224fdeba888aa1586d86352e2bef"
+                        }
+                      ]
+                    },
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 10.515600000000001
+                    },
+                    "usageGroup": "COMMUNICATION_BUNDLE",
+                    "tensionGroup": "Full",
+                    "midspanHeight": {
+                      "unit": "METRE",
+                      "value": 0
+                    },
+                    "connectedWire": "Wire#1"
+                  }
+                ],
+                "spanGuys": [],
+                "guys": [],
+                "equipments": [],
+                "guyAttachPoints": [],
+                "crossArms": [],
+                "insulators": [],
+                "pushBraces": [],
+                "sidewalkBraces": [],
+                "foundations": [],
+                "assemblies": []
+              },
+              "analysis": [
+                {
+                  "id": "CSA Heavy Two"
+                },
+                {
+                  "id": "GO95, Light, Grade A"
+                },
+                {
+                  "id": "Medium C"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-package com.spidasoftware.schema.conversion.changeset.v5
+package com.spidasoftware.schema.conversion.changeset.v6
 
 import com.fasterxml.jackson.databind.JsonNode
 import com.github.fge.jackson.JsonLoader

@@ -1,7 +1,7 @@
 /*
  * ©2009-2018 SPIDAWEB LLC
  */
-package com.spidasoftware.schema.conversion.changeset.v5
+package com.spidasoftware.schema.conversion.changeset.v6
 
 import spock.lang.Specification
 
