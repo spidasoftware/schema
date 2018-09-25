@@ -33,6 +33,7 @@ class RevertBundleChangeset extends AbstractCalcDesignChangeset {
                 wire.usageGroup = "COMMUNICATION"
                 wire.clientItem.coreStrands = 1
                 wire.clientItem.conductorStrands = 0
+                wire.remove("clientItemVersion")
 
                 bundleProps.each {
                     wire.clientItem.remove(it)
