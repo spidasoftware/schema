@@ -1,3 +1,6 @@
+/*
+ * ©2009-2018 SPIDAWEB LLC
+ */
 package com.spidasoftware.schema.conversion.changeset.v6
 
 import com.spidasoftware.schema.conversion.changeset.ConversionException
