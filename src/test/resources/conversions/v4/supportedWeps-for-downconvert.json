@@ -1,0 +1,271 @@
+{
+  "label": "New Project",
+  "clientFile": "Demo.client",
+  "date": "2018-09-26",
+  "schema": "/schema/spidacalc/calc/project.schema",
+  "version": 6,
+  "engineer": "",
+  "comments": "",
+  "generalLocation": "",
+  "address": {
+    "number": "",
+    "city": "",
+    "street": "",
+    "county": "",
+    "state": "",
+    "zip_code": ""
+  },
+  "userDefinedValues": {},
+  "clientFileVersion": "9ced94f15d5473fbb97a1d8c60211b21",
+  "forms": [
+    {
+      "title": "Project Summary",
+      "template": "9ced94f15d5473fbb97a1d8c60211b21-Project Summary",
+      "fields": {
+        "Work Order #": "",
+        "Total Estimated Cost": "",
+        "Total Estimated Hours": "",
+        "Pole Replacements": "0",
+        "Rearrangements": "0"
+      }
+    }
+  ],
+  "leads": [
+    {
+      "label": "Lead",
+      "locations": [
+        {
+          "label": "Location-09-26-2018-09-23-04-465",
+          "mapNumber": "",
+          "comments": "",
+          "address": {
+            "number": "",
+            "city": "",
+            "street": "",
+            "county": "",
+            "state": "",
+            "zip_code": ""
+          },
+          "technician": "",
+          "crossStreet1": "",
+          "crossStreet2": "",
+          "remedies": [],
+          "poleTags": [],
+          "userDefinedValues": {},
+          "summaryNotes": [],
+          "forms": [],
+          "images": [],
+          "designs": [
+            {
+              "label": "Measured Design",
+              "layerType": "Measured",
+              "structure": {
+                "pole": {
+                  "glc": {
+                    "unit": "METRE",
+                    "value": 0.9477782147652406
+                  },
+                  "agl": {
+                    "unit": "METRE",
+                    "value": 11.734800000000002
+                  },
+                  "autoGLC": true,
+                  "autoAGL": true,
+                  "environment": "NONE",
+                  "temperature": {
+                    "unit": "CELSIUS",
+                    "value": 15.555555555555555
+                  },
+                  "stressRatio": 1.0,
+                  "leanAngle": 0,
+                  "leanDirection": 0,
+                  "clientItemVersion": "ad2b887312a1658a38dc7d654e9abeed",
+                  "clientItem": {
+                    "species": "Southern Pine",
+                    "classOfPole": "3",
+                    "height": {
+                      "unit": "METRE",
+                      "value": 13.716000000000001
+                    }
+                  },
+                  "clientItemAlias": "45-3",
+                  "externalId": "5bab8838f1e87d5c28342756",
+                  "owner": {
+                    "id": "Acme Power",
+                    "industry": "UTILITY",
+                    "externalId": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+                  }
+                },
+                "wireEndPoints": [
+                  {
+                    "id": "WEP#1",
+                    "externalId": "5bab8c97f1e87d5c283427a2",
+                    "distance": {
+                      "unit": "METRE",
+                      "value": 45.720000000000006
+                    },
+                    "direction": 180,
+                    "inclination": {
+                      "unit": "RADIAN",
+                      "value": 0.0
+                    },
+                    "type": "PREVIOUS_POLE",
+                    "comments": "",
+                    "environment": "NONE",
+                    "wires": [
+                      "Wire#1"
+                    ],
+                    "spanGuys": [],
+                    "spanPoints": []
+                  },
+                  {
+                    "id": "WEP#2",
+                    "externalId": "5bab8c97f1e87d5c283427a3",
+                    "distance": {
+                      "unit": "METRE",
+                      "value": 45.720000000000006
+                    },
+                    "direction": 0,
+                    "inclination": {
+                      "unit": "RADIAN",
+                      "value": 0.0
+                    },
+                    "type": "OTHER_POLE",
+                    "comments": "",
+                    "environment": "NONE",
+                    "wires": [
+                      "Wire#2"
+                    ],
+                    "spanGuys": [],
+                    "spanPoints": []
+                  }
+                ],
+                "spanPoints": [],
+                "anchors": [
+                  {
+                    "id": "Anchor#1",
+                    "externalId": "5bab8c90f1e87d5c28342788",
+                    "distance": {
+                      "unit": "METRE",
+                      "value": 4.572
+                    },
+                    "direction": 270,
+                    "owner": {
+                      "id": "Acme Power",
+                      "industry": "UTILITY",
+                      "externalId": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+                    },
+                    "height": {
+                      "unit": "METRE",
+                      "value": 0.0
+                    },
+                    "supportedWEPs": [
+                      "WEP#2",
+                      "WEP#1"
+                    ],
+                    "clientItemVersion": "9475b4f81c6299f0df4609c62576f3d7",
+                    "clientItem": "10\" - 10\" Double Helix (Class 4) 1 1/4\" Rod",
+                    "clientItemAlias": "Anchor",
+                    "guys": [
+                      "Guy#1"
+                    ]
+                  }
+                ],
+                "notePoints": [],
+                "pointLoads": [],
+                "wirePointLoads": [],
+                "damages": [],
+                "wires": [
+                  {
+                    "id": "Wire#1",
+                    "externalId": "5bab8c97f1e87d5c283427a4",
+                    "owner": {
+                      "id": "Acme Power",
+                      "industry": "UTILITY",
+                      "externalId": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+                    },
+                    "clientItemVersion": "1a95b4b4422a3c5823ce5ee4d7705ebd",
+                    "clientItem": {
+                      "size": "1/0 AAAC",
+                      "coreStrands": 0,
+                      "conductorStrands": 7
+                    },
+                    "clientItemAlias": "1/0 AAAC",
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 10.642600000000002
+                    },
+                    "usageGroup": "PRIMARY",
+                    "tensionGroup": "Full",
+                    "midspanHeight": {
+                      "unit": "METRE",
+                      "value": 0.0
+                    },
+                    "connectedWire": "Wire#2"
+                  },
+                  {
+                    "id": "Wire#2",
+                    "externalId": "5bab8c97f1e87d5c283427a5",
+                    "owner": {
+                      "id": "Acme Power",
+                      "industry": "UTILITY",
+                      "externalId": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+                    },
+                    "clientItemVersion": "1a95b4b4422a3c5823ce5ee4d7705ebd",
+                    "clientItem": {
+                      "size": "1/0 AAAC",
+                      "coreStrands": 0,
+                      "conductorStrands": 7
+                    },
+                    "clientItemAlias": "1/0 AAAC",
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 10.642600000000002
+                    },
+                    "usageGroup": "PRIMARY",
+                    "tensionGroup": "Full",
+                    "midspanHeight": {
+                      "unit": "METRE",
+                      "value": 0.0
+                    },
+                    "connectedWire": "Wire#1"
+                  }
+                ],
+                "spanGuys": [],
+                "guys": [
+                  {
+                    "id": "Guy#1",
+                    "externalId": "5bab8c90f1e87d5c28342789",
+                    "owner": {
+                      "id": "Acme Power",
+                      "industry": "UTILITY",
+                      "externalId": "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+                    },
+                    "clientItemVersion": "e762d983f3067879c8dbfed2b9e7f079",
+                    "clientItem": {
+                      "size": "1/4\" EHS",
+                      "coreStrands": 0,
+                      "conductorStrands": 7
+                    },
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 8.559800000000001
+                    }
+                  }
+                ],
+                "equipments": [],
+                "guyAttachPoints": [],
+                "crossArms": [],
+                "insulators": [],
+                "pushBraces": [],
+                "sidewalkBraces": [],
+                "foundations": [],
+                "assemblies": []
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
