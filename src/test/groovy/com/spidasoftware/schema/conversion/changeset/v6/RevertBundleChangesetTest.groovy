@@ -18,6 +18,7 @@ class RevertBundleChangesetTest extends Specification {
 
         def wire = projectJSON.leads[0].locations[0].designs[0].structure.wires[0]
         def originalSize = wire.size
+        def originalTensionGroup = wire.tensionGroup
 
         when:
             def changeset = new RevertBundleChangeset()
@@ -27,6 +28,7 @@ class RevertBundleChangesetTest extends Specification {
             wires.every {
                 it.usageGroup == "COMMUNICATION" &&
                         it.size == originalSize &&
+                        it.tensionGroup == originalTensionGroup &&
                         it.clientItem.coreStrands == 1 &&
                         it.clientItem.conductorStrands == 0 &&
                         it.clientItemVersion == null &&
