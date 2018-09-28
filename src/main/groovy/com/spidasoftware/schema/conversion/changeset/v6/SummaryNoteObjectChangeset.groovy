@@ -1,7 +1,9 @@
-package com.spidasoftware.schema.conversion.changeset.v5
+/*
+ * ©2009-2018 SPIDAWEB LLC
+ */
+package com.spidasoftware.schema.conversion.changeset.v6
 
-import com.fasterxml.jackson.databind.JsonNode
-import com.github.fge.jackson.JsonLoader
+
 import com.spidasoftware.schema.conversion.changeset.ConversionException
 import com.spidasoftware.schema.conversion.changeset.calc.CalcProjectChangeSet
 import groovy.util.logging.Log4j

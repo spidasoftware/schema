@@ -5,7 +5,6 @@ import com.spidasoftware.schema.conversion.changeset.v2.*
 import com.spidasoftware.schema.conversion.changeset.v3.*
 import com.spidasoftware.schema.conversion.changeset.v4.*
 import com.spidasoftware.schema.conversion.changeset.v5.*
-import com.spidasoftware.schema.conversion.changeset.v5.SummaryNoteObjectChangeset
 import com.spidasoftware.schema.conversion.changeset.v6.*
 import groovy.util.logging.Log4j
 
@@ -41,6 +40,7 @@ class ConverterUtils {
             converter.addChangeSet(5, new InputAssemblyDistanceDirectionChangeset())
             converter.addChangeSet(6, new RemoveDetailedResultsChangeset())
             converter.addChangeSet(6, new SummaryNoteObjectChangeset())
+            converter.addChangeSet(6, new RevertBundleChangeset())
             // add calc changesets here
 
             converter.setCurrentVersion(currentVersion)
