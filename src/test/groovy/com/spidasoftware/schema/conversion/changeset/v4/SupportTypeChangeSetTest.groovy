@@ -103,4 +103,15 @@ class SupportTypeChangeSetTest extends Specification {
 		then:
 			structure.anchors.first().supportType == 'Bisector'
 	}
+
+	def "test downconvert when bisecting other weps"() {
+		def leanStream = SupportTypeChangeSetTest.getResourceAsStream("/conversions/v4/supportedWeps-for-downconvert.json")
+		Map projectJSON = new JsonSlurper().parse(leanStream)
+		def changeset = new SupportTypeChangeSet()
+		when: "revert project"
+			changeset.revertProject(projectJSON)
+			def anchor = projectJSON.leads[0].locations[0].designs[0].structure.anchors[0] as Map
+		then:
+			anchor.supportType == "Other"
+	}
 }
