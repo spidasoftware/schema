@@ -2,7 +2,7 @@
   "description": "A component is a combination of an individual item and analysis type i.e. Pole Buckling",
   "type": "object",
   "required": [
-    "id", "poles", "actual", "ratio", "allowable", "failingRatio", "status", "resultsType", "analysisType"
+    "id", "actual", "ratio", "allowable", "failingRatio", "status", "resultsType", "analysisType"
   ],
   "properties": {
     "id": {

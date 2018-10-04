@@ -15,6 +15,7 @@ class RevertBundleChangesetTest extends Specification {
     void "test revert file with bundles"() {
         def leanStream = RevertBundleChangesetTest.getResourceAsStream("/conversions/v6/project-bundles.json".toString())
         Map projectJSON = new JsonSlurper().parse(leanStream)
+        leanStream.close()
 
         def wire = projectJSON.leads[0].locations[0].designs[0].structure.wires[0]
         def originalSize = wire.size
@@ -40,5 +41,14 @@ class RevertBundleChangesetTest extends Specification {
                         it.clientItem.source == null
             }
             new Validator().validateAndReport("/schema/spidacalc/calc/project.schema", projectJSON).isSuccess()
+        when: "design has no structure (empty pole)"
+            leanStream = RevertBundleChangesetTest.getResourceAsStream("/conversions/v6/project-bundles.json".toString())
+            projectJSON = new JsonSlurper().parse(leanStream)
+            leanStream.close()
+            projectJSON.leads[0].locations[0].designs[0].structure = null
+            changeset.revertProject(projectJSON)
+        then:
+            projectJSON != null
+            notThrown(Exception)
     }
 }
