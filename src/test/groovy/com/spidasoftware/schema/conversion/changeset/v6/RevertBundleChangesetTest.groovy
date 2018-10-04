@@ -30,8 +30,8 @@ class RevertBundleChangesetTest extends Specification {
                 it.usageGroup == "COMMUNICATION" &&
                         it.size == originalSize &&
                         it.tensionGroup == originalTensionGroup &&
-                        it.clientItem.coreStrands == 1 &&
-                        it.clientItem.conductorStrands == 0 &&
+                        it.clientItem.coreStrands == 0 &&
+                        it.clientItem.conductorStrands == 1 &&
                         it.clientItemVersion == null &&
                         it.clientItem.bundleComponents == null &&
                         it.clientItem.messenger == null &&
