@@ -34,8 +34,8 @@ class RevertBundleChangeset extends AbstractCalcDesignChangeset {
         designJSON.structure?.wires?.each { Map wire ->
             if (wire.usageGroup == "COMMUNICATION_BUNDLE") {
                 wire.usageGroup = "COMMUNICATION"
-                wire.clientItem.coreStrands = 1
-                wire.clientItem.conductorStrands = 0
+                wire.clientItem.coreStrands = 0
+                wire.clientItem.conductorStrands = 1
                 wire.remove("clientItemVersion")
 
                 bundleProps.each {
