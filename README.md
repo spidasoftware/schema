@@ -34,6 +34,7 @@ Products
 
 ### SPIDAcalc
 Desktop pole modeling and loading analysis software.
+- [2018 Getting Started Video](https://youtu.be/xh1BTeFA19c)
 - [Developer Guide](doc/calc.md)
 - [Schema](resources/schema/spidacalc)
 - [Examples](resources/examples/spidacalc)
