@@ -41,6 +41,7 @@ class ConverterUtils {
             converter.addChangeSet(6, new RemoveDetailedResultsChangeset())
             converter.addChangeSet(6, new SummaryNoteObjectChangeset())
             converter.addChangeSet(6, new RevertBundleChangeset())
+			converter.addChangeSet(6, new RemoveTensionResultsChangeset())
             // add calc changesets here
 
             converter.setCurrentVersion(currentVersion)
