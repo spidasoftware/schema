@@ -59,7 +59,6 @@
     },
     "bundleComponents": {
       "type": "array",
-      "minItems": 1,
       "items": {
         "type": "object",
         "description": "Use size or version hash or an alias.",
