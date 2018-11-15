@@ -210,4 +210,29 @@ class CalcSchemaTest extends GroovyTestCase {
 		report.each{ log.info "testNoResultsValidation validation report "+it.toString() }
 		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
 	}
+
+	void testBundleWithNoComponents() {
+		def schema = factory.getJsonSchema("schema/spidacalc/client/bundle.schema")
+		String json = """{
+              "aliases" : [ ],
+              "size" : "1/4\\" EHS",
+              "diameter" : {
+                "unit" : "METRE",
+                "value" : 0.006350000000000001
+              },
+              "group" : "Quick Bundles",
+              "autoCalculateDiameter" : true,
+              "source" : "PROJECT",
+              "messenger" : {
+                "size" : "1/4\\" EHS",
+                "conductorStrands" : 7,
+                "coreStrands" : 0,
+                "clientItemVersion" : "f298beaf2855b35370db33afcb214745"
+              },
+              "bundleComponents" : [ ]
+            }"""
+		report = schema.validate(JsonLoader.fromString(json))
+		report.each{ log.info "'bundle with no components' validation report "+it.toString() }
+		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
+	}
 }
