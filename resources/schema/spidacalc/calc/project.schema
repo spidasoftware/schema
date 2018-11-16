@@ -47,6 +47,30 @@
     "address": {
       "$ref": "../../general/address.schema"
     },
+    "requiredGroundClearanceAtPole": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "requiredCommToUtilityAtPole": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "requiredGroundClearanceAtMidspan": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "requiredCommToUtilityAtMidspan": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "requiredCommToStreetLight": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "requiredCommToStreetLightDripLoop": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "calculateSagToDetermineMidspanClearances": {
+      "type": "boolean"
+    },
+    "includeGuysInClearanceCalculations": {
+      "type": "boolean"
+    },
     "comments": {
       "type": "string",
       "description": "Any comments about the project."
@@ -62,6 +86,24 @@
       "items": {
         "$ref": "../../general/form.schema"
       }
+    },
+    "defaultLocationForms": {
+      "type": "array",
+      "description": "An optional array of default Location forms.",
+      "items": {
+        "$ref": "../../general/form.schema"
+      }
+    },
+    "defaultLoadCases": {
+      "type": "array",
+      "description": "An optional array of default Load Cases",
+      "items": {
+        "$ref": "../client/load_case.schema"
+      }
+    },
+    "defaultStrengthCase": {
+      "description": "An optional default Strength Case",
+      "$ref": "../client/strength_case.schema"
     },
     "leads": {
       "type": "array",
