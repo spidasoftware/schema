@@ -21,6 +21,12 @@
       "description": "The form must be completed for the project level status to advance.  If this form is on a project this can only be PROJECT.  All required fields on the form must be completed for the project status to advance.  If this form is on a station then it can be PROJECT or STATION.  If on a station and set to PROJECT then all required fields on the form must be completed for the project status to advance.  If on a station and set to STATION then all required fields on the form must be completed for the station status to advance.  This field is read only and cannot be updated through API calls.",
       "enum": ["PROJECT", "STATION"]
     },
+    "fieldDefinitions": {
+      "description": "todo",
+      "type": "array",
+      "properties": {},
+      "additionalProperties": true
+    },
     "fields": {
       "type": "object",
       "description": "all of the data fields in the custom form",
