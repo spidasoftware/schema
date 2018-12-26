@@ -24,8 +24,33 @@
     "fieldDefinitions": {
       "description": "todo",
       "type": "array",
-      "properties": {},
-      "additionalProperties": true
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "description": "the field's name"
+          },
+          "elementName": {
+            "type": "string",
+            "description": "the field's type"
+          },
+          "inputChoices": {
+            "type": "array",
+            "description": "The string values that are valid for this field.  Required for choice fields, ignored for simple and container fields."
+          },
+          "defaultValue": {
+            "type": "string",
+            "description": "The default value for this field.  Must be one of the values in inputChoices.  Required for choice fields, ignored for simple and container fields."
+          },
+          "fieldDefinitions": {
+            "type": "array",
+            "description": "The definitions of the fields that make up this container field.  Required for container fields, ignored for simple and choice fields."
+          }
+        },
+        "required": ["label", "elementName"],
+        "additionalProperties": true
+      }
     },
     "fields": {
       "type": "object",
