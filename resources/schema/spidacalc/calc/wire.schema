@@ -44,7 +44,7 @@
     },
     "attachmentHeight": {
       "$ref": "../../general/measurable.schema",
-      "description": "Height at the which the wire is attached to the pole."
+      "description": "Height at the which the wire is attached to the pole or insulator."
     },
     "usageGroup": {
       "$ref": "../../spidacalc/calc/enums/usage_group.schema"

@@ -639,13 +639,16 @@
           "id",
           "owner",
           "doubleInsulator",
-          "direction",
-          "offset"
+          "direction"
         ],
         "anyOf":[
           {"required":["clientItem"]},
           {"required":["clientItemVersion"]},
           {"required":["clientItemAlias"]}
+        ],
+        "oneOf":[
+            "attachmentHeight",
+            "offset"
         ],
         "additionalProperties": false,
         "properties": {
@@ -660,9 +663,13 @@
           "owner": {
             "$ref": "../../general/owner.schema"
           },
+          "attachmentHeight": {
+            "$ref": "../../general/measurable.schema",
+             "description": "Height at the which the wire is attached to the pole or cross arm."
+          },
           "offset": {
             "$ref": "../../general/measurable.schema",
-            "description": "If insulator is on a pole, then offest is the attach height.  If insulator is on a cross arm, then offset is the distance from one end of the cross arm."
+            "description": "If insulator is on a pole, then offest is null.  If insulator is on a cross arm, then offset is the distance from one end of the cross arm."
           },
           "direction": {
             "$ref": "../../general/bearing.schema"
