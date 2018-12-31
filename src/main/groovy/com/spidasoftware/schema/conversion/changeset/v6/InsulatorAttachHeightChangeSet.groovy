@@ -24,7 +24,6 @@ class InsulatorAttachHeightChangeSet extends AbstractCalcDesignChangeset {
 				insulatorWithCrossArmParentId.addAll(crossArm.get("insulators"))
 			}
 		}
-
 		design.get("structure")?.get("insulators")?.each { insulator ->
 			if (!insulatorWithCrossArmParentId.contains(insulator.get("id"))) {
 				insulator.put("attachmentHeight", insulator.get("offset"))

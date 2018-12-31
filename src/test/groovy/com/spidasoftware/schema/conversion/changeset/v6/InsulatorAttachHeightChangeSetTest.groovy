@@ -1,33 +1,87 @@
 package com.spidasoftware.schema.conversion.changeset.v6
 
-import com.spidasoftware.schema.validation.Validator
+import com.spidasoftware.schema.conversion.changeset.calc.CalcProjectChangeSet
 import groovy.json.JsonSlurper
 import spock.lang.Specification
 
 class InsulatorAttachHeightChangeSetTest extends Specification {
 
-	void "test revert file with wire tension"() {
-		def leanStream = RevertBundleChangesetTest.getResourceAsStream("/conversions/v6/wire-tension.json".toString())
-		Map projectJSON = new JsonSlurper().parse(leanStream)
-		leanStream.close()
+	def "apply and revert"() {
+		setup:
+			def stream = InsulatorAttachHeightChangeSetTest.getResourceAsStream("/conversions/v6/insulator-attach-height.json")
+			Map projectJSON = new JsonSlurper().parse(stream)
+			Map locationJSON = CalcProjectChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0])
+			Map designJSON = CalcProjectChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0].designs[0])
+			com.spidasoftware.schema.conversion.changeset.v6.InsulatorAttachHeightChangeSet changeSet = new com.spidasoftware.schema.conversion.changeset.v6.InsulatorAttachHeightChangeSet()
 
+			def structure = projectJSON.leads[0].locations[0].designs[0].structure
+			assert structure.insulators[0].offset.unit == "METRE"
+			assert structure.insulators[0].offset.value == 7.62
 
-		def designs = projectJSON.leads[0].locations*.designs.flatten()
-		expect:
-		designs[0].analysis[0].results.size() == 12
-		designs[0].analysis[0].results[11].analysisType == "TENSION"
-
-		when:
-		def changeset = new RemoveTensionResultsChangeset()
-		changeset.revertProject(projectJSON)
-		def firstResults = projectJSON.leads[0].locations[0].designs[0].analysis[0].results
+		when: "applyToProject"
+			changeSet.applyToProject(projectJSON)
+			structure = projectJSON.leads[0].locations[0].designs[0].structure
 		then:
-		!designs*.analysis.flatten().any { analysis ->
-			analysis.results?.any { result ->
-				result.analysisType == "TENSION"
-			}
-		}
+			structure.insulators[0].offset == null
+			structure.insulators[0].attachmentHeight.unit == "METRE"
+			structure.insulators[0].attachmentHeight.value == 7.62
+			structure.insulators[1].attachmentHeight == null
+			structure.insulators[1].offset.unit == "METRE"
+			structure.insulators[1].offset.value == 0.10160000000000001
 
-		firstResults.size() == 11
+		when: "revertProject"
+			changeSet.revertProject(projectJSON)
+			structure = projectJSON.leads[0].locations[0].designs[0].structure
+		then:
+			structure.insulators[0].offset == null
+			structure.insulators[0].offset.unit == "METRE"
+			structure.insulators[0].offset.value == 7.62
+			structure.insulators[1].attachmentHeight == null
+			structure.insulators[1].offset.unit == "METRE"
+			structure.insulators[1].offset.value == 0.10160000000000001
+
+		when: "applyToLocation"
+			changeSet.applyToLocation(locationJSON)
+			structure = locationJSON.designs[0].structure
+		then:
+			structure.insulators[0].offset == null
+			structure.insulators[0].attachmentHeight.unit == "METRE"
+			structure.insulators[0].attachmentHeight.value == 7.62
+			structure.insulators[1].attachmentHeight == null
+			structure.insulators[1].offset.unit == "METRE"
+			structure.insulators[1].offset.value == 0.10160000000000001
+
+		when: "revertLocation"
+			changeSet.revertLocation(locationJSON)
+			structure = locationJSON.designs[0].structure
+		then:
+			structure.insulators[0].offset == null
+			structure.insulators[0].offset.unit == "METRE"
+			structure.insulators[0].offset.value == 7.62
+			structure.insulators[1].attachmentHeight == null
+			structure.insulators[1].offset.unit == "METRE"
+			structure.insulators[1].offset.value == 0.10160000000000001
+
+		when: "applyToDesign"
+			changeSet.applyToDesign(designJSON)
+			structure = designJSON.structure
+		then:
+			structure.insulators[0].offset == null
+			structure.insulators[0].attachmentHeight.unit == "METRE"
+			structure.insulators[0].attachmentHeight.value == 7.62
+			structure.insulators[1].attachmentHeight == null
+			structure.insulators[1].offset.unit == "METRE"
+			structure.insulators[1].offset.value == 0.10160000000000001
+
+		when: "revertDesign"
+			changeSet.revertDesign(designJSON)
+			structure = designJSON.structure
+		then:
+			structure.insulators[0].offset == null
+			structure.insulators[0].offset.unit == "METRE"
+			structure.insulators[0].offset.value == 7.62
+			structure.insulators[1].attachmentHeight == null
+			structure.insulators[1].offset.unit == "METRE"
+			structure.insulators[1].offset.value == 0.10160000000000001
 	}
 }
