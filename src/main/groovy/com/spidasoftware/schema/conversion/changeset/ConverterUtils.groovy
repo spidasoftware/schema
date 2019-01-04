@@ -6,7 +6,7 @@ import com.spidasoftware.schema.conversion.changeset.v3.*
 import com.spidasoftware.schema.conversion.changeset.v4.*
 import com.spidasoftware.schema.conversion.changeset.v5.*
 import com.spidasoftware.schema.conversion.changeset.v6.*
-import com.spidasoftware.schema.conversion.changeset.v7.InsulatorAttachHeightAgainChangeSet
+import com.spidasoftware.schema.conversion.changeset.v7.*
 import groovy.util.logging.Log4j
 
 @Log4j
@@ -42,7 +42,7 @@ class ConverterUtils {
             converter.addChangeSet(6, new RemoveDetailedResultsChangeset())
             converter.addChangeSet(6, new SummaryNoteObjectChangeset())
             converter.addChangeSet(6, new RevertBundleChangeset())
-			converter.addChangeSet(6, new RemoveTensionResultsChangeset())
+            converter.addChangeSet(6, new RemoveTensionResultsChangeset())
             converter.addChangeSet(7, new InsulatorAttachHeightAgainChangeSet())
             // add calc changesets here
 

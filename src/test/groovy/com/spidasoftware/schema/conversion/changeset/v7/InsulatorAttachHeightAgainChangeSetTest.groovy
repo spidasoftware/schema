@@ -12,8 +12,7 @@ class InsulatorAttachHeightAgainChangeSetTest extends Specification {
 			Map projectJSON = new JsonSlurper().parse(stream)
 			Map locationJSON = CalcProjectChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0])
 			Map designJSON = CalcProjectChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0].designs[0])
-		InsulatorAttachHeightAgainChangeSet changeSet = new InsulatorAttachHeightAgainChangeSet()
-
+			InsulatorAttachHeightAgainChangeSet changeSet = new InsulatorAttachHeightAgainChangeSet()
 			def structure = projectJSON.leads[0].locations[0].designs[0].structure
 			assert structure.insulators[0].offset.unit == "METRE"
 			assert structure.insulators[0].offset.value == 7.62
