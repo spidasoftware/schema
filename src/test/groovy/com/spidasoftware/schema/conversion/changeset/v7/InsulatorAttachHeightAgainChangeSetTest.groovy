@@ -1,18 +1,18 @@
-package com.spidasoftware.schema.conversion.changeset.v6
+package com.spidasoftware.schema.conversion.changeset.v7
 
 import com.spidasoftware.schema.conversion.changeset.calc.CalcProjectChangeSet
 import groovy.json.JsonSlurper
 import spock.lang.Specification
 
-class InsulatorAttachHeightChangeSetTest extends Specification {
+class InsulatorAttachHeightAgainChangeSetTest extends Specification {
 
 	def "apply and revert"() {
 		setup:
-			def stream = InsulatorAttachHeightChangeSetTest.getResourceAsStream("/conversions/v6/insulator-attach-height.json")
+			def stream = InsulatorAttachHeightAgainChangeSetTest.getResourceAsStream("/conversions/v6/insulator-attach-height.json")
 			Map projectJSON = new JsonSlurper().parse(stream)
 			Map locationJSON = CalcProjectChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0])
 			Map designJSON = CalcProjectChangeSet.duplicateAsJson(projectJSON.leads[0].locations[0].designs[0])
-			com.spidasoftware.schema.conversion.changeset.v6.InsulatorAttachHeightChangeSet changeSet = new com.spidasoftware.schema.conversion.changeset.v6.InsulatorAttachHeightChangeSet()
+		InsulatorAttachHeightAgainChangeSet changeSet = new InsulatorAttachHeightAgainChangeSet()
 
 			def structure = projectJSON.leads[0].locations[0].designs[0].structure
 			assert structure.insulators[0].offset.unit == "METRE"
@@ -33,7 +33,7 @@ class InsulatorAttachHeightChangeSetTest extends Specification {
 			changeSet.revertProject(projectJSON)
 			structure = projectJSON.leads[0].locations[0].designs[0].structure
 		then:
-			structure.insulators[0].offset == null
+			structure.insulators[0].attachmentHeight == null
 			structure.insulators[0].offset.unit == "METRE"
 			structure.insulators[0].offset.value == 7.62
 			structure.insulators[1].attachmentHeight == null
@@ -55,7 +55,7 @@ class InsulatorAttachHeightChangeSetTest extends Specification {
 			changeSet.revertLocation(locationJSON)
 			structure = locationJSON.designs[0].structure
 		then:
-			structure.insulators[0].offset == null
+			structure.insulators[0].attachmentHeight == null
 			structure.insulators[0].offset.unit == "METRE"
 			structure.insulators[0].offset.value == 7.62
 			structure.insulators[1].attachmentHeight == null
@@ -77,7 +77,7 @@ class InsulatorAttachHeightChangeSetTest extends Specification {
 			changeSet.revertDesign(designJSON)
 			structure = designJSON.structure
 		then:
-			structure.insulators[0].offset == null
+			structure.insulators[0].attachmentHeight == null
 			structure.insulators[0].offset.unit == "METRE"
 			structure.insulators[0].offset.value == 7.62
 			structure.insulators[1].attachmentHeight == null

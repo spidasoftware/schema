@@ -647,8 +647,8 @@
           {"required":["clientItemAlias"]}
         ],
         "oneOf":[
-            "attachmentHeight",
-            "offset"
+            {"required":["attachmentHeight"]},
+            {"required":["offset"]}
         ],
         "additionalProperties": false,
         "properties": {
