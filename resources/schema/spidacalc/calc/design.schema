@@ -96,6 +96,17 @@
             },
             "type": "array"
         },
+        "loadCases": {
+          "type": "array",
+          "items": [
+            {
+              "$ref": "../client/load_case.schema"
+            }
+          ]
+        },
+        "strengthCase": {
+          "$ref": "../client/strength_case.schema"
+        },
         "geographicCoordinate": {
             "$ref": "../../general/geometry.schema"
         },
