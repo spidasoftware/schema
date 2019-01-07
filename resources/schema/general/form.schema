@@ -22,7 +22,7 @@
       "enum": ["PROJECT", "STATION"]
     },
     "fieldDefinitions": {
-      "description": "todo",
+      "description": "the name and type of each field in the form",
       "type": "array",
       "items": {
         "type": "object",
