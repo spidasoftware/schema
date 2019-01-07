@@ -97,6 +97,7 @@
             "type": "array"
         },
         "loadCases": {
+          "description": "the load cases applied to the design",
           "type": "array",
           "items": [
             {
@@ -105,6 +106,7 @@
           ]
         },
         "strengthCase": {
+          "description": "the strength case applied to the design",
           "$ref": "../client/strength_case.schema"
         },
         "geographicCoordinate": {
