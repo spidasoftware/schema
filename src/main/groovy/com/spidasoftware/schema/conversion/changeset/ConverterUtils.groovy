@@ -11,7 +11,7 @@ import groovy.util.logging.Log4j
 @Log4j
 class ConverterUtils {
 
-    static final int currentVersion = 6  // todo
+    static final int currentVersion = 7
 
     static {
         Closure addConverter = { AbstractConverter converter ->
