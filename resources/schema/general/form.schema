@@ -27,11 +27,11 @@
       "items": {
         "type": "object",
         "properties": {
-          "label": {
+          "fieldName": {
             "type": "string",
             "description": "the field's name"
           },
-          "elementName": {
+          "fieldType": {
             "type": "string",
             "description": "the field's type"
           },
@@ -48,7 +48,7 @@
             "description": "The definitions of the fields that make up this container field.  Required for container fields, ignored for simple and choice fields."
           }
         },
-        "required": ["label", "elementName"],
+        "required": ["fieldName", "fieldType"],
         "additionalProperties": true
       }
     },
