@@ -47,29 +47,35 @@
     "address": {
       "$ref": "../../general/address.schema"
     },
-    "requiredGroundClearanceAtPole": {
-      "$ref": "../../general/measurable.schema"
-    },
-    "requiredCommToUtilityAtPole": {
-      "$ref": "../../general/measurable.schema"
-    },
-    "requiredGroundClearanceAtMidspan": {
-      "$ref": "../../general/measurable.schema"
-    },
-    "requiredCommToUtilityAtMidspan": {
-      "$ref": "../../general/measurable.schema"
-    },
-    "requiredCommToStreetLight": {
-      "$ref": "../../general/measurable.schema"
-    },
-    "requiredCommToStreetLightDripLoop": {
-      "$ref": "../../general/measurable.schema"
-    },
-    "calculateSagToDetermineMidspanClearances": {
-      "type": "boolean"
-    },
-    "includeGuysInClearanceCalculations": {
-      "type": "boolean"
+    "clearanceSettings": {
+      "type": "object",
+      "properties": {
+        "requiredGroundClearanceAtPole": {
+          "$ref": "../../general/measurable.schema"
+        },
+        "requiredCommToUtilityAtPole": {
+          "$ref": "../../general/measurable.schema"
+        },
+        "requiredGroundClearanceAtMidspan": {
+          "$ref": "../../general/measurable.schema"
+        },
+        "requiredCommToUtilityAtMidspan": {
+          "$ref": "../../general/measurable.schema"
+        },
+        "requiredCommToStreetLight": {
+          "$ref": "../../general/measurable.schema"
+        },
+        "requiredCommToStreetLightDripLoop": {
+          "$ref": "../../general/measurable.schema"
+        },
+        "calculateSagToDetermineMidspanClearances": {
+          "type": "boolean"
+        },
+        "includeGuysInClearanceCalculations": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": true
     },
     "comments": {
       "type": "string",
