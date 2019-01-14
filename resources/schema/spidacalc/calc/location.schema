@@ -175,6 +175,7 @@
             "type": "object"
         },
         "photosToBeAssigned": {
+          "description": "the number and direction of photos that have not yet been assigned to this location",
           "type": "array",
           "items": {
             "type": "object",
