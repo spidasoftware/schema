@@ -1,4 +1,66 @@
 {
+  "definitions": {
+    "simpleField": {
+      "type": "object",
+      "properties": {
+        "fieldName": {
+          "type": "string",
+          "description": "the field's name"
+        },
+        "fieldType": {
+          "type": "string",
+          "description": "The field's type.  One of:  customTextField, customTextArea, customCheckBox, customSpinner, customFootInchField, customCalendarField"
+        }
+      },
+      "required": ["fieldName", "fieldType"]
+    },
+    "choicesField": {
+      "type": "object",
+      "properties": {
+        "fieldName": {
+          "type": "string",
+          "description": "the field's name"
+        },
+        "fieldType": {
+          "type": "string",
+          "description": "The field's type. One of:  customRadioButtons, customDropDown, customListSelection"
+        },
+        "inputChoices": {
+          "type": "array",
+          "description": "The string values that are valid for this field."
+        },
+        "defaultValue": {
+          "type": "string",
+          "description": "The default value for this field.  Must be one of the values in inputChoices."
+        }
+      },
+      "required": ["fieldName", "fieldType", "inputChoices", "defaultValue"]
+    },
+    "containerField": {
+      "properties": {
+        "fieldName": {
+          "type": "string",
+          "description": "the field's name"
+        },
+        "fieldType": {
+          "type": "string",
+          "description": "The field's type.  One of:  customGroup, customTabbedPane, customTable"
+        },
+        "fieldDefinitions": {
+          "type": "array",
+          "description": "The definitions of the fields that make up this container field.",
+          "items": {
+            "anyOf": [
+              { "$ref": "#/definitions/simpleField" },
+              { "$ref": "#/definitions/choicesField" }
+            ]
+          }
+        }
+      },
+      "required": ["fieldName", "fieldType", "fieldDefinitions"]
+    }
+  },
+
   "id": "#/general/form.schema",
   "type": "object",
   "description": "Either a Location or a Project form, with field and values stored as <fieldName>: <value>",
@@ -25,31 +87,11 @@
       "description": "the name and type of each field in the form",
       "type": "array",
       "items": {
-        "type": "object",
-        "properties": {
-          "fieldName": {
-            "type": "string",
-            "description": "the field's name"
-          },
-          "fieldType": {
-            "type": "string",
-            "description": "the field's type"
-          },
-          "inputChoices": {
-            "type": "array",
-            "description": "The string values that are valid for this field.  Required for choice fields, ignored for simple and container fields."
-          },
-          "defaultValue": {
-            "type": "string",
-            "description": "The default value for this field.  Must be one of the values in inputChoices.  Required for choice fields, ignored for simple and container fields."
-          },
-          "fieldDefinitions": {
-            "type": "array",
-            "description": "The definitions of the fields that make up this container field.  Required for container fields, ignored for simple and choice fields."
-          }
-        },
-        "required": ["fieldName", "fieldType"],
-        "additionalProperties": true
+        "anyOf": [
+          { "$ref": "#/definitions/simpleField" },
+          { "$ref": "#/definitions/choicesField" },
+          { "$ref": "#/definitions/containerField" }
+        ]
       }
     },
     "fields": {
