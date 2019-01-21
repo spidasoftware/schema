@@ -4,7 +4,6 @@
   "firstName": "John",
   "lastName": "Doe",
   "email": "john.doe@bobscable.com",
-  "apiToken": "37196c53-083f-49fb-a437-f17b42609a06",
   "company": {
     "id": 1,
     "name": "Bob's Cable"
