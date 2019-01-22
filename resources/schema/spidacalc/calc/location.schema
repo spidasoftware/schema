@@ -88,35 +88,35 @@
                             "id": {
                                 "type": "string",
                                 "description": "This is a database ID for the photo in the service."
-                            },
-                            "sceneInfo": {
-                              "type": "object",
-                              "required": [
-                                "topOfPole",
-                                "bottomOfPole",
-                                "topOfReference",
-                                "bottomOfReference",
-                                "referenceHeight"
-                              ],
-                              "properties": {
-                                "topOfPole": {
-                                  "$ref": "../../general/point2d.schema"
-                                },
-                                "bottomOfPole": {
-                                  "$ref": "../../general/point2d.schema"
-                                },
-                                "topOfReference": {
-                                  "$ref": "../../general/point2d.schema"
-                                },
-                                "bottomOfReference": {
-                                  "$ref": "../../general/point2d.schema"
-                                },
-                                "referenceHeight": {
-                                  "$ref": "../../general/measurable.schema"
-                                }
-                              }
                             }
                         }
+                    },
+                    "sceneInfo": {
+                      "type": "object",
+                      "required": [
+                        "topOfPole",
+                        "bottomOfPole",
+                        "topOfReference",
+                        "bottomOfReference",
+                        "referenceHeight"
+                      ],
+                      "properties": {
+                        "topOfPole": {
+                          "$ref": "../../general/point2d.schema"
+                        },
+                        "bottomOfPole": {
+                          "$ref": "../../general/point2d.schema"
+                        },
+                        "topOfReference": {
+                          "$ref": "../../general/point2d.schema"
+                        },
+                        "bottomOfReference": {
+                          "$ref": "../../general/point2d.schema"
+                        },
+                        "referenceHeight": {
+                          "$ref": "../../general/measurable.schema"
+                        }
+                      }
                     }
                 },
                 "type": "object"
