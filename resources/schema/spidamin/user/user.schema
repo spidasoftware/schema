@@ -41,12 +41,6 @@
       "$ref": "../../spidamin/user/company.schema",
       "description": "The user's home company.  Required for creating.  When creating a user, set the id or name."
     },
-    "apiToken": {
-      "type": "string",
-      "description": "The user's generated API Token.  Read-Only.  Ignored when creating.",
-      "minLength": 1,
-      "maxLength": 50
-    },
     "roles": {
       "items": {
         "type": "string"
