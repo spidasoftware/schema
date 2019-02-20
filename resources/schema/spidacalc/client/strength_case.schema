@@ -15,6 +15,10 @@
       "description": "the id of this result",
       "type": "string"
     },
+    "type": {
+      "type": "string",
+      "description": "The strength case type.  One of:  strengthCase, defaultStrengthCase, zoneStrengthCase, extremeStrengthCase, go95ABStrengthCase, go95CFStrengthCase, csaStrengthCase."
+    },
     "name": {
       "type": "string"
     },
