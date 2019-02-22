@@ -72,6 +72,10 @@
                         "description": "the direction string that the photo was taken in",
                         "type": "string"
                     },
+                    "originalFilePath": {
+                      "type": "string",
+                      "description": "the full path to the original photo file"
+                    },
                     "link": {
                         "description":"link to the source of the photo along with the id for that source. NOTE: this is only to be used with SpidaDB, Calc will currently ignore the link.",
                         "type": "object",
