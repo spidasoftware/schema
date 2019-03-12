@@ -16,6 +16,29 @@
       "type": "array",
       "id": "coordinates",
       "description": "Point coordinates are in x, y order (longitude, latitude for geographic coordinates)."
+    },
+    "properties": {
+      "type": "object",
+      "description": "data about the quality of the coordinates",
+      "properties": {
+        "time": {
+          "type": "string",
+          "description": "Geometry acquisition time.  yyyy-MM-dd'T'HH:mm:ss.SSSXXX"
+        },
+        "hdop": {
+          "type": "number",
+          "description": "horizontal dilution of precision"
+        },
+        "vdop": {
+          "type": "number",
+          "description": "vertical dilution of precision"
+        },
+        "quality": {
+          "type": "string",
+          "description": "GPS quality.  Typically one of 'NO FIX', 'GPS', 'WAAS'."
+        }
+      },
+      "required": ["time"]
     }
   }
 }
