@@ -54,7 +54,7 @@
       "$ref": "../../general/measurable.schema"
     },
     "stressRatio": {
-      "description": "Defaults to 1. Any additional strength reduction in this specific pole beyond that specified by load cases.",
+      "description": "Defaults to 1. Any additional strength reduction in this specific pole beyond that specified by load cases. This is called Capacity Adjustment in the UI.",
       "type": "number"
     },
     "clientItem": {
