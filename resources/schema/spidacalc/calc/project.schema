@@ -141,6 +141,10 @@
           }
         }
       }
+    },
+    "clientData": {
+      "description": "the client items in use in the project",
+      "$ref": "../client/data.schema"
     }
   }
 }
