@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "id": "#/spidacalc/client/note.schema",
+    "description": "Remedy notes in a client file. Can be added to Locations.",
+    "required": [
+        "type",
+        "note"
+    ],
+    "properties": {
+        "type": {
+            "enum": [
+                "SUMMARY",
+                "POINT"
+            ]
+        },
+        "note": {
+            "description": "Note String",
+            "type": "string"
+        }     
+    }
+}

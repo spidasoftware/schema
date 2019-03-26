@@ -1,0 +1,63 @@
+{
+  "description": "Design layer(s) for a location",
+  "id": "#/spidacalc/client/design_layer.schema",
+  "type": "object",
+  "required": [
+    "name",
+    "reportItems",
+  ],
+  "properties": {
+      "name": {
+            "description": "A Name for the custom report",
+            "type": "string"
+      },
+      "reportItems": {
+            "description": "A list of custom fields",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "description": "Report items needed to create a custom report",
+                "required": [
+                    "name",
+                    "value"
+                ],
+                "properties": {
+                    "name": {
+                        "description": "A name for the design layer",
+                        "type": "string"
+                        "enum": [
+                            "TITLE_PAGE",
+                            "PROJECT_FORMS",
+                            "PROJECT_ANALYSIS_SUMMARY",
+                            "LOCATION_PROPERTIES",
+                            "LOCATION_PHOTOS",
+                            "LOCATION_FORMS",
+                            "DESIGN_PROPERTIES",
+                            "DESIGN_TOP_AND_SIDE_VIEWS",
+                            "DESIGN_THREE_DIMENSIONAL_VIEW",
+                            "DESIGN_LOAD_CASE_PROPERTIES",
+                            "DESIGN_WARNINGS",
+                            "DESIGN_LOADING_RESULTS_SUMMARY",
+                            "DESIGN_STRENGTH_RESULTS",
+                            "DESIGN_LOADING_RESULTS_GRAPHS",
+                            "DESIGN_LOADING_RESULTS_DETAILED",
+                            "DESIGN_BUCKLING_RESULTS",
+                            "DESIGN_DEFLECTION_RESULTS",
+                            "DESIGN_FOUNDATION_RESULTS",
+                            "DESIGN_CLEARANCE_RESULTS",
+                            "DESIGN_ATTACHMENTS",
+                            "DESIGN_DAMAGES",
+                            "ENGINEERING_APPENDIX",
+                            "LOAD_CASE_APPENDIX",
+                            "STRENGTH_CASE_APPENDIX",
+                            "CLEARANCE_APPENDIX"
+                        ]
+                    },
+                    "value": {
+                        "type": "boolean"
+                    }
+                }
+            }
+      }
+  }
+}
