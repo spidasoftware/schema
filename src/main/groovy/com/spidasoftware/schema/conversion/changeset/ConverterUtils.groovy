@@ -1,56 +1,67 @@
 package com.spidasoftware.schema.conversion.changeset
 
 import com.spidasoftware.schema.conversion.changeset.calc.*
+import com.spidasoftware.schema.conversion.changeset.client.ClientDataConverter
 import com.spidasoftware.schema.conversion.changeset.v2.*
 import com.spidasoftware.schema.conversion.changeset.v3.*
 import com.spidasoftware.schema.conversion.changeset.v4.*
 import com.spidasoftware.schema.conversion.changeset.v5.*
 import com.spidasoftware.schema.conversion.changeset.v6.*
+import groovy.transform.CompileStatic
 import groovy.util.logging.Log4j
 
 @Log4j
+@CompileStatic
 class ConverterUtils {
 
     static final int currentVersion = 6
 
     static {
-        Closure addConverter = { AbstractConverter converter ->
-            converter.addChangeSet(2, new PoleLeanChangeSet())
-            converter.addChangeSet(2, new FoundationChangeSet())
-            converter.addChangeSet(3, new WEPEnvironmentChangeSet())
-            converter.addChangeSet(4, new AnalysisTypeChangeSet())
-            converter.addChangeSet(4, new SpanGuyTypeChangeSet())
-            converter.addChangeSet(4, new PhotoDirectionChangeSet())
-            converter.addChangeSet(4, new SupportTypeChangeSet())
-            converter.addChangeSet(4, new InsulatorAttachHeightChangeSet())
-            converter.addChangeSet(4, new ConnectivityChangeSet())
-            converter.addChangeSet(4, new MapLocationChangeSet())
-            converter.addChangeSet(4, new AssembliesChangeSet())
-            converter.addChangeSet(4, new DetailedResultsChangeset())
-            converter.addChangeSet(4, new ClientItemVersionChangeSet())
-            converter.addChangeSet(4, new PoleTemperatureChangeset())
-            converter.addChangeSet(4, new WEPInclinationChangeSet())
-            converter.addChangeSet(4, new WireEndPointPlacementChangeSet())
-            converter.addChangeSet(4, new RemoveSchemaAndVersionChangeSet())
-            converter.addChangeSet(4, new PointLoadItemChangeSet())
-            converter.addChangeSet(4, new GuyAttachPointChangeSet())
-            converter.addChangeSet(4, new DesignLayerChangeSet())
-            converter.addChangeSet(4, new DamageRsmChangeSet())
-            converter.addChangeSet(5, new RemoveAdditionalPropertiesChangeset())
-            converter.addChangeSet(5, new InputAssemblyDistanceDirectionChangeset())
-            converter.addChangeSet(6, new RemoveDetailedResultsChangeset())
-            converter.addChangeSet(6, new SummaryNoteObjectChangeset())
-            converter.addChangeSet(6, new RevertBundleChangeset())
-			converter.addChangeSet(6, new RemoveTensionResultsChangeset())
-            // add calc changesets here
+        addCalcConverter(new CalcProjectConverter())
+        addCalcConverter(new CalcLocationConverter())
+        addCalcConverter(new CalcDesignConverter())
+        addClientConverter(new ClientDataConverter())
+    }
 
-            converter.setCurrentVersion(currentVersion)
-            converters.put(converter.schemaPath, converter)
-        }
+    static Closure addCalcConverter = { AbstractConverter converter ->
+        converter.addChangeSet(2, new PoleLeanChangeSet())
+        converter.addChangeSet(2, new FoundationChangeSet())
+        converter.addChangeSet(3, new WEPEnvironmentChangeSet())
+        converter.addChangeSet(4, new AnalysisTypeChangeSet())
+        converter.addChangeSet(4, new SpanGuyTypeChangeSet())
+        converter.addChangeSet(4, new PhotoDirectionChangeSet())
+        converter.addChangeSet(4, new SupportTypeChangeSet())
+        converter.addChangeSet(4, new InsulatorAttachHeightChangeSet())
+        converter.addChangeSet(4, new ConnectivityChangeSet())
+        converter.addChangeSet(4, new MapLocationChangeSet())
+        converter.addChangeSet(4, new AssembliesChangeSet())
+        converter.addChangeSet(4, new DetailedResultsChangeset())
+        converter.addChangeSet(4, new ClientItemVersionChangeSet())
+        converter.addChangeSet(4, new PoleTemperatureChangeset())
+        converter.addChangeSet(4, new WEPInclinationChangeSet())
+        converter.addChangeSet(4, new WireEndPointPlacementChangeSet())
+        converter.addChangeSet(4, new RemoveSchemaAndVersionChangeSet())
+        converter.addChangeSet(4, new PointLoadItemChangeSet())
+        converter.addChangeSet(4, new GuyAttachPointChangeSet())
+        converter.addChangeSet(4, new DesignLayerChangeSet())
+        converter.addChangeSet(4, new DamageRsmChangeSet())
+        converter.addChangeSet(5, new RemoveAdditionalPropertiesChangeset())
+        converter.addChangeSet(5, new InputAssemblyDistanceDirectionChangeset())
+        converter.addChangeSet(6, new RemoveDetailedResultsChangeset())
+        converter.addChangeSet(6, new SummaryNoteObjectChangeset())
+        converter.addChangeSet(6, new RevertBundleChangeset())
+        converter.addChangeSet(6, new RemoveTensionResultsChangeset())
+        // add calc changesets here
 
-        addConverter(new CalcProjectConverter())
-        addConverter(new CalcLocationConverter())
-        addConverter(new CalcDesignConverter())
+        converter.setCurrentVersion(currentVersion)
+        converters.put(converter.schemaPath, converter)
+    }
+
+    static Closure addClientConverter = { AbstractConverter converter ->
+        // add client changesets here
+
+        converter.setCurrentVersion(currentVersion)
+        converters.put(converter.schemaPath, converter)
     }
 
     static Converter getConverterInstance(String schemaPath) {
