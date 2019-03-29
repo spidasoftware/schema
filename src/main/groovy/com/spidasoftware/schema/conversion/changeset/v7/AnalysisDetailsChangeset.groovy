@@ -45,15 +45,17 @@ class AnalysisDetailsChangeset extends AbstractCalcDesignChangeset {
 
 			Map detailedResult = detailedResults[0]
 			List<Map> results = detailedResult.get("results") as List<Map>
-			results.each { Map analysisCaseResult ->
-				Map summaryResult = summaryResults.find { it.id == analysisCaseResult.analysisCase }
-				if(summaryResult == null) {
-					summaryResult = createSummaryResult(analysisCaseResult)
-					analysis.add(summaryResult)
-				}
-				Map analysisCaseDetails = analysisCaseResult.get("analysisCaseDetails") as Map
-				if(analysisCaseDetails != null) {
-					summaryResult.put("analysisCaseDetails", analysisCaseDetails)
+			if(results != null) {
+				results.each { Map analysisCaseResult ->
+					Map summaryResult = summaryResults.find { it.id == analysisCaseResult.analysisCase }
+					if (summaryResult == null) {
+						summaryResult = createSummaryResult(analysisCaseResult)
+						analysis.add(summaryResult)
+					}
+					Map analysisCaseDetails = analysisCaseResult.get("analysisCaseDetails") as Map
+					if (analysisCaseDetails != null) {
+						summaryResult.put("analysisCaseDetails", analysisCaseDetails)
+					}
 				}
 			}
 
@@ -61,9 +63,13 @@ class AnalysisDetailsChangeset extends AbstractCalcDesignChangeset {
 			String resultId = detailedResult.get("resultId")
 			if(resultId != null) {
 				resultId = resultId.replace(".json", "")
-				analysisDetails.put("detailedResults", detailedResult)
+				detailedResult.remove("resultId")
+				detailedResult.put("id", resultId)
 			} else {
-				resultId = detailedResult.get("id")
+				resultId = detailedResult.get("id")  // todo need to remove .json?
+			}
+			if(results) {
+				analysisDetails.put("detailedResults", detailedResult)
 			}
 			analysisDetails.put("resultId", resultId)
 			designJSON.put("analysisDetails", analysisDetails)
