@@ -49,6 +49,9 @@
             ]
           }
         },
+        "analysisCurrent": {
+          "type": "boolean"
+        },
         "analysis": {
             "description": "List of load cases and their results. On exports the results will be filled in if they exist. On import results are ignored, but load cases will be pre-assigned.",
             "items": {

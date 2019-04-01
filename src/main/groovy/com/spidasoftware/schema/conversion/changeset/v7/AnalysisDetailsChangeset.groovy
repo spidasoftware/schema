@@ -41,6 +41,8 @@ class AnalysisDetailsChangeset extends AbstractCalcDesignChangeset {
 		List<Map> summaryResults = analysis.findAll { !detailedResults.contains(it) }
 		boolean hasDetailedResults = (detailedResults.size() > 0)
 		if(hasDetailedResults) {
+			designJSON.put("analysisCurrent", true)
+
 			analysis.removeAll(detailedResults)
 
 			Map detailedResult = detailedResults[0]
@@ -73,6 +75,8 @@ class AnalysisDetailsChangeset extends AbstractCalcDesignChangeset {
 			}
 			analysisDetails.put("resultId", resultId)
 			designJSON.put("analysisDetails", analysisDetails)
+		} else {
+			designJSON.put("analysisCurrent", false)
 		}
 	}
 
