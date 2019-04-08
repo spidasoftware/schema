@@ -14,7 +14,7 @@
             ]
         },
         "note": {
-            "description": "Note String",
+            "description": "A user defined note in the clientData",
             "type": "string"
         }     
     }

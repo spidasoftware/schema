@@ -7,11 +7,9 @@ import com.spidasoftware.schema.conversion.changeset.v3.*
 import com.spidasoftware.schema.conversion.changeset.v4.*
 import com.spidasoftware.schema.conversion.changeset.v5.*
 import com.spidasoftware.schema.conversion.changeset.v6.*
-import groovy.transform.CompileStatic
 import groovy.util.logging.Log4j
 
 @Log4j
-@CompileStatic
 class ConverterUtils {
 
     static final int currentVersion = 6
@@ -59,7 +57,7 @@ class ConverterUtils {
 
     static Closure addClientDataConverter = { ClientDataConverter converter ->
         // add client data changesets here
-        
+
         converter.setCurrentVersion(currentVersion)
         converters.put(converter.schemaPath, converter)
     }

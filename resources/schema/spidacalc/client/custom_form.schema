@@ -1,11 +1,10 @@
 {
+    "description": "Custom forms in a client editor that contains custom fields. Can be a project or location form.",
     "type": "object",
     "id": "#/spidacalc/client/custom_form.schema",
-    "description": "Custom forms in a client editor that contains custom fields. Can be a project or location form.",
     "required": [
         "title",
         "fieldDefinitions",
-        "fields"
     ],
     "properties": {
         "title": {
@@ -13,7 +12,7 @@
             "type": "string"
         },
         "fieldDefinitions": {
-            "description": "A list of custom fields",
+            "description": "A list of map objects that contains information to create a customField with no default values",
             "type": "array",
             "items": {
                 "type": "object",
@@ -24,22 +23,17 @@
                     "fieldType"
                 ],
                 "properties": {
-                    "fieldType": {
-                        description: "XML element name for the custom field"
-                        "type": "string"
+                     "fieldName": {
+                     "description": "The label's text/name for the custom field",
+                     "type": "string"
+                     }
+                     "fieldType": {
+                     "description": "The type of customField. TextField, Spinner, RadioButtons etc..."
+                     "type": "string"
                     },
-                    "fieldName": {
-                        "description": "Label for the custom field",
-                        "type": "string"
-                    }     
+
                 }
             } 
-        },
-        "fields": {
-            "description": "all of the data fields in the custom form",
-            "type": "object",
-            "additionalProperties": true,
-            "properties": {}
         }
     }
 }
