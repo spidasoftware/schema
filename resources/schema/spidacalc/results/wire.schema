@@ -29,7 +29,10 @@
       "$ref": "../../general/measurable.schema"
     },
     "sag": {
-      "$ref": "../../general/measurable.schema"
+      "oneOf": [
+        {"$ref": "../../general/measurable.schema"},
+        {"type": "null"}
+      ]
     },
     "tension": {
       "$ref": "../../general/measurable.schema"

@@ -12,7 +12,7 @@ import groovy.util.logging.Log4j
 @Log4j
 class ConverterUtils {
 
-    static final int currentVersion = 6
+    static final int currentVersion = 7
 
     static {
         addCalcConverter(new CalcProjectConverter())
