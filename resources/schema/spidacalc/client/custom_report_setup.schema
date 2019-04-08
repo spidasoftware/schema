@@ -1,22 +1,22 @@
 {
-  "description": "A user defined custom report in the client data",
-  "id": "#/spidacalc/client/custom_report_setup.schema",
-  "type": "object",
-  "required": [
-    "name",
-    "reportItems",
-  ],
-  "properties": {
-      "name": {
+    "type": "object",
+    "id": "#/spidacalc/client/custom_report_setup.schema",
+    "description": "A user defined custom report in the client data.",
+    "required": [
+        "name",
+        "reportItems"
+    ],
+    "properties": {
+        "name": {
             "description": "A Name for the custom report",
             "type": "string"
-      },
-      "reportItems": {
+        },
+        "reportItems": {
              "type": "array",
                   "items": {
-                    "type": "string"
-                          "description": "The name of the report item that is included in the Custom Report",
+                    "type": "string",
+                    "description": "The name of the report item that is included in the Custom Report"
                   }
-      }
-  }
+        }
+    }
 }

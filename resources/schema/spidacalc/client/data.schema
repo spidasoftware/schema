@@ -138,21 +138,21 @@
          "defaultLocationForms":{
             "type": "array",
             "items": {
-                "type": "string"
+                "type": "string",
                 "description": "The defaultLocationForm's title"
             }
          },
          "defaultProjectForms":{
             "type": "array",
                 "items": {
-                "type": "string"
+                "type": "string",
                 "description": "The defaultProjectForms's title"
                 }
          },
          "defaultOwner":{
-            "type": "object"
+            "type": "object",
             "$ref":"../../general/owner.schema"
          }
-    }
+    },
     "additionalProperties": false
 }
