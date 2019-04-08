@@ -4,7 +4,7 @@ import com.spidasoftware.schema.conversion.changeset.*
 import groovy.util.logging.Log4j
 
 @Log4j
-class CalcProjectConverter extends AbstractConverter {
+class CalcProjectConverter extends AbstractCalcConverter {
 
     @Override
     String getSchemaPath() {

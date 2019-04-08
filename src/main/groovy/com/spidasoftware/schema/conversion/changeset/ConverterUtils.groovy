@@ -20,10 +20,10 @@ class ConverterUtils {
         addCalcConverter(new CalcProjectConverter())
         addCalcConverter(new CalcLocationConverter())
         addCalcConverter(new CalcDesignConverter())
-        addClientConverter(new ClientDataConverter())
+        addClientDataConverter(new ClientDataConverter())
     }
 
-    static Closure addCalcConverter = { AbstractConverter converter ->
+    static Closure addCalcConverter = { AbstractCalcConverter converter ->
         converter.addChangeSet(2, new PoleLeanChangeSet())
         converter.addChangeSet(2, new FoundationChangeSet())
         converter.addChangeSet(3, new WEPEnvironmentChangeSet())
@@ -57,12 +57,13 @@ class ConverterUtils {
         converters.put(converter.schemaPath, converter)
     }
 
-    static Closure addClientConverter = { AbstractConverter converter ->
-        // add client changesets here
-
+    static Closure addClientDataConverter = { ClientDataConverter converter ->
+        // add client data changesets here
+        
         converter.setCurrentVersion(currentVersion)
         converters.put(converter.schemaPath, converter)
     }
+
 
     static Converter getConverterInstance(String schemaPath) {
         String schema = getV1Root(schemaPath)
@@ -92,15 +93,7 @@ class ConverterUtils {
      * convert to the current version
      */
     static void convertJSON(Map json) throws ConversionException {
-        if (json.containsKey("schema")) {
-            Converter converter = getConverterInstance(json.get("schema"))
-            if (converter == null) {
-                throw new ConversionException("No converter found for ${json.get("schema")}")
-            }
-            converter.convert(json, converter.getCurrentVersion())
-        } else {
-            throw new ConversionException("Missing schema element.")
-        }
+       convertJSON(json, currentVersion)
     }
 
     /**
