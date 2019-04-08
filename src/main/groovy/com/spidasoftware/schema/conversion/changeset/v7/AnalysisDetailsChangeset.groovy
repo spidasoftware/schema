@@ -8,22 +8,19 @@ import com.spidasoftware.schema.conversion.changeset.ConversionException
 import com.spidasoftware.schema.conversion.changeset.calc.AbstractCalcDesignChangeset
 import groovy.transform.CompileStatic
 
-// todo comment, test
+/**
+ * v7 adds analysisCurrent, moves detailed results from "analysis" to "analysisDetails", and adds the analyzed structure to analysis details.
+ */
 @CompileStatic
 class AnalysisDetailsChangeset extends AbstractCalcDesignChangeset {
 
+	/**
+	 * Removes detailed analysis from "analysis".
+	 * If detailed analysis is not external, adds "analysisCaseDetails" to each summary result.
+	 * Creates new "analysisDetails" section, containing resultId and, if they are not external, "detailedResults".
+	 */
 	@Override
 	void applyToDesign(Map designJSON) throws ConversionException {
-		/*
-		find detailed analysis in analysis
-		if found
-			remove from analysis
-			find all analysis cases
-			for each analysis case
-				find the summary result for that analysis case
-				add as analysisCaseDetails to the summary result
-			add as "resultId" and "detailedResults" in "analysisDetails"
-		 */
 		List<Map> analysis = designJSON.get("analysis") as List<Map>
 		if(analysis == null) {
 			return
@@ -41,10 +38,13 @@ class AnalysisDetailsChangeset extends AbstractCalcDesignChangeset {
 		List<Map> summaryResults = analysis.findAll { !detailedResults.contains(it) }
 		boolean hasDetailedResults = (detailedResults.size() > 0)
 		if(hasDetailedResults) {
+			// prior to this version, if analysis was not current then detailed results were not exported.
 			designJSON.put("analysisCurrent", true)
 
+			// remove detailed results from "analysis" section
 			analysis.removeAll(detailedResults)
 
+			// add analysis case details to summary results
 			Map detailedResult = detailedResults[0]
 			List<Map> results = detailedResult.get("results") as List<Map>
 			if(results != null) {
@@ -61,6 +61,7 @@ class AnalysisDetailsChangeset extends AbstractCalcDesignChangeset {
 				}
 			}
 
+			// create "analysisDetails" section
 			Map analysisDetails = [:]
 			String resultId = detailedResult.get("resultId")
 			if(resultId != null) {
@@ -68,7 +69,7 @@ class AnalysisDetailsChangeset extends AbstractCalcDesignChangeset {
 				detailedResult.remove("resultId")
 				detailedResult.put("id", resultId)
 			} else {
-				resultId = detailedResult.get("id")  // todo need to remove .json?
+				resultId = detailedResult.get("id")
 			}
 			if(results) {
 				analysisDetails.put("detailedResults", detailedResult)
@@ -80,18 +81,12 @@ class AnalysisDetailsChangeset extends AbstractCalcDesignChangeset {
 		}
 	}
 
+	/**
+	 * If there are detailed results, add them to the "analysis" section.  Otherwise, add resultId to the "analysis" section.
+	 * Remove "analysisDetails" section.
+	 */
 	@Override
 	void revertDesign(Map designJSON) throws ConversionException {
-		/*
-		If analysisDetails exists
-			If detailedResults exists
-				add detailedResults to analysis  todo ok to have summary and detail for same analysis cases?
-			else
-				add id as resultId (+.json) to analysis
-			remove analysisDetails.
-
-		Leave analysis*.analysisCaseDetails in place.
-		 */
 		if(!designJSON.containsKey("analysisDetails")) {
 			return
 		}
@@ -111,43 +106,9 @@ class AnalysisDetailsChangeset extends AbstractCalcDesignChangeset {
 		}
 	}
 
-	/*
-	Old version:
-
-	if analysis current:
-		"analysis" list of, for analyzed structure:
-			- Detailed results (only if analysis is current)
-				Result Details, with analysis case details embedded (insertAnalysisCaseDetails())  ("../../spidacalc/results/results.schema")
-				OR detailed results id  ([resultId: "${resultDetails.id}.json".toString()])
-
-			- summary results (current or not, if they exist)
-				list of ["id" : analysis case name,
-						 "results" : analysisCaseResult (if they exist)]  ("../../spidamin/asset/standard_details/analysis_asset.schema")
-
-	if analysis not current:
-		"analysis" list of, for editing structure:
-			"id" : analysis case name
-
-	"analysis" may not exist at all (analysis not current, no load or strength cases on editing structure)
+	/**
+	 * Create a summary result from a detailed result.
 	 */
-
-	/*
-	New version:
-		"analysis" list for each analysis case on the editing structure:
-			"id" : analysis case name
-			"analysisCaseDetails" : analysis case (may not exist)
-			"results" : analysis case result (only written if analysis is current - but may be present on previous-version designs with not-current results)
-
-		"analysisDetails" if detailed results exist (current or not) and if exporting detailed results or detailed result ids
-			"resultId" : detailed result id, implied ".json" to find external results if detailedResults is not present
-			"detailedResults" : detailed results, with analysis case details embedded if exporting detailed results
-			"analyzedStructure" : analyzed structure if exporting detailed results, else may be in external results file or may not exist
-	 */
-
-	/*
-	resultDetails?.results?."analysisCaseDetails"
-	 */
-
 	Map createSummaryResult(Map detailedResult) {
 		Map summaryResult = ["id": detailedResult.analysisCase]
 		List<Map> results = []
