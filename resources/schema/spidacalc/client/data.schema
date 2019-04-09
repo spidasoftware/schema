@@ -87,16 +87,13 @@
             "$ref":"../../spidacalc/client/bundle_component.schema"
             }
         },
-        "loadCases":{
+        "analysisCases":{
             "type": "array",
             "items": {
-                "$ref":"../../spidacalc/client/load_case.schema"
-            }
-        },
-        "strengthCases":{
-            "type": "array",
-            "items": {
-                "$ref":"../../spidacalc/client/strength_case.schema"
+                "oneOf":[
+                  {"$ref":"../../spidacalc/client/load_case.schema"},
+                  {"$ref":"../../spidacalc/client/strength_case.schema"}
+                ]
             }
         },
          "owners":{
