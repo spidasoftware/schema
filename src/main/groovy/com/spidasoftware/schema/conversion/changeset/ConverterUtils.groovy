@@ -1,3 +1,6 @@
+/*
+ * ©2009-2019 SPIDAWEB LLC
+ */
 package com.spidasoftware.schema.conversion.changeset
 
 import com.spidasoftware.schema.conversion.changeset.calc.*
@@ -12,16 +15,17 @@ import groovy.util.logging.Log4j
 @Log4j
 class ConverterUtils {
 
-    static final int currentVersion = 7
+    static final int CURRENT_CALC_VERSION = 7
+    static final int CURRENT_CLIENT_DATA_VERSION = 1
 
     static {
         addCalcConverter(new CalcProjectConverter())
         addCalcConverter(new CalcLocationConverter())
         addCalcConverter(new CalcDesignConverter())
-        addClientDataConverter(new ClientDataConverter())
+        addClientDataConverter()
     }
 
-    static Closure addCalcConverter = { AbstractCalcConverter converter ->
+    static void addCalcConverter(AbstractCalcConverter converter) {
         converter.addChangeSet(2, new PoleLeanChangeSet())
         converter.addChangeSet(2, new FoundationChangeSet())
         converter.addChangeSet(3, new WEPEnvironmentChangeSet())
@@ -51,17 +55,17 @@ class ConverterUtils {
         converter.addChangeSet(6, new RemoveTensionResultsChangeset())
         // add calc changesets here
 
-        converter.setCurrentVersion(currentVersion)
+        converter.setCurrentVersion(CURRENT_CALC_VERSION)
         converters.put(converter.schemaPath, converter)
     }
 
-    static Closure addClientDataConverter = { ClientDataConverter converter ->
+    static void addClientDataConverter() {
+        def converter = new ClientDataConverter()
         // add client data changesets here
 
-        converter.setCurrentVersion(currentVersion)
+        converter.setCurrentVersion(CURRENT_CLIENT_DATA_VERSION)
         converters.put(converter.schemaPath, converter)
     }
-
 
     static Converter getConverterInstance(String schemaPath) {
         String schema = getV1Root(schemaPath)
@@ -71,8 +75,12 @@ class ConverterUtils {
     protected static final Map<String, Converter> converters = [:]
 
     //example: [4, 3, 2]
-    static LinkedHashSet<Integer> getPossibleVersionsNewestToOldest(){
-    	return currentVersion..2 as LinkedHashSet<Integer>
+    static LinkedHashSet<Integer> getPossibleCalcVersionsNewestToOldest(){
+    	return CURRENT_CALC_VERSION..2 as LinkedHashSet<Integer>
+    }
+
+    static LinkedHashSet<Integer> getPossibleClientDataVersionsNewestToOldest(){
+        return CURRENT_CALC_VERSION..1 as LinkedHashSet<Integer>
     }
 
     static void convertJSON(Map json, int toVersion) throws ConversionException {
@@ -87,11 +95,18 @@ class ConverterUtils {
         }
     }
 
-    /**
-     * convert to the current version
+    /*
+     ** Method is used inside calc
      */
-    static void convertJSON(Map json) throws ConversionException {
-       convertJSON(json, currentVersion)
+    static void convertToCurrentCalcVersionJSON(Map json) throws ConversionException {
+       convertJSON(json, CURRENT_CALC_VERSION)
+    }
+
+    /*
+     ** Method is used inside calc
+     */
+    static void convertToCurrentClientDataVersionJSON(Map json) throws ConversionException {
+        convertJSON(json, CURRENT_CALC_VERSION)
     }
 
     /**

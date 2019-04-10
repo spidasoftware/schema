@@ -1,3 +1,6 @@
+/*
+ * ©2009-2019 SPIDAWEB LLC
+ */
 package com.spidasoftware.schema.conversion
 
 import com.spidasoftware.schema.conversion.changeset.calc.CalcProjectChangeSet

@@ -15,23 +15,7 @@
             "description": "A list of map objects that contains information to create a customField with no default values",
             "type": "array",
             "items": {
-                "type": "object",
-                "id": "#/spidacalc/client/field_definition.schema",
-                "description": "Properties needed to create a custom field",
-                "required": [
-                    "fieldName",
-                    "fieldType"
-                ],
-                "properties": {
-                     "fieldName": {
-                         "description": "The label's text/name for the custom field",
-                         "type": "string"
-                     },
-                     "fieldType": {
-                         "description": "The type of customField. TextField, Spinner, RadioButtons etc...",
-                         "type": "string"
-                    }
-                }
+                "$ref": "../../spidacalc/client/field_definition.schema"
             }
         }
     }

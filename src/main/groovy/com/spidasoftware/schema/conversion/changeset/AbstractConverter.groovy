@@ -1,8 +1,8 @@
+/*
+ * ©2009-2019 SPIDAWEB LLC
+ */
 package com.spidasoftware.schema.conversion.changeset
 
-import com.spidasoftware.schema.conversion.changeset.ChangeSet
-import com.spidasoftware.schema.conversion.changeset.ConversionException
-import com.spidasoftware.schema.conversion.changeset.Converter
 import org.apache.log4j.Logger
 
 /**

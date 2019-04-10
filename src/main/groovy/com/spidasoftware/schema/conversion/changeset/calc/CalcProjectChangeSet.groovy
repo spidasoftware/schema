@@ -1,3 +1,6 @@
+/*
+ * ©2009-2019 SPIDAWEB LLC
+ */
 package com.spidasoftware.schema.conversion.changeset.calc
 
 import com.spidasoftware.schema.conversion.changeset.*
@@ -10,7 +13,7 @@ import groovy.util.logging.Log4j
  */
 @Log4j
 @CompileStatic
-abstract class CalcProjectChangeSet implements ChangeSet {
+abstract class CalcProjectChangeSet extends ChangeSet {
 	/***
 	 * Apply the changes to the project json object in place
 	 * @param json
@@ -54,10 +57,5 @@ abstract class CalcProjectChangeSet implements ChangeSet {
 		json.get("leads")?.each { Map lead ->
 			lead.get("locations")?.each(closure)
 		}
-	}
-
-	public static Map duplicateAsJson(Map map){
-		ObjectMapper mapper = new ObjectMapper()
-		return mapper.readValue(mapper.writeValueAsString(map), Map)
 	}
 }

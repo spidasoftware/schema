@@ -1,3 +1,6 @@
+/*
+ * ©2009-2019 SPIDAWEB LLC
+ */
 package com.spidasoftware.schema.validation
 
 import com.fasterxml.jackson.databind.JsonNode

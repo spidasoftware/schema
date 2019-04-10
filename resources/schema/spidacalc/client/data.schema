@@ -141,10 +141,10 @@
          },
          "defaultProjectForms":{
             "type": "array",
-                "items": {
+            "items": {
                 "type": "string",
                 "description": "The defaultProjectForms's title"
-                }
+            }
          },
          "defaultOwner":{
             "type": "object",
