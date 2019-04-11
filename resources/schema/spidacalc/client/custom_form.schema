@@ -1,0 +1,24 @@
+{
+    "description": "Custom forms in a client editor that contains custom fields. Can be a project or location form.",
+    "type": "object",
+    "id": "#/spidacalc/client/custom_form.schema",
+    "required": [
+        "title",
+        "formDefinitions"
+    ],
+    "properties": {
+        "title": {
+            "description": "Title for the custom form",
+            "type": "string"
+        },
+        "formDefinitions": {
+            "description": "A list of map objects that contains information to create a customField with no default values",
+            "type": "array",
+            "items": {
+                "$ref": "../../spidacalc/client/form_definition.schema"
+            }
+        }
+    }
+}
+
+
