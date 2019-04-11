@@ -15,8 +15,7 @@ import groovy.util.logging.Log4j
 @Log4j
 class ConverterUtils {
 
-    static final int CURRENT_CALC_VERSION = 7
-    static final int CURRENT_CLIENT_DATA_VERSION = 1
+    static final int currentVersion = 7
 
     static {
         addCalcConverter(new CalcProjectConverter())
@@ -55,7 +54,7 @@ class ConverterUtils {
         converter.addChangeSet(6, new RemoveTensionResultsChangeset())
         // add calc changesets here
 
-        converter.setCurrentVersion(CURRENT_CALC_VERSION)
+        converter.setCurrentVersion(currentVersion)
         converters.put(converter.schemaPath, converter)
     }
 
@@ -63,7 +62,7 @@ class ConverterUtils {
         def converter = new ClientDataConverter()
         // add client data changesets here
 
-        converter.setCurrentVersion(CURRENT_CLIENT_DATA_VERSION)
+        converter.setCurrentVersion(currentVersion)
         converters.put(converter.schemaPath, converter)
     }
 
@@ -76,11 +75,7 @@ class ConverterUtils {
 
     //example: [4, 3, 2]
     static LinkedHashSet<Integer> getPossibleCalcVersionsNewestToOldest(){
-    	return CURRENT_CALC_VERSION..2 as LinkedHashSet<Integer>
-    }
-
-    static LinkedHashSet<Integer> getPossibleClientDataVersionsNewestToOldest(){
-        return CURRENT_CALC_VERSION..1 as LinkedHashSet<Integer>
+    	return currentVersion..2 as LinkedHashSet<Integer>
     }
 
     static void convertJSON(Map json, int toVersion) throws ConversionException {
@@ -95,18 +90,8 @@ class ConverterUtils {
         }
     }
 
-    /*
-     ** Method is used inside calc
-     */
-    static void convertToCurrentCalcVersionJSON(Map json) throws ConversionException {
-       convertJSON(json, CURRENT_CALC_VERSION)
-    }
-
-    /*
-     ** Method is used inside calc
-     */
-    static void convertToCurrentClientDataVersionJSON(Map json) throws ConversionException {
-        convertJSON(json, CURRENT_CALC_VERSION)
+    static void convertJSON(Map json) throws ConversionException {
+       convertJSON(json, currentVersion)
     }
 
     /**
