@@ -1,5 +1,7 @@
+/*
+ * ©2009-2019 SPIDAWEB LLC
+ */
 package com.spidasoftware.schema.validation
-
 
 /**
  * Exception for servlets to throw when they have an error. Will be communicated back to the calling client.

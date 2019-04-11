@@ -29,6 +29,26 @@
                 "Draft"
             ]
         },
+        "pendingAnalysis": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "jobId": {
+                "type": "string"
+              },
+              "analysisCaseName": {
+                "type": "string"
+              },
+              "structureHash": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "jobId", "analysisCaseName", "structureHash"
+            ]
+          }
+        },
         "analysis": {
             "description": "List of load cases and their results. On exports the results will be filled in if they exist. On import results are ignored, but load cases will be pre-assigned.",
             "items": {
@@ -75,6 +95,19 @@
                 ]
             },
             "type": "array"
+        },
+        "loadCases": {
+          "description": "the load cases applied to the design",
+          "type": "array",
+          "items": [
+            {
+              "$ref": "../client/load_case.schema"
+            }
+          ]
+        },
+        "strengthCase": {
+          "description": "the strength case applied to the design",
+          "$ref": "../client/strength_case.schema"
         },
         "geographicCoordinate": {
             "$ref": "../../general/geometry.schema"
