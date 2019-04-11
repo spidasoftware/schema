@@ -1,25 +1,17 @@
+/*
+ * ©2009-2019 SPIDAWEB LLC
+ */
 package com.spidasoftware.schema.conversion.changeset
 
 import org.apache.log4j.Logger
 
 /**
- * Converts JSON from one version to another
- *
- * Conversion process:
- *
- * 	-- each public release is a minor version number increment
- *  -- each change to the schema is a changeset
- *  -- conversion will bring data up or down to new version
- *  -- a list of changesets is kept separately per versioned root schema - calc project, for example
- *
- * NOTE: Removed @CompileStatic because it was throwing an exception when
- *       called from MIN -> NoSuchMethodError: groovy.lang.IntRange.<init>(ZII)V
+ * Base converter for calc & client converter
  */
 abstract class AbstractConverter implements Converter {
 
 	int defaultVersion = 1
 	protected TreeMap<Integer, List<ChangeSet>> versions = new TreeMap<>() // each list will be applied when going from N-1 to N
-	private static final int VERSION_ALLOWED_IN_LOCATION_DESIGN = 4
 	private int currentVersion
 
 	abstract void applyChangeset(ChangeSet changeSet, Map json)
@@ -29,7 +21,7 @@ abstract class AbstractConverter implements Converter {
 		return currentVersion
 	}
 
-	protected void setCurrentVersion(int version) {
+	void setCurrentVersion(int version) {
 		currentVersion = version
 	}
 
@@ -67,10 +59,6 @@ abstract class AbstractConverter implements Converter {
 			}
 		}
 		updateVersion(json, toVersion)
-	}
-
-	protected boolean isVersionAllowedInLocationAndDesign(int version) {
-		return version >= VERSION_ALLOWED_IN_LOCATION_DESIGN
 	}
 
 	/**
