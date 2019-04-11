@@ -17,7 +17,7 @@
         "id": {
             "type": "string"
         },
-        "versions": {
+        "hashCode": {
             "type": "string",
             "description": "a hash of of the individual items hash"
         },
