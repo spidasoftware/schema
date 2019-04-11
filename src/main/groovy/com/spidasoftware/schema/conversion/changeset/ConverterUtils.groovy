@@ -74,7 +74,7 @@ class ConverterUtils {
     protected static final Map<String, Converter> converters = [:]
 
     //example: [4, 3, 2]
-    static LinkedHashSet<Integer> getPossibleCalcVersionsNewestToOldest(){
+    static LinkedHashSet<Integer> getPossibleVersionsNewestToOldest(){
     	return currentVersion..2 as LinkedHashSet<Integer>
     }
 

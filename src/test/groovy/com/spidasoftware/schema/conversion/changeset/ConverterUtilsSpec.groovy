@@ -51,9 +51,9 @@ class ConverterUtilsSpec extends Specification {
 			ConverterUtils.getConverterInstance("/schema/spidacalc/calc/design.schema") instanceof CalcDesignConverter
 	}
 
-	def "test getPossibleCalcVersionsNewestToOldest"() {
+	def "test getPossibleVersionsNewestToOldest"() {
 		expect:
-			ConverterUtils.getPossibleCalcVersionsNewestToOldest() == [7, 6, 5, 4, 3, 2] as LinkedHashSet
+			ConverterUtils.getPossibleVersionsNewestToOldest() == [7, 6, 5, 4, 3, 2] as LinkedHashSet
 	}
 
 	def "pole-lean validation"() {
