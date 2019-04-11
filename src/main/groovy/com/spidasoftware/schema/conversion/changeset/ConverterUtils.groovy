@@ -21,7 +21,7 @@ class ConverterUtils {
         addCalcConverter(new CalcProjectConverter())
         addCalcConverter(new CalcLocationConverter())
         addCalcConverter(new CalcDesignConverter())
-        addClientDataConverter()
+        addClientDataConverter(new ClientDataConverter())
     }
 
     static void addCalcConverter(AbstractCalcConverter converter) {
@@ -58,8 +58,7 @@ class ConverterUtils {
         converters.put(converter.schemaPath, converter)
     }
 
-    static void addClientDataConverter() {
-        def converter = new ClientDataConverter()
+    static void addClientDataConverter(ClientDataConverter converter) {
         // add client data changesets here
 
         converter.setCurrentVersion(currentVersion)

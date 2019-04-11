@@ -8,8 +8,8 @@ import com.spidasoftware.schema.conversion.changeset.ChangeSet
 import groovy.util.logging.Log4j
 
 @Log4j
-/*
- ** Converter for clientData json files.
+/**
+ * Converter for clientData json files.
  */
 class ClientDataConverter extends AbstractConverter {
 

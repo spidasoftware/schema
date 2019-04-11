@@ -6,8 +6,10 @@ package com.spidasoftware.schema.conversion.changeset
 import com.fasterxml.jackson.databind.ObjectMapper
 
 abstract class ChangeSet {
-	/*
-	 ** deep copy for json
+
+	/**
+	 * @param map
+	 * @return deep copy of json
 	 */
 	static Map duplicateAsJson(Map map){
 		ObjectMapper mapper = new ObjectMapper()
