@@ -1,0 +1,47 @@
+{
+    "type": "object",
+    "id": "#/spidacalc/client/custom_report_setup.schema",
+    "description": "A user defined custom report in the client data.",
+    "required": [
+        "name",
+        "reportItems"
+    ],
+    "properties": {
+        "name": {
+            "description": "A Name for the custom report",
+            "type": "string"
+        },
+        "reportItems": {
+             "type": "array",
+                  "items": {
+                       "enum": [
+                            "TITLE_PAGE",
+                            "PROJECT_FORMS",
+                            "PROJECT_ANALYSIS_SUMMARY",
+                            "LOCATION_PROPERTIES",
+                            "LOCATION_PHOTOS",
+                            "LOCATION_FORMS",
+                            "DESIGN_PROPERTIES",
+                            "DESIGN_TOP_AND_SIDE_VIEWS",
+                            "DESIGN_THREE_DIMENSIONAL_VIEW",
+                            "DESIGN_LOAD_CASE_PROPERTIES",
+                            "DESIGN_WARNINGS",
+                            "DESIGN_LOADING_RESULTS_SUMMARY",
+                            "DESIGN_STRENGTH_RESULTS",
+                            "DESIGN_LOADING_RESULTS_GRAPHS",
+                            "DESIGN_LOADING_RESULTS_DETAILED",
+                            "DESIGN_BUCKLING_RESULTS",
+                            "DESIGN_DEFLECTION_RESULTS",
+                            "DESIGN_FOUNDATION_RESULTS",
+                            "DESIGN_CLEARANCE_RESULTS",
+                            "DESIGN_ATTACHMENTS",
+                            "DESIGN_DAMAGES",
+                            "ENGINEERING_APPENDIX",
+                            "LOAD_CASE_APPENDIX",
+                            "STRENGTH_CASE_APPENDIX",
+                            "CLEARANCE_APPENDIX"
+                       ]
+                  }
+        }
+    }
+}

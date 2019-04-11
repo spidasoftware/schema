@@ -1,9 +1,11 @@
+/*
+ * ©2009-2019 SPIDAWEB LLC
+ */
 package com.spidasoftware.schema.conversion.changeset.v2
 
 import com.spidasoftware.schema.conversion.changeset.calc.AbstractCalcDesignChangeset
 import com.spidasoftware.schema.conversion.changeset.ConversionException
 import groovy.util.logging.Log4j
-
 
 /**
  * Changeset to handle new Pole Lean fields in /v1/schema/spidacalc/calc/pole.schema . These are optional fields, so
