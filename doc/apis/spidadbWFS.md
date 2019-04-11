@@ -2,7 +2,7 @@ SPIDAdb Web Feature Service
 ===========
 There is a [Web Feature Service (WFS)](http://www.opengeospatial.org/standards/wfs) that allows for more extensive querying on the SPIDAcalc location and pole details that are stored in SPIDAdb.
 
-You should familiarize yourself with the concepts in the [SPIDAdb API](apis/spidadbAPI.md) and the [SPIDAcalc Schema](https://github.com/spidasoftware/schema/tree/master/resources/schema/spidacalc/calc) before reading the WFS documentation. 
+You should familiarize yourself with the concepts in the [SPIDAdb API](spidadbAPI.md) and the [SPIDAcalc Schema](https://github.com/spidasoftware/schema/tree/master/resources/schema/spidacalc/calc) before reading the WFS documentation. 
 
 # General Concepts and Schema
 ![SPIDAdb WFS Schema](https://raw.githubusercontent.com/spidasoftware/schema/master/resources/schema/spidamin/asset/DbWFSSchema.png)
