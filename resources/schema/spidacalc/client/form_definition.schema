@@ -12,8 +12,20 @@
              "type": "string"
          },
          "fieldType": {
-              "description": "The element name for the field type: customTable, customDropDown, customTextField etc..",
-              "type": "string"
+               "enum": [
+                  "customTextField",
+                  "customTextArea",
+                  "customCheckBox",
+                  "customSpinner",
+                  "customFootInchField",
+                  "customCalendarField",
+                  "customRadioButtons",
+                  "customDropDown",
+                  "customListSelection",
+                  "customGroup",
+                  "customTabbedPane",
+                  "customTable"
+               ]
         }
     }
 }
