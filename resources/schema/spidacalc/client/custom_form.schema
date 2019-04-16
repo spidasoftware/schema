@@ -4,14 +4,14 @@
     "id": "#/spidacalc/client/custom_form.schema",
     "required": [
         "title",
-        "formDefinitions"
+        "formDefinition"
     ],
     "properties": {
         "title": {
             "description": "Title for the custom form",
             "type": "string"
         },
-        "formDefinitions": {
+        "formDefinition": {
             "description": "A list of map objects that contains information to create a customField with no default values",
             "type": "array",
             "items": {
