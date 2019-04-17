@@ -8,10 +8,6 @@
   ],
   "additionalProperties": false,
   "properties": {
-    "id": {
-        "description": "Primary Key and unique identifier for project component",
-        "type": "string"
-    },
     "label": {
         "description": "Display name for project component",
         "type": "string"
@@ -123,10 +119,6 @@
         ],
         "additionalProperties": false,
         "properties": {
-          "id": {
-              "description": "Primary Key and unique identifier for project component",
-              "type": "string"
-          },
           "label": {
               "description": "Display name for project component",
               "type": "string"

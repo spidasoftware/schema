@@ -7,7 +7,6 @@
         {
           "locations": [
             {
-              "id": "00P1-L100",
               "geographicCoordinate": {
                 "type": "Point",
                 "coordinates": [
@@ -26,7 +25,6 @@
               "label": "00P1-L100"
             },
             {
-              "id": "00P1-L200",
               "geographicCoordinate": {
                 "type": "Point",
                 "coordinates": [
@@ -45,7 +43,6 @@
               "label": "00P1-L200"
             },
             {
-              "id": "00P1-L300",
               "geographicCoordinate": {
                 "type": "Point",
                 "coordinates": [
@@ -64,7 +61,6 @@
               "label": "00P1-L300"
             },
             {
-              "id": "00P1-L400",
               "geographicCoordinate": {
                 "type": "Point",
                 "coordinates": [
@@ -85,7 +81,6 @@
           ]
         }
       ],
-      "id": "project-1",
       "label": "project-1"
     },
     {
@@ -95,7 +90,6 @@
         {
           "locations": [
             {
-              "id": "00P2-L100",
               "geographicCoordinate": {
                 "type": "Point",
                 "coordinates": [
@@ -106,7 +100,6 @@
               "label": "00P2-L100"
             },
             {
-              "id": "00P2-L200",
               "geographicCoordinate": {
                 "type": "Point",
                 "coordinates": [
@@ -117,7 +110,6 @@
               "label": "00P2-L200"
             },
             {
-              "id": "00P2-L300",
               "geographicCoordinate": {
                 "type": "Point",
                 "coordinates": [
@@ -130,7 +122,6 @@
           ]
         }
       ],
-      "id": "project-2",
       "label": "project-2"
     }
   ]

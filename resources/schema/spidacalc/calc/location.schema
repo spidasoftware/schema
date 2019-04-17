@@ -4,10 +4,6 @@
     "description": "A location is single physical location that has a pole",
     "additionalProperties": false,
     "properties": {
-        "id": {
-            "description": "Primary Key and unique identifier for project component",
-            "type": "string"
-        },
         "schema": {
             "type": "string",
             "description": "Full URL of the calc schema. /schema/spidacalc/calc/location.schema"
