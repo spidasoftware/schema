@@ -101,10 +101,6 @@
             "detailedResults": {
               "description": "the detailed results",
               "$ref": "../../spidacalc/results/results.schema"
-            },
-            "analyzedStructure": {
-              "description": "the analyzed structure",
-              "$ref": "../../spidacalc/calc/structure.schema"
             }
           },
           "required": [
