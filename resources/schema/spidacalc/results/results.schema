@@ -17,6 +17,10 @@
         "$ref": "../../spidacalc/results/result.schema"
       },
       "minItems": 1
+    },
+    "analyzedStructure": {
+      "description": "the analyzed structure",
+      "$ref": "../../spidacalc/calc/structure.schema"
     }
   },
   "additionalProperties": false
