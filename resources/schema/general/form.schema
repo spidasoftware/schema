@@ -28,13 +28,9 @@
         "inputChoices": {
           "type": "array",
           "description": "The string values that are valid for this field."
-        },
-        "defaultValue": {
-          "type": "string",
-          "description": "The default value for this field.  Must be one of the values in inputChoices."
         }
       },
-      "required": ["fieldName", "fieldType", "inputChoices", "defaultValue"]
+      "required": ["fieldName", "fieldType", "inputChoices"]
     },
     "containerField": {
       "properties": {
