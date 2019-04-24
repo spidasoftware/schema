@@ -35,10 +35,8 @@
   ],
   "leads": [
     {
-      "id": "e2abdf96-9fb9-4fc2-b14d-aad1c136ff7e",
       "locations": [
         {
-          "id": "c4f25c99-945f-403a-91a1-8ccf17c2e925",
           "mapNumber": "",
           "comments": "",
           "address": {
@@ -86,7 +84,6 @@
           "images": [],
           "designs": [
             {
-              "id": "Measured Design",
               "structure": {
                 "pole": {
                   "glc": {
