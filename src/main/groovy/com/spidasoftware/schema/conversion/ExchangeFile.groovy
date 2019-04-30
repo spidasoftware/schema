@@ -110,8 +110,16 @@ public class ExchangeFile {
 		ObjectMapper mapper = new ObjectMapper()
 		mapper.writeValue(exf.getProjectJSONFile(), projectJson)
 		log.debug("Creating exchange file from JSON")
+		copyPhotoFilesToFolder(exf.getPhotoDir(), photoFiles)
+		if(resultsCopier != null) {
+			exf.resultsDir.mkdir()
+			resultsCopier(exf.resultsDir)
+		}
+		return exf
+	}
+
+	static void copyPhotoFilesToFolder(File photoDir, Collection<File> photoFiles) {
 		if (photoFiles) {
-			File photoDir = exf.getPhotoDir()
 			photoDir.mkdir()
 			log.debug("Copying all photos to: ${photoDir}")
 			photoFiles.each{File photo->
@@ -119,11 +127,6 @@ public class ExchangeFile {
 				Files.copy(photo, target)
 			}
 		}
-		if(resultsCopier != null) {
-			exf.resultsDir.mkdir()
-			resultsCopier(exf.resultsDir)
-		}
-		return exf
 	}
 
 	/**
