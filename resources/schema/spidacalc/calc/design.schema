@@ -3,6 +3,10 @@
     "id": "#/spidacalc/calc/design.schema",
     "additionalProperties": false,
     "properties": {
+        "id": {
+            "description": "Primary Key and unique identifier for project component",
+            "type": "string"
+        },
         "schema": {
             "type": "string",
             "description": "Full URL of the calc schema. /schema/spidacalc/calc/design.schema"
