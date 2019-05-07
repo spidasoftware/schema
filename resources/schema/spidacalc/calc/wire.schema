@@ -1,7 +1,7 @@
 {
   "type": "object",
   "id": "#/spidacalc/calc/wire.schema",
-  "description": "A single wire in a structure.  The clientItem is required except in client assemblies.",
+  "description": "A single wire in a structure.  One or more of clientItem, clientItemVersion, and clientItemAlias is required except in client assemblies.",
   "required": [
     "id",
     "attachmentHeight",
