@@ -540,6 +540,9 @@
           "direction": {
             "$ref": "../../general/bearing.schema"
           },
+          "autoBottomHeight": {
+            "type":"boolean"
+          },
           "clientItem": {
             "$ref": "../../spidacalc/calc/client_references/equipment.schema",
             "description": "Reference to the client item with the engineering properties for this equipment."
