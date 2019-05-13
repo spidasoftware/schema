@@ -11,7 +11,6 @@ import groovy.transform.CompileStatic
 /**
  * v7 adds analysisCurrent, moves detailed results from "analysis" to "analysisDetails", and adds the analyzed structure to analysis details.
  */
-@CompileStatic
 class AnalysisDetailsChangeset extends AbstractCalcDesignChangeset {
 
 	/**
@@ -29,6 +28,7 @@ class AnalysisDetailsChangeset extends AbstractCalcDesignChangeset {
 		// there will probably be only one object in this detailedResults list. Either a full detailed results object
 		// or a "resultId" referencing an object in another place. But because the schema technically allows both,
 		// we will make sure we correctly handle if both exist (we'll use the first one).
+		println "analysis.class=${analysis.class}, analysis=${analysis}"
 		List detailedResults = analysis.findAll { Map analysisObject ->
 			List results = (List) analysisObject.get("results") ?: []
 			boolean isDetailedResult = results?.size() > 0 && ((Map) results[0]).containsKey("analysisCase")
