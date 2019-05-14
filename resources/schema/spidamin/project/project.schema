@@ -15,10 +15,6 @@
       "type": "number",
       "description": "This is a database ID created by ProjectManager.  Only set this value if you want to update an existing project.  Not required for project creation."
     },
-    "spidaDBId": {
-      "type": "string",
-      "description": "This is an ID created by SPIDAdb.  (NOTE: value is not writable, only readable through API)"
-    },
     "name": {
       "type": "string",
       "description": "The primary project code for the project.  REQUIRED FOR CREATION. Cannot contain any of the following characters: ` = \\ ~ ! @ $ % ^ & * + | [ ] { } ; ' : \" ,  . / < > ?",
