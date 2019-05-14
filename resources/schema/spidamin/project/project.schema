@@ -17,7 +17,7 @@
     },
     "spidaDBId": {
       "type": "string",
-      "description": "This is an ID created by SPIDAdb.  Not required for project creation."
+      "description": "This is an ID created by SPIDAdb.  (NOTE: value is not writable, only readable through API)"
     },
     "name": {
       "type": "string",
