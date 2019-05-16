@@ -17,7 +17,7 @@ All SPIDAcalc **Client Items** have their primary key that is internal to SPIDA,
 SPIDA recommends that all integrations first develop the ability to write to a SPIDAcalc Exchange project. This project will contain all of the structures generated from the integrating application. The file can be opened directly in SPIDAcalc by the user, by Windows file associations, or using the SPIDAcalc REST API. This will not only allow the integrating test team to view, validate, and troubleshoot their output, but it will also allow users to do the same and learn to trust the quality of the integration.
 
 ### 2 - Pulling Results from Calc
-The integrating tool opens an Exchange project that a user has analyzed in SPIDAcalc, or pulls it from the REST API, and displays some summary information from the results that SPIDAcalc has saved in that project. [Results Guide] (results.md)
+The integrating tool opens an Exchange project that a user has analyzed in SPIDAcalc, or pulls it from the REST API, and displays some summary information from the results that SPIDAcalc has saved in that project. [Results Guide](results.md)
 
 ### 3 (optional)- Direct CEE Integration using CEE-CLI
 Once the user is convinced of the quality of the data produced from the integration, many integrators want to be able to launch analysis directly from with their application. [cee-cli] (cee-cli) is a command line utility provided by SPIDA to assist with the process of using SPIDA's cloud analysis service. This is a separate code path from integrating with SPIDAcalc, but it uses the same Exchange format for the structures analyzed. The tool will return the same results included in the analyzed Exchange file.
