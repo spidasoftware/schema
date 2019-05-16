@@ -69,6 +69,9 @@ The calc import API supports the following attributes of a structure.
 - Foundations
 - Assemblies
 
+#### Analysis Results
+For more information on processing analysis results, see the [results](results.md) guide.
+
 ## Web Services
 
 When calc is running on a client machine, it also starts up a small web server that will only accept requests from the local computer. This is how we intend integrators to work directly with calc. It allows integration from any language on any platform - integrators just need to implement a few web service calls and they can be sending their data in and out of calc very easily.
@@ -92,7 +95,7 @@ The client data service allows querying of our client-specific materials librari
 
 # Developer Guide
 
-These are the Integration API descriptions for SPIDACalc. There are two types of schemas.
+These are the Integration API descriptions for SPIDACalc.
 
 #### Data schemas
 
