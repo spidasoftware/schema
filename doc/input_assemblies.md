@@ -1,5 +1,77 @@
-Framing Plan to Input Assembly Upgrade Guide
+Input Assembly / Staker Style Integration Guide
 ===========================================
+## Introduction
+
+**Assemblies** are SPIDAcalc's mechanism for handling Construction Standards/Common Units. Like almost all SPIDAcalc components, they are divided into a **Client Assembly**, which defines the standard, and an **Assembly**, which is the instance of the standard on a structure. **Client Assemblies** can be further divided into two types - a **Framing Assembly** is a pole-head type standard, and can be anything from a crossarm assembly with wires to a single piece of equipment. a **Support Assembly** is a configuration of support elements - guys, anchors, push braces, etc - which are applied as a single unit.
+
+**Client Assemblies** are configured ahead of time by SPIDA or by the client's standards department along with the rest of the SPIDAcalc **Client Data**. For an integration to function properly, this configuration will need to be kept in sync with the integrating programs database of available Common Units. That process is usually manual and should be part of the planning for any deployment of an integrated solution.
+
+The general model SPIDAcalc uses to describe structures is one of many individual components (Crossarms, insulators, guys, etc). From SPIDAcalc's perspective, an **assembly** is a collection of those components.
+
+### On Aliases
+All SPIDAcalc **Client Items** have their primary key that is internal to SPIDA, which may in some cases be a compound key. For **client assemblies**, the primary key is a simple "code" string, which can be matched the integrator's Common Units. However, all **Client Items** also support multiple **Aliases**, which are simple string keys. These can allow any **client item**, including **client assemblies** to be matched to a number of names used in the integrator's system.
+
+
+## Standard Integration Process and Development Flow
+### Phase 1 - Calc Project Creation
+SPIDA recommends that all integrations first develop the ability to write to a SPIDAcalc Exchange project. This project will contain all of the structures generated from the integrating application. The file can be opened directly in SPIDAcalc by the user, by Windows file associations, or using the SPIDAcalc REST API. This will not only allow the integrating test team to view, validate, and troubleshoot their output, but it will also allow users to do the same and learn to trust the quality of the integration.
+
+### Phase 2 - Pulling Results from Calc
+The integrating tool opens an Exchange project that a user has analyzed in SPIDAcalc, or pulls it from the REST API, and displays some summary information from the results that SPIDAcalc has saved in that project. [Results Guide] (results.md)
+
+### Phase 3 (optional)- Direct CEE Integration using CEE-CLI
+Once the user is convinced of the quality of the data produced from the integration, many integrators want to be able to launch analysis directly from with their application. [cee-cli] (cee-cli) is a command line utility provided by SPIDA to assist with the process of using SPIDA's cloud analysis service. This is a separate code path from integrating with SPIDAcalc, but it uses the same Exchange format for the structures analyzed. The tool will return the same results included in the analyzed Exchange file.
+
+### Phase 4 (optional) - Updating Staking Tool Model from Exchange
+The Exchange file will include any changes made by the user once the file was opened in SPIDAcalc - for example, adding guying or changing the pole class. The level of changes that should be supported by the integration/ that the user should be encouraged to do will depend on the specific needs of the client deployment, but through the use of the **externalId** field, integrators can match SPIDAcalc components to the components in their own model and make any necessary changes to keep the two systems synchronized. Deployments can require that all changes be made inside of the staking application, but for some users that may result in an unpleasantly slow or manual iteration loop when a design fails analysis.
+
+## Input Assemblies vs Final Assemblies
+
+Both of these go into the **assemblies** field in a structure. Each one describes an instance of an **Assembly** on that structure. There can be multiple assemblies on a single structure.
+
+**Input Assemblies** are produced by integrators, and mean "Add this Client Assembly to the structure." They are equivalent to dragging and dropping an assembly to one of the views within SPIDAcalc. The fields available in **Input Assemblies** map directly to the choices made by the user when dragging and dropping. Loading an **input assembly** into SPIDAcalc will result in all of the components that make up that assembly (Crossarms, Insulators, etc) being added to the structure.
+
+[Input Assembly Schema](../resources/schema/spidacalc/calc/input_assembly.schema)
+
+**Final Assemblies** are produced by SPIDAcalc. These are the only **Assemblies** that will ever be found in an Exchange file from SPIDAcalc. They mean "An Assembly exists on this structure and these are the components that it describes." Loading a **final assembly** into SPIDAcalc will not add any new components. The fields in a **final assembly** are what **Client Assembly** it represents, and which components on the structure are part of it.
+
+[Final Assembly Schema](../resources/schema/spidacalc/calc/assembly.schema)
+
+So the general flow of staking type integration is for the Staker to write structures with **Input Assemblies** based on their knowledge of the Common Units on the structure. SPIDAcalc will combine that with the construction standards stored in the Client File to produce a structure with many components grouped into **Final Assemblies**. 
+
+**Input Assemblies** can be mixed with normal SPIDAcalc components, if the staking application needs to add a specific component in an ad hoc fashion that is not linked to a Common Unit.
+
+## Input Assembly Fields and Logic
+- **clientItem** - The code or alias of the **client assembly** AKA your Common Unit. 
+- **owner** - This owner will be applied to all components created by this input assembly.
+- **attachHeight** - The height of the highest component. If this is not defined, SPIDAcalc will apply its stacking logic as if the assembly were dropped onto Top View.
+- **direction** - The direction of the assembly. This is mostly relevant for assemblies without wires. If this is not defined, SPIDAcalc will treat the direction as though the assembly were dropped on Side View.
+- **wire end points** - Wires in this assembly will go these wire end points. This is equivalent to the selected wire end points in the UI when an assembly is dropped.
+  - **id** - Which wire end point these wires will go to.
+  - **wires** - A map of SPIDAcalc [usage group](../resources/schema/spidacalc/calc/enums/usage_group.schema) to wire alias. This matches the wire selection in the UI. Note that in the UI, these choices apply to all wire end points, but in the **Input Assemblies** wires must be specified separately per wire end point to allow for double dead ends with tension group changes.
+- **support** - This defines anchors, guys, or **support assemblies**. Multiple support elements will be applied to available **Guy Attach Points** in the assembly in a top down order.
+  - **supportItem** - A Client Anchor alias, code or alias for a **support assembly** containing an anchor, or WEP ID (in the case of span guys.
+    - **distance** - Optionally provide the distance of the anchor from the pole, or SPIDAcalc will use the default as if it were dropped in Side View.
+    - **direction** - Optionally provide the direction of the anchor, or SPIDAcalc will use the default based on the configuration of the Guy Attach Point in the **client assembly**.
+    - **attachments** - The list of guys or support assemblies attached to the **support**
+      - **supportItem** - A guy alias, or the code or alias for a **support assembly** containing only guys, that are attached to this anchor.
+
+### Guy Attach Points
+**Client Assemblies** can be configured with set attach points for guying. These can be configured to support specific wire end points or the bisector at specific heights relative to the top of the assembly. Support elements added in input assemblies (or in the UI) are added to guy attach points in a top down order, and take their direction from those Guy Attach Points unless an override is specified.
+
+If the integrating tool needs to set guy attach heights specifically (ignoring the Guy Attach Point configuration), then the guys and anchors can be added as separate components.
+
+If the integrator wants to take advantage of guy attach point configuration, guying must be specified *per input assembly*. 
+
+## Stacking Logic
+If no attach height is provided, **Input Assemblies** will attempt to stack in order from top of the pole to the bottom. The first assembly will use the **Distance from Pole Top** value. The next assembly will go underneathe that assembly, and use the previous assembly's **Distance to Underbuild** value. These values are pre-configured in the **client file**. Neutrals in the overbuild assemblies will automatically be lowered to match those in the underbuild assembly.
+
+## Wire Tensions
+Wire aliases are configured to point to a specific **Tension Group** in the client editor. By using wire aliases, the integration is specifying both wire type and which tension should be applied to that wire.
+
+## 
+
+# Transitioning from a Framing Plan based integration
 
 # Summary
 
