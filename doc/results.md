@@ -21,6 +21,8 @@ Important Fields:
 - **messages** - Any warnings or errors from this analysis.
 - **components** - List of results for each component on the pole. 
 
+![Detailed Results Screenshot](results.png)
+
 ### Component
 
 The [Component](../resources/schema/spidacalc/results/component.schema) is the detailed version of the **Analysis Asset**. It contains the loading result for that specific component.
@@ -42,6 +44,8 @@ Important Fields:
 - **message** - Additional information about results (for example, in the case of an analysis that did not converge)
 - **poles**, **wires**, **anchors**, etc. - The calculated values for each component on the structure that generated this analysis. This is where, for example, you could find the tension used for wires.
 - **additionalValues** - Any values specific to a type of analysis. For example, strength analysis will report the remaining section modulus here. A push brace reports whether it was in tension here.
+
+![Components Screenshot](component.png)
 
 ## Analysis Asset
 The summary results containing analysis assets are found under the **design.analysis** in the SPIDAcalc project JSON. Each entry under **analysis** corresponds to a **Load Case** or **Strength Case** name. The **results** array under each **analysis** contains a list of results for that load case per component.
