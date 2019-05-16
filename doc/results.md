@@ -5,25 +5,11 @@ This document is to highlight the most important fields for reporting on results
 
 SPIDAcalc stores results in two different formats.
 
-[**Analysis Assets**](../resources/schema/spidamin/asset/standard_details/analysis_asset.schema) are included in the SPIDAcalc Exchange project JSON and contain limited summary information about loading.
-
 [**Detailed Results**](../resources/schema/spidacalc/results/results.schema) Are returned by SPIDAcee, and are also stored in the results folder of a full SPIDAexchange zip file.
 
+[**Analysis Assets**](../resources/schema/spidamin/asset/standard_details/analysis_asset.schema) are included in the SPIDAcalc Exchange project JSON and contain limited summary information about loading.
+
 These share some field names/meanings, but the structure is slightly different.
-
-## Analysis Asset
-The summary results containing analysis assets are found under the **design.analysis** in the SPIDAcalc project JSON. Each entry under **analysis** corresponds to a **Load Case** or **Strength Case** name. The **results** array under each **analysis** contains a list of results for that load case per component.
-
-If a project contains only analysis assets, when they are loaded into SPIDAcalc the analysis will be marked as not current.
-
-Important fields:
-
-- **component** - The id of the component in the structure. e.g. "Pole" or "Insulator#4"
-- **actual** - The loading percentage or safety factor of that component under that analysis case.
-- **allowable** - The loading percentage or safety factor at which this component will fail.
-- **passes** - If the analysis passed. Some components can fail for reasons other than a high loading percentage.
-- **unit** - PERCENT or SAFETY_FACTOR
-- **loadInfo** - The name of the Load or Strength Case (same as **analysis.id**)
 
 ## Detailed Results
 
@@ -56,3 +42,18 @@ Important Fields:
 - **message** - Additional information about results (for example, in the case of an analysis that did not converge)
 - **poles**, **wires**, **anchors**, etc. - The calculated values for each component on the structure that generated this analysis. This is where, for example, you could find the tension used for wires.
 - **additionalValues** - Any values specific to a type of analysis. For example, strength analysis will report the remaining section modulus here. A push brace reports whether it was in tension here.
+
+## Analysis Asset
+The summary results containing analysis assets are found under the **design.analysis** in the SPIDAcalc project JSON. Each entry under **analysis** corresponds to a **Load Case** or **Strength Case** name. The **results** array under each **analysis** contains a list of results for that load case per component.
+
+If a project contains only analysis assets, when they are loaded into SPIDAcalc the analysis will be marked as not current.
+
+Important fields:
+
+- **component** - The id of the component in the structure. e.g. "Pole" or "Insulator#4"
+- **actual** - The loading percentage or safety factor of that component under that analysis case.
+- **allowable** - The loading percentage or safety factor at which this component will fail.
+- **passes** - If the analysis passed. Some components can fail for reasons other than a high loading percentage.
+- **unit** - PERCENT or SAFETY_FACTOR
+- **loadInfo** - The name of the Load or Strength Case (same as **analysis.id**)
+
