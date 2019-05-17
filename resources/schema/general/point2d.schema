@@ -1,0 +1,19 @@
+{
+  "id": "#/general/point2d.schema",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "type": "object",
+  "description": "an (x, y)",
+  "properties": {
+    "x": {
+      "type": "number"
+    },
+    "y": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "x",
+    "y"
+  ],
+  "additionalProperties": false
+}

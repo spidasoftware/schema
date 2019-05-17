@@ -1,100 +1,155 @@
 {
-	"description": "Properties for a client file",
-	"id": "#/spidacalc/client/data.schema",
-	"type": "object",
-	"properties": {
-    "schema": {
-      "type": "string",
-      "description": "Full URL of the schema. /schema/path/to/example.schema"
+    "description": "Properties for a client file",
+    "id": "#/spidacalc/client/data.schema",
+    "type": "object",
+    "properties": {
+        "schema": {
+          "type": "string",
+          "description": "Full URL of the schema. /schema/path/to/example.schema"
+        },
+        "version": {
+          "type": "number",
+          "description": "This is a schema version integer."
+        },
+        "name": {
+            "type": "string"
+        },
+        "id": {
+            "type": "string"
+        },
+        "clientFileVersion": {
+            "type": "string",
+            "description": "a hash of of the individual items hash"
+        },
+        "anchors": {
+            "type": "array",
+            "items": {
+                "$ref":"../../spidacalc/client/anchor.schema"
+            }
+        },
+        "crossArms": {
+            "type": "array",
+            "items": {
+                "$ref":"../../spidacalc/client/crossarm.schema"
+            }
+        },
+        "insulators": {
+            "type": "array",
+            "items": {
+                "$ref":"../../spidacalc/client/insulator.schema"
+            }
+        },
+        "braces": {
+            "type": "array",
+            "items": {
+                "$ref":"../../spidacalc/client/sidewalk_brace.schema"
+            }
+        },
+        "foundations": {
+            "type": "array",
+            "items": {
+                "$ref":"../../spidacalc/client/foundation.schema"
+            }
+        },
+        "wires": {
+            "type": "array",
+            "items": {
+                "$ref":"../../spidacalc/client/wire.schema"
+            }
+        },
+        "poles": {
+            "type": "array",
+            "items": {
+                "$ref":"../../spidacalc/client/pole.schema"
+            }
+        },
+        "equipments": {
+            "type": "array",
+            "items": {
+                "$ref":"../../spidacalc/client/equipment.schema"
+            }
+        },
+        "assemblies":{
+          "type": "array",
+          "items": {
+            "$ref":"../../spidacalc/client/assembly.schema"
+          }
+        },
+        "bundles":{
+          "type": "array",
+          "items": {
+            "$ref":"../../spidacalc/client/bundle.schema"
+          }
+        },
+        "bundleComponents":{
+          "type": "array",
+          "items": {
+            "$ref":"../../spidacalc/client/bundle_component.schema"
+            }
+        },
+        "analysisCases":{
+            "type": "array",
+            "items": {
+                "oneOf":[
+                  {"$ref":"../../spidacalc/client/load_case.schema"},
+                  {"$ref":"../../spidacalc/client/strength_case.schema"}
+                ]
+            }
+        },
+         "owners":{
+            "type": "array",
+            "items": {
+                "$ref":"../../general/owner.schema"
+            }
+        },
+         "notes":{
+            "type": "array",
+            "items": {
+                "$ref":"../../spidacalc/client/note.schema"
+            }
+        },
+         "locationForms":{
+            "type": "array",
+            "items": {
+                "$ref":"../../spidacalc/client/custom_form.schema"
+            }
+        },
+         "projectForms":{
+            "type": "array",
+            "items": {
+                "$ref":"../../spidacalc/client/custom_form.schema"
+            }
+        },
+        "customReportSetups":{
+            "type": "array",
+            "items": {
+                "$ref":"../../spidacalc/client/custom_report_setup.schema"
+            }
+         },
+         "designLayers":{
+            "type": "array",
+            "items": {
+                "$ref":"../../spidacalc/client/design_layer.schema"
+            }
+         },
+         "defaultLocationForms":{
+            "type": "array",
+            "items": {
+                "type": "string",
+                "description": "The defaultLocationForm's title"
+            }
+         },
+         "defaultProjectForms":{
+            "type": "array",
+            "items": {
+                "type": "string",
+                "description": "The defaultProjectForms's title"
+            }
+         },
+         "defaultOwner":{
+            "type": "object",
+            "$ref":"../../general/owner.schema"
+         }
     },
-    "version": {
-      "type": "number",
-      "description": "This is a schema version integer."
-    },
-		"name": {
-			"type": "string"
-		},
-		"id": {
-			"type": "string"
-		},
-		"version": {
-			"type": "string",
-			"description": "a hash of of the individual items hash"
-		},
-		"anchors": {
-			"type": "array",
-			"items": {
-				"$ref":"../../spidacalc/client/anchor.schema"
-			}
-		},
-		"crossArms": {
-			"type": "array",
-			"items": {
-				"$ref":"../../spidacalc/client/crossarm.schema"
-			}
-		},
-		"insulators": {
-			"type": "array",
-			"items": {
-				"$ref":"../../spidacalc/client/insulator.schema"
-			}
-		},
-		"braces": {
-			"type": "array",
-			"items": {
-				"$ref":"../../spidacalc/client/sidewalk_brace.schema"
-			}
-		},
-		"foundations": {
-			"type": "array",
-			"items": {
-				"$ref":"../../spidacalc/client/foundation.schema"
-			}
-		},
-		"wires": {
-			"type": "array",
-			"items": {
-				"$ref":"../../spidacalc/client/wire.schema"
-			}
-		},
-		"poles": {
-			"type": "array",
-			"items": {
-        "$ref":"../../spidacalc/client/pole.schema"
-			}
-		},
-		"equipments": {
-			"type": "array",
-			"items": {
-				"$ref":"../../spidacalc/client/equipment.schema"
-			}
-		},
-    "assemblies":{
-      "type": "array",
-      "items": {
-        "$ref":"../../spidacalc/client/assembly.schema"
-      }
-    },
-    "bundles":{
-      "type": "array",
-      "items": {
-        "$ref":"../../spidacalc/client/bundle.schema"
-      }
-    },
-    "bundleComponents":{
-      "type": "array",
-      "items": {
-        "$ref":"../../spidacalc/client/bundle_component.schema"
-      }
-    },
-		"analysisCases": {
-			"type": "array",
-			"items": {
-        "oneOf":[
-          {"$ref":"../../spidacalc/client/load_case.schema"},{"$ref":"../../spidacalc/client/strength_case.schema"}
-        ]
-			}
-		}
-	},
-	"additionalProperties": false
+    "additionalProperties": false
 }
