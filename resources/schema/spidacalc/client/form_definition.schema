@@ -1,0 +1,31 @@
+{
+    "description": "Properties needed to create a custom field for forms",
+    "type": "object",
+    "id": "#/spidacalc/client/form_definition.schema",
+    "required": [
+        "fieldName",
+        "fieldType"
+    ],
+    "properties": {
+         "fieldName": {
+             "description": "The label's text/name for the custom field.",
+             "type": "string"
+         },
+         "fieldType": {
+               "enum": [
+                  "customTextField",
+                  "customTextArea",
+                  "customCheckBox",
+                  "customSpinner",
+                  "customFootInchField",
+                  "customCalendarField",
+                  "customRadioButtons",
+                  "customDropDown",
+                  "customListSelection",
+                  "customGroup",
+                  "customTabbedPane",
+                  "customTable"
+               ]
+        }
+    }
+}

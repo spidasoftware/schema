@@ -1,4 +1,62 @@
 {
+  "definitions": {
+    "simpleField": {
+      "type": "object",
+      "properties": {
+        "fieldName": {
+          "type": "string",
+          "description": "the field's name"
+        },
+        "fieldType": {
+          "type": "string",
+          "description": "The field's type.  One of:  customTextField, customTextArea, customCheckBox, customSpinner, customFootInchField, customCalendarField"
+        }
+      },
+      "required": ["fieldName", "fieldType"]
+    },
+    "choicesField": {
+      "type": "object",
+      "properties": {
+        "fieldName": {
+          "type": "string",
+          "description": "the field's name"
+        },
+        "fieldType": {
+          "type": "string",
+          "description": "The field's type. One of:  customRadioButtons, customDropDown, customListSelection"
+        },
+        "inputChoices": {
+          "type": "array",
+          "description": "The string values that are valid for this field."
+        }
+      },
+      "required": ["fieldName", "fieldType", "inputChoices"]
+    },
+    "containerField": {
+      "properties": {
+        "fieldName": {
+          "type": "string",
+          "description": "the field's name"
+        },
+        "fieldType": {
+          "type": "string",
+          "description": "The field's type.  One of:  customGroup, customTabbedPane, customTable"
+        },
+        "fieldDefinitions": {
+          "type": "array",
+          "description": "The definitions of the fields that make up this container field.",
+          "items": {
+            "anyOf": [
+              { "$ref": "#/definitions/simpleField" },
+              { "$ref": "#/definitions/choicesField" }
+            ]
+          }
+        }
+      },
+      "required": ["fieldName", "fieldType", "fieldDefinitions"]
+    }
+  },
+
   "id": "#/general/form.schema",
   "type": "object",
   "description": "Either a Location or a Project form, with field and values stored as <fieldName>: <value>",
@@ -20,6 +78,17 @@
       "type": "string",
       "description": "The form must be completed for the project level status to advance.  If this form is on a project this can only be PROJECT.  All required fields on the form must be completed for the project status to advance.  If this form is on a station then it can be PROJECT or STATION.  If on a station and set to PROJECT then all required fields on the form must be completed for the project status to advance.  If on a station and set to STATION then all required fields on the form must be completed for the station status to advance.  This field is read only and cannot be updated through API calls.",
       "enum": ["PROJECT", "STATION"]
+    },
+    "formDefinition": {
+      "description": "the name and type of each field in the form",
+      "type": "array",
+      "items": {
+        "anyOf": [
+          { "$ref": "#/definitions/simpleField" },
+          { "$ref": "#/definitions/choicesField" },
+          { "$ref": "#/definitions/containerField" }
+        ]
+      }
     },
     "fields": {
       "type": "object",

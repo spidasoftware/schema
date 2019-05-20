@@ -29,52 +29,83 @@
                 "Draft"
             ]
         },
+        "pendingAnalysis": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "jobId": {
+                "type": "string"
+              },
+              "analysisCaseName": {
+                "type": "string"
+              },
+              "structureHash": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "jobId", "analysisCaseName", "structureHash"
+            ]
+          }
+        },
+        "analysisCurrent": {
+          "type": "boolean"
+        },
         "analysis": {
             "description": "List of load cases and their results. On exports the results will be filled in if they exist. On import results are ignored, but load cases will be pre-assigned.",
             "items": {
-                "oneOf": [
-                    {
-                        "additionalProperties": false,
-                        "description": "A collection of results for a loading or strength case.",
-                        "properties": {
-                            "id": {
-                                "description": "an id, usually the loadcase name",
-                                "type": "string"
-                            },
-                            "results": {
-                                "description": "Results for all components.",
-                                "type": "array",
-                                "items": [
-                                    {
-                                        "$ref": "../../spidamin/asset/standard_details/analysis_asset.schema"
-                                    }
-                                ]
-                            }
-                        },
-                        "required": [
-                            "id"
-                        ],
-                        "type": "object"
+                "additionalProperties": false,
+                "description": "A collection of results for a loading or strength case.",
+                "properties": {
+                    "id": {
+                        "description": "an id, usually the loadcase name",
+                        "type": "string"
                     },
-                    {
-                        "$ref": "../../spidacalc/results/results.schema"
-                    },
-                    {
-                        "additionalProperties": false,
-                        "description": "Id of a results object, the object must be a /spidacalc/results/results.schema",
-                        "properties": {
-                            "resultId": {
-                                "description": "Id of the results",
-                                "type": "string"
+                    "results": {
+                        "description": "Results for all components.",
+                        "type": "array",
+                        "items": [
+                            {
+                                "$ref": "../../spidamin/asset/standard_details/analysis_asset.schema"
                             }
-                        },
-                        "required": [
-                            "resultId"
                         ]
+                    },
+                    "analysisCaseDetails": {
+                      "description": "the analysis case for this result",
+                      "oneOf": [
+                          {
+                            "$ref": "../client/load_case.schema"
+                          },
+                          {
+                            "$ref": "../client/strength_case.schema"
+                          }
+                      ]
                     }
-                ]
+                },
+                "required": [
+                    "id"
+                ],
+                "type": "object"
             },
             "type": "array"
+        },
+        "analysisDetails": {
+          "description": "detailed analysis",
+          "type": "object",
+          "properties": {
+            "resultId": {
+              "description": "the result id.  if detailedResults is not present, the detailed results will be in ${resultId}.json",
+              "type": "string"
+            },
+            "detailedResults": {
+              "description": "the detailed results",
+              "$ref": "../../spidacalc/results/results.schema"
+            }
+          },
+          "required": [
+            "resultId"
+          ]
         },
         "geographicCoordinate": {
             "$ref": "../../general/geometry.schema"
@@ -86,5 +117,4 @@
             "$ref": "../../spidacalc/calc/structure.schema"
         }
     }
-
 }

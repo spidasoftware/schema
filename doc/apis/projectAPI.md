@@ -58,6 +58,35 @@ From our previous call we know the project's id is 55485 and we can use this to 
       ]
     }
 
+Create or Update with SPIDA DB
+-----------
+
+Create or update a project with a spida db project
+
+#### URL
+
+`https://${HOST}/${APP}/projectAPI/createOrUpdateWithDB`
+
+#### Allowed Methods
+
+`POST`
+
+#### Parameters
+
+1. `project_json`: a required [project](../../resources/schema/spidamin/project/project.schema). An update is performed if the project.id is present, and create if not.
+
+#### Returns
+
+1. An [id object](../../resources/schema/general/id.schema)
+
+#### Examples
+
+The following curl command creates a min project and links a spidadb project 
+
+	curl -F 'spidaFile=@/calc-files/test-project.exchange.spida' \
+	-F 'clientFile=@/client-files/clientFile.json' \
+	-F 'project_json={"name":"api-test-6", "flowName":"test", "stations":[{"spotted":true, "display":"api-test-loc-6", "geometry": {"coordinates": [-82.86015272140503, 40.00846977551567], "type": "Point"}}]}' \
+	http://localhost:8888/projectmanager/projectAPI/createOrUpdateWithDB?apiToken=ABC123
 
 Get Project
 ----------
