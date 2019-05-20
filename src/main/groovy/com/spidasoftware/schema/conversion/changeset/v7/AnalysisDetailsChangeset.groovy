@@ -11,7 +11,6 @@ import groovy.transform.CompileStatic
 /**
  * v7 adds analysisCurrent, moves detailed results from "analysis" to "analysisDetails", and adds the analyzed structure to analysis details.
  */
-@CompileStatic
 class AnalysisDetailsChangeset extends AbstractCalcDesignChangeset {
 
 	/**
