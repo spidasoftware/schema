@@ -20,6 +20,32 @@ The linker extends a regular asset service in some ways and therefor has most of
 1. [getPossibleAssetTypes](./assetAPI.md#get-possible-asset-types)
 1. [getStations](./assetAPI.md#get-stations)
 
+Find Stations
+-----
+
+Get a set of stations based on parameters provided
+
+#### URL
+
+`https://${HOST}/${APP}/stationLinkerAPI/findStations`
+
+#### Allowed Methods
+
+`GET`
+
+#### Parameters
+
+station_id OR tag are required.
+
+1. station_id: `string`, the id of the station in an asset service.
+1. tag: `string`, the asset tag value
+1. geometry: [geometry](../../resources/schema/general/geometry.schema), the gps coordinates of one location
+1. details: `boolean`, true if all details of the station including assets should be returned
+
+#### Returns
+
+result with an array of stations sorted by distance to gps point passed in
+
 Get Links
 -----
 
@@ -43,6 +69,7 @@ source and station OR linker_id are required.
 
 #### Returns
 
+array of links
 
 Link Stations
 -----
