@@ -5,7 +5,7 @@
     "additionalProperties": false,
     "properties": {
         "id": {
-            "description": "Primary Key and unique identifier for project component",
+            "description": "Unique location id assigned by SpidaDB",
             "type": "string"
         },
         "schema": {
