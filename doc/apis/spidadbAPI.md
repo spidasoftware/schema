@@ -206,6 +206,14 @@ To retrieve the results for 588a58e17d84ad3bd41c4562:
 
 `curl https://www.example.com/spidadb/results/588a58e17d84ad3bd41c4562?apiToken=abc123`
 
+## Creating a project from location ids
+
+Pass the project name and location ids into `projects/createFromLocations` 
+
+Example:
+
+`curl -vvv -X POST -H "Content-Type: application/json" -d '{"projectName":"p1","locationIds":["5cdd91ff8cd8ac0e15aec8c8","5c8a3da18cd8ac70a42aec0d"]}' http://www.example.com/spidadb/projects/createFromLocations?apiToken=abc123`
+
 # The Finer Points
 
 #### Saving or Updating Projects
