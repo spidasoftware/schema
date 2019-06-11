@@ -133,7 +133,7 @@ class FormatConverter {
                 "sidewalkBraces"
         ]
         analyzableComponentTypes.each { String type ->
-            def componentList = originalDesignObject.structure."$type"
+            def componentList = originalDesignObject.structure?."$type"
             if (componentList && !componentList.isEmpty()) {
 
                 List allResultsForType = []
