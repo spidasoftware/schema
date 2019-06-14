@@ -63,8 +63,9 @@ class FormatConverter {
         //the calc location that will get saved as part of the referenced location
         Map convertedLocation = CalcProjectChangeSet.duplicateAsJson(calcLocation)
         convertedLocation.get("designs").each { design ->
-            components.add(convertCalcDesign(design, calcLocation, calcProject))
-
+            SpidaDBDesign convertedDesign = convertCalcDesign(design, calcLocation, calcProject)
+            components.add(convertedDesign)
+            components.add(convertedDesign.result)
             //clear out all the properties of the converted location's design
             //except for the id and label, which will be foreign key refs
             def desId = design.id
@@ -106,10 +107,26 @@ class FormatConverter {
         }
 
         Map convertedDesign = CalcProjectChangeSet.duplicateAsJson(calcDesign)
+        convertedDesign.put("calcResult", convertCalResult(convertedDesign))
+
         referencedDesign.put("calcDesign", convertedDesign)
+
         addAnalysisResultsToNewDesign(calcDesign, referencedDesign)
 
         return new SpidaDBDesign(referencedDesign)
+    }
+
+	SpidaDBResult convertCalResult(Map calcDesign) {
+        Map referencedResults = [:]
+        Map analysisDetails = calcDesign.analysisDetails
+        Map detailedResults = analysisDetails.get("detailedResults")
+        Map convertedResult = CalcProjectChangeSet.duplicateAsJson(detailedResults)
+        referencedResults.put("calcResult", convertedResult)
+        referencedResults.put("id", convertedResult.id)
+        referencedResults.put("dateModified", new Date().toString())
+        referencedResults.put("user", "user") //todo required field. what is a user?
+
+        return new SpidaDBResult(referencedResults)
     }
 
     private static void addAnalysisResultsToNewDesign(Map originalDesignObject, Map referencedDesign) {

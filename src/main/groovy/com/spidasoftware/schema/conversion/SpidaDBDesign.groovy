@@ -82,4 +82,9 @@ class SpidaDBDesign extends AbstractSpidaDBComponent {
 	    getMap().get("projectId")
     }
 
+	SpidaDBResult getResult(){
+		Map calcDesign = getMap().get("calcDesign")
+		return calcDesign.get("calcResult")
+	}
+
 }
