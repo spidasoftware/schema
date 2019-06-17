@@ -84,7 +84,7 @@ class SpidaDBDesign extends AbstractSpidaDBComponent {
 
 	SpidaDBResult getResult(){
 		Map calcDesign = getMap().get("calcDesign")
-		return calcDesign.get("calcResult")
+		return calcDesign?.get("calcResult")
 	}
 
 }

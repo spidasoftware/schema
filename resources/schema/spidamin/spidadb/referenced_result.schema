@@ -4,8 +4,7 @@
     "required": [
         "id",
         "calcResult",
-        "dateModified",
-        "user"
+        "dateModified"
     ],
     "properties": {
         "id": {

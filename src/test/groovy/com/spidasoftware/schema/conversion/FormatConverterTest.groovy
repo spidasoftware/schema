@@ -6,6 +6,7 @@ import com.spidasoftware.schema.conversion.changeset.ConverterUtils
 import com.spidasoftware.schema.validation.Validator
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
+import org.junit.Assume
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -49,7 +50,7 @@ class FormatConverterTest extends Specification {
 
 		then: "the results should validate against the schema"
 			def refResults = refCompList.findAll{ it instanceof SpidaDBResult }
-			refResults.size() > 0
+			Assume.assumeTrue(refResults.size() > 0) // skip for projects with no results.
 			refResults.each { SpidaDBResult it ->
 				def resultReport = validator.validateAndReport("/schema/spidamin/spidadb/referenced_result.schema", JsonOutput.toJson(it.getMap()))
 				assert resultReport.isSuccess(), "Result: ${it.getName()} failed validation: \n${resultReport}"
@@ -57,7 +58,7 @@ class FormatConverterTest extends Specification {
 
 
 		where:
-			currentProject << /*["four-locations-one-lead-project.json", "18-locations-analyzed.json", "single-full-pole.json", "project-with-detailed-results.json", "minimal-project-valid.json",*/[ "detailed-results-locations.json"]
+			currentProject << ["four-locations-one-lead-project.json", "18-locations-analyzed.json", "single-full-pole.json", "project-with-detailed-results.json", "minimal-project-valid.json", "detailed-results-locations.json"]
 	}
 
 	void "test converting calc to referenced and back again"(){
