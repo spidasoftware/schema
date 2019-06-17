@@ -13,7 +13,7 @@
             "description": "The unique id of this project component"
         },
         "calcResult": {
-            "$ref": "../../spidacalc/result/result.schema"
+            "$ref": "../../spidacalc/results/results.schema"
         },
         "companyId": {
           "type": "string",
