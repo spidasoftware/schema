@@ -65,8 +65,8 @@ class FormatConverter {
         convertedLocation.get("designs").each { design ->
             SpidaDBDesign convertedDesign = convertCalcDesign(design, calcLocation, calcProject)
             components.add(convertedDesign)
-            if(convertedDesign.result != null) {
-                components.add(convertedDesign.result)
+            if(convertedDesign.getResult() != null) {
+                components.add(convertedDesign.getResult())
             }
             //clear out all the properties of the converted location's design
             //except for the id and label, which will be foreign key refs
@@ -110,7 +110,7 @@ class FormatConverter {
 
         Map convertedDesign = CalcProjectChangeSet.duplicateAsJson(calcDesign)
         if(calcDesign.containsKey("analysisDetails") && calcDesign.get("analysisDetails").containsKey("detailedResults")) {
-            convertedDesign.put("calcResult", convertCalResult(convertedDesign))
+            referencedDesign.put("calcResult", convertCalResult(convertedDesign))
         }
         referencedDesign.put("calcDesign", convertedDesign)
 
