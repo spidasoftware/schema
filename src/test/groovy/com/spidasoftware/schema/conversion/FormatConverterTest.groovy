@@ -21,6 +21,8 @@ class FormatConverterTest extends Specification {
 	void "referenced components should be valid against the schema"(){
 		setup: "load calc project json"
 			def calcProject = getCalcProject(currentProject)
+			Converter projectConverter = ConverterUtils.getConverterInstance("/schema/spidacalc/calc/project.schema")
+			projectConverter.convert(calcProject, projectConverter.currentVersion)
 			Validator validator = new Validator()
 
 		when: "convert to a list of referenced components"
@@ -46,13 +48,14 @@ class FormatConverterTest extends Specification {
 			}
 
 		where:
-			currentProject << ["four-locations-one-lead-project.json", "18-locations-analyzed.json", "single-full-pole.json"]
-
+			currentProject << ["four-locations-one-lead-project.json", "18-locations-analyzed.json", "single-full-pole.json", "project-with-detailed-results.json", "minimal-project-valid.json"]
 	}
 
 	void "test converting calc to referenced and back again"(){
 		setup: "start with a calc project"
 			def calcProject = getCalcProject("four-locations-one-lead-project.json")
+			Converter projectConverter = ConverterUtils.getConverterInstance("/schema/spidacalc/calc/project.schema")
+			projectConverter.convert(calcProject, projectConverter.currentVersion)
 
 		and: "validate json to make sure it's valid before format conversion"
 			assert jsonIsValid(calcProject), "Starting project JSON is valid against schema"
