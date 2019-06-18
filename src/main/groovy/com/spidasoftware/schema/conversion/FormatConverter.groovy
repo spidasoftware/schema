@@ -430,6 +430,10 @@ class FormatConverter {
         return CalcProjectChangeSet.duplicateAsJson(spidaDBDesign.getCalcJSON())
     }
 
+    Map convertSpidaDBResult(SpidaDBResult spidaDBResult) {
+        return CalcProjectChangeSet.duplicateAsJson(spidaDBResult.getCalcJSON())
+    }
+
     private static String newPrimaryKey() {
         return new ObjectId().toString()
     }
