@@ -64,10 +64,10 @@ class FormatConverter {
         Map convertedLocation = CalcProjectChangeSet.duplicateAsJson(calcLocation)
         convertedLocation.get("designs").each { design ->
             SpidaDBDesign convertedDesign = convertCalcDesign(design, calcLocation, calcProject)
-            components.add(convertedDesign)
-            if(convertedDesign.getResult() != null) {
-                components.add(convertedDesign.getResult())
+            if(design.containsKey("analysisDetails") && design.get("analysisDetails").containsKey("detailedResults")) {
+                components.add(convertCalcResult(convertedDesign.calcJSON))
             }
+            components.add(convertedDesign)
             //clear out all the properties of the converted location's design
             //except for the id and label, which will be foreign key refs
             def desId = design.id
@@ -101,6 +101,7 @@ class FormatConverter {
             referencedDesign.put("locationLabel", calcLocation.get("label").toString())
             referencedDesign.put("locationId", calcLocation.get("id").toString())
         }
+        
         if (calcProject) {
             referencedDesign.put("projectLabel", calcProject.get("label"))
             referencedDesign.put("projectId", calcProject.get("id").toString())
@@ -109,20 +110,16 @@ class FormatConverter {
         }
 
         Map convertedDesign = CalcProjectChangeSet.duplicateAsJson(calcDesign)
-        if(calcDesign.containsKey("analysisDetails") && calcDesign.get("analysisDetails").containsKey("detailedResults")) {
-            referencedDesign.put("calcResult", convertCalResult(convertedDesign))
-        }
         referencedDesign.put("calcDesign", convertedDesign)
-
         addAnalysisResultsToNewDesign(calcDesign, referencedDesign)
-
-        return new SpidaDBDesign(referencedDesign)
+        SpidaDBDesign dbDesign = new  SpidaDBDesign(referencedDesign)
+        return dbDesign
     }
 
-	SpidaDBResult convertCalResult(Map calcDesign) {
+	SpidaDBResult convertCalcResult(Map calcDesign) {
         Map referencedResults = [:]
         Map analysisDetails = calcDesign.analysisDetails
-        Map detailedResults = analysisDetails.get("detailedResults")
+        Map detailedResults = analysisDetails.detailedResults
         Map convertedResult = CalcProjectChangeSet.duplicateAsJson(detailedResults)
         referencedResults.put("calcResult", convertedResult)
         referencedResults.put("id", convertedResult.id)
