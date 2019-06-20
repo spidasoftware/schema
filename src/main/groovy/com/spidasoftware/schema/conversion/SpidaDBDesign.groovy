@@ -11,7 +11,6 @@ import groovy.transform.CompileStatic
 @CompileStatic
 class SpidaDBDesign extends AbstractSpidaDBComponent {
 
-
     public SpidaDBDesign(Map json) {
         super(json)
     }
@@ -81,5 +80,4 @@ class SpidaDBDesign extends AbstractSpidaDBComponent {
     String getParentProjectId() {
 	    getMap().get("projectId")
     }
-
 }
