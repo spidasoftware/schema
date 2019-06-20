@@ -23,6 +23,7 @@ class ConverterUtils {
         addCalcConverter(new CalcLocationConverter())
         addCalcConverter(new CalcDesignConverter())
         addClientDataConverter(new ClientDataConverter())
+        addCalcConverter(new CalcResultConverter())
     }
 
     static void addCalcConverter(AbstractCalcConverter converter) {

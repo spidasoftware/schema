@@ -65,7 +65,7 @@ class FormatConverter {
         convertedLocation.get("designs").each { design ->
             SpidaDBDesign convertedDesign = convertCalcDesign(design, calcLocation, calcProject)
             if(design.containsKey("analysisDetails") && design.get("analysisDetails").containsKey("detailedResults")) {
-                components.add(convertCalcResult(convertedDesign.calcJSON))
+                components.add(convertCalcResult(design.analysisDetails.detailedResults))
             }
             components.add(convertedDesign)
             //clear out all the properties of the converted location's design
@@ -116,11 +116,9 @@ class FormatConverter {
         return dbDesign
     }
 
-	SpidaDBResult convertCalcResult(Map calcDesign) {
+	SpidaDBResult convertCalcResult(Map calcResults) {
         Map referencedResults = [:]
-        Map analysisDetails = calcDesign.analysisDetails
-        Map detailedResults = analysisDetails.detailedResults
-        Map convertedResult = CalcProjectChangeSet.duplicateAsJson(detailedResults)
+        Map convertedResult = CalcProjectChangeSet.duplicateAsJson(calcResults)
         referencedResults.put("calcResult", convertedResult)
         referencedResults.put("id", convertedResult.id)
         referencedResults.put("dateModified", new Date().time)
