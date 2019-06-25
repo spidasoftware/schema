@@ -367,9 +367,10 @@ class FormatConverter {
         return convertedProject
     }
 
-    Map convertSpidaDBLocation(SpidaDBLocation spidaDBLocation, Collection<SpidaDBDesign> spidaDBDesigns) {
+    Map convertSpidaDBLocation(SpidaDBLocation spidaDBLocation, Collection<SpidaDBDesign> spidaDBDesigns, Collection<SpidaDBResult> spidaDBResults) {
         Map<String, SpidaDBDesign> spidaDBDesignMap = buildSpidaDBIdMap(spidaDBDesigns)
-        return convertSpidaDBLocation(spidaDBLocation, spidaDBDesignMap)
+        Map<String, SpidaDBResult> spidaDBResultMap = buildSpidaDBIdMap(spidaDBResults)
+        return convertSpidaDBLocation(spidaDBLocation, spidaDBDesignMap, spidaDBResultMap)
     }
 
     /**
@@ -420,6 +421,11 @@ class FormatConverter {
 
         locationObject.put("comments", "Generated Location from SpidaDB Design: " + spidaDBDesign.getSpidaDBId() + " uploaded on: " + spidaDBDesign.getDateModified())
         return locationObject
+    }
+
+    Map convertSpidaDBDesign(SpidaDBDesign spidaDBDesign, Collection<SpidaDBResult> spidaDBResults) {
+        Map<String, SpidaDBResult> spidaDBResultMap = buildSpidaDBIdMap(spidaDBResults)
+        return convertSpidaDBDesign(spidaDBDesign, spidaDBResultMap)
     }
 
     Map convertSpidaDBDesign(SpidaDBDesign spidaDBDesign, Map<String, SpidaDBResult> spidaDBResultMap = [:]) {
