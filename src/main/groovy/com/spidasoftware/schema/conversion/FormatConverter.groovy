@@ -422,16 +422,19 @@ class FormatConverter {
         return locationObject
     }
 
-    Map convertSpidaDBDesign(SpidaDBDesign spidaDBDesign, Map<String, SpidaDBResult> spidaDBResultMap) {
+    Map convertSpidaDBDesign(SpidaDBDesign spidaDBDesign, Map<String, SpidaDBResult> spidaDBResultMap = [:]) {
         Map convertedDesign = CalcProjectChangeSet.duplicateAsJson(spidaDBDesign.getCalcJSON())
-        SpidaDBResult result = spidaDBResultMap.get(spidaDBDesign.resultId)
-        String resultId = spidaDBDesign.resultId
-        if(result != null) {
-            log.debug("Adding SpidaDBResult: " + resultId + " to the Design")
-            Map convertedResult = convertSpidaDBResult(result)
-            convertedDesign.analysisDetails.put("detailedResults", convertedResult)
-        } else {
-            log.debug("Could not find a SpidaDBResult with the id: " + resultId)
+        if(!spidaDBResultMap.isEmpty()) {
+            SpidaDBResult result = spidaDBResultMap.get(spidaDBDesign.resultId)
+            String resultId = spidaDBDesign.resultId
+            if (result != null) {
+                log.debug("Adding SpidaDBResult: " + resultId + " to the Design")
+                Map convertedResult = convertSpidaDBResult(result)
+                spidaDBResultMap.remove(spidaDBDesign.resultId)
+                convertedDesign.analysisDetails.put("detailedResults", convertedResult)
+            } else {
+                log.debug("Could not find a SpidaDBResult with the id: " + resultId)
+            }
         }
 
         return convertedDesign
