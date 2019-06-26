@@ -219,7 +219,7 @@ Example:
 Pass a JSON array of design ids into `designs/promote`
 
 Example
-`curl -vvv -X POST -H "Content-Type: application/json" -d '["5c8a3da18cd8ac70a42aec14"]' http://localhost:8181/spidadb/designs/promote?apiToken=abc123`
+`curl -vvv -X POST -H "Content-Type: application/json" -d '["111","333"]' http://localhost:8181/spidadb/designs/promote?apiToken=abc123`
 
 This will copy each design and it's location and return a map of old id to new id. For example:
 `{"locationsPromoted":{"111":"222","333":"444"},"designsPromoted":{"555":"666","777":"888"}}`
