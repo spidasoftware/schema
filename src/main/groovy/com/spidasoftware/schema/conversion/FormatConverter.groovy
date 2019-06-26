@@ -63,10 +63,11 @@ class FormatConverter {
         //the calc location that will get saved as part of the referenced location
         Map convertedLocation = CalcProjectChangeSet.duplicateAsJson(calcLocation)
         convertedLocation.get("designs").each { design ->
-            SpidaDBDesign convertedDesign = convertCalcDesign(design, calcLocation, calcProject)
             if(design.containsKey("analysisDetails") && design.get("analysisDetails").containsKey("detailedResults")) {
                 components.add(convertCalcResult(design.analysisDetails.detailedResults))
+                design.analysisDetails.remove("detailedResults")
             }
+            SpidaDBDesign convertedDesign = convertCalcDesign(design, calcLocation, calcProject)
             components.add(convertedDesign)
             //clear out all the properties of the converted location's design
             //except for the id and label, which will be foreign key refs
