@@ -214,6 +214,16 @@ Example:
 
 `curl -vvv -X POST -H "Content-Type: application/json" -d '{"projectName":"p1","locationIds":["5cdd91ff8cd8ac0e15aec8c8","5c8a3da18cd8ac70a42aec0d"]}' http://www.example.com/spidadb/projects/createFromLocations?apiToken=abc123`
 
+## Promoting designs and their locations
+
+Pass a JSON array of design ids into `designs/promote`
+
+Example
+`curl -vvv -X POST -H "Content-Type: application/json" -d '["111","333"]' http://localhost:8181/spidadb/designs/promote?apiToken=abc123`
+
+This will copy each design and it's location and return a map of old id to new id. For example:
+`{"locationsPromoted":{"111":"222","333":"444"},"designsPromoted":{"555":"666","777":"888"}}`
+
 # The Finer Points
 
 #### Saving or Updating Projects
