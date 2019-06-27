@@ -17,9 +17,13 @@
         "id": {
             "type": "string"
         },
-        "clientFileVersion": {
+        "hash": {
             "type": "string",
-            "description": "a hash of of the individual items hash"
+            "description": "this client data's hash"
+        },
+        "dateModified": {
+          "type": "string",
+          "description": "the date this client data was last modified.  YYYY-MM-DD"
         },
         "anchors": {
             "type": "array",
