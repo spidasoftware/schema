@@ -7,7 +7,6 @@ import com.spidasoftware.schema.validation.Validator
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
 import org.apache.commons.lang.NotImplementedException
-import org.junit.Assume
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -51,10 +50,11 @@ class FormatConverterTest extends Specification {
 
 		then: "the results should validate against the schema"
 			def refResults = refCompList.findAll{ it instanceof SpidaDBResult }
-			Assume.assumeTrue(refResults.size() > 0) // skip for projects with no results.
-			refResults.each { SpidaDBResult it ->
-				def resultReport = validator.validateAndReport("/schema/spidamin/spidadb/referenced_result.schema", JsonOutput.toJson(it.getMap()))
-				assert resultReport.isSuccess(), "Result: ${it.getName()} failed validation: \n${resultReport}"
+			if(refResults.size() > 0) { // skip for projects with no results.
+				refResults.each { SpidaDBResult it ->
+					def resultReport = validator.validateAndReport("/schema/spidamin/spidadb/referenced_result.schema", JsonOutput.toJson(it.getMap()))
+					assert resultReport.isSuccess(), "Result: ${it.getName()} failed validation: \n${resultReport}"
+				}
 			}
 
 
