@@ -10,7 +10,10 @@ class CalcResultConverter extends AbstractCalcConverter {
 
 	@Override
 	void updateVersion(Map json, int version) {
-		// noop. version not currently stored in detailed results: spidacalc/results.schema
+		boolean versionAllowedInDetailedResults = isVersionAllowedInDetailedResults(version)
+		if(versionAllowedInDetailedResults) {
+			json.put("version", version)
+		}
 	}
 
 	@Override
