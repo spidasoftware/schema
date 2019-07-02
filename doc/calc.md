@@ -3,11 +3,12 @@ Calc Integration API
 
 # SPIDACalc API Capabilities Overview
 
-## There are three parts to the Calc APIs
+## There are four parts to the Calc APIs
 
 - A data transfer format for moving project, structure, and results information in and out of SPIDACalc.
 - A REST-like remote control interface for controlling a running instance of calc.
 - A REST interface for querying calc client engineering data.
+- A command line tool for running analysis on an entire project.
 
 ## Data Format
 
@@ -80,7 +81,7 @@ Currently, even though it is done in a web service style, this is only available
 
 We based our services on the json-rpc that can be found [here](http://www.simple-is-better.org/json-rpc/jsonrpc20-schema-service-descriptor.html).  
 
-## Calc Service
+### Calc Service
 
 The Calc service is best thought of as a remote control for a running copy of calc. Once Calc is started, an integrating program can make basic commands that can do the same thing as a user would do in the UI. These options include:
 
@@ -89,9 +90,53 @@ The Calc service is best thought of as a remote control for a running copy of ca
 - Generating reports.
 - Running custom scripts that SPIDA has provided to the client.
 
-## Client Data Service
+### Client Data Service
 
 The client data service allows querying of our client-specific materials libraries. This should allow data-collection type integrations to show the user the available attachments in their own interface and to select them when building a design to send to calc for analysis.
+
+## Command line tool
+
+Beginning with SPIDAcalc 7.1.2, there is a provided command line tool for analyzing an entire project. This tool supports analyzing on SPIDAcee or locally, provided that the user has the appropriate licensing. The command line tool will process any file type accepted by SPIDAcalc (exchange.spida, .spida, or .json). It will also respect any proxy configurations used by the normal SPIDAcalc installation.
+
+The command line tool does not support activating SPIDAcalc or downloading client file updates. Those processes must be managed through the normal SPIDAcalc application before running the command line tool.
+
+The tool writes logs to both the command line and the normal SPIDAcalc log files, governed by the normal SPIDAcalc log configuration.
+
+The tool returns success if at least one design was analyzed. Unfortunately, Analysis Stopper validation errors are not currently available in the JSON, and the project will need to be opened to view them. The best way for an integrator to note this condition is to check for the existence of analysis results on each design that was sent in. If there are no results, then that design was unable to validate for some reason.
+
+In a default installation, the command line analysis tool is found in ```C:\Program Files\SPIDA\calc\bin\calc-cli.bat```
+
+### Usage
+
+`calc-cli.bat <options> projectFile`
+
+#### Options
+
+
+* `-l, --local`: Analyze on the local computer. Requires local analysis license module. With no arguments, analysis will be run on SPIDAcee, which requires that SPIDAcee be enabled for the account.
+* `-j, --json`: Save output as single project JSON file. By default the output format is a .exchange.spida. This option may cause out of memory issues for large projects.
+* `-o, --out outputfile`: Specify the file to save the analyzed project to. By default the tool saves over the input file.
+
+
+#### Example usage
+
+Analyzing an exchange file on SPIDAcee and then saving over itself.
+
+`calc-cli.bat "C:\users\bobuser\Documents\MyExchangeFile.exchange.spida"`
+
+Analyze locally and save a json file to the desktop
+
+`calc-cli.bat -j -l -o "C:\users\bobuser\Desktop\analyzed.json" "C:\users\bobuser\Document\MyExchangeFile.exchange.spida"`
+
+#### Return Codes
+
+| Code | Meaning |
+|----|---|
+|0| At least one design analyzed successfully. |
+|1| The project file could not be found, or there was some other issue with the arguments passed into the tool. See the logs.|
+|2| There was an issue with the license. Either the user does not have a valid license, or the license does not support the local/SPIDAcee analysis option chosen. See the logs.|
+|3| There was an error during analysis. The file could not be read to, no designs were analyzed, the connection to SPIDAcee was lost, etc. See the logs.|
+|4| Unknwn error. See the logs.|
 
 # Developer Guide
 
