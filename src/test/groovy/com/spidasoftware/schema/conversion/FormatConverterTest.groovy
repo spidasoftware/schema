@@ -6,7 +6,7 @@ import com.spidasoftware.schema.conversion.changeset.ConverterUtils
 import com.spidasoftware.schema.validation.Validator
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
-import org.junit.Assume
+import org.apache.commons.lang.NotImplementedException
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -50,10 +50,11 @@ class FormatConverterTest extends Specification {
 
 		then: "the results should validate against the schema"
 			def refResults = refCompList.findAll{ it instanceof SpidaDBResult }
-			Assume.assumeTrue(refResults.size() > 0) // skip for projects with no results.
-			refResults.each { SpidaDBResult it ->
-				def resultReport = validator.validateAndReport("/schema/spidamin/spidadb/referenced_result.schema", JsonOutput.toJson(it.getMap()))
-				assert resultReport.isSuccess(), "Result: ${it.getName()} failed validation: \n${resultReport}"
+			if(refResults.size() > 0) { // skip for projects with no results.
+				refResults.each { SpidaDBResult it ->
+					def resultReport = validator.validateAndReport("/schema/spidamin/spidadb/referenced_result.schema", JsonOutput.toJson(it.getMap()))
+					assert resultReport.isSuccess(), "Result: ${it.getName()} failed validation: \n${resultReport}"
+				}
 			}
 
 
@@ -80,7 +81,8 @@ class FormatConverterTest extends Specification {
 			SpidaDBProject p = spidadbComponents.find{it instanceof SpidaDBProject}
 			List spidadbLocations = spidadbComponents.findAll{ it instanceof SpidaDBLocation }
 			List spidadbDesigns = spidadbComponents.findAll{ it instanceof SpidaDBDesign }
-		    Map reconstitutedCalcProject = converter.convertSpidaDBProject(p, spidadbLocations, spidadbDesigns)
+			List spidadbResults = spidadbComponents.findAll{ it instanceof SpidaDBResult }
+		    Map reconstitutedCalcProject = converter.convertSpidaDBProject(p, spidadbLocations, spidadbDesigns, spidadbResults)
 
 		then: "the reconstituted project should be valid against the schema"
 			jsonIsValid(reconstitutedCalcProject)
@@ -317,18 +319,16 @@ class FormatConverterTest extends Specification {
 
 	void "SpidaDB components should be converted into calc-ready JSON"() {
 		/* Just recreate a SpidaDB project from it's component parts and make sure it goes together okay */
+		setup:
+			SpidaDBProject spidaDBProject = new SpidaDBProject(loadJson("exampleProject", "projects")[0])
+			List<SpidaDBLocation> spidaDBLocation = loadJson("exampleProject", "locations").collect{
+				new SpidaDBLocation(it)
+			}
+			List<SpidaDBDesign> spidaDBDesign = loadJson("exampleProject", "designs").collect{
+				new SpidaDBDesign(it)
+			}
 		when:
-			SpidaDBProject spidaDBProject = new SpidaDBProject(loadJson("exampleProject", "projects")[0] as Map)
-			Map spidaDBLocations = [:]
-			Map spidaDBDesigns = [:]
-			loadJson("exampleProject", "locations").each { location ->
-				spidaDBLocations.put(location."_id", new SpidaDBLocation(location as Map))
-			}
-			loadJson("exampleProject", "designs").each { design ->
-				spidaDBDesigns.put(design."_id", new SpidaDBDesign(design as Map))
-			}
-
-		    Map projectJson = converter.convertSpidaDBProject(spidaDBProject, spidaDBLocations, spidaDBDesigns)
+		    Map projectJson = converter.convertSpidaDBProject(spidaDBProject, spidaDBLocation, spidaDBDesign)
 			def schema = "/schema/spidacalc/calc/project.schema"
 			def report = new Validator().validateAndReport(schema, JsonOutput.toJson(projectJson))
 
@@ -362,7 +362,31 @@ class FormatConverterTest extends Specification {
 	}
 
 	private List loadJson(String project, String type) {
-	    Map json = new JsonSlurper().parse(getClass().getResourceAsStream("/formats/spidadb/${project}/${type}.json"))
+		Converter converter
+		String dbKey
+
+		switch(type){
+			case "projects":
+				converter = ConverterUtils.getConverterInstance("/schema/spidacalc/calc/project.schema")
+				dbKey = "calcProject"
+				break
+			case "locations":
+				converter = ConverterUtils.getConverterInstance("/schema/spidacalc/calc/location.schema")
+				dbKey = "calcLocation"
+				break
+			case "designs":
+				converter = ConverterUtils.getConverterInstance("/schema/spidacalc/calc/design.schema")
+				dbKey = "calcDesign"
+				break
+			default:
+				throw new NotImplementedException("Not implemented for type ${type}")
+		}
+
+		Map json = new JsonSlurper().parse(getClass().getResourceAsStream("/formats/spidadb/${project}/${type}.json"))
+		//WE EXPECT ALL JSON TO BE IN THE CURRENT VERSION FORMAT
+		json.get(type).each {
+			converter.convert(it.get(dbKey), converter.currentVersion)
+		}
 		return json.get(type)
 	}
 

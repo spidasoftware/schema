@@ -63,10 +63,11 @@ class FormatConverter {
         //the calc location that will get saved as part of the referenced location
         Map convertedLocation = CalcProjectChangeSet.duplicateAsJson(calcLocation)
         convertedLocation.get("designs").each { design ->
-            SpidaDBDesign convertedDesign = convertCalcDesign(design, calcLocation, calcProject)
             if(design.containsKey("analysisDetails") && design.get("analysisDetails").containsKey("detailedResults")) {
-                components.add(convertCalcResult(convertedDesign.calcJSON))
+                components.add(convertCalcResult(design.analysisDetails.detailedResults))
+                design.analysisDetails.remove("detailedResults")
             }
+            SpidaDBDesign convertedDesign = convertCalcDesign(design, calcLocation, calcProject)
             components.add(convertedDesign)
             //clear out all the properties of the converted location's design
             //except for the id and label, which will be foreign key refs
@@ -116,11 +117,9 @@ class FormatConverter {
         return dbDesign
     }
 
-	SpidaDBResult convertCalcResult(Map calcDesign) {
+	SpidaDBResult convertCalcResult(Map calcResults) {
         Map referencedResults = [:]
-        Map analysisDetails = calcDesign.analysisDetails
-        Map detailedResults = analysisDetails.detailedResults
-        Map convertedResult = CalcProjectChangeSet.duplicateAsJson(detailedResults)
+        Map convertedResult = CalcProjectChangeSet.duplicateAsJson(calcResults)
         referencedResults.put("calcResult", convertedResult)
         referencedResults.put("id", convertedResult.id)
         referencedResults.put("dateModified", new Date().time)
@@ -297,13 +296,14 @@ class FormatConverter {
         return thing
     }
 
-    Map convertSpidaDBProject(SpidaDBProject spidaDBProject, Collection<SpidaDBLocation> spidaDBLocations, Collection<SpidaDBDesign> spidaDBDesigns) {
+    Map convertSpidaDBProject(SpidaDBProject spidaDBProject, Collection<SpidaDBLocation> spidaDBLocations, Collection<SpidaDBDesign> spidaDBDesigns, Collection<SpidaDBResult> spidaDBResult = []) {
         Map<String, SpidaDBLocation> spidaDBLocationMap = buildSpidaDBIdMap(spidaDBLocations)
         Map<String, SpidaDBDesign> spidaDBDesignMap = buildSpidaDBIdMap(spidaDBDesigns)
-        return convertSpidaDBProject(spidaDBProject, spidaDBLocationMap, spidaDBDesignMap)
+        Map<String, SpidaDBResult> spidaDBResultMap = buildSpidaDBIdMap(spidaDBResult)
+        return convertSpidaDBProject(spidaDBProject, spidaDBLocationMap, spidaDBDesignMap, spidaDBResultMap)
     }
 
-    Map convertSpidaDBProject(SpidaDBProject spidaDBProject, Map<String, SpidaDBLocation> spidaDBLocationMap, Map<String, SpidaDBDesign> spidaDBDesignMap) {
+    Map convertSpidaDBProject(SpidaDBProject spidaDBProject, Map<String, SpidaDBLocation> spidaDBLocationMap, Map<String, SpidaDBDesign> spidaDBDesignMap, Map<String, SpidaDBResult> spidaDBResultMap) {
         // new project json object that we can keep adding to
         Map convertedProject = CalcProjectChangeSet.duplicateAsJson(spidaDBProject.getCalcJSON())
 
@@ -320,7 +320,7 @@ class FormatConverter {
             leadStub.get('locations').each { Map locationStub ->
                 if (spidaDBLocationMap.containsKey(locationStub.id)) {
                     log.debug("Adding location: ${locationStub.id} to the converted project")
-                    calcLocations.add(convertSpidaDBLocation(spidaDBLocationMap.get(locationStub.id), spidaDBDesignMap))
+                    calcLocations.add(convertSpidaDBLocation(spidaDBLocationMap.get(locationStub.id), spidaDBDesignMap, spidaDBResultMap))
                     //remove the location from the map since it's been used
                     spidaDBLocationMap.remove(locationStub.id)
                 }
@@ -343,7 +343,7 @@ class FormatConverter {
 
         spidaDBLocationMap.values().each { SpidaDBLocation location ->
             log.debug("adding orphaned SpidaDB Location: ${location.getSpidaDBId()}")
-            Map locationJson = convertSpidaDBLocation(location, spidaDBDesignMap)
+            Map locationJson = convertSpidaDBLocation(location, spidaDBDesignMap, spidaDBResultMap)
             extraCalcLocations.add(locationJson)
             spidaDBLocationMap.remove(location.getSpidaDBId())
         }
@@ -368,9 +368,10 @@ class FormatConverter {
         return convertedProject
     }
 
-    Map convertSpidaDBLocation(SpidaDBLocation spidaDBLocation, Collection<SpidaDBDesign> spidaDBDesigns) {
+    Map convertSpidaDBLocation(SpidaDBLocation spidaDBLocation, Collection<SpidaDBDesign> spidaDBDesigns, Collection<SpidaDBResult> spidaDBResults) {
         Map<String, SpidaDBDesign> spidaDBDesignMap = buildSpidaDBIdMap(spidaDBDesigns)
-        return convertSpidaDBLocation(spidaDBLocation, spidaDBDesignMap)
+        Map<String, SpidaDBResult> spidaDBResultMap = buildSpidaDBIdMap(spidaDBResults)
+        return convertSpidaDBLocation(spidaDBLocation, spidaDBDesignMap, spidaDBResultMap)
     }
 
     /**
@@ -383,7 +384,7 @@ class FormatConverter {
      * @param spidaDBDesignMap map of spidaDBId to SpidaDBDesign
      * @return a calc Location JSONObject that will be valid agians the location schema
      */
-    Map convertSpidaDBLocation(SpidaDBLocation spidaDBLocation, Map<String, SpidaDBDesign> spidaDBDesignMap) {
+    Map convertSpidaDBLocation(SpidaDBLocation spidaDBLocation, Map<String, SpidaDBDesign> spidaDBDesignMap, Map<String, SpidaDBResult> spidaDBResultMap = [:]) {
         log.debug("Adding SpidaDBLocation: " + spidaDBLocation.getName())
         Map convertedLocation = CalcProjectChangeSet.duplicateAsJson(spidaDBLocation.getCalcJSON())
 
@@ -393,7 +394,7 @@ class FormatConverter {
             if (spidaDBDesign != null) {
                 log.debug("Adding SpidaDBDesign: " + designId + " to the Location")
                 spidaDBDesignMap.remove(designId)
-                Map convertedDesign = convertSpidaDBDesign(spidaDBDesign)
+                Map convertedDesign = convertSpidaDBDesign(spidaDBDesign, spidaDBResultMap)
                 convertedDesigns.add(convertedDesign)
             } else {
                 log.debug("Could not find a SpidaDBDesign with the id: " + designId)
@@ -423,8 +424,27 @@ class FormatConverter {
         return locationObject
     }
 
-    Map convertSpidaDBDesign(SpidaDBDesign spidaDBDesign) {
-        return CalcProjectChangeSet.duplicateAsJson(spidaDBDesign.getCalcJSON())
+    Map convertSpidaDBDesign(SpidaDBDesign spidaDBDesign, Collection<SpidaDBResult> spidaDBResults) {
+        Map<String, SpidaDBResult> spidaDBResultMap = buildSpidaDBIdMap(spidaDBResults)
+        return convertSpidaDBDesign(spidaDBDesign, spidaDBResultMap)
+    }
+
+    Map convertSpidaDBDesign(SpidaDBDesign spidaDBDesign, Map<String, SpidaDBResult> spidaDBResultMap = [:]) {
+        Map convertedDesign = CalcProjectChangeSet.duplicateAsJson(spidaDBDesign.getCalcJSON())
+        if(!spidaDBResultMap.isEmpty()) {
+            SpidaDBResult result = spidaDBResultMap.get(spidaDBDesign.resultId)
+            String resultId = spidaDBDesign.resultId
+            if (result != null) {
+                log.debug("Adding SpidaDBResult: " + resultId + " to the Design")
+                Map convertedResult = convertSpidaDBResult(result)
+                spidaDBResultMap.remove(spidaDBDesign.resultId)
+                convertedDesign.analysisDetails.put("detailedResults", convertedResult)
+            } else {
+                log.debug("Could not find a SpidaDBResult with the id: " + resultId)
+            }
+        }
+
+        return convertedDesign
     }
 
     Map convertSpidaDBResult(SpidaDBResult spidaDBResult) {

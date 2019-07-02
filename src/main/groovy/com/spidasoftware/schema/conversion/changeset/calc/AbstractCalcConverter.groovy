@@ -25,9 +25,14 @@ import org.apache.log4j.Logger
 abstract class AbstractCalcConverter extends AbstractConverter {
 
 	private static final int VERSION_ALLOWED_IN_LOCATION_DESIGN = 4
+	private static final int VERSION_ALLOWED_IN_DETAILED_RESULTS = 7
 
 	protected boolean isVersionAllowedInLocationAndDesign(int version) {
 		return version >= VERSION_ALLOWED_IN_LOCATION_DESIGN
+	}
+
+	protected boolean isVersionAllowedInDetailedResults(int version) {
+		return version >= VERSION_ALLOWED_IN_DETAILED_RESULTS
 	}
 
 }

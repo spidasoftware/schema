@@ -11,6 +11,14 @@
       "description": "the id of this results array",
       "type": "string"
     },
+    "schema": {
+        "type": "string",
+        "description": "Full URL of the calc schema. /schema/spidacalc/calc/location.schema"
+    },
+    "version": {
+        "type": "number",
+        "description": "This is a schema version integer."
+    },
     "results": {
       "type": "array",
       "items": {
