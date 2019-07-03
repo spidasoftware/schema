@@ -303,7 +303,7 @@ class FormatConverter {
         return convertSpidaDBProject(spidaDBProject, spidaDBLocationMap, spidaDBDesignMap, spidaDBResultMap)
     }
 
-    Map convertSpidaDBProject(SpidaDBProject spidaDBProject, Map<String, SpidaDBLocation> spidaDBLocationMap, Map<String, SpidaDBDesign> spidaDBDesignMap, Map<String, SpidaDBResult> spidaDBResultMap) {
+    Map convertSpidaDBProject(SpidaDBProject spidaDBProject, Map<String, SpidaDBLocation> spidaDBLocationMap, Map<String, SpidaDBDesign> spidaDBDesignMap, Map<String, SpidaDBResult> spidaDBResultMap = [:]) {
         // new project json object that we can keep adding to
         Map convertedProject = CalcProjectChangeSet.duplicateAsJson(spidaDBProject.getCalcJSON())
 
@@ -368,7 +368,7 @@ class FormatConverter {
         return convertedProject
     }
 
-    Map convertSpidaDBLocation(SpidaDBLocation spidaDBLocation, Collection<SpidaDBDesign> spidaDBDesigns, Collection<SpidaDBResult> spidaDBResults) {
+    Map convertSpidaDBLocation(SpidaDBLocation spidaDBLocation, Collection<SpidaDBDesign> spidaDBDesigns, Collection<SpidaDBResult> spidaDBResults = []) {
         Map<String, SpidaDBDesign> spidaDBDesignMap = buildSpidaDBIdMap(spidaDBDesigns)
         Map<String, SpidaDBResult> spidaDBResultMap = buildSpidaDBIdMap(spidaDBResults)
         return convertSpidaDBLocation(spidaDBLocation, spidaDBDesignMap, spidaDBResultMap)
