@@ -11,7 +11,7 @@
     },
     "externalId": {
       "type": "string",
-      "description": "(DEPRECATED) An id to for this owner in a system external to calc."
+      "description": "(DEPRECATED) An id to for this owner in a system external to calc. This field is now ignored as of version 7."
     },
     "industry": {
       "type": "string",
