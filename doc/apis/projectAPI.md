@@ -74,6 +74,8 @@ Create or update a project with a spida db project
 #### Parameters
 
 1. `project_json`: a required [project](../../resources/schema/spidamin/project/project.schema). An update is performed if the project.id is present, and create if not.
+1. `spidaFile`: an exchange.spida file
+1. `clientFile`: client file in json format
 
 #### Returns
 
@@ -86,9 +88,126 @@ The following curl command creates a min project and links a spidadb project
 	curl -F 'spidaFile=@/calc-files/test-project.exchange.spida' \
 	-F 'clientFile=@/client-files/clientFile.json' \
 	-F 'project_json={"name":"api-test-6", "flowName":"test", "stations":[{"spotted":true, "display":"api-test-loc-6", "geometry": {"coordinates": [-82.86015272140503, 40.00846977551567], "type": "Point"}}]}' \
-	http://localhost:8888/projectmanager/projectAPI/createOrUpdateWithDB?apiToken=ABC123
+	http://localhost:8888/projectmanager/projectAPI/createOrUpdateWithDB?apiToken=abc123
 
-Get Project
+Get DB Project by DB ID
+-----------
+
+Get a SPIDA DB Project with a SPIDA DB ID using projectmanager project permissions
+
+#### URL
+
+`https://${HOST}/${APP}/projectAPI/getDBProjectByDBId`
+
+#### Allowed Methods
+
+`GET`
+
+#### Parameters
+
+1. `db_id`: a db id string
+1. `format`: a format string: calc, referenced, or exchange
+
+#### Returns
+
+1. An exchange file or 
+1. A [calc project](../../resources/schema/spidacalc/calc/project.schema) or
+1. A [referenced project](../../resources/schema/spidamin/spidadb/referenced_project.schema)
+
+#### Examples
+
+The following curl command gets a spida db project through projectmanager
+
+	curl 'http://localhost:8888/projectmanager/projectAPI/getDBProjectByDBId?db_id=5c8a3f358cd8ac70a42aec58&format=referenced&apiToken=abc123'
+
+Get DB Location by DB ID
+-----------
+
+Get a SPIDA DB Location with a SPIDA DB ID using projectmanager project permissions
+
+#### URL
+
+`https://${HOST}/${APP}/projectAPI/getDBLocationByDBId`
+
+#### Allowed Methods
+
+`GET`
+
+#### Parameters
+
+1. `db_id`: a db id string
+1. `format`: a format string: calc or referenced
+
+#### Returns
+
+1. A [calc location](../../resources/schema/spidacalc/calc/location.schema) or
+1. A [referenced location](../../resources/schema/spidamin/spidadb/referenced_location.schema)
+
+#### Examples
+
+The following curl command gets a spida db location through projectmanager
+
+	curl 'http://localhost:8888/projectmanager/projectAPI/getDBLocationByDBId?db_id=5ceec30c8cd8ac160e76f777&format=referenced&apiToken=abc123'
+
+Find DB Projects in DB
+-----------
+
+Find SPIDA DB Projects with a label containing the string passed in using projectmanager project permissions
+
+#### URL
+
+`https://${HOST}/${APP}/projectAPI/findDBProjectsInDB`
+
+#### Allowed Methods
+
+`GET`
+
+#### Parameters
+
+1. `label`: the string to search for
+1. `limit`: max number of projects to return
+1. `format`: a format string: calc or referenced
+
+#### Returns
+
+1. An array of [calc projects](../../resources/schema/spidacalc/calc/project.schema) or
+1. An arrary of [referenced projects](../../resources/schema/spidamin/spidadb/referenced_project.schema)
+
+#### Examples
+
+The following curl command finds spida db projects containing pole
+
+	curl 'http://localhost:8888/projectmanager/projectAPI/findDBProjectsInDB?label=pole&limit=100&format=referenced&apiToken=abc123'
+
+Get Projects by DB ID
+-----------
+
+Get projectmanager projects that have the spida db ids passed in and filter based on projectmanager permissions
+
+#### URL
+
+`https://${HOST}/${APP}/projectAPI/getProjectsByDBId`
+
+#### Allowed Methods
+
+`GET`
+
+#### Parameters
+
+1. `db_ids`: the spida db id string in a json array
+1. `details`: a string value of true or false 
+
+#### Returns
+
+1. An array of [min projects](../../resources/schema/spidamin/project/project.schema)
+
+#### Examples
+
+The following curl command gets pm project by spida db ids
+
+	curl -g 'http://localhost:8888/projectmanager/projectAPI/getProjectsByDBId?db_ids=[%225d30ae9a8cd8ac09ab3b2a45%22]&details=true&apiToken=abc123'
+
+Get Projects
 ----------
 
 Return a list of projects
