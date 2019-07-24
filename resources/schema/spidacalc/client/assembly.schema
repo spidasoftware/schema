@@ -39,6 +39,13 @@
         },
         "assemblyStructure": {
             "$ref": "../../spidacalc/calc/structure.schema"
+        },
+        "aliases": {
+          "description": "A list of alternative aliases/framing codes for this item in integrations.",
+          "type": "array",
+          "items": {
+            "$ref": "../../spidacalc/client/alias.schema"
+          }
         }
     }
 
