@@ -1,4 +1,6 @@
 language: groovy
+jdk:
+  - openjdk8
 env:
   global:
     - GRADLE_OPTS="-Xms512m -Xmx1024m"
