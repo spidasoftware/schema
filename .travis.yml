@@ -1,4 +1,6 @@
 language: groovy
+jdk:
+  - oraclejdk8
 env:
   global:
     - GRADLE_OPTS="-Xms512m -Xmx1024m"
