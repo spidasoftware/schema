@@ -74,8 +74,8 @@ Create or update a project with a spida db project
 #### Parameters
 
 1. `project_json`: a required [project](../../resources/schema/spidamin/project/project.schema). An update is performed if the project.id is present, and create if not.
-1. `spidaFile`: an exchange.spida file
-1. `clientFile`: client file in json format
+1. `spidaFile`: an exchange.spida file (required if you want a linked db project)
+1. `clientFile`: client file in json format (required if you want a linked db project)
 
 #### Returns
 
@@ -89,6 +89,34 @@ The following curl command creates a min project and links a spidadb project
 	-F 'clientFile=@/client-files/clientFile.json' \
 	-F 'project_json={"name":"api-test-6", "flowName":"test", "stations":[{"spotted":true, "display":"api-test-loc-6", "geometry": {"coordinates": [-82.86015272140503, 40.00846977551567], "type": "Point"}}]}' \
 	http://localhost:8888/projectmanager/projectAPI/createOrUpdateWithDB?apiToken=abc123
+
+Is Project Name Valid
+-----------
+
+Checks if a project name has valid characters and is unique within a company
+
+#### URL
+
+`https://${HOST}/${APP}/projectAPI/isProjectNameValid`
+
+#### Allowed Methods
+
+`GET`
+
+#### Parameters
+
+1. `name`: project name to check (required)
+1. `company_id`: the company the project will be in (not required, defaults to current company)
+
+#### Returns
+
+1. a json object with valid as the key and a boolean value
+
+#### Examples
+
+The following curl command checks if a project name is valid
+
+	curl 'http://localhost:8888/projectmanager/projectAPI/isProjectNameValid?name=test&company_id=2&apiToken=abc123'
 
 Get DB Project by DB ID
 -----------
@@ -105,8 +133,8 @@ Get a SPIDA DB Project with a SPIDA DB ID using projectmanager project permissio
 
 #### Parameters
 
-1. `db_id`: a db id string
-1. `format`: a format string: calc, referenced, or exchange
+1. `db_id`: a db id string (required)
+1. `format`: a format string: calc, referenced, or exchange (not required, defaults to calc)
 
 #### Returns
 
@@ -135,8 +163,8 @@ Get a SPIDA DB Location with a SPIDA DB ID using projectmanager project permissi
 
 #### Parameters
 
-1. `db_id`: a db id string
-1. `format`: a format string: calc or referenced
+1. `db_id`: a db id string (required)
+1. `format`: a format string: calc or referenced (not required, defaults to calc)
 
 #### Returns
 
@@ -164,9 +192,9 @@ Find SPIDA DB Projects with a label containing the string passed in using projec
 
 #### Parameters
 
-1. `label`: the string to search for
-1. `limit`: max number of projects to return
-1. `format`: a format string: calc or referenced
+1. `label`: the string to search for (required)
+1. `limit`: max number of projects to return (not required, defaults to 100)
+1. `format`: a format string: calc or referenced (not required, defaults to referenced)
 
 #### Returns
 
@@ -194,8 +222,8 @@ Get projectmanager projects that have the spida db ids passed in and filter base
 
 #### Parameters
 
-1. `db_ids`: the spida db id string in a json array
-1. `details`: a string value of true or false 
+1. `db_ids`: the spida db id string in a json array (required)
+1. `details`: a string value of true or false (not required, defaults to false)
 
 #### Returns
 
