@@ -73,6 +73,12 @@
                 "$ref":"../../spidacalc/client/equipment.schema"
             }
         },
+				"equipmentTypes": {
+					"type": "array",
+					"items": {
+							"$ref":"../../spidacalc/client/equipment_type.schema"
+					}
+				},
         "assemblies":{
           "type": "array",
           "items": {
