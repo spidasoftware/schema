@@ -12,6 +12,14 @@
         "description": "Primary Key and unique identifier for project component",
         "type": "string"
     },
+    "dbId": {
+        "description": "Unique identifier to retrieve exchange file or calc project from spidadb",
+        "type": "string"
+    },
+    "pmId": {
+        "description": "Unique identifier for integration between calc and studio",
+        "type": "number"
+    },
     "label": {
         "description": "Display name for project component",
         "type": "string"
