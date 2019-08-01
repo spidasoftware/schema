@@ -177,6 +177,60 @@ The following curl command gets a spida db location through projectmanager
 
 	curl 'http://localhost:8888/projectmanager/projectAPI/getDBLocationByDBId?db_id=5ceec30c8cd8ac160e76f777&format=referenced&apiToken=abc123'
 
+Get Location Thumbnails by DB ID
+-----------
+
+Get location thumbnail photos by the location id using projectmanager project permissions
+
+#### URL
+
+`https://${HOST}/${APP}/projectAPI/getLocationThumbnailsByDBId`
+
+#### Allowed Methods
+
+`GET`
+
+#### Parameters
+
+1. `db_id`: a db id string (required)
+
+#### Returns
+
+a zip file with photos
+
+#### Examples
+
+The following curl command gets a zip of photos
+
+	curl 'http://localhost:8888/projectmanager/projectAPI/getLocationThumbnailsByDBId?db_id=5d31b8e78cd8ac33b51dceab&apiToken=abc123' --output file.zip
+
+Get Location Photos by DB ID
+-----------
+
+Get location photos by the location id using projectmanager project permissions
+
+#### URL
+
+`https://${HOST}/${APP}/projectAPI/getLocationPhotosByDBId`
+
+#### Allowed Methods
+
+`GET`
+
+#### Parameters
+
+1. `db_id`: a db id string (required)
+
+#### Returns
+
+a zip file with photos
+
+#### Examples
+
+The following curl command gets a zip of photos
+
+	curl 'http://localhost:8888/projectmanager/projectAPI/getLocationPhotosByDBId?db_id=5d31b8e78cd8ac33b51dceab&apiToken=abc123' --output file.zip
+
 Find DB Projects in DB
 -----------
 
