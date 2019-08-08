@@ -60,6 +60,10 @@
                         "type": "string",
                         "description": "A reference id to an external resource, coerced into a String"
                     },
+                    "projectId": {
+                        "type": "string",
+                        "description": "A reference id to an external resource, coerced into a String"
+                    },
                     "latitude": {
                         "type": "number"
                     },
