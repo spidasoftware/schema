@@ -9,15 +9,11 @@
   "additionalProperties": false,
   "properties": {
     "id": {
-        "description": "Primary Key and unique identifier for project component",
-        "type": "string"
-    },
-    "dbId": {
-        "description": "Unique identifier to retrieve exchange file or calc project from spidadb",
+        "description": "This is a database ID created by SPIDAdb.",
         "type": "string"
     },
     "pmId": {
-        "description": "Unique identifier for integration between calc and studio",
+        "description": "This is a database ID created by ProjectManager.",
         "type": "number"
     },
     "label": {

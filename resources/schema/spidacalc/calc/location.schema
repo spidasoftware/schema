@@ -5,8 +5,12 @@
     "additionalProperties": false,
     "properties": {
         "id": {
-            "description": "Unique location id assigned by SpidaDB",
+            "description": "This is a database ID created by SPIDAdb.",
             "type": "string"
+        },
+        "pmId": {
+            "description": "This is a database ID created by ProjectManager.",
+            "type": "number"
         },
         "schema": {
             "type": "string",
