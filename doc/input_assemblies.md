@@ -54,7 +54,7 @@ So the general flow of staking type integration is for the Staker to write struc
     - **distance** - Optionally provide the distance of the anchor from the pole, or SPIDAcalc will use the default as if it were dropped in Side View.
     - **direction** - Optionally provide the direction of the anchor, or SPIDAcalc will use the default based on the configuration of the Guy Attach Point in the **client assembly**.
     - **attachments** - The list of guys or support assemblies attached to the **support**
-      - **supportItem** - A guy alias, or the code or alias for a **support assembly** containing only guys, that are attached to this anchor.
+      - **attachmentItem** - A guy alias, or the code or alias for a **support assembly** containing only guys, that are attached to this anchor.
 
 ### Guy Attach Points
 **Client Assemblies** can be configured with set attach points for guying. These can be configured to support specific wire end points or the bisector at specific heights relative to the top of the assembly. Support elements added in input assemblies (or in the UI) are added to guy attach points in a top down order, and take their direction from those Guy Attach Points unless an override is specified.
