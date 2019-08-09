@@ -8,10 +8,6 @@
             "description": "This is a database ID created by SPIDAdb.",
             "type": "string"
         },
-        "pmId": {
-            "description": "This is a database ID created by ProjectManager.",
-            "type": "number"
-        },
         "schema": {
             "type": "string",
             "description": "Full URL of the calc schema. /schema/spidacalc/calc/location.schema"
