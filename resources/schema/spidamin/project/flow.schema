@@ -16,6 +16,9 @@
     },
     "companyName": {
       "type": "string"
+    },
+    "canBeStartedFromCalc": {
+      "type": "boolean"
     }
   },
   "additionalProperties": false

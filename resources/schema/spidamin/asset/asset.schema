@@ -25,6 +25,16 @@
       "type": "string",
       "description": "The id of the parent station, used for updating and creation"
     },
+    "originalStationId": {
+      "id": "assetId",
+      "type": "string",
+      "description": "The id of the original parent station (before merge)"
+    },
+    "source": {
+      "id": "assetId",
+      "type": "string",
+      "description": "The source service name where the original station came from (before merge)"
+    },
     "ownerId": {
       "id": "ownerId",
       "type": "number",
