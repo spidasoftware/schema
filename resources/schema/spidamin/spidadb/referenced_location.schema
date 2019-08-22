@@ -46,6 +46,10 @@
         },
         "user": {
             "$ref": "../../spidamin/spidadb/user_ref.schema"
+        },
+        "clientFileId": {
+            "type": "string",
+            "description": "The unique id of this minimal client data object in mongo"
         }
     }
 }

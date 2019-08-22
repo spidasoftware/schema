@@ -57,7 +57,9 @@ class FormatConverter {
             referencedLocation.put("projectLabel", calcProject.get("label"))
             referencedLocation.put("projectId", calcProject.get("id"))
             referencedLocation.put("clientFile", calcProject.get("clientFile"))
-            referencedLocation.put("clientFileVersion", calcProject.get("clientFileVersion"))
+            if(calcProject.get("clientFileVersion")){
+            	referencedLocation.put("clientFileVersion", calcProject.get("clientFileVersion"))
+            }
         }
 
         //the calc location that will get saved as part of the referenced location
@@ -107,7 +109,9 @@ class FormatConverter {
             referencedDesign.put("projectLabel", calcProject.get("label"))
             referencedDesign.put("projectId", calcProject.get("id").toString())
             referencedDesign.put("clientFile", calcProject.get("clientFile"))
-            referencedDesign.put("clientFileVersion", calcProject.get("clientFileVersion"))
+            if(calcProject.get("clientFileVersion")){
+            	referencedDesign.put("clientFileVersion", calcProject.get("clientFileVersion"))
+            }
         }
 
         Map convertedDesign = CalcProjectChangeSet.duplicateAsJson(calcDesign)

@@ -87,6 +87,10 @@
                 }
             },
             "additionalProperties": false
+        },
+        "clientFileId": {
+            "type": "string",
+            "description": "The unique id of this minimal client data object in mongo"
         }
     },
     "additionalProperties": false
