@@ -51,6 +51,10 @@
     "address": {
       "$ref": "../../general/address.schema"
     },
+    "designLayerToPromote": {
+      "type": "string",
+      "description": "The name of the design layer that will be promoted in SPIDAstudio."
+    },
     "clearanceSettings": {
       "type": "object",
       "properties": {
