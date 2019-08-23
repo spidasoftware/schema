@@ -340,6 +340,33 @@ No parameters are required.
 
 1. A [projects object](../../resources/schema/spidamin/project/projects.schema) (Note: only projectCodes and id will be in the project object)
 
+Get Project Log Messages
+----------
+
+Get a list of all log messages on a project
+
+#### URL
+
+`https://${HOST}/${APP}/projectAPI/getProjectLogs`
+
+#### Allowed Methods
+
+`GET`
+
+#### Parameters
+
+`project_id` is required
+
+1. `project_id`: A `number`, the project id of the project that the log message should be added to.
+
+#### Returns
+
+1. a json array of [logMessage](../../resources/schema/spidamin/project/log_message.schema)
+
+#### Examples
+
+`curl 'http://${HOST}/projectmanager/projectAPI/getProjectLogs?project_id=20183&apiToken=abc'`
+
 Add Log Message
 ----------
 
