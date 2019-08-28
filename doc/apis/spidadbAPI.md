@@ -216,13 +216,23 @@ Example:
 
 ## Promoting designs and their locations
 
-Pass a JSON array of design ids into `designs/promote`
+Pass a JSON array of design ids into `status/promote`
 
 Example
-`curl -vvv -X POST -H "Content-Type: application/json" -d '["111","333"]' http://localhost:8181/spidadb/designs/promote?apiToken=abc123`
+`curl -vvv -X POST -H "Content-Type: application/json" -d '["111","333"]' http://localhost:8181/spidadb/status/promote?apiToken=abc123`
 
 This will copy each design and it's location and return a map of old id to new id. For example:
 `{"locationsPromoted":{"111":"222","333":"444"},"designsPromoted":{"555":"666","777":"888"}}`
+
+## Demoting locations and their designs
+
+Pass a JSON array of location ids into `status/demote`
+
+Example
+`curl -vvv -X POST -H "Content-Type: application/json" -d '["111","333"]' http://localhost:8181/spidadb/status/demote?apiToken=abc123`
+
+This will change the status of each location and it's design and return a map of list of ids demoted. For example:
+`{"locationsDemoted":["111", "333"],"designsDemoted":["555", "666"]}`
 
 # The Finer Points
 
