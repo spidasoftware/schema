@@ -319,10 +319,34 @@ Return a list of projects
 
 #### Examples
 
+Get My Projects
+----------
+
+Return a list of projects for the current user
+
+#### URL
+
+`https://${HOST}/${APP}/projectAPI/getMyProjects`
+
+#### Allowed Methods
+
+`GET`
+
+#### Parameters
+
+No parameters are required.
+
+1. `company_id`: A `number`, finds current user projects in this company id.  If not set uses the company_id that the user is currently logged in under.
+1. `details`: A `boolean`, if true includes all stations
+
+#### Returns
+
+1. A [projects object](../../resources/schema/spidamin/project/projects.schema)
+
 Get All Project In Company
 ----------
 
-Return a list of projects with only the projectCodes and project ids.  Must be a PM_ADMINISTRATOR to get all projects.
+Return a list of projects with only the projectCodes and project ids.
 
 #### URL
 
@@ -338,6 +362,7 @@ No parameters are required.
 
 1. `company_id`: A `number`, finds all projects in this company id.  If not set uses the company_id that the user is currently logged in under.
 1. `include_finished`: A `boolean`, if true finds all projects including projects that have been finished in the company. If false finds all projects that have not been finished in that company. If not set defaults to false.
+
 #### Returns
 
 1. A [projects object](../../resources/schema/spidamin/project/projects.schema) (Note: only projectCodes and id will be in the project object)
