@@ -168,8 +168,10 @@ Get a SPIDA DB Location with a SPIDA DB ID using projectmanager project permissi
 
 #### Returns
 
-1. A [calc location](../../resources/schema/spidacalc/calc/location.schema) or
-1. A [referenced location](../../resources/schema/spidamin/spidadb/referenced_location.schema)
+* An object with a `location` and `clientData` 
+  * the location may be a [calc location](../../resources/schema/spidacalc/calc/location.schema) or
+  * the location may be a [referenced location](../../resources/schema/spidamin/spidadb/referenced_location.schema)
+  * the clientData is a [client data object](../../resources/schema/spidacalc/client/data.schema)
 
 #### Examples
 
