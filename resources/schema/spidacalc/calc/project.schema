@@ -16,6 +16,10 @@
         "description": "This is a database ID created by ProjectManager.",
         "type": "number"
     },
+    "company": {
+       "description": "Company in which the project exists in studio. (Not the project creator).",
+       "$ref": "../../spidamin/user/company.schema"
+    },
     "label": {
         "description": "Display name for project component",
         "type": "string"
