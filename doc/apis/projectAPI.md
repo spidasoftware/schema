@@ -165,6 +165,7 @@ Get a SPIDA DB Location with a SPIDA DB ID using projectmanager project permissi
 
 1. `db_id`: a db id string (required)
 1. `format`: a format string: calc or referenced (not required, defaults to calc)
+1. `detailed_results`: a boolean string: if true will retrieve and embed all detailed results 
 
 #### Returns
 
