@@ -18,6 +18,14 @@
       "type": "string",
       "description": "This is the email address of the user in UsersMaster.  If not set, userId or externalId or userGroupName must be set."
     },
+    "firstName": {
+      "type": "string",
+      "description": "This is the first name of the user in UsersMaster."
+    },
+    "lastName": {
+      "type": "string",
+      "description": "This is the last name of the user in UsersMaster."
+    },
     "externalId": {
       "$ref": "../../spidamin/user/external_id.schema",
       "description": "This is the external id associated with a user in UsersMaster.  If not set, userId or email or userGroupName must be set."
