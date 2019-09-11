@@ -51,7 +51,6 @@ abstract class AbstractSpidaDBComponent implements SpidaDBProjectComponent {
 	 * returns the json object representing the user, if one exists, otherwise null.
 	 * json will have:
 	 *   'id': the user id stored as a string
-	 *   'email': the email address
 	 * these properties may be set to default values if the component was created by an unauthenticated
 	 * source, such as project manager.
 	 *
@@ -66,10 +65,9 @@ abstract class AbstractSpidaDBComponent implements SpidaDBProjectComponent {
 	 * @param id
 	 * @param email
 	 */
-	void setUser(String id, String email) {
+	void setUser(String id) {
 		Map user = [:]
 		user.put('id', id)
-		user.put('email', email)
 		getMap().put('user', user)
 	}
 
