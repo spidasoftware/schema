@@ -19,12 +19,14 @@ public class SpidaDBProjectComponentTest extends Specification {
 	    Map json = [:]
 		SpidaDBProject project = new SpidaDBProject(json)
 		String id = "12345"
+		String email = "admin@spidasoftware.com"
 
 		when:
-		project.setUser(id)
+		project.setUser(id, email)
 
 		then:
 		project.getUser().id == id
+		project.getUser().email == email
 	}
 
     public void testSpidaDBDesign() throws Exception {
