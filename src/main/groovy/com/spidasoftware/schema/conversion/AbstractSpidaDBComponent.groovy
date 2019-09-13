@@ -63,7 +63,6 @@ abstract class AbstractSpidaDBComponent implements SpidaDBProjectComponent {
 	/**
 	 * sets the 'user' property with the given values
 	 * @param id
-	 * @param email
 	 */
 	void setUser(String id) {
 		Map user = [:]
