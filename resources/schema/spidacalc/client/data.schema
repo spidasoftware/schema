@@ -23,7 +23,7 @@
         },
         "dateModified": {
           "type": "string",
-          "description": "the date this client data was last modified.  YYYY-MM-DD"
+          "description": "the date this client data was last modified.  ISO-8601 format yyyy-MM-ddTHH:mm:ss.SSSXXX"
         },
         "anchors": {
             "type": "array",
