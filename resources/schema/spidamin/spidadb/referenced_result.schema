@@ -15,7 +15,7 @@
             "$ref": "../../spidacalc/results/results.schema"
         },
         "companyId": {
-          "type": "string",
+          "type": "number",
           "description": "the owning company for this result"
         },
         "user": {

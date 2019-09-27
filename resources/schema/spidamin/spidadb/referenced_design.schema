@@ -20,7 +20,7 @@
             "$ref": "../../spidacalc/calc/design.schema"
         },
         "companyId": {
-          "type": "string",
+          "type": "number",
           "description": "the owning company for this design"
         },
         "user": {
