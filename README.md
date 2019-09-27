@@ -27,7 +27,7 @@ The data formats, examples, and available web service interfaces will all change
 
 License
 -------
-By accessing, downloading, or using the APIs defined here you are agreeing to these terms of use [here.](https://github.com/spidasoftware/schema/raw/master/SPIDAWeb%20API%20Terms%20of%20Service%20(Updated%204%20October%202017).pdf)
+By accessing, downloading, or using the APIs defined here you are agreeing to these terms of use [here.](https://github.com/spidasoftware/schema/raw/master/SPIDAWEB_EULA%20(19%20June%202019).pdf)
 
 Products
 ----------
