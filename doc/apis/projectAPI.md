@@ -339,10 +339,12 @@ No parameters are required.
 
 1. `company_id`: A `number`, finds current user projects in this company id.  If not set uses the company_id that the user is currently logged in under.
 1. `details`: A `boolean`, if true includes all stations
+1. `db_only`: A `boolean`, if true includes only projects with a spidaDBId
 
 #### Returns
 
-1. A [projects object](../../resources/schema/spidamin/project/projects.schema)
+1. If details true, a [projects object](../../resources/schema/spidamin/project/projects.schema)
+1. If details false, a minimal object with id, spidaDBId, name, projectCodes, and status set
 
 Get All Project In Company
 ----------
