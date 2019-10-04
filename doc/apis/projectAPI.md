@@ -195,7 +195,7 @@ Get all SPIDAdb locations linked to a SPIDAdb location ID
 
 #### Parameters
 
-1. `db_id`: a db id string (required)
+1. `station_id`: a station id string (required)
 1. `source`: the source asset service to lookup links, if not provided the we use SPIDAdb and SPIDAdb Active (optional)
 1. `version`: the schema version (optional)
 
@@ -207,7 +207,7 @@ An array of [referenced location](../../resources/schema/spidamin/spidadb/refere
 
 The following curl command gets all referenced locations linked to the id passed in
 
-	curl 'http://localhost:8888/projectmanager/projectAPI/getLinkedDBLocations?db_id=5d934ae88cd8ac812e38b9e1&apiToken=abc123'
+	curl 'http://localhost:8888/projectmanager/projectAPI/getLinkedDBLocations?station_id=5d934ae88cd8ac812e38b9e1&apiToken=abc123'
 
 
 Get Location Thumbnails by DB ID
