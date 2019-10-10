@@ -497,3 +497,61 @@ Returns available flows for project creation
 #### Returns
 
 1. A [flows object](../../resources/schema/spidamin/project/flows.schema)
+
+Get Linked PM Stations
+-----------
+
+Gets PM Stations which are part of a given project and linked to given source/station
+
+#### URL
+
+`https://${HOST}/${APP}/projectAPI/getLinkedPMStations`
+
+#### Allowed Methods
+
+`GET`
+
+#### Parameters
+
+1. `project_id`: project containing stations whose pm stationIds will be returned
+1. `stations`: stations -- JSON array.  Each element in the array can be one of
+  * string containing stationId
+  * JSON object with a stationId and optional source field
+if a stationId does not have an associated source, both spidaDbWfsAssetService and spidaDbWfsActiveAssetService will be used for the source.
+
+#### Returns
+
+A map of source to map of stationId to array of PM station ids
+
+{ 
+    service1: {
+            stationId1: [pmIds],
+            stationId2: [pmIds]
+    },
+   service2: {
+            stationId1: [pmIds],
+            stationId2: [pmIds]
+    }
+}
+
+#### Examples
+
+The following curl command will find pm station ids for stations in project 162, which are linked to assetmaster station 2c9180855c2e9c54015c3366ac4664fc, SPIDAdb station 5cd978388cd8ac282c49d059, or SPIDAdb active station 5cd978388cd8ac282c49d059.
+
+	curl 'http://localhost:8888/projectmanager/projectAPI/getLinkedPMStations?projectId=162&stations=[{"source":"assetmasterAssetService","stationId":"2c9180855c2e9c54015c3366ac4664fc"},"5cd978388cd8ac282c49d059"]'
+
+Assuming project 162 contained 2 stations (166 and 167), station 166 was linked to assetmaster station 2c9180855c2e9c54015c3366ac4664fc, and station 167 was linked to SPIDAdb station 5cd978388cd8ac282c49d059, the following JSON would be returned:
+```
+{
+  "assetmasterAssetService": {
+    "2c9180855c2e9c54015c3366ac4664fc": [
+      166
+    ]
+  },
+  "spidaDbWfsAssetService": {
+    "5cd978388cd8ac282c49d059": [
+      167
+    ]
+  }
+}
+```
