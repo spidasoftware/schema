@@ -514,15 +514,16 @@ Gets PM Stations which are part of a given project and linked to given source/st
 #### Parameters
 
 1. `project_id`: project containing stations whose pm stationIds will be returned
-1. `stations`: stations -- JSON array.  Each element in the array can be one of
+1. `stations`: JSON array.  Each element in the array can be one of
   * string containing stationId
   * JSON object with a stationId and optional source field
-if a stationId does not have an associated source, both spidaDbWfsAssetService and spidaDbWfsActiveAssetService will be used for the source.
+
+If a stationId does not have an associated source, both spidaDbWfsAssetService and spidaDbWfsActiveAssetService will be used for the source.
 
 #### Returns
 
 A map of source to map of stationId to array of PM station ids
-
+```
 { 
     service1: {
             stationId1: [pmIds],
@@ -533,10 +534,11 @@ A map of source to map of stationId to array of PM station ids
             stationId2: [pmIds]
     }
 }
+```
 
 #### Examples
 
-The following curl command will find pm station ids for stations in project 162, which are linked to assetmaster station 2c9180855c2e9c54015c3366ac4664fc, SPIDAdb station 5cd978388cd8ac282c49d059, or SPIDAdb active station 5cd978388cd8ac282c49d059.
+The following curl command will find pm station ids for stations in project 162, which are also linked to assetmaster station 2c9180855c2e9c54015c3366ac4664fc, SPIDAdb station 5cd978388cd8ac282c49d059, or SPIDAdb active station 5cd978388cd8ac282c49d059.
 
 	curl 'http://localhost:8888/projectmanager/projectAPI/getLinkedPMStations?projectId=162&stations=[{"source":"assetmasterAssetService","stationId":"2c9180855c2e9c54015c3366ac4664fc"},"5cd978388cd8ac282c49d059"]'
 
