@@ -44,6 +44,9 @@
       "type": "string",
       "description": "Date the project was created."
     },
+    "dateModified": {
+      "$ref": "../../general/long_date.schema"
+    },
     "engineer": {
       "type": "string",
       "description": "Engineer of the project."
