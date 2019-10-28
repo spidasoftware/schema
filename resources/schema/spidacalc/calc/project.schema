@@ -45,7 +45,12 @@
       "description": "Date the project was created."
     },
     "dateModified": {
-      "$ref": "../../general/long_date.schema"
+      "$ref": "../../general/long_date.schema",
+      "description": "Date the project was last modified locally."
+    },
+    "dateSavedToStudio": {
+       "$ref": "../../general/long_date.schema",
+       "description": "Date the project was last saved to SPIDAstudio."
     },
     "engineer": {
       "type": "string",
