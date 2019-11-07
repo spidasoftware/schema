@@ -11,6 +11,9 @@
       "description": "the id of this results array",
       "type": "string"
     },
+    "dbId": {
+      "description": "the id of the result in studio"
+    },
     "schema": {
         "type": "string",
         "description": "Full URL of the calc schema. /schema/spidacalc/calc/location.schema"
