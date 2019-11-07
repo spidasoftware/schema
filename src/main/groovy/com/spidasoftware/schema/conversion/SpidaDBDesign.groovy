@@ -85,4 +85,9 @@ class SpidaDBDesign extends AbstractSpidaDBComponent {
 		Map analysisDetails = getCalcJSON()?.get("analysisDetails") as Map
 		return analysisDetails?.get("resultId")
 	}
+
+	String getResultDbId() {
+		Map analysisDetails = getCalcJSON()?.get("analysisDetails") as Map
+		return analysisDetails?.get("id")
+	}
 }
