@@ -327,8 +327,11 @@ class FormatConverterTest extends Specification {
 			List<SpidaDBDesign> spidaDBDesign = loadJson("exampleProject", "designs").collect{
 				new SpidaDBDesign(it)
 			}
+			List<SpidaDBResult> spidaDBResults = loadJson("exampleProject", "results").collect{
+				new SpidaDBResult(it)
+			}
 		when:
-		    Map projectJson = converter.convertSpidaDBProject(spidaDBProject, spidaDBLocation, spidaDBDesign)
+		    Map projectJson = converter.convertSpidaDBProject(spidaDBProject, spidaDBLocation, spidaDBDesign, spidaDBResults)
 			def schema = "/schema/spidacalc/calc/project.schema"
 			def report = new Validator().validateAndReport(schema, JsonOutput.toJson(projectJson))
 
@@ -339,7 +342,7 @@ class FormatConverterTest extends Specification {
 
 			// each JSON location should have 3 designs
 			projectJson.leads[0].locations.each {
-				3 == it.designs.size()
+				assert 3 == it.designs.size()
 			}
 			// and the json output should validate successfully
 			report.isSuccess()
@@ -377,6 +380,10 @@ class FormatConverterTest extends Specification {
 			case "designs":
 				converter = ConverterUtils.getConverterInstance("/schema/spidacalc/calc/design.schema")
 				dbKey = "calcDesign"
+				break
+			case "results":
+				converter = ConverterUtils.getConverterInstance("/schema/spidacalc/results/results.schema")
+				dbKey = "calcResult"
 				break
 			default:
 				throw new NotImplementedException("Not implemented for type ${type}")

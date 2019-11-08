@@ -12,7 +12,7 @@
       "type": "string"
     },
     "dbId": {
-      "description": "the id of the result in studio"
+      "description": "the id of the results in studio"
     },
     "schema": {
         "type": "string",

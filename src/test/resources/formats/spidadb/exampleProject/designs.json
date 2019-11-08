@@ -1181,6 +1181,10 @@
             ]
           }
         ],
+        "analysisDetails": {
+          "resultId": "5d543007b64af8af964c6c05",
+          "id": "53e390a944ae3953e03c4d22"
+        },
         "label": "Existing",
         "id": "53e390a944ae3953e03b3a05"
       },
