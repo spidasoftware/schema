@@ -75,7 +75,7 @@ class FormatConverterTest extends Specification {
 			def spidadbComponents = converter.convertCalcProject(calcProject)
 
 		then: "just a quick check to make sure it converted all of the components"
-			spidadbComponents.size() == 17
+			spidadbComponents.size() == 18
 
 		when: "convert the project back to calc format"
 			SpidaDBProject p = spidadbComponents.find{it instanceof SpidaDBProject}
