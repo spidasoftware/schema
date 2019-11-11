@@ -86,6 +86,10 @@ class FormatConverterTest extends Specification {
 
 		then: "the reconstituted project should be valid against the schema"
 			jsonIsValid(reconstitutedCalcProject)
+			reconstitutedCalcProject.leads.size() == 1
+			reconstitutedCalcProject.leads[0].locations.size() == 4
+			reconstitutedCalcProject.leads[0].locations[0].designs.size() == 3
+			reconstitutedCalcProject.leads[0].locations[0].designs[0].analysisDetails.detailedResults
 
 	}
 

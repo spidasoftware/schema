@@ -127,7 +127,7 @@ class FormatConverter {
         Map referencedResults = [:]
         Map convertedResult = CalcProjectChangeSet.duplicateAsJson(calcResults)
         String dbid = new ObjectId().toString()
-        calcResults.put("dbId", dbid)
+        convertedResult.put("dbId", dbid)
         referencedResults.put("calcResult", convertedResult)
         // a unique id is assigned to referenced results to prevent multiple designs referencing the same result id
         referencedResults.put("id", dbid)
@@ -441,7 +441,7 @@ class FormatConverter {
     Map convertSpidaDBDesign(SpidaDBDesign spidaDBDesign, Map<String, SpidaDBResult> spidaDBResultMap = [:]) {
         Map convertedDesign = CalcProjectChangeSet.duplicateAsJson(spidaDBDesign.getCalcJSON())
         if(!spidaDBResultMap.isEmpty()) {
-            SpidaDBResult result = spidaDBResultMap.get(spidaDBDesign.resultId)
+            SpidaDBResult result = spidaDBResultMap.get(spidaDBDesign.resultDbId)
             String resultId = spidaDBDesign.resultId
             if (result != null) {
                 log.debug("Adding SpidaDBResult: " + resultId + " to the Design")

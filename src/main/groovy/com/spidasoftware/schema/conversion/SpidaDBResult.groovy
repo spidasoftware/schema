@@ -25,9 +25,4 @@ class SpidaDBResult extends AbstractSpidaDBComponent {
 	String getName(){
 		return "Result"
 	}
-
-	@Override
-	String getSpidaDBId() {
-		return getMap().get("id")
-	}
 }
