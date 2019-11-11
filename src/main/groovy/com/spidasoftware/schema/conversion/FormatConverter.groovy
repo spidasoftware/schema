@@ -66,8 +66,10 @@ class FormatConverter {
         Map convertedLocation = CalcProjectChangeSet.duplicateAsJson(calcLocation)
         convertedLocation.get("designs").each { design ->
             if(design.containsKey("analysisDetails") && design.get("analysisDetails").containsKey("detailedResults")) {
-                components.add(convertCalcResult(design.analysisDetails.detailedResults))
+                SpidaDBResult spidaDBResult = convertCalcResult(design.analysisDetails.detailedResults)
+                components.add(spidaDBResult)
                 design.analysisDetails.remove("detailedResults")
+                design.analysisDetails.put("id", spidaDBResult.spidaDBId)
             }
             SpidaDBDesign convertedDesign = convertCalcDesign(design, calcLocation, calcProject)
             components.add(convertedDesign)
@@ -124,8 +126,11 @@ class FormatConverter {
 	SpidaDBResult convertCalcResult(Map calcResults) {
         Map referencedResults = [:]
         Map convertedResult = CalcProjectChangeSet.duplicateAsJson(calcResults)
+        String dbid = new ObjectId().toString()
+        convertedResult.put("dbId", dbid)
         referencedResults.put("calcResult", convertedResult)
-        referencedResults.put("id", convertedResult.id)
+        // a unique id is assigned to referenced results to prevent multiple designs referencing the same result id
+        referencedResults.put("id", dbid)
         referencedResults.put("dateModified", new Date().time)
         return new SpidaDBResult(referencedResults)
     }
@@ -436,13 +441,14 @@ class FormatConverter {
     Map convertSpidaDBDesign(SpidaDBDesign spidaDBDesign, Map<String, SpidaDBResult> spidaDBResultMap = [:]) {
         Map convertedDesign = CalcProjectChangeSet.duplicateAsJson(spidaDBDesign.getCalcJSON())
         if(!spidaDBResultMap.isEmpty()) {
-            SpidaDBResult result = spidaDBResultMap.get(spidaDBDesign.resultId)
+            SpidaDBResult result = spidaDBResultMap.get(spidaDBDesign.resultDbId)
             String resultId = spidaDBDesign.resultId
             if (result != null) {
                 log.debug("Adding SpidaDBResult: " + resultId + " to the Design")
                 Map convertedResult = convertSpidaDBResult(result)
                 spidaDBResultMap.remove(spidaDBDesign.resultId)
                 convertedDesign.analysisDetails.put("detailedResults", convertedResult)
+                convertedDesign.analysisDetails.put("id", result.spidaDBId)
             } else {
                 log.debug("Could not find a SpidaDBResult with the id: " + resultId)
             }

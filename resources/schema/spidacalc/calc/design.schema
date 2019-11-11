@@ -101,6 +101,9 @@
             "detailedResults": {
               "description": "the detailed results",
               "$ref": "../../spidacalc/results/results.schema"
+            },
+            "id": {
+              "description": "the id assigned to the detailed result by studio."
             }
           },
           "required": [

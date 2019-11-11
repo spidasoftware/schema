@@ -75,7 +75,7 @@ class FormatConverterTest extends Specification {
 			def spidadbComponents = converter.convertCalcProject(calcProject)
 
 		then: "just a quick check to make sure it converted all of the components"
-			spidadbComponents.size() == 17
+			spidadbComponents.size() == 18
 
 		when: "convert the project back to calc format"
 			SpidaDBProject p = spidadbComponents.find{it instanceof SpidaDBProject}
@@ -86,6 +86,10 @@ class FormatConverterTest extends Specification {
 
 		then: "the reconstituted project should be valid against the schema"
 			jsonIsValid(reconstitutedCalcProject)
+			reconstitutedCalcProject.leads.size() == 1
+			reconstitutedCalcProject.leads[0].locations.size() == 4
+			reconstitutedCalcProject.leads[0].locations[0].designs.size() == 3
+			reconstitutedCalcProject.leads[0].locations[0].designs[0].analysisDetails.detailedResults
 
 	}
 
@@ -327,8 +331,11 @@ class FormatConverterTest extends Specification {
 			List<SpidaDBDesign> spidaDBDesign = loadJson("exampleProject", "designs").collect{
 				new SpidaDBDesign(it)
 			}
+			List<SpidaDBResult> spidaDBResults = loadJson("exampleProject", "results").collect{
+				new SpidaDBResult(it)
+			}
 		when:
-		    Map projectJson = converter.convertSpidaDBProject(spidaDBProject, spidaDBLocation, spidaDBDesign)
+		    Map projectJson = converter.convertSpidaDBProject(spidaDBProject, spidaDBLocation, spidaDBDesign, spidaDBResults)
 			def schema = "/schema/spidacalc/calc/project.schema"
 			def report = new Validator().validateAndReport(schema, JsonOutput.toJson(projectJson))
 
@@ -339,7 +346,7 @@ class FormatConverterTest extends Specification {
 
 			// each JSON location should have 3 designs
 			projectJson.leads[0].locations.each {
-				3 == it.designs.size()
+				assert 3 == it.designs.size()
 			}
 			// and the json output should validate successfully
 			report.isSuccess()
@@ -377,6 +384,10 @@ class FormatConverterTest extends Specification {
 			case "designs":
 				converter = ConverterUtils.getConverterInstance("/schema/spidacalc/calc/design.schema")
 				dbKey = "calcDesign"
+				break
+			case "results":
+				converter = ConverterUtils.getConverterInstance("/schema/spidacalc/results/results.schema")
+				dbKey = "calcResult"
 				break
 			default:
 				throw new NotImplementedException("Not implemented for type ${type}")
