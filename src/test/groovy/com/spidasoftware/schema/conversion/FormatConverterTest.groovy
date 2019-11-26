@@ -1,6 +1,6 @@
 package com.spidasoftware.schema.conversion
 
-import com.github.fge.jsonschema.report.ProcessingReport
+import com.github.fge.jsonschema.core.report.ProcessingReport
 import com.spidasoftware.schema.conversion.changeset.Converter
 import com.spidasoftware.schema.conversion.changeset.ConverterUtils
 import com.spidasoftware.schema.validation.Validator

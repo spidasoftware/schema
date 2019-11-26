@@ -1,7 +1,7 @@
 package com.spidasoftware.schema.validation
 
 import com.github.fge.jackson.JsonLoader
-import com.github.fge.jsonschema.load.configuration.LoadingConfiguration
+import com.github.fge.jsonschema.core.load.configuration.LoadingConfiguration
 import com.github.fge.jsonschema.main.JsonSchemaFactory
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper

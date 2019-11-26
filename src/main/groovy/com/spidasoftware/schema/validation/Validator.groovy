@@ -9,15 +9,17 @@ import com.github.fge.jackson.JsonLoader
 import com.github.fge.jsonschema.SchemaVersion
 import com.github.fge.jsonschema.cfg.ValidationConfiguration
 import com.github.fge.jsonschema.cfg.ValidationConfigurationBuilder
-import com.github.fge.jsonschema.exceptions.ProcessingException
+import com.github.fge.jsonschema.core.exceptions.ProcessingException
+import com.github.fge.jsonschema.core.load.uri.URITranslatorConfiguration
+import com.github.fge.jsonschema.core.load.uri.URITranslatorConfigurationBuilder
 import com.github.fge.jsonschema.library.DraftV4Library
 import com.github.fge.jsonschema.library.Library
-import com.github.fge.jsonschema.load.configuration.LoadingConfiguration
-import com.github.fge.jsonschema.load.configuration.LoadingConfigurationBuilder
+import com.github.fge.jsonschema.core.load.configuration.LoadingConfiguration
+import com.github.fge.jsonschema.core.load.configuration.LoadingConfigurationBuilder
 import com.github.fge.jsonschema.main.JsonSchemaFactory
-import com.github.fge.jsonschema.ref.JsonRef
-import com.github.fge.jsonschema.report.ProcessingReport
-import com.github.fge.jsonschema.report.LogLevel
+import com.github.fge.jsonschema.core.ref.JsonRef
+import com.github.fge.jsonschema.core.report.ProcessingReport
+import com.github.fge.jsonschema.core.report.LogLevel
 import groovy.util.logging.Log4j
 import org.apache.commons.io.FilenameUtils
 
@@ -43,7 +45,7 @@ class Validator {
 	 * @param schemaPath resource URL to the schema. eg, "/v1/schema/spidacalc/calc/project.schema"
 	 * @param json JSONObject to be validated.
 	 * @return The fge schema-validator report
-	 */
+	 */  // todo this one
 	ProcessingReport validateAndReport(String schemaPath, Map json) {
 		catchAndLogExceptions {
 			JsonNode jsonNode = new ObjectMapper().valueToTree(json)
@@ -134,7 +136,9 @@ class Validator {
 
 		LoadingConfigurationBuilder loadCfgBuilder = LoadingConfiguration.newBuilder()
 		if(namespace){
-			loadCfgBuilder.setNamespace(namespace)
+			URITranslatorConfigurationBuilder uriTranslatorConfigurationBuilder = URITranslatorConfiguration.newBuilder()
+			uriTranslatorConfigurationBuilder.setNamespace(namespace)
+			loadCfgBuilder.setURITranslatorConfiguration(uriTranslatorConfigurationBuilder.freeze())
 		}
 
 		return JsonSchemaFactory.newBuilder()
