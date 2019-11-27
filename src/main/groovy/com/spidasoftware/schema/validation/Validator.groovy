@@ -9,17 +9,17 @@ import com.github.fge.jackson.JsonLoader
 import com.github.fge.jsonschema.SchemaVersion
 import com.github.fge.jsonschema.cfg.ValidationConfiguration
 import com.github.fge.jsonschema.cfg.ValidationConfigurationBuilder
-import com.github.fge.jsonschema.core.exceptions.ProcessingException
-import com.github.fge.jsonschema.core.load.uri.URITranslatorConfiguration
-import com.github.fge.jsonschema.core.load.uri.URITranslatorConfigurationBuilder
+import com.github.fge.jsonschema.exceptions.ProcessingException
 import com.github.fge.jsonschema.library.DraftV4Library
 import com.github.fge.jsonschema.library.Library
-import com.github.fge.jsonschema.core.load.configuration.LoadingConfiguration
-import com.github.fge.jsonschema.core.load.configuration.LoadingConfigurationBuilder
+import com.github.fge.jsonschema.load.configuration.LoadingConfiguration
+import com.github.fge.jsonschema.load.configuration.LoadingConfigurationBuilder
 import com.github.fge.jsonschema.main.JsonSchemaFactory
-import com.github.fge.jsonschema.core.ref.JsonRef
-import com.github.fge.jsonschema.core.report.ProcessingReport
-import com.github.fge.jsonschema.core.report.LogLevel
+import com.github.fge.jsonschema.ref.JsonRef
+import com.github.fge.jsonschema.report.LogLevel
+import com.github.fge.jsonschema.report.ProcessingReport
+import groovy.transform.CompileDynamic
+import groovy.transform.CompileStatic
 import groovy.util.logging.Log4j
 import org.apache.commons.io.FilenameUtils
 
@@ -27,6 +27,7 @@ import org.apache.commons.io.FilenameUtils
  * Class to validate against our json schemas. Will references the schemas locally as a jar resource.
  */
 @Log4j
+@CompileStatic
 class Validator {
 
 	/**
@@ -45,7 +46,7 @@ class Validator {
 	 * @param schemaPath resource URL to the schema. eg, "/v1/schema/spidacalc/calc/project.schema"
 	 * @param json JSONObject to be validated.
 	 * @return The fge schema-validator report
-	 */  // todo this one
+	 */
 	ProcessingReport validateAndReport(String schemaPath, Map json) {
 		catchAndLogExceptions {
 			JsonNode jsonNode = new ObjectMapper().valueToTree(json)
@@ -92,17 +93,18 @@ class Validator {
 		handleReport(validateAndReportFromText(schemaText, json))
 	}
 
-	private ProcessingReport loadAndValidate(String schemaPath, JsonNode jsonNode) {
+	protected ProcessingReport loadAndValidate(String schemaPath, JsonNode jsonNode) {
 		String namespace = convertToResourcePath(schemaPath)
 		JsonNode schemaNode = JsonLoader.fromResource(schemaPath)
 		return validateWithStrictModeCheck(jsonNode, schemaNode, namespace)
 	}
 
-	private ProcessingReport validateUsingSchemaText(String schemaText, JsonNode jsonNode) {
+	protected ProcessingReport validateUsingSchemaText(String schemaText, JsonNode jsonNode) {
 		JsonNode schemaNode = JsonLoader.fromString(schemaText)
 		return validateWithStrictModeCheck(jsonNode, schemaNode)
 	}
 
+	@CompileDynamic
 	private ProcessingReport validateWithStrictModeCheck(JsonNode jsonNode, JsonNode schemaNode, String namespace = null){
 		boolean ignoreAdditionalProperties = true
 		JsonNode strictNode = jsonNode.get('strict')
@@ -125,6 +127,7 @@ class Validator {
 		return report
 	}
 
+	@CompileDynamic
 	private createJsonSchemaFactory(String namespace = null, boolean ignoreAdditionalProperties = true){
 		ValidationConfigurationBuilder valCfgBuilder = ValidationConfiguration.newBuilder()
 		if(ignoreAdditionalProperties){
@@ -136,9 +139,7 @@ class Validator {
 
 		LoadingConfigurationBuilder loadCfgBuilder = LoadingConfiguration.newBuilder()
 		if(namespace){
-			URITranslatorConfigurationBuilder uriTranslatorConfigurationBuilder = URITranslatorConfiguration.newBuilder()
-			uriTranslatorConfigurationBuilder.setNamespace(namespace)
-			loadCfgBuilder.setURITranslatorConfiguration(uriTranslatorConfigurationBuilder.freeze())
+			loadCfgBuilder.setNamespace(namespace)
 		}
 
 		return JsonSchemaFactory.newBuilder()
@@ -147,7 +148,7 @@ class Validator {
 					.freeze()
 	}
 
-	private void handleReport(ProcessingReport report) throws JSONServletException {
+	protected void handleReport(ProcessingReport report) throws JSONServletException {
 		if (report == null) {
 			throw new JSONServletException(JSONServletException.INTERNAL_ERROR, "An internal error occurred when validating JSON")
 		}
@@ -156,7 +157,7 @@ class Validator {
 		}
 	}
 
-	private def catchAndLogExceptions(closure) {
+	protected <T> T catchAndLogExceptions(Closure<T> closure) {
 		try {
 			return closure()
 		} catch (IOException e) {
@@ -167,7 +168,7 @@ class Validator {
 		return null
 	}
 
-	String convertToResourcePath(schemaPath){
+	String convertToResourcePath(String schemaPath){
 		//FilenameUtils.getPath(filepath) gets the parent folder and removes path prefix (windows drive letter or unix tilde)
 		//More Info: http://commons.apache.org/proper/commons-io/apidocs/org/apache/commons/io/FilenameUtils.html#getPathNoEndSeparator(java.lang.String)
 		String namespace = "/" + FilenameUtils.getPathNoEndSeparator(schemaPath)
@@ -177,5 +178,4 @@ class Validator {
 		log.trace "Validation: \nschemaPath=$schemaPath \nnamespace=$namespace \nnamespaceString=$namespaceString"
 		return namespaceString
 	}
-
 }
