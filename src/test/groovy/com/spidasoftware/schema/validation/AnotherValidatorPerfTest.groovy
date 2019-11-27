@@ -10,7 +10,7 @@ import groovy.util.logging.Log4j
 import spock.lang.Specification
 
 @Log4j
-class ValidatorPerfTest extends Specification {
+class AnotherValidatorPerfTest extends Specification {
 
 	def test() {
 //		setup:
@@ -19,7 +19,7 @@ class ValidatorPerfTest extends Specification {
 			File projectFile = new File(tempdir, "project.json")
 			List<File> resultsFiles = (new File(tempdir, "Results")).listFiles()
 
-			Validator validator = new Validator()
+			AnotherValidator validator = new AnotherValidator()
 
 			long totalTime = 0
 			int iterations = 10
@@ -34,7 +34,7 @@ class ValidatorPerfTest extends Specification {
 				log.warn("iteration time: " + iterationTime)
 				totalTime += iterationTime
 			}
-		log.warn("total time: " + totalTime)
+			log.warn("total time: " + totalTime)
 	}
 
 	static Object parseFile(File file) {
@@ -52,4 +52,5 @@ class ValidatorPerfTest extends Specification {
 			return node.asText()
 		}
 	}
+
 }
