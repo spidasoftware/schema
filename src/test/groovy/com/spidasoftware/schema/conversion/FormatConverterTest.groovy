@@ -321,6 +321,38 @@ class FormatConverterTest extends Specification {
 			current << [getCalcProject("single-full-pole.json"), getCalcProject("four-locations-one-lead-project.json"), getCalcProject("minimal-project-valid.json")]
 	}
 
+	void "duplicate ids should be cleared" () {
+		def project = [leads: [
+				locations: [[
+									id     : "duplicate",
+									designs: [[id: "duplicate"],
+											  [id: "100"]]
+							], [
+									id     : "321",
+									designs: [[]]
+							],
+							[
+									id     : "duplicate",
+									designs: [[id:"123"]]
+							]
+				]
+		]]
+		def leads = project.leads.first()
+		when:
+			FormatConverter.addDBIdsToProject(project)
+		then:
+			leads.locations[0].id != "duplicate"
+			leads.locations[0].id != null
+			leads.locations[0].designs[0].id != "duplicate"
+			leads.locations[0].designs[0].id != null
+			leads.locations[0].designs[1].id == "100"
+			leads.locations[1].id == "321"
+			leads.locations[1].designs[0].id != null
+			leads.locations[2].id != null
+			leads.locations[2].id != "duplicate"
+			leads.locations[2].designs[0].id =="123"
+	}
+
 	void "SpidaDB components should be converted into calc-ready JSON"() {
 		/* Just recreate a SpidaDB project from it's component parts and make sure it goes together okay */
 		setup:
