@@ -293,7 +293,7 @@ class FormatConverter {
         duplicateIds.each {id, dupes ->
             if (id != null && dupes.size() > 1) {
                 dupes.each {dupe ->
-                    dupe.id = null
+                    dupe.remove("id")
                 }
             }
         }

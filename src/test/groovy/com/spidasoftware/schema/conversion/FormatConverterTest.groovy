@@ -322,35 +322,35 @@ class FormatConverterTest extends Specification {
 	}
 
 	void "duplicate ids should be cleared" () {
-		def project = [leads: [
-				locations: [[
-									id     : "duplicate",
-									designs: [[id: "duplicate"],
-											  [id: "100"]]
-							], [
-									id     : "321",
-									designs: [[]]
-							],
-							[
-									id     : "duplicate",
-									designs: [[id:"123"]]
-							]
-				]
-		]]
-		def leads = project.leads.first()
+		def project = [leads: [[
+									   locations: [[
+														   id     : "duplicate",
+														   designs: [[id: "duplicate"],
+																	 [id: "100"]]
+												   ], [
+														   id     : "321",
+														   designs: [[:]]
+												   ],
+												   [
+														   id     : "duplicate",
+														   designs: [[id: "123"]]
+												   ]
+									   ]
+							   ]]]
+		def lead = project.leads.first()
 		when:
 			FormatConverter.addDBIdsToProject(project)
 		then:
-			leads.locations[0].id != "duplicate"
-			leads.locations[0].id != null
-			leads.locations[0].designs[0].id != "duplicate"
-			leads.locations[0].designs[0].id != null
-			leads.locations[0].designs[1].id == "100"
-			leads.locations[1].id == "321"
-			leads.locations[1].designs[0].id != null
-			leads.locations[2].id != null
-			leads.locations[2].id != "duplicate"
-			leads.locations[2].designs[0].id =="123"
+			lead.locations[0].id != "duplicate"
+			lead.locations[0].id != null
+			lead.locations[0].designs[0].id != "duplicate"
+			lead.locations[0].designs[0].id != null
+			lead.locations[0].designs[1].id == "100"
+			lead.locations[1].id == "321"
+			lead.locations[1].designs[0].id != null
+			lead.locations[2].id != null
+			lead.locations[2].id != "duplicate"
+			lead.locations[2].designs[0].id =="123"
 	}
 
 	void "SpidaDB components should be converted into calc-ready JSON"() {
