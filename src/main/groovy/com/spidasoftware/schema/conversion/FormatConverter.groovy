@@ -278,7 +278,26 @@ class FormatConverter {
         return analysisAsset
     }
 
-    private static Map addDBIdsToProject(Map calcProject) {
+    protected static Map addDBIdsToProject(Map calcProject) {
+        // first, we want to detect and clear any duplicate Ids in the project.
+
+        def duplicateIds = [:].withDefault {[]}
+        calcProject.leads.each {lead ->
+            lead.locations.each { location ->
+                duplicateIds[location.id] << location
+                location.designs.each {design ->
+                    duplicateIds[design.id] << design
+                }
+            }
+        }
+        duplicateIds.each {id, dupes ->
+            if (id != null && dupes.size() > 1) {
+                dupes.each {dupe ->
+                    dupe.remove("id")
+                }
+            }
+        }
+
         calcProject.leads.each { lead ->
             lead.locations.each { location ->
                 addDBIdsToLocation(location)
