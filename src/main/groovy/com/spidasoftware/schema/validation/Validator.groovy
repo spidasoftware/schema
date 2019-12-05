@@ -55,6 +55,17 @@ class Validator {
 	}
 
 	/**
+	 * @param schemaPath resource URL to the schema. eg, "/v1/schema/spidacalc/calc/project.schema"
+	 * @param jsonNode JsonNode to be validated.
+	 * @return The fge schema-validator report
+	 */
+	ProcessingReport validateAndReport(String schemaPath, JsonNode jsonNode) {
+		catchAndLogExceptions {
+			return loadAndValidate(schemaPath, jsonNode)
+		}
+	}
+
+	/**
 	 * @param schemaText A schema in plain text.
 	 * @param son string representation of json to be validated.
 	 * @return The fge schema-validator report

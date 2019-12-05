@@ -13,7 +13,7 @@ import spock.lang.Specification
 class ValidatorPerfTest extends Specification {
 
 	def test() {
-//		setup:
+		setup:
 			File tempdir = Files.createTempDir()
 			(new AntBuilder()).unzip(src: "/Users/jasongarrett/Downloads/SeveralAnalyzedDesigns-v7.2.spida", dest: tempdir.getCanonicalPath(), encoding: 'UTF-8')
 			File projectFile = new File(tempdir, "project.json")
@@ -25,9 +25,9 @@ class ValidatorPerfTest extends Specification {
 			int iterations = 10
 			iterations.times {
 				Date startTime = new Date()
-				validator.validateAndReport("/schema/spidacalc/calc/project.schema", (Map) parseFile(projectFile))
+				validator.validateAndReport("/schema/spidacalc/calc/project.schema", parseFileToJsonNode(projectFile))
 				resultsFiles.each {
-					validator.validateAndReport("/schema/spidacalc/results/results.schema", (Map) parseFile(it))
+					validator.validateAndReport("/schema/spidacalc/results/results.schema", parseFileToJsonNode(it))
 				}
 				Date endTime = new Date()
 				long iterationTime = endTime.time - startTime.time
@@ -41,6 +41,12 @@ class ValidatorPerfTest extends Specification {
 		ObjectMapper mapper = new ObjectMapper()
 		JsonNode node = mapper.readValue(file, JsonNode)
 		return nodeToValue(mapper, node)
+	}
+
+	static JsonNode parseFileToJsonNode(File file) {
+		ObjectMapper mapper = new ObjectMapper()
+		JsonNode node = mapper.readValue(file, JsonNode)
+		return node
 	}
 
 	protected static Object nodeToValue(ObjectMapper mapper, JsonNode node) {
