@@ -14,6 +14,7 @@ import com.github.fge.jsonschema.library.DraftV4Library
 import com.github.fge.jsonschema.library.Library
 import com.github.fge.jsonschema.load.configuration.LoadingConfiguration
 import com.github.fge.jsonschema.load.configuration.LoadingConfigurationBuilder
+import com.github.fge.jsonschema.main.JsonSchema
 import com.github.fge.jsonschema.main.JsonSchemaFactory
 import com.github.fge.jsonschema.ref.JsonRef
 import com.github.fge.jsonschema.report.LogLevel
@@ -29,6 +30,10 @@ import org.apache.commons.io.FilenameUtils
 @Log4j
 @CompileStatic
 class Validator {
+
+	private Map<String, JsonNode> schemaPathCache = [:]
+	private Map<String, JsonNode> schemaTextCache = [:]
+	private Map<JsonNode, JsonSchema> schemaCache = [:]
 
 	/**
 	 * @param schemaPath resource URL to the schema. eg, "/v1/schema/spidacalc/calc/project.schema"
@@ -106,12 +111,20 @@ class Validator {
 
 	protected ProcessingReport loadAndValidate(String schemaPath, JsonNode jsonNode) {
 		String namespace = convertToResourcePath(schemaPath)
-		JsonNode schemaNode = JsonLoader.fromResource(schemaPath)
+		JsonNode schemaNode = schemaPathCache.get(schemaPath)
+		if(schemaNode == null) {
+			schemaNode = JsonLoader.fromResource(schemaPath)
+			schemaPathCache.put(schemaPath, schemaNode)
+		}
 		return validateWithStrictModeCheck(jsonNode, schemaNode, namespace)
 	}
 
 	protected ProcessingReport validateUsingSchemaText(String schemaText, JsonNode jsonNode) {
-		JsonNode schemaNode = JsonLoader.fromString(schemaText)
+		JsonNode schemaNode = schemaTextCache.get(schemaText)
+		if(schemaNode == null) {
+			schemaNode = JsonLoader.fromString(schemaText)
+			schemaTextCache.put(schemaText, schemaNode)
+		}
 		return validateWithStrictModeCheck(jsonNode, schemaNode)
 	}
 
@@ -126,8 +139,14 @@ class Validator {
 			jsonNode.remove('strict')
 		}
 
-		def factory = createJsonSchemaFactory(namespace, ignoreAdditionalProperties)
-		def report = factory.getJsonSchema(schemaNode).validate(jsonNode)
+		JsonSchema schema = schemaCache.get(schemaNode)
+		if(schema == null) {
+			JsonSchemaFactory factory = createJsonSchemaFactory(namespace, ignoreAdditionalProperties)
+			schema = factory.getJsonSchema(schemaNode)
+			schemaCache.put(schemaNode, schema)
+		}
+
+		ProcessingReport report = schema.validate(jsonNode)
 
 		//now revert the strict property change
 		if(strictNode != null){
@@ -139,7 +158,7 @@ class Validator {
 	}
 
 	@CompileDynamic
-	private createJsonSchemaFactory(String namespace = null, boolean ignoreAdditionalProperties = true){
+	private JsonSchemaFactory createJsonSchemaFactory(String namespace = null, boolean ignoreAdditionalProperties = true){
 		ValidationConfigurationBuilder valCfgBuilder = ValidationConfiguration.newBuilder()
 		if(ignoreAdditionalProperties){
 			//this removes the AdditionalPropertiesValidator (See CommonValidatorDictionary)

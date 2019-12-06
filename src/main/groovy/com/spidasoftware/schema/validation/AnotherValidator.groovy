@@ -27,15 +27,27 @@ import groovy.util.logging.Log4j
 @Log4j
 class AnotherValidator extends Validator {
 
+	private Map<String, JsonNode> schemaPathCache = [:]
+	private Map<String, JsonNode> schemaTextCache = [:]
+	private Map<JsonNode, JsonSchema> schemaCache = [:]
+
 	@Override
 	protected ProcessingReport loadAndValidate(String schemaPath, JsonNode jsonNode) {
-		JsonNode schemaNode = (new ObjectMapper()).readTree(this.class.getResource(schemaPath))
+		JsonNode schemaNode = schemaPathCache.get(schemaPath)
+		if(schemaNode == null) {
+			schemaNode = (new ObjectMapper()).readTree(this.class.getResource(schemaPath))
+			schemaPathCache.put(schemaPath, schemaNode)
+		}
 		return validateWithStrictModeCheck((ObjectNode)jsonNode, schemaNode, this.class.getResource(schemaPath).toURI())
 	}
 
 	@Override
 	protected ProcessingReport validateUsingSchemaText(String schemaText, JsonNode jsonNode) {
-		JsonNode schemaNode = (new ObjectMapper()).readTree(schemaText)
+		JsonNode schemaNode = schemaTextCache.get(schemaText)
+		if(schemaNode == null) {
+			schemaNode = (new ObjectMapper()).readTree(schemaText)
+			schemaTextCache.put(schemaText, schemaNode)
+		}
 		return validateWithStrictModeCheck((ObjectNode)jsonNode, schemaNode)
 	}
 
@@ -49,12 +61,15 @@ class AnotherValidator extends Validator {
 			jsonNode.remove('strict')
 		}
 
-		JsonSchemaFactory factory = createJsonSchemaFactory(ignoreAdditionalProperties)
-		JsonSchema schema
-		if(schemaUri == null) {
-			schema = factory.getSchema(schemaNode)
-		} else {
-			schema = factory.getSchema(schemaUri, schemaNode)
+		JsonSchema schema = schemaCache.get(schemaNode)
+		if(schema == null) {
+			JsonSchemaFactory factory = createJsonSchemaFactory(ignoreAdditionalProperties)
+			if (schemaUri == null) {
+				schema = factory.getSchema(schemaNode)
+			} else {
+				schema = factory.getSchema(schemaUri, schemaNode)
+			}
+			schemaCache.put(schemaNode, schema)
 		}
 
 		Set<ValidationMessage> validationMessages = schema.validate(jsonNode)
