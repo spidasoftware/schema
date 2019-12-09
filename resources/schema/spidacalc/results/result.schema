@@ -24,7 +24,7 @@
     },
     "analysisCaseDetails": {
       "description": "Details for the analysis case used to generate the results.",
-      "oneOf": [{
+      "anyOf": [{
           "$ref": "../client/load_case.schema"
         },{
           "$ref": "../client/strength_case.schema"
