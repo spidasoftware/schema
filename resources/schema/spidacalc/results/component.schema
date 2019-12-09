@@ -181,7 +181,7 @@
             "type": "string"
           },
           "value": {
-            "oneOf": [{
+            "anyOf": [{
               "type": "number"
             }, {
               "type": "boolean"
@@ -195,7 +195,7 @@
             "type": "array",
             "description": "additional information about the value for display and understanding.",
             "items": {
-              "oneOf": [{
+              "anyOf": [{
                   "enum": ["ATTACH_HEIGHT", "SMALL_LENGTH", "ERROR"]
                 }, {
                   "$ref": "../../spidacalc/results/enums/status.schema"

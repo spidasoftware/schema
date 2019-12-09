@@ -198,7 +198,7 @@
       ]
     },
     "ice": {
-      "oneOf": [
+      "anyOf": [
         {
           "enum": [
             "INCH_000",
@@ -343,7 +343,7 @@
       "$ref": "../../general/measurable.schema"
     }
   },
-  "oneOf": [
+  "anyOf": [
     {
       "type": "object",
       "required": [
@@ -427,6 +427,6 @@
       }
     }
   ],
-  
+
   "additionalProperties": false
 }

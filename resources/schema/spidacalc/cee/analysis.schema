@@ -18,7 +18,7 @@
     },
     "analysisCase": {
       "description": "The load or strength case to use when analyzing the structure.",
-      "oneOf":[
+      "anyOf":[
         {"$ref": "../../spidacalc/client/load_case.schema"},
         {"$ref": "../../spidacalc/client/strength_case.schema"}
       ]
