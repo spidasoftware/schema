@@ -10,7 +10,7 @@ import groovy.util.logging.Log4j
 import spock.lang.Specification
 
 @Log4j
-class AnotherValidatorPerfTest extends Specification {
+class NetworkNtJsonValidatorPerfTest extends Specification {
 
 	def test() {
 		setup:
@@ -19,7 +19,7 @@ class AnotherValidatorPerfTest extends Specification {
 			File projectFile = new File(tempdir, "project.json")
 			List<File> resultsFiles = (new File(tempdir, "Results")).listFiles()
 
-			AnotherValidator validator = new AnotherValidator()
+			NetworkNtJsonValidator validator = new NetworkNtJsonValidator()
 
 			long totalTime = 0
 			int iterations = 10

@@ -25,7 +25,7 @@ import groovy.util.logging.Log4j
  */
 @CompileStatic
 @Log4j
-class AnotherValidator extends Validator {
+class NetworkNtJsonValidator extends Validator {
 
 	private Map<String, JsonNode> schemaPathCache = [:]
 	private Map<String, JsonNode> schemaTextCache = [:]
