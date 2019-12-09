@@ -13,7 +13,7 @@ import spock.lang.Specification
 class ValidatorPerfTest extends Specification {
 
 	def test() {
-		setup:
+//		setup:
 			File tempdir = Files.createTempDir()
 			(new AntBuilder()).unzip(src: "/Users/jasongarrett/Downloads/SeveralAnalyzedDesigns-v7.2.spida", dest: tempdir.getCanonicalPath(), encoding: 'UTF-8')
 			File projectFile = new File(tempdir, "project.json")
