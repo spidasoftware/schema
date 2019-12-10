@@ -19,8 +19,6 @@ import com.github.fge.jsonschema.main.JsonSchemaFactory
 import com.github.fge.jsonschema.ref.JsonRef
 import com.github.fge.jsonschema.report.LogLevel
 import com.github.fge.jsonschema.report.ProcessingReport
-import groovy.transform.CompileDynamic
-import groovy.transform.CompileStatic
 import groovy.util.logging.Log4j
 import org.apache.commons.io.FilenameUtils
 
@@ -28,7 +26,6 @@ import org.apache.commons.io.FilenameUtils
  * Class to validate against our json schemas. Will references the schemas locally as a jar resource.
  */
 @Log4j
-@CompileStatic
 class Validator {
 
 	private Map<String, JsonNode> schemaPathCache = [:]
@@ -129,7 +126,6 @@ class Validator {
 		return validateWithStrictModeCheck(jsonNode, schemaNode)
 	}
 
-	@CompileDynamic
 	private ProcessingReport validateWithStrictModeCheck(JsonNode jsonNode, JsonNode schemaNode, String namespace = null){
 		boolean ignoreAdditionalProperties = true
 		JsonNode strictNode = jsonNode.get('strict')
@@ -164,7 +160,6 @@ class Validator {
 		return report
 	}
 
-	@CompileDynamic
 	private JsonSchemaFactory createJsonSchemaFactory(String namespace = null, boolean ignoreAdditionalProperties = true){
 		ValidationConfigurationBuilder valCfgBuilder = ValidationConfiguration.newBuilder()
 		if(ignoreAdditionalProperties){
