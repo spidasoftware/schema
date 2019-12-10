@@ -29,7 +29,10 @@ class NetworkNtJsonValidator extends Validator {
 
 	private Map<String, JsonNode> schemaPathCache = [:]
 	private Map<String, JsonNode> schemaTextCache = [:]
-	private Map<JsonNode, JsonSchema> schemaCache = [:]
+	private Map<JsonNode, JsonSchema> schemaCacheStrict = [:]
+	private Map<JsonNode, JsonSchema> schemaCacheNotStrict = [:]
+	private JsonSchemaFactory schemaFactoryStrict = null
+	private JsonSchemaFactory schemaFactoryNotStrict = null
 
 	@Override
 	protected ProcessingReport loadAndValidate(String schemaPath, JsonNode jsonNode) {
@@ -61,10 +64,16 @@ class NetworkNtJsonValidator extends Validator {
 			jsonNode.remove('strict')
 		}
 
+		Map<JsonNode, JsonSchema> schemaCache
+		if(ignoreAdditionalProperties) {
+			schemaCache = schemaCacheNotStrict
+		} else {
+			schemaCache = schemaCacheStrict
+		}
 		JsonSchema schema = schemaCache.get(schemaNode)
 		if(schema == null) {
-			JsonSchemaFactory factory = createJsonSchemaFactory(ignoreAdditionalProperties)
-			if (schemaUri == null) {
+			JsonSchemaFactory factory = getJsonSchemaFactory(ignoreAdditionalProperties)  // todo cache these too
+			if (schemaUri == null) {  // try (schemaUri, schemaNode) regardless of nullness
 				schema = factory.getSchema(schemaNode)
 			} else {
 				schema = factory.getSchema(schemaUri, schemaNode)
@@ -89,30 +98,40 @@ class NetworkNtJsonValidator extends Validator {
 	}
 
 	@CompileDynamic
-	private JsonSchemaFactory createJsonSchemaFactory(boolean ignoreAdditionalProperties) {
-		JsonMetaSchema jsonMetaSchema
+	private JsonSchemaFactory getJsonSchemaFactory(boolean ignoreAdditionalProperties) {
 		if(ignoreAdditionalProperties) {
-			jsonMetaSchema = new JsonMetaSchema.Builder(JsonMetaSchema.V4.URI)
-					.idKeyword(JsonMetaSchema.V4.ID)
-					.addFormats(JsonMetaSchema.V4.BUILTIN_FORMATS)
-					.addKeywords(ValidatorTypeCode.getNonFormatKeywords(SpecVersion.VersionFlag.V4))
-					// keywords that may validly exist, but have no validation aspect to them
-					.addKeywords(Arrays.asList(
-							new NonValidationKeyword('$schema'),
-							new NonValidationKeyword("id"),
-							new NonValidationKeyword("title"),
-							new NonValidationKeyword("description"),
-							new NonValidationKeyword("default"),
-							new NonValidationKeyword("definitions"),
-							new NonValidationKeyword("additionalProperties")  // this suppresses the additionalProperties validation
-					))
-					.build()
+			if(schemaFactoryNotStrict == null) {
+				JsonMetaSchema jsonMetaSchema = new JsonMetaSchema.Builder(JsonMetaSchema.V4.URI)
+						.idKeyword(JsonMetaSchema.V4.ID)
+						.addFormats(JsonMetaSchema.V4.BUILTIN_FORMATS)
+						.addKeywords(ValidatorTypeCode.getNonFormatKeywords(SpecVersion.VersionFlag.V4))
+						// keywords that may validly exist, but have no validation aspect to them
+						.addKeywords(Arrays.asList(
+								new NonValidationKeyword('$schema'),
+								new NonValidationKeyword("id"),
+								new NonValidationKeyword("title"),
+								new NonValidationKeyword("description"),
+								new NonValidationKeyword("default"),
+								new NonValidationKeyword("definitions"),
+								new NonValidationKeyword("additionalProperties")  // this suppresses the additionalProperties validation
+						))
+						.build()
+				schemaFactoryNotStrict = JsonSchemaFactory.builder()
+						.defaultMetaSchemaURI(jsonMetaSchema.getUri())
+						.addMetaSchema(jsonMetaSchema)
+						.build()
+			}
+			return schemaFactoryNotStrict
 		} else {
-			jsonMetaSchema = JsonMetaSchema.getV4()
+			if(schemaFactoryStrict == null) {
+				JsonMetaSchema jsonMetaSchema = JsonMetaSchema.getV4()
+				schemaFactoryStrict = JsonSchemaFactory.builder()
+						.defaultMetaSchemaURI(jsonMetaSchema.getUri())
+						.addMetaSchema(jsonMetaSchema)
+						.build()
+				return schemaFactoryStrict
+			}
+			return schemaFactoryStrict
 		}
-		return JsonSchemaFactory.builder()
-				.defaultMetaSchemaURI(jsonMetaSchema.getUri())
-				.addMetaSchema(jsonMetaSchema)
-				.build()
 	}
 }

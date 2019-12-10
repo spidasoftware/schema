@@ -33,7 +33,8 @@ class Validator {
 
 	private Map<String, JsonNode> schemaPathCache = [:]
 	private Map<String, JsonNode> schemaTextCache = [:]
-	private Map<JsonNode, JsonSchema> schemaCache = [:]
+	private Map<JsonNode, JsonSchema> schemaCacheStrict = [:]
+	private Map<JsonNode, JsonSchema> schemaCacheNotStrict = [:]
 
 	/**
 	 * @param schemaPath resource URL to the schema. eg, "/v1/schema/spidacalc/calc/project.schema"
@@ -139,6 +140,12 @@ class Validator {
 			jsonNode.remove('strict')
 		}
 
+		Map<JsonNode, JsonSchema> schemaCache
+		if(ignoreAdditionalProperties) {
+			schemaCache = schemaCacheNotStrict
+		} else {
+			schemaCache = schemaCacheStrict
+		}
 		JsonSchema schema = schemaCache.get(schemaNode)
 		if(schema == null) {
 			JsonSchemaFactory factory = createJsonSchemaFactory(namespace, ignoreAdditionalProperties)
