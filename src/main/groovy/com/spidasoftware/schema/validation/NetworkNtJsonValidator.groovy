@@ -124,11 +124,7 @@ class NetworkNtJsonValidator extends Validator {
 			return schemaFactoryNotStrict
 		} else {
 			if(schemaFactoryStrict == null) {
-				JsonMetaSchema jsonMetaSchema = JsonMetaSchema.getV4()
-				schemaFactoryStrict = JsonSchemaFactory.builder()
-						.defaultMetaSchemaURI(jsonMetaSchema.getUri())
-						.addMetaSchema(jsonMetaSchema)
-						.build()
+				schemaFactoryStrict = JsonSchemaFactory.getInstance(SpecVersion.VersionFlag.V4)
 				return schemaFactoryStrict
 			}
 			return schemaFactoryStrict
