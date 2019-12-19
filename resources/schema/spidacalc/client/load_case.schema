@@ -353,17 +353,15 @@
     },
     "initialWireTensionWindPressure": {
       "$ref": "../../general/measurable.schema"
+    },
+    "outerStrandingCompression": {
+      "type": "boolean"
     }
   },
   "anyOf": [
     {
       "type": "object",
-      "required": [ "wireTensionMethod" ],
-      "not": { "required:" : [
-        "initialWireTensionTemperature",
-        "initialWireTensionIceThickness",
-        "initialWireTensionWindPressure"
-      ] },
+      "required": [ "wireTensionMethod", "outerStrandingCompression" ],
       "properties": {
         "wireTensionMethod": {
           "type": {
@@ -376,6 +374,7 @@
       "type": "object",
       "required": [
         "wireTensionMethod",
+        "outerStrandingCompression",
         "initialWireTensionTemperature",
         "initialWireTensionIceThickness",
         "initialWireTensionWindPressure"
@@ -391,10 +390,7 @@
     {
       "type": "object",
       "properties": {
-        "wireTensionMethod": { "not": {} },
-        "initialWireTensionTemperature": { "not": {} },
-        "initialWireTensionIceThickness": { "not": {} },
-        "initialWireTensionWindPressure": { "not": {} }
+        "wireTensionMethod": { "not": {} }
       }
     }
   ],
