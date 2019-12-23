@@ -9,8 +9,6 @@
     "crossArea",
     "description",
     "diameter",
-    "expansionCoefficient",
-    "modulus",
     "numberOfConductors",
     "size",
     "strength",
@@ -49,10 +47,25 @@
     "diameter": {
       "$ref": "../../general/measurable.schema"
     },
+    "conductorProperties": {
+      "type": "string"
+    },
     "expansionCoefficient": {
       "$ref": "../../general/measurable.schema"
     },
     "modulus": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "coreExpansionCoefficient": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "coreModulus": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "outerExpansionCoefficient": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "outerModulus": {
       "$ref": "../../general/measurable.schema"
     },
     "strength": {
@@ -81,5 +94,35 @@
       }
     }
   },
+  "anyOf": [
+    {
+      "type": "object",
+      "required": [
+        "expansionCoefficient", "modulus"
+      ],
+      "properties": {
+        "conductorProperties": {
+          "type": "string",
+          "enum": [ "TOTAL" ]
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "conductorProperties",
+        "coreExpansionCoefficient",
+        "coreModulus",
+        "outerExpansionCoefficient",
+        "outerModulus"
+      ],
+      "properties": {
+        "conductorProperties": {
+          "type": "string",
+          "enum": [ "CORE_AND_OUTER" ]
+        }
+      }
+    }
+  ],
   "additionalProperties": false
 }
