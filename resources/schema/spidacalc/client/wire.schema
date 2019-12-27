@@ -68,6 +68,50 @@
     "outerModulus": {
       "$ref": "../../general/measurable.schema"
     },
+    "stressStrainPolynomials": {
+      "type": "object",
+      "required": [ "outer", "core" ],
+      "properties": {
+        "outer": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "number"
+          }
+        },
+        "core": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "creepPolynomials": {
+      "type": "object",
+      "required": [ "outer", "core" ],
+      "properties": {
+        "outer": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "number"
+          }
+        },
+        "core": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "number"
+          }
+        }
+      }
+    },
     "strength": {
       "$ref": "../../general/measurable.schema"
     },
