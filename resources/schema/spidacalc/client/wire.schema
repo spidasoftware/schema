@@ -74,16 +74,16 @@
       "properties": {
         "outer": {
           "type": "array",
-          "minItems": 4,
-          "maxItems": 4,
+          "minItems": 5,
+          "maxItems": 5,
           "items": {
             "type": "number"
           }
         },
         "core": {
           "type": "array",
-          "minItems": 4,
-          "maxItems": 4,
+          "minItems": 5,
+          "maxItems": 5,
           "items": {
             "type": "number"
           }
@@ -96,16 +96,16 @@
       "properties": {
         "outer": {
           "type": "array",
-          "minItems": 4,
-          "maxItems": 4,
+          "minItems": 5,
+          "maxItems": 5,
           "items": {
             "type": "number"
           }
         },
         "core": {
           "type": "array",
-          "minItems": 4,
-          "maxItems": 4,
+          "minItems": 5,
+          "maxItems": 5,
           "items": {
             "type": "number"
           }
