@@ -112,6 +112,10 @@
         }
       }
     },
+    "inputTensionMethod": {
+      "type": "string",
+      "enum": [ "INITIAL", "FINAL_WITHOUT_CREEP", "FINAL_WITH_CREEP" ]
+    },
     "strength": {
       "$ref": "../../general/measurable.schema"
     },
@@ -164,6 +168,34 @@
         "conductorProperties": {
           "type": "string",
           "enum": [ "CORE_AND_OUTER" ]
+        }
+      }
+    }
+  ],
+  "anyOf": [
+    {
+      "type": "object",
+      "required": [ "creepPolynomials", "inputTensionMethod" ],
+      "properties": {
+        "inputTensionMethod": {
+          "enum": [ "FINAL_WITH_CREEP" ]
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [ "stressStrainPolynomials", "inputTensionMethod" ],
+      "properties": {
+        "inputTensionMethod": {
+          "enum": [ "INITIAL" ]
+        }
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "inputTensionMethod": {
+          "enum": [ "FINAL_WITHOUT_CREEP" ]
         }
       }
     }
