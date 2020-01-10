@@ -1,12 +1,14 @@
+/*
+ * ©2009-2019 SPIDAWEB LLC
+ */
 package com.spidasoftware.schema.validation
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.github.fge.jsonschema.report.ProcessingReport
-import groovy.util.logging.Log4j
 import spock.lang.Specification
 
-@Log4j
-class ValidatorTest extends Specification {
+// copied from ValidatorTest
+class NetworkNtJsonValidatorTest extends Specification {
 
 	void "test strict works on nested schemas"() {
 		setup:
@@ -22,11 +24,11 @@ class ValidatorTest extends Specification {
 				]
 			} """
 		when:
-			ProcessingReport report = new Validator().validateAndReport(schema, jsonString)
+			ProcessingReport report = new NetworkNtJsonValidator().validateAndReport(schema, jsonString)
 		then:
 			report.isSuccess() // this instance should be valid against the schema
 		when:
-			new Validator().validate(schema, jsonString)
+			new NetworkNtJsonValidator().validate(schema, jsonString)
 		then:
 			notThrown(JSONServletException) // Should not have thrown a servlet exception
 	}
@@ -36,11 +38,11 @@ class ValidatorTest extends Specification {
 			String schema = "/schema/spidacalc/calc/structure.schema"
 			String jsonString = new File("resources/examples/spidacalc/designs/one_of_everything.json").text
 		when:
-			ProcessingReport report = new Validator().validateAndReport(schema, jsonString)
+			ProcessingReport report = new NetworkNtJsonValidator().validateAndReport(schema, jsonString)
 		then:
 			report.isSuccess() // this instance should be valid against the schema
 		when:
-			new Validator().validate(schema, jsonString)
+			new NetworkNtJsonValidator().validate(schema, jsonString)
 		then:
 			notThrown(JSONServletException) // Should not have thrown a servlet exception
 	}
@@ -51,11 +53,11 @@ class ValidatorTest extends Specification {
 			File jsonFile = new File("resources/examples/spidacalc/designs/one_of_everything.json")
 			Map jsonObject = new ObjectMapper().readValue(jsonFile, LinkedHashMap)
 		when:
-			ProcessingReport report = new Validator().validateAndReport(schema, jsonObject)
+			ProcessingReport report = new NetworkNtJsonValidator().validateAndReport(schema, jsonObject)
 		then:
 			report.isSuccess() // this instance should be valid against the schema
 		when:
-			new Validator().validate(schema, jsonObject)
+			new NetworkNtJsonValidator().validate(schema, jsonObject)
 		then:
 			notThrown(JSONServletException) // Should not have thrown a servlet exception
 	}
@@ -65,11 +67,11 @@ class ValidatorTest extends Specification {
 			String schema = "/schema/spidacalc/calc/structure.schema"
 			String instance = '{"id":"externalId", "strict":true, "distance":{"unit":"FOOT", "value":10}, "direction":0}'
 		when:
-			ProcessingReport report = new Validator().validateAndReport(schema, instance)
+			ProcessingReport report = new NetworkNtJsonValidator().validateAndReport(schema, instance)
 		then:
 			!report.isSuccess() // this instance should NOT be valid against the schema because strict is true
 		when:
-			new Validator().validate(schema, instance)
+			new NetworkNtJsonValidator().validate(schema, instance)
 		then:
 			thrown(JSONServletException)
 	}
@@ -79,11 +81,11 @@ class ValidatorTest extends Specification {
 			String schema = "/schema/spidacalc/calc/structure.schema"
 			String instance = '{"id":"externalId", "strict":false, "distance":{"unit":"FOOT", "value":10}, "direction":0}'
 		when:
-			ProcessingReport report = new Validator().validateAndReport(schema, instance)
+			ProcessingReport report = new NetworkNtJsonValidator().validateAndReport(schema, instance)
 		then:
 			report.isSuccess() // this instance should be valid against the schema because strict is false
 		when:
-			new Validator().validate(schema, instance)
+			new NetworkNtJsonValidator().validate(schema, instance)
 		then:
 			notThrown(JSONServletException)
 	}
@@ -93,11 +95,11 @@ class ValidatorTest extends Specification {
 			String schema = "/schema/spidacalc/calc/structure.schema"
 			Map instance = [id: "externalId", strict:true, distance: [unit: "FOOT", value: 10], direction: 0]
 		when:
-			ProcessingReport report = new Validator().validateAndReport(schema, instance)
+			ProcessingReport report = new NetworkNtJsonValidator().validateAndReport(schema, instance)
 		then:
 			!report.isSuccess() // this instance should NOT be valid against the schema because strict is true
 		when:
-			new Validator().validate(schema, instance)
+			new NetworkNtJsonValidator().validate(schema, instance)
 		then:
 			thrown(JSONServletException)
 	}
@@ -107,11 +109,11 @@ class ValidatorTest extends Specification {
 			String schema = "/schema/spidacalc/calc/structure.schema"
 			Map instance = [id: "externalId", strict:false, distance: [unit: "FOOT", value: 10], direction: 0]
 		when:
-			ProcessingReport report = new Validator().validateAndReport(schema, instance)
+			ProcessingReport report = new NetworkNtJsonValidator().validateAndReport(schema, instance)
 		then:
 			report.isSuccess() // this instance should be valid against the schema because strict is false
 		when:
-			new Validator().validate(schema, instance)
+			new NetworkNtJsonValidator().validate(schema, instance)
 		then:
 			notThrown(JSONServletException)
 	}
@@ -121,7 +123,7 @@ class ValidatorTest extends Specification {
 			String schema = "/schema/spidacalc/calc/structure.schema"
 			String badInstance = "{{"
 		when:
-			new Validator().validate(schema, badInstance)
+			new NetworkNtJsonValidator().validate(schema, badInstance)
 		then:
 			thrown(JSONServletException)
 	}
@@ -146,22 +148,20 @@ class ValidatorTest extends Specification {
 			String invalidInstance = '{"properties":{"externalId":"abc123"}}'
 			String validInstance = '{"externalId":"abc123"}'
 		when:
-			ProcessingReport report = new Validator().validateAndReportFromText(schemaText, validInstance)
+			ProcessingReport report = new NetworkNtJsonValidator().validateAndReportFromText(schemaText, validInstance)
 		then:
 			report.isSuccess()
 		when:
-			new Validator().validateFromText(schemaText, validInstance)
+			new NetworkNtJsonValidator().validateFromText(schemaText, validInstance)
 		then:
 			notThrown(JSONServletException)
 		when:
-			report = new Validator().validateAndReportFromText(schemaText, invalidInstance)
+			report = new NetworkNtJsonValidator().validateAndReportFromText(schemaText, invalidInstance)
 		then:
 			!report.isSuccess()
 		when:
-			new Validator().validateFromText(schemaText, invalidInstance)
+			new NetworkNtJsonValidator().validateFromText(schemaText, invalidInstance)
 		then:
 			thrown(JSONServletException)
-
 	}
-
 }

@@ -14,10 +14,11 @@ import com.github.fge.jsonschema.library.DraftV4Library
 import com.github.fge.jsonschema.library.Library
 import com.github.fge.jsonschema.load.configuration.LoadingConfiguration
 import com.github.fge.jsonschema.load.configuration.LoadingConfigurationBuilder
+import com.github.fge.jsonschema.main.JsonSchema
 import com.github.fge.jsonschema.main.JsonSchemaFactory
 import com.github.fge.jsonschema.ref.JsonRef
-import com.github.fge.jsonschema.report.ProcessingReport
 import com.github.fge.jsonschema.report.LogLevel
+import com.github.fge.jsonschema.report.ProcessingReport
 import groovy.util.logging.Log4j
 import org.apache.commons.io.FilenameUtils
 
@@ -26,6 +27,11 @@ import org.apache.commons.io.FilenameUtils
  */
 @Log4j
 class Validator {
+
+	private Map<String, JsonNode> schemaPathCache = [:]
+	private Map<String, JsonNode> schemaTextCache = [:]
+	private Map<JsonNode, JsonSchema> schemaCacheStrict = [:]
+	private Map<JsonNode, JsonSchema> schemaCacheNotStrict = [:]
 
 	/**
 	 * @param schemaPath resource URL to the schema. eg, "/v1/schema/spidacalc/calc/project.schema"
@@ -47,6 +53,17 @@ class Validator {
 	ProcessingReport validateAndReport(String schemaPath, Map json) {
 		catchAndLogExceptions {
 			JsonNode jsonNode = new ObjectMapper().valueToTree(json)
+			return loadAndValidate(schemaPath, jsonNode)
+		}
+	}
+
+	/**
+	 * @param schemaPath resource URL to the schema. eg, "/v1/schema/spidacalc/calc/project.schema"
+	 * @param jsonNode JsonNode to be validated.
+	 * @return The fge schema-validator report
+	 */
+	ProcessingReport validateAndReport(String schemaPath, JsonNode jsonNode) {
+		catchAndLogExceptions {
 			return loadAndValidate(schemaPath, jsonNode)
 		}
 	}
@@ -90,14 +107,22 @@ class Validator {
 		handleReport(validateAndReportFromText(schemaText, json))
 	}
 
-	private ProcessingReport loadAndValidate(String schemaPath, JsonNode jsonNode) {
+	protected ProcessingReport loadAndValidate(String schemaPath, JsonNode jsonNode) {
 		String namespace = convertToResourcePath(schemaPath)
-		JsonNode schemaNode = JsonLoader.fromResource(schemaPath)
+		JsonNode schemaNode = schemaPathCache.get(schemaPath)
+		if(schemaNode == null) {
+			schemaNode = JsonLoader.fromResource(schemaPath)
+			schemaPathCache.put(schemaPath, schemaNode)
+		}
 		return validateWithStrictModeCheck(jsonNode, schemaNode, namespace)
 	}
 
-	private ProcessingReport validateUsingSchemaText(String schemaText, JsonNode jsonNode) {
-		JsonNode schemaNode = JsonLoader.fromString(schemaText)
+	protected ProcessingReport validateUsingSchemaText(String schemaText, JsonNode jsonNode) {
+		JsonNode schemaNode = schemaTextCache.get(schemaText)
+		if(schemaNode == null) {
+			schemaNode = JsonLoader.fromString(schemaText)
+			schemaTextCache.put(schemaText, schemaNode)
+		}
 		return validateWithStrictModeCheck(jsonNode, schemaNode)
 	}
 
@@ -111,8 +136,20 @@ class Validator {
 			jsonNode.remove('strict')
 		}
 
-		def factory = createJsonSchemaFactory(namespace, ignoreAdditionalProperties)
-		def report = factory.getJsonSchema(schemaNode).validate(jsonNode)
+		Map<JsonNode, JsonSchema> schemaCache
+		if(ignoreAdditionalProperties) {
+			schemaCache = schemaCacheNotStrict
+		} else {
+			schemaCache = schemaCacheStrict
+		}
+		JsonSchema schema = schemaCache.get(schemaNode)
+		if(schema == null) {
+			JsonSchemaFactory factory = createJsonSchemaFactory(namespace, ignoreAdditionalProperties)
+			schema = factory.getJsonSchema(schemaNode)
+			schemaCache.put(schemaNode, schema)
+		}
+
+		ProcessingReport report = schema.validate(jsonNode)
 
 		//now revert the strict property change
 		if(strictNode != null){
@@ -123,7 +160,7 @@ class Validator {
 		return report
 	}
 
-	private createJsonSchemaFactory(String namespace = null, boolean ignoreAdditionalProperties = true){
+	private JsonSchemaFactory createJsonSchemaFactory(String namespace = null, boolean ignoreAdditionalProperties = true){
 		ValidationConfigurationBuilder valCfgBuilder = ValidationConfiguration.newBuilder()
 		if(ignoreAdditionalProperties){
 			//this removes the AdditionalPropertiesValidator (See CommonValidatorDictionary)
@@ -143,7 +180,7 @@ class Validator {
 					.freeze()
 	}
 
-	private void handleReport(ProcessingReport report) throws JSONServletException {
+	protected void handleReport(ProcessingReport report) throws JSONServletException {
 		if (report == null) {
 			throw new JSONServletException(JSONServletException.INTERNAL_ERROR, "An internal error occurred when validating JSON")
 		}
@@ -152,7 +189,7 @@ class Validator {
 		}
 	}
 
-	private def catchAndLogExceptions(closure) {
+	protected <T> T catchAndLogExceptions(Closure<T> closure) {
 		try {
 			return closure()
 		} catch (IOException e) {
@@ -163,7 +200,7 @@ class Validator {
 		return null
 	}
 
-	String convertToResourcePath(schemaPath){
+	String convertToResourcePath(String schemaPath){
 		//FilenameUtils.getPath(filepath) gets the parent folder and removes path prefix (windows drive letter or unix tilde)
 		//More Info: http://commons.apache.org/proper/commons-io/apidocs/org/apache/commons/io/FilenameUtils.html#getPathNoEndSeparator(java.lang.String)
 		String namespace = "/" + FilenameUtils.getPathNoEndSeparator(schemaPath)
@@ -173,5 +210,4 @@ class Validator {
 		log.trace "Validation: \nschemaPath=$schemaPath \nnamespace=$namespace \nnamespaceString=$namespaceString"
 		return namespaceString
 	}
-
 }

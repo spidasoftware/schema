@@ -10,7 +10,7 @@ apply plugin: 'project-report'
 apply plugin: 'releaseNotes'
 
 group = 'com.spidasoftware'
-version = '7.0.0-SNAPSHOT' // If you're changing the major version also change the currentVersion in ConverterUtils.
+version = '7.0.1-SNAPSHOT' // If you're changing the major version also change the currentVersion in ConverterUtils.
 
 def schemaReleaseVersion = System.getenv("SCHEMA_RELEASE_VERSION")
 if(schemaReleaseVersion){
@@ -84,9 +84,12 @@ dependencies {
 	compile group: 'log4j', name: 'log4j', version:'1.2.17'
 	compile group: 'commons-io', name: 'commons-io', version:'2.4'
 	compile group: 'com.github.fge', name: 'json-schema-validator', version:'2.1.6'
+//	compile group: 'com.github.fge', name: 'json-schema-validator', version:'2.2.6'  // newer version of fge - results schema does not parse
+//	compile 'com.github.java-json-tools:json-schema-validator:2.2.11'  // fge updated to java-json-tools - results schema does not parse
+ 	compile 'com.networknt:json-schema-validator:1.0.28'
     compile group: 'org.mongodb', name:'mongo-java-driver', version:'2.11.1'
 	compile group: 'com.spidasoftware', name: 'schema-v4', version:'0.1'
-	compile group: 'junit', name: 'junit', version:'4.9'
+	testCompile group: 'junit', name: 'junit', version:'4.9'
     testCompile group: 'org.spockframework', name: 'spock-core', version: '1.0-groovy-2.4'
     testCompile group: 'cglib', name: 'cglib-nodep', version: '2.2'
 	testCompile group: 'org.objenesis', name:'objenesis', version: '2.1'

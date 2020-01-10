@@ -65,7 +65,7 @@
           "$ref": "../../general/measurable.schema"
         }
     },
-    "oneOf": [{
+    "anyOf": [{
         "type": "object",
         "properties": {
             "damageType": {

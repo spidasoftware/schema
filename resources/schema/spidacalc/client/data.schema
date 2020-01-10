@@ -100,7 +100,7 @@
         "analysisCases":{
             "type": "array",
             "items": {
-                "oneOf":[
+                "anyOf":[
                   {"$ref":"../../spidacalc/client/load_case.schema"},
                   {"$ref":"../../spidacalc/client/strength_case.schema"}
                 ]

@@ -1,6 +1,6 @@
 {
   "id": "#/general/point2d.schema",
-  "$schema": "http://json-schema.org/draft-04/schema",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "description": "an (x, y)",
   "properties": {

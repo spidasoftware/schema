@@ -5,7 +5,6 @@ import com.github.fge.jsonschema.cfg.ValidationConfiguration
 import com.github.fge.jsonschema.load.configuration.LoadingConfiguration
 import com.github.fge.jsonschema.main.JsonSchemaFactory
 import com.github.fge.jsonschema.processors.syntax.SyntaxValidator
-import com.github.fge.jsonschema.uri.*
 import org.apache.log4j.Logger
 
 class GeneralSchemaValidationTest extends GroovyTestCase {
