@@ -18,7 +18,7 @@ The data formats, examples, and available web service interfaces will all change
 | Schema version                                                            | SPIDAcalc               | SPIDAstudio      | SPIDAmin      |
 |---------------------------------------------------------------------------|-------------------------|------------------|---------------|
 | [7.0.0](https://github.com/spidasoftware/schema/releases/tag/v7.0.0)      | SPIDAcalc 7.2.0 | SPIDAstudio 19.1 |               |
-| [6.0.0](https://github.com/spidasoftware/schema/releases/tag/v6.0.0)      | SPIDAcalc 7.1.0 - 7.1.2 | SPIDAstudio 18.1-19.0.4 |               |
+| [6.0.0](https://github.com/spidasoftware/schema/releases/tag/v6.0.0)      | SPIDAcalc 7.1.0 - 7.1.2 | SPIDAstudio 18.1-19.0.7 |               |
 | [5.0.0](https://github.com/spidasoftware/schema/releases/tag/v5.0.0)      | SPIDAcalc 7.0.2 - 7.0.4 | SPIDAstudio 18.0 |               |
 | [4.0.0](https://github.com/spidasoftware/schema/releases/tag/v4.0.0)      | SPIDAcalc 7.0.0 - 7.0.1 |                  |               |
 | [3.0.1/1.11](https://github.com/spidasoftware/schema/releases/tag/1.11)   |                         |                  | SPIDAmin 16.1 |
