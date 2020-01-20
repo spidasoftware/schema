@@ -73,7 +73,7 @@
                     },
                     "analysisCaseDetails": {
                       "description": "the analysis case for this result",
-                      "oneOf": [
+                      "anyOf": [
                           {
                             "$ref": "../client/load_case.schema"
                           },

@@ -14,7 +14,7 @@
       "description": "The display ID for the attachment. Must be unique within the pole."
     },
     "clientItem": {
-      "oneOf": [
+      "anyOf": [
         {
           "$ref": "../../spidacalc/calc/client_references/wire.schema",
           "description": "Reference of the client item with the engineering properties for this wire. clientItemVersion and/or clientItem must be present in non-assembly strcutures."

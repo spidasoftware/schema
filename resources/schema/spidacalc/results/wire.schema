@@ -29,7 +29,7 @@
       "$ref": "../../general/measurable.schema"
     },
     "sag": {
-      "oneOf": [
+      "anyOf": [
         {"$ref": "../../general/measurable.schema"},
         {"type": "null"}
       ]
