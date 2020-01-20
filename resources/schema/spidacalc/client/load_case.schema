@@ -341,9 +341,60 @@
     "maximumAllowableCommunicationWireTensionRatio": {
       "description": "measurable percentage for maximum allowable communication wire tension",
       "$ref": "../../general/measurable.schema"
+    },
+    "wireTensionMethod": {
+      "type": "string"
+    },
+    "initialWireTensionTemperature": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "initialWireTensionIceThickness": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "initialWireTensionWindPressure": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "outerStrandingCompression": {
+      "type": "boolean"
     }
   },
-  "oneOf": [
+  "anyOf": [
+    {
+      "type": "object",
+      "required": [ "wireTensionMethod", "outerStrandingCompression" ],
+      "properties": {
+        "wireTensionMethod": {
+          "type": {
+            "enum": [ "INITIAL" ]
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "wireTensionMethod",
+        "outerStrandingCompression",
+        "initialWireTensionTemperature",
+        "initialWireTensionIceThickness",
+        "initialWireTensionWindPressure"
+      ],
+      "properties": {
+        "wireTensionMethod": {
+          "type": {
+            "enum": [ "FINAL_WITHOUT_CREEP", "FINAL_WITH_CREEP" ]
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "wireTensionMethod": { "not": {} }
+      }
+    }
+  ],
+  "anyOf": [
     {
       "type": "object",
       "required": [
@@ -427,6 +478,6 @@
       }
     }
   ],
-  
+
   "additionalProperties": false
 }

@@ -9,8 +9,6 @@
     "crossArea",
     "description",
     "diameter",
-    "expansionCoefficient",
-    "modulus",
     "numberOfConductors",
     "size",
     "strength",
@@ -49,11 +47,74 @@
     "diameter": {
       "$ref": "../../general/measurable.schema"
     },
+    "conductorProperties": {
+      "type": "string"
+    },
     "expansionCoefficient": {
       "$ref": "../../general/measurable.schema"
     },
     "modulus": {
       "$ref": "../../general/measurable.schema"
+    },
+    "coreExpansionCoefficient": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "coreModulus": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "outerExpansionCoefficient": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "outerModulus": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "stressStrainPolynomials": {
+      "type": "object",
+      "required": [ "outer", "core" ],
+      "properties": {
+        "outer": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": {
+            "type": "number"
+          }
+        },
+        "core": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "creepPolynomials": {
+      "type": "object",
+      "required": [ "outer", "core" ],
+      "properties": {
+        "outer": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": {
+            "type": "number"
+          }
+        },
+        "core": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "inputTensionMethod": {
+      "type": "string",
+      "enum": [ "INITIAL", "FINAL_WITHOUT_CREEP", "FINAL_WITH_CREEP" ]
     },
     "strength": {
       "$ref": "../../general/measurable.schema"
@@ -81,5 +142,63 @@
       }
     }
   },
+  "anyOf": [
+    {
+      "type": "object",
+      "required": [
+        "expansionCoefficient", "modulus"
+      ],
+      "properties": {
+        "conductorProperties": {
+          "type": "string",
+          "enum": [ "TOTAL" ]
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "conductorProperties",
+        "coreExpansionCoefficient",
+        "coreModulus",
+        "outerExpansionCoefficient",
+        "outerModulus"
+      ],
+      "properties": {
+        "conductorProperties": {
+          "type": "string",
+          "enum": [ "CORE_AND_OUTER" ]
+        }
+      }
+    }
+  ],
+  "anyOf": [
+    {
+      "type": "object",
+      "required": [ "creepPolynomials", "inputTensionMethod" ],
+      "properties": {
+        "inputTensionMethod": {
+          "enum": [ "FINAL_WITH_CREEP" ]
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [ "stressStrainPolynomials", "inputTensionMethod" ],
+      "properties": {
+        "inputTensionMethod": {
+          "enum": [ "INITIAL" ]
+        }
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "inputTensionMethod": {
+          "enum": [ "FINAL_WITHOUT_CREEP" ]
+        }
+      }
+    }
+  ],
   "additionalProperties": false
 }
