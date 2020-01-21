@@ -22,8 +22,8 @@ import groovy.util.logging.Log4j
 
 /**
  * A json validator.  Hopefully faster than its superclass.
+ * Removed CompileStatic to allow ArrayNode to work with validateWithStrictModeCheck
  */
-@CompileStatic
 @Log4j
 class NetworkNtJsonValidator extends Validator {
 
@@ -41,7 +41,7 @@ class NetworkNtJsonValidator extends Validator {
 			schemaNode = (new ObjectMapper()).readTree(this.class.getResource(schemaPath))
 			schemaPathCache.put(schemaPath, schemaNode)
 		}
-		return validateWithStrictModeCheck((ObjectNode)jsonNode, schemaNode, this.class.getResource(schemaPath).toURI())
+		return validateWithStrictModeCheck(jsonNode, schemaNode, this.class.getResource(schemaPath).toURI())
 	}
 
 	@Override
@@ -51,10 +51,10 @@ class NetworkNtJsonValidator extends Validator {
 			schemaNode = (new ObjectMapper()).readTree(schemaText)
 			schemaTextCache.put(schemaText, schemaNode)
 		}
-		return validateWithStrictModeCheck((ObjectNode)jsonNode, schemaNode)
+		return validateWithStrictModeCheck(jsonNode, schemaNode)
 	}
 
-	private ProcessingReport validateWithStrictModeCheck(ObjectNode jsonNode, JsonNode schemaNode, URI schemaUri = null){
+	private ProcessingReport validateWithStrictModeCheck(JsonNode jsonNode, JsonNode schemaNode, URI schemaUri = null){
 		boolean ignoreAdditionalProperties = true
 		JsonNode strictNode = jsonNode.get('strict')
 
@@ -89,7 +89,7 @@ class NetworkNtJsonValidator extends Validator {
 		}
 
 		ListProcessingReport processingReport = new ListProcessingReport()
-		validationMessages.each { ValidationMessage validationMessage ->
+		for(ValidationMessage validationMessage in validationMessages){
 			ProcessingMessage processingMessage = new ProcessingMessage()
 			processingMessage.setMessage(validationMessage.message)
 			processingReport.error(processingMessage)
