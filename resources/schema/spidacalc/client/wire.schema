@@ -112,10 +112,6 @@
         }
       }
     },
-    "inputTensionMethod": {
-      "type": "string",
-      "enum": [ "INITIAL", "FINAL_WITHOUT_CREEP", "FINAL_WITH_CREEP" ]
-    },
     "strength": {
       "$ref": "../../general/measurable.schema"
     },
@@ -175,27 +171,18 @@
   "anyOf": [
     {
       "type": "object",
-      "required": [ "creepPolynomials", "inputTensionMethod" ],
+      "required": [ "creepPolynomials", "stressStrainPolynomials" ],
       "properties": {
-        "inputTensionMethod": {
-          "enum": [ "FINAL_WITH_CREEP" ]
-        }
-      }
-    },
-    {
-      "type": "object",
-      "required": [ "stressStrainPolynomials", "inputTensionMethod" ],
-      "properties": {
-        "inputTensionMethod": {
-          "enum": [ "INITIAL" ]
+        "calculation": {
+          "enum": [ "ADVANCED" ]
         }
       }
     },
     {
       "type": "object",
       "properties": {
-        "inputTensionMethod": {
-          "enum": [ "FINAL_WITHOUT_CREEP" ]
+        "calculation": {
+          "enum": [ "STATIC", "DYNAMIC" ]
         }
       }
     }
