@@ -345,13 +345,13 @@
     "wireTensionMethod": {
       "type": "string"
     },
-    "initialWireTensionTemperature": {
+    "creepWireTensionTemperature": {
       "$ref": "../../general/measurable.schema"
     },
-    "initialWireTensionIceThickness": {
+    "creepWireTensionIceThickness": {
       "$ref": "../../general/measurable.schema"
     },
-    "initialWireTensionWindPressure": {
+    "creepWireTensionWindPressure": {
       "$ref": "../../general/measurable.schema"
     },
     "highestWireTensionTemperature": {
@@ -384,9 +384,9 @@
       "required": [
         "wireTensionMethod",
         "outerStrandingCompression",
-        "initialWireTensionTemperature",
-        "initialWireTensionIceThickness",
-        "initialWireTensionWindPressure"
+        "creepWireTensionTemperature",
+        "creepWireTensionIceThickness",
+        "creepWireTensionWindPressure"
       ],
       "properties": {
         "wireTensionMethod": {
