@@ -354,6 +354,15 @@
     "initialWireTensionWindPressure": {
       "$ref": "../../general/measurable.schema"
     },
+    "highestWireTensionTemperature": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "highestWireTensionIceThickness": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "highestWireTensionWindPressure": {
+      "$ref": "../../general/measurable.schema"
+    },
     "outerStrandingCompression": {
       "type": "boolean"
     }
@@ -382,7 +391,24 @@
       "properties": {
         "wireTensionMethod": {
           "type": {
-            "enum": [ "FINAL_WITHOUT_CREEP", "FINAL_WITH_CREEP" ]
+            "enum": [ "FINAL_WITH_CREEP" ]
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "wireTensionMethod",
+        "outerStrandingCompression",
+        "highestWireTensionTemperature",
+        "highestWireTensionIceThickness",
+        "highestWireTensionWindPressure"
+      ],
+      "properties": {
+        "wireTensionMethod": {
+          "type": {
+            "enum": [ "FINAL_WITHOUT_CREEP" ]
           }
         }
       }
