@@ -345,13 +345,22 @@
     "wireTensionMethod": {
       "type": "string"
     },
-    "initialWireTensionTemperature": {
+    "creepWireTensionTemperature": {
       "$ref": "../../general/measurable.schema"
     },
-    "initialWireTensionIceThickness": {
+    "creepWireTensionIceThickness": {
       "$ref": "../../general/measurable.schema"
     },
-    "initialWireTensionWindPressure": {
+    "creepWireTensionWindPressure": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "highestWireTensionTemperature": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "highestWireTensionIceThickness": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "highestWireTensionWindPressure": {
       "$ref": "../../general/measurable.schema"
     },
     "outerStrandingCompression": {
@@ -375,14 +384,31 @@
       "required": [
         "wireTensionMethod",
         "outerStrandingCompression",
-        "initialWireTensionTemperature",
-        "initialWireTensionIceThickness",
-        "initialWireTensionWindPressure"
+        "creepWireTensionTemperature",
+        "creepWireTensionIceThickness",
+        "creepWireTensionWindPressure"
       ],
       "properties": {
         "wireTensionMethod": {
           "type": {
-            "enum": [ "FINAL_WITHOUT_CREEP", "FINAL_WITH_CREEP" ]
+            "enum": [ "FINAL_WITH_CREEP" ]
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "wireTensionMethod",
+        "outerStrandingCompression",
+        "highestWireTensionTemperature",
+        "highestWireTensionIceThickness",
+        "highestWireTensionWindPressure"
+      ],
+      "properties": {
+        "wireTensionMethod": {
+          "type": {
+            "enum": [ "FINAL_WITHOUT_CREEP" ]
           }
         }
       }
