@@ -77,7 +77,7 @@
           "minItems": 5,
           "maxItems": 5,
           "items": {
-            "type": "number"
+            "$ref": "../../general/measurable.schema"
           }
         },
         "core": {
@@ -85,7 +85,7 @@
           "minItems": 5,
           "maxItems": 5,
           "items": {
-            "type": "number"
+            "$ref": "../../general/measurable.schema"
           }
         }
       }
@@ -99,7 +99,7 @@
           "minItems": 5,
           "maxItems": 5,
           "items": {
-            "type": "number"
+            "$ref": "../../general/measurable.schema"
           }
         },
         "core": {
@@ -107,7 +107,7 @@
           "minItems": 5,
           "maxItems": 5,
           "items": {
-            "type": "number"
+            "$ref": "../../general/measurable.schema"
           }
         }
       }
