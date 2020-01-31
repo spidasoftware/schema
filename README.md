@@ -76,7 +76,7 @@ A JSON viewer plugin for you browser is highly recommended when working with the
 
 Schema
 --------
-Our schemas currently conform to the [json-schema-draft-03](https://tools.ietf.org/html/draft-zyp-json-schema-03) standard
+Our schemas currently conform to the [json-schema-draft-04](https://tools.ietf.org/html/draft-zyp-json-schema-04) standard
 
 Schema files end in .schema. The .schema files are used to validate the objects passed into specific API endpoints.
 
