@@ -51,6 +51,7 @@
         "STATIC",
         "DYNAMIC",
         "DISPLACEMENT",
+        "ADVANCED",
         "UNKNOWN"
       ]
     },
