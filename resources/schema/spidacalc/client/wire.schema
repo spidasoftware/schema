@@ -48,24 +48,31 @@
       "$ref": "../../general/measurable.schema"
     },
     "conductorProperties": {
+      "description": "indicates whether expansion coefficient and modulus of elasticity are specified for the wire as a whole or for the core strands and outer strands separately.",
       "type": "string"
     },
     "expansionCoefficient": {
+      "description": "Coefficient of thermal expansion for the wire.  Required when conductorProperties is TOTAL.",
       "$ref": "../../general/measurable.schema"
     },
     "modulus": {
+      "description": "Modulus of elasticity for the wire.  Required when conductorProperties is TOTAL.",
       "$ref": "../../general/measurable.schema"
     },
     "coreExpansionCoefficient": {
+      "description": "Coefficient of thermal expansion for the core strands.  Required when conductorProperties is CORE_AND_OUTER.",
       "$ref": "../../general/measurable.schema"
     },
     "coreModulus": {
+      "description": "Modulus of elasticity for the core strands.  Required when conductorProperties is CORE_AND_OUTER.",
       "$ref": "../../general/measurable.schema"
     },
     "outerExpansionCoefficient": {
+      "description": "Coefficient of thermal expansion for the outer strands.  Required when conductorProperties is CORE_AND_OUTER.",
       "$ref": "../../general/measurable.schema"
     },
     "outerModulus": {
+      "description": "Modulus of elasticity for the outer strands.  Required when conductorProperties is CORE_AND_OUTER.",
       "$ref": "../../general/measurable.schema"
     },
     "stressStrainPolynomials": {
@@ -73,6 +80,7 @@
       "required": [ "outer", "core" ],
       "properties": {
         "outer": {
+          "description": "stress-strain polynomial data for the outer strands, from a0 to a4.",
           "type": "array",
           "minItems": 5,
           "maxItems": 5,
@@ -81,6 +89,7 @@
           }
         },
         "core": {
+          "description": "stress-strain polynomial data for the core strands, from a0 to a4.",
           "type": "array",
           "minItems": 5,
           "maxItems": 5,
@@ -95,6 +104,7 @@
       "required": [ "outer", "core" ],
       "properties": {
         "outer": {
+          "description": "creep polynomial data for the outer strands, from a0 to a4.",
           "type": "array",
           "minItems": 5,
           "maxItems": 5,
@@ -103,6 +113,7 @@
           }
         },
         "core": {
+          "description": "creep polynomial data for the core strands, from a0 to a4.",
           "type": "array",
           "minItems": 5,
           "maxItems": 5,
