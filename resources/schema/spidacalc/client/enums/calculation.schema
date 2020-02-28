@@ -1,8 +1,9 @@
-{ 
-  "description": "Note: these used to be INITIAL and FINAL. INITIAL is now DYNAMIC, FINAL is now STATIC",
+{
+  "description": "Note: these used to be INITIAL and FINAL. INITIAL is now DYNAMIC, FINAL is now STATIC.  ADVANCED is 'polynomial'.",
   "enum": [
-    "STATIC", 
-    "DYNAMIC"
-  ], 
+    "STATIC",
+    "DYNAMIC",
+    "ADVANCED"
+  ],
   "type": "string"
 }
