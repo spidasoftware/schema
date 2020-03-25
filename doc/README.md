@@ -82,4 +82,6 @@ To switch to a different user make a call to:
 
 You can find this at `https://companynamehere.spidastudio.com/spidadb/geoserver/wfs/DB`
 
+XML Schema here `https://companynamehere.spidastudio.com/spidadb/geoserver/wfs/DB?version=1.0.0&service=wfs&request=DescribeFeatureType`
+
 [Layer Data Exposed](https://docs.google.com/spreadsheets/d/1vWBffAbmTpYBnMzJkOAg-aeA9MoKdYXwX_dECayOA14/edit?usp=sharing)
