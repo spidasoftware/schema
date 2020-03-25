@@ -3,7 +3,7 @@ SPIDAmin API Overview
 
 All of the specific endpoints in our APIs are described in the [apis](apis) folder.
 
-We have two main kinds of APIs: RPC and REST.
+We have two main kinds of APIs: RPC and REST.  We also expose a WFS service using geoserver.
 
 ## RPC API
 
@@ -77,3 +77,9 @@ To switch the projectmanager session:
 To switch to a different user make a call to:
 
     curl -g 'https://test.spidasoftware.com/assetmaster/switchcompany?userId=1'
+    
+## WFS
+
+You can find this at `https://companynamehere.spidastudio.com/spidadb/geoserver/wfs/DB`
+
+[Layer Data Exposed](https://docs.google.com/spreadsheets/d/1vWBffAbmTpYBnMzJkOAg-aeA9MoKdYXwX_dECayOA14/edit?usp=sharing)
