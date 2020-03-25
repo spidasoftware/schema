@@ -84,4 +84,6 @@ You can find this at `https://companynamehere.spidastudio.com/spidadb/geoserver/
 
 XML Schema here `https://companynamehere.spidastudio.com/spidadb/geoserver/wfs/DB?version=1.0.0&service=wfs&request=DescribeFeatureType`
 
-[Layer Data Exposed](https://docs.google.com/spreadsheets/d/1vWBffAbmTpYBnMzJkOAg-aeA9MoKdYXwX_dECayOA14/edit?usp=sharing)
+If not logged in, you can use basic authentication.  The username is the user's email address.  The password is the user's api token.
+
+[Layer Data Exposed](wfs.md)
