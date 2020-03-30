@@ -114,7 +114,7 @@
     },
     "lastUpdateTime": {
         "type": "number",
-        "description": "Time since last update in milliseconds since the Unix epoch.  Read only and not required for project creation."
+        "description": "Time of last update in milliseconds since the Unix epoch.  Read only and not required for project creation."
     },
     "phase": {
         "type": "string",
