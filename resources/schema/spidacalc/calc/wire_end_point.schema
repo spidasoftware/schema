@@ -7,10 +7,13 @@
     "distance",
     "direction",
     "type",
-    "inclination",
     "wires",
     "spanGuys",
     "spanPoints"
+  ],
+  "anyOf": [
+    {"required": ["inclination"]},
+    {"required": ["relativeElevation"]}
   ],
   "properties": {
     "id": {
@@ -28,6 +31,10 @@
     "direction": {
       "$ref": "../../general/bearing.schema",
       "description": "Bearing of this wire end point from the main pole."
+    },
+    "relativeElevation": {
+      "$ref": "../../general/measurable.schema",
+      "description": "Elevation from relative to the base of the main pole"
     },
     "inclination": {
       "$ref": "../../general/measurable.schema",

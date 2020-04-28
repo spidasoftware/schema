@@ -11,6 +11,7 @@ import com.spidasoftware.schema.conversion.changeset.v4.*
 import com.spidasoftware.schema.conversion.changeset.v5.*
 import com.spidasoftware.schema.conversion.changeset.v6.*
 import com.spidasoftware.schema.conversion.changeset.v7.AnalysisDetailsChangeset
+import com.spidasoftware.schema.conversion.changeset.v7.RelativeElevationChangeSet
 import groovy.util.logging.Log4j
 
 @Log4j
@@ -55,6 +56,7 @@ class ConverterUtils {
         converter.addChangeSet(6, new RevertBundleChangeset())
         converter.addChangeSet(6, new RemoveTensionResultsChangeset())
         converter.addChangeSet(7, new AnalysisDetailsChangeset())
+        converter.addChangeSet(7, new RelativeElevationChangeSet())
         // add calc changesets here
 
         converter.setCurrentVersion(currentVersion)
