@@ -1,11 +1,11 @@
 Calc API
 =======
 
-Endpoints that allow you to control your locally installed SPIDACalc program.
+Endpoints that allow you to control your locally installed SPIDAcalc program.  Located at [http://localhost:4560/calc/](http://localhost:4560/calc/).
 
 ## Implementing Apps
 
-1. calc
+1. SPIDAcalc
 
 Methods
 ======
