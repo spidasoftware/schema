@@ -15,8 +15,7 @@
           "pole" : {
             "owner" : {
               "id" : "Acme Power",
-              "industry" : "UTILITY",
-              "externalId" : "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+              "industry" : "UTILITY"
             },
             "clientItem" : {
               "classOfPole" : "3",
@@ -42,8 +41,7 @@
           "pole" : {
             "owner" : {
               "id" : "Acme Power",
-              "industry" : "UTILITY",
-              "externalId" : "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+              "industry" : "UTILITY"
             },
             "clientItem" : {
               "classOfPole" : "3",
@@ -69,8 +67,7 @@
           "pole" : {
             "owner" : {
               "id" : "Acme Power",
-              "industry" : "UTILITY",
-              "externalId" : "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+              "industry" : "UTILITY"
             },
             "clientItem" : {
               "classOfPole" : "4",
@@ -96,8 +93,7 @@
           "pole" : {
             "owner" : {
               "id" : "Acme Power",
-              "industry" : "UTILITY",
-              "externalId" : "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+              "industry" : "UTILITY"
             },
             "clientItem" : {
               "classOfPole" : "4",
@@ -123,8 +119,7 @@
           "pole" : {
             "owner" : {
               "id" : "Acme Power",
-              "industry" : "UTILITY",
-              "externalId" : "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+              "industry" : "UTILITY"
             },
             "clientItem" : {
               "classOfPole" : "2",
@@ -150,8 +145,7 @@
           "pole" : {
             "owner" : {
               "id" : "Acme Power",
-              "industry" : "UTILITY",
-              "externalId" : "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+              "industry" : "UTILITY"
             },
             "clientItem" : {
               "classOfPole" : "5",
@@ -177,8 +171,7 @@
           "pole" : {
             "owner" : {
               "id" : "Acme Power",
-              "industry" : "UTILITY",
-              "externalId" : "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+              "industry" : "UTILITY"
             },
             "clientItem" : {
               "classOfPole" : "3",
@@ -204,8 +197,7 @@
           "pole" : {
             "owner" : {
               "id" : "Acme Power",
-              "industry" : "UTILITY",
-              "externalId" : "43e130a1-3c21-41c9-b420-0e5b966eb2f2"
+              "industry" : "UTILITY"
             },
             "clientItem" : {
               "classOfPole" : "1",
