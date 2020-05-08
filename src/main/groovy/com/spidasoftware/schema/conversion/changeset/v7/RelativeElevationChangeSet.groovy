@@ -20,10 +20,6 @@ class RelativeElevationChangeSet extends AbstractCalcDesignChangeset {
 		return foot * footMetreSiConversion
 	}
 
-	double convertToFoot(double metre) {
-		return metre / footMetreSiConversion
-	}
-
 	double convertToRadian(double degree) {
 		return degree / radianDegreeSiConversion
 	}
@@ -53,20 +49,12 @@ class RelativeElevationChangeSet extends AbstractCalcDesignChangeset {
 					inclination = convertToRadian(inclination)
 				}
 
-				boolean convertedFromFoot = false
 				if (distanceMap.get("unit") == "FOOT") {
 					distance = convertToMetre(distance)
-					convertedFromFoot = true
 				}
 
 				double relativeElevation = calculateRelativeElevation(inclination, distance)
-				if (convertedFromFoot) { //if distance was saved in foot then insert relativeElevation in foot
-					relativeElevation = convertToFoot(relativeElevation)
-					wireEndPoint.put("relativeElevation", [unit:"FOOT", value:relativeElevation])
-				} else {
-					wireEndPoint.put("relativeElevation", [unit:"METRE", value:relativeElevation])
-				}
-
+				wireEndPoint.put("relativeElevation", [unit:"METRE", value:relativeElevation])
 				wireEndPoint.remove("inclination")
 			}
 		}

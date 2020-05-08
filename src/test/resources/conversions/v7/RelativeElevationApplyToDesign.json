@@ -63,7 +63,7 @@
         "direction": 0,
         "distance": {
           "unit": "FOOT",
-          "value": 150
+          "value": 200
         },
         "inclination": {
           "unit": "DEGREE_ANGLE",

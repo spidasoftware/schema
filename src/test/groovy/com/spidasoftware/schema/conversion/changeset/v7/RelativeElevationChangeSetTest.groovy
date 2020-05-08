@@ -19,8 +19,8 @@ class RelativeElevationChangeSetTest extends Specification {
 			json.structure.wireEndPoints[0].relativeElevation.value == 7.9391946829320545
 			json.structure.wireEndPoints[0].relativeElevation.unit == "METRE"
 			//from foot and degree angle
-			json.structure.wireEndPoints[1].relativeElevation.value == 26.047226650039548
-			json.structure.wireEndPoints[1].relativeElevation.unit == "FOOT"
+			json.structure.wireEndPoints[1].relativeElevation.value == 10.585592910576073
+			json.structure.wireEndPoints[1].relativeElevation.unit == "METRE"
 			//removed inclination
 			json.structure.wireEndPoints[0].inclination == null
 			json.structure.wireEndPoints[1].inclination == null
