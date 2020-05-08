@@ -46,11 +46,49 @@
           "unit": "METRE",
           "value": 91.44000000000001
         },
-        "inclination": {
-          "unit": "RADIAN",
-          "value": 0.08693354666361731
+        "relativeElevation": {
+          "unit": "METRE",
+          "value": 7.9391946829320545
         },
         "type": "PREVIOUS_POLE",
+        "comments": "",
+        "environment": "NONE",
+        "wires": [],
+        "spanGuys": [],
+        "spanPoints": []
+      },
+      {
+        "id": "WEP#2",
+        "externalId": "5ea7199fb64ae0d56e594815",
+        "direction": 0,
+        "distance": {
+          "unit": "FOOT",
+          "value": 150
+        },
+        "relativeElevation": {
+          "unit": "FOOT",
+          "value": 26.047226650039548
+        },
+        "type": "NEXT_POLE",
+        "comments": "",
+        "environment": "NONE",
+        "wires": [],
+        "spanGuys": [],
+        "spanPoints": []
+      },
+      {
+        "id": "WEP#3",
+        "externalId": "5ea7199fb64ae0d56e594816",
+        "direction": 0,
+        "distance": {
+          "unit": "METRE",
+          "value": 100
+        },
+        "relativeElevation": {
+          "unit": "FOOT",
+          "value": 26.047226650039548
+        },
+        "type": "OTHER_POLE",
         "comments": "",
         "environment": "NONE",
         "wires": [],
