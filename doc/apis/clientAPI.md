@@ -2,11 +2,11 @@ Client API
 =========
 
 Methods to allow you to retrieve client (engineering) information from your running SPIDACalc instance.  This is useful
-for constructing and validating structures outside the SPIDACalc interface.
+for constructing and validating structures outside the SPIDACalc interface.  Location at [http://localhost:4560/clientData/](http://localhost:4560/clientData/).
 
 ## Implementing Apps
 
-1. calc
+1. SPIDAcalc
 
 Methods
 =======
@@ -335,7 +335,7 @@ Return a client equipment from the client file.
 
 #### Parameters
 
-1. clientFile: a _required_ `string` of the client file name to pull from 
+1. clientFile: a _required_ `string` of the client file name to pull from
 1. equipment: a _required_ [equipment reference](../../resources/schema/spidacalc/calc/client_references/equipment.schema) of the equipment to retrieve. {size,type}
 
 #### Returns

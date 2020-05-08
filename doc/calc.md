@@ -90,9 +90,13 @@ The Calc service is best thought of as a remote control for a running copy of ca
 - Generating reports.
 - Running custom scripts that SPIDA has provided to the client.
 
+See full documentation [here](https://github.com/spidasoftware/schema/blob/master/doc/apis/calcAPI.md).
+
 ### Client Data Service
 
 The client data service allows querying of our client-specific materials libraries. This should allow data-collection type integrations to show the user the available attachments in their own interface and to select them when building a design to send to calc for analysis.
+
+See full documentation [here](https://github.com/spidasoftware/schema/blob/master/doc/apis/clientAPI.md).
 
 ## Command line tool
 
@@ -177,7 +181,7 @@ Located at http://localhost:4560/clientData/<method name>. This interface provid
 
 ##### [calc](/doc/apis/calcAPI.md)
 
-located at http://localhost:4560/calc/<method name>. Provides stateful control methods to a running instance of SPIDACalc. Includes methods to open a file, run analysis, run a report, etc.
+Located at http://localhost:4560/calc/<method name>. Provides stateful control methods to a running instance of SPIDACalc. Includes methods to open a file, run analysis, run a report, etc.
 
 #### Using the examples
 
