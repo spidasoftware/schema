@@ -33,18 +33,18 @@ class RelativeElevationChangeSetTest extends Specification {
 		when:
 			new RelativeElevationChangeSet().revertDesign(json)
 		then:
-		//from metre
-		json.structure.wireEndPoints[0].inclination.value == 0.08693354666361731
-		json.structure.wireEndPoints[0].inclination.unit == "RADIAN"
-		//from foot
-		json.structure.wireEndPoints[1].inclination.value == 0.17453292519943295
-		json.structure.wireEndPoints[1].inclination.unit == "RADIAN"
-		//mix and match foot and metre
-		json.structure.wireEndPoints[2].inclination.value == 0.07947558659675234
-		json.structure.wireEndPoints[2].inclination.unit == "RADIAN"
-		//removed inclination
-		json.structure.wireEndPoints[0].relativeElevation == null
-		json.structure.wireEndPoints[1].relativeElevation == null
-		json.structure.wireEndPoints[2].relativeElevation == null
+			//from metre
+			json.structure.wireEndPoints[0].inclination.value == 0.08693354666361731
+			json.structure.wireEndPoints[0].inclination.unit == "RADIAN"
+			//from foot
+			json.structure.wireEndPoints[1].inclination.value == 0.17453292519943295
+			json.structure.wireEndPoints[1].inclination.unit == "RADIAN"
+			//mix and match foot and metre
+			json.structure.wireEndPoints[2].inclination.value == 0.07947558659675234
+			json.structure.wireEndPoints[2].inclination.unit == "RADIAN"
+			//removed inclination
+			json.structure.wireEndPoints[0].relativeElevation == null
+			json.structure.wireEndPoints[1].relativeElevation == null
+			json.structure.wireEndPoints[2].relativeElevation == null
 	}
 }

@@ -60,7 +60,7 @@ class RelativeElevationChangeSet extends AbstractCalcDesignChangeset {
 				}
 
 				double relativeElevation = calculateRelativeElevation(inclination, distance)
-				if (convertedFromFoot) { //if distance was saved in foot then relativeElevation in foot for consistency
+				if (convertedFromFoot) { //if distance was saved in foot then insert relativeElevation in foot
 					relativeElevation = convertToFoot(relativeElevation)
 					wireEndPoint.put("relativeElevation", [unit:"FOOT", value:relativeElevation])
 				} else {
@@ -71,7 +71,6 @@ class RelativeElevationChangeSet extends AbstractCalcDesignChangeset {
 			}
 		}
 	}
-
 
 	/**
 	 * If there are detailed results, add them to the "analysis" section.  Otherwise, add resultId to the "analysis" section.
