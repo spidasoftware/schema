@@ -95,6 +95,10 @@
             "type": "string",
             "description": "Optional external ID."
           },
+          "height": {
+            "$ref": "../../general/measurable.schema",
+            "description": "the relative elevation from the current pole"
+          },
           "distance": {
             "$ref": "../../general/measurable.schema",
             "description": "Distance from pole."
