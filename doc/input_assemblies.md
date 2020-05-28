@@ -81,6 +81,17 @@ Input assemblies make connectivity between different designs much simpler. The i
 - Connected designs must have matching numbers and types of wires in the connected span. For example, if Pole A and Pole B are connected, and Pole A has a three-phase assembly while Pole B has a single phase assembly, that would be invalid.
 - Connected designs must have matching client wires and tension groups for the span. If Pole A has 1/0 ACSR primaries and Pole B has 2/0 ASCR primaries the import will fail. 
 
+### Special Limitations for Stub Poles (Current as of SPIDAcalc 7.2)
+
+Input Assemblies can only have Framing Assemblies as the main code and Support Assemblies in the Support section. This presents a limitation when specifying a stub pole situation (where a span guy goes across a street to a shorter pole that has nothing but down guys on it). The recommended way to handle this situation presently is:
+
+- Connect the wire end points between the two designs as described above.
+- On the main pole, specify the framing assembly as normal. Use the connected wire end point as a support, and a span guy alias or framing for the attachments.
+- On the stub pole, you will need to specify the down guys and anchors as individual components, NOT as input assemblies. You may use aliases to specify the client item, but you will need to fill in all required fields for the guys and anchors individually, as well as setting the guys to the anchors.
+- Do not specify the span guys on the stub pole structure. The connectivity and input assembly handling will add the span guys with the correct ends being set as SUPPORT and LOAD types.
+
+There is currently no way to have the guy on the stub pole set its attach height based on the height of the span guy from the main pole. You will have to set the attach height yourself based on your own information, by calculating attachment height of the span guy from the client assembly information. 
+
 # Transitioning from a Framing Plan based integration
 
 # Summary
