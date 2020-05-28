@@ -294,6 +294,48 @@ The following curl command finds spida db projects containing pole
 
 	curl 'http://localhost:8888/projectmanager/projectAPI/findDBProjectsInDB?label=pole&limit=100&format=referenced&apiToken=abc123'
 
+
+Find Stations to Match
+-----------
+
+Find the best match stations for a given project. This is generally use as part of uploading a SPIDAcalc file. The return payload can be used to help construct a call to createOrUpdateWithDB 
+
+This call walks through logic to find a best guess of which stations in the available asset services are equivalent to the stations in passed in to this call. The primary purpose of this method is to ensure that uploaded SPIDAcalc project files have all of their poles mapped to the correct poles in the SPIDAstudio system (for example, in the customer's GIS system, or previous versions of the same pole stored in SPIDAdb). This matching follows roughly the following logic:
+
+The `project` returned will include a `station` entry for every station entry passed in.
+
+If a "good" match is found for a station, it will have the `stationId` and `source` fields filled in. A match is considered good if it is a match by `stationId`, if `display` matches and is within 50ft of `geometry`, or if `display` matches and there is only one result returned.
+
+If `projectId` is passed, then the stations in that project will be searched first. The general search will only be performed for stations that are not found in that project.
+
+For each remaining station: 
+
+If `stationId` is passed, all SPIDAdb asset services will be searched for that `stationId` and a station returned from those will be prioritized.
+
+If `stationId` is not passed, or no station is found under that `stationId`, all asset services will be searched based on `display`. All results from this search will be returned in the `availableStations` field.
+
+If `geometry` is passed, all matching stations will be returned in `availableStations`, but only a station close to that `geometry` may be selected. Note -- pushing a SPIDA file to DB requires that all designs have a geographiccoordinate. If the file you are going to push does not have `geometry` to put into this request, you will need to copy the coordinate information from the station returned here to the SPIDA file before calling createOrUpdateWithDB
+
+If no matches are found, the `station` will contain only the station information was the passed into the request.
+
+#### URL
+
+`https://${HOST}/${APP}/projectAPI/findStationsToMatch`
+
+#### Allowed Methods
+
+`POST`
+
+#### Parameters
+
+1. `stations`: a required list of stations [stations](../../resources/schema/spidamin/asset/station.schema). Only the `display` field is required to be filled in, but additional matching will be performed if `geometry` and `stationId` are included.
+
+2. `projectId`: an optional SPIDAmin project ID to limit searching
+
+#### Returns
+
+1. A [project](../../resources/schema/spidamin/project/project.schema) . If the project's `id` is present, this is an existing project in the system. Otherwise it is the stations portion of the project payload needed to create a new project with the stations specified in the request, with some additional information in the `availableStations` field if there was more than one good match for a given station. To actually create a project from this payload you will need to additionally specify the workflow.
+
 Get Projects by DB ID
 -----------
 
