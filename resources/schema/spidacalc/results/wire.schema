@@ -55,6 +55,18 @@
         "UNKNOWN"
       ]
     },
+    "wireTensionType": {
+      "enum": [
+        "INITIAL",
+        "FINAL_WITHOUT_CREEP",
+        "FINAL_WITH_CREEP"
+      ],
+      "description": "The state of the wire the tension represents."
+    },
+    "birdCaged": {
+      "type": "boolean",
+      "description": "True if the outer strands of a bimetal conductor went into compression."
+    },
     "distanceToSagPoint": {
       "$ref": "../../general/measurable.schema"
     },
