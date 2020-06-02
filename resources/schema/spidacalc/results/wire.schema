@@ -63,7 +63,7 @@
       ],
       "description": "The state of the wire the tension represents."
     },
-    "birdCaged": {
+    "outerStrandInCompression": {
       "type": "boolean",
       "description": "True if the outer strands of a bimetal conductor went into compression."
     },
