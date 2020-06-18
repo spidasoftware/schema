@@ -45,6 +45,7 @@ So the general flow of staking type integration is for the Staker to write struc
 - **clientItem** - The code or alias of the **client assembly** AKA your Common Unit. 
 - **owner** - This owner will be applied to all components created by this input assembly.
 - **attachHeight** - The height of the highest component. If this is not defined, SPIDAcalc will apply its stacking logic as if the assembly were dropped onto Top View.
+- **lowerNeutral** - if set to true or not set then neutrals in the overbuild assemblies will be lowered to match those in the underbuild assembly
 - **direction** - The direction of the assembly. This is mostly relevant for assemblies without wires. If this is not defined, SPIDAcalc will treat the direction as though the assembly were dropped on Side View.
 - **wire end points** - Wires in this assembly will go these wire end points. This is equivalent to the selected wire end points in the UI when an assembly is dropped. The number of Wire End Points specified must match the number of Wire End Points defined in the Client Assembly.
   - **id** - Which wire end point these wires will go to.
@@ -64,7 +65,7 @@ If the integrating tool needs to set guy attach heights specifically (ignoring t
 If the integrator wants to take advantage of guy attach point configuration, guying must be specified *per input assembly*. 
 
 ## Stacking Logic
-If no attach height is provided, **Input Assemblies** will attempt to stack in order from top of the pole to the bottom. The first assembly will use the **Distance from Pole Top** value. The next assembly will go underneathe that assembly, and use the previous assembly's **Distance to Underbuild** value. These values are pre-configured in the **client file**. Neutrals in the overbuild assemblies will automatically be lowered to match those in the underbuild assembly.
+If no attach height is provided, **Input Assemblies** will attempt to stack in order from top of the pole to the bottom. The first assembly will use the **Distance from Pole Top** value. The next assembly will go underneathe that assembly, and use the previous assembly's **Distance to Underbuild** value. These values are pre-configured in the **client file**. Neutrals in the overbuild assemblies will be lowered to match those in the underbuild assembly if lowerNeutral is not set or it is true.
 
 ## Wire Tensions
 Wire aliases are configured to point to a specific **Tension Group** in the client editor. By using wire aliases, the integration is specifying both wire type and which tension should be applied to that wire.
