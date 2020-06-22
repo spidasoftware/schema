@@ -123,6 +123,10 @@
         }
       }
     },
+    "stressStrainTemperature": {
+      "description": "the temperature at which the stress-strain polynomial data was obtained",
+      "$ref": "../../general/measurable.schema"
+    },
     "strength": {
       "$ref": "../../general/measurable.schema"
     },
@@ -182,7 +186,7 @@
   "anyOf": [
     {
       "type": "object",
-      "required": [ "creepPolynomials", "stressStrainPolynomials" ],
+      "required": [ "creepPolynomials", "stressStrainPolynomials", "stressStrainTemperature" ],
       "properties": {
         "calculation": {
           "enum": [ "ADVANCED" ]
