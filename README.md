@@ -101,12 +101,12 @@ By default, most SPIDA schemas are specified as "additionalProperties=false". Ho
 We include a command line validator to validate against any of our included schemas. To run the command, use the validateJson gradle task
 
     gradlew :validateJson -Pschema=/path/to/schema -PjsonFile=/path/to/json
-    schema - path to schema starting from resources. eg. /v1/schema/spidacalc/calc/structure.schema
+    schema - path to schema starting from resources. eg. /schema/spidacalc/calc/structure.schema
     json - json file to be validated.
 
 For example, to validate the "one of everything" structure example, from the schema directory you would type:
 
-    gradlew :validateJson -Pschema=/v1/schema/spidacalc/calc/structure.schema -PjsonFile=resources/examples/spidacalc/designs/one_of_everything.json
+    gradlew :validateJson -Pschema=/schema/spidacalc/calc/structure.schema -PjsonFile=resources/examples/spidacalc/designs/one_of_everything.json
 
 The tool uses our included Validator java class.
 
