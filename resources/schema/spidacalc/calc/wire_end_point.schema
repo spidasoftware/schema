@@ -77,6 +77,13 @@
       "items": {
         "type": "string"
       }
+    },
+    "terrainPoints": {
+      "description": "terrain heights at points along this span",
+      "type": "array",
+      "items": {
+        "$ref": "terrain_point.schema"
+      }
     }
   },
   "additionalProperties": false
