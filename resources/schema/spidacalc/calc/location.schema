@@ -188,8 +188,27 @@
                         "type": "string",
                         "minLength": 1
                     },
+                    "clientFileNote": {
+                        "description": "original note from the client file, can contain the placeholder strings",
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "ownerOne": {
+                        "description": "owner that will replace the text (OWNER1) in the clientFileNote",
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "ownerTwo": {
+                        "description": "owner that will replace the text (OWNER2) in the clientFileNote",
+                        "type": "string",
+                        "minLength": 1
+                    },
                     "direction": {
-                        "description": "the direction of the summary note",
+                        "description": "direction that will replace the text (DIR) in the clientFileNotee",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "the id of the summary note",
                         "type": "string"
                     }
                 },
