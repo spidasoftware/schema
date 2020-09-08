@@ -56,7 +56,7 @@ class ConverterUtils {
         converter.addChangeSet(6, new RevertBundleChangeset())
         converter.addChangeSet(6, new RemoveTensionResultsChangeset())
         converter.addChangeSet(7, new AnalysisDetailsChangeset())
-        converter.addChangeSet(7, new RelativeElevationChangeSet())
+        converter.addChangeSet(8, new RelativeElevationChangeSet())
         converter.addChangeSet(8, new MaxTensionGroupChangeset())
         // add calc changesets here
 
