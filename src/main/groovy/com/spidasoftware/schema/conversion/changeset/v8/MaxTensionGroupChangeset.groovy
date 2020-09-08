@@ -13,7 +13,7 @@ import groovy.transform.CompileStatic
  */
 class MaxTensionGroupChangeset extends CalcProjectChangeSet {
 
-	static final float MAX_DIST_METERS = 1523.6952
+	static final Map MAX_DIST = ["METRE":1523.6952, "FOOT":4999]
 
 	/**
 	 * add in the tension group for max distance because older versions require it
@@ -23,10 +23,10 @@ class MaxTensionGroupChangeset extends CalcProjectChangeSet {
 		projectJSON.clientData?.wires?.each { wire ->
 			wire.tensionGroups.each { tg ->
 				def highestDistGroup = tg.groups.max { g -> g.distance.value }
-				if(highestDistGroup.distance.value < MAX_DIST_METERS){
+				if(highestDistGroup.distance.value < MAX_DIST[highestDistGroup.distance.unit]){
 					tg.groups.add([
-						distance:[unit:"METRE", value:MAX_DIST_METERS],
-						tension:[unit:"NEWTON", value:highestDistGroup.tension.value]
+						distance:[unit:highestDistGroup.distance.unit, value:MAX_DIST[highestDistGroup.distance.unit]],
+						tension:[unit:highestDistGroup.tension.unit, value:highestDistGroup.tension.value]
 					])
 				}
 			}
