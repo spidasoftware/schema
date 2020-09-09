@@ -32,6 +32,7 @@ abstract class AbstractConverter implements Converter {
 		}
 
 		if (fromVersion == toVersion) {
+			Logger.getLogger(AbstractConverter).debug("no conversion necessary")
 			return // no conversion necessary
 		}
 
