@@ -53,7 +53,7 @@ class ConverterUtilsSpec extends Specification {
 
 	def "test getPossibleVersionsNewestToOldest"() {
 		expect:
-			ConverterUtils.getPossibleVersionsNewestToOldest() == [7, 6, 5, 4, 3, 2] as LinkedHashSet
+			ConverterUtils.getPossibleVersionsNewestToOldest() == [8, 7, 6, 5, 4, 3, 2] as LinkedHashSet
 	}
 
 	def "pole-lean validation"() {
@@ -73,7 +73,7 @@ SCHEMA_VERSION: 6.0.0-SNAPSHOT
 
 BUILD SUCCESSFUL in 0s
 	 */
-	def testSchemaVersionMatchesCoverterUtilsVersion() {
+	def testSchemaVersionMatchesConverterUtilsVersion() {
 		when:
 			Process process = "./gradlew printVersion".execute()
 			process.waitFor()
