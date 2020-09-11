@@ -9,7 +9,7 @@ import spock.lang.Specification
 class RelativeElevationChangeSetTest extends Specification {
 
 	def "ApplyToDesign"() {
-		def stream = RelativeElevationChangeSet.getResourceAsStream("/conversions/v7/RelativeElevationApplyToDesign.json".toString())
+		def stream = RelativeElevationChangeSet.getResourceAsStream("/conversions/v8/RelativeElevationApplyToDesign.json".toString())
 		Map json = new JsonSlurper().parse(stream)
 		stream.close()
 		when:
@@ -21,13 +21,10 @@ class RelativeElevationChangeSetTest extends Specification {
 			//from foot and degree angle
 			json.structure.wireEndPoints[1].relativeElevation.value == 10.585592910576073
 			json.structure.wireEndPoints[1].relativeElevation.unit == "METRE"
-			//removed inclination
-			json.structure.wireEndPoints[0].inclination == null
-			json.structure.wireEndPoints[1].inclination == null
 	}
 
 	def "RevertDesign"() {
-		def stream = RelativeElevationChangeSet.getResourceAsStream("/conversions/v7/RelativeElevationRevertDesign.json".toString())
+		def stream = RelativeElevationChangeSet.getResourceAsStream("/conversions/v8/RelativeElevationRevertDesign.json".toString())
 		Map json = new JsonSlurper().parse(stream)
 		stream.close()
 		when:
@@ -42,7 +39,7 @@ class RelativeElevationChangeSetTest extends Specification {
 			//mix and match foot and metre
 			json.structure.wireEndPoints[2].inclination.value == 0.07947558659675234
 			json.structure.wireEndPoints[2].inclination.unit == "RADIAN"
-			//removed inclination
+			//removed relativeElevation
 			json.structure.wireEndPoints[0].relativeElevation == null
 			json.structure.wireEndPoints[1].relativeElevation == null
 			json.structure.wireEndPoints[2].relativeElevation == null
