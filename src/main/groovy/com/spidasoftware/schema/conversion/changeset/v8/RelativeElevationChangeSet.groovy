@@ -55,7 +55,6 @@ class RelativeElevationChangeSet extends AbstractCalcDesignChangeset {
 
 				double relativeElevation = calculateRelativeElevation(inclination, distance)
 				wireEndPoint.put("relativeElevation", [unit:"METRE", value:relativeElevation])
-				wireEndPoint.remove("inclination")
 			}
 		}
 	}
