@@ -26,6 +26,7 @@ abstract class AbstractCalcConverter extends AbstractConverter {
 
 	private static final int VERSION_ALLOWED_IN_LOCATION_DESIGN = 4
 	private static final int VERSION_ALLOWED_IN_DETAILED_RESULTS = 7
+	private static final int VERSION_ALLOWED_IN_CLIENT_DATA = 7
 
 	protected boolean isVersionAllowedInLocationAndDesign(int version) {
 		return version >= VERSION_ALLOWED_IN_LOCATION_DESIGN
@@ -33,6 +34,10 @@ abstract class AbstractCalcConverter extends AbstractConverter {
 
 	protected boolean isVersionAllowedInDetailedResults(int version) {
 		return version >= VERSION_ALLOWED_IN_DETAILED_RESULTS
+	}
+
+	protected  boolean isVersionAllowedInClientData(int version) {
+		return version >= VERSION_ALLOWED_IN_CLIENT_DATA
 	}
 
 }

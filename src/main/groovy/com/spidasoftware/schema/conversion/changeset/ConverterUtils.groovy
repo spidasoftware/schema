@@ -58,15 +58,16 @@ class ConverterUtils {
         converter.addChangeSet(7, new AnalysisDetailsChangeset())
         converter.addChangeSet(8, new RelativeElevationChangeSet())
         converter.addChangeSet(8, new MaxTensionGroupChangeset())
-        // add calc changesets here
+        converter.addChangeSet(8, new TensionGroupRenameDesignChangeSet())
+        // add calc changesets above this line
 
         converter.setCurrentVersion(currentVersion)
         converters.put(converter.schemaPath, converter)
     }
 
     static void addClientDataConverter(ClientDataConverter converter) {
-        // add client data changesets here
-
+        converter.addChangeSet(8, new TensionGroupRenameClientDataChangeSet())
+        // add client data changesets above this line
         converter.setCurrentVersion(currentVersion)
         converters.put(converter.schemaPath, converter)
     }

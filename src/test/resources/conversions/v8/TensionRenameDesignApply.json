@@ -1,0 +1,224 @@
+{
+  "label": "Measured Design",
+  "layerType": "Measured",
+  "structure": {
+    "pole": {
+      "id": "Pole",
+      "externalId": "5f6910c6b64ab84f4232cb71",
+      "owner": {
+        "id": "Acme Power",
+        "industry": "UTILITY"
+      },
+      "glc": {
+        "unit": "METRE",
+        "value": 0.8636000000000001
+      },
+      "agl": {
+        "unit": "METRE",
+        "value": 10.3632
+      },
+      "autoGLC": true,
+      "autoAGL": true,
+      "environment": "PARALLEL_TO_STREET",
+      "temperature": {
+        "unit": "CELSIUS",
+        "value": 15.555555555555555
+      },
+      "stressRatio": 1.0,
+      "leanAngle": 0,
+      "leanDirection": 0,
+      "clientItemVersion": "a4090ef12d2f9b9c21ca6509157d445c",
+      "clientItem": {
+        "species": "Fiberglass",
+        "classOfPole": "10\" Series II",
+        "height": {
+          "unit": "METRE",
+          "value": 12.192000000000002
+        }
+      },
+      "foundation": "Foundation"
+    },
+    "wireEndPoints": [
+      {
+        "id": "WEP#1",
+        "externalId": "5f691502b64ab84f4232cbfb",
+        "direction": 180,
+        "distance": {
+          "unit": "METRE",
+          "value": 45.720000000000006
+        },
+        "relativeElevation": {
+          "unit": "METRE",
+          "value": 0.0
+        },
+        "inclination": {
+          "unit": "RADIAN",
+          "value": 0.0
+        },
+        "type": "PREVIOUS_POLE",
+        "comments": "",
+        "environment": "NONE",
+        "wires": [
+          "Wire#1",
+          "Wire#3"
+        ],
+        "spanGuys": [],
+        "spanPoints": [],
+        "terrainPoints": []
+      },
+      {
+        "id": "WEP#2",
+        "externalId": "5f691502b64ab84f4232cbfc",
+        "direction": 0,
+        "distance": {
+          "unit": "METRE",
+          "value": 45.720000000000006
+        },
+        "relativeElevation": {
+          "unit": "METRE",
+          "value": 0.0
+        },
+        "inclination": {
+          "unit": "RADIAN",
+          "value": 0.0
+        },
+        "type": "NEXT_POLE",
+        "comments": "",
+        "environment": "NONE",
+        "wires": [
+          "Wire#2",
+          "Wire#4"
+        ],
+        "spanGuys": [],
+        "spanPoints": [],
+        "terrainPoints": []
+      }
+    ],
+    "spanPoints": [],
+    "anchors": [],
+    "notePoints": [],
+    "pointLoads": [],
+    "wirePointLoads": [],
+    "damages": [],
+    "wires": [
+      {
+        "id": "Wire#1",
+        "externalId": "5f691502b64ab84f4232cbfd",
+        "owner": {
+          "id": "Acme Power",
+          "industry": "UTILITY"
+        },
+        "clientItemVersion": "413506f8424dc51052f699a09e58d5fe",
+        "clientItem": {
+          "size": "1/0 AAAC",
+          "coreStrands": 0,
+          "conductorStrands": 7
+        },
+        "attachmentHeight": {
+          "unit": "METRE",
+          "value": 7.086600000000001
+        },
+        "usageGroup": "PRIMARY",
+        "tensionGroup": "Advanced",
+        "midspanHeight": {
+          "unit": "METRE",
+          "value": 0.0
+        },
+        "connectedWire": "Wire#2"
+      },
+      {
+        "id": "Wire#2",
+        "externalId": "5f691502b64ab84f4232cbfe",
+        "owner": {
+          "id": "Acme Power",
+          "industry": "UTILITY"
+        },
+        "clientItemVersion": "413506f8424dc51052f699a09e58d5fe",
+        "clientItem": {
+          "size": "1/0 AAAC",
+          "coreStrands": 0,
+          "conductorStrands": 7
+        },
+        "attachmentHeight": {
+          "unit": "METRE",
+          "value": 7.086600000000001
+        },
+        "usageGroup": "PRIMARY",
+        "tensionGroup": "Advanced",
+        "midspanHeight": {
+          "unit": "METRE",
+          "value": 0.0
+        },
+        "connectedWire": "Wire#1"
+      },
+      {
+        "id": "Wire#3",
+        "externalId": "5f691503b64ab84f4232cc2a",
+        "owner": {
+          "id": "Acme Power",
+          "industry": "UTILITY"
+        },
+        "clientItemVersion": "413506f8424dc51052f699a09e58d5fe",
+        "clientItem": {
+          "size": "1/0 AAAC",
+          "coreStrands": 0,
+          "conductorStrands": 7
+        },
+        "attachmentHeight": {
+          "unit": "METRE",
+          "value": 5.562600000000001
+        },
+        "usageGroup": "PRIMARY",
+        "tensionGroup": "Dynamic",
+        "midspanHeight": {
+          "unit": "METRE",
+          "value": 0.0
+        },
+        "connectedWire": "Wire#4"
+      },
+      {
+        "id": "Wire#4",
+        "externalId": "5f691503b64ab84f4232cc2b",
+        "owner": {
+          "id": "Acme Power",
+          "industry": "UTILITY"
+        },
+        "clientItemVersion": "413506f8424dc51052f699a09e58d5fe",
+        "clientItem": {
+          "size": "1/0 AAAC",
+          "coreStrands": 0,
+          "conductorStrands": 7
+        },
+        "attachmentHeight": {
+          "unit": "METRE",
+          "value": 5.562600000000001
+        },
+        "usageGroup": "PRIMARY",
+        "tensionGroup": "Dynamic",
+        "midspanHeight": {
+          "unit": "METRE",
+          "value": 0.0
+        },
+        "connectedWire": "Wire#3"
+      }
+    ],
+    "spanGuys": [],
+    "guys": [],
+    "equipments": [],
+    "guyAttachPoints": [],
+    "crossArms": [],
+    "insulators": [],
+    "pushBraces": [],
+    "sidewalkBraces": [],
+    "foundations": [
+      {
+        "id": "Foundation",
+        "externalId": "5f6910c6b64ab84f4232cb72",
+        "clientItemVersion": "46261e18ab52bfe0d99bfbacca452c28",
+        "clientItem": "Average"
+      }
+    ],
+    "assemblies": []
+  },
+  "analysis": []
+}
