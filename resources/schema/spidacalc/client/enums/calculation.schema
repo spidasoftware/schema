@@ -1,9 +1,9 @@
 {
-  "description": "Note: these used to be INITIAL and FINAL. INITIAL is now DYNAMIC, FINAL is now STATIC.  ADVANCED is 'polynomial'.",
+  "description": "Note: these used to be INITIAL and FINAL. INITIAL is now DYNAMIC, FINAL is now STATIC. NONLINEAR_STRESS_STRAIN is 'polynomial'.",
   "enum": [
     "STATIC",
     "DYNAMIC",
-    "ADVANCED"
+    "NONLINEAR_STRESS_STRAIN"
   ],
   "type": "string"
 }
