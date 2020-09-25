@@ -51,7 +51,7 @@
         "STATIC",
         "DYNAMIC",
         "DISPLACEMENT",
-        "ADVANCED",
+        "NONLINEAR_STRESS_STRAIN",
         "UNKNOWN"
       ]
     },

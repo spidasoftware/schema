@@ -189,7 +189,7 @@
       "required": [ "creepPolynomials", "stressStrainPolynomials", "stressStrainTemperature" ],
       "properties": {
         "calculation": {
-          "enum": [ "ADVANCED" ]
+          "enum": [ "NONLINEAR_STRESS_STRAIN" ]
         }
       }
     },
