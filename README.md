@@ -5,7 +5,7 @@ SPIDA Software JSON Interfaces
 
 * LAST RELEASED VERSION: 7.0.0
 
-* CURRENT MASTER VERSION: 7.0.1-SNAPSHOT
+* CURRENT MASTER VERSION: 8.0.0-SNAPSHOT
 
 General Overview
 --------------------------------
