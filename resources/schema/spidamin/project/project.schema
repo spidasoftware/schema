@@ -83,7 +83,13 @@
         "possible": {
           "type": "array",
           "description": "Every possible next status for project.  Use this to check the possible values for the 'current' status. (NOTE: This is user specific an thus not sent in webhooks)"
+        },
+        "transitions": {
+          "type": "object",
+          "description": "Map of transition label to array of possible statuses (read-only)",
+          "additionalProperties": true
         }
+          
       }
     },
     "stations": {
@@ -111,6 +117,18 @@
         "items": {
             "$ref": "../../spidamin/project/file.schema"
         }
+    },
+    "lastUpdateTime": {
+        "type": "number",
+        "description": "Time of last update in milliseconds since the Unix epoch.  Read only and not required for project creation."
+    },
+    "phase": {
+        "type": "string",
+        "description": "Current phase of the project.  Read only and not required for project creation."
+    },
+    "assetLocked": {
+        "type": "boolean",
+        "description": "Indicates if stations can be added or removed from project (read-only)"
     }
   },
   "additionalProperties": false
