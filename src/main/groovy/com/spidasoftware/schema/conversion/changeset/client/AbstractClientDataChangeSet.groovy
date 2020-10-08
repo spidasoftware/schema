@@ -15,7 +15,7 @@ import groovy.util.logging.Log4j
  */
 abstract class AbstractClientDataChangeSet extends ChangeSet {
 
-	abstract applyToClientData(Map projectJSON) throws ConversionException
-	abstract revertClientData(Map projectJSON) throws ConversionException
+	abstract void applyToClientData(Map clientDataJSON) throws ConversionException
+	abstract void revertClientData(Map clientDataJSON) throws ConversionException
 
 }
