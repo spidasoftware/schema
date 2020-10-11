@@ -1,6 +1,7 @@
 package com.spidasoftware.schema.conversion.changeset
 
 import com.spidasoftware.schema.conversion.changeset.calc.*
+import com.spidasoftware.schema.conversion.changeset.client.ClientDataConverter
 import spock.lang.Specification
 
 class ConverterTest extends Specification {
@@ -14,6 +15,8 @@ class ConverterTest extends Specification {
 	CalcProjectConverter projectConverter = new CalcProjectConverter(versions: versions)
 	CalcLocationConverter locationConverter = new CalcLocationConverter(versions: versions)
 	CalcDesignConverter designConverter = new CalcDesignConverter(versions: versions)
+	ChangeSet eightToSeven = GroovyMock(){ getClass()>>ChangeSet }
+	ClientDataConverter clientDataConverter = new ClientDataConverter(versions: [8: [eightToSeven]])
 
 	def "Convert null-2"() {
 		when: "projectConverter"
@@ -230,5 +233,16 @@ class ConverterTest extends Specification {
 			designConverter.convert(json, 3)
 		then:
 			!json.containsKey("version")
+	}
+
+
+	def "revert client data"() {
+		setup:
+		json = [version: 8]
+		when:
+			clientDataConverter.convert(json, 7)
+		then:
+			1 * eightToSeven.revertClientData(json)
+			0 * eightToSeven.applyToClientData(json)
 	}
 }

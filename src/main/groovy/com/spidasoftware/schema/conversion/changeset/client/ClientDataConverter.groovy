@@ -26,13 +26,13 @@ class ClientDataConverter extends AbstractCalcConverter {
     }
 
     @Override
-    void applyChangeset(ChangeSet changeSet, Map json) {
-        changeSet.applyToClientData(json)
+    boolean applyChangeset(ChangeSet changeSet, Map json) {
+        return changeSet.applyToClientData(json)
     }
 
     @Override
-    void revertChangeset(ChangeSet changeSet, Map json) {
-        changeSet.revertClientData(json)
+    boolean revertChangeset(ChangeSet changeSet, Map json) {
+        return changeSet.revertClientData(json)
     }
 }
 

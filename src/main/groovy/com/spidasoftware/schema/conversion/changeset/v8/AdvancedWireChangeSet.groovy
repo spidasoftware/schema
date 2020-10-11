@@ -19,17 +19,21 @@ class AdvancedWireChangeSet extends AbstractClientDataChangeSet {
 	private final static double PER_FAHRENHEIT_TO_PER_CELSIUS = 0.5555555555555556d
 
 	@Override
-	void applyToClientData(Map clientDataJSON) throws ConversionException {
-		//noop: there are no up conversions to 7.3
+	boolean applyToClientData(Map clientDataJSON) throws ConversionException {
+		return false //noop: there are no up conversions to 7.3
 	}
 
 	@Override
-	void revertClientData(Map clientDataJSON) throws ConversionException {
+	boolean revertClientData(Map clientDataJSON) throws ConversionException {
+		boolean converted = false
 		clientDataJSON.wires.each { Map clientWireJSON ->
 			if (clientWireJSON.calculation == "NONLINEAR_STRESS_STRAIN") {
-				revertAdvancedClientWire(clientWireJSON)
+				if (revertAdvancedClientWire(clientWireJSON)) {
+					converted = true
+				}
 			}
 		}
+		return converted
 	}
 
 	/**
@@ -38,7 +42,7 @@ class AdvancedWireChangeSet extends AbstractClientDataChangeSet {
 	 * Throw away all the polynomial data
 	 */
 	@CompileDynamic
-	void revertAdvancedClientWire(Map clientWireJSON) {
+	boolean revertAdvancedClientWire(Map clientWireJSON) {
 		clientWireJSON.calculation = "DYNAMIC"
 		clientWireJSON.put("modulus", [value: calculateModulus(clientWireJSON), unit: "PASCAL"])
 		clientWireJSON.put("expansionCoefficient", [value: calculatedExpansionCoefficient(clientWireJSON), unit: "PER_CELSIUS"])
