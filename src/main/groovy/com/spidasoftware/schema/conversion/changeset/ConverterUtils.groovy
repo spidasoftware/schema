@@ -23,8 +23,8 @@ class ConverterUtils {
         addCalcConverter(new CalcProjectConverter())
         addCalcConverter(new CalcLocationConverter())
         addCalcConverter(new CalcDesignConverter())
-        addClientDataConverter(new ClientDataConverter())
         addCalcConverter(new CalcResultConverter())
+        addClientDataConverter(new ClientDataConverter())
     }
 
     static void addCalcConverter(AbstractCalcConverter converter) {
@@ -65,6 +65,7 @@ class ConverterUtils {
     }
 
     static void addClientDataConverter(ClientDataConverter converter) {
+        converter.addChangeSet(8, new AdvancedWireChangeSet())
         // add client data changesets here
 
         converter.setCurrentVersion(currentVersion)

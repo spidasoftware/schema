@@ -27,12 +27,14 @@ class CalcLocationConverter extends AbstractCalcConverter {
     }
 
     @Override
-    void applyChangeset(ChangeSet changeSet, Map json) {
+    boolean applyChangeset(ChangeSet changeSet, Map json) {
         changeSet.applyToLocation(json)
+        return true // always return true for now because there is no use case to check if it has been converted/not converted
     }
 
     @Override
-    void revertChangeset(ChangeSet changeSet, Map json) {
+    boolean revertChangeset(ChangeSet changeSet, Map json) {
         changeSet.revertLocation(json)
+        return true // always return true for now because there is no use case to check if it has been converted/not converted
     }
 }

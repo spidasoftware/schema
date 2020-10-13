@@ -3,15 +3,15 @@
  */
 package com.spidasoftware.schema.conversion.changeset.client
 
-import com.spidasoftware.schema.conversion.changeset.AbstractConverter
 import com.spidasoftware.schema.conversion.changeset.ChangeSet
+import com.spidasoftware.schema.conversion.changeset.calc.AbstractCalcConverter
 import groovy.util.logging.Log4j
 
 @Log4j
 /**
  * Converter for clientData json files.
  */
-class ClientDataConverter extends AbstractConverter {
+class ClientDataConverter extends AbstractCalcConverter {
 
     @Override
     String getSchemaPath() {
@@ -20,17 +20,19 @@ class ClientDataConverter extends AbstractConverter {
 
     @Override
     void updateVersion(Map json, int version) {
-        //todo discuss how we want to do changesets
+        if (isVersionAllowedInClientData(version)) {
+            json.put("version", version)
+        }
     }
 
     @Override
-    void applyChangeset(ChangeSet changeSet, Map json) {
-        changeSet.applyToClientData(json)
+    boolean applyChangeset(ChangeSet changeSet, Map json) {
+        return changeSet.applyToClientData(json)
     }
 
     @Override
-    void revertChangeset(ChangeSet changeSet, Map json) {
-        changeSet.revertClientData(json)
+    boolean revertChangeset(ChangeSet changeSet, Map json) {
+        return changeSet.revertClientData(json)
     }
 }
 

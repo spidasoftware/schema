@@ -14,8 +14,8 @@ abstract class AbstractConverter implements Converter {
 	protected TreeMap<Integer, List<ChangeSet>> versions = new TreeMap<>() // each list will be applied when going from N-1 to N
 	private int currentVersion
 
-	abstract void applyChangeset(ChangeSet changeSet, Map json)
-	abstract void revertChangeset(ChangeSet changeSet, Map json)
+	abstract boolean applyChangeset(ChangeSet changeSet, Map json)
+	abstract boolean revertChangeset(ChangeSet changeSet, Map json)
 
 	int getCurrentVersion() {
 		return currentVersion
@@ -25,7 +25,7 @@ abstract class AbstractConverter implements Converter {
 		currentVersion = version
 	}
 
-	void convert(Map json, int toVersion) throws ConversionException {
+	boolean convert(Map json, int toVersion) throws ConversionException {
 		int fromVersion = defaultVersion
 		if (json.containsKey("version") && json.get('version')!=null) {
 			fromVersion = json.get("version")
@@ -37,6 +37,7 @@ abstract class AbstractConverter implements Converter {
 		}
 
 		List<ChangeSet> toApply = []
+		boolean converted = false
 		if (toVersion > fromVersion) {
 			// all changesets to go TO fromVersion have already been applied to json
 			((fromVersion + 1)..toVersion).each { int index ->
@@ -45,7 +46,9 @@ abstract class AbstractConverter implements Converter {
 				}
 			}
 			toApply.each { ChangeSet changeSet ->
-				applyChangeset(changeSet, json)
+				if (applyChangeset(changeSet, json)) {
+					converted = true
+				}
 			}
 		} else {
 			((toVersion + 1)..fromVersion).each { int index ->
@@ -56,10 +59,13 @@ abstract class AbstractConverter implements Converter {
 			// need to revert in reverse order
 			toApply.reverseEach { ChangeSet changeSet ->
 				Logger.getLogger(AbstractConverter).info("Applying changest: ${changeSet.class.simpleName}")
-				revertChangeset(changeSet, json)
+				if (revertChangeset(changeSet, json)) {
+					converted = true
+				}
 			}
 		}
 		updateVersion(json, toVersion)
+		return converted
 	}
 
 	/**

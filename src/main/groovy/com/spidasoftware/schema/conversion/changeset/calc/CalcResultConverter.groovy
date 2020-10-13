@@ -17,12 +17,12 @@ class CalcResultConverter extends AbstractCalcConverter {
 	}
 
 	@Override
-	void applyChangeset(ChangeSet changeSet, Map json) {
-		//noop: currently no change sets for results
+	boolean applyChangeset(ChangeSet changeSet, Map json) {
+		return false //noop: currently no change sets for results
 	}
 
 	@Override
-	void revertChangeset(ChangeSet changeSet, Map json) {
-		//noop: currently no change sets for results
+	boolean revertChangeset(ChangeSet changeSet, Map json) {
+		return false //noop: currently no change sets for results
 	}
 }

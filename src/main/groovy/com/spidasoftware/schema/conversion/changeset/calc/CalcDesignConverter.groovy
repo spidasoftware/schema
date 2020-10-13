@@ -23,13 +23,15 @@ class CalcDesignConverter extends AbstractCalcConverter {
     }
 
     @Override
-    void applyChangeset(ChangeSet changeSet, Map json) {
+    boolean applyChangeset(ChangeSet changeSet, Map json) {
         changeSet.applyToDesign(json)
+        return true // always return true for now because there is no use case to check if it has been converted/not converted
     }
 
     @Override
-    void revertChangeset(ChangeSet changeSet, Map json) {
+    boolean revertChangeset(ChangeSet changeSet, Map json) {
         changeSet.revertDesign(json)
+        return true // always return true for now because there is no use case to check if it has been converted/not converted
     }
 }
 
