@@ -16,25 +16,21 @@ class CalcLocationConverter extends AbstractCalcConverter {
 
     @Override
     void updateVersion(Map json, int version) {
-        boolean versionAllowedInLocationAndDesign = isVersionAllowedInLocationAndDesign(version)
-        if(versionAllowedInLocationAndDesign) {
+        if(isVersionAllowedInLocationAndDesign(version)) {
             json.put("version", version)
-
             json.get("designs")?.each { Map designJSON ->
-                designJSON.put("version", version)
+                new CalcDesignConverter().updateVersion(designJSON, version)
             }
         }
     }
 
     @Override
-    boolean applyChangeset(ChangeSet changeSet, Map json) {
+    void applyChangeset(ChangeSet changeSet, Map json) {
         changeSet.applyToLocation(json)
-        return true // always return true for now because there is no use case to check if it has been converted/not converted
     }
 
     @Override
-    boolean revertChangeset(ChangeSet changeSet, Map json) {
+    void revertChangeset(ChangeSet changeSet, Map json) {
         changeSet.revertLocation(json)
-        return true // always return true for now because there is no use case to check if it has been converted/not converted
     }
 }

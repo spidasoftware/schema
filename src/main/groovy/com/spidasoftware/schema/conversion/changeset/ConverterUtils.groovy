@@ -58,7 +58,8 @@ class ConverterUtils {
         converter.addChangeSet(7, new AnalysisDetailsChangeset())
         converter.addChangeSet(8, new RelativeElevationChangeSet())
         converter.addChangeSet(8, new MaxTensionGroupChangeset())
-        // add calc changesets here
+        converter.addChangeSet(8, new AdvancedWireChangeSet())
+        // add calc changesets above here
 
         converter.setCurrentVersion(currentVersion)
         converters.put(converter.schemaPath, converter)
@@ -66,7 +67,7 @@ class ConverterUtils {
 
     static void addClientDataConverter(ClientDataConverter converter) {
         converter.addChangeSet(8, new AdvancedWireChangeSet())
-        // add client data changesets here
+        // add client data changesets above here
 
         converter.setCurrentVersion(currentVersion)
         converters.put(converter.schemaPath, converter)
