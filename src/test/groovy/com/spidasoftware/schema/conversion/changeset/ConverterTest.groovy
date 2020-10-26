@@ -1,22 +1,24 @@
 package com.spidasoftware.schema.conversion.changeset
 
 import com.spidasoftware.schema.conversion.changeset.calc.*
+import com.spidasoftware.schema.conversion.changeset.client.AbstractClientDataChangeSet
 import com.spidasoftware.schema.conversion.changeset.client.ClientDataConverter
 import spock.lang.Specification
 
 class ConverterTest extends Specification {
 
-    Map json = [:]
-	ChangeSet oneToTwo = GroovyMock(){ getClass()>>ChangeSet }
-	ChangeSet twoToThreeA = GroovyMock(){ getClass()>>ChangeSet }
-	ChangeSet twoToThreeB = GroovyMock(){ getClass()>>ChangeSet }
-	ChangeSet fiveToOne = GroovyMock(){ getClass()>>ChangeSet }
-	TreeMap versions = [2:[oneToTwo], 3: [twoToThreeA, twoToThreeB], 5: [fiveToOne]]
+	Map json = [:]
+	CalcProjectChangeSet oneToTwo = GroovyMock(){ getClass()>>CalcProjectChangeSet }
+	CalcProjectChangeSet twoToThreeA = GroovyMock(){ getClass()>>CalcProjectChangeSet }
+	CalcProjectChangeSet twoToThreeB = GroovyMock(){ getClass()>>CalcProjectChangeSet }
+	CalcProjectChangeSet fiveToOne = GroovyMock(){ getClass()>>CalcProjectChangeSet }
+	AbstractClientDataChangeSet clientDataSevenToEight = GroovyMock(){ getClass()>> AbstractClientDataChangeSet }
+
+	TreeMap versions = [2:[oneToTwo], 3: [twoToThreeA, twoToThreeB], 5: [fiveToOne], 8: [clientDataSevenToEight]]
 	CalcProjectConverter projectConverter = new CalcProjectConverter(versions: versions)
 	CalcLocationConverter locationConverter = new CalcLocationConverter(versions: versions)
 	CalcDesignConverter designConverter = new CalcDesignConverter(versions: versions)
-	ChangeSet eightToSeven = GroovyMock(){ getClass()>>ChangeSet }
-	ClientDataConverter clientDataConverter = new ClientDataConverter(versions: [8: [eightToSeven]])
+	ClientDataConverter clientDataConverter = new ClientDataConverter(versions: [8: [clientDataSevenToEight]])
 
 	def "Convert null-2"() {
 		when: "projectConverter"
@@ -236,13 +238,35 @@ class ConverterTest extends Specification {
 	}
 
 
-	def "revert client data"() {
+	def "convert 8 to 7"() {
 		setup:
-		json = [version: 8]
-		when:
-			clientDataConverter.convert(json, 7)
+		Map projectJSON = [version: 8, clientData: [:]]
+		Map clientDataJSON = [version: 8]
+		when: "project"
+			projectConverter.convert(projectJSON, 7)
 		then:
-			1 * eightToSeven.revertClientData(json)
-			0 * eightToSeven.applyToClientData(json)
+			1 * clientDataSevenToEight.revertProject(_)
+			0 * clientDataSevenToEight.applyToProject(_)
+		when: "clientData"
+			clientDataConverter.convert(clientDataJSON, 7)
+		then:
+			1 * clientDataSevenToEight.revertClientData(clientDataJSON)
+			0 * clientDataSevenToEight.applyToClientData(clientDataJSON)
+	}
+
+	def "convert 7 to 8"() {
+		setup:
+		Map projectJSON = [version: 7, clientData: [:]]
+		Map clientDataJSON = [version: 7]
+		when: "project"
+			projectConverter.convert(projectJSON, 8)
+		then:
+			0 * clientDataSevenToEight.revertProject(_)
+			1 * clientDataSevenToEight.applyToProject(_)
+		when: "clientData"
+			clientDataConverter.convert(clientDataJSON, 8)
+		then:
+			0 * clientDataSevenToEight.revertClientData(clientDataJSON)
+			1 * clientDataSevenToEight.applyToClientData(clientDataJSON)
 	}
 }
