@@ -12,10 +12,8 @@ import groovy.util.logging.Log4j
 @CompileStatic
 
 /**
- * Changesets that convert client data json objects. Can be applied independently to clientDatas or projectComponents.
- */
-/**
  * Convert a client data json object between versions. Should be forwards and backwards compatible.
+ * Can be applied independently to a clientData or any projectComponents.
  */
 abstract class AbstractClientDataChangeSet extends AbstractCalcDesignChangeset {
 
