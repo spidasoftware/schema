@@ -16,9 +16,14 @@ class CalcDesignConverter extends AbstractCalcConverter {
 
     @Override
     void updateVersion(Map json, int version) {
-        boolean versionAllowedInLocationAndDesign = isVersionAllowedInLocationAndDesign(version)
-        if(versionAllowedInLocationAndDesign) {
+        if(isVersionAllowedInLocationAndDesign(version)) {
             json.put("version", version)
+            if (isVersionAllowedInClientData(version) && json.containsKey("analysisDetails") && ((Map)json.analysisDetails).containsKey("detailedResults")) {
+                Map detailedResultsJSON = ((Map) json.analysisDetails).detailedResults as Map
+                if (detailedResultsJSON.containsKey("clientData")) {
+                    ((Map)detailedResultsJSON.clientData).put("version", version)
+                }
+            }
         }
     }
 
