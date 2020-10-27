@@ -237,6 +237,23 @@ class ConverterTest extends Specification {
 			!json.containsKey("version")
 	}
 
+	def "update version throughout project tree"() {
+		Map projectJSON = [version: 7, clientData: [version : 7],
+		leads: [[
+		        locations: [
+		                [designs: [[version: 7, analysisDetails: [detailedResults: [clientData: [version: 7]]]]],
+		                version: 7]
+		        ]
+		]]]
+		when:
+			projectConverter.convert(projectJSON, 8)
+		then:
+			projectJSON.version == 8
+			projectJSON.clientData.version == 8
+			projectJSON.leads[0].locations[0].version == 8
+			projectJSON.leads[0].locations[0].designs[0].version == 8
+			projectJSON.leads[0].locations[0].designs[0].analysisDetails.detailedResults.clientData.version == 8
+	}
 
 	def "convert 8 to 7"() {
 		setup:
