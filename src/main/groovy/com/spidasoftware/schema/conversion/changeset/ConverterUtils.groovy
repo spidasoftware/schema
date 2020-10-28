@@ -59,6 +59,7 @@ class ConverterUtils {
         converter.addChangeSet(8, new RelativeElevationChangeSet())
         converter.addChangeSet(8, new MaxTensionGroupChangeset())
         converter.addChangeSet(8, new AdvancedWireChangeSet())
+        converter.addChangeSet(8, new ResultsWireChangeSet())
         // add calc changesets above here
 
         converter.setCurrentVersion(currentVersion)
