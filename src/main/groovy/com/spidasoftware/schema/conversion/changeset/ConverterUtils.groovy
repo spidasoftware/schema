@@ -23,7 +23,7 @@ class ConverterUtils {
         addCalcConverter(new CalcProjectConverter())
         addCalcConverter(new CalcLocationConverter())
         addCalcConverter(new CalcDesignConverter())
-        addCalcConverter(new CalcResultConverter())
+        addResultConverter(new CalcResultConverter())
         addClientDataConverter(new ClientDataConverter())
     }
 
@@ -69,6 +69,14 @@ class ConverterUtils {
     static void addClientDataConverter(ClientDataConverter converter) {
         converter.addChangeSet(8, new AdvancedWireChangeSet())
         // add client data changesets above here
+
+        converter.setCurrentVersion(currentVersion)
+        converters.put(converter.schemaPath, converter)
+    }
+
+    static void addResultConverter(CalcResultConverter converter) {
+        converter.addChangeSet(8, new ResultsWireChangeSet())
+        // add result changesets above here
 
         converter.setCurrentVersion(currentVersion)
         converters.put(converter.schemaPath, converter)
