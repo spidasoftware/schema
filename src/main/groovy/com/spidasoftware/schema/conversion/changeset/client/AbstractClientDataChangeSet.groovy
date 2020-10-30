@@ -23,6 +23,7 @@ abstract class AbstractClientDataChangeSet extends AbstractCalcDesignChangeset {
 	@Override
 	void applyToProject(Map projectJSON) throws ConversionException {
 		super.applyToProject(projectJSON)
+		projectJSON.remove("clientFileVersion")
 		if (projectJSON.containsKey("clientData")) {
 			Map clientDataJSON = projectJSON.clientData as Map
 			if (applyToClientData(clientDataJSON) && clientDataJSON.containsKey("hash")) {
@@ -34,6 +35,7 @@ abstract class AbstractClientDataChangeSet extends AbstractCalcDesignChangeset {
 	@Override
 	void revertProject(Map projectJSON) throws ConversionException {
 		super.revertProject(projectJSON)
+		projectJSON.remove("clientFileVersion")
 		if (projectJSON.containsKey("clientData")) {
 			Map clientDataJSON = projectJSON.clientData as Map
 			if (revertClientData(clientDataJSON) && clientDataJSON.containsKey("hash")) {
