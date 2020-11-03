@@ -1,2601 +1,2938 @@
 {
-    "schema": "/schema/spidacalc/client/data.schema",
-    "name": "Demo.client",
-    "wires": [
+  "schema": "/schema/spidacalc/client/data.schema",
+  "name": "Demo.client",
+  "wires": [
+    {
+      "aliases": [
         {
-            "aliases": [
-                {
-                    "id": "1/0 AAAC",
-                    "tensionGroupName": "Full"
-                },
-                {
-                    "id": "1/0 AAAC - S",
-                    "tensionGroupName": "Slack"
-                }
-            ],
-            "size": "1/0 AAAC",
-            "calculation": "NONLINEAR_STRESS_STRAIN",
-            "strength": {
-                "unit": "NEWTON",
-                "value": 86740.32149757976
-            },
-            "weight": {
-                "unit": "NEWTON_PER_METRE",
-                "value": 9.573600326807375
-            },
-            "crossArea": {
-                "unit": "SQUARE_METRE",
-                "value": 2.8090266400000003E-4
-            },
-            "diameter": {
-                "unit": "METRE",
-                "value": 0.021793200000000002
-            },
-            "description": "1/0 AAAC - Azusa",
-            "coreStrands": 0,
-            "conductorStrands": 7,
-            "numberOfConductors": 1,
-            "usageGroups": [
-                "PRIMARY",
-                "NEUTRAL"
-            ],
-            "conductorProperties": "CORE_AND_OUTER",
-            "coreExpansionCoefficient": {
-                "unit": "PER_CELSIUS",
-                "value": 1.152E-5
-            },
-            "coreModulus": {
-                "unit": "PASCAL",
-                "value": 2.728600198771379E10
-            },
-            "outerExpansionCoefficient": {
-                "unit": "PER_CELSIUS",
-                "value": 2.304E-5
-            },
-            "outerModulus": {
-                "unit": "PASCAL",
-                "value": 4.722908745820328E10
-            },
-            "stressStrainPolynomials": {
-                "outer": [
-                    {
-                        "unit": "PASCAL",
-                        "value": -6087381.214138346
-                    },
-                    {
-                        "unit": "PASCAL",
-                        "value": 4.053262338478644E8
-                    },
-                    {
-                        "unit": "PASCAL",
-                        "value": -4.163543981382871E8
-                    },
-                    {
-                        "unit": "PASCAL",
-                        "value": 4.521581832859811E7
-                    },
-                    {
-                        "unit": "PASCAL",
-                        "value": 1.1515623631049797E8
-                    }
-                ],
-                "core": [
-                    {
-                        "unit": "PASCAL",
-                        "value": -163405.74784809016
-                    },
-                    {
-                        "unit": "PASCAL",
-                        "value": 2.796782453643521E8
-                    },
-                    {
-                        "unit": "PASCAL",
-                        "value": -3.0368647973489366E7
-                    },
-                    {
-                        "unit": "PASCAL",
-                        "value": -1.0707558076290466E8
-                    },
-                    {
-                        "unit": "PASCAL",
-                        "value": 4.809782687714249E7
-                    }
-                ]
-            },
-            "creepPolynomials": {
-                "outer": [
-                    {
-                        "unit": "PASCAL",
-                        "value": -2241485.5960090347
-                    },
-                    {
-                        "unit": "PASCAL",
-                        "value": 1.7226344254262358E8
-                    },
-                    {
-                        "unit": "PASCAL",
-                        "value": -2.521833322306553E8
-                    },
-                    {
-                        "unit": "PASCAL",
-                        "value": 2.6225588316024497E8
-                    },
-                    {
-                        "unit": "PASCAL",
-                        "value": -9.839508133080569E7
-                    }
-                ],
-                "core": [
-                    {
-                        "unit": "PASCAL",
-                        "value": 959060.7394797191
-                    },
-                    {
-                        "unit": "PASCAL",
-                        "value": 2.5048239560643068E8
-                    },
-                    {
-                        "unit": "PASCAL",
-                        "value": 8.911473801420107E7
-                    },
-                    {
-                        "unit": "PASCAL",
-                        "value": -4.6314842641129154E8
-                    },
-                    {
-                        "unit": "PASCAL",
-                        "value": 3.048792727466118E8
-                    }
-                ]
-            },
-            "stressStrainTemperature": {
-                "unit": "CELSIUS",
-                "value": 23.88888888888889
-            },
-            "tensionGroups": [
-                {
-                    "name": "Full",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 2279.26875565948
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slack",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 474.8476574290584
-                            }
-                        }
-                    ]
-                }
-            ]
+          "id": "1/0 AAAC",
+          "tensionGroupName": "Full"
         },
         {
-            "size": "20/0 ASCR",
-            "calculation": "NONLINEAR_STRESS_STRAIN",
-            "strength": {
-                "unit": "NEWTON",
-                "value": 86740.32149757976
-            },
-            "weight": {
-                "unit": "NEWTON_PER_METRE",
-                "value": 9.573600326807375
-            },
-            "crossArea": {
-                "unit": "SQUARE_METRE",
-                "value": 2.8090266400000003E-4
-            },
-            "diameter": {
-                "unit": "METRE",
-                "value": 0.021793200000000002
-            },
-            "description": "1/0 AAAC - Azusa",
-            "coreStrands": 0,
-            "conductorStrands": 7,
-            "numberOfConductors": 1,
-            "usageGroups": [
-                "PRIMARY",
-                "NEUTRAL"
-            ],
-            "conductorProperties": "CORE_AND_OUTER",
-            "coreExpansionCoefficient": {
-                "unit": "PER_FAHRENHEIT",
-                "value": 1.152E-5
-            },
-            "coreModulus": {
-                "unit": "POUND_FORCE_PER_SQUARE_INCH",
-                "value": 2.728600198771379E10
-            },
-            "outerExpansionCoefficient": {
-                "unit": "PER_FAHRENHEIT",
-                "value": 2.304E-5
-            },
-            "outerModulus": {
-                "unit": "POUND_FORCE_PER_SQUARE_INCH",
-                "value": 4.722908745820328E10
-            },
-            "stressStrainPolynomials": {
-                "outer": [
-                    {
-                        "unit": "PASCAL",
-                        "value": -6087381.214138346
-                    },
-                    {
-                        "unit": "PASCAL",
-                        "value": 4.053262338478644E8
-                    },
-                    {
-                        "unit": "PASCAL",
-                        "value": -4.163543981382871E8
-                    },
-                    {
-                        "unit": "PASCAL",
-                        "value": 4.521581832859811E7
-                    },
-                    {
-                        "unit": "PASCAL",
-                        "value": 1.1515623631049797E8
-                    }
-                ],
-                "core": [
-                    {
-                        "unit": "PASCAL",
-                        "value": -163405.74784809016
-                    },
-                    {
-                        "unit": "PASCAL",
-                        "value": 2.796782453643521E8
-                    },
-                    {
-                        "unit": "PASCAL",
-                        "value": -3.0368647973489366E7
-                    },
-                    {
-                        "unit": "PASCAL",
-                        "value": -1.0707558076290466E8
-                    },
-                    {
-                        "unit": "PASCAL",
-                        "value": 4.809782687714249E7
-                    }
-                ]
-            },
-            "creepPolynomials": {
-                "outer": [
-                    {
-                        "unit": "PASCAL",
-                        "value": -2241485.5960090347
-                    },
-                    {
-                        "unit": "PASCAL",
-                        "value": 1.7226344254262358E8
-                    },
-                    {
-                        "unit": "PASCAL",
-                        "value": -2.521833322306553E8
-                    },
-                    {
-                        "unit": "PASCAL",
-                        "value": 2.6225588316024497E8
-                    },
-                    {
-                        "unit": "PASCAL",
-                        "value": -9.839508133080569E7
-                    }
-                ],
-                "core": [
-                    {
-                        "unit": "PASCAL",
-                        "value": 959060.7394797191
-                    },
-                    {
-                        "unit": "PASCAL",
-                        "value": 2.5048239560643068E8
-                    },
-                    {
-                        "unit": "PASCAL",
-                        "value": 8.911473801420107E7
-                    },
-                    {
-                        "unit": "PASCAL",
-                        "value": -4.6314842641129154E8
-                    },
-                    {
-                        "unit": "PASCAL",
-                        "value": 3.048792727466118E8
-                    }
-                ]
-            },
-            "stressStrainTemperature": {
-                "unit": "CELSIUS",
-                "value": 23.88888888888889
-            },
-            "tensionGroups": [
-                {
-                    "name": "Full",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 2279.26875565948
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slack",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 474.8476574290584
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "aliases": [
-                {
-                    "id": "1/0 AAC Triplex",
-                    "tensionGroupName": "Full"
-                },
-                {
-                    "id": "1/0 AAC Triplex - S",
-                    "tensionGroupName": "Slack"
-                }
-            ],
-            "size": "1/0 AAC Triplex",
-            "calculation": "DYNAMIC",
-            "strength": {
-                "unit": "NEWTON",
-                "value": 8851.961014368395
-            },
-            "weight": {
-                "unit": "NEWTON_PER_METRE",
-                "value": 5.370556280891941
-            },
-            "crossArea": {
-                "unit": "SQUARE_METRE",
-                "value": 5.3483764E-5
-            },
-            "diameter": {
-                "unit": "METRE",
-                "value": 0.0242316
-            },
-            "description": "1/0 AAC Triplex - Purpura",
-            "coreStrands": 0,
-            "conductorStrands": 9,
-            "numberOfConductors": 1,
-            "usageGroups": [
-                "SECONDARY",
-                "UTILITY_SERVICE"
-            ],
-            "conductorProperties": "TOTAL",
-            "expansionCoefficient": {
-                "unit": "PER_CELSIUS",
-                "value": 2.303999999999999E-5
-            },
-            "modulus": {
-                "unit": "PASCAL",
-                "value": 6.412124282646576E10
-            },
-            "tensionGroups": [
-                {
-                    "name": "Full",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555558
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 1062.235321724207
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slack",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555558
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 221.0766142784468
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "aliases": [
-                {
-                    "id": "1/0 ACSR",
-                    "tensionGroupName": "Full"
-                },
-                {
-                    "id": "1/0 ACSR - S",
-                    "tensionGroupName": "Slack"
-                }
-            ],
-            "size": "1/0 ACSR",
-            "calculation": "DYNAMIC",
-            "strength": {
-                "unit": "NEWTON",
-                "value": 19483.21067484099
-            },
-            "weight": {
-                "unit": "NEWTON_PER_METRE",
-                "value": 2.117575316188643
-            },
-            "crossArea": {
-                "unit": "SQUARE_METRE",
-                "value": 6.2451488E-5
-            },
-            "diameter": {
-                "unit": "METRE",
-                "value": 0.0101092
-            },
-            "description": "1/0 ACSR - Raven",
-            "coreStrands": 1,
-            "conductorStrands": 6,
-            "numberOfConductors": 1,
-            "usageGroups": [
-                "PRIMARY",
-                "NEUTRAL"
-            ],
-            "conductorProperties": "TOTAL",
-            "expansionCoefficient": {
-                "unit": "PER_CELSIUS",
-                "value": 1.894968E-5
-            },
-            "modulus": {
-                "unit": "PASCAL",
-                "value": 7.82554952774609E10
-            },
-            "tensionGroups": [
-                {
-                    "name": "Full",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555558
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 2339.764569627023
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slack",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555558
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 408.79156644244
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "aliases": [],
-            "size": "2 AAC",
-            "calculation": "DYNAMIC",
-            "strength": {
-                "unit": "NEWTON",
-                "value": 6005.099180601675
-            },
-            "weight": {
-                "unit": "NEWTON_PER_METRE",
-                "value": 0.9077407626942358
-            },
-            "crossArea": {
-                "unit": "SQUARE_METRE",
-                "value": 3.3677352E-5
-            },
-            "diameter": {
-                "unit": "METRE",
-                "value": 0.0074168
-            },
-            "description": "2 AAC - Iris",
-            "coreStrands": 0,
-            "conductorStrands": 7,
-            "numberOfConductors": 1,
-            "usageGroups": [
-                "PRIMARY",
-                "NEUTRAL"
-            ],
-            "conductorProperties": "TOTAL",
-            "expansionCoefficient": {
-                "unit": "PER_CELSIUS",
-                "value": 2.303999999999999E-5
-            },
-            "modulus": {
-                "unit": "PASCAL",
-                "value": 6.412124282646576E10
-            },
-            "tensionGroups": [
-                {
-                    "name": "Full",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 720.6119016722009
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slack",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 149.9050684342788
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "aliases": [],
-            "size": "2 ACSR",
-            "calculation": "DYNAMIC",
-            "strength": {
-                "unit": "NEWTON",
-                "value": 12677.43160349242
-            },
-            "weight": {
-                "unit": "NEWTON_PER_METRE",
-                "value": 1.33096394787322
-            },
-            "crossArea": {
-                "unit": "SQUARE_METRE",
-                "value": 3.9290244E-5
-            },
-            "diameter": {
-                "unit": "METRE",
-                "value": 0.008026400000000001
-            },
-            "description": "2 ACSR - Sparrow",
-            "coreStrands": 1,
-            "conductorStrands": 6,
-            "numberOfConductors": 1,
-            "usageGroups": [
-                "PRIMARY",
-                "NEUTRAL"
-            ],
-            "conductorProperties": "TOTAL",
-            "expansionCoefficient": {
-                "unit": "PER_CELSIUS",
-                "value": 1.896119999999999E-5
-            },
-            "modulus": {
-                "unit": "PASCAL",
-                "value": 7.984128945488963E10
-            },
-            "tensionGroups": [
-                {
-                    "name": "Full",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 1521.29179241909
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slack",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 316.9357900873106
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "aliases": [],
-            "size": "2/0 ACSR",
-            "calculation": "DYNAMIC",
-            "strength": {
-                "unit": "NEWTON",
-                "value": 23620.05677703325
-            },
-            "weight": {
-                "unit": "NEWTON_PER_METRE",
-                "value": 2.667765456921323
-            },
-            "crossArea": {
-                "unit": "SQUARE_METRE",
-                "value": 7.8645004E-5
-            },
-            "diameter": {
-                "unit": "METRE",
-                "value": 0.0113538
-            },
-            "description": "2/0 ACSR - Quail",
-            "coreStrands": 1,
-            "conductorStrands": 6,
-            "numberOfConductors": 1,
-            "usageGroups": [
-                "PRIMARY",
-                "NEUTRAL"
-            ],
-            "conductorProperties": "TOTAL",
-            "expansionCoefficient": {
-                "unit": "PER_CELSIUS",
-                "value": 1.894968E-5
-            },
-            "modulus": {
-                "unit": "PASCAL",
-                "value": 7.82554952774609E10
-            },
-            "tensionGroups": [
-                {
-                    "name": "Full",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 2834.40681324399
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slack",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 590.5014194258314
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "aliases": [],
-            "size": "3/0 HDC - Stranded",
-            "calculation": "DYNAMIC",
-            "strength": {
-                "unit": "NEWTON",
-                "value": 32738.91108831728
-            },
-            "weight": {
-                "unit": "NEWTON_PER_METRE",
-                "value": 7.558182331179176
-            },
-            "crossArea": {
-                "unit": "SQUARE_METRE",
-                "value": 8.4967572E-5
-            },
-            "diameter": {
-                "unit": "METRE",
-                "value": 0.01179576
-            },
-            "description": "3/0 HDC - Class A,AA - Stranded",
-            "coreStrands": 0,
-            "conductorStrands": 7,
-            "numberOfConductors": 1,
-            "usageGroups": [
-                "PRIMARY",
-                "NEUTRAL",
-                "OPEN_WIRE"
-            ],
-            "conductorProperties": "TOTAL",
-            "expansionCoefficient": {
-                "unit": "PER_CELSIUS",
-                "value": 1.674E-5
-            },
-            "modulus": {
-                "unit": "PASCAL",
-                "value": 1.172108739838621E11
-            },
-            "tensionGroups": [
-                {
-                    "name": "Full",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555558
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 3928.669330598073
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slack",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555558
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 818.472777207932
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "aliases": [
-                {
-                    "id": "336 ACSR",
-                    "tensionGroupName": "Full"
-                },
-                {
-                    "id": "336 ACSR - S",
-                    "tensionGroupName": "Slack"
-                }
-            ],
-            "size": "336.4 ACSR",
-            "calculation": "DYNAMIC",
-            "strength": {
-                "unit": "NEWTON",
-                "value": 38610.56362046114
-            },
-            "weight": {
-                "unit": "NEWTON_PER_METRE",
-                "value": 5.323855791492882
-            },
-            "crossArea": {
-                "unit": "SQUARE_METRE",
-                "value": 1.79935124E-4
-            },
-            "diameter": {
-                "unit": "METRE",
-                "value": 0.0173736
-            },
-            "description": "336.4 ACSR - Merlin",
-            "coreStrands": 1,
-            "conductorStrands": 18,
-            "numberOfConductors": 1,
-            "usageGroups": [
-                "PRIMARY",
-                "NEUTRAL"
-            ],
-            "conductorProperties": "TOTAL",
-            "expansionCoefficient": {
-                "unit": "PER_CELSIUS",
-                "value": 2.131776E-5
-            },
-            "modulus": {
-                "unit": "PASCAL",
-                "value": 6.825809720236677E10
-            },
-            "tensionGroups": [
-                {
-                    "name": "Full",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 4633.267634455337
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slack",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 965.2640905115286
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "aliases": [],
-            "size": "4 AAC Duplex",
-            "calculation": "DYNAMIC",
-            "strength": {
-                "unit": "NEWTON",
-                "value": 3918.883243044501
-            },
-            "weight": {
-                "unit": "NEWTON_PER_METRE",
-                "value": 1.401014681971811
-            },
-            "crossArea": {
-                "unit": "SQUARE_METRE",
-                "value": 2.1161248E-5
-            },
-            "diameter": {
-                "unit": "METRE",
-                "value": 0.014478
-            },
-            "description": "4 AAC Duplex - Spaniel",
-            "coreStrands": 0,
-            "conductorStrands": 7,
-            "numberOfConductors": 1,
-            "usageGroups": [
-                "SECONDARY"
-            ],
-            "conductorProperties": "TOTAL",
-            "expansionCoefficient": {
-                "unit": "PER_CELSIUS",
-                "value": 2.303999999999999E-5
-            },
-            "modulus": {
-                "unit": "PASCAL",
-                "value": 6.412124282646576E10
-            },
-            "tensionGroups": [
-                {
-                    "name": "Full",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 470.2659891653401
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slack",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 97.860875535731
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "aliases": [],
-            "size": "4 AAC Triplex",
-            "calculation": "DYNAMIC",
-            "strength": {
-                "unit": "NEWTON",
-                "value": 3918.883243044501
-            },
-            "weight": {
-                "unit": "NEWTON_PER_METRE",
-                "value": 2.24746105232978
-            },
-            "crossArea": {
-                "unit": "SQUARE_METRE",
-                "value": 2.1161248E-5
-            },
-            "diameter": {
-                "unit": "METRE",
-                "value": 0.014478
-            },
-            "description": "4 AAC Triplex - Oyster",
-            "coreStrands": 0,
-            "conductorStrands": 7,
-            "numberOfConductors": 1,
-            "usageGroups": [
-                "SECONDARY",
-                "UTILITY_SERVICE"
-            ],
-            "conductorProperties": "TOTAL",
-            "expansionCoefficient": {
-                "unit": "PER_CELSIUS",
-                "value": 2.303999999999999E-5
-            },
-            "modulus": {
-                "unit": "PASCAL",
-                "value": 6.412124282646576E10
-            },
-            "tensionGroups": [
-                {
-                    "name": "Full",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555558
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 470.2659891653401
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slack",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555558
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 97.860875535731
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "aliases": [],
-            "size": "4 ACSR",
-            "calculation": "DYNAMIC",
-            "strength": {
-                "unit": "NEWTON",
-                "value": 8273.69220438453
-            },
-            "weight": {
-                "unit": "NEWTON_PER_METRE",
-                "value": 0.8362306383019246
-            },
-            "crossArea": {
-                "unit": "SQUARE_METRE",
-                "value": 2.4709628E-5
-            },
-            "diameter": {
-                "unit": "METRE",
-                "value": 0.006350000000000001
-            },
-            "description": "4 ACSR - Swan",
-            "coreStrands": 1,
-            "conductorStrands": 6,
-            "numberOfConductors": 1,
-            "usageGroups": [
-                "PRIMARY",
-                "NEUTRAL"
-            ],
-            "conductorProperties": "TOTAL",
-            "expansionCoefficient": {
-                "unit": "PER_CELSIUS",
-                "value": 1.896119999999999E-5
-            },
-            "modulus": {
-                "unit": "PASCAL",
-                "value": 7.984128945488963E10
-            },
-            "tensionGroups": [
-                {
-                    "name": "Full",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 992.8430645261436
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slack",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 206.8423051096132
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "aliases": [],
-            "size": "4/0 AAC Quadruplex",
-            "calculation": "DYNAMIC",
-            "strength": {
-                "unit": "NEWTON",
-                "value": 17881.85089334721
-            },
-            "weight": {
-                "unit": "NEWTON_PER_METRE",
-                "value": 13.79123827566001
-            },
-            "crossArea": {
-                "unit": "SQUARE_METRE",
-                "value": 1.07290108E-4
-            },
-            "diameter": {
-                "unit": "METRE",
-                "value": 0.0387548882
-            },
-            "description": "4/0 AAC Quadruplex - Oldenburg",
-            "coreStrands": 0,
-            "conductorStrands": 18,
-            "numberOfConductors": 1,
-            "usageGroups": [
-                "SECONDARY",
-                "UTILITY_SERVICE"
-            ],
-            "conductorProperties": "TOTAL",
-            "expansionCoefficient": {
-                "unit": "PER_CELSIUS",
-                "value": 2.303999999999999E-5
-            },
-            "modulus": {
-                "unit": "PASCAL",
-                "value": 6.412124282646576E10
-            },
-            "tensionGroups": [
-                {
-                    "name": "Full",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 2145.822107201666
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slack",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 447.0462723336803
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "aliases": [
-                {
-                    "id": "4/0 ACSR",
-                    "tensionGroupName": "Full"
-                },
-                {
-                    "id": "4/0 ACSR - S",
-                    "tensionGroupName": "Slack"
-                }
-            ],
-            "size": "4/0 ACSR",
-            "calculation": "DYNAMIC",
-            "strength": {
-                "unit": "NEWTON",
-                "value": 37142.65048742518
-            },
-            "weight": {
-                "unit": "NEWTON_PER_METRE",
-                "value": 4.243906974139611
-            },
-            "crossArea": {
-                "unit": "SQUARE_METRE",
-                "value": 1.25096524E-4
-            },
-            "diameter": {
-                "unit": "METRE",
-                "value": 0.0143002
-            },
-            "description": "4/0 ACSR - Penguin",
-            "coreStrands": 1,
-            "conductorStrands": 6,
-            "numberOfConductors": 1,
-            "usageGroups": [
-                "PRIMARY",
-                "NEUTRAL"
-            ],
-            "conductorProperties": "TOTAL",
-            "expansionCoefficient": {
-                "unit": "PER_CELSIUS",
-                "value": 1.894968E-5
-            },
-            "modulus": {
-                "unit": "PASCAL",
-                "value": 7.82554952774609E10
-            },
-            "tensionGroups": [
-                {
-                    "name": "Full",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 4457.118058491021
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slack",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 928.5662621856294
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "aliases": [],
-            "size": "477 ACSR",
-            "calculation": "DYNAMIC",
-            "strength": {
-                "unit": "NEWTON",
-                "value": 86740.32149757976
-            },
-            "weight": {
-                "unit": "NEWTON_PER_METRE",
-                "value": 9.56338459475133
-            },
-            "crossArea": {
-                "unit": "SQUARE_METRE",
-                "value": 2.80902664E-4
-            },
-            "diameter": {
-                "unit": "METRE",
-                "value": 0.0217932
-            },
-            "description": "477 ACSR - Hawk",
-            "coreStrands": 7,
-            "conductorStrands": 26,
-            "numberOfConductors": 1,
-            "usageGroups": [
-                "PRIMARY",
-                "NEUTRAL"
-            ],
-            "conductorProperties": "TOTAL",
-            "expansionCoefficient": {
-                "unit": "PER_CELSIUS",
-                "value": 1.882152E-5
-            },
-            "modulus": {
-                "unit": "PASCAL",
-                "value": 7.451508944591707E10
-            },
-            "tensionGroups": [
-                {
-                    "name": "Full",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 10408.83857970956
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slack",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 2168.508037439494
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "aliases": [],
-            "size": "6 HDC - Solid",
-            "calculation": "DYNAMIC",
-            "strength": {
-                "unit": "NEWTON",
-                "value": 5693.723667533441
-            },
-            "weight": {
-                "unit": "NEWTON_PER_METRE",
-                "value": 1.152918332039302
-            },
-            "crossArea": {
-                "unit": "SQUARE_METRE",
-                "value": 1.3290296E-5
-            },
-            "diameter": {
-                "unit": "METRE",
-                "value": 0.004114800000000001
-            },
-            "description": "6 HDC - Solid",
-            "coreStrands": 0,
-            "conductorStrands": 1,
-            "numberOfConductors": 1,
-            "usageGroups": [
-                "PRIMARY",
-                "NEUTRAL",
-                "SECONDARY",
-                "UTILITY_SERVICE",
-                "OPEN_WIRE"
-            ],
-            "conductorProperties": "TOTAL",
-            "expansionCoefficient": {
-                "unit": "PER_CELSIUS",
-                "value": 1.674E-5
-            },
-            "modulus": {
-                "unit": "PASCAL",
-                "value": 1.172108739838621E11
-            },
-            "tensionGroups": [
-                {
-                    "name": "Full",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 683.2468401040128
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slack",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 142.343091688336
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "aliases": [],
-            "size": "C6.6M0500",
-            "calculation": "DYNAMIC",
-            "strength": {
-                "unit": "NEWTON",
-                "value": 29580.67374148232
-            },
-            "weight": {
-                "unit": "NEWTON_PER_METRE",
-                "value": 2.542257891661348
-            },
-            "crossArea": {
-                "unit": "SQUARE_METRE",
-                "value": 2.2709632E-5
-            },
-            "diameter": {
-                "unit": "METRE",
-                "value": 0.0127
-            },
-            "description": " 0.5 Inch Cable Bundle with 6,650 lb. Strength (1/4\" EHS)",
-            "coreStrands": 0,
-            "conductorStrands": 7,
-            "numberOfConductors": 1,
-            "usageGroups": [
-                "COMMUNICATION",
-                "COMMUNICATION_SERVICE"
-            ],
-            "conductorProperties": "TOTAL",
-            "expansionCoefficient": {
-                "unit": "PER_CELSIUS",
-                "value": 1.151999999999999E-5
-            },
-            "modulus": {
-                "unit": "PASCAL",
-                "value": 1.72368932329209E11
-            },
-            "tensionGroups": [
-                {
-                    "name": "Full",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 7392.944324562951
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slack",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 739.2944324562952
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "aliases": [],
-            "size": "C6.6M1000",
-            "calculation": "DYNAMIC",
-            "strength": {
-                "unit": "NEWTON",
-                "value": 29580.67374148232
-            },
-            "weight": {
-                "unit": "NEWTON_PER_METRE",
-                "value": 4.801394066340894
-            },
-            "crossArea": {
-                "unit": "SQUARE_METRE",
-                "value": 2.2709632E-5
-            },
-            "diameter": {
-                "unit": "METRE",
-                "value": 0.0254
-            },
-            "description": "1 Inch Cable Bundle with 6,650 lb. Strength (1/4\" EHS)",
-            "coreStrands": 0,
-            "conductorStrands": 7,
-            "numberOfConductors": 1,
-            "usageGroups": [
-                "COMMUNICATION",
-                "COMMUNICATION_SERVICE"
-            ],
-            "conductorProperties": "TOTAL",
-            "expansionCoefficient": {
-                "unit": "PER_CELSIUS",
-                "value": 1.151999999999999E-5
-            },
-            "modulus": {
-                "unit": "PASCAL",
-                "value": 1.72368932329209E11
-            },
-            "tensionGroups": [
-                {
-                    "name": "Full",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 7392.944324562951
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slack",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 739.2944324562952
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "aliases": [],
-            "size": "C6.6M1500",
-            "calculation": "DYNAMIC",
-            "strength": {
-                "unit": "NEWTON",
-                "value": 29580.67374148232
-            },
-            "weight": {
-                "unit": "NEWTON_PER_METRE",
-                "value": 9.542661252580498
-            },
-            "crossArea": {
-                "unit": "SQUARE_METRE",
-                "value": 2.2709632E-5
-            },
-            "diameter": {
-                "unit": "METRE",
-                "value": 0.03810000000000001
-            },
-            "description": "1.5 Inch Cable Bundle with 6,650 lb. Strength (1/4\" EHS)",
-            "coreStrands": 0,
-            "conductorStrands": 7,
-            "numberOfConductors": 1,
-            "usageGroups": [
-                "COMMUNICATION"
-            ],
-            "conductorProperties": "TOTAL",
-            "expansionCoefficient": {
-                "unit": "PER_CELSIUS",
-                "value": 1.151999999999999E-5
-            },
-            "modulus": {
-                "unit": "PASCAL",
-                "value": 1.72368932329209E11
-            },
-            "tensionGroups": [
-                {
-                    "name": "Full",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 7392.944324562951
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slack",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 739.2944324562952
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "aliases": [],
-            "size": "C6.6M2000",
-            "calculation": "DYNAMIC",
-            "strength": {
-                "unit": "NEWTON",
-                "value": 29580.67374148232
-            },
-            "weight": {
-                "unit": "NEWTON_PER_METRE",
-                "value": 16.17004445442465
-            },
-            "crossArea": {
-                "unit": "SQUARE_METRE",
-                "value": 2.2709632E-5
-            },
-            "diameter": {
-                "unit": "METRE",
-                "value": 0.0508
-            },
-            "description": "2 Inch Cable Bundle with 6,650 lb. Strength (1/4\" EHS)",
-            "coreStrands": 0,
-            "conductorStrands": 7,
-            "numberOfConductors": 1,
-            "usageGroups": [
-                "COMMUNICATION"
-            ],
-            "conductorProperties": "TOTAL",
-            "expansionCoefficient": {
-                "unit": "PER_CELSIUS",
-                "value": 1.151999999999999E-5
-            },
-            "modulus": {
-                "unit": "PASCAL",
-                "value": 1.72368932329209E11
-            },
-            "tensionGroups": [
-                {
-                    "name": "Full",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 7392.944324562951
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slack",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 739.2944324562952
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "aliases": [],
-            "size": "CSV0250",
-            "calculation": "DYNAMIC",
-            "strength": {
-                "unit": "NEWTON",
-                "value": 671.6814639043355
-            },
-            "weight": {
-                "unit": "NEWTON_PER_METRE",
-                "value": 0.9631975938556201
-            },
-            "crossArea": {
-                "unit": "SQUARE_METRE",
-                "value": 5.161280000000001E-7
-            },
-            "diameter": {
-                "unit": "METRE",
-                "value": 0.006350000000000001
-            },
-            "description": "0.25 Inch Cable Service",
-            "coreStrands": 0,
-            "conductorStrands": 1,
-            "numberOfConductors": 1,
-            "usageGroups": [
-                "COMMUNICATION",
-                "COMMUNICATION_SERVICE"
-            ],
-            "conductorProperties": "TOTAL",
-            "expansionCoefficient": {
-                "unit": "PER_CELSIUS",
-                "value": 1.691999999999999E-5
-            },
-            "modulus": {
-                "unit": "PASCAL",
-                "value": 1.158319225252284E11
-            },
-            "tensionGroups": [
-                {
-                    "name": "Full",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 169.032421379899
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slack",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 16.9032421379899
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "aliases": [],
-            "size": "T10M0500",
-            "calculation": "DYNAMIC",
-            "strength": {
-                "unit": "NEWTON",
-                "value": 49820.0820909176
-            },
-            "weight": {
-                "unit": "NEWTON_PER_METRE",
-                "value": 2.772841558069209
-            },
-            "crossArea": {
-                "unit": "SQUARE_METRE",
-                "value": 3.838702E-5
-            },
-            "diameter": {
-                "unit": "METRE",
-                "value": 0.0127
-            },
-            "description": "0.5 Inch Telephone Bundle with 5/16\" EHS Messenger",
-            "coreStrands": 0,
-            "conductorStrands": 0,
-            "numberOfConductors": 1,
-            "usageGroups": [
-                "COMMUNICATION",
-                "COMMUNICATION_SERVICE"
-            ],
-            "conductorProperties": "TOTAL",
-            "expansionCoefficient": {
-                "unit": "PER_CELSIUS",
-                "value": 1.151999999999999E-5
-            },
-            "modulus": {
-                "unit": "PASCAL",
-                "value": 1.72368932329209E11
-            },
-            "tensionGroups": [
-                {
-                    "name": "Full",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 12455.0205227294
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slack",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 1245.50205227294
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "aliases": [],
-            "size": "T10M1000",
-            "calculation": "DYNAMIC",
-            "strength": {
-                "unit": "NEWTON",
-                "value": 49820.0820909176
-            },
-            "weight": {
-                "unit": "NEWTON_PER_METRE",
-                "value": 6.567256321742864
-            },
-            "crossArea": {
-                "unit": "SQUARE_METRE",
-                "value": 3.838702E-5
-            },
-            "diameter": {
-                "unit": "METRE",
-                "value": 0.0254
-            },
-            "description": "1 Inch Telephone Bundle with 5/16\" EHS Messenger",
-            "coreStrands": 0,
-            "conductorStrands": 7,
-            "numberOfConductors": 1,
-            "usageGroups": [
-                "COMMUNICATION",
-                "COMMUNICATION_SERVICE"
-            ],
-            "conductorProperties": "TOTAL",
-            "expansionCoefficient": {
-                "unit": "PER_CELSIUS",
-                "value": 1.151999999999999E-5
-            },
-            "modulus": {
-                "unit": "PASCAL",
-                "value": 1.72368932329209E11
-            },
-            "tensionGroups": [
-                {
-                    "name": "Full",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 12455.0205227294
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slack",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 1245.50205227294
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "aliases": [],
-            "size": "T10M1500",
-            "calculation": "DYNAMIC",
-            "strength": {
-                "unit": "NEWTON",
-                "value": 49820.0820909176
-            },
-            "weight": {
-                "unit": "NEWTON_PER_METRE",
-                "value": 13.47017241104147
-            },
-            "crossArea": {
-                "unit": "SQUARE_METRE",
-                "value": 3.838702E-5
-            },
-            "diameter": {
-                "unit": "METRE",
-                "value": 0.03810000000000001
-            },
-            "description": "1.5 Inch Telephone Bundle with 5/16\" EHS Messenger",
-            "coreStrands": 0,
-            "conductorStrands": 7,
-            "numberOfConductors": 1,
-            "usageGroups": [
-                "COMMUNICATION"
-            ],
-            "conductorProperties": "TOTAL",
-            "expansionCoefficient": {
-                "unit": "PER_CELSIUS",
-                "value": 1.151999999999999E-5
-            },
-            "modulus": {
-                "unit": "PASCAL",
-                "value": 1.72368932329209E11
-            },
-            "tensionGroups": [
-                {
-                    "name": "Full",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 12455.0205227294
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slack",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 1245.50205227294
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "aliases": [],
-            "size": "T10M2000",
-            "calculation": "DYNAMIC",
-            "strength": {
-                "unit": "NEWTON",
-                "value": 49820.0820909176
-            },
-            "weight": {
-                "unit": "NEWTON_PER_METRE",
-                "value": 23.45240202009062
-            },
-            "crossArea": {
-                "unit": "SQUARE_METRE",
-                "value": 3.838702E-5
-            },
-            "diameter": {
-                "unit": "METRE",
-                "value": 0.0508
-            },
-            "description": "2 Inch Telephone Bundle with 5/16\" EHS Messenger",
-            "coreStrands": 0,
-            "conductorStrands": 7,
-            "numberOfConductors": 1,
-            "usageGroups": [
-                "COMMUNICATION"
-            ],
-            "conductorProperties": "TOTAL",
-            "expansionCoefficient": {
-                "unit": "PER_CELSIUS",
-                "value": 1.151999999999999E-5
-            },
-            "modulus": {
-                "unit": "PASCAL",
-                "value": 1.72368932329209E11
-            },
-            "tensionGroups": [
-                {
-                    "name": "Full",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 12455.0205227294
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slack",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 1245.50205227294
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "aliases": [],
-            "size": "T6M0750",
-            "calculation": "DYNAMIC",
-            "strength": {
-                "unit": "NEWTON",
-                "value": 29580.67374148232
-            },
-            "weight": {
-                "unit": "NEWTON_PER_METRE",
-                "value": 3.283628160871432
-            },
-            "crossArea": {
-                "unit": "SQUARE_METRE",
-                "value": 2.2709632E-5
-            },
-            "diameter": {
-                "unit": "METRE",
-                "value": 0.01905
-            },
-            "description": "0.75 Inch Telephone Bundle with 1/4\" EHS Messenger",
-            "coreStrands": 0,
-            "conductorStrands": 7,
-            "numberOfConductors": 1,
-            "usageGroups": [
-                "COMMUNICATION",
-                "COMMUNICATION_SERVICE"
-            ],
-            "conductorProperties": "TOTAL",
-            "expansionCoefficient": {
-                "unit": "PER_CELSIUS",
-                "value": 1.151999999999999E-5
-            },
-            "modulus": {
-                "unit": "PASCAL",
-                "value": 1.72368932329209E11
-            },
-            "tensionGroups": [
-                {
-                    "name": "Full",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 7392.944324562951
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slack",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 739.2944324562952
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "aliases": [],
-            "size": "TSV0250",
-            "calculation": "DYNAMIC",
-            "strength": {
-                "unit": "NEWTON",
-                "value": 280.2379617614115
-            },
-            "weight": {
-                "unit": "NEWTON_PER_METRE",
-                "value": 0.3940353793045718
-            },
-            "crossArea": {
-                "unit": "SQUARE_METRE",
-                "value": 1.2645136E-6
-            },
-            "diameter": {
-                "unit": "METRE",
-                "value": 0.006350000000000001
-            },
-            "description": "0.25 Inch Telephone Service",
-            "coreStrands": 0,
-            "conductorStrands": 4,
-            "numberOfConductors": 1,
-            "usageGroups": [
-                "COMMUNICATION",
-                "COMMUNICATION_SERVICE"
-            ],
-            "conductorProperties": "TOTAL",
-            "expansionCoefficient": {
-                "unit": "PER_CELSIUS",
-                "value": 1.691999999999999E-5
-            },
-            "modulus": {
-                "unit": "PASCAL",
-                "value": 1.158319225252284E11
-            },
-            "tensionGroups": [
-                {
-                    "name": "Full",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555558
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 70.05949044035287
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slack",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555558
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 7.005949044035288
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "aliases": [],
-            "size": "1/4\" EHS",
-            "calculation": "DYNAMIC",
-            "strength": {
-                "unit": "NEWTON",
-                "value": 29580.67374148232
-            },
-            "weight": {
-                "unit": "NEWTON_PER_METRE",
-                "value": 1.765862255401969
-            },
-            "crossArea": {
-                "unit": "SQUARE_METRE",
-                "value": 2.2709632E-5
-            },
-            "diameter": {
-                "unit": "METRE",
-                "value": 0.006350000000000001
-            },
-            "description": "1/4\" EHS Steel - Class A Galvanizing (1)",
-            "coreStrands": 0,
-            "conductorStrands": 7,
-            "numberOfConductors": 1,
-            "usageGroups": [
-                "GUY"
-            ],
-            "conductorProperties": "TOTAL",
-            "expansionCoefficient": {
-                "unit": "PER_CELSIUS",
-                "value": 1.151999999999999E-5
-            },
-            "modulus": {
-                "unit": "PASCAL",
-                "value": 1.72368932329209E11
-            },
-            "tensionGroups": [
-                {
-                    "name": "Full",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 7395.168435370581
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slack",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 739.5168435370582
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "aliases": [
-                {
-                    "id": "Down Guy"
-                }
-            ],
-            "size": "3/8\" EHS",
-            "calculation": "DYNAMIC",
-            "strength": {
-                "unit": "NEWTON",
-                "value": 68502.6128750117
-            },
-            "weight": {
-                "unit": "NEWTON_PER_METRE",
-                "value": 3.984135501857337
-            },
-            "crossArea": {
-                "unit": "SQUARE_METRE",
-                "value": 5.1096672E-5
-            },
-            "diameter": {
-                "unit": "METRE",
-                "value": 0.009144000000000001
-            },
-            "description": "3/8\" EHS Steel - Class A Galvanizing (1)",
-            "coreStrands": 0,
-            "conductorStrands": 7,
-            "numberOfConductors": 1,
-            "usageGroups": [
-                "GUY"
-            ],
-            "conductorProperties": "TOTAL",
-            "expansionCoefficient": {
-                "unit": "PER_CELSIUS",
-                "value": 1.151999999999999E-5
-            },
-            "modulus": {
-                "unit": "PASCAL",
-                "value": 1.72368932329209E11
-            },
-            "tensionGroups": [
-                {
-                    "name": "Full",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 17125.65321875292
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slack",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 1712.565321875292
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "aliases": [],
-            "size": "5/16\" EHS",
-            "calculation": "DYNAMIC",
-            "strength": {
-                "unit": "NEWTON",
-                "value": 49820.0820909176
-            },
-            "weight": {
-                "unit": "NEWTON_PER_METRE",
-                "value": 2.991750102127304
-            },
-            "crossArea": {
-                "unit": "SQUARE_METRE",
-                "value": 3.838702E-5
-            },
-            "diameter": {
-                "unit": "METRE",
-                "value": 0.007924800000000001
-            },
-            "description": "",
-            "coreStrands": 0,
-            "conductorStrands": 7,
-            "numberOfConductors": 1,
-            "usageGroups": [
-                "GUY"
-            ],
-            "conductorProperties": "TOTAL",
-            "expansionCoefficient": {
-                "unit": "PER_CELSIUS",
-                "value": 1.151999999999999E-5
-            },
-            "modulus": {
-                "unit": "PASCAL",
-                "value": 1.72368932329209E11
-            },
-            "tensionGroups": [
-                {
-                    "name": "Full",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 12455.0205227294
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slack",
-                    "temperature": {
-                        "unit": "CELSIUS",
-                        "value": 15.55555555555555
-                    },
-                    "groups": [
-                        {
-                            "distance": {
-                                "unit": "METRE",
-                                "value": 1523.6952
-                            },
-                            "tension": {
-                                "unit": "NEWTON",
-                                "value": 1245.50205227294
-                            }
-                        }
-                    ]
-                }
-            ]
+          "id": "1/0 AAAC - S",
+          "tensionGroupName": "Slack"
         }
-    ],
-    "dateModified": "2020-10-07T14:45:14.147Z",
+      ],
+      "size": "1/0 AAAC",
+      "calculation": "NONLINEAR_STRESS_STRAIN",
+      "strength": {
+        "unit": "NEWTON",
+        "value": 86740.32149757976
+      },
+      "weight": {
+        "unit": "NEWTON_PER_METRE",
+        "value": 9.573600326807375
+      },
+      "crossArea": {
+        "unit": "SQUARE_METRE",
+        "value": 0.00028090266400000003
+      },
+      "diameter": {
+        "unit": "METRE",
+        "value": 0.021793200000000002
+      },
+      "description": "1/0 AAAC - Azusa",
+      "coreStrands": 0,
+      "conductorStrands": 7,
+      "numberOfConductors": 1,
+      "usageGroups": [
+        "PRIMARY",
+        "NEUTRAL"
+      ],
+      "conductorProperties": "CORE_AND_OUTER",
+      "coreExpansionCoefficient": {
+        "unit": "PER_CELSIUS",
+        "value": 0.00001152
+      },
+      "coreModulus": {
+        "unit": "PASCAL",
+        "value": 27286001987.71379
+      },
+      "outerExpansionCoefficient": {
+        "unit": "PER_CELSIUS",
+        "value": 0.00002304
+      },
+      "outerModulus": {
+        "unit": "PASCAL",
+        "value": 47229087458.20328
+      },
+      "stressStrainPolynomials": {
+        "outer": [
+          {
+            "unit": "PASCAL",
+            "value": -6087381.214138346
+          },
+          {
+            "unit": "PASCAL",
+            "value": 405326233.8478644
+          },
+          {
+            "unit": "PASCAL",
+            "value": -416354398.1382871
+          },
+          {
+            "unit": "PASCAL",
+            "value": 45215818.32859811
+          },
+          {
+            "unit": "PASCAL",
+            "value": 115156236.31049797
+          }
+        ],
+        "core": [
+          {
+            "unit": "PASCAL",
+            "value": -163405.74784809016
+          },
+          {
+            "unit": "PASCAL",
+            "value": 279678245.3643521
+          },
+          {
+            "unit": "PASCAL",
+            "value": -30368647.973489366
+          },
+          {
+            "unit": "PASCAL",
+            "value": -107075580.76290466
+          },
+          {
+            "unit": "PASCAL",
+            "value": 48097826.87714249
+          }
+        ]
+      },
+      "creepPolynomials": {
+        "outer": [
+          {
+            "unit": "PASCAL",
+            "value": -2241485.5960090347
+          },
+          {
+            "unit": "PASCAL",
+            "value": 172263442.54262358
+          },
+          {
+            "unit": "PASCAL",
+            "value": -252183332.2306553
+          },
+          {
+            "unit": "PASCAL",
+            "value": 262255883.16024497
+          },
+          {
+            "unit": "PASCAL",
+            "value": -98395081.33080569
+          }
+        ],
+        "core": [
+          {
+            "unit": "PASCAL",
+            "value": 959060.7394797191
+          },
+          {
+            "unit": "PASCAL",
+            "value": 250482395.60643068
+          },
+          {
+            "unit": "PASCAL",
+            "value": 89114738.01420107
+          },
+          {
+            "unit": "PASCAL",
+            "value": -463148426.41129154
+          },
+          {
+            "unit": "PASCAL",
+            "value": 304879272.7466118
+          }
+        ]
+      },
+      "stressStrainTemperature": {
+        "unit": "CELSIUS",
+        "value": 23.88888888888889
+      },
+      "tensionGroups": [
+        {
+          "name": "Full",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 2279.26875565948
+              }
+            }
+          ]
+        },
+        {
+          "name": "Slack",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 474.8476574290584
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "size": "20/0 ASCR",
+      "calculation": "NONLINEAR_STRESS_STRAIN",
+      "strength": {
+        "unit": "NEWTON",
+        "value": 86740.32149757976
+      },
+      "weight": {
+        "unit": "NEWTON_PER_METRE",
+        "value": 9.573600326807375
+      },
+      "crossArea": {
+        "unit": "SQUARE_METRE",
+        "value": 0.00028090266400000003
+      },
+      "diameter": {
+        "unit": "METRE",
+        "value": 0.021793200000000002
+      },
+      "description": "1/0 AAAC - Azusa",
+      "coreStrands": 0,
+      "conductorStrands": 7,
+      "numberOfConductors": 1,
+      "usageGroups": [
+        "PRIMARY",
+        "NEUTRAL"
+      ],
+      "conductorProperties": "CORE_AND_OUTER",
+      "coreExpansionCoefficient": {
+        "unit": "PER_FAHRENHEIT",
+        "value": 0.00001152
+      },
+      "coreModulus": {
+        "unit": "POUND_FORCE_PER_SQUARE_INCH",
+        "value": 27286001987.71379
+      },
+      "outerExpansionCoefficient": {
+        "unit": "PER_FAHRENHEIT",
+        "value": 0.00002304
+      },
+      "outerModulus": {
+        "unit": "POUND_FORCE_PER_SQUARE_INCH",
+        "value": 47229087458.20328
+      },
+      "stressStrainPolynomials": {
+        "outer": [
+          {
+            "unit": "PASCAL",
+            "value": -6087381.214138346
+          },
+          {
+            "unit": "PASCAL",
+            "value": 405326233.8478644
+          },
+          {
+            "unit": "PASCAL",
+            "value": -416354398.1382871
+          },
+          {
+            "unit": "PASCAL",
+            "value": 45215818.32859811
+          },
+          {
+            "unit": "PASCAL",
+            "value": 115156236.31049797
+          }
+        ],
+        "core": [
+          {
+            "unit": "PASCAL",
+            "value": -163405.74784809016
+          },
+          {
+            "unit": "PASCAL",
+            "value": 279678245.3643521
+          },
+          {
+            "unit": "PASCAL",
+            "value": -30368647.973489366
+          },
+          {
+            "unit": "PASCAL",
+            "value": -107075580.76290466
+          },
+          {
+            "unit": "PASCAL",
+            "value": 48097826.87714249
+          }
+        ]
+      },
+      "creepPolynomials": {
+        "outer": [
+          {
+            "unit": "PASCAL",
+            "value": -2241485.5960090347
+          },
+          {
+            "unit": "PASCAL",
+            "value": 172263442.54262358
+          },
+          {
+            "unit": "PASCAL",
+            "value": -252183332.2306553
+          },
+          {
+            "unit": "PASCAL",
+            "value": 262255883.16024497
+          },
+          {
+            "unit": "PASCAL",
+            "value": -98395081.33080569
+          }
+        ],
+        "core": [
+          {
+            "unit": "PASCAL",
+            "value": 959060.7394797191
+          },
+          {
+            "unit": "PASCAL",
+            "value": 250482395.60643068
+          },
+          {
+            "unit": "PASCAL",
+            "value": 89114738.01420107
+          },
+          {
+            "unit": "PASCAL",
+            "value": -463148426.41129154
+          },
+          {
+            "unit": "PASCAL",
+            "value": 304879272.7466118
+          }
+        ]
+      },
+      "stressStrainTemperature": {
+        "unit": "CELSIUS",
+        "value": 23.88888888888889
+      },
+      "tensionGroups": [
+        {
+          "name": "Full",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 2279.26875565948
+              }
+            }
+          ]
+        },
+        {
+          "name": "Slack",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 474.8476574290584
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "aliases": [
+        {
+          "id": "1/0 AAC Triplex",
+          "tensionGroupName": "Full"
+        },
+        {
+          "id": "1/0 AAC Triplex - S",
+          "tensionGroupName": "Slack"
+        }
+      ],
+      "size": "1/0 AAC Triplex",
+      "calculation": "DYNAMIC",
+      "strength": {
+        "unit": "NEWTON",
+        "value": 8851.961014368395
+      },
+      "weight": {
+        "unit": "NEWTON_PER_METRE",
+        "value": 5.370556280891941
+      },
+      "crossArea": {
+        "unit": "SQUARE_METRE",
+        "value": 0.000053483764
+      },
+      "diameter": {
+        "unit": "METRE",
+        "value": 0.0242316
+      },
+      "description": "1/0 AAC Triplex - Purpura",
+      "coreStrands": 0,
+      "conductorStrands": 9,
+      "numberOfConductors": 1,
+      "usageGroups": [
+        "SECONDARY",
+        "UTILITY_SERVICE"
+      ],
+      "conductorProperties": "TOTAL",
+      "expansionCoefficient": {
+        "unit": "PER_CELSIUS",
+        "value": 0.00002303999999999999
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 64121242826.46576
+      },
+      "tensionGroups": [
+        {
+          "name": "Full",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555558
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 1062.235321724207
+              }
+            }
+          ]
+        },
+        {
+          "name": "Slack",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555558
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 221.0766142784468
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "aliases": [
+        {
+          "id": "1/0 ACSR",
+          "tensionGroupName": "Full"
+        },
+        {
+          "id": "1/0 ACSR - S",
+          "tensionGroupName": "Slack"
+        }
+      ],
+      "size": "1/0 ACSR",
+      "calculation": "DYNAMIC",
+      "strength": {
+        "unit": "NEWTON",
+        "value": 19483.21067484099
+      },
+      "weight": {
+        "unit": "NEWTON_PER_METRE",
+        "value": 2.117575316188643
+      },
+      "crossArea": {
+        "unit": "SQUARE_METRE",
+        "value": 0.000062451488
+      },
+      "diameter": {
+        "unit": "METRE",
+        "value": 0.0101092
+      },
+      "description": "1/0 ACSR - Raven",
+      "coreStrands": 1,
+      "conductorStrands": 6,
+      "numberOfConductors": 1,
+      "usageGroups": [
+        "PRIMARY",
+        "NEUTRAL"
+      ],
+      "conductorProperties": "TOTAL",
+      "expansionCoefficient": {
+        "unit": "PER_CELSIUS",
+        "value": 0.00001894968
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 78255495277.4609
+      },
+      "tensionGroups": [
+        {
+          "name": "Full",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555558
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 2339.764569627023
+              }
+            }
+          ]
+        },
+        {
+          "name": "Slack",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555558
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 408.79156644244
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "aliases": [],
+      "size": "2 AAC",
+      "calculation": "DYNAMIC",
+      "strength": {
+        "unit": "NEWTON",
+        "value": 6005.099180601675
+      },
+      "weight": {
+        "unit": "NEWTON_PER_METRE",
+        "value": 0.9077407626942358
+      },
+      "crossArea": {
+        "unit": "SQUARE_METRE",
+        "value": 0.000033677352
+      },
+      "diameter": {
+        "unit": "METRE",
+        "value": 0.0074168
+      },
+      "description": "2 AAC - Iris",
+      "coreStrands": 0,
+      "conductorStrands": 7,
+      "numberOfConductors": 1,
+      "usageGroups": [
+        "PRIMARY",
+        "NEUTRAL"
+      ],
+      "conductorProperties": "TOTAL",
+      "expansionCoefficient": {
+        "unit": "PER_CELSIUS",
+        "value": 0.00002303999999999999
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 64121242826.46576
+      },
+      "tensionGroups": [
+        {
+          "name": "Full",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 720.6119016722009
+              }
+            }
+          ]
+        },
+        {
+          "name": "Slack",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 149.9050684342788
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "aliases": [],
+      "size": "2 ACSR",
+      "calculation": "DYNAMIC",
+      "strength": {
+        "unit": "NEWTON",
+        "value": 12677.43160349242
+      },
+      "weight": {
+        "unit": "NEWTON_PER_METRE",
+        "value": 1.33096394787322
+      },
+      "crossArea": {
+        "unit": "SQUARE_METRE",
+        "value": 0.000039290244
+      },
+      "diameter": {
+        "unit": "METRE",
+        "value": 0.008026400000000001
+      },
+      "description": "2 ACSR - Sparrow",
+      "coreStrands": 1,
+      "conductorStrands": 6,
+      "numberOfConductors": 1,
+      "usageGroups": [
+        "PRIMARY",
+        "NEUTRAL"
+      ],
+      "conductorProperties": "TOTAL",
+      "expansionCoefficient": {
+        "unit": "PER_CELSIUS",
+        "value": 0.00001896119999999999
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 79841289454.88963
+      },
+      "tensionGroups": [
+        {
+          "name": "Full",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 1521.29179241909
+              }
+            }
+          ]
+        },
+        {
+          "name": "Slack",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 316.9357900873106
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "aliases": [],
+      "size": "2/0 ACSR",
+      "calculation": "DYNAMIC",
+      "strength": {
+        "unit": "NEWTON",
+        "value": 23620.05677703325
+      },
+      "weight": {
+        "unit": "NEWTON_PER_METRE",
+        "value": 2.667765456921323
+      },
+      "crossArea": {
+        "unit": "SQUARE_METRE",
+        "value": 0.000078645004
+      },
+      "diameter": {
+        "unit": "METRE",
+        "value": 0.0113538
+      },
+      "description": "2/0 ACSR - Quail",
+      "coreStrands": 1,
+      "conductorStrands": 6,
+      "numberOfConductors": 1,
+      "usageGroups": [
+        "PRIMARY",
+        "NEUTRAL"
+      ],
+      "conductorProperties": "TOTAL",
+      "expansionCoefficient": {
+        "unit": "PER_CELSIUS",
+        "value": 0.00001894968
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 78255495277.4609
+      },
+      "tensionGroups": [
+        {
+          "name": "Full",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 2834.40681324399
+              }
+            }
+          ]
+        },
+        {
+          "name": "Slack",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 590.5014194258314
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "aliases": [],
+      "size": "3/0 HDC - Stranded",
+      "calculation": "DYNAMIC",
+      "strength": {
+        "unit": "NEWTON",
+        "value": 32738.91108831728
+      },
+      "weight": {
+        "unit": "NEWTON_PER_METRE",
+        "value": 7.558182331179176
+      },
+      "crossArea": {
+        "unit": "SQUARE_METRE",
+        "value": 0.000084967572
+      },
+      "diameter": {
+        "unit": "METRE",
+        "value": 0.01179576
+      },
+      "description": "3/0 HDC - Class A,AA - Stranded",
+      "coreStrands": 0,
+      "conductorStrands": 7,
+      "numberOfConductors": 1,
+      "usageGroups": [
+        "PRIMARY",
+        "NEUTRAL",
+        "OPEN_WIRE"
+      ],
+      "conductorProperties": "TOTAL",
+      "expansionCoefficient": {
+        "unit": "PER_CELSIUS",
+        "value": 0.00001674
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 117210873983.8621
+      },
+      "tensionGroups": [
+        {
+          "name": "Full",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555558
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 3928.669330598073
+              }
+            }
+          ]
+        },
+        {
+          "name": "Slack",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555558
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 818.472777207932
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "aliases": [
+        {
+          "id": "336 ACSR",
+          "tensionGroupName": "Full"
+        },
+        {
+          "id": "336 ACSR - S",
+          "tensionGroupName": "Slack"
+        }
+      ],
+      "size": "336.4 ACSR",
+      "calculation": "DYNAMIC",
+      "strength": {
+        "unit": "NEWTON",
+        "value": 38610.56362046114
+      },
+      "weight": {
+        "unit": "NEWTON_PER_METRE",
+        "value": 5.323855791492882
+      },
+      "crossArea": {
+        "unit": "SQUARE_METRE",
+        "value": 0.000179935124
+      },
+      "diameter": {
+        "unit": "METRE",
+        "value": 0.0173736
+      },
+      "description": "336.4 ACSR - Merlin",
+      "coreStrands": 1,
+      "conductorStrands": 18,
+      "numberOfConductors": 1,
+      "usageGroups": [
+        "PRIMARY",
+        "NEUTRAL"
+      ],
+      "conductorProperties": "TOTAL",
+      "expansionCoefficient": {
+        "unit": "PER_CELSIUS",
+        "value": 0.00002131776
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 68258097202.36677
+      },
+      "tensionGroups": [
+        {
+          "name": "Full",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 4633.267634455337
+              }
+            }
+          ]
+        },
+        {
+          "name": "Slack",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 965.2640905115286
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "aliases": [],
+      "size": "4 AAC Duplex",
+      "calculation": "DYNAMIC",
+      "strength": {
+        "unit": "NEWTON",
+        "value": 3918.883243044501
+      },
+      "weight": {
+        "unit": "NEWTON_PER_METRE",
+        "value": 1.401014681971811
+      },
+      "crossArea": {
+        "unit": "SQUARE_METRE",
+        "value": 0.000021161248
+      },
+      "diameter": {
+        "unit": "METRE",
+        "value": 0.014478
+      },
+      "description": "4 AAC Duplex - Spaniel",
+      "coreStrands": 0,
+      "conductorStrands": 7,
+      "numberOfConductors": 1,
+      "usageGroups": [
+        "SECONDARY"
+      ],
+      "conductorProperties": "TOTAL",
+      "expansionCoefficient": {
+        "unit": "PER_CELSIUS",
+        "value": 0.00002303999999999999
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 64121242826.46576
+      },
+      "tensionGroups": [
+        {
+          "name": "Full",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 470.2659891653401
+              }
+            }
+          ]
+        },
+        {
+          "name": "Slack",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 97.860875535731
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "aliases": [],
+      "size": "4 AAC Triplex",
+      "calculation": "DYNAMIC",
+      "strength": {
+        "unit": "NEWTON",
+        "value": 3918.883243044501
+      },
+      "weight": {
+        "unit": "NEWTON_PER_METRE",
+        "value": 2.24746105232978
+      },
+      "crossArea": {
+        "unit": "SQUARE_METRE",
+        "value": 0.000021161248
+      },
+      "diameter": {
+        "unit": "METRE",
+        "value": 0.014478
+      },
+      "description": "4 AAC Triplex - Oyster",
+      "coreStrands": 0,
+      "conductorStrands": 7,
+      "numberOfConductors": 1,
+      "usageGroups": [
+        "SECONDARY",
+        "UTILITY_SERVICE"
+      ],
+      "conductorProperties": "TOTAL",
+      "expansionCoefficient": {
+        "unit": "PER_CELSIUS",
+        "value": 0.00002303999999999999
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 64121242826.46576
+      },
+      "tensionGroups": [
+        {
+          "name": "Full",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555558
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 470.2659891653401
+              }
+            }
+          ]
+        },
+        {
+          "name": "Slack",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555558
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 97.860875535731
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "aliases": [],
+      "size": "4 ACSR",
+      "calculation": "DYNAMIC",
+      "strength": {
+        "unit": "NEWTON",
+        "value": 8273.69220438453
+      },
+      "weight": {
+        "unit": "NEWTON_PER_METRE",
+        "value": 0.8362306383019246
+      },
+      "crossArea": {
+        "unit": "SQUARE_METRE",
+        "value": 0.000024709628
+      },
+      "diameter": {
+        "unit": "METRE",
+        "value": 0.006350000000000001
+      },
+      "description": "4 ACSR - Swan",
+      "coreStrands": 1,
+      "conductorStrands": 6,
+      "numberOfConductors": 1,
+      "usageGroups": [
+        "PRIMARY",
+        "NEUTRAL"
+      ],
+      "conductorProperties": "TOTAL",
+      "expansionCoefficient": {
+        "unit": "PER_CELSIUS",
+        "value": 0.00001896119999999999
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 79841289454.88963
+      },
+      "tensionGroups": [
+        {
+          "name": "Full",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 992.8430645261436
+              }
+            }
+          ]
+        },
+        {
+          "name": "Slack",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 206.8423051096132
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "aliases": [],
+      "size": "4/0 AAC Quadruplex",
+      "calculation": "DYNAMIC",
+      "strength": {
+        "unit": "NEWTON",
+        "value": 17881.85089334721
+      },
+      "weight": {
+        "unit": "NEWTON_PER_METRE",
+        "value": 13.79123827566001
+      },
+      "crossArea": {
+        "unit": "SQUARE_METRE",
+        "value": 0.000107290108
+      },
+      "diameter": {
+        "unit": "METRE",
+        "value": 0.0387548882
+      },
+      "description": "4/0 AAC Quadruplex - Oldenburg",
+      "coreStrands": 0,
+      "conductorStrands": 18,
+      "numberOfConductors": 1,
+      "usageGroups": [
+        "SECONDARY",
+        "UTILITY_SERVICE"
+      ],
+      "conductorProperties": "TOTAL",
+      "expansionCoefficient": {
+        "unit": "PER_CELSIUS",
+        "value": 0.00002303999999999999
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 64121242826.46576
+      },
+      "tensionGroups": [
+        {
+          "name": "Full",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 2145.822107201666
+              }
+            }
+          ]
+        },
+        {
+          "name": "Slack",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 447.0462723336803
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "aliases": [
+        {
+          "id": "4/0 ACSR",
+          "tensionGroupName": "Full"
+        },
+        {
+          "id": "4/0 ACSR - S",
+          "tensionGroupName": "Slack"
+        }
+      ],
+      "size": "4/0 ACSR",
+      "calculation": "DYNAMIC",
+      "strength": {
+        "unit": "NEWTON",
+        "value": 37142.65048742518
+      },
+      "weight": {
+        "unit": "NEWTON_PER_METRE",
+        "value": 4.243906974139611
+      },
+      "crossArea": {
+        "unit": "SQUARE_METRE",
+        "value": 0.000125096524
+      },
+      "diameter": {
+        "unit": "METRE",
+        "value": 0.0143002
+      },
+      "description": "4/0 ACSR - Penguin",
+      "coreStrands": 1,
+      "conductorStrands": 6,
+      "numberOfConductors": 1,
+      "usageGroups": [
+        "PRIMARY",
+        "NEUTRAL"
+      ],
+      "conductorProperties": "TOTAL",
+      "expansionCoefficient": {
+        "unit": "PER_CELSIUS",
+        "value": 0.00001894968
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 78255495277.4609
+      },
+      "tensionGroups": [
+        {
+          "name": "Full",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 4457.118058491021
+              }
+            }
+          ]
+        },
+        {
+          "name": "Slack",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 928.5662621856294
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "aliases": [],
+      "size": "477 ACSR",
+      "calculation": "DYNAMIC",
+      "strength": {
+        "unit": "NEWTON",
+        "value": 86740.32149757976
+      },
+      "weight": {
+        "unit": "NEWTON_PER_METRE",
+        "value": 9.56338459475133
+      },
+      "crossArea": {
+        "unit": "SQUARE_METRE",
+        "value": 0.000280902664
+      },
+      "diameter": {
+        "unit": "METRE",
+        "value": 0.0217932
+      },
+      "description": "477 ACSR - Hawk",
+      "coreStrands": 7,
+      "conductorStrands": 26,
+      "numberOfConductors": 1,
+      "usageGroups": [
+        "PRIMARY",
+        "NEUTRAL"
+      ],
+      "conductorProperties": "TOTAL",
+      "expansionCoefficient": {
+        "unit": "PER_CELSIUS",
+        "value": 0.00001882152
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 74515089445.91707
+      },
+      "tensionGroups": [
+        {
+          "name": "Full",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 10408.83857970956
+              }
+            }
+          ]
+        },
+        {
+          "name": "Slack",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 2168.508037439494
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "aliases": [],
+      "size": "6 HDC - Solid",
+      "calculation": "DYNAMIC",
+      "strength": {
+        "unit": "NEWTON",
+        "value": 5693.723667533441
+      },
+      "weight": {
+        "unit": "NEWTON_PER_METRE",
+        "value": 1.152918332039302
+      },
+      "crossArea": {
+        "unit": "SQUARE_METRE",
+        "value": 0.000013290296
+      },
+      "diameter": {
+        "unit": "METRE",
+        "value": 0.004114800000000001
+      },
+      "description": "6 HDC - Solid",
+      "coreStrands": 0,
+      "conductorStrands": 1,
+      "numberOfConductors": 1,
+      "usageGroups": [
+        "PRIMARY",
+        "NEUTRAL",
+        "SECONDARY",
+        "UTILITY_SERVICE",
+        "OPEN_WIRE"
+      ],
+      "conductorProperties": "TOTAL",
+      "expansionCoefficient": {
+        "unit": "PER_CELSIUS",
+        "value": 0.00001674
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 117210873983.8621
+      },
+      "tensionGroups": [
+        {
+          "name": "Full",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 683.2468401040128
+              }
+            }
+          ]
+        },
+        {
+          "name": "Slack",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 142.343091688336
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "aliases": [],
+      "size": "C6.6M0500",
+      "calculation": "DYNAMIC",
+      "strength": {
+        "unit": "NEWTON",
+        "value": 29580.67374148232
+      },
+      "weight": {
+        "unit": "NEWTON_PER_METRE",
+        "value": 2.542257891661348
+      },
+      "crossArea": {
+        "unit": "SQUARE_METRE",
+        "value": 0.000022709632
+      },
+      "diameter": {
+        "unit": "METRE",
+        "value": 0.0127
+      },
+      "description": " 0.5 Inch Cable Bundle with 6,650 lb. Strength (1/4\" EHS)",
+      "coreStrands": 0,
+      "conductorStrands": 7,
+      "numberOfConductors": 1,
+      "usageGroups": [
+        "COMMUNICATION",
+        "COMMUNICATION_SERVICE"
+      ],
+      "conductorProperties": "TOTAL",
+      "expansionCoefficient": {
+        "unit": "PER_CELSIUS",
+        "value": 0.00001151999999999999
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 172368932329.209
+      },
+      "tensionGroups": [
+        {
+          "name": "Full",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 7392.944324562951
+              }
+            }
+          ]
+        },
+        {
+          "name": "Slack",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 739.2944324562952
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "aliases": [],
+      "size": "C6.6M1000",
+      "calculation": "DYNAMIC",
+      "strength": {
+        "unit": "NEWTON",
+        "value": 29580.67374148232
+      },
+      "weight": {
+        "unit": "NEWTON_PER_METRE",
+        "value": 4.801394066340894
+      },
+      "crossArea": {
+        "unit": "SQUARE_METRE",
+        "value": 0.000022709632
+      },
+      "diameter": {
+        "unit": "METRE",
+        "value": 0.0254
+      },
+      "description": "1 Inch Cable Bundle with 6,650 lb. Strength (1/4\" EHS)",
+      "coreStrands": 0,
+      "conductorStrands": 7,
+      "numberOfConductors": 1,
+      "usageGroups": [
+        "COMMUNICATION",
+        "COMMUNICATION_SERVICE"
+      ],
+      "conductorProperties": "TOTAL",
+      "expansionCoefficient": {
+        "unit": "PER_CELSIUS",
+        "value": 0.00001151999999999999
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 172368932329.209
+      },
+      "tensionGroups": [
+        {
+          "name": "Full",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 7392.944324562951
+              }
+            }
+          ]
+        },
+        {
+          "name": "Slack",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 739.2944324562952
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "aliases": [],
+      "size": "C6.6M1500",
+      "calculation": "DYNAMIC",
+      "strength": {
+        "unit": "NEWTON",
+        "value": 29580.67374148232
+      },
+      "weight": {
+        "unit": "NEWTON_PER_METRE",
+        "value": 9.542661252580498
+      },
+      "crossArea": {
+        "unit": "SQUARE_METRE",
+        "value": 0.000022709632
+      },
+      "diameter": {
+        "unit": "METRE",
+        "value": 0.03810000000000001
+      },
+      "description": "1.5 Inch Cable Bundle with 6,650 lb. Strength (1/4\" EHS)",
+      "coreStrands": 0,
+      "conductorStrands": 7,
+      "numberOfConductors": 1,
+      "usageGroups": [
+        "COMMUNICATION"
+      ],
+      "conductorProperties": "TOTAL",
+      "expansionCoefficient": {
+        "unit": "PER_CELSIUS",
+        "value": 0.00001151999999999999
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 172368932329.209
+      },
+      "tensionGroups": [
+        {
+          "name": "Full",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 7392.944324562951
+              }
+            }
+          ]
+        },
+        {
+          "name": "Slack",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 739.2944324562952
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "aliases": [],
+      "size": "C6.6M2000",
+      "calculation": "DYNAMIC",
+      "strength": {
+        "unit": "NEWTON",
+        "value": 29580.67374148232
+      },
+      "weight": {
+        "unit": "NEWTON_PER_METRE",
+        "value": 16.17004445442465
+      },
+      "crossArea": {
+        "unit": "SQUARE_METRE",
+        "value": 0.000022709632
+      },
+      "diameter": {
+        "unit": "METRE",
+        "value": 0.0508
+      },
+      "description": "2 Inch Cable Bundle with 6,650 lb. Strength (1/4\" EHS)",
+      "coreStrands": 0,
+      "conductorStrands": 7,
+      "numberOfConductors": 1,
+      "usageGroups": [
+        "COMMUNICATION"
+      ],
+      "conductorProperties": "TOTAL",
+      "expansionCoefficient": {
+        "unit": "PER_CELSIUS",
+        "value": 0.00001151999999999999
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 172368932329.209
+      },
+      "tensionGroups": [
+        {
+          "name": "Full",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 7392.944324562951
+              }
+            }
+          ]
+        },
+        {
+          "name": "Slack",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 739.2944324562952
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "aliases": [],
+      "size": "CSV0250",
+      "calculation": "DYNAMIC",
+      "strength": {
+        "unit": "NEWTON",
+        "value": 671.6814639043355
+      },
+      "weight": {
+        "unit": "NEWTON_PER_METRE",
+        "value": 0.9631975938556201
+      },
+      "crossArea": {
+        "unit": "SQUARE_METRE",
+        "value": 5.161280000000001E-7
+      },
+      "diameter": {
+        "unit": "METRE",
+        "value": 0.006350000000000001
+      },
+      "description": "0.25 Inch Cable Service",
+      "coreStrands": 0,
+      "conductorStrands": 1,
+      "numberOfConductors": 1,
+      "usageGroups": [
+        "COMMUNICATION",
+        "COMMUNICATION_SERVICE"
+      ],
+      "conductorProperties": "TOTAL",
+      "expansionCoefficient": {
+        "unit": "PER_CELSIUS",
+        "value": 0.00001691999999999999
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 115831922525.2284
+      },
+      "tensionGroups": [
+        {
+          "name": "Full",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 169.032421379899
+              }
+            }
+          ]
+        },
+        {
+          "name": "Slack",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 16.9032421379899
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "aliases": [],
+      "size": "T10M0500",
+      "calculation": "DYNAMIC",
+      "strength": {
+        "unit": "NEWTON",
+        "value": 49820.0820909176
+      },
+      "weight": {
+        "unit": "NEWTON_PER_METRE",
+        "value": 2.772841558069209
+      },
+      "crossArea": {
+        "unit": "SQUARE_METRE",
+        "value": 0.00003838702
+      },
+      "diameter": {
+        "unit": "METRE",
+        "value": 0.0127
+      },
+      "description": "0.5 Inch Telephone Bundle with 5/16\" EHS Messenger",
+      "coreStrands": 0,
+      "conductorStrands": 0,
+      "numberOfConductors": 1,
+      "usageGroups": [
+        "COMMUNICATION",
+        "COMMUNICATION_SERVICE"
+      ],
+      "conductorProperties": "TOTAL",
+      "expansionCoefficient": {
+        "unit": "PER_CELSIUS",
+        "value": 0.00001151999999999999
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 172368932329.209
+      },
+      "tensionGroups": [
+        {
+          "name": "Full",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 12455.0205227294
+              }
+            }
+          ]
+        },
+        {
+          "name": "Slack",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 1245.50205227294
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "aliases": [],
+      "size": "T10M1000",
+      "calculation": "DYNAMIC",
+      "strength": {
+        "unit": "NEWTON",
+        "value": 49820.0820909176
+      },
+      "weight": {
+        "unit": "NEWTON_PER_METRE",
+        "value": 6.567256321742864
+      },
+      "crossArea": {
+        "unit": "SQUARE_METRE",
+        "value": 0.00003838702
+      },
+      "diameter": {
+        "unit": "METRE",
+        "value": 0.0254
+      },
+      "description": "1 Inch Telephone Bundle with 5/16\" EHS Messenger",
+      "coreStrands": 0,
+      "conductorStrands": 7,
+      "numberOfConductors": 1,
+      "usageGroups": [
+        "COMMUNICATION",
+        "COMMUNICATION_SERVICE"
+      ],
+      "conductorProperties": "TOTAL",
+      "expansionCoefficient": {
+        "unit": "PER_CELSIUS",
+        "value": 0.00001151999999999999
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 172368932329.209
+      },
+      "tensionGroups": [
+        {
+          "name": "Full",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 12455.0205227294
+              }
+            }
+          ]
+        },
+        {
+          "name": "Slack",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 1245.50205227294
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "aliases": [],
+      "size": "T10M1500",
+      "calculation": "DYNAMIC",
+      "strength": {
+        "unit": "NEWTON",
+        "value": 49820.0820909176
+      },
+      "weight": {
+        "unit": "NEWTON_PER_METRE",
+        "value": 13.47017241104147
+      },
+      "crossArea": {
+        "unit": "SQUARE_METRE",
+        "value": 0.00003838702
+      },
+      "diameter": {
+        "unit": "METRE",
+        "value": 0.03810000000000001
+      },
+      "description": "1.5 Inch Telephone Bundle with 5/16\" EHS Messenger",
+      "coreStrands": 0,
+      "conductorStrands": 7,
+      "numberOfConductors": 1,
+      "usageGroups": [
+        "COMMUNICATION"
+      ],
+      "conductorProperties": "TOTAL",
+      "expansionCoefficient": {
+        "unit": "PER_CELSIUS",
+        "value": 0.00001151999999999999
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 172368932329.209
+      },
+      "tensionGroups": [
+        {
+          "name": "Full",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 12455.0205227294
+              }
+            }
+          ]
+        },
+        {
+          "name": "Slack",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 1245.50205227294
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "aliases": [],
+      "size": "T10M2000",
+      "calculation": "DYNAMIC",
+      "strength": {
+        "unit": "NEWTON",
+        "value": 49820.0820909176
+      },
+      "weight": {
+        "unit": "NEWTON_PER_METRE",
+        "value": 23.45240202009062
+      },
+      "crossArea": {
+        "unit": "SQUARE_METRE",
+        "value": 0.00003838702
+      },
+      "diameter": {
+        "unit": "METRE",
+        "value": 0.0508
+      },
+      "description": "2 Inch Telephone Bundle with 5/16\" EHS Messenger",
+      "coreStrands": 0,
+      "conductorStrands": 7,
+      "numberOfConductors": 1,
+      "usageGroups": [
+        "COMMUNICATION"
+      ],
+      "conductorProperties": "TOTAL",
+      "expansionCoefficient": {
+        "unit": "PER_CELSIUS",
+        "value": 0.00001151999999999999
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 172368932329.209
+      },
+      "tensionGroups": [
+        {
+          "name": "Full",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 12455.0205227294
+              }
+            }
+          ]
+        },
+        {
+          "name": "Slack",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 1245.50205227294
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "aliases": [],
+      "size": "T6M0750",
+      "calculation": "DYNAMIC",
+      "strength": {
+        "unit": "NEWTON",
+        "value": 29580.67374148232
+      },
+      "weight": {
+        "unit": "NEWTON_PER_METRE",
+        "value": 3.283628160871432
+      },
+      "crossArea": {
+        "unit": "SQUARE_METRE",
+        "value": 0.000022709632
+      },
+      "diameter": {
+        "unit": "METRE",
+        "value": 0.01905
+      },
+      "description": "0.75 Inch Telephone Bundle with 1/4\" EHS Messenger",
+      "coreStrands": 0,
+      "conductorStrands": 7,
+      "numberOfConductors": 1,
+      "usageGroups": [
+        "COMMUNICATION",
+        "COMMUNICATION_SERVICE"
+      ],
+      "conductorProperties": "TOTAL",
+      "expansionCoefficient": {
+        "unit": "PER_CELSIUS",
+        "value": 0.00001151999999999999
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 172368932329.209
+      },
+      "tensionGroups": [
+        {
+          "name": "Full",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 7392.944324562951
+              }
+            }
+          ]
+        },
+        {
+          "name": "Slack",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 739.2944324562952
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "aliases": [],
+      "size": "TSV0250",
+      "calculation": "DYNAMIC",
+      "strength": {
+        "unit": "NEWTON",
+        "value": 280.2379617614115
+      },
+      "weight": {
+        "unit": "NEWTON_PER_METRE",
+        "value": 0.3940353793045718
+      },
+      "crossArea": {
+        "unit": "SQUARE_METRE",
+        "value": 0.0000012645136
+      },
+      "diameter": {
+        "unit": "METRE",
+        "value": 0.006350000000000001
+      },
+      "description": "0.25 Inch Telephone Service",
+      "coreStrands": 0,
+      "conductorStrands": 4,
+      "numberOfConductors": 1,
+      "usageGroups": [
+        "COMMUNICATION",
+        "COMMUNICATION_SERVICE"
+      ],
+      "conductorProperties": "TOTAL",
+      "expansionCoefficient": {
+        "unit": "PER_CELSIUS",
+        "value": 0.00001691999999999999
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 115831922525.2284
+      },
+      "tensionGroups": [
+        {
+          "name": "Full",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555558
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 70.05949044035287
+              }
+            }
+          ]
+        },
+        {
+          "name": "Slack",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555558
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 7.005949044035288
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "aliases": [],
+      "size": "1/4\" EHS",
+      "calculation": "DYNAMIC",
+      "strength": {
+        "unit": "NEWTON",
+        "value": 29580.67374148232
+      },
+      "weight": {
+        "unit": "NEWTON_PER_METRE",
+        "value": 1.765862255401969
+      },
+      "crossArea": {
+        "unit": "SQUARE_METRE",
+        "value": 0.000022709632
+      },
+      "diameter": {
+        "unit": "METRE",
+        "value": 0.006350000000000001
+      },
+      "description": "1/4\" EHS Steel - Class A Galvanizing (1)",
+      "coreStrands": 0,
+      "conductorStrands": 7,
+      "numberOfConductors": 1,
+      "usageGroups": [
+        "GUY"
+      ],
+      "conductorProperties": "TOTAL",
+      "expansionCoefficient": {
+        "unit": "PER_CELSIUS",
+        "value": 0.00001151999999999999
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 172368932329.209
+      },
+      "tensionGroups": [
+        {
+          "name": "Full",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 7395.168435370581
+              }
+            }
+          ]
+        },
+        {
+          "name": "Slack",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 739.5168435370582
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "aliases": [
+        {
+          "id": "Down Guy"
+        }
+      ],
+      "size": "3/8\" EHS",
+      "calculation": "DYNAMIC",
+      "strength": {
+        "unit": "NEWTON",
+        "value": 68502.6128750117
+      },
+      "weight": {
+        "unit": "NEWTON_PER_METRE",
+        "value": 3.984135501857337
+      },
+      "crossArea": {
+        "unit": "SQUARE_METRE",
+        "value": 0.000051096672
+      },
+      "diameter": {
+        "unit": "METRE",
+        "value": 0.009144000000000001
+      },
+      "description": "3/8\" EHS Steel - Class A Galvanizing (1)",
+      "coreStrands": 0,
+      "conductorStrands": 7,
+      "numberOfConductors": 1,
+      "usageGroups": [
+        "GUY"
+      ],
+      "conductorProperties": "TOTAL",
+      "expansionCoefficient": {
+        "unit": "PER_CELSIUS",
+        "value": 0.00001151999999999999
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 172368932329.209
+      },
+      "tensionGroups": [
+        {
+          "name": "Full",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 17125.65321875292
+              }
+            }
+          ]
+        },
+        {
+          "name": "Slack",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 1712.565321875292
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "aliases": [],
+      "size": "5/16\" EHS",
+      "calculation": "DYNAMIC",
+      "strength": {
+        "unit": "NEWTON",
+        "value": 49820.0820909176
+      },
+      "weight": {
+        "unit": "NEWTON_PER_METRE",
+        "value": 2.991750102127304
+      },
+      "crossArea": {
+        "unit": "SQUARE_METRE",
+        "value": 0.00003838702
+      },
+      "diameter": {
+        "unit": "METRE",
+        "value": 0.007924800000000001
+      },
+      "description": "",
+      "coreStrands": 0,
+      "conductorStrands": 7,
+      "numberOfConductors": 1,
+      "usageGroups": [
+        "GUY"
+      ],
+      "conductorProperties": "TOTAL",
+      "expansionCoefficient": {
+        "unit": "PER_CELSIUS",
+        "value": 0.00001151999999999999
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 172368932329.209
+      },
+      "tensionGroups": [
+        {
+          "name": "Full",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 12455.0205227294
+              }
+            }
+          ]
+        },
+        {
+          "name": "Slack",
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 15.55555555555555
+          },
+          "groups": [
+            {
+              "distance": {
+                "unit": "METRE",
+                "value": 1523.6952
+              },
+              "tension": {
+                "unit": "NEWTON",
+                "value": 1245.50205227294
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "clientData": {
+    "schema": "/schema/spidacalc/client/data.schema",
     "version": 8,
-    "hash": "cb0f9d63bf8ac3029c028b9d1c67843d"
+    "poles": [
+      {
+        "aliases": [
+          {
+            "id": "40-5"
+          }
+        ],
+        "shape": "ROUND",
+        "materialCategory": "WOOD",
+        "classOfPole": "5",
+        "species": "Southern Pine",
+        "height": {
+          "unit": "METRE",
+          "value": 12.192000000000002
+        },
+        "taper": 0.112344697,
+        "density": {
+          "unit": "KILOGRAM_PER_CUBIC_METRE",
+          "value": 576.664681462565
+        },
+        "allowable": {
+          "unit": "PASCAL",
+          "value": 55158058.34534689
+        },
+        "ptc": {
+          "unit": "METRE",
+          "value": 0.4825999971678625
+        },
+        "modulus": {
+          "unit": "PASCAL",
+          "value": 17236893232.9209
+        },
+        "wallThickness": {
+          "unit": "METRE",
+          "value": -0.0254
+        },
+        "poissonRatio": 0.3
+      }
+    ],
+    "wires": [
+      {
+        "aliases": [
+          {
+            "id": "1/0 AAAC",
+            "tensionGroupName": "Full"
+          },
+          {
+            "id": "1/0 AAAC - S",
+            "tensionGroupName": "Slack"
+          }
+        ],
+        "size": "1/0 AAAC",
+        "calculation": "NONLINEAR_STRESS_STRAIN",
+        "strength": {
+          "unit": "NEWTON",
+          "value": 61830.280452120955
+        },
+        "weight": {
+          "unit": "NEWTON_PER_METRE",
+          "value": 10.887051591155947
+        },
+        "crossArea": {
+          "unit": "SQUARE_METRE",
+          "value": 0.000403225
+        },
+        "diameter": {
+          "unit": "METRE",
+          "value": 0.026060400000000004
+        },
+        "description": "1/0 AAAC - Azusa",
+        "coreStrands": 0,
+        "conductorStrands": 7,
+        "numberOfConductors": 1,
+        "usageGroups": [
+          "PRIMARY",
+          "NEUTRAL"
+        ],
+        "conductorProperties": "CORE_AND_OUTER",
+        "coreExpansionCoefficient": {
+          "unit": "PER_CELSIUS",
+          "value": 0.0
+        },
+        "coreModulus": {
+          "unit": "PASCAL",
+          "value": 0.0
+        },
+        "outerExpansionCoefficient": {
+          "unit": "PER_CELSIUS",
+          "value": 0.00002304
+        },
+        "outerModulus": {
+          "unit": "PASCAL",
+          "value": 56537009803.98057
+        },
+        "stressStrainPolynomials": {
+          "outer": [
+            {
+              "unit": "PASCAL",
+              "value": 0.0
+            },
+            {
+              "unit": "PASCAL",
+              "value": 468091967.3904932
+            },
+            {
+              "unit": "PASCAL",
+              "value": -422241831.3909236
+            },
+            {
+              "unit": "PASCAL",
+              "value": 24634967.808490556
+            },
+            {
+              "unit": "PASCAL",
+              "value": 79930921.29970081
+            }
+          ],
+          "core": [
+            {
+              "unit": "PASCAL",
+              "value": 0.0
+            },
+            {
+              "unit": "PASCAL",
+              "value": 0.0
+            },
+            {
+              "unit": "PASCAL",
+              "value": 0.0
+            },
+            {
+              "unit": "PASCAL",
+              "value": 0.0
+            },
+            {
+              "unit": "PASCAL",
+              "value": 0.0
+            }
+          ]
+        },
+        "creepPolynomials": {
+          "outer": [
+            {
+              "unit": "PASCAL",
+              "value": 0.0
+            },
+            {
+              "unit": "PASCAL",
+              "value": 217226223.2785624
+            },
+            {
+              "unit": "PASCAL",
+              "value": 10845453.222153833
+            },
+            {
+              "unit": "PASCAL",
+              "value": -740848565.9082336
+            },
+            {
+              "unit": "PASCAL",
+              "value": 899414194.1365196
+            }
+          ],
+          "core": [
+            {
+              "unit": "PASCAL",
+              "value": 0.0
+            },
+            {
+              "unit": "PASCAL",
+              "value": 0.0
+            },
+            {
+              "unit": "PASCAL",
+              "value": 0.0
+            },
+            {
+              "unit": "PASCAL",
+              "value": 0.0
+            },
+            {
+              "unit": "PASCAL",
+              "value": 0.0
+            }
+          ]
+        },
+        "stressStrainTemperature": {
+          "unit": "CELSIUS",
+          "value": 20.0
+        },
+        "tensionGroups": [
+          {
+            "name": "Full",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.55555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 2279.26875565948
+                }
+              }
+            ]
+          },
+          {
+            "name": "Slack",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.55555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 474.8476574290584
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "anchors": [],
+    "equipments": [],
+    "equipmentTypes": [
+      {
+        "name": "CAPACITOR",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "CUTOUT_ARRESTOR",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "DRIP_LOOP",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "PRIMARY_METERING",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "RECLOSER",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "REGULATOR",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "RISER",
+        "industry": "BOTH"
+      },
+      {
+        "name": "STREET_LIGHT",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "SWITCH",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "TERMINATION_BRACKET",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "TRANSFORMER",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "JOINT_USE_BOX",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "APPARATUS_CASE",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "CROSS_CONNECT",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "LOAD_COIL_CASE",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "POWER_SUPPLY",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "SPLICE_CASE",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "WIRELESS_ANTENNA",
+        "industry": "BOTH"
+      },
+      {
+        "name": "WIRE_MOUNTED",
+        "industry": "BOTH"
+      }
+    ],
+    "insulators": [],
+    "foundations": [],
+    "crossArms": [],
+    "braces": [],
+    "bundleComponents": [],
+    "bundles": [],
+    "assemblies": [],
+    "analysisCases": [],
+    "owners": [
+      {
+        "id": "Acme Power",
+        "industry": "UTILITY"
+      }
+    ],
+    "notes": [],
+    "locationForms": [],
+    "projectForms": [],
+    "customReportSetups": [],
+    "designLayers": [],
+    "defaultLocationForms": [],
+    "defaultProjectForms": []
+  },
+  "dateModified": "2020-10-07T14:45:14.147Z",
+  "version": 8,
+  "hash": "cb0f9d63bf8ac3029c028b9d1c67843d"
 }
