@@ -44,4 +44,26 @@ class AdvancedWireChangeSetTest extends Specification {
 			json.wires[1].stressStrainPolynomials == null
 			json.wires[1].creepPolynomials == null
 	}
+
+	@CompileDynamic
+	def "revert client data inside results"() {
+		def stream = AdvancedWireChangeSet.getResourceAsStream("/conversions/v8/AdvancedWireChangeSet.json".toString())
+		Map json = new JsonSlurper().parse(stream)
+		stream.close()
+		when:
+			new AdvancedWireChangeSet().revertResults(json)
+		then:
+			json.clientData.wires[0].calculation == "DYNAMIC"
+			json.clientData.wires[0].modulus.value == 5.653700980398057E10
+			json.clientData.wires[0].modulus.unit == "PASCAL"
+			json.clientData.wires[0].expansionCoefficient.value == 2.304E-5
+			json.clientData.wires[0].expansionCoefficient.unit == "PER_CELSIUS"
+			json.clientData.wires[0].conductorProperties == "TOTAL"
+			json.clientData.wires[0].outerModulus == null
+			json.clientData.wires[0].coreModulus == null
+			json.clientData.wires[0].outerExpansionCoefficient == null
+			json.clientData.wires[0].coreExpansionCoefficient == null
+			json.clientData.wires[0].stressStrainPolynomials == null
+			json.clientData.wires[0].creepPolynomials == null
+	}
 }
