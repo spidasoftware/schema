@@ -75,6 +75,7 @@ class ConverterUtils {
     }
 
     static void addResultConverter(CalcResultConverter converter) {
+        converter.addChangeSet(8, new AdvancedWireChangeSet())
         converter.addChangeSet(8, new ResultsWireChangeSet())
         // add result changesets above here
 
