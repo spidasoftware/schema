@@ -16,6 +16,9 @@ class CalcResultConverter extends AbstractCalcConverter {
 		boolean versionAllowedInDetailedResults = isVersionAllowedInDetailedResults(version)
 		if(versionAllowedInDetailedResults) {
 			json.put("version", version)
+			if (json.containsKey("clientData")) {
+				json.clientData.put("version", version)
+			}
 		}
 	}
 
