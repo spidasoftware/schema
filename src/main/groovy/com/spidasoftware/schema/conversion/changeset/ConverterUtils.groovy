@@ -17,7 +17,7 @@ import groovy.util.logging.Log4j
 @Log4j
 class ConverterUtils {
 
-    static final int currentVersion = 8
+    static final int currentVersion = 9
 
     static {
         addCalcConverter(new CalcProjectConverter())
@@ -60,6 +60,7 @@ class ConverterUtils {
         converter.addChangeSet(8, new MaxTensionGroupChangeset())
         converter.addChangeSet(8, new AdvancedWireChangeSet())
         converter.addChangeSet(8, new ResultsWireChangeSet())
+        converter.addChangeSet(9, new InsulatorStrengthChangeSet())
         // add calc changesets above here
 
         converter.setCurrentVersion(currentVersion)
@@ -68,6 +69,7 @@ class ConverterUtils {
 
     static void addClientDataConverter(ClientDataConverter converter) {
         converter.addChangeSet(8, new AdvancedWireChangeSet())
+        converter.addChangeSet(9, new InsulatorStrengthChangeSet())
         // add client data changesets above here
 
         converter.setCurrentVersion(currentVersion)

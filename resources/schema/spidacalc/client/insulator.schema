@@ -8,11 +8,25 @@
     "poleSideArea",
     "shape",
     "size",
-    "strength",
     "throughHoleDiameter",
     "type",
     "verticalOffset",
     "weight"
+  ],
+  "oneOf": [
+    {
+      "required": [
+        "strength"
+      ]
+    },
+    {
+      "required": [
+        "maxCantileverStrength",
+        "maxCompressionStrength",
+        "maxTensionStrength",
+        "lineOfActionOffset"
+      ]
+    }
   ],
   "properties": {
     "id": {
@@ -37,6 +51,18 @@
       "$ref": "../../spidacalc/client/enums/shape.schema"
     },
     "strength": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "maxCantileverStrength": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "maxCompressionStrength": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "maxTensionStrength": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "lineOfActionOffset": {
       "$ref": "../../general/measurable.schema"
     },
     "throughHoleDiameter": {
