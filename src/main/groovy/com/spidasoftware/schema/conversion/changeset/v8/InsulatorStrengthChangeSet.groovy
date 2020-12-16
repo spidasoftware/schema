@@ -26,11 +26,13 @@ class InsulatorStrengthChangeSet extends AbstractClientDataChangeSet {
 		clientDataJSON.insulators.each { Map map ->
 
 			if (map.containsKey("maxCantileverStrength") && map.containsKey("maxCompressionStrength") && map.containsKey("maxTensionStrength")) {
-				def lowestMultiDimensionalValue = [((map.maxCantileverStrength as Map).value as double),
-				 ((map.maxCantileverStrength as Map).value as double),
-				 ((map.maxCantileverStrength as Map).value as double)].min()
+				def lowestMultiDimensionalValue = [
+						((map.maxCantileverStrength as Map).value as double),
+						((map.maxCompressionStrength as Map).value as double),
+						((map.maxTensionStrength as Map).value as double)].min()
 				def unit = (map.maxCantileverStrength as Map).unit
 				map.put("strength", [value: lowestMultiDimensionalValue, unit: unit])
+				converted = true
 			}
 
 			if (map.containsKey("maxCantileverStrength")) {

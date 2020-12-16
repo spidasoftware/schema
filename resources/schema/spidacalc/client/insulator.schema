@@ -23,8 +23,7 @@
       "required": [
         "maxCantileverStrength",
         "maxCompressionStrength",
-        "maxTensionStrength",
-        "lineOfActionOffset"
+        "maxTensionStrength"
       ]
     }
   ],
