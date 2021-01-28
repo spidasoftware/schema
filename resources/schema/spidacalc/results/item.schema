@@ -23,16 +23,32 @@
       "$ref": "../../general/measurable.schema"
     },
     "applied": {
-      "$ref": "../../general/point_load.schema"
+      "$ref": "../../general/point_load.schema",
+      "description": "Applied force and moment for this item."
     },
     "pretension": {
-      "$ref": "../../general/measurable.schema"
+      "$ref": "../../general/measurable.schema",
+      "description": "Pre-tension force applied to guys before loading design condition."
     },
     "reaction": {
-      "$ref": "../../general/point_load.schema"
+      "$ref": "../../general/point_load.schema",
+      "description": "The reaction force and moment for this item."
     },
     "actingOn": {
-      "$ref": "../../general/acting_on.schema"
+      "$ref": "../../general/acting_on.schema",
+      "description": "Acting on force and moment for this item."
+    },
+    "tensionForce": {
+      "$ref": "../../general/measurable.schema",
+      "description": "The tension component of force acting on a bracket insulator."
+    },
+    "compressionForce": {
+      "$ref": "../../general/measurable.schema",
+      "description": "The compression component of force acting on a bracket insulator."
+    },
+    "cantileverForce": {
+      "$ref": "../../general/measurable.schema",
+      "description": "The cantilever component of force acting on a bracket insulator."
     }
   },
   "additionalProperties": false

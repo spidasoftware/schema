@@ -10,7 +10,7 @@ class PoleCSVStationConverterTest {
 		if(!file.exists()) file.createNewFile()
 		file.text = "POLEID,LAT,LNG,HEIGHT,CLASS\n"
 		file.append("2,40.00,100.00,40,4\n")
-		PoleCSVStationConverter.console = [readLine:{input->
+		PoleCSVStationConverter.gets = {input->
 			println input
 			if(input.trim()=="What is the company id these poles are associated with?"){
 				return "0"
@@ -25,7 +25,7 @@ class PoleCSVStationConverterTest {
 			}else{
 				return "n"
 			}
-		}]
+		}
 		PoleCSVStationConverter.main(file.absolutePath)
 		def output = new File("build/test.csv.json").text
 		file.delete()

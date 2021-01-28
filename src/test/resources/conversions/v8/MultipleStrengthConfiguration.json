@@ -1,0 +1,391 @@
+{
+    "label": "New Project",
+    "company": {
+        "id": 2,
+        "name": "SPIDA"
+    },
+    "dateModified": 1608135883541,
+    "clientFile": "Demo.client",
+    "date": "2020-12-16",
+    "schema": "/schema/spidacalc/calc/project.schema",
+    "version": 8,
+    "engineer": "",
+    "comments": "",
+    "generalLocation": "",
+    "address": {
+        "number": "",
+        "city": "",
+        "street": "",
+        "county": "",
+        "state": "",
+        "zip_code": ""
+    },
+    "userDefinedValues": {},
+    "clientData": {
+        "schema": "/schema/spidacalc/client/data.schema",
+        "version": 8,
+        "name": "Demo.client",
+        "poles": [
+            {
+                "aliases": [],
+                "shape": "ROUND",
+                "materialCategory": "POLYMER",
+                "classOfPole": "10\" Series II",
+                "species": "Fiberglass",
+                "height": {
+                    "unit": "METRE",
+                    "value": 12.192000000000002
+                },
+                "taper": 0.0,
+                "density": {
+                    "unit": "KILOGRAM_PER_CUBIC_METRE",
+                    "value": 235.471411597214
+                },
+                "allowable": {
+                    "unit": "NEWTON_METRE",
+                    "value": 135581.79483314
+                },
+                "ptc": {
+                    "unit": "METRE",
+                    "value": 0.8636000000000001
+                },
+                "modulus": {
+                    "unit": "PASCAL",
+                    "value": 2.757902917267344E10
+                },
+                "wallThickness": {
+                    "unit": "METRE",
+                    "value": 0.006350000000000001
+                },
+                "poissonRatio": 0.32
+            }
+        ],
+        "wires": [],
+        "anchors": [],
+        "equipments": [],
+        "equipmentTypes": [
+            {
+                "name": "CAPACITOR",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "CUTOUT_ARRESTOR",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "DRIP_LOOP",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "PRIMARY_METERING",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "RECLOSER",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "REGULATOR",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "RISER",
+                "industry": "BOTH"
+            },
+            {
+                "name": "STREET_LIGHT",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "SWITCH",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "TERMINATION_BRACKET",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "TRANSFORMER",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "JOINT_USE_BOX",
+                "industry": "COMMUNICATION"
+            },
+            {
+                "name": "APPARATUS_CASE",
+                "industry": "COMMUNICATION"
+            },
+            {
+                "name": "CROSS_CONNECT",
+                "industry": "COMMUNICATION"
+            },
+            {
+                "name": "LOAD_COIL_CASE",
+                "industry": "COMMUNICATION"
+            },
+            {
+                "name": "POWER_SUPPLY",
+                "industry": "COMMUNICATION"
+            },
+            {
+                "name": "SPLICE_CASE",
+                "industry": "COMMUNICATION"
+            },
+            {
+                "name": "WIRELESS_ANTENNA",
+                "industry": "BOTH"
+            },
+            {
+                "name": "WIRE_MOUNTED",
+                "industry": "BOTH"
+            }
+        ],
+        "insulators": [
+            {
+                "aliases": [],
+                "size": "13.2 kV Pin Type Insulator (16\" Bracket)",
+                "type": "BRACKET",
+                "horizontalOffset": {
+                    "unit": "METRE",
+                    "value": 0.4064
+                },
+                "verticalOffset": {
+                    "unit": "METRE",
+                    "value": 0.1016
+                },
+                "lateralArea": {
+                    "unit": "SQUARE_METRE",
+                    "value": 0.0260379350208
+                },
+                "poleSideArea": {
+                    "unit": "SQUARE_METRE",
+                    "value": 0.02120047372799999
+                },
+                "shape": "ROUND",
+                "maxCantileverStrength": {
+                    "unit": "NEWTON",
+                    "value": 11120.55403815125
+                },
+                "maxCompressionStrength": {
+                    "unit": "NEWTON",
+                    "value": 2323.55403815125
+                },
+                "maxTensionStrength": {
+                    "unit": "NEWTON",
+                    "value": 42342.55403815125
+                },
+                "lineOfActionOffset": {
+                    "unit": "INCH",
+                    "value": 111.32132
+                },
+                "weight": {
+                    "unit": "NEWTON",
+                    "value": 4.4482216152605
+                },
+                "throughHoleDiameter": {
+                    "unit": "METRE",
+                    "value": -0.0015875000000000002
+                }
+            }
+        ],
+        "foundations": [],
+        "crossArms": [],
+        "braces": [],
+        "bundleComponents": [],
+        "bundles": [],
+        "assemblies": [],
+        "analysisCases": [],
+        "owners": [
+            {
+                "id": "Acme Power",
+                "industry": "UTILITY"
+            }
+        ],
+        "notes": [],
+        "locationForms": [],
+        "projectForms": [],
+        "customReportSetups": [],
+        "designLayers": [],
+        "defaultLocationForms": [],
+        "defaultProjectForms": [],
+        "hash": "81d0bfd7f2dec3123456e311055abeae"
+    },
+    "clearanceSettings": {
+        "requiredGroundClearanceAtPole": {
+            "unit": "METRE",
+            "value": 4.7244
+        },
+        "requiredCommToUtilityAtPole": {
+            "unit": "METRE",
+            "value": 1.0160000000000002
+        },
+        "requiredGroundClearanceAtMidspan": {
+            "unit": "METRE",
+            "value": 4.7244
+        },
+        "requiredCommToUtilityAtMidspan": {
+            "unit": "METRE",
+            "value": 0.7620000000000001
+        },
+        "requiredCommToStreetLight": {
+            "unit": "METRE",
+            "value": 0.5080000000000001
+        },
+        "requiredCommToStreetLightDripLoop": {
+            "unit": "METRE",
+            "value": 0.3048
+        },
+        "calculateSagToDetermineMidspanClearances": false,
+        "includeGuysInClearanceCalculations": false
+    },
+    "forms": [
+        {
+            "title": "Project Summary",
+            "formDefinition": [
+                {
+                    "fieldName": "Work Order #",
+                    "fieldType": "customTextField"
+                },
+                {
+                    "fieldName": "Total Estimated Cost",
+                    "fieldType": "customTextField"
+                },
+                {
+                    "fieldName": "Total Estimated Hours",
+                    "fieldType": "customTextField"
+                },
+                {
+                    "fieldName": "Pole Replacements",
+                    "fieldType": "customSpinner"
+                },
+                {
+                    "fieldName": "Rearrangements",
+                    "fieldType": "customSpinner"
+                }
+            ],
+            "fields": {
+                "Work Order #": "",
+                "Total Estimated Cost": "",
+                "Total Estimated Hours": "",
+                "Pole Replacements": "0",
+                "Rearrangements": "0"
+            },
+            "template": "81d0bfd7f2dec3123456e311055abeae-Project Summary"
+        }
+    ],
+    "defaultLocationForms": [],
+    "defaultLoadCases": [],
+    "leads": [
+        {
+            "label": "Lead",
+            "locations": [
+                {
+                    "label": "Location-12-16-2020-10-23-36-488",
+                    "mapNumber": "",
+                    "comments": "",
+                    "address": {
+                        "number": "",
+                        "city": "",
+                        "street": "",
+                        "county": "",
+                        "state": "",
+                        "zip_code": ""
+                    },
+                    "technician": "",
+                    "crossStreet1": "",
+                    "crossStreet2": "",
+                    "remedies": [],
+                    "poleTags": [],
+                    "userDefinedValues": {},
+                    "summaryNotes": [],
+                    "forms": [],
+                    "images": [],
+                    "photosToBeAssigned": [],
+                    "designs": [
+                        {
+                            "label": "Measured Design",
+                            "layerType": "Measured",
+                            "structure": {
+                                "pole": {
+                                    "id": "Pole",
+                                    "externalId": "5fda3488b64a01b5ccd57035",
+                                    "owner": {
+                                        "id": "Acme Power",
+                                        "industry": "UTILITY"
+                                    },
+                                    "glc": {
+                                        "unit": "METRE",
+                                        "value": 0.8636000000000001
+                                    },
+                                    "agl": {
+                                        "unit": "METRE",
+                                        "value": 10.3632
+                                    },
+                                    "autoGLC": true,
+                                    "autoAGL": true,
+                                    "environment": "NONE",
+                                    "temperature": {
+                                        "unit": "CELSIUS",
+                                        "value": 15.555555555555555
+                                    },
+                                    "stressRatio": 1.0,
+                                    "leanAngle": 0,
+                                    "leanDirection": 0,
+                                    "clientItemVersion": "a4090ef12d2f9b9c21ca6509157d445c",
+                                    "clientItem": {
+                                        "species": "Fiberglass",
+                                        "classOfPole": "10\" Series II",
+                                        "height": {
+                                            "unit": "METRE",
+                                            "value": 12.192000000000002
+                                        }
+                                    }
+                                },
+                                "wireEndPoints": [],
+                                "spanPoints": [],
+                                "anchors": [],
+                                "notePoints": [],
+                                "pointLoads": [],
+                                "wirePointLoads": [],
+                                "damages": [],
+                                "wires": [],
+                                "spanGuys": [],
+                                "guys": [],
+                                "equipments": [],
+                                "guyAttachPoints": [],
+                                "crossArms": [],
+                                "insulators": [
+                                    {
+                                        "id": "Insulator#1",
+                                        "externalId": "5fda34cbb64a01b5ccd57091",
+                                        "owner": {
+                                            "id": "Acme Power",
+                                            "industry": "UTILITY"
+                                        },
+                                        "clientItemVersion": "123fe574d3ab3d57620a272a4688a322",
+                                        "clientItem": "13.2 kV Pin Type Insulator (16\" Bracket)",
+                                        "offset": {
+                                            "unit": "METRE",
+                                            "value": 7.848600000000001
+                                        },
+                                        "direction": 0,
+                                        "doubleInsulator": false,
+                                        "wires": []
+                                    }
+                                ],
+                                "pushBraces": [],
+                                "sidewalkBraces": [],
+                                "foundations": [],
+                                "assemblies": []
+                            },
+                            "analysis": [],
+                            "version": 8
+                        }
+                    ],
+                    "version": 8
+                }
+            ]
+        }
+    ]
+}
