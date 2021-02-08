@@ -28,6 +28,34 @@
     "subscriptionEndDate": {
         "type": "number",
         "description": "End date of subscription (ms since Unix epoch)"
+    },
+    "address1": {
+      "type": "string",
+      "description": "first line of address"
+    },
+    "address2": {
+      "type": "string",
+      "description": "second line of address"
+    },
+    "city": {
+      "type": "string",
+      "description": "city"
+    },
+    "postalCode": {
+      "type": "string",
+      "description": "or zip code"
+    },
+    "local": {
+      "type": "string",
+      "description": "local"
+    },
+    "country": {
+      "type": "string",
+      "description": "country"
+    },
+    "phone": {
+      "type": "string",
+      "description": "phone number"
     }
   },
   "additionalProperties": false
