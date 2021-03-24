@@ -9,25 +9,24 @@ import com.spidasoftware.schema.utils.StringFormatting
  * Default environments prior to calc version 8.0
  */
 enum Environment {
-	NONE,
-	STREET,
-	HIGHWAY,
-	PEDESTRIAN,
-	PARALLEL_TO_STREET,
-	OBSTRUCTED_PARALLEL_TO_STREET,
-	UNLIKELY_PARALLEL_TO_STREET,
-	RESIDENTIAL_DRIVEWAY,
-	COMMERCIAL_DRIVEWAY,
-	PARKING_LOT,
 	ALLEY,
-	RAILROAD,
-	RURAL,
+	COMMERCIAL_DRIVEWAY,
+	HIGHWAY,
 	FARM,
-	WATER_WITH_SAILBOATS,
-	WATER_WITHOUT_SAILBOATS
+	OBSTRUCTED_PARALLEL_TO_STREET,
+	PARALLEL_TO_STREET,
+	PARKING_LOT,
+	PEDESTRIAN,
+	RAILROAD,
+	RESIDENTIAL_DRIVEWAY,
+	RURAL,
+	STREET,
+	UNLIKELY_PARALLEL_TO_STREET,
+	WATER_WITHOUT_SAILBOATS,
+	WATER_WITH_SAILBOATS
 
 	@Override
 	String toString() {
-		return StringFormatting.makeEnumerableString(name())
+		return StringFormatting.makeReadableString(name())
 	}
 }

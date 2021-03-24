@@ -107,4 +107,8 @@ public class StringFormatting {
     public static String replaceLast(String text, String regex, String replacement) {
         return text.replaceFirst("(?s)"+regex+"(?!.*?"+regex+")", replacement);
     }
+
+    public static boolean equalsIgnoreCaseAndEnumFormat(String a, String b) {
+        return makeReadableString(a).equalsIgnoreCase(makeReadableString(b));
+    }
 }

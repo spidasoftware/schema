@@ -23,17 +23,19 @@ class EnvironmentClientDataChangeset extends AbstractClientDataChangeSet {
 
 	@Override
 	boolean applyToClientData(Map clientDataJSON) throws ConversionException {
-		clientDataJSON.put("customEnvironments", Environment.values().toList().collect {it.toString()})
+		List<Map> defaultEnvironmentMaps = Environment.values().collect ({ [name: it.toString(), description: "N/A"] as Map})
+		clientDataJSON.put("environments", defaultEnvironmentMaps)
 		return true
 	}
 
 	@Override
 	boolean revertClientData(Map clientDataJSON) throws ConversionException {
-		if ((clientDataJSON.get("environments") as List).isEmpty()) {
+		if (clientDataJSON.containsKey("environments")) {
+			clientDataJSON.remove("environments")
+			return true
+		} else {
 			return false
 		}
-		clientDataJSON.environments.each { String environment -> revertEnvironment(environment) }
-		return true
 	}
 
 	@Override
@@ -69,18 +71,18 @@ class EnvironmentClientDataChangeset extends AbstractClientDataChangeSet {
 			revertResults(detailedResultsJSON)
 		}
 		if (revertedProjectClientData) {
-			revertEnvironment(designJSON.structure.pole.environment as String)
-			(designJSON.structure.spanPoints as List<Map>).each { Map spanPoint -> revertEnvironment(spanPoint.environment as String)}
-			(designJSON.structure.wireEndPoints as List<Map>).each { Map wireEndPoint -> revertEnvironment(wireEndPoint.environment as String)}
+			revertEnvironment(designJSON.structure.pole)
+			(designJSON.structure.spanPoints as List<Map>).each { Map spanPoint -> revertEnvironment(spanPoint)}
+			(designJSON.structure.wireEndPoints as List<Map>).each { Map wireEndPoint -> revertEnvironment(wireEndPoint)}
 		}
 	}
 
-
-	protected void revertEnvironment(String environment) {
-		if (Environment.values().toList().any{it.name() == StringFormatting.makeEnumerableString(environment)}) {
-			environment = StringFormatting.makeEnumerableString(environment as String)
+	protected void revertEnvironment(Map environmentItem) {
+		Environment defaultEnvironment = Environment.values().toList().find{StringFormatting.equalsIgnoreCaseAndEnumFormat(it.name(), environmentItem.environment as String)}
+		if (defaultEnvironment != null) {
+			environmentItem.put("environment", defaultEnvironment.name())
 		} else {
-			environment = Environment.NONE.name()
+			environmentItem.put("environment", "NONE")
 		}
 	}
 }

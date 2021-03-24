@@ -1,8 +1,10 @@
 /*
  * ©2009-2020 SPIDAWEB LLC
  */
-package com.spidasoftware.schema.conversion.changeset.v8
+package com.spidasoftware.schema.conversion.changeset.v9
 
+import com.spidasoftware.schema.conversion.changeset.v8.AdvancedWireChangeSet
+import com.spidasoftware.schema.conversion.changeset.v8.InsulatorStrengthChangeSet
 import groovy.json.JsonSlurper
 import groovy.transform.CompileDynamic
 import spock.lang.Specification
@@ -12,7 +14,7 @@ class InsulatorStrengthChangeSetTest extends Specification {
 	@CompileDynamic
 	def "revert client data inside results"() {
 		when:
-			def stream = AdvancedWireChangeSet.getResourceAsStream("/conversions/v8/MultipleStrengthConfiguration.json".toString())
+			def stream = InsulatorStrengthChangeSet.getResourceAsStream("/conversions/v8/MultipleStrengthConfiguration.json".toString())
 			Map json = new JsonSlurper().parse(stream)
 			stream.close()
 		then:
