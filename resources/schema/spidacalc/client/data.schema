@@ -112,6 +112,12 @@
                 "$ref":"../../general/owner.schema"
             }
         },
+        "environments":{
+            "type": "array",
+            "items": {
+                "$ref": "../../spidacalc/calc/environment.schema"
+            }
+        },
          "notes":{
             "type": "array",
             "items": {

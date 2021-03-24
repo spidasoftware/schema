@@ -46,8 +46,8 @@
         "$ref": "../../general/bearing.schema"
     },
     "environment": {
-      "description": "Environment of the pole - STREET, RAILROAD, etc",
-      "$ref": "../../spidacalc/calc/enums/environment.schema"
+      "type": "string",
+      "description": "Name of environment of the pole - STREET, RAILROAD, etc"
     },
     "temperature": {
       "description": "Temperature of the day when the data was collected.",
