@@ -24,7 +24,7 @@ class EnvironmentClientDataChangesetTest extends Specification {
 			json.environments[4].description == "N/A"
 			json.environments[10].name == "Rural"
 			json.environments[10].description == "N/A"
-			json.environments[14].name == "Water With Sailboats"
+			json.environments[14].name == "Water Without Sailboats"
 			json.environments[14].description == "N/A"
 			applied
 	}
@@ -44,7 +44,7 @@ class EnvironmentClientDataChangesetTest extends Specification {
 			json.clientData.environments[4].description == "N/A"
 			json.clientData.environments[10].name == "Rural"
 			json.clientData.environments[10].description == "N/A"
-			json.clientData.environments[14].name == "Water With Sailboats"
+			json.clientData.environments[14].name == "Water Without Sailboats"
 			json.clientData.environments[14].description == "N/A"
 	}
 
@@ -101,7 +101,7 @@ class EnvironmentClientDataChangesetTest extends Specification {
 			json.leads[0].locations[0].designs[0].structure.spanPoints[0].environment == "NONE"
 			json.leads[0].locations[0].designs[0].structure.spanPoints[1].environment == "NONE"
 	}
-	
+
 	//TODO
 //	def "revert client data in results"() {
 //		when:

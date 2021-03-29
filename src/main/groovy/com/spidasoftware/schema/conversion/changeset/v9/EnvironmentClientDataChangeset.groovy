@@ -23,7 +23,7 @@ class EnvironmentClientDataChangeset extends AbstractClientDataChangeSet {
 
 	@Override
 	boolean applyToClientData(Map clientDataJSON) throws ConversionException {
-		List<Map> defaultEnvironmentMaps = Environment.values().collect ({ [name: it.toString(), description: "N/A"] as Map})
+		List<Map> defaultEnvironmentMaps = Environment.values().sort{it.toString()}.collect ({ [name: it.toString(), description: "N/A"] as Map})
 		clientDataJSON.put("environments", defaultEnvironmentMaps)
 		return true
 	}
