@@ -6,7 +6,7 @@ Materials/engineering information is pre-configured per client in their Client D
 - Where are those components (next and previous pole distance and direction, attach heights and directions)
 - What are the wire tensions (This will be choosing from pre-configured named options in the client file)
 
-A good integration will also potentially include GIS, photos, and span connectivity information.
+A good integration will also potentially include geolocations, photos, and span connectivity information.
 
 ## Basic Location Information
 
