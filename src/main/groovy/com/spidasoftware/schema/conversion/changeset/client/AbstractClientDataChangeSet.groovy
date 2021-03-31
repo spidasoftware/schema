@@ -79,5 +79,4 @@ abstract class AbstractClientDataChangeSet extends AbstractResultsChangeSet {
 			}
 		}
 	}
-
 }

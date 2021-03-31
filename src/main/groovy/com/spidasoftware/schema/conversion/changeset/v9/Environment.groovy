@@ -10,6 +10,7 @@ import com.spidasoftware.schema.utils.StringFormatting
  */
 enum Environment {
 
+	NONE,
 	STREET,
 	HIGHWAY,
 	PEDESTRIAN,
