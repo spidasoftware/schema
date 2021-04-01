@@ -101,9 +101,11 @@ class EnvironmentClientDataChangeset extends AbstractClientDataChangeSet {
 
 	protected void applyPrettyPrintToEnvironment(List<Map> environmentItems, Set<String> environments) {
 		environmentItems.each { Map environmentItem ->
-			String newEnvironment = StringFormatting.makeReadableString(environmentItem.environment as String)
-			environmentItem.environment = newEnvironment
-			environments.add(newEnvironment)
+			if (environmentItem.environment != null) {
+				String newEnvironment = StringFormatting.makeReadableString(environmentItem.environment as String)
+				environmentItem.environment = newEnvironment
+				environments.add(newEnvironment)
+			}
 		}
 	}
 

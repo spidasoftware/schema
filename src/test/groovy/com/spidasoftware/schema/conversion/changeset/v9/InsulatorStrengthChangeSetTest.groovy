@@ -3,8 +3,7 @@
  */
 package com.spidasoftware.schema.conversion.changeset.v9
 
-import com.spidasoftware.schema.conversion.changeset.v8.AdvancedWireChangeSet
-import com.spidasoftware.schema.conversion.changeset.v8.InsulatorStrengthChangeSet
+
 import groovy.json.JsonSlurper
 import groovy.transform.CompileDynamic
 import spock.lang.Specification
