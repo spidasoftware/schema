@@ -86,9 +86,9 @@ class EnvironmentClientDataChangeset extends AbstractClientDataChangeSet {
 	 */
 	protected Set<String> applyToStructure(Map structureJSON) {
 		Set<String> designEnvironments = new HashSet<>()
-		applyPrettyPrintToEnvironment([structureJSON.pole] as List<Map>, designEnvironments)
-		applyPrettyPrintToEnvironment(structureJSON.spanPoints as List<Map>, designEnvironments)
-		applyPrettyPrintToEnvironment(structureJSON.wireEndPoints as List<Map>, designEnvironments)
+		applyPrettyPrintToEnvironment([structureJSON?.pole] as List<Map>, designEnvironments)
+		applyPrettyPrintToEnvironment(structureJSON?.spanPoints as List<Map>, designEnvironments)
+		applyPrettyPrintToEnvironment(structureJSON?.wireEndPoints as List<Map>, designEnvironments)
 		return designEnvironments
 	}
 
@@ -100,8 +100,8 @@ class EnvironmentClientDataChangeset extends AbstractClientDataChangeSet {
 	}
 
 	protected void applyPrettyPrintToEnvironment(List<Map> environmentItems, Set<String> environments) {
-		environmentItems.each { Map environmentItem ->
-			if (environmentItem.environment != null) {
+		environmentItems?.each { Map environmentItem ->
+			if (environmentItem?.environment != null) {
 				String newEnvironment = StringFormatting.makeReadableString(environmentItem.environment as String)
 				environmentItem.environment = newEnvironment
 				environments.add(newEnvironment)
