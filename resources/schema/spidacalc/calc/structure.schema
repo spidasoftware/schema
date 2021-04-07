@@ -104,8 +104,8 @@
             "description": "Distance from pole."
           },
           "environment": {
-            "$ref": "../../spidacalc/calc/enums/environment.schema",
-            "description": "Type of environment the point is in -- STREET, RAILROAD, etc."
+            "type": "string",
+            "description": "Name of environment the point is in -- STREET, RAILROAD, etc."
           },
           "heights": {
             "description": "List of heights recorded at this span point.",

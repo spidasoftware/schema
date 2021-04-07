@@ -45,8 +45,8 @@
       "description": "Type of the wire end point. You can have one each of NEXT_POLE and PREVIOUS_POLE, and as many of the others as you want."
     },
     "environment": {
-      "$ref": "../../spidacalc/calc/enums/environment.schema",
-      "description": "Type of environment the wire end point is in -- STREET, RAILROAD, etc."
+      "type": "string",
+      "description": "Name of environment the wire end point is in -- STREET, RAILROAD, etc."
     },
     "comments": {
       "type": "string",

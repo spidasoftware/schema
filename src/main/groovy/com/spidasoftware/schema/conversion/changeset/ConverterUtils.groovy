@@ -12,6 +12,8 @@ import com.spidasoftware.schema.conversion.changeset.v5.*
 import com.spidasoftware.schema.conversion.changeset.v6.*
 import com.spidasoftware.schema.conversion.changeset.v7.*
 import com.spidasoftware.schema.conversion.changeset.v8.*
+import com.spidasoftware.schema.conversion.changeset.v9.EnvironmentClientDataChangeset
+import com.spidasoftware.schema.conversion.changeset.v9.InsulatorStrengthChangeSet
 import groovy.util.logging.Log4j
 
 @Log4j
@@ -61,8 +63,9 @@ class ConverterUtils {
         converter.addChangeSet(8, new AdvancedWireChangeSet())
         converter.addChangeSet(8, new ResultsWireChangeSet())
         converter.addChangeSet(9, new InsulatorStrengthChangeSet())
-        // add calc changesets above here
+        converter.addChangeSet(9, new EnvironmentClientDataChangeset())
 
+        // add calc changesets above here
         converter.setCurrentVersion(currentVersion)
         converters.put(converter.schemaPath, converter)
     }
@@ -70,6 +73,7 @@ class ConverterUtils {
     static void addClientDataConverter(ClientDataConverter converter) {
         converter.addChangeSet(8, new AdvancedWireChangeSet())
         converter.addChangeSet(9, new InsulatorStrengthChangeSet())
+        converter.addChangeSet(9, new EnvironmentClientDataChangeset())
         // add client data changesets above here
 
         converter.setCurrentVersion(currentVersion)
@@ -79,6 +83,8 @@ class ConverterUtils {
     static void addResultConverter(CalcResultConverter converter) {
         converter.addChangeSet(8, new AdvancedWireChangeSet())
         converter.addChangeSet(8, new ResultsWireChangeSet())
+        converter.addChangeSet(9, new InsulatorStrengthChangeSet())
+        converter.addChangeSet(9, new EnvironmentClientDataChangeset())
         // add result changesets above here
 
         converter.setCurrentVersion(currentVersion)

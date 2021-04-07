@@ -1,0 +1,20 @@
+{
+	"id": "#/spidacalc/environment.schema",
+	"description": "Environment for poles, span points, and wire end points.",
+	"type": "object",
+	"required": [
+		"name",
+		"description"
+	],
+	"properties": {
+		"name": {
+			"type": "string",
+			"description": "Name of Environment"
+		},
+		"description": {
+			"type": "string",
+			"description": "Description of Environment"
+		}
+	},
+	"additionalProperties": false
+}

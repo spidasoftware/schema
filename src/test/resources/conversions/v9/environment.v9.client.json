@@ -1,0 +1,25 @@
+{
+    "schema": "/schema/spidacalc/client/data.schema",
+    "name": "Environment.client",
+    "environments": [
+        {
+            "name": "Street",
+            "description": "Street"
+        },
+        {
+            "name": "Parking Lot",
+            "description": "Parking Lot"
+        },
+        {
+            "name": "Wet Foundation",
+            "description": "Foundation is damp"
+        },
+        {
+            "name": "Test",
+            "description": "I am writing a really long description for a test. This note does not make any sense."
+        }
+    ],
+    "dateModified": "2021-03-24T02:39:27.453Z",
+    "version": 9,
+    "hash": "12849273c098b4dfdeee56d3f05c872f"
+}
