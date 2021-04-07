@@ -13,7 +13,7 @@ class InsulatorStrengthChangeSetTest extends Specification {
 	@CompileDynamic
 	def "revert client data inside results"() {
 		when:
-			def stream = InsulatorStrengthChangeSet.getResourceAsStream("/conversions/v8/MultipleStrengthConfiguration.json".toString())
+			def stream = InsulatorStrengthChangeSet.getResourceAsStream("/conversions/v9/MultipleStrengthConfiguration.json".toString())
 			Map json = new JsonSlurper().parse(stream)
 			stream.close()
 		then:

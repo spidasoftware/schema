@@ -160,7 +160,7 @@ class EnvironmentClientDataChangeset extends AbstractClientDataChangeSet {
 		if (defaultEnvironment != null) {
 			environmentItem.put("environment", defaultEnvironment.name())
 		} else {
-			environmentItem.put("environment", Environment.NONE)
+			environmentItem.put("environment", Environment.NONE.name())
 		}
 	}
 }
