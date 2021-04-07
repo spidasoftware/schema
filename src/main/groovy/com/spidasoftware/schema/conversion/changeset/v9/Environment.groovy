@@ -33,7 +33,7 @@ enum Environment {
 	String toString() {
 		return makeReadableString(name())
 	}
-	
+
 	/**
 	 * Convert all upper case string to a capitalized string with underscores removed.
 	 *
