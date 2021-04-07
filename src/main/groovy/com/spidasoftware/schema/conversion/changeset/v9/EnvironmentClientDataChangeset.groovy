@@ -5,7 +5,7 @@ package com.spidasoftware.schema.conversion.changeset.v9
 
 import com.spidasoftware.schema.conversion.changeset.ConversionException
 import com.spidasoftware.schema.conversion.changeset.client.AbstractClientDataChangeSet
-import com.spidasoftware.schema.utils.StringFormatting
+
 import groovy.transform.CompileStatic
 
 @CompileStatic
@@ -20,8 +20,6 @@ import groovy.transform.CompileStatic
  * If it does not match an enum from {@link Environment}, then convert all references in the project to NONE.
  */
 class EnvironmentClientDataChangeset extends AbstractClientDataChangeSet {
-
-	public static String NONE = "NONE"
 
 	@Override
 	boolean applyToClientData(Map clientDataJSON) throws ConversionException {
@@ -94,7 +92,7 @@ class EnvironmentClientDataChangeset extends AbstractClientDataChangeSet {
 
 	protected List<Map> createDefaultEnvironmentMaps(Collection<String> environments) {
 		return environments
-				.findAll{!StringFormatting.equalsIgnoreCaseAndEnumFormat(NONE, it)}
+				.findAll{!Environment.isNoneEnvironment(it)}
 				.sort({it})
 				.collect ({ [name: it, description: "N/A"] as Map})
 	}
@@ -102,7 +100,7 @@ class EnvironmentClientDataChangeset extends AbstractClientDataChangeSet {
 	protected void applyPrettyPrintToEnvironment(List<Map> environmentItems, Set<String> environments) {
 		environmentItems?.each { Map environmentItem ->
 			if (environmentItem?.environment != null) {
-				String newEnvironment = StringFormatting.makeReadableString(environmentItem.environment as String)
+				String newEnvironment = Environment.makeReadableString(environmentItem.environment as String)
 				environmentItem.environment = newEnvironment
 				environments.add(newEnvironment)
 			}
@@ -158,11 +156,11 @@ class EnvironmentClientDataChangeset extends AbstractClientDataChangeSet {
 	}
 
 	protected void revertEnvironmentToEnumFormat(Map environmentItem) {
-		Environment defaultEnvironment = Environment.values().toList().find{StringFormatting.equalsIgnoreCaseAndEnumFormat(it.name(), environmentItem.environment as String)}
+		Environment defaultEnvironment = Environment.getEnvironment(environmentItem.environment as String)
 		if (defaultEnvironment != null) {
 			environmentItem.put("environment", defaultEnvironment.name())
 		} else {
-			environmentItem.put("environment", NONE)
+			environmentItem.put("environment", Environment.NONE)
 		}
 	}
 }
