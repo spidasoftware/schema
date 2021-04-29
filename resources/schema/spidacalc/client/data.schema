@@ -191,7 +191,7 @@
     "weatherCases": {
       "type": "array",
       "items": {
-        "$ref": "../../spidacalc/client/weather_cases.schema"
+        "$ref": "../../spidacalc/client/weather_case.schema"
       }
     }
   },
