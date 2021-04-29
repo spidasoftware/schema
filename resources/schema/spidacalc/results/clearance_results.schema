@@ -1,0 +1,8 @@
+{
+  "id": "#/spidacalc/results/clearance_results.schema",
+  "description": "SPIDACalc clearance results",
+  "type": "object",
+  "properties": {
+  },
+  "additionalProperties": true
+}

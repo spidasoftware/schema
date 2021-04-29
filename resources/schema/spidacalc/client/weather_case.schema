@@ -1,0 +1,8 @@
+{
+    "type": "object",
+    "id": "#/spidacalc/client/weather_case.schema",
+    "description": "The weather conditions to fully define a loaded state of a wire.",
+    "properties": {
+    },
+    "additionalProperties": true
+}

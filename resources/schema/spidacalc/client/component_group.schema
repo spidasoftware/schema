@@ -1,0 +1,8 @@
+{
+    "type": "object",
+    "id": "#/spidacalc/client/component_group.schema",
+    "description": "A group of components used for defining clearance rules.",
+    "properties": {
+    },
+    "additionalProperties": true
+}

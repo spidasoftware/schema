@@ -110,6 +110,18 @@
             "resultId"
           ]
         },
+        "clearanceCases": {
+          "type": "array",
+          "items": {
+            "$ref": "../../spidacalc/client/clearance_case.schema"
+          }
+        },
+        "clearanceResults": {
+          "type": "array",
+          "items": {
+            "$ref": "../../spidacalc/results/clearance_results.schema"
+          }
+        },
         "geographicCoordinate": {
             "$ref": "../../general/geometry.schema"
         },
