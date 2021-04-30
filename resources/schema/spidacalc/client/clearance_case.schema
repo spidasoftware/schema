@@ -1,0 +1,8 @@
+{
+    "type": "object",
+    "id": "#/spidacalc/client/clearance_case.schema",
+    "description": "A case defining required clearances for validation.",
+    "properties": {
+    },
+    "additionalProperties": true
+}

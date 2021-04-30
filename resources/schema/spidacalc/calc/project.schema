@@ -69,6 +69,7 @@
     },
     "clearanceSettings": {
       "type": "object",
+      "description": "These values are deprecated and will be ignored in SPIDAcalc 8.0",
       "properties": {
         "requiredGroundClearanceAtPole": {
           "$ref": "../../general/measurable.schema"
@@ -125,6 +126,13 @@
       "description": "An optional array of default Load Cases",
       "items": {
         "$ref": "../client/load_case.schema"
+      }
+    },
+    "defaultClearanceCases": {
+      "type": "array",
+      "description": "An optional array of default Clearance Cases",
+      "items": {
+        "$ref": "../client/clearance_case.schema"
       }
     },
     "defaultStrengthCase": {
