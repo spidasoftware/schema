@@ -60,6 +60,10 @@
         "$ref": "../../spidamin/user/external_id.schema",
         "description": "Other ids associated with a user.  Not required."
       }
+    },
+    "source": {
+      "type": "string",
+      "description": "Either SPIDA, SAML, or API_TOKEN_ONLY."
     }
   },
   "additionalProperties": false
