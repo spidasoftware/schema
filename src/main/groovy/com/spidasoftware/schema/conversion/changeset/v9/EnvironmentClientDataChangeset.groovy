@@ -110,7 +110,9 @@ class EnvironmentClientDataChangeset extends AbstractClientDataChangeSet {
 	@Override
 	boolean revertClientData(Map clientDataJSON) throws ConversionException {
 		clientDataJSON.remove("environments")
-		(clientDataJSON.assemblies as List<Map>).each { revertStructure(it.assemblyStructure as Map) }
+		(clientDataJSON.assemblies as List<Map>).each {
+			revertStructure(it.assemblyStructure as Map)
+		}
 		return true
 	}
 
@@ -151,7 +153,9 @@ class EnvironmentClientDataChangeset extends AbstractClientDataChangeSet {
 	}
 
 	protected void revertStructure(Map StructureJSON) {
-		revertEnvironmentToEnumFormat(StructureJSON.pole as Map)
+		if (StructureJSON.pole != null) {
+			revertEnvironmentToEnumFormat(StructureJSON.pole as Map)
+		}
 		(StructureJSON.spanPoints as List<Map>).each { Map spanPoint -> revertEnvironmentToEnumFormat(spanPoint)}
 		(StructureJSON.wireEndPoints as List<Map>).each { Map wireEndPoint -> revertEnvironmentToEnumFormat(wireEndPoint)}
 	}

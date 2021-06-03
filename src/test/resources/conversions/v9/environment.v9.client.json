@@ -19,6 +19,330 @@
             "description": "I am writing a really long description for a test. This note does not make any sense."
         }
     ],
+    "assemblies": [
+        {
+            "aliases": [],
+            "code": "2 Anchors 2 Guys",
+            "group": "Distribution",
+            "assemblyStructure": {
+                "wireEndPoints": [],
+                "spanPoints": [],
+                "anchors": [
+                    {
+                        "id": "Anchor#2",
+                        "height": {
+                            "unit": "METRE",
+                            "value": 0.0
+                        },
+                        "direction": 0,
+                        "distance": {
+                            "unit": "METRE",
+                            "value": 4.267200000000001
+                        },
+                        "owner": {
+                            "id": "Acme Power",
+                            "industry": "UTILITY"
+                        },
+                        "supportedWEPs": [],
+                        "clientItemVersion": "c20ec43a1ac51be4385898f5175ed533",
+                        "clientItem": "10\" - 10\" Double Helix (Class 4) 1 1/4\" Rod",
+                        "guys": [
+                            "Guy#2"
+                        ]
+                    },
+                    {
+                        "id": "Anchor#1",
+                        "height": {
+                            "unit": "METRE",
+                            "value": 0.0
+                        },
+                        "direction": 0,
+                        "distance": {
+                            "unit": "METRE",
+                            "value": 6.705600000000001
+                        },
+                        "owner": {
+                            "id": "Acme Power",
+                            "industry": "UTILITY"
+                        },
+                        "supportedWEPs": [],
+                        "clientItemVersion": "c20ec43a1ac51be4385898f5175ed533",
+                        "clientItem": "10\" - 10\" Double Helix (Class 4) 1 1/4\" Rod",
+                        "guys": [
+                            "Guy#1"
+                        ]
+                    }
+                ],
+                "notePoints": [],
+                "pointLoads": [],
+                "wirePointLoads": [],
+                "damages": [],
+                "wires": [],
+                "spanGuys": [],
+                "guys": [
+                    {
+                        "id": "Guy#2",
+                        "owner": {
+                            "id": "Acme Power",
+                            "industry": "UTILITY"
+                        },
+                        "clientItemVersion": "44c3ccc9da1035c8d8c2bfc1d00516d1",
+                        "clientItem": {
+                            "size": "3/4\" EHS",
+                            "coreStrands": 0,
+                            "conductorStrands": 7
+                        },
+                        "clientItemAlias": "E1.1L.3/4",
+                        "attachmentHeight": {
+                            "unit": "METRE",
+                            "value": 0.0
+                        }
+                    },
+                    {
+                        "id": "Guy#1",
+                        "owner": {
+                            "id": "Acme Power",
+                            "industry": "UTILITY"
+                        },
+                        "clientItemVersion": "44c3ccc9da1035c8d8c2bfc1d00516d1",
+                        "clientItem": {
+                            "size": "3/4\" EHS",
+                            "coreStrands": 0,
+                            "conductorStrands": 7
+                        },
+                        "clientItemAlias": "E1.1L.3/4",
+                        "attachmentHeight": {
+                            "unit": "METRE",
+                            "value": 0.0
+                        }
+                    }
+                ],
+                "equipments": [],
+                "guyAttachPoints": [],
+                "crossArms": [],
+                "insulators": [],
+                "pushBraces": [],
+                "sidewalkBraces": [],
+                "foundations": [],
+                "assemblies": []
+            },
+            "assemblyType": "SUPPORT"
+        },
+        {
+            "aliases": [],
+            "code": "A1",
+            "group": "Single Phase Tangent",
+            "assemblyStructure": {
+                "wireEndPoints": [
+                    {
+                        "id": "WEP#1",
+                        "direction": 0,
+                        "distance": {
+                            "unit": "METRE",
+                            "value": 0.3048
+                        },
+                        "relativeElevation": {
+                            "unit": "METRE",
+                            "value": 0.0
+                        },
+                        "inclination": {
+                            "unit": "RADIAN",
+                            "value": 0.0
+                        },
+                        "type": "PREVIOUS_POLE",
+                        "comments": "",
+                        "environment": "None",
+                        "wires": [
+                            "Wire#1",
+                            "Wire#3"
+                        ],
+                        "spanGuys": [],
+                        "spanPoints": [],
+                        "terrainPoints": []
+                    },
+                    {
+                        "id": "WEP#2",
+                        "direction": 180,
+                        "distance": {
+                            "unit": "METRE",
+                            "value": 0.3048
+                        },
+                        "relativeElevation": {
+                            "unit": "METRE",
+                            "value": 0.0
+                        },
+                        "inclination": {
+                            "unit": "RADIAN",
+                            "value": 0.0
+                        },
+                        "type": "NEXT_POLE",
+                        "comments": "",
+                        "environment": "None",
+                        "wires": [
+                            "Wire#2",
+                            "Wire#4"
+                        ],
+                        "spanGuys": [],
+                        "spanPoints": [],
+                        "terrainPoints": []
+                    }
+                ],
+                "spanPoints": [],
+                "anchors": [],
+                "notePoints": [],
+                "pointLoads": [],
+                "wirePointLoads": [],
+                "damages": [],
+                "wires": [
+                    {
+                        "id": "Wire#1",
+                        "owner": {
+                            "id": "none",
+                            "industry": "UTILITY"
+                        },
+                        "attachmentHeight": {
+                            "unit": "METRE",
+                            "value": 0.45720000000000005
+                        },
+                        "usageGroup": "PRIMARY",
+                        "tensionGroup": "Full",
+                        "midspanHeight": {
+                            "unit": "METRE",
+                            "value": 0.0
+                        }
+                    },
+                    {
+                        "id": "Wire#2",
+                        "owner": {
+                            "id": "none",
+                            "industry": "UTILITY"
+                        },
+                        "attachmentHeight": {
+                            "unit": "METRE",
+                            "value": 0.45720000000000005
+                        },
+                        "usageGroup": "PRIMARY",
+                        "tensionGroup": "Full",
+                        "midspanHeight": {
+                            "unit": "METRE",
+                            "value": 0.0
+                        }
+                    },
+                    {
+                        "id": "Wire#3",
+                        "owner": {
+                            "id": "none",
+                            "industry": "UTILITY"
+                        },
+                        "attachmentHeight": {
+                            "unit": "METRE",
+                            "value": -0.9652000000000002
+                        },
+                        "usageGroup": "NEUTRAL",
+                        "tensionGroup": "Full",
+                        "midspanHeight": {
+                            "unit": "METRE",
+                            "value": 0.0
+                        }
+                    },
+                    {
+                        "id": "Wire#4",
+                        "owner": {
+                            "id": "none",
+                            "industry": "UTILITY"
+                        },
+                        "attachmentHeight": {
+                            "unit": "METRE",
+                            "value": -0.9652000000000002
+                        },
+                        "usageGroup": "NEUTRAL",
+                        "tensionGroup": "Full",
+                        "midspanHeight": {
+                            "unit": "METRE",
+                            "value": 0.0
+                        }
+                    }
+                ],
+                "spanGuys": [],
+                "guys": [],
+                "equipments": [],
+                "guyAttachPoints": [
+                    {
+                        "id": "GuyAttachPoint#1",
+                        "supportedWEPs": [
+                            "WEP#1",
+                            "WEP#2"
+                        ],
+                        "attachHeight": {
+                            "unit": "METRE",
+                            "value": -0.5842
+                        }
+                    }
+                ],
+                "crossArms": [],
+                "insulators": [
+                    {
+                        "id": "Insulator#1",
+                        "owner": {
+                            "id": "none",
+                            "industry": "UTILITY"
+                        },
+                        "clientItemVersion": "242f2caa07428e62c1424fabcad9ee6c",
+                        "clientItem": "13.2 kV Pin Type Insulator (Pole Top)",
+                        "offset": {
+                            "unit": "METRE",
+                            "value": 0.0
+                        },
+                        "direction": 0,
+                        "doubleInsulator": false,
+                        "wires": [
+                            "Wire#1",
+                            "Wire#2"
+                        ]
+                    },
+                    {
+                        "id": "Insulator#2",
+                        "owner": {
+                            "id": "none",
+                            "industry": "UTILITY"
+                        },
+                        "clientItemVersion": "e88a3ba7208e629c3d5a46156cbb8d86",
+                        "clientItem": "3\" Spool Bolt",
+                        "offset": {
+                            "unit": "METRE",
+                            "value": -0.9652000000000001
+                        },
+                        "direction": 0,
+                        "doubleInsulator": false,
+                        "wires": [
+                            "Wire#3",
+                            "Wire#4"
+                        ]
+                    }
+                ],
+                "pushBraces": [],
+                "sidewalkBraces": [],
+                "foundations": [],
+                "assemblies": []
+            },
+            "distanceFromPoleTop": {
+                "unit": "METRE",
+                "value": 0.1016
+            },
+            "distanceToUnderbuild": {
+                "unit": "METRE",
+                "value": 0.9144000000000001
+            },
+            "minimumLineAngle": {
+                "unit": "RADIAN",
+                "value": 0.0
+            },
+            "maximumLineAngle": {
+                "unit": "RADIAN",
+                "value": 0.08726646259971647
+            },
+            "assemblyType": "FRAMING"
+        }],
     "dateModified": "2021-03-24T02:39:27.453Z",
     "version": 9,
     "hash": "12849273c098b4dfdeee56d3f05c872f"
