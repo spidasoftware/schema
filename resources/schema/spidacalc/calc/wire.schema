@@ -25,6 +25,9 @@
         }
       ]
     },
+    "wireTags": {
+      "$ref": "../../spidacalc/client/wire_tag.schema"
+    },
     "clientItemVersion": {
       "type": "string",
       "pattern": "[a-f0-9]{32}",
