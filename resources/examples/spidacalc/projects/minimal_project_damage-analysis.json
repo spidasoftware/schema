@@ -1,0 +1,70 @@
+{
+  "clientFile": "Demo.client",
+  "schema": "https://raw.github.com/spidasoftware/schema/master/resources/schema/spidacalc/calc/project.schema",
+  "leads": [
+    {
+      "locations": [
+        {
+          "designs": [
+            {
+              "label": "Measured",
+              "layerType": "Measured",
+              "structure": {
+                "pole": {
+                  "clientItemAlias": "45-3",
+                  "agl": {
+                    "unit": "FOOT",
+                    "value": 30
+                  },
+                  "glc": {
+                    "unit": "INCH",
+                    "value": 34
+                  },
+                  "owner": {
+                    "industry": "UTILITY",
+                    "id": "Acme Power"
+                  }
+                },
+                "damages": [
+                  {
+                    "id": "Damage#1",
+                    "direction": 180,
+                    "attachHeight": {
+                      "unit": "FOOT",
+                      "value": 1
+                    },
+                    "damageHeight": {
+                      "unit": "FOOT",
+                      "value": 1
+                    },
+                    "damageType": "SHELL",
+                    "circumference": {
+                      "unit": "INCH",
+                      "value": 30
+                    }
+                  }
+                ]
+              },
+              "analysis": [
+                {
+                  "id": "NESC",
+                  "analysisCaseDetails": {
+                    "type": "zoneStrengthCase",
+                    "name": "NESC",
+                    "addByDefault": false,
+                    "includeThroughBolts": false,
+                    "minimumAllowableRatio": 0.6666666666666666,
+                    "heightToIncludeAtGroundline": {
+                      "unit": "METRE",
+                      "value": 0.0
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
