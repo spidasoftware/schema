@@ -1,6 +1,6 @@
 {
     "type": "object",
-    "id": "#/spidacalc/client/wire_tag.schema",
+    "id": "#/spidacalc/client/wire_class.schema",
     "description": "An additional tag used to flag wires for special clearance rules.",
     "properties": {
     },
