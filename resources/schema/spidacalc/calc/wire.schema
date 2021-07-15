@@ -25,6 +25,9 @@
         }
       ]
     },
+    "wireClass": {
+      "$ref": "../../spidacalc/client/wire_class.schema"
+    },
     "clientItemVersion": {
       "type": "string",
       "pattern": "[a-f0-9]{32}",

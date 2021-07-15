@@ -176,7 +176,7 @@
     },
     "defaultWireTag": {
       "type": "object",
-      "$ref": "../../spidacalc/client/wire_tag.schema"
+      "$ref": "../../spidacalc/client/wire_class.schema"
     },
     "clearanceCases": {
       "type": "array",
@@ -190,10 +190,10 @@
         "$ref": "../../spidacalc/client/component_group.schema"
       }
     },
-    "wireTags": {
+    "wireClasses": {
       "type": "array",
       "items": {
-        "$ref": "../../spidacalc/client/wire_tag.schema"
+        "$ref": "../../spidacalc/client/wire_class.schema"
       }
     },
     "weatherCases": {
