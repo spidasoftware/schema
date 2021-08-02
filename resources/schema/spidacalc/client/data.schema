@@ -170,9 +170,11 @@
       "type": "object",
       "$ref": "../../general/owner.schema"
     },
-    "defaultClearanceCase": {
-      "type": "object",
-      "$ref": "../../spidacalc/client/clearance_case.schema"
+    "defaultClearanceCases": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/client/clearance_case.schema"
+      }
     },
     "defaultWireTag": {
       "type": "object",
