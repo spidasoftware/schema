@@ -54,7 +54,7 @@ an id is in the posted station object.
 
 station, asset, or attachment required
 
-1. `asset`: An [asset object](../../resources/schema/spidamin/asset/station.schema)
+1. `asset`: An [asset object](../../resources/schema/spidamin/asset/asset.schema)
 1. `station`: A [station object](../../resources/schema/spidamin/asset/station.schema)
 1. `attachment`: An array of [attachment object](../../resources/schema/spidamin/asset/attachment.schema)
 
