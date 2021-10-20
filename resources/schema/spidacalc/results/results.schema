@@ -37,7 +37,6 @@
 	  "description": "The engineering data to be used to fill in the references on the structure.",
 	  "$ref": "../../spidacalc/client/data.schema"
 	  }
-	}
-  },
+	},
   "additionalProperties": false
 }
