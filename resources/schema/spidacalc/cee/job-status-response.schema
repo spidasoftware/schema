@@ -1,5 +1,5 @@
 {
-  "id": "#/spidacalc/cee/job-action-response.schema",
+  "id": "#/spidacalc/cee/job-status-response.schema",
   "description": "The response from a job action (add,update,remove,validate)",
   "type": "object",
   "required": [
