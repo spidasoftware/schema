@@ -203,6 +203,6 @@ wrapper {
 
 dependencyCheck {
 	junitFailOnCVSS=9
-	suppressionFile="dependency-check-suppsions.xml"
+	suppressionFile="dependency-check-suppressions.xml"
 	formats = ["HTML", "JUNIT"]
 }
