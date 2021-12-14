@@ -8,6 +8,7 @@ apply plugin: 'groovy'
 apply plugin: 'idea'
 apply plugin: 'project-report'
 apply plugin: 'releaseNotes'
+apply plugin: 'org.owasp.dependencycheck'
 
 group = 'com.spidasoftware'
 version = '9.0.0-SNAPSHOT' // If you're changing the major version also change the currentVersion in ConverterUtils.
@@ -53,6 +54,7 @@ buildscript {
 
 	dependencies {
 		classpath (group: 'com.spidasoftware', name:'releaseNotes', version:'0.1-SNAPSHOT', changing:true)
+		classpath 'org.owasp:dependency-check-gradle:6.5.0.1'
 	}
 }
 
