@@ -200,3 +200,8 @@ wrapper {
  	 *****************************************************************************************/
 	 distributionUrl = 'https://services.gradle.org/distributions/gradle-4.8.1-all.zip'
 }
+
+dependencyCheck {
+	failBuildOnCVSS=9
+	suppressionFile="dependency-check-suppsions.xml"
+}
