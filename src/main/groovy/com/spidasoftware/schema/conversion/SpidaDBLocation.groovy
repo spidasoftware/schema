@@ -37,7 +37,7 @@ class SpidaDBLocation extends AbstractSpidaDBComponent {
      * @return
      */
     public List<String> getDesignIds() {
-        getCalcJSON().get('designs')?.collect{ Map design -> design.id}
+        getCalcJSON().get('designs')?.collect{ Map design -> design.id} as List<String>
     }
 
 	@Override

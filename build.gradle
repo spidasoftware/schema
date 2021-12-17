@@ -8,6 +8,7 @@ apply plugin: 'groovy'
 apply plugin: 'idea'
 apply plugin: 'project-report'
 apply plugin: 'releaseNotes'
+apply plugin: 'org.owasp.dependencycheck'
 
 group = 'com.spidasoftware'
 version = '9.0.0-SNAPSHOT' // If you're changing the major version also change the currentVersion in ConverterUtils.
@@ -53,6 +54,7 @@ buildscript {
 
 	dependencies {
 		classpath (group: 'com.spidasoftware', name:'releaseNotes', version:'0.1-SNAPSHOT', changing:true)
+		classpath 'org.owasp:dependency-check-gradle:6.5.0.1'
 	}
 }
 
@@ -80,7 +82,7 @@ dependencies {
 	compile 'commons-lang:commons-lang:2.6'
 	compile group: 'org.apache.ant', name: 'ant', version: '1.9.4'
 	compile group: 'org.apache.ant', name: 'ant-launcher', version: '1.9.4'
-	compile group: 'org.codehaus.groovy', name: 'groovy-all', version:'2.4.5'
+	compile group: 'org.codehaus.groovy', name: 'groovy-all', version:'2.4.15'
 	compile group: 'log4j', name: 'log4j', version:'1.2.17'
 	compile group: 'commons-io', name: 'commons-io', version:'2.4'
 	compile group: 'com.github.fge', name: 'json-schema-validator', version:'2.1.6'
@@ -197,4 +199,10 @@ wrapper {
 		http://www.gradle.org/docs/current/dsl/org.gradle.api.tasks.wrapper.Wrapper.html
  	 *****************************************************************************************/
 	 distributionUrl = 'https://services.gradle.org/distributions/gradle-4.8.1-all.zip'
+}
+
+dependencyCheck {
+	failBuildOnCVSS=9
+	suppressionFile="dependency-check-suppressions.xml"
+	formats = ["HTML"]
 }
