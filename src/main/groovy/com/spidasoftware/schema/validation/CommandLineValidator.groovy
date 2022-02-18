@@ -22,7 +22,7 @@ class CommandLineValidator {
 			System.exit(-2)
 		}
 
-		Validator validator = new Validator();
+		Validator validator = new NetworkNtJsonValidator();
 		def json = new File(args[1]).text
 
 

@@ -6,24 +6,23 @@ package com.spidasoftware.schema.validation
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.github.fge.jackson.JsonLoader
-import com.github.fge.jsonschema.SchemaVersion
-import com.github.fge.jsonschema.cfg.ValidationConfiguration
-import com.github.fge.jsonschema.cfg.ValidationConfigurationBuilder
-import com.github.fge.jsonschema.exceptions.ProcessingException
-import com.github.fge.jsonschema.library.DraftV4Library
-import com.github.fge.jsonschema.library.Library
-import com.github.fge.jsonschema.load.configuration.LoadingConfiguration
-import com.github.fge.jsonschema.load.configuration.LoadingConfigurationBuilder
-import com.github.fge.jsonschema.main.JsonSchema
-import com.github.fge.jsonschema.main.JsonSchemaFactory
-import com.github.fge.jsonschema.ref.JsonRef
-import com.github.fge.jsonschema.report.LogLevel
-import com.github.fge.jsonschema.report.ProcessingReport
+import com.github.fge.jsonschema.core.exceptions.ProcessingException
+import com.github.fge.jsonschema.core.report.ListProcessingReport
+import com.github.fge.jsonschema.core.report.ProcessingMessage
+import com.github.fge.jsonschema.core.report.ProcessingReport
+import com.networknt.schema.JsonMetaSchema
+import com.networknt.schema.JsonSchema
+import com.networknt.schema.JsonSchemaFactory
+import com.networknt.schema.NonValidationKeyword
+import com.networknt.schema.SpecVersion
+import com.networknt.schema.ValidationMessage
+import com.networknt.schema.ValidatorTypeCode
+import groovy.transform.CompileDynamic
 import groovy.util.logging.Log4j
-import org.apache.commons.io.FilenameUtils
 
 /**
  * Class to validate against our json schemas. Will references the schemas locally as a jar resource.
+ * Uses networkNT for work now, but still reports as ProcessingReport to maintain compatibility
  */
 @Log4j
 class Validator {
@@ -32,8 +31,104 @@ class Validator {
 	private Map<String, JsonNode> schemaTextCache = [:]
 	private Map<JsonNode, JsonSchema> schemaCacheStrict = [:]
 	private Map<JsonNode, JsonSchema> schemaCacheNotStrict = [:]
+	private JsonSchemaFactory schemaFactoryStrict = null
+	private JsonSchemaFactory schemaFactoryNotStrict = null
 
-	/**
+	protected ProcessingReport loadAndValidate(String schemaPath, JsonNode jsonNode) {
+		JsonNode schemaNode = schemaPathCache.get(schemaPath)
+		if(schemaNode == null) {
+			schemaNode = (new ObjectMapper()).readTree(this.class.getResource(schemaPath))
+			schemaPathCache.put(schemaPath, schemaNode)
+		}
+		return validateWithStrictModeCheck(jsonNode, schemaNode, this.class.getResource(schemaPath).toURI())
+	}
+
+	protected ProcessingReport validateUsingSchemaText(String schemaText, JsonNode jsonNode) {
+		JsonNode schemaNode = schemaTextCache.get(schemaText)
+		if(schemaNode == null) {
+			schemaNode = (new ObjectMapper()).readTree(schemaText)
+			schemaTextCache.put(schemaText, schemaNode)
+		}
+		return validateWithStrictModeCheck(jsonNode, schemaNode)
+	}
+
+	ProcessingReport validateWithStrictModeCheck(JsonNode jsonNode, JsonNode schemaNode, URI schemaUri = null){
+		boolean ignoreAdditionalProperties = true
+		JsonNode strictNode = jsonNode.get('strict')
+
+		//remove strict it so it doesn't effect validation
+		if(strictNode != null){
+			ignoreAdditionalProperties = !strictNode.booleanValue()
+			jsonNode.remove('strict')
+		}
+
+		Map<JsonNode, JsonSchema> schemaCache
+		if(ignoreAdditionalProperties) {
+			schemaCache = schemaCacheNotStrict
+		} else {
+			schemaCache = schemaCacheStrict
+		}
+		JsonSchema schema = schemaCache.get(schemaNode)
+		if(schema == null) {
+			JsonSchemaFactory factory = getJsonSchemaFactory(ignoreAdditionalProperties)  // todo cache these too
+			if (schemaUri == null) {  // try (schemaUri, schemaNode) regardless of nullness
+				schema = factory.getSchema(schemaNode)
+			} else {
+				schema = factory.getSchema(schemaUri, schemaNode)
+			}
+			schemaCache.put(schemaNode, schema)
+		}
+
+		Set<ValidationMessage> validationMessages = schema.validate(jsonNode)
+
+		//now revert the strict property change
+		if(strictNode != null){
+			jsonNode.put('strict', strictNode.booleanValue())
+		}
+
+		ListProcessingReport processingReport = new ListProcessingReport()
+		for(ValidationMessage validationMessage in validationMessages){
+			ProcessingMessage processingMessage = new ProcessingMessage()
+			processingMessage.setMessage(validationMessage.message)
+			processingReport.error(processingMessage)
+		}
+		return processingReport
+	}
+
+	@CompileDynamic
+	private JsonSchemaFactory getJsonSchemaFactory(boolean ignoreAdditionalProperties) {
+		if(ignoreAdditionalProperties) {
+			if(schemaFactoryNotStrict == null) {
+				JsonMetaSchema jsonMetaSchema = new JsonMetaSchema.Builder(JsonMetaSchema.V4.URI)
+						.idKeyword(JsonMetaSchema.V4.ID)
+						.addFormats(JsonMetaSchema.V4.BUILTIN_FORMATS)
+						.addKeywords(ValidatorTypeCode.getNonFormatKeywords(SpecVersion.VersionFlag.V4))
+				// keywords that may validly exist, but have no validation aspect to them
+						.addKeywords(Arrays.asList(
+								new NonValidationKeyword('$schema'),
+								new NonValidationKeyword("id"),
+								new NonValidationKeyword("title"),
+								new NonValidationKeyword("description"),
+								new NonValidationKeyword("default"),
+								new NonValidationKeyword("definitions"),
+								new NonValidationKeyword("additionalProperties")// this suppresses the additionalProperties validation
+						))
+						.build()
+				schemaFactoryNotStrict = JsonSchemaFactory.builder()
+						.defaultMetaSchemaURI(jsonMetaSchema.getUri())
+						.addMetaSchema(jsonMetaSchema)
+						.build()
+			}
+			return schemaFactoryNotStrict
+		} else {
+			if(schemaFactoryStrict == null) {
+				schemaFactoryStrict = JsonSchemaFactory.getInstance(SpecVersion.VersionFlag.V4)
+				return schemaFactoryStrict
+			}
+			return schemaFactoryStrict
+		}
+	}
+		/**
 	 * @param schemaPath resource URL to the schema. eg, "/v1/schema/spidacalc/calc/project.schema"
 	 * @param json string representation of json to be validated.
 	 * @return The fge schema-validator report
@@ -107,79 +202,6 @@ class Validator {
 		handleReport(validateAndReportFromText(schemaText, json))
 	}
 
-	protected ProcessingReport loadAndValidate(String schemaPath, JsonNode jsonNode) {
-		String namespace = convertToResourcePath(schemaPath)
-		JsonNode schemaNode = schemaPathCache.get(schemaPath)
-		if(schemaNode == null) {
-			schemaNode = JsonLoader.fromResource(schemaPath)
-			schemaPathCache.put(schemaPath, schemaNode)
-		}
-		return validateWithStrictModeCheck(jsonNode, schemaNode, namespace)
-	}
-
-	protected ProcessingReport validateUsingSchemaText(String schemaText, JsonNode jsonNode) {
-		JsonNode schemaNode = schemaTextCache.get(schemaText)
-		if(schemaNode == null) {
-			schemaNode = JsonLoader.fromString(schemaText)
-			schemaTextCache.put(schemaText, schemaNode)
-		}
-		return validateWithStrictModeCheck(jsonNode, schemaNode)
-	}
-
-	private ProcessingReport validateWithStrictModeCheck(JsonNode jsonNode, JsonNode schemaNode, String namespace = null){
-		boolean ignoreAdditionalProperties = true
-		JsonNode strictNode = jsonNode.get('strict')
-
-		//remove strict it so it doesn't effect validation
-		if(strictNode != null){
-			ignoreAdditionalProperties = !strictNode.booleanValue()
-			jsonNode.remove('strict')
-		}
-
-		Map<JsonNode, JsonSchema> schemaCache
-		if(ignoreAdditionalProperties) {
-			schemaCache = schemaCacheNotStrict
-		} else {
-			schemaCache = schemaCacheStrict
-		}
-		JsonSchema schema = schemaCache.get(schemaNode)
-		if(schema == null) {
-			JsonSchemaFactory factory = createJsonSchemaFactory(namespace, ignoreAdditionalProperties)
-			schema = factory.getJsonSchema(schemaNode)
-			schemaCache.put(schemaNode, schema)
-		}
-
-		ProcessingReport report = schema.validate(jsonNode)
-
-		//now revert the strict property change
-		if(strictNode != null){
-			jsonNode.put('strict', strictNode.booleanValue())
-		}
-
-		report.messages.retainAll{it.logLevel == LogLevel.ERROR}
-		return report
-	}
-
-	private JsonSchemaFactory createJsonSchemaFactory(String namespace = null, boolean ignoreAdditionalProperties = true){
-		ValidationConfigurationBuilder valCfgBuilder = ValidationConfiguration.newBuilder()
-		if(ignoreAdditionalProperties){
-			//this removes the AdditionalPropertiesValidator (See CommonValidatorDictionary)
-			Library modifiedLib = DraftV4Library.get().thaw().removeKeyword("additionalProperties").freeze()
-			valCfgBuilder.libraries.remove(JsonRef.fromString(SchemaVersion.DRAFTV4.location.toString()))
-			valCfgBuilder.setDefaultLibrary(SchemaVersion.DRAFTV4.location.toString(), modifiedLib)
-		}
-
-		LoadingConfigurationBuilder loadCfgBuilder = LoadingConfiguration.newBuilder()
-		if(namespace){
-			loadCfgBuilder.setNamespace(namespace)
-		}
-
-		return JsonSchemaFactory.newBuilder()
-					.setLoadingConfiguration(loadCfgBuilder.freeze())
-					.setValidationConfiguration(valCfgBuilder.freeze())
-					.freeze()
-	}
-
 	protected void handleReport(ProcessingReport report) throws JSONServletException {
 		if (report == null) {
 			throw new JSONServletException(JSONServletException.INTERNAL_ERROR, "An internal error occurred when validating JSON")
@@ -198,16 +220,5 @@ class Validator {
 			log.error(e, e)
 		}
 		return null
-	}
-
-	String convertToResourcePath(String schemaPath){
-		//FilenameUtils.getPath(filepath) gets the parent folder and removes path prefix (windows drive letter or unix tilde)
-		//More Info: http://commons.apache.org/proper/commons-io/apidocs/org/apache/commons/io/FilenameUtils.html#getPathNoEndSeparator(java.lang.String)
-		String namespace = "/" + FilenameUtils.getPathNoEndSeparator(schemaPath)
-		namespace = FilenameUtils.separatorsToUnix(namespace)
-
-		String namespaceString = "resource:${namespace}/"
-		log.trace "Validation: \nschemaPath=$schemaPath \nnamespace=$namespace \nnamespaceString=$namespaceString"
-		return namespaceString
 	}
 }
