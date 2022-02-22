@@ -4,6 +4,7 @@
   "version": 1,
   "clientFile": "Demo.client",
   "date": "2011-02-21",
+  "strict": true,
   "leads": [
     {
       "locations": [
