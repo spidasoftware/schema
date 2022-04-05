@@ -1,13 +1,16 @@
 package com.spidasoftware.schema.conversion.changeset
 
-import com.spidasoftware.schema.conversion.changeset.calc.*
+import com.spidasoftware.schema.conversion.changeset.calc.CalcDesignConverter
+import com.spidasoftware.schema.conversion.changeset.calc.CalcLocationConverter
+import com.spidasoftware.schema.conversion.changeset.calc.CalcProjectChangeSet
+import com.spidasoftware.schema.conversion.changeset.calc.CalcProjectConverter
 import com.spidasoftware.schema.conversion.changeset.v2.PoleLeanChangeSetTest
 import com.spidasoftware.schema.validation.Validator
 import groovy.json.JsonSlurper
-import groovy.util.logging.Log4j
+import groovy.util.logging.Slf4j
 import spock.lang.Specification
 
-@Log4j
+@Slf4j
 class ConverterUtilsSpec extends Specification {
 
 	def "pole-lean"() {

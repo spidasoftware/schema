@@ -5,9 +5,9 @@ package com.spidasoftware.schema.conversion.changeset.client
 
 import com.spidasoftware.schema.conversion.changeset.ChangeSet
 import com.spidasoftware.schema.conversion.changeset.calc.AbstractCalcConverter
-import groovy.util.logging.Log4j
+import groovy.util.logging.Slf4j
 
-@Log4j
+@Slf4j
 /**
  * Converter for clientData json files.
  */

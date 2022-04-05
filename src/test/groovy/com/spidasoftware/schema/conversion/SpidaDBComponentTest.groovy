@@ -1,14 +1,14 @@
 package com.spidasoftware.schema.conversion
 
 import groovy.json.JsonSlurper
-import groovy.util.logging.Log4j
+import groovy.util.logging.Slf4j
 import org.junit.Before
 import org.junit.Test
 
 import static org.junit.Assert.assertEquals
 import static org.junit.Assert.assertNotNull
 
-@Log4j
+@Slf4j
 public class SpidaDBComponentTest {
     SpidaDBProject project
     SpidaDBLocation location

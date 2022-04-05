@@ -5,10 +5,10 @@ package com.spidasoftware.schema.conversion.changeset.v4
 
 import com.spidasoftware.schema.conversion.changeset.calc.AbstractCalcDesignChangeset
 import com.spidasoftware.schema.conversion.changeset.ConversionException
-import groovy.util.logging.Log4j
+import groovy.util.logging.Slf4j
 
 
-@Log4j
+@Slf4j
 class ConnectivityChangeSet extends AbstractCalcDesignChangeset {
 
 	@Override

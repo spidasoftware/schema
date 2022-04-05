@@ -11,7 +11,7 @@ apply plugin: 'releaseNotes'
 apply plugin: 'org.owasp.dependencycheck'
 
 group = 'com.spidasoftware'
-version = '9.0.1-SNAPSHOT' // If you're changing the major version also change the currentVersion in ConverterUtils.
+version = '9.0.2-SNAPSHOT' // If you're changing the major version also change the currentVersion in ConverterUtils.
 
 def schemaReleaseVersion = System.getenv("SCHEMA_RELEASE_VERSION")
 if(schemaReleaseVersion){
@@ -83,7 +83,9 @@ dependencies {
 	compile group: 'org.apache.ant', name: 'ant', version: '1.9.4'
 	compile group: 'org.apache.ant', name: 'ant-launcher', version: '1.9.4'
 	compile group: 'org.codehaus.groovy', name: 'groovy-all', version:'2.4.15'
-	compile group: 'log4j', name: 'log4j', version:'1.2.17'
+	compile group: 'ch.qos.logback', name: 'logback-core', version: '1.2.11'
+	compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.11'
+	compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.36'
 	compile group: 'commons-io', name: 'commons-io', version:'2.4'
 	compile 'com.github.java-json-tools:json-schema-core:1.2.14'  // fge updated to java-json-tools - results schema does not parse
  	compile 'com.networknt:json-schema-validator:1.0.30-SNAPSHOT'
@@ -98,20 +100,6 @@ dependencies {
 test {
     testLogging.showStandardStreams = true
 }
-
-if (System.env.TRAVIS == 'true') {
-  allprojects {
-    tasks.withType(GroovyCompile) {
-      groovyOptions.fork = false
-    }
-    tasks.withType(Test) {
-      maxParallelForks = 1
-      minHeapSize = '512m'
-	  maxHeapSize = '1024m'
-    }
-  }
-}
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Build Process

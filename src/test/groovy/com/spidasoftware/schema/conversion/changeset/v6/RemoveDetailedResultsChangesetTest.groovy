@@ -6,11 +6,11 @@ package com.spidasoftware.schema.conversion.changeset.v6
 import com.spidasoftware.schema.conversion.changeset.calc.CalcProjectChangeSet
 import com.spidasoftware.schema.validation.Validator
 import groovy.json.JsonSlurper
-import groovy.util.logging.Log4j
+import groovy.util.logging.Slf4j
 import spock.lang.Specification
 import spock.lang.Unroll
 
-@Log4j
+@Slf4j
 class RemoveDetailedResultsChangesetTest extends Specification {
 
     @Unroll

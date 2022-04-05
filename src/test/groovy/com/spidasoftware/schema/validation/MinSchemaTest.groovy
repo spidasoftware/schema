@@ -1,14 +1,9 @@
 package com.spidasoftware.schema.validation
 
-import com.github.fge.jackson.JsonLoader
-import com.github.fge.jsonschema.core.load.configuration.LoadingConfiguration
 import groovy.json.JsonOutput
-import org.apache.log4j.Logger
 
 class MinSchemaTest extends GroovyTestCase {
 
-
-	def log = Logger.getLogger(this.class);
 	def report
 	Validator validator = new Validator()
 

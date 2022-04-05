@@ -2,12 +2,10 @@ package com.spidasoftware.schema.validation
 
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.github.fge.jackson.JsonLoader
 import com.networknt.schema.JsonMetaSchema
 import com.networknt.schema.JsonSchema
 import com.networknt.schema.JsonSchemaFactory
 import com.networknt.schema.SpecVersion
-import org.apache.log4j.Logger
 
 class GeneralSchemaValidationTest extends GroovyTestCase {
 	def report

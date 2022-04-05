@@ -2,10 +2,10 @@ package com.spidasoftware.schema.conversion.changeset.v4
 
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
-import groovy.util.logging.Log4j
+import groovy.util.logging.Slf4j
 import spock.lang.Specification
 
-@Log4j
+@Slf4j
 class PointLoadItemChangeSetSpec extends Specification {
 
     def "test revert"() {

@@ -5,9 +5,9 @@ package com.spidasoftware.schema.conversion.changeset.v5
 
 import com.spidasoftware.schema.conversion.changeset.calc.AbstractCalcDesignChangeset
 import com.spidasoftware.schema.conversion.changeset.ConversionException
-import groovy.util.logging.Log4j
+import groovy.util.logging.Slf4j
 
-@Log4j
+@Slf4j
 class InputAssemblyDistanceDirectionChangeset extends AbstractCalcDesignChangeset {
 	@Override
 	void applyToDesign(Map designJSON) throws ConversionException {
