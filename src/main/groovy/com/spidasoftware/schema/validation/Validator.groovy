@@ -215,9 +215,9 @@ class Validator {
 		try {
 			return closure()
 		} catch (IOException e) {
-			log.error(e, e)
+			log.error(e.toString(), e)
 		} catch (ProcessingException e) {
-			log.error(e, e)
+			log.error(e.toString(), e)
 		}
 		return null
 	}
