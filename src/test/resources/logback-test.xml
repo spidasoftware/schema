@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--  Built in 2022-04-05 06:40 by logback-translator            -->
+<!--                                                             -->
+<!--  For sponsoring SLF4J/logback/reload4j projects see         -->
+<!--    https://github.com/sponsors/qos-ch                       -->
+<!--                                                             -->
+<configuration>
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <Target>System.out</Target>
+        <encoder>
+            <pattern>%d{ISO8601} %-5p %c:%L %m%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="logfile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--See also http://logback.qos.ch/manual/appenders.html#RollingFileAppender-->
+        <File>build/tests.log</File>
+        <encoder>
+            <pattern>%d{ISO8601} %-5p %c: %m%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <maxIndex>10</maxIndex>
+            <FileNamePattern>build/tests.log.%i</FileNamePattern>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>5000kb</MaxFileSize>
+        </triggeringPolicy>
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="logfile"/>
+    </root>
+    <logger name="com.spidasoftware" level="DEBUG"/>
+
+</configuration>

@@ -6,10 +6,10 @@ package com.spidasoftware.schema.validation
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.google.common.io.Files
-import groovy.util.logging.Log4j
+import groovy.util.logging.Slf4j
 import spock.lang.Specification
 
-@Log4j
+@Slf4j
 class NetworkNtJsonValidatorPerfTest extends Specification {
 
 	def test() {

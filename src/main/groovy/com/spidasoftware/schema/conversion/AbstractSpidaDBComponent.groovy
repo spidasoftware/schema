@@ -3,13 +3,13 @@
  */
 package com.spidasoftware.schema.conversion
 
-import org.apache.log4j.Logger
+import groovy.util.logging.Slf4j
 
 /**
  * Abstract class for SPIDAdb project components that handles some of the boiler plate stuff
  */
+@Slf4j
 abstract class AbstractSpidaDBComponent implements SpidaDBProjectComponent {
-    private static final Logger log = Logger.getLogger(AbstractSpidaDBComponent.class)
     Map json
 
     public AbstractSpidaDBComponent(Map json){

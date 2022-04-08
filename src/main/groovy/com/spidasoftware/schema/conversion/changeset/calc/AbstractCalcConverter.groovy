@@ -7,7 +7,6 @@ import com.spidasoftware.schema.conversion.changeset.AbstractConverter
 import com.spidasoftware.schema.conversion.changeset.ChangeSet
 import com.spidasoftware.schema.conversion.changeset.ConversionException
 import com.spidasoftware.schema.conversion.changeset.Converter
-import org.apache.log4j.Logger
 
 /**
  * Converts JSON from one version to another

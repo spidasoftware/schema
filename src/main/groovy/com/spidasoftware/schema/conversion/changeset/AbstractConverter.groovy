@@ -3,11 +3,12 @@
  */
 package com.spidasoftware.schema.conversion.changeset
 
-import org.apache.log4j.Logger
+import groovy.util.logging.Slf4j
 
 /**
  * Base converter for calc & client converter
  */
+@Slf4j
 abstract class AbstractConverter implements Converter {
 
 	int defaultVersion = 1
@@ -32,7 +33,7 @@ abstract class AbstractConverter implements Converter {
 		}
 
 		if (fromVersion == toVersion) {
-			Logger.getLogger(AbstractConverter).debug("no conversion necessary")
+			log.debug("no conversion necessary")
 			return // no conversion necessary
 		}
 
@@ -55,7 +56,7 @@ abstract class AbstractConverter implements Converter {
 			}
 			// need to revert in reverse order
 			toApply.reverseEach { ChangeSet changeSet ->
-				Logger.getLogger(AbstractConverter).info("Applying changest: ${changeSet.class.simpleName}")
+				log.info("Applying changest: ${changeSet.class.simpleName}")
 				revertChangeset(changeSet, json)
 			}
 		}

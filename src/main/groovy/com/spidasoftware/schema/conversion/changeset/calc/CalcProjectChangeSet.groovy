@@ -6,13 +6,13 @@ package com.spidasoftware.schema.conversion.changeset.calc
 import com.spidasoftware.schema.conversion.changeset.*
 import com.fasterxml.jackson.databind.ObjectMapper
 import groovy.transform.CompileStatic
-import groovy.util.logging.Log4j
+import groovy.util.logging.Slf4j
 
 /**
  * Convert a json object between versions
  * Should be stateless and reusable
  */
-@Log4j
+@Slf4j
 @CompileStatic
 abstract class CalcProjectChangeSet extends ChangeSet {
 
