@@ -17,7 +17,7 @@ RPC stands for "Remote Procedure Call" and is for "invoking an action on a remot
 1. [asset creation](apis/assetCreationAPI.md) -  These methods allow the creation and modification of assets and stations.
 1. [asset file](apis/assetFileAPI.md) -  These methods allow the interaction with file based assets and stations.
 1. [station linker](apis/stationLinkerAPI.md) -  These methods allow for the association of related stations between services.
-2. [company] (apis/companyAPI.md) - Interacting with Company objects. Allows retrieval of Company attributes and details.
+2. [company](apis/companyAPI.md) - Interacting with Company objects. Allows retrieval of Company attributes and details.
 
 ## REST API
 
