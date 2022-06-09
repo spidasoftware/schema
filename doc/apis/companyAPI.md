@@ -54,7 +54,7 @@ A sample return is as follows with userGroup value set to "true" :
         "address2": "Suite 1",
         "userGroups": [
             "Just a Group",
-            "Another Gropu"
+            "Another Group"
         ]
     }
 }
