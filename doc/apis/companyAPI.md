@@ -37,6 +37,8 @@ Gets the Company Details of the Company ID. Used to display Company attribute da
 `https://demo.spidasoftware.com/usersmaster/companyAPI/getCompany?id=${company_id}&apiToken=xxxx&userGroups=true`
 
 A sample return is as follows with userGroup value set to "true" :
+
+```
 {
     "result": {
         "id": 2,
@@ -56,3 +58,4 @@ A sample return is as follows with userGroup value set to "true" :
         ]
     }
 }
+```
