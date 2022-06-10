@@ -38,7 +38,7 @@ Gets the Company Details of the Company ID. Used to display Company attribute da
 #### Examples
 `https://demo.spidasoftware.com/usersmaster/companyAPI/getCompany?id=${company_id}&apiToken=xxxx&params=['userGroups']`
 
-With URI Encoding for params:
+With URI Encoding for params if not designating ContentType in the header:
 `https://demo.spidasoftware.com/usersmaster/companyAPI/getCompany?id=${company_id}&apiToken=xxxx&params=%5B%22userGroups%22%5D`
 
 A sample return is as follows with userGroup value set to "true" :
