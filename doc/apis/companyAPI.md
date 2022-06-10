@@ -41,7 +41,7 @@ Gets the Company Details of the Company ID. Used to display Company attribute da
 curl --location --request POST 'https://demo.spidastudio.com/usersmaster/companyAPI/getCompany' \
 --data-urlencode 'id=2' \
 --data-urlencode 'params=["userGroups"]' \
---data-urlencode 'apiToken=63b40674-d9d2-47e2-8f8a-76a9b53d927b' 
+--data-urlencode 'apiToken=xxxxxx' 
 ```
 
 A sample return is as follows with userGroup value set to "true" :
