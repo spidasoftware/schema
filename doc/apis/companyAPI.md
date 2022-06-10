@@ -22,19 +22,24 @@ Gets the Company Details of the Company ID. Used to display Company attribute da
 #### Parameters
 
 1. `id`: a required company id. Can be obtained from Usersmaster.
-2. `userGroups`: a string value of true or false. When true, returns user groups associated with the company (optional)
+2. `params`: a string value representing a list of optional attributes to return with the call.(optional)
+    Attributes currently available are: ["usergroups"]
+
+**Note: `params` must be URI encoded.
 
 #### Allowed Methods
 
-`GET`
+`GET`, `POST`
 
 #### Returns
 
 `string`
 
 #### Examples
+`https://demo.spidasoftware.com/usersmaster/companyAPI/getCompany?id=${company_id}&apiToken=xxxx&params=['userGroups']`
 
-`https://demo.spidasoftware.com/usersmaster/companyAPI/getCompany?id=${company_id}&apiToken=xxxx&userGroups=true`
+With URI Encoding for params:
+`https://demo.spidasoftware.com/usersmaster/companyAPI/getCompany?id=${company_id}&apiToken=xxxx&params=%5B%22userGroups%22%5D`
 
 A sample return is as follows with userGroup value set to "true" :
 
