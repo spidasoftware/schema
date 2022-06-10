@@ -28,7 +28,7 @@ Gets the company details of the given Company ID. Also used to display optional 
 
 |  Attribute  |  Description                                |
 |-------------|:-------------------------------------------:|
-|userGroups| Includes the name of all user groups associated with the given company id as a list.|
+|userGroups| Includes the name of all user groups associated with the given company id as a list in the return.|
      
 
 **Note: `params` must be URI encoded.
