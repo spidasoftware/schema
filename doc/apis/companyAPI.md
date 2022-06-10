@@ -44,7 +44,7 @@ curl --location --request POST 'https://demo.spidastudio.com/usersmaster/company
 --data-urlencode 'apiToken=xxxxxx' 
 ```
 
-A sample return is as follows with userGroup value set to "true" :
+A sample return is as follows for the above example:
 
 ```
 {
