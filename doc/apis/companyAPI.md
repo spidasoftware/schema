@@ -22,8 +22,8 @@ Gets the Company Details of the Company ID. Used to display Company attribute da
 #### Parameters
 
 1. `id`: a required company id. Can be obtained from Usersmaster.
-2. `params`: a string value representing a list of optional attributes to return with the call.(optional)
-    Attributes currently available are: ["usergroups"]
+2. `params`: a string value representing a list of optional attributes to return with the call.(optional)   
+    Attributes currently available are: ["userGroups"]
 
 **Note: `params` must be URI encoded.
 
