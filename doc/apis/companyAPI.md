@@ -23,7 +23,13 @@ Gets the company details of the given Company ID. Also used to display optional 
 
 1. `id`: a required company id. Can be obtained from Usersmaster.
 2. `params`: a string value representing a list of optional attributes to return.(optional)   
-    Attributes currently available are: ["userGroups"]
+
+#### Available Attributes
+
+|  Attribute  |  Description                                |
+|-------------|:-------------------------------------------:|
+|userGroups| Includes the name of all user groups associated with the given company id as a list.|
+     
 
 **Note: `params` must be URI encoded.
 
