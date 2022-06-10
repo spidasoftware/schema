@@ -1,7 +1,7 @@
 Company API
 ============
 
-The Company API will let you view Company details and other attributes.
+The Company API will let you view company details and other attributes.
 
 ## Implementing Apps
 
@@ -13,7 +13,7 @@ Methods
 Get Company
 ----------
 
-Gets the Company Details of the Company ID. Used to display Company attribute data.
+Gets the company details of the given Company ID. Also used to display optional company attribute data.
 
 #### URL
 
