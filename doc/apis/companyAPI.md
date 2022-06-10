@@ -50,7 +50,7 @@ curl --location --request POST 'https://demo.spidastudio.com/usersmaster/company
 --data-urlencode 'apiToken=xxxxxx' 
 ```
 
-A sample return is as follows for the above example:
+A sample return for the above example:
 
 ```
 {
