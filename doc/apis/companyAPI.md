@@ -43,11 +43,18 @@ Gets the company details of the given Company ID. Also used to display optional 
 
 #### Examples
 `cURL`
+
+Ex 1.
 ```
 curl --location --request POST 'https://demo.spidastudio.com/usersmaster/companyAPI/getCompany' \
 --data-urlencode 'id=2' \
 --data-urlencode 'params=["userGroups"]' \
 --data-urlencode 'apiToken=xxxxxx' 
+```
+
+Ex 2. 
+```
+curl --location --request GET 'https://devpoleloading.sce.com/usersmaster/companyAPI/getCompany?apiToken=xxx&params=%5B%22userGroups%22%5D&id=1'
 ```
 
 A sample return for the above example:
