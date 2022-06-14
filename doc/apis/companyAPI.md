@@ -35,7 +35,7 @@ Gets the company details of the given Company ID. Also used to display optional 
 
 #### Allowed Methods
 
-`GET`, `POST`
+`GET`, ~~`POST`~~
 
 #### Returns
 
@@ -45,12 +45,13 @@ Gets the company details of the given Company ID. Also used to display optional 
 `cURL`
 
 Ex 1.
-```
-curl --location --request POST 'https://demo.spidastudio.com/usersmaster/companyAPI/getCompany' \
+
+
+
+~~curl --location --request POST 'https://demo.spidastudio.com/usersmaster/companyAPI/getCompany' \
 --data-urlencode 'id=2' \
 --data-urlencode 'params=["userGroups"]' \
---data-urlencode 'apiToken=xxxxxx' 
-```
+--data-urlencode 'apiToken=xxxxxx'~~
 
 Ex 2. 
 ```
