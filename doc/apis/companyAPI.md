@@ -55,7 +55,7 @@ Ex 1.
 
 Ex 2. 
 ```
-curl --location --request GET 'https://devpoleloading.sce.com/usersmaster/companyAPI/getCompany?apiToken=xxx&params=%5B%22userGroups%22%5D&id=1'
+curl --location --request GET 'https://demo.spidastudio.com/usersmaster/companyAPI/getCompany?apiToken=xxx&params=%5B%22userGroups%22%5D&id=2'
 ```
 
 A sample return for the above example:
