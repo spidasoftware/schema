@@ -19,6 +19,23 @@ RPC stands for "Remote Procedure Call" and is for "invoking an action on a remot
 1. [station linker](apis/stationLinkerAPI.md) -  These methods allow for the association of related stations between services.
 2. [company](apis/companyAPI.md) - Interacting with company objects. Allows retrieval of Company attributes and details.
 
+### Available RPC Services (by implementing application)
+1. assetmaster
+    *  [asset](apis/assetAPI.md) -  These objects deal with the assets and asset services.  An example is an asset is a pole.
+    *  [asset search](apis/assetSearchAPI.md) -  These methods allow the searching of assets and stations.
+    *  [asset creation](apis/assetCreationAPI.md) -  These methods allow the creation and modification of assets and stations.
+1. filefort
+    *  [asset](apis/assetAPI.md) -  These objects deal with the assets and asset services.  An example is an asset is a pole.
+    *  [asset search](apis/assetSearchAPI.md) -  These methods allow the searching of assets and stations.
+    *  [asset creation](apis/assetCreationAPI.md) -  These methods allow the creation and modification of assets and stations.
+    *  [asset file](apis/assetFileAPI.md) -  These methods allow the interaction with file based assets and stations.
+1. projectmanager
+    * [project](apis/projectAPI.md) - SPIDAmin projects and services are defined here. This contains the primary means to interact with SPIDAmin.
+    * [station linker](apis/stationLinkerAPI.md) -  These methods allow for the association of related stations between services.
+1. usersmaster
+    * [users](apis/usersAPI.md) -  Interacting with users and user services are in this service.
+    * [company](apis/companyAPI.md) - Interacting with company objects. Allows retrieval of Company attributes and details.
+      
 ## REST API
 
 REST is a specific type of data service, and a few of our more data centric services can be represented this way.
