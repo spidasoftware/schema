@@ -2,7 +2,7 @@ Station Linker API
 =========
 
 Each project [station](project/station_wrapper.schema) points to one or more asset service stations.
-![Linker & Asset Services](https://docs.google.com/drawings/d/1tDv9OEJDpCHqTEdCGpnFeng-IpughLqgyBbWlMxdpkk/pub?w=949&h=666 "Linker & Asset Services")
+![Linker   Asset Services](https://user-images.githubusercontent.com/97988493/186251043-45ed7bbc-c8c3-4ca3-9fb3-b440e1e46980.png)
 
 #### Implementing Apps
 
