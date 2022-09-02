@@ -26,12 +26,17 @@ class EnvironmentDescriptionChangeset extends AbstractClientDataChangeSet{
 
     @Override
     boolean revertClientData(Map clientDataJSON) throws ConversionException {
+        boolean anyChanged = false
+
         if (clientDataJSON.containsKey("environments")) {
             List<Map> environmentsList = clientDataJSON.environments as List<Map>
-            environmentsList.findAll { it.description == null }.each{ it.description = "N/A" }
-            return true
-        }
-        return false
+            environmentsList.findAll { it.description == null }
+                    .each {
+                            it.description = "N/A"
+                            anyChanged = true
+                    }
+            }
+        return anyChanged
     }
 
     @Override
