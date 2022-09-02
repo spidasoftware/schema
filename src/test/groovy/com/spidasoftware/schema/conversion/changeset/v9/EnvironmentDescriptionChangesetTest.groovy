@@ -48,7 +48,7 @@ class EnvironmentDescriptionChangesetTest extends Specification {
             json.clientData.environments[0].name == "Street"
             json.clientData.environments[0].description == "Street"
             json.clientData.environments[1].name == "Parking Lot"
-            json.clientData.environments[1].description == "Parking Lot"
+            json.clientData.environments[1].description == "N/A"
             json.clientData.environments[2].name == "Wet Foundation"
             json.clientData.environments[2].description == "Foundation is damp"
             json.clientData.environments[3].name == "Pedestrian"
@@ -56,6 +56,6 @@ class EnvironmentDescriptionChangesetTest extends Specification {
             json.clientData.environments[4].name == "Farm"
             json.clientData.environments[4].description == "test"
             json.clientData.environments[5].name == "Test"
-            json.clientData.environments[5].description == "I am writing a really long description for a test. This note does not make any sense."
+            json.clientData.environments[5].description == "N/A"
     }
 }

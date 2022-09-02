@@ -240,8 +240,7 @@
         "description": "Street"
       },
       {
-        "name": "Parking Lot",
-        "description": "Parking Lot"
+        "name": "Parking Lot"
       },
       {
         "name": "Wet Foundation",
@@ -256,8 +255,7 @@
         "description": "test"
       },
       {
-        "name": "Test",
-        "description": "I am writing a really long description for a test. This note does not make any sense."
+        "name": "Test"
       }
     ],
     "notes": [],
