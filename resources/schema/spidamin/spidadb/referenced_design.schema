@@ -91,6 +91,18 @@
         "clientFileId": {
             "type": "string",
             "description": "The unique id of this minimal client data object in mongo"
+        },
+        "status": {
+            "type": "string",
+            "description": "ACTIVE: Design has been promoted to the active design, INACTIVE: Design was promoted previously, but a new design has been promoted over it, (not present): Design is either associated with a PM Project or from an older version of studio."
+        },
+        "sourceProjectLabel": {
+            "type": "string",
+            "description": "The label of the project that an ACTIVE or INACTIVE design was originally from."
+        },
+        "sourceProjectId": {
+            "type": "string",
+            "description": "The id (in SPIDAdb) of the project that an ACTIVE or INACTIVE design was originally from."
         }
     },
     "additionalProperties": false
