@@ -61,7 +61,7 @@
         },
         "sourceProjectId": {
             "type": "string",
-            "description": "The id (in SPIDAdb) of the project that an ACTIVE or INACTIVE location was originally from."
+            "description": "The id (in SPIDA db) of the project that an ACTIVE or INACTIVE location was originally from."
         }
     }
 }
