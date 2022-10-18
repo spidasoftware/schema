@@ -34,10 +34,7 @@ class ExtremeWindLoadCaseChangeset extends AbstractClientDataChangeSet{
 
     @Override
     void revertProject(Map projectJSON) throws ConversionException {
-        if (projectJSON.containsKey("clientData")) {
-            Map clientDataJSON = projectJSON.clientData as Map
-            revertClientData(clientDataJSON)
-        }
+        super.revertProject(projectJSON)
 
         if (projectJSON.containsKey("defaultLoadCases")) {
             List<Map> defaultLoadCases = projectJSON.defaultLoadCases as List<Map>
@@ -45,23 +42,6 @@ class ExtremeWindLoadCaseChangeset extends AbstractClientDataChangeSet{
                     .findAll { it.type == "NESC Extreme Wind 2007" || it.type == "NESC Extreme Wind 2012" }
                     .findAll { it.windSpeed == "MPH_85" }
                     .each { it.windSpeed = "MPH_90" }
-        }
-
-        if (projectJSON.containsKey("leads")) {
-            List<Map> leadsList = projectJSON.leads as List<Map>
-            leadsList.each { Map leadMap ->
-                if (leadMap.containsKey("locations")) {
-                    List<Map> locationsList = leadMap.locations as List<Map>
-                    locationsList.each { Map locationMap ->
-                        if (locationMap.containsKey("designs")) {
-                            List<Map> designsList = locationMap.designs as List<Map>
-                            designsList.each { Map designMap ->
-                                revertDesign(designMap)
-                            }
-                        }
-                    }
-                }
-            }
         }
     }
 
