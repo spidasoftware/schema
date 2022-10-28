@@ -9,21 +9,24 @@ import com.spidasoftware.schema.conversion.changeset.calc.AbstractResultsChangeS
 class ResultsWireChangeSet extends AbstractResultsChangeSet {
 
 	@Override
-	void applyToResults(Map resultsJSON) throws ConversionException {
-		//DO NOTHING
+	boolean applyToResults(Map resultsJSON) throws ConversionException {
+		return false //DO NOTHING
 	}
 
 	@Override
-	void revertResults(Map resultsJSON) throws ConversionException {
+	boolean revertResults(Map resultsJSON) throws ConversionException {
+        boolean anyChanged = false
 		resultsJSON?.results?.each { result ->
 			result?.components?.each { component ->
 				component?.wires?.each { wire ->
 					if(wire.tensionMethod == "NONLINEAR_STRESS_STRAIN"){
 						wire.tensionMethod = "DYNAMIC"
+                        anyChanged = true
 					}
 				}
 			}
 		}
+		return anyChanged
 	}
 
 	@Override

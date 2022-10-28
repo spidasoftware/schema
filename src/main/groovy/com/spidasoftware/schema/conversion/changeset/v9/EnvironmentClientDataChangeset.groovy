@@ -53,7 +53,7 @@ class EnvironmentClientDataChangeset extends AbstractClientDataChangeSet {
 	}
 
 	@Override
-	void applyToResults(Map resultsJSON) throws ConversionException {
+	boolean applyToResults(Map resultsJSON) throws ConversionException {
 		Set<String> environments = []
 		if (resultsJSON.containsKey("analyzedStructure")) {
 			environments = applyToStructure(resultsJSON.analyzedStructure as Map)
@@ -63,6 +63,7 @@ class EnvironmentClientDataChangeset extends AbstractClientDataChangeSet {
 			clientDataJSON.put("environments", createDefaultEnvironmentMaps(environments))
 			clientDataJSON.remove("hash")
 		}
+		return true
 	}
 
 	protected void applyToLocation(Map locationJSON, Set<String> projectEnvironments) throws ConversionException {
@@ -137,27 +138,32 @@ class EnvironmentClientDataChangeset extends AbstractClientDataChangeSet {
 			Map detailedResultsJSON = ((Map)designJSON.analysisDetails).detailedResults as Map
 			revertResults(detailedResultsJSON)
 		}
-		revertStructure(designJSON.structure as Map)
+		if (designJSON.containsKey("structure")) {
+			revertStructure(designJSON.structure as Map)
+		}
 	}
 
 
 	@Override
-	void revertResults(Map resultsJSON) throws ConversionException {
+	boolean revertResults(Map resultsJSON) throws ConversionException {
 		if (resultsJSON.containsKey("clientData")) {
 			Map clientDataJSON = resultsJSON.clientData as Map
 			if (revertClientData(clientDataJSON) && clientDataJSON.containsKey("hash")) {
 				clientDataJSON.remove("hash")
 			}
-			revertStructure(resultsJSON.analyzedStructure as Map)
+			if (resultsJSON.containsKey("analyzedStructure")) {
+				revertStructure(resultsJSON.analyzedStructure as Map)
+			}
 		}
+		return true
 	}
 
-	protected void revertStructure(Map StructureJSON) {
-		if (StructureJSON.pole != null) {
-			revertEnvironmentToEnumFormat(StructureJSON.pole as Map)
+	protected void revertStructure(Map structureJSON) {
+		if (structureJSON.pole != null) {
+			revertEnvironmentToEnumFormat(structureJSON.pole as Map)
 		}
-		(StructureJSON.spanPoints as List<Map>).each { Map spanPoint -> revertEnvironmentToEnumFormat(spanPoint)}
-		(StructureJSON.wireEndPoints as List<Map>).each { Map wireEndPoint -> revertEnvironmentToEnumFormat(wireEndPoint)}
+		(structureJSON.spanPoints as List<Map>).each { Map spanPoint -> revertEnvironmentToEnumFormat(spanPoint)}
+		(structureJSON.wireEndPoints as List<Map>).each { Map wireEndPoint -> revertEnvironmentToEnumFormat(wireEndPoint)}
 	}
 
 	protected void revertEnvironmentToEnumFormat(Map environmentItem) {
