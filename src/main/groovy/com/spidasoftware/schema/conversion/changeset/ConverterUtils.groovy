@@ -91,6 +91,7 @@ class ConverterUtils {
         converter.addChangeSet(8, new ResultsWireChangeSet())
         converter.addChangeSet(9, new InsulatorStrengthChangeSet())
         converter.addChangeSet(9, new EnvironmentClientDataChangeset())
+        converter.addChangeSet(9, new ExtremeWindLoadCaseChangeset())
         // add result changesets above here
 
         converter.setCurrentVersion(currentVersion)

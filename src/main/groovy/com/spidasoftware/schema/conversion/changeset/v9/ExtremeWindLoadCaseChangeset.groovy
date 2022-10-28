@@ -47,6 +47,8 @@ class ExtremeWindLoadCaseChangeset extends AbstractClientDataChangeSet{
 
     @Override
     void revertDesign(Map designJSON) throws ConversionException {
+        super.revertDesign(designJSON)
+
         if (designJSON.containsKey("analysis")) {
             List<Map> analysisList = designJSON.analysis as List<Map>
             analysisList.each { Map analysisMap ->
@@ -58,5 +60,25 @@ class ExtremeWindLoadCaseChangeset extends AbstractClientDataChangeSet{
                 }
             }
         }
+    }
+
+    @Override
+    boolean revertResults(Map resultsJSON) throws ConversionException {
+        boolean anyChanged = false
+        if (resultsJSON.containsKey("results")) {
+            List<Map> resultsList = resultsJSON.results as List<Map>
+            resultsList.each { Map resultMap ->
+                if (resultMap.containsKey("analysisCaseDetails")) {
+                    Map analysisCaseDetailsMap = resultMap.analysisCaseDetails as Map
+                    if (analysisCaseDetailsMap.containsKey("windSpeed")) {
+                        if (analysisCaseDetailsMap.windSpeed == "MPH_85") {
+                            analysisCaseDetailsMap.windSpeed = "MPH_90"
+                            anyChanged = true
+                        }
+                    }
+                }
+            }
+        }
+        return anyChanged
     }
 }
