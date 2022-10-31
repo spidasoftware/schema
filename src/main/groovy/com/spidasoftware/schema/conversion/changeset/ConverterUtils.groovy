@@ -13,6 +13,8 @@ import com.spidasoftware.schema.conversion.changeset.v6.*
 import com.spidasoftware.schema.conversion.changeset.v7.*
 import com.spidasoftware.schema.conversion.changeset.v8.*
 import com.spidasoftware.schema.conversion.changeset.v9.EnvironmentClientDataChangeset
+import com.spidasoftware.schema.conversion.changeset.v9.EnvironmentDescriptionChangeset
+import com.spidasoftware.schema.conversion.changeset.v9.ExtremeWindLoadCaseChangeset
 import com.spidasoftware.schema.conversion.changeset.v9.InsulatorStrengthChangeSet
 import groovy.util.logging.Slf4j
 
@@ -64,6 +66,8 @@ class ConverterUtils {
         converter.addChangeSet(8, new ResultsWireChangeSet())
         converter.addChangeSet(9, new InsulatorStrengthChangeSet())
         converter.addChangeSet(9, new EnvironmentClientDataChangeset())
+        converter.addChangeSet(9, new EnvironmentDescriptionChangeset())
+        converter.addChangeSet(9, new ExtremeWindLoadCaseChangeset())
 
         // add calc changesets above here
         converter.setCurrentVersion(currentVersion)
@@ -74,6 +78,8 @@ class ConverterUtils {
         converter.addChangeSet(8, new AdvancedWireChangeSet())
         converter.addChangeSet(9, new InsulatorStrengthChangeSet())
         converter.addChangeSet(9, new EnvironmentClientDataChangeset())
+        converter.addChangeSet(9, new EnvironmentDescriptionChangeset())
+        converter.addChangeSet(9, new ExtremeWindLoadCaseChangeset())
         // add client data changesets above here
 
         converter.setCurrentVersion(currentVersion)
@@ -85,6 +91,7 @@ class ConverterUtils {
         converter.addChangeSet(8, new ResultsWireChangeSet())
         converter.addChangeSet(9, new InsulatorStrengthChangeSet())
         converter.addChangeSet(9, new EnvironmentClientDataChangeset())
+        converter.addChangeSet(9, new ExtremeWindLoadCaseChangeset())
         // add result changesets above here
 
         converter.setCurrentVersion(currentVersion)

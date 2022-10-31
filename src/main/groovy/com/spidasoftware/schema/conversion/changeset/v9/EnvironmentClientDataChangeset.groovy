@@ -53,16 +53,20 @@ class EnvironmentClientDataChangeset extends AbstractClientDataChangeSet {
 	}
 
 	@Override
-	void applyToResults(Map resultsJSON) throws ConversionException {
+	boolean applyToResults(Map resultsJSON) throws ConversionException {
+        boolean anyChanged = false
 		Set<String> environments = []
 		if (resultsJSON.containsKey("analyzedStructure")) {
 			environments = applyToStructure(resultsJSON.analyzedStructure as Map)
+            anyChanged = true
 		}
 		if (resultsJSON.containsKey("clientData")) {
 			Map clientDataJSON = resultsJSON.clientData as Map
 			clientDataJSON.put("environments", createDefaultEnvironmentMaps(environments))
 			clientDataJSON.remove("hash")
+            anyChanged = true
 		}
+		return anyChanged
 	}
 
 	protected void applyToLocation(Map locationJSON, Set<String> projectEnvironments) throws ConversionException {
@@ -137,35 +141,63 @@ class EnvironmentClientDataChangeset extends AbstractClientDataChangeSet {
 			Map detailedResultsJSON = ((Map)designJSON.analysisDetails).detailedResults as Map
 			revertResults(detailedResultsJSON)
 		}
-		revertStructure(designJSON.structure as Map)
+		if (designJSON.containsKey("structure")) {
+			revertStructure(designJSON.structure as Map)
+		}
 	}
 
 
 	@Override
-	void revertResults(Map resultsJSON) throws ConversionException {
+	boolean revertResults(Map resultsJSON) throws ConversionException {
+		boolean anyChanged = false
 		if (resultsJSON.containsKey("clientData")) {
 			Map clientDataJSON = resultsJSON.clientData as Map
 			if (revertClientData(clientDataJSON) && clientDataJSON.containsKey("hash")) {
 				clientDataJSON.remove("hash")
+                anyChanged = true
 			}
-			revertStructure(resultsJSON.analyzedStructure as Map)
+			if (resultsJSON.containsKey("analyzedStructure")) {
+				boolean structureChange = revertStructure(resultsJSON.analyzedStructure as Map)
+				if (structureChange) {
+					anyChanged = true
+				}
+			}
 		}
+		return anyChanged
 	}
 
-	protected void revertStructure(Map StructureJSON) {
-		if (StructureJSON.pole != null) {
-			revertEnvironmentToEnumFormat(StructureJSON.pole as Map)
+	protected boolean revertStructure(Map structureJSON) {
+		boolean anyChanged = false
+		if (structureJSON.pole != null) {
+			boolean poleChanged = revertEnvironmentToEnumFormat(structureJSON.pole as Map)
+			if (poleChanged) {
+				anyChanged = true
+			}
 		}
-		(StructureJSON.spanPoints as List<Map>).each { Map spanPoint -> revertEnvironmentToEnumFormat(spanPoint)}
-		(StructureJSON.wireEndPoints as List<Map>).each { Map wireEndPoint -> revertEnvironmentToEnumFormat(wireEndPoint)}
+		(structureJSON.spanPoints as List<Map>).each { Map spanPoint ->
+			boolean spanPointChanged = revertEnvironmentToEnumFormat(spanPoint)
+			if (spanPointChanged) {
+				anyChanged = true
+			}
+		}
+		(structureJSON.wireEndPoints as List<Map>).each { Map wireEndPoint ->
+			boolean wepChanged = revertEnvironmentToEnumFormat(wireEndPoint)
+			if (wepChanged) {
+				anyChanged = true
+			}
+		}
+		return anyChanged
 	}
 
-	protected void revertEnvironmentToEnumFormat(Map environmentItem) {
+	protected boolean revertEnvironmentToEnumFormat(Map environmentItem) {
+		boolean anyChanged = false
 		Environment defaultEnvironment = Environment.getEnvironment(environmentItem.environment as String)
 		if (defaultEnvironment != null) {
 			environmentItem.put("environment", defaultEnvironment.name())
 		} else {
 			environmentItem.put("environment", Environment.NONE.name())
+			anyChanged = true
 		}
+		return anyChanged
 	}
 }
