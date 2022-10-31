@@ -65,23 +65,27 @@ abstract class AbstractClientDataChangeSet extends AbstractResultsChangeSet {
 
 	@Override
 	boolean applyToResults(Map resultsJSON) throws ConversionException {
+        boolean anyChanged = false
 		if (resultsJSON.containsKey("clientData")) {
 			Map clientDataJSON = resultsJSON.clientData as Map
 			if (applyToClientData(clientDataJSON) && clientDataJSON.containsKey("hash")) {
 				clientDataJSON.remove("hash")
+                anyChanged = true
 			}
 		}
-        return true
+        return anyChanged
 	}
 
 	@Override
 	boolean revertResults(Map resultsJSON) throws ConversionException {
+        boolean anyChanged = false
 		if (resultsJSON.containsKey("clientData")) {
 			Map clientDataJSON = resultsJSON.clientData as Map
 			if (revertClientData(clientDataJSON) && clientDataJSON.containsKey("hash")) {
 				clientDataJSON.remove("hash")
+                anyChanged = true
 			}
 		}
-        return true
+        return anyChanged
 	}
 }

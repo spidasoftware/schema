@@ -54,16 +54,19 @@ class EnvironmentClientDataChangeset extends AbstractClientDataChangeSet {
 
 	@Override
 	boolean applyToResults(Map resultsJSON) throws ConversionException {
+        boolean anyChanged = false
 		Set<String> environments = []
 		if (resultsJSON.containsKey("analyzedStructure")) {
 			environments = applyToStructure(resultsJSON.analyzedStructure as Map)
+            anyChanged = true
 		}
 		if (resultsJSON.containsKey("clientData")) {
 			Map clientDataJSON = resultsJSON.clientData as Map
 			clientDataJSON.put("environments", createDefaultEnvironmentMaps(environments))
 			clientDataJSON.remove("hash")
+            anyChanged = true
 		}
-		return true
+		return anyChanged
 	}
 
 	protected void applyToLocation(Map locationJSON, Set<String> projectEnvironments) throws ConversionException {
@@ -146,16 +149,19 @@ class EnvironmentClientDataChangeset extends AbstractClientDataChangeSet {
 
 	@Override
 	boolean revertResults(Map resultsJSON) throws ConversionException {
+        boolean anyChanged = false
 		if (resultsJSON.containsKey("clientData")) {
 			Map clientDataJSON = resultsJSON.clientData as Map
 			if (revertClientData(clientDataJSON) && clientDataJSON.containsKey("hash")) {
 				clientDataJSON.remove("hash")
+                anyChanged = true
 			}
 			if (resultsJSON.containsKey("analyzedStructure")) {
 				revertStructure(resultsJSON.analyzedStructure as Map)
+                anyChanged = true
 			}
 		}
-		return true
+		return anyChanged
 	}
 
 	protected void revertStructure(Map structureJSON) {
