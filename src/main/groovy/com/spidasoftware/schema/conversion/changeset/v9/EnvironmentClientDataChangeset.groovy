@@ -149,7 +149,7 @@ class EnvironmentClientDataChangeset extends AbstractClientDataChangeSet {
 
 	@Override
 	boolean revertResults(Map resultsJSON) throws ConversionException {
-        boolean anyChanged = false
+		boolean anyChanged = false
 		if (resultsJSON.containsKey("clientData")) {
 			Map clientDataJSON = resultsJSON.clientData as Map
 			if (revertClientData(clientDataJSON) && clientDataJSON.containsKey("hash")) {
@@ -157,27 +157,47 @@ class EnvironmentClientDataChangeset extends AbstractClientDataChangeSet {
                 anyChanged = true
 			}
 			if (resultsJSON.containsKey("analyzedStructure")) {
-				revertStructure(resultsJSON.analyzedStructure as Map)
-                anyChanged = true
+				boolean structureChange = revertStructure(resultsJSON.analyzedStructure as Map)
+				if (structureChange) {
+					anyChanged = true
+				}
 			}
 		}
 		return anyChanged
 	}
 
-	protected void revertStructure(Map structureJSON) {
+	protected boolean revertStructure(Map structureJSON) {
+		boolean anyChanged = false
 		if (structureJSON.pole != null) {
-			revertEnvironmentToEnumFormat(structureJSON.pole as Map)
+			boolean poleChanged = revertEnvironmentToEnumFormat(structureJSON.pole as Map)
+			if (poleChanged) {
+				anyChanged = true
+			}
 		}
-		(structureJSON.spanPoints as List<Map>).each { Map spanPoint -> revertEnvironmentToEnumFormat(spanPoint)}
-		(structureJSON.wireEndPoints as List<Map>).each { Map wireEndPoint -> revertEnvironmentToEnumFormat(wireEndPoint)}
+		(structureJSON.spanPoints as List<Map>).each { Map spanPoint ->
+			boolean spanPointChanged = revertEnvironmentToEnumFormat(spanPoint)
+			if (spanPointChanged) {
+				anyChanged = true
+			}
+		}
+		(structureJSON.wireEndPoints as List<Map>).each { Map wireEndPoint ->
+			boolean wepChanged = revertEnvironmentToEnumFormat(wireEndPoint)
+			if (wepChanged) {
+				anyChanged = true
+			}
+		}
+		return anyChanged
 	}
 
-	protected void revertEnvironmentToEnumFormat(Map environmentItem) {
+	protected boolean revertEnvironmentToEnumFormat(Map environmentItem) {
+		boolean anyChanged = false
 		Environment defaultEnvironment = Environment.getEnvironment(environmentItem.environment as String)
 		if (defaultEnvironment != null) {
 			environmentItem.put("environment", defaultEnvironment.name())
 		} else {
 			environmentItem.put("environment", Environment.NONE.name())
+			anyChanged = true
 		}
+		return anyChanged
 	}
 }
