@@ -84,6 +84,10 @@
       "items": {
         "$ref": "terrain_point.schema"
       }
+    },
+    "calculateClearances": {
+      "description": "should clearances be calculated for this wire endpoint",
+      "type": "boolean"
     }
   },
   "additionalProperties": false
