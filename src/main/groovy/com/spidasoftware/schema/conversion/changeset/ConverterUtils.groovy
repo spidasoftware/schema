@@ -82,6 +82,7 @@ class ConverterUtils {
         converter.addChangeSet(9, new EnvironmentClientDataChangeset())
         converter.addChangeSet(9, new EnvironmentDescriptionChangeset())
         converter.addChangeSet(9, new ExtremeWindLoadCaseChangeset())
+        converter.addChangeSet(9, new ClearancesChangeset())
         // add client data changesets above here
 
         converter.setCurrentVersion(currentVersion)
@@ -94,6 +95,7 @@ class ConverterUtils {
         converter.addChangeSet(9, new InsulatorStrengthChangeSet())
         converter.addChangeSet(9, new EnvironmentClientDataChangeset())
         converter.addChangeSet(9, new ExtremeWindLoadCaseChangeset())
+        converter.addChangeSet(9, new ClearancesChangeset())
         // add result changesets above here
 
         converter.setCurrentVersion(currentVersion)
