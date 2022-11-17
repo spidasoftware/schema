@@ -12,6 +12,7 @@ import com.spidasoftware.schema.conversion.changeset.v5.*
 import com.spidasoftware.schema.conversion.changeset.v6.*
 import com.spidasoftware.schema.conversion.changeset.v7.*
 import com.spidasoftware.schema.conversion.changeset.v8.*
+import com.spidasoftware.schema.conversion.changeset.v9.ClearancesChangeset
 import com.spidasoftware.schema.conversion.changeset.v9.EnvironmentClientDataChangeset
 import com.spidasoftware.schema.conversion.changeset.v9.EnvironmentDescriptionChangeset
 import com.spidasoftware.schema.conversion.changeset.v9.ExtremeWindLoadCaseChangeset
@@ -68,6 +69,7 @@ class ConverterUtils {
         converter.addChangeSet(9, new EnvironmentClientDataChangeset())
         converter.addChangeSet(9, new EnvironmentDescriptionChangeset())
         converter.addChangeSet(9, new ExtremeWindLoadCaseChangeset())
+        converter.addChangeSet(9, new ClearancesChangeset())
 
         // add calc changesets above here
         converter.setCurrentVersion(currentVersion)
@@ -80,6 +82,7 @@ class ConverterUtils {
         converter.addChangeSet(9, new EnvironmentClientDataChangeset())
         converter.addChangeSet(9, new EnvironmentDescriptionChangeset())
         converter.addChangeSet(9, new ExtremeWindLoadCaseChangeset())
+        converter.addChangeSet(9, new ClearancesChangeset())
         // add client data changesets above here
 
         converter.setCurrentVersion(currentVersion)
@@ -92,6 +95,7 @@ class ConverterUtils {
         converter.addChangeSet(9, new InsulatorStrengthChangeSet())
         converter.addChangeSet(9, new EnvironmentClientDataChangeset())
         converter.addChangeSet(9, new ExtremeWindLoadCaseChangeset())
+        converter.addChangeSet(9, new ClearancesChangeset())
         // add result changesets above here
 
         converter.setCurrentVersion(currentVersion)
