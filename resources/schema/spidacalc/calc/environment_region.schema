@@ -1,0 +1,25 @@
+{
+  "id": "#/spidacalc/calc/environment_region.schema",
+  "description": "A region along the span",
+  "type": "object",
+  "required": [
+    "startDistance",
+    "endDistance",
+    "environment"
+  ],
+  "properties": {
+    "startDistance": {
+      "$ref": "../../general/measurable.schema",
+      "description": "The regions starting distance from the pole."
+    },
+    "endDistance": {
+      "$ref": "../../general/measurable.schema",
+      "description": "The regions ending distance from the pole."
+    },
+    "environment": {
+      "type": "string",
+      "description": "The regions environment."
+    }
+  },
+  "additionalProperties": false
+}

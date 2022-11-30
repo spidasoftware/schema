@@ -46,6 +46,9 @@ class ClearancesChangeset extends AbstractClientDataChangeSet {
 			if(wep.remove("calculateClearances") != null) {
 				anyChanged = true
 			}
+            if(wep.remove("environmentRegions") != null) {
+                anyChanged = true
+            }
 		}
 		return anyChanged
 	}

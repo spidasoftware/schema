@@ -85,6 +85,13 @@
         "$ref": "terrain_point.schema"
       }
     },
+    "environmentRegions": {
+      "description": "The regions start distance, end distance, and environment.",
+      "type": "array",
+      "items": {
+        "$ref": "environment_region.schema"
+      }
+    },
     "calculateClearances": {
       "description": "should clearances be calculated for this wire endpoint",
       "type": "boolean"
