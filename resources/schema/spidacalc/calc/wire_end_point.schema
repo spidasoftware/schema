@@ -86,7 +86,7 @@
       }
     },
     "environmentRegions": {
-      "description": "The regions start distance, end distance, and environment.",
+      "description": "The list of regions id, start distance, end distance, and environment.",
       "type": "array",
       "items": {
         "$ref": "environment_region.schema"
