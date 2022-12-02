@@ -33,7 +33,7 @@
       "type": "string",
       "description": "The shared connection id.  Represents the unique connection between two objects.  Must be two and only two objects with the same id.",
       "pattern": "[a-f0-9]{24}"
-    },
+    }
   },
   "additionalProperties": false
 }
