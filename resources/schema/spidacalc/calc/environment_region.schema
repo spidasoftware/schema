@@ -17,7 +17,7 @@
       "type": "string",
       "description": "An optional id for mapping to external systems. Calc does not use this ID, but does preserve it."
     },
-    "startDistance": {
+    "distance": {
       "$ref": "../../general/measurable.schema",
       "description": "The regions starting distance from the pole."
     },
