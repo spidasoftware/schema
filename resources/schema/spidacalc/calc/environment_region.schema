@@ -1,0 +1,39 @@
+{
+  "id": "#/spidacalc/calc/environment_region.schema",
+  "description": "A region along the span",
+  "type": "object",
+  "required": [
+    "id",
+    "distance",
+    "endDistance",
+    "environment"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "A display id for the object."
+    },
+    "externalId": {
+      "type": "string",
+      "description": "An optional id for mapping to external systems. Calc does not use this ID, but does preserve it."
+    },
+    "distance": {
+      "$ref": "../../general/measurable.schema",
+      "description": "The regions starting distance from the pole."
+    },
+    "endDistance": {
+      "$ref": "../../general/measurable.schema",
+      "description": "The regions ending distance from the pole."
+    },
+    "environment": {
+      "type": "string",
+      "description": "The regions environment."
+    },
+    "connectionId": {
+      "type": "string",
+      "description": "The shared connection id.  Represents the unique connection between two objects.  Must be two and only two objects with the same id.",
+      "pattern": "[a-f0-9]{24}"
+    }
+  },
+  "additionalProperties": false
+}
