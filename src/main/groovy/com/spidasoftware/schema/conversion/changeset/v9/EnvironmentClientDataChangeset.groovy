@@ -114,6 +114,7 @@ class EnvironmentClientDataChangeset extends AbstractClientDataChangeSet {
 	@Override
 	boolean revertClientData(Map clientDataJSON) throws ConversionException {
 		clientDataJSON.remove("environments")
+		clientDataJSON.remove("defaultEnvironment")
 		(clientDataJSON.assemblies as List<Map>).each {
 			revertStructure(it.assemblyStructure as Map)
 		}

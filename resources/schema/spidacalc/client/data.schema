@@ -122,6 +122,10 @@
         "$ref": "../../spidacalc/calc/environment.schema"
       }
     },
+    "defaultEnvironment": {
+      "type": "object",
+      "$ref": "../../spidacalc/calc/environment.schema"
+    },
     "notes": {
       "type": "array",
       "items": {
