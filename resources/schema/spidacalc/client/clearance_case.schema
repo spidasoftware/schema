@@ -8,6 +8,9 @@
       "addByDefault"
     ],
     "properties": {
+      "type": {
+        "enum": [ "At Pole", "Wire to Wire", "Vertical to Ground" ]
+      },
       "name": {
         "description": "the name of the clearance case",
         "type": "string"
@@ -20,116 +23,44 @@
         "description": "mark case as exception",
         "type": "boolean"
       },
-      "anyOf": [
-        {
-          "type": {
-            "enum": [ "At Pole" ]
-          },
-          "upper": {
-            "type": "array",
-            "items": {
+      "upper": {
+        "type": "array",
+        "items": {
+          "oneOf": [
+            {
               "$ref": "../../spidacalc/client/component_group.schema"
-            }
-          },
-          "lower": {
-            "type": "array",
-            "items": {
-              "$ref": "../../spidacalc/client/component_group.schema"
-            }
-          },
-          "clearances": {
-            "type": "array",
-            "description": "list of clearance objects",
-            "items": {
-              "type": "object",
-              "required": ["upper", "lower", "allowable"],
-              "properties": {
-                "upper": {
-                  "$ref": "../../spidacalc/client/component_group.schema"
-                },
-                "lower": {
-                  "$ref": "../../spidacalc/client/component_group.schema"
-                },
-                "allowable": {
-                  "$ref": "../../general/measurable.schema"
-                }
-              }
-            }
-          }
-        },
-        {
-          "type": {
-            "enum": [ "Wire to Wire" ]
-          },
-          "upper": {
-            "type": "array",
-            "items": {
+            },
+            {
               "$ref": "../../spidacalc/client/component_group_meta.schema"
             }
-          },
-          "lower": {
-            "type": "array",
-            "items": {
+          ]
+        }
+      },
+      "lower": {
+        "type": "array",
+        "items": {
+          "oneOf": [
+            {
               "$ref": "../../spidacalc/client/component_group.schema"
-            }
-          },
-          "clearances": {
-            "type": "array",
-            "description": "list of clearance objects",
-            "items": {
-              "type": "object",
-              "required": ["upper", "lower", "allowable"],
-              "properties": {
-                "upper": {
-                  "$ref": "../../spidacalc/client/component_group_meta.schema"
-                },
-                "lower": {
-                  "$ref": "../../spidacalc/client/component_group.schema"
-                },
-                "allowable": {
-                  "$ref": "../../general/measurable.schema"
-                }
-              }
-            }
-          }
-        },
-        {
-          "type": {
-            "enum": [ "Vertical to Ground" ]
-          },
-          "upper": {
-            "type": "array",
-            "items": {
-              "$ref": "../../spidacalc/client/component_group_meta.schema"
-            }
-          },
-          "lower": {
-            "type": "array",
-            "items": {
+            },
+            {
               "$ref": "../../spidacalc/calc/environment.schema"
             }
-          },
-          "clearances": {
-            "type": "array",
-            "description": "list of clearance objects",
-            "items": {
-              "type": "object",
-              "required": ["upper", "lower", "allowable"],
-              "properties": {
-                "upper": {
-                  "$ref": "../../spidacalc/client/component_group_meta.schema"
-                },
-                "lower": {
-                  "$ref": "../../spidacalc/calc/environment.schema"
-                },
-                "allowable": {
-                  "$ref": "../../general/measurable.schema"
-                }
-              }
+          ]
+        }
+      },
+      "clearances": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [ "upper", "lower", "allowable" ],
+          "properties": {
+            "allowable": {
+              "$ref": "../../general/measurable.schema"
             }
           }
         }
-      ],
+      },
       "minimumSpan": {
         "description": "minimum span length requirement",
         "$ref": "../../general/measurable.schema"
