@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "id": "#/spidacalc/client/component_group_meta.schema",
+    "description": "A component group wrapper class. Holds a component group and other properties needed by some clearance cases",
+    "properties": {
+      "componentGroup": {
+        "$ref": "../../spidacalc/client/component_group.schema"
+      },
+      "thermalTemperatureOverride": {
+        "$ref": "../../general/measurable.schema"
+      }
+    },
+    "additionalProperties": false
+}

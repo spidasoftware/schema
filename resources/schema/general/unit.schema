@@ -54,6 +54,8 @@
       "POUND_FORCE_FOOT",
       "PER_CELSIUS",
       "PER_FAHRENHEIT",
-      "VOLT"
+      "VOLT",
+      "METRE_PER_SECOND",
+      "FEET_PER_SECOND"
    ]
 }

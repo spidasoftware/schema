@@ -2,8 +2,10 @@
 	"id": "#/spidacalc/results/status.schema",
 	"description": "At a given point the overall status of the analysis results",
 	"enum": [
+	    "NOT_CURRENT",
 		"PASSING",
 		"NEAR_FAILING",
-		"FAILING"
+		"FAILING",
+		"NOT_ANALYZED"
 	]
 }

@@ -2,7 +2,157 @@
     "type": "object",
     "id": "#/spidacalc/client/clearance_case.schema",
     "description": "A case defining required clearances for validation.",
+    "required": [
+      "name",
+      "type",
+      "addByDefault"
+    ],
     "properties": {
+      "name": {
+        "description": "the name of the clearance case",
+        "type": "string"
+      },
+      "addByDefault": {
+        "description": "include clearance case by default",
+        "type": "boolean"
+      },
+      "exception": {
+        "description": "mark case as exception",
+        "type": "boolean"
+      },
+      "anyOf": [
+        {
+          "type": {
+            "enum": [ "At Pole" ]
+          },
+          "upper": {
+            "type": "array",
+            "items": {
+              "$ref": "../../spidacalc/client/component_group.schema"
+            }
+          },
+          "lower": {
+            "type": "array",
+            "items": {
+              "$ref": "../../spidacalc/client/component_group.schema"
+            }
+          },
+          "clearances": {
+            "type": "array",
+            "description": "list of clearance objects",
+            "items": {
+              "type": "object",
+              "required": ["upper", "lower", "allowable"],
+              "properties": {
+                "upper": {
+                  "$ref": "../../spidacalc/client/component_group.schema"
+                },
+                "lower": {
+                  "$ref": "../../spidacalc/client/component_group.schema"
+                },
+                "allowable": {
+                  "$ref": "../../general/measurable.schema"
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": {
+            "enum": [ "Wire to Wire" ]
+          },
+          "upper": {
+            "type": "array",
+            "items": {
+              "$ref": "../../spidacalc/client/component_group_meta.schema"
+            }
+          },
+          "lower": {
+            "type": "array",
+            "items": {
+              "$ref": "../../spidacalc/client/component_group.schema"
+            }
+          },
+          "clearances": {
+            "type": "array",
+            "description": "list of clearance objects",
+            "items": {
+              "type": "object",
+              "required": ["upper", "lower", "allowable"],
+              "properties": {
+                "upper": {
+                  "$ref": "../../spidacalc/client/component_group_meta.schema"
+                },
+                "lower": {
+                  "$ref": "../../spidacalc/client/component_group.schema"
+                },
+                "allowable": {
+                  "$ref": "../../general/measurable.schema"
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": {
+            "enum": [ "Vertical to Ground" ]
+          },
+          "upper": {
+            "type": "array",
+            "items": {
+              "$ref": "../../spidacalc/client/component_group_meta.schema"
+            }
+          },
+          "lower": {
+            "type": "array",
+            "items": {
+              "$ref": "../../spidacalc/calc/environment.schema"
+            }
+          },
+          "clearances": {
+            "type": "array",
+            "description": "list of clearance objects",
+            "items": {
+              "type": "object",
+              "required": ["upper", "lower", "allowable"],
+              "properties": {
+                "upper": {
+                  "$ref": "../../spidacalc/client/component_group_meta.schema"
+                },
+                "lower": {
+                  "$ref": "../../spidacalc/calc/environment.schema"
+                },
+                "allowable": {
+                  "$ref": "../../general/measurable.schema"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "minimumSpan": {
+        "description": "minimum span length requirement",
+        "$ref": "../../general/measurable.schema"
+      },
+      "maximumSpan": {
+        "description": "maximum span length requirement",
+        "$ref": "../../general/measurable.schema"
+      },
+      "upperThermalState": {
+        "$ref": "../../spidacalc/client/wire_height_calculator.schema"
+      },
+      "lowerThermalState": {
+        "$ref": "../../spidacalc/client/wire_height_calculator.schema"
+      },
+      "upperPhysicalState": {
+        "$ref": "../../spidacalc/client/wire_height_calculator.schema"
+      },
+      "lowerPhysicalState": {
+        "$ref": "../../spidacalc/client/wire_height_calculator.schema"
+      },
+      "checkPhysicalState": {
+        "type": "boolean"
+      }
     },
-    "additionalProperties": true
+    "additionalProperties": false
 }

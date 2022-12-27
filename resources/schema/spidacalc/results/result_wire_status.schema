@@ -1,0 +1,41 @@
+{
+    "type": "object",
+    "id": "#/spidacalc/results/result_wire_status.schema",
+    "description": "The weather conditions to fully define a loaded state of a wire.",
+    "properties": {
+      "sag": {
+        "$ref": "../../general/measurable.schema"
+      },
+      "maxVerticalSag": {
+        "$ref": "../../general/measurable.schema"
+      },
+      "tension": {
+        "$ref": "../../general/measurable.schema"
+      },
+      "verticalForce": {
+        "$ref": "../../general/measurable.schema"
+      },
+      "windForce": {
+        "$ref": "../../general/measurable.schema"
+      },
+      "tensionMethod": {
+        "$ref": "../../spidacalc/results/enums/result_wire_status_calculation.schema"
+      },
+      "wireTensionType": {
+        "$ref": "../../spidacalc/client/enums/wire_tension_type.schema"
+      },
+      "outerStrandInCompression": {
+        "type": "boolean"
+      },
+      "distanceToLowestPoint": {
+        "$ref": "../../general/measurable.schema"
+      },
+      "distanceToSagPoint": {
+        "$ref": "../../general/measurable.schema"
+      },
+      "lowestPointBelowAttachment": {
+        "$ref": "../../general/measurable.schema"
+      }
+    },
+    "additionalProperties": false
+}

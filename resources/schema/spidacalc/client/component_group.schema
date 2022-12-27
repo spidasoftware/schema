@@ -2,7 +2,84 @@
     "type": "object",
     "id": "#/spidacalc/client/component_group.schema",
     "description": "A group of components used for defining clearance rules.",
+    "required": [
+      "name"
+    ],
     "properties": {
+      "name": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "industry": {
+        "enum": [ "UTILITY", "COMMUNICATION", "BOTH" ]
+      },
+      "includedOwners": {
+        "type": "array",
+        "items": {
+          "$ref": "../../general/owner.schema"
+        }
+      },
+      "excludedOwners": {
+        "type": "array",
+        "items": {
+          "$ref": "../../general/owner.schema"
+        }
+      },
+      "anyOf": [
+        {
+          "type": {
+            "enum": [ "Wire" ]
+          },
+          "includedClientItems": {
+            "type": "array",
+            "items": {
+              "description": "Client Wire Reference",
+              "$ref": "../../spidacalc/calc/client_references/wire.schema"
+            }
+          },
+          "wireClasses": {
+            "type": "array",
+            "items": {
+              "$ref": "../../spidacalc/client/wire_class.schema"
+            }
+          },
+          "usageGroups": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": {
+            "enum": [ "Equipment" ]
+          },
+          "includedClientItems": {
+            "type": "array",
+            "items": {
+              "description": "Client Equipment Reference",
+              "$ref": "../../spidacalc/calc/client_references/equipment.schema"
+            }
+          },
+          "clientEquipmentTypes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [ "type", "ruleApplied" ],
+              "properties": {
+                "type": {
+                  "$ref": "../../spidacalc/client/equipment_type.schema"
+                },
+                "ruleApplied": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
-    "additionalProperties": true
+    "additionalProperties": false
 }

@@ -1,0 +1,11 @@
+{
+  "type": "string",
+  "description": "we output more/differently than what is in the client wire calculation enumeration",
+  "enum": [
+    "STATIC",
+    "DYNAMIC",
+    "DISPLACEMENT",
+    "NONLINEAR_STRESS_STRAIN",
+    "UNKNOWN"
+  ]
+}

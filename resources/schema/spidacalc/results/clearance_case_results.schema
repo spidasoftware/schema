@@ -1,0 +1,31 @@
+{
+  "id": "#/spidacalc/results/clearance_case_results.schema",
+  "description": "Clearance Case Results",
+  "type": "object",
+  "properties": {
+    "clearanceCase": {
+      "description": "name of the clearance case",
+      "type": "string"
+    },
+    "clearanceCaseType": {
+      "$ref": "../../spidacalc/client/enums/clearance_case_type.schema"
+    },
+    "ruleResults": {
+      "description": "list of clearance rule results",
+      "type": "array",
+      "items": {
+        "description": "clearance rule result",
+        "$ref": "../../spidacalc/results/clearance_rule_result.schema"
+      }
+    },
+    "exemptions": {
+      "description": "list of clearance rule results with a user exemption message or clearance case exception message",
+      "type": "array",
+      "items": {
+        "description": "clearance rule result",
+        "$ref": "../../spidacalc/results/clearance_rule_result.schema"
+      }
+    }
+  },
+  "additionalProperties": false
+}

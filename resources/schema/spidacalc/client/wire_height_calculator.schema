@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "id": "#/spidacalc/client/wire_height_calculator.schema",
+    "description": "Contains information on how to query a distance above ground for a component",
+    "properties": {
+      "name": {
+        "type": "string"
+      },
+      "type": {
+        "type": "string"
+      },
+      "wireState": {
+        "$ref": "../../spidacalc/client/wire_state.schema"
+      }
+    },
+    "additionalProperties": false
+}

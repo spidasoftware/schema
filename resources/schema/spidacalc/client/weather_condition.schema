@@ -1,0 +1,23 @@
+{
+    "type": "object",
+    "id": "#/spidacalc/client/weather_condition.schema",
+    "description": "A single weather condition for a SilkLoadCase",
+    "properties": {
+      "name": {
+        "type": "string"
+      },
+      "iceThickness": {
+        "$ref": "../../general/measurable.schema"
+      },
+      "windPressure": {
+        "$ref": "../../general/measurable.schema"
+      },
+      "windSpeed": {
+        "$ref": "../../general/measurable.schema"
+      },
+      "temperature": {
+        "$ref": "../../general/measurable.schema"
+      }
+    },
+    "additionalProperties": true
+}

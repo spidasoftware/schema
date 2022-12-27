@@ -3,6 +3,24 @@
     "id": "#/spidacalc/client/wire_state.schema",
     "description": "The weather conditions to fully define a loaded state of a wire.",
     "properties": {
+      "name": {
+        "type": "string"
+      },
+      "wireTensionType": {
+        "$ref": "../../spidacalc/client/enums/wire_tension_type.schema"
+      },
+      "designCondition": {
+        "$ref": "../../spidacalc/client/weather_condition.schema"
+      },
+      "highestStressCondition": {
+        "$ref": "../../spidacalc/client/weather_condition.schema"
+      },
+      "creepCondition": {
+        "$ref": "../../spidacalc/client/weather_condition.schema"
+      },
+      "outerStrandingCompression": {
+        "type": "boolean"
+      }
     },
-    "additionalProperties": true
+    "additionalProperties": false
 }

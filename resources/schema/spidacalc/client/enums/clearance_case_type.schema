@@ -1,0 +1,9 @@
+{
+	"type": "string",
+	"description": "Enumeration of the accepted types of clearance cases.",
+	"enum": [
+		"AT_POLE",
+		"BETWEEN",
+		"TO_GROUND"
+	]
+}
