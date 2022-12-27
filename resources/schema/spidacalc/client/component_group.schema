@@ -6,6 +6,9 @@
       "name"
     ],
     "properties": {
+      "type": {
+        "enum": [ "Wire", "Equipment" ]
+      },
       "name": {
         "type": "string"
       },
@@ -27,59 +30,46 @@
           "$ref": "../../general/owner.schema"
         }
       },
-      "anyOf": [
-        {
-          "type": {
-            "enum": [ "Wire" ]
-          },
-          "includedClientItems": {
-            "type": "array",
-            "items": {
-              "description": "Client Wire Reference",
+      "includedClientItems": {
+        "type": "array",
+        "items": {
+          "oneOf": [
+            {
               "$ref": "../../spidacalc/calc/client_references/wire.schema"
+            },
+            {
+              "$ref": "../../spidacalc/calc/client_references/equipment.schema"
             }
-          },
-          "wireClasses": {
-            "type": "array",
-            "items": {
-              "$ref": "../../spidacalc/client/wire_class.schema"
-            }
-          },
-          "usageGroups": {
-            "type": "array",
-            "items": {
+          ]
+        }
+      },
+      "wireClasses": {
+        "type": "array",
+        "items": {
+          "$ref": "../../spidacalc/client/wire_class.schema"
+        }
+      },
+      "usageGroups": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "clientEquipmentTypes": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [ "type", "ruleApplied" ],
+          "properties": {
+            "type": {
+              "$ref": "../../spidacalc/client/equipment_type.schema"
+            },
+            "ruleApplied": {
               "type": "string"
             }
           }
-        },
-        {
-          "type": {
-            "enum": [ "Equipment" ]
-          },
-          "includedClientItems": {
-            "type": "array",
-            "items": {
-              "description": "Client Equipment Reference",
-              "$ref": "../../spidacalc/calc/client_references/equipment.schema"
-            }
-          },
-          "clientEquipmentTypes": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [ "type", "ruleApplied" ],
-              "properties": {
-                "type": {
-                  "$ref": "../../spidacalc/client/equipment_type.schema"
-                },
-                "ruleApplied": {
-                  "type": "string"
-                }
-              }
-            }
-          }
         }
-      ]
+      }
     },
     "additionalProperties": false
 }
