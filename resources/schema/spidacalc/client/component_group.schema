@@ -7,7 +7,7 @@
     ],
     "properties": {
       "type": {
-        "enum": [ "Wire", "Equipment" ]
+        "type": "string"
       },
       "name": {
         "type": "string"
@@ -31,17 +31,7 @@
         }
       },
       "includedClientItems": {
-        "type": "array",
-        "items": {
-          "oneOf": [
-            {
-              "$ref": "../../spidacalc/calc/client_references/wire.schema"
-            },
-            {
-              "$ref": "../../spidacalc/calc/client_references/equipment.schema"
-            }
-          ]
-        }
+        "type": "array"
       },
       "wireClasses": {
         "type": "array",
@@ -71,5 +61,62 @@
         }
       }
     },
+    "oneOf": [
+      {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [ "Wire" ]
+          },
+          "includedClientItems": {
+            "type": "array",
+            "items": {
+              "$ref": "../../spidacalc/calc/client_references/wire.schema"
+            }
+          },
+          "wireClasses": {
+            "type": "array",
+            "items": {
+              "$ref": "../../spidacalc/client/wire_class.schema"
+            }
+          },
+          "usageGroups": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [ "Equipment" ]
+          },
+          "includedClientItems": {
+            "type": "array",
+            "items": {
+              "$ref": "../../spidacalc/calc/client_references/equipment.schema"
+            }
+          },
+          "clientEquipmentTypes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["type", "ruleApplied"],
+              "properties": {
+                "type": {
+                  "$ref": "../../spidacalc/client/equipment_type.schema"
+                },
+                "ruleApplied": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
     "additionalProperties": false
 }

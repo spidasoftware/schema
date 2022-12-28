@@ -8,13 +8,36 @@
   ],
   "properties": {
     "type": {
-      "description": "The type of equipment described",
-      "type": "string"
+      "type": ["string", "object"]
     },
     "size": {
       "description": "The client data identifier for this equipment.",
       "type": "string"
     }
   },
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "size": {
+          "type": "string"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "../../../spidacalc/client/equipment_type.schema"
+        },
+        "size": {
+          "type": "string"
+        }
+      }
+    }
+  ],
   "additionalProperties": false
 }
