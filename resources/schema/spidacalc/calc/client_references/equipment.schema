@@ -8,6 +8,7 @@
   ],
   "properties": {
     "type": {
+      "description": "The type of equipment described",
       "type": "string"
     },
     "size": {
