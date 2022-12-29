@@ -1,0 +1,42 @@
+{
+    "type": "object",
+    "id": "#/spidacalc/client/code_specific_loading.schema",
+    "description": "The code-specific additional loading to be applied to a design case",
+    "required": [
+      "type"
+    ],
+    "properties": {
+      "type": {
+        "enum": [ "ExtremeWind", "LinearConstant" ]
+      },
+      "loadZone": {
+        "enum": [
+          "HEAVY",
+          "MEDIUM",
+          "LIGHT",
+          "WARM_LOW",
+          "WARM_HIGH"
+        ]
+      }
+    },
+    "anyOf": [
+      {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [ "ExtremeWind" ]
+          }
+        }
+      },
+      {
+        "type": "object",
+        "required": ["loadZone"],
+        "properties": {
+          "type": {
+            "enum": [ "LinearConstant" ]
+          }
+        }
+      }
+    ],
+    "additionalProperties": false
+}

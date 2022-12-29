@@ -3,7 +3,8 @@
   "id": "#/spidacalc/client/equipment_type.schema", 
   "type": "object", 
   "required": [
-    "name"
+    "name",
+    "industry"
   ], 
   "properties": {
     "name": {

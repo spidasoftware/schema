@@ -4,7 +4,6 @@
   "required": [
     "name",
     "pointConversionFrequency",
-    "dataCollectionWidth",
     "profileViewWidth",
     "convertExistingTerrainPoints",
     "points"
@@ -16,10 +15,6 @@
     "pointConversionFrequency": {
       "$ref": "../../general/measurable.schema",
       "description": "the distance between points when fetching from a service"
-    },
-    "dataCollectionWidth": {
-      "$ref": "../../general/measurable.schema",
-      "description": "the right-of-way width, or the width along a span to fetch from a service"
     },
     "profileViewWidth": {
       "$ref": "../../general/measurable.schema",

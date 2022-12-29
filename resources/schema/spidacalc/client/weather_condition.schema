@@ -1,7 +1,13 @@
 {
     "type": "object",
     "id": "#/spidacalc/client/weather_condition.schema",
-    "description": "A single weather condition for a SilkLoadCase",
+    "description": "A single weather condition for a WireState or SilkLoadCase",
+    "required": [
+      "name",
+      "iceThickness",
+      "temperature",
+      "windPressure"
+    ],
     "properties": {
       "name": {
         "type": "string"
@@ -17,7 +23,10 @@
       },
       "temperature": {
         "$ref": "../../general/measurable.schema"
+      },
+      "codeSpecificLoading": {
+        "$ref": "../../spidacalc/client/code_specific_loading.schema"
       }
     },
-    "additionalProperties": true
+    "additionalProperties": false
 }

@@ -2,6 +2,12 @@
   "id": "#/spidacalc/results/clearance_case_results.schema",
   "description": "Clearance Case Results",
   "type": "object",
+  "required": [
+    "clearanceCase",
+    "clearanceCaseType",
+    "ruleResults",
+    "exemptions"
+  ],
   "properties": {
     "clearanceCase": {
       "description": "name of the clearance case",

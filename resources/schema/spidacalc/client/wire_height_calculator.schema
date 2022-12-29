@@ -2,6 +2,10 @@
     "type": "object",
     "id": "#/spidacalc/client/wire_height_calculator.schema",
     "description": "Contains information on how to query a distance above ground for a component",
+    "required": [
+      "name",
+      "type"
+    ],
     "properties": {
       "name": {
         "type": "string"
@@ -13,5 +17,24 @@
         "$ref": "../../spidacalc/client/wire_state.schema"
       }
     },
+    "anyOf": [
+      {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [ "Line of Sight", "Measured Wire" ]
+          }
+        }
+      },
+      {
+        "type": "object",
+        "required": ["wireState"],
+        "properties": {
+          "type": {
+            "enum": [ "Wire State" ]
+          }
+        }
+      }
+    ],
     "additionalProperties": false
 }

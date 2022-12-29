@@ -5,7 +5,14 @@
   "required": [
     "clearanceCaseName",
     "clearanceRuleName",
-    "clearanceCaseType"
+    "clearanceCaseType",
+    "exceptionCase",
+    "upperId",
+    "lowerId",
+    "allowable",
+    "actual",
+    "difference",
+    "status"
   ],
   "properties": {
     "clearanceCaseName": {

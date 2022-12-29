@@ -2,6 +2,11 @@
     "type": "object",
     "id": "#/spidacalc/client/wire_state.schema",
     "description": "The weather conditions to fully define a loaded state of a wire.",
+    "required": [
+      "name",
+      "wireTensionType",
+      "designCondition"
+    ],
     "properties": {
       "name": {
         "type": "string"
@@ -22,5 +27,33 @@
         "type": "boolean"
       }
     },
+    "anyOf": [
+      {
+        "type": "object",
+        "properties": {
+          "wireTensionType": {
+            "enum": [ "INITIAL" ]
+          }
+        }
+      },
+      {
+        "type": "object",
+        "required": ["highestStressCondition"],
+        "properties": {
+          "wireTensionType": {
+            "enum": [ "FINAL_WITHOUT_CREEP" ]
+          }
+        }
+      },
+      {
+        "type": "object",
+        "required": ["creepCondition"],
+        "properties": {
+          "wireTensionType": {
+            "enum": [ "FINAL_WITH_CREEP" ]
+          }
+        }
+      }
+    ],
     "additionalProperties": false
 }

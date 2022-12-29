@@ -1,5 +1,5 @@
 {
-      "id": "#/spidacalc/calc/client_references/equipment.schema",
+  "id": "#/spidacalc/calc/client_references/equipment.schema",
   "type": "object",
   "description": "A reference to a client equipment",
   "required": [
@@ -8,36 +8,12 @@
   ],
   "properties": {
     "type": {
-      "type": ["string", "object"]
+      "type": "string"
     },
     "size": {
       "description": "The client data identifier for this equipment.",
       "type": "string"
     }
   },
-  "oneOf": [
-    {
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string"
-        },
-        "size": {
-          "type": "string"
-        }
-      }
-    },
-    {
-      "type": "object",
-      "properties": {
-        "type": {
-          "$ref": "../../../spidacalc/client/equipment_type.schema"
-        },
-        "size": {
-          "type": "string"
-        }
-      }
-    }
-  ],
   "additionalProperties": false
 }

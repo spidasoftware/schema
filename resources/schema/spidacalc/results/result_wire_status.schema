@@ -2,6 +2,11 @@
     "type": "object",
     "id": "#/spidacalc/results/result_wire_status.schema",
     "description": "The weather conditions to fully define a loaded state of a wire.",
+    "required": [
+      "tensionMethod",
+      "wireTensionType",
+      "outerStrandInCompression"
+    ],
     "properties": {
       "sag": {
         "$ref": "../../general/measurable.schema"
