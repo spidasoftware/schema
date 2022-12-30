@@ -9,7 +9,7 @@
   "properties": {
     "type": {
       "description": "The type of equipment described",
-      "type": "string"
+      "type": ["string", "object"]
     },
     "size": {
       "description": "The client data identifier for this equipment.",
