@@ -24,13 +24,46 @@ class ClearancesChangeset extends AbstractClientDataChangeSet {
 		(clientDataJSON.assemblies as List<Map>).each {
 			anyChanged |= revertStructure(it.assemblyStructure as Map)
 		}
+		if (clientDataJSON.remove("environments" ) != null) {
+			anyChanged = true
+		}
+		if (clientDataJSON.remove("defaultEnvironment") != null) {
+			anyChanged = true
+		}
+		if (clientDataJSON.remove("defaultWireClasses") != null) {
+			anyChanged = true
+		}
+		if (clientDataJSON.remove("clearanceCases") != null) {
+			anyChanged = true
+		}
+		if (clientDataJSON.remove("componentGroups") != null) {
+			anyChanged = true
+		}
+		if (clientDataJSON.remove("wireClasses") != null) {
+			anyChanged = true
+		}
+		if (clientDataJSON.remove("wireStates") != null) {
+			anyChanged = true
+		}
 		return anyChanged
+	}
+
+	@Override
+	void revertProject(Map projectJSON) throws ConversionException {
+		super.revertProject(projectJSON)
+		projectJSON.remove("defaultClearanceCases")
+		if (projectJSON.containsKey("clientData")) {
+			Map clientDataJSON = projectJSON.clientData as Map
+			revertClientData(clientDataJSON)
+		}
 	}
 
 	@Override
 	void revertDesign(Map designJSON) {
 		super.revertDesign(designJSON)
 		revertStructure(designJSON.structure as Map)
+		designJSON.remove("clearanceCases")
+		designJSON.remove("clearanceResults")
 	}
 
 	@Override

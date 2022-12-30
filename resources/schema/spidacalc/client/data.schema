@@ -174,10 +174,6 @@
       "type": "object",
       "$ref": "../../general/owner.schema"
     },
-    "defaultWireTag": {
-      "type": "object",
-      "$ref": "../../spidacalc/client/wire_class.schema"
-    },
     "clearanceCases": {
       "type": "array",
       "items": {
