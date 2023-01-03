@@ -173,6 +173,12 @@
     "clientData": {
       "description": "the client items in use in the project",
       "$ref": "../client/data.schema"
+    },
+    "terrainLayers": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/calc/terrain_layer.schema"
+      }
     }
   }
 }

@@ -2,7 +2,39 @@
   "id": "#/spidacalc/results/clearance_results.schema",
   "description": "SPIDACalc clearance results",
   "type": "object",
+  "required": [
+    "id",
+    "status",
+    "results",
+    "violations",
+    "itemIds"
+  ],
   "properties": {
+    "id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "results": {
+      "description": "list of clearance case results",
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/results/clearance_case_results.schema"
+      }
+    },
+    "violations": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/results/clearance_rule_result.schema"
+      }
+    },
+    "itemIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }

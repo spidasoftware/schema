@@ -1,0 +1,113 @@
+{
+  "id": "#/spidacalc/results/clearance_rule_result.schema",
+  "description": "Clearance Rule Result",
+  "type": "object",
+  "required": [
+    "clearanceCaseName",
+    "clearanceRuleName",
+    "clearanceCaseType",
+    "exceptionCase",
+    "upperId",
+    "lowerId",
+    "allowable",
+    "actual",
+    "difference",
+    "status"
+  ],
+  "properties": {
+    "clearanceCaseName": {
+      "description": "name of the clearance case",
+      "type": "string"
+    },
+    "clearanceRuleName": {
+      "description": "name of the clearance rule",
+      "type": "string"
+    },
+    "clearanceCaseType": {
+      "$ref": "../../spidacalc/client/enums/clearance_case_type.schema"
+    },
+    "exceptionCase": {
+      "description": "true iff the clearance case is marked as an exception case",
+      "type": "boolean"
+    },
+    "upperId": {
+      "type": "string"
+    },
+    "upperAttachHeight": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "upperOwner": {
+      "type": "string"
+    },
+    "upperDescription": {
+      "type": "string"
+    },
+    "lowerId": {
+      "type": "string"
+    },
+    "lowerAttachHeight": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "lowerOwner": {
+      "type": "string"
+    },
+    "lowerDescription": {
+      "type": "string"
+    },
+    "wepId": {
+      "type": "string"
+    },
+    "upperHeight": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "lowerHeight": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "distanceToHeights": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "upperSagAtDistanceToHeights": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "lowerSagAtDistanceToHeights": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "allowable": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "actual": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "difference": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "status": {
+      "$ref": "../../spidacalc/results/enums/status.schema"
+    },
+    "upperWireState": {
+      "$ref": "../../spidacalc/client/wire_height_calculator.schema"
+    },
+    "lowerWireState": {
+      "$ref": "../../spidacalc/client/wire_height_calculator.schema"
+    },
+    "upperWireStatus": {
+      "$ref": "../../spidacalc/results/result_wire_status.schema"
+    },
+    "lowerWireStatus": {
+      "$ref": "../../spidacalc/results/result_wire_status.schema"
+    },
+    "userExemptionMessage": {
+      "description": "message set by the user if they want to manually exempt this violation",
+      "type": "string"
+    },
+    "clearanceCaseExceptionMessage": {
+      "description": "message set by the clearance engine if this result is superseded by the result from an exception case",
+      "type": "string"
+    },
+    "error": {
+      "description": "error message if there was an error solving this rule",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

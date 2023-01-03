@@ -1,0 +1,9 @@
+{
+	"type": "string",
+	"enum": [
+		"Any",
+		"Attachment",
+		"Bottom",
+		"Top"
+	]
+}

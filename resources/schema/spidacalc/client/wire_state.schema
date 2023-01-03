@@ -2,7 +2,58 @@
     "type": "object",
     "id": "#/spidacalc/client/wire_state.schema",
     "description": "The weather conditions to fully define a loaded state of a wire.",
+    "required": [
+      "name",
+      "wireTensionType",
+      "designCondition"
+    ],
     "properties": {
+      "name": {
+        "type": "string"
+      },
+      "wireTensionType": {
+        "$ref": "../../spidacalc/client/enums/wire_tension_type.schema"
+      },
+      "designCondition": {
+        "$ref": "../../spidacalc/client/weather_condition.schema"
+      },
+      "highestStressCondition": {
+        "$ref": "../../spidacalc/client/weather_condition.schema"
+      },
+      "creepCondition": {
+        "$ref": "../../spidacalc/client/weather_condition.schema"
+      },
+      "outerStrandingCompression": {
+        "type": "boolean"
+      }
     },
-    "additionalProperties": true
+    "anyOf": [
+      {
+        "type": "object",
+        "properties": {
+          "wireTensionType": {
+            "enum": [ "INITIAL" ]
+          }
+        }
+      },
+      {
+        "type": "object",
+        "required": ["highestStressCondition"],
+        "properties": {
+          "wireTensionType": {
+            "enum": [ "FINAL_WITHOUT_CREEP" ]
+          }
+        }
+      },
+      {
+        "type": "object",
+        "required": ["creepCondition"],
+        "properties": {
+          "wireTensionType": {
+            "enum": [ "FINAL_WITH_CREEP" ]
+          }
+        }
+      }
+    ],
+    "additionalProperties": false
 }

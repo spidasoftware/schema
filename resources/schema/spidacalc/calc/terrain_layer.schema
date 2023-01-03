@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "id": "#/spidacalc/calc/terrain_layer.schema",
+  "required": [
+    "name",
+    "pointConversionFrequency",
+    "profileViewWidth",
+    "convertExistingTerrainPoints",
+    "points"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "pointConversionFrequency": {
+      "$ref": "../../general/measurable.schema",
+      "description": "the distance between points when fetching from a service"
+    },
+    "profileViewWidth": {
+      "$ref": "../../general/measurable.schema",
+      "description": "the width along a span of data points to display as the ground in profile view"
+    },
+    "convertExistingTerrainPoints": {
+      "type": "boolean"
+    },
+    "points": {
+      "description": "list of terrain layer points",
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/calc/terrain_layer_point.schema"
+      }
+    }
+  },
+  "additionalProperties": false
+}

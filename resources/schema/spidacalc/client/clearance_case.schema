@@ -2,7 +2,207 @@
     "type": "object",
     "id": "#/spidacalc/client/clearance_case.schema",
     "description": "A case defining required clearances for validation.",
+    "required": [
+      "name",
+      "type"
+    ],
     "properties": {
+      "type": {
+        "type": "string"
+      },
+      "name": {
+        "description": "the name of the clearance case",
+        "type": "string"
+      },
+      "addByDefault": {
+        "description": "include clearance case by default",
+        "type": "boolean"
+      },
+      "exception": {
+        "description": "mark case as exception",
+        "type": "boolean"
+      },
+      "upper": {
+        "type": "array"
+      },
+      "lower": {
+        "type": "array"
+      },
+      "clearances": {
+        "type": "array"
+      },
+      "minimumSpan": {
+        "description": "minimum span length requirement",
+        "$ref": "../../general/measurable.schema"
+      },
+      "maximumSpan": {
+        "description": "maximum span length requirement",
+        "$ref": "../../general/measurable.schema"
+      },
+      "upperThermalState": {
+        "$ref": "../../spidacalc/client/wire_height_calculator.schema"
+      },
+      "lowerThermalState": {
+        "$ref": "../../spidacalc/client/wire_height_calculator.schema"
+      },
+      "upperPhysicalState": {
+        "$ref": "../../spidacalc/client/wire_height_calculator.schema"
+      },
+      "lowerPhysicalState": {
+        "$ref": "../../spidacalc/client/wire_height_calculator.schema"
+      },
+      "checkPhysicalState": {
+        "type": "boolean"
+      }
     },
-    "additionalProperties": true
+    "oneOf": [
+      {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [ "Vertical to Ground" ]
+          },
+          "upper": {
+            "type": "array",
+            "items": {
+              "$ref": "../../spidacalc/client/component_group_meta.schema"
+            }
+          },
+          "lower": {
+            "type": "array",
+            "items": {
+              "$ref": "../../spidacalc/calc/environment.schema"
+            }
+          },
+          "clearances": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "upper": {
+                  "$ref": "../../spidacalc/client/component_group_meta.schema"
+                },
+                "lower": {
+                  "$ref": "../../spidacalc/calc/environment.schema"
+                },
+                "allowable": {
+                  "$ref": "../../general/measurable.schema"
+                }
+              }
+            }
+          },
+          "minimumSpan": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "maximumSpan": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "upperThermalState": {
+            "$ref": "../../spidacalc/client/wire_height_calculator.schema"
+          },
+          "upperPhysicalState": {
+            "$ref": "../../spidacalc/client/wire_height_calculator.schema"
+          },
+          "checkPhysicalState": {
+            "type": "boolean"
+          }
+        }
+      },
+      {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [ "At Pole" ]
+          },
+          "upper": {
+            "type": "array",
+            "items": {
+              "$ref": "../../spidacalc/client/component_group.schema"
+            }
+          },
+          "lower": {
+            "type": "array",
+            "items": {
+              "$ref": "../../spidacalc/client/component_group.schema"
+            }
+          },
+          "clearances": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "upper": {
+                  "$ref": "../../spidacalc/client/component_group.schema"
+                },
+                "lower": {
+                  "$ref": "../../spidacalc/client/component_group.schema"
+                },
+                "allowable": {
+                  "$ref": "../../general/measurable.schema"
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [ "Wire To Wire" ]
+          },
+          "upper": {
+            "type": "array",
+            "items": {
+              "$ref": "../../spidacalc/client/component_group_meta.schema"
+            }
+          },
+          "lower": {
+            "type": "array",
+            "items": {
+              "$ref": "../../spidacalc/client/component_group.schema"
+            }
+          },
+          "clearances": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "upper": {
+                  "$ref": "../../spidacalc/client/component_group_meta.schema"
+                },
+                "lower": {
+                  "$ref": "../../spidacalc/client/component_group.schema"
+                },
+                "allowable": {
+                  "$ref": "../../general/measurable.schema"
+                }
+              }
+            }
+          },
+          "minimumSpan": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "maximumSpan": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "upperThermalState": {
+            "$ref": "../../spidacalc/client/wire_height_calculator.schema"
+          },
+          "lowerThermalState": {
+            "$ref": "../../spidacalc/client/wire_height_calculator.schema"
+          },
+          "upperPhysicalState": {
+            "$ref": "../../spidacalc/client/wire_height_calculator.schema"
+          },
+          "lowerPhysicalState": {
+            "$ref": "../../spidacalc/client/wire_height_calculator.schema"
+          },
+          "checkPhysicalState": {
+            "type": "boolean"
+          }
+        }
+      }
+    ],
+    "additionalProperties": false
 }

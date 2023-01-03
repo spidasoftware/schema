@@ -196,6 +196,12 @@
         "$ref": "../../spidacalc/client/wire_class.schema"
       }
     },
+    "defaultWireClasses": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/client/wire_class.schema"
+      }
+    },
     "wireStates": {
       "type": "array",
       "items": {

@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "id": "#/spidacalc/client/terrain_layer.schema",
+  "required": [
+    "latitude",
+    "longitude",
+    "elevation"
+  ],
+  "properties": {
+    "environment": {
+      "$ref": "../../spidacalc/calc/environment.schema"
+    },
+    "elevation": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "longitude": {
+      "type": "number"
+    },
+    "latitude": {
+      "type": "number"
+    }
+  },
+  "additionalProperties": false
+}
