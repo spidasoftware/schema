@@ -1,0 +1,141 @@
+{
+  "schema": "/schema/spidacalc/client/data.schema",
+  "version": 9,
+  "name": "Demo.client",
+  "poles": [
+    {
+      "aliases": [],
+      "shape": "ROUND",
+      "materialCategory": "POLYMER",
+      "classOfPole": "10\" Series II",
+      "species": "Fiberglass",
+      "height": {
+        "unit": "METRE",
+        "value": 12.192000000000002
+      },
+      "taper": 0,
+      "density": {
+        "unit": "KILOGRAM_PER_CUBIC_METRE",
+        "value": 235.471411597214
+      },
+      "allowable": {
+        "unit": "NEWTON_METRE",
+        "value": 135581.79483314
+      },
+      "ptc": {
+        "unit": "METRE",
+        "value": 0.8636000000000001
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 27579029172.67344
+      },
+      "wallThickness": {
+        "unit": "METRE",
+        "value": 0.006350000000000001
+      },
+      "poissonRatio": 0.32
+    }
+  ],
+  "wires": [],
+  "anchors": [],
+  "equipments": [],
+  "equipmentTypes": [],
+  "insulators": [],
+  "foundations": [],
+  "crossArms": [],
+  "braces": [],
+  "bundleComponents": [],
+  "bundles": [],
+  "assemblies": [
+    {
+      "aliases": [],
+      "code": "A1.01",
+      "group": "Converted",
+      "assemblyStructure": {
+        "wireEndPoints": [
+          {
+            "id": "WEP#1",
+            "direction": 0,
+            "distance": {
+              "unit": "METRE",
+              "value": 0.3048
+            },
+            "relativeElevation": {
+              "unit": "METRE",
+              "value": 0
+            },
+            "inclination": {
+              "unit": "RADIAN",
+              "value": 0
+            },
+            "type": "PREVIOUS_POLE",
+            "comments": "",
+            "environment": "None",
+            "wires": [
+              "Wire#1"
+            ],
+            "spanGuys": [],
+            "spanPoints": [],
+            "terrainPoints": [],
+            "environmentRegions": [{}],
+            "calculateClearances": true
+          }
+        ],
+        "spanPoints": [],
+        "anchors": [],
+        "notePoints": [],
+        "pointLoads": [],
+        "wirePointLoads": [],
+        "damages": [],
+        "wires": [],
+        "spanGuys": [],
+        "guys": [],
+        "equipments": [],
+        "guyAttachPoints": [],
+        "crossArms": [],
+        "insulators": [],
+        "pushBraces": [],
+        "sidewalkBraces": [],
+        "foundations": [],
+        "assemblies": []
+      },
+      "distanceFromPoleTop": {
+        "unit": "METRE",
+        "value": 0.100584
+      },
+      "distanceToUnderbuild": {
+        "unit": "METRE",
+        "value": 0.9144000000001
+      },
+      "minimumLineAngle": {
+        "unit": "RADIAN",
+        "value": 0
+      },
+      "maximumLineAngle": {
+        "unit": "RADIAN",
+        "value": 1.570796326794896
+      },
+      "assemblyType": "FRAMING"
+    }
+  ],
+  "environments": [{}],
+  "defaultEnvironment": {
+    "test": "test"
+  },
+  "analysisCases": [],
+  "owners": [],
+  "notes": [],
+  "locationForms": [],
+  "projectForms": [],
+  "customReportSetups": [],
+  "designLayers": [],
+  "defaultLocationForms": [],
+  "defaultProjectForms": [],
+  "clearanceCases": [{}],
+  "componentGroups": [{}],
+  "wireClasses": [{}],
+  "defaultWireClasses": [{}],
+  "wireStates": [{}],
+  "hash": "ad77845b575e3957bddbf149f62f2959"
+}

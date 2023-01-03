@@ -1,0 +1,258 @@
+{
+  "label": "New Project",
+  "dateModified": 1672429187128,
+  "clientFile": "Demo.client",
+  "date": "2022-12-30",
+  "schema": "/schema/spidacalc/calc/project.schema",
+  "version": 9,
+  "engineer": "",
+  "comments": "",
+  "generalLocation": "",
+  "address": {
+    "number": "",
+    "city": "",
+    "street": "",
+    "county": "",
+    "state": "",
+    "zip_code": ""
+  },
+  "userDefinedValues": {},
+  "clientData": {
+    "schema": "/schema/spidacalc/client/data.schema",
+    "version": 9,
+    "name": "Demo.client",
+    "poles": [
+      {
+        "aliases": [],
+        "shape": "ROUND",
+        "materialCategory": "POLYMER",
+        "classOfPole": "10\" Series II",
+        "species": "Fiberglass",
+        "height": {
+          "unit": "METRE",
+          "value": 12.192000000000002
+        },
+        "taper": 0,
+        "density": {
+          "unit": "KILOGRAM_PER_CUBIC_METRE",
+          "value": 235.471411597214
+        },
+        "allowable": {
+          "unit": "NEWTON_METRE",
+          "value": 135581.79483314
+        },
+        "ptc": {
+          "unit": "METRE",
+          "value": 0.8636000000000001
+        },
+        "modulus": {
+          "unit": "PASCAL",
+          "value": 27579029172.67344
+        },
+        "wallThickness": {
+          "unit": "METRE",
+          "value": 0.006350000000000001
+        },
+        "poissonRatio": 0.32
+      }
+    ],
+    "wires": [],
+    "anchors": [],
+    "equipments": [],
+    "equipmentTypes": [],
+    "insulators": [],
+    "foundations": [],
+    "crossArms": [],
+    "braces": [],
+    "bundleComponents": [],
+    "bundles": [],
+    "assemblies": [
+      {
+        "aliases": [],
+        "code": "A1.01",
+        "group": "Converted",
+        "assemblyStructure": {
+          "wireEndPoints": [
+            {
+              "id": "WEP#1",
+              "direction": 0,
+              "distance": {
+                "unit": "METRE",
+                "value": 0.3048
+              },
+              "relativeElevation": {
+                "unit": "METRE",
+                "value": 0
+              },
+              "inclination": {
+                "unit": "RADIAN",
+                "value": 0
+              },
+              "type": "PREVIOUS_POLE",
+              "comments": "",
+              "environment": "None",
+              "wires": [
+                "Wire#1"
+              ],
+              "spanGuys": [],
+              "spanPoints": [],
+              "terrainPoints": [],
+              "environmentRegions": [{}],
+              "calculateClearances": true
+            }
+          ],
+          "spanPoints": [],
+          "anchors": [],
+          "notePoints": [],
+          "pointLoads": [],
+          "wirePointLoads": [],
+          "damages": [],
+          "wires": [],
+          "spanGuys": [],
+          "guys": [],
+          "equipments": [],
+          "guyAttachPoints": [],
+          "crossArms": [],
+          "insulators": [],
+          "pushBraces": [],
+          "sidewalkBraces": [],
+          "foundations": [],
+          "assemblies": []
+        },
+        "distanceFromPoleTop": {
+          "unit": "METRE",
+          "value": 0.100584
+        },
+        "distanceToUnderbuild": {
+          "unit": "METRE",
+          "value": 0.9144000000001
+        },
+        "minimumLineAngle": {
+          "unit": "RADIAN",
+          "value": 0
+        },
+        "maximumLineAngle": {
+          "unit": "RADIAN",
+          "value": 1.570796326794896
+        },
+        "assemblyType": "FRAMING"
+      }
+    ],
+    "environments": [{}],
+    "defaultEnvironment": { "test": "test" },
+    "analysisCases": [],
+    "owners": [],
+    "notes": [],
+    "locationForms": [],
+    "projectForms": [],
+    "customReportSetups": [],
+    "designLayers": [],
+    "defaultLocationForms": [],
+    "defaultProjectForms": [],
+    "clearanceCases": [{}],
+    "componentGroups": [{}],
+    "wireClasses": [{}],
+    "defaultWireClasses": [{}],
+    "wireStates": [{}],
+    "hash": "ad77845b575e3957bddbf149f62f2959"
+  },
+  "clientFileVersion": "ad77845b575e3957bddbf149f62f2959",
+  "forms": [],
+  "defaultLocationForms": [],
+  "defaultLoadCases": [],
+  "defaultClearanceCases": [{}],
+  "leads": [
+    {
+      "label": "Lead",
+      "locations": [
+        {
+          "label": "Location-12-30-2022-13-39-47-267",
+          "mapNumber": "",
+          "comments": "",
+          "address": {
+            "number": "",
+            "city": "",
+            "street": "",
+            "county": "",
+            "state": "",
+            "zip_code": ""
+          },
+          "technician": "",
+          "crossStreet1": "",
+          "crossStreet2": "",
+          "remedies": [],
+          "poleTags": [],
+          "userDefinedValues": {},
+          "summaryNotes": [],
+          "forms": [],
+          "images": [],
+          "photosToBeAssigned": [],
+          "designs": [
+            {
+              "label": "Measured Design",
+              "layerType": "Measured",
+              "structure": {
+                "pole": {
+                  "id": "Pole",
+                  "externalId": "63af3e83f2551a346b51ac4c",
+                  "owner": {
+                    "industry": "UTILITY",
+                    "id": "Acme Power"
+                  },
+                  "glc": {
+                    "unit": "METRE",
+                    "value": 0.8636000000000001
+                  },
+                  "agl": {
+                    "unit": "METRE",
+                    "value": 10.3632
+                  },
+                  "autoGLC": true,
+                  "autoAGL": true,
+                  "environment": "None",
+                  "temperature": {
+                    "unit": "CELSIUS",
+                    "value": 15.555555555555555
+                  },
+                  "stressRatio": 1,
+                  "leanAngle": 0,
+                  "leanDirection": 0,
+                  "clientItemVersion": "a4090ef12d2f9b9c21ca6509157d445c",
+                  "clientItem": {
+                    "species": "Fiberglass",
+                    "classOfPole": "10\" Series II",
+                    "height": {
+                      "unit": "METRE",
+                      "value": 12.192000000000002
+                    }
+                  }
+                },
+                "wireEndPoints": [],
+                "spanPoints": [],
+                "anchors": [],
+                "notePoints": [],
+                "pointLoads": [],
+                "wirePointLoads": [],
+                "damages": [],
+                "wires": [],
+                "spanGuys": [],
+                "guys": [],
+                "equipments": [],
+                "guyAttachPoints": [],
+                "crossArms": [],
+                "insulators": [],
+                "pushBraces": [],
+                "sidewalkBraces": [],
+                "foundations": [],
+                "assemblies": []
+              },
+              "analysis": [],
+              "clearanceCases": [{}],
+              "clearanceResults": [{}]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
