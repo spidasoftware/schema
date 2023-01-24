@@ -179,6 +179,21 @@
       "items": {
         "$ref": "../../spidacalc/calc/terrain_layer.schema"
       }
+    },
+    "appliedTerrainLayers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["designLayer", "terrainLayer"],
+        "properties": {
+          "designLayer": {
+            "type": "string"
+          },
+          "terrainLayer": {
+            "type": "string"
+          }
+        }
+      }
     }
   }
 }
