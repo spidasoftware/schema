@@ -47,6 +47,7 @@ class ClearancesChangesetTest extends Specification {
             stream.close()
         expect:
             json.defaultClearanceCases
+            json.appliedTerrainLayers
             json.clientData.clearanceCases
             json.clientData.environments
             json.clientData.defaultEnvironment
@@ -62,6 +63,7 @@ class ClearancesChangesetTest extends Specification {
             changeSet.revertProject(json)
         then:
             !json.defaultClearanceCases
+            !json.appliedTerrainLayers
             !json.clientData.clearanceCases
             !json.clientData.environments
             !json.clientData.defaultEnvironment

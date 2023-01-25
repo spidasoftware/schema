@@ -161,6 +161,7 @@
   "defaultLocationForms": [],
   "defaultLoadCases": [],
   "defaultClearanceCases": [{}],
+  "appliedTerrainLayers": [{}],
   "leads": [
     {
       "label": "Lead",
