@@ -191,7 +191,7 @@ The example data files are json files that can be opened in any text editor.
 
 [Example Integration showing data export to KML](/resources/examples/spidacalc/demos/kml-demo)
 
-[Example RPC integration using coffescript](/resources/examples/spidacalc/example_RPC_client.coffee)
+[Example RPC integration using coffescript](/resources/examples/spidacalc/demos/example_RPC_client.coffee)
 
 #### Looking around
 
