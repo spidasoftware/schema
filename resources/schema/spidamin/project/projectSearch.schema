@@ -1,0 +1,98 @@
+{
+  "id": "#/spidamin/project/projectSearch.schema",
+  "description": "A ProjectManager project search",
+  "properties": {
+    "projectSearches": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "userId": {
+              "type": "integer"
+            },
+            "groups": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "entries": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
+                            "projectContains": {
+                              "type": "boolean"
+                            },
+                            "entryType": {
+                              "type": "string"
+                            },
+                            "rows": {
+                              "type": "array",
+                              "items": [
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "integer"
+                                    },
+                                    "cells": {
+                                      "type": "array",
+                                      "items": [
+                                        {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "integer"
+                                            },
+                                            "field": {
+                                              "type": "string"
+                                            },
+                                            "operator": {
+                                              "type": "string"
+                                            },
+                                            "value": {
+                                              "type": "string"
+                                            },
+                                            "secondValue": {
+                                              "type": "null"
+                                            },
+                                            "active": {
+                                              "type": "boolean"
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}
