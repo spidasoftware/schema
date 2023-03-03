@@ -3,9 +3,9 @@ SPIDA Software JSON Interfaces
 
 [![Build Status](https://travis-ci.org/spidasoftware/schema.svg?branch=master)](http://travis-ci.org/spidasoftware/schema)
 
-* LAST RELEASED VERSION: 8.0.0
+* LAST RELEASED VERSION: 8.0.0  (Java 7+)
 
-* CURRENT MASTER VERSION: 9.0.0-SNAPSHOT
+* CURRENT MASTER VERSION: 9.0.2-SNAPSHOT  (Java 11+)
 
 General Overview
 --------------------------------
@@ -26,6 +26,8 @@ The data formats, examples, and available web service interfaces will all change
 | [3.0.0/1.09](https://github.com/spidasoftware/schema/releases/tag/v1.09)  | SPIDAcalc 6.1.2 - 6.4.0 |                  |               |
 | [2.0.0/1.0.6](https://github.com/spidasoftware/schema/releases/tag/1.0.6) | SPIDAcalc 6.0.0 - 6.1.1 |                  |               |
 | [1.0.0](https://github.com/spidasoftware/schema/releases/tag/1.0.0)       | SPIDAcalc 5.3.0 - 5.3.4 |                  |               |
+
+Schema versions prior to 9.0 are compatible with Java 7+.  Beginning with schema version 9.0 Java11+ is required.
 
 License
 -------
