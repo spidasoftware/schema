@@ -1,6 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // General Gradle Settings
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+import static org.gradle.api.JavaVersion.VERSION_11
 
 apply plugin: 'java'
 apply plugin: 'maven'
@@ -20,8 +21,8 @@ if(schemaReleaseVersion){
 }
 description = "Schema"
 
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
+sourceCompatibility = VERSION_11
+targetCompatibility = VERSION_11
 
 sourceSets {
 	main {
