@@ -55,17 +55,22 @@ The calc import API supports the following attributes of a structure.
 
 - Pole
 - Wires
+- Wire Endpoints
 - Cross Arms
 - Insulators
 - Anchors
 - Guys
+- Guy Attach Points
 - Sidewalk Guys
 - Span Guys
 - Equipment
 - Push Braces
+- Sidewalk Braces
+- Equipments
 - Damages
 - Note Points
 - Point Loads
+- Wire Point Loads
 - Span Points
 - Foundations
 - Assemblies
@@ -168,7 +173,7 @@ See the [Input Assembly Guide](input_assemblies.md)
 
 ##### calc_project.schema
 
-Schema for a calc project. Includes information on GPS positions, street addresses, photos, remedies, and design structure defined by either design.schema or framing_plan.schema. This is the format that be opened and exported directly by SPIDACalc.
+Schema for a calc project. Includes information on GPS positions, street addresses, photos, remedies, and design structure defined by either design.schema or ~~framing_plan.schema~~. This is the format that can be opened and exported directly by SPIDACalc.
 
 #### RPC Interfaces
 
@@ -251,6 +256,56 @@ Calc uses load cases to handle NESC, GO95, and CSA loading standards. These are 
 
 If Results are included, they will be listed per component. When loaded into calc they will show the summary of the result, and that the results are out of date and need to be re-analyzed to get full results.
 
+### Terrain Layers
+
+Terrain Layers are applied to Design Layers, and therefore applied to every design in the Design Layer. A Design Layer can only have one terrain layer applied.
+
+Terrain layers have five properties:
+
+* "name"
+* "pointConversionFrequency"
+    - distance between terrain layer points when fetching from a service
+* "profileViewWidth"
+    - width along a span of data points to display as the ground in profile view
+* "convertExistingTerrainPoints"
+    - option to convert existing terrain points to points in the terrain layer
+* "points"
+    - list of all terrain layer points in the terrain layer
+
+```
+"terrainLayers": [
+    {
+        "name": "terrain layer",
+        "pointConversionFrequency": {
+            "value": 15.0,
+            "unit": "FOOT"
+        },
+        "profileViewWidth": {
+            "value": 20.0,
+            "unit": "FOOT"
+        },
+        "convertExistingTerrainPoints": true,
+        "points": [
+            {
+                "latitude": 40.0034896,
+                "longitude": -82.8558611,
+                "elevation": {
+                    "value": 253.69,
+                    "unit": "FOOT"
+                }
+            },
+            {
+                "latitude": 40.0034485,
+                "longitude": -82.8558611,
+                "elevation": {
+                    "value": 252.86,
+                    "unit": "FOOT"
+                }
+            }
+        ]
+    }
+]
+```
 
 ## Calc Pole Structure
 
@@ -378,6 +433,37 @@ Design connectivity is maintained by a connectionId between each two *items* tha
 If a wire end point is connected, all of its children must be connected (wires, span guys, span points). Moreover, all of the properties must match between connected items. For example, two wires representing the same span should have the same midspan, tension group, and client wire. Connected wire end points must have the same distance and opposite directions. If connectivity is incomplete or incorrect, the wire end point will be disconnected and all item properties preserved on the two disconnected designs.
 
 [Connectivity Example](/resources/examples/spidacalc/projects/connectivity_two_locations.json)
+
+### Environment Regions
+
+Environment Regions represent the environment between two points along a span. Environment regions are children of Wire End Points. A region's distances are inclined distances from the pole in the direction of the Wire End Point.
+
+```
+"designs": [{
+    "label": "Measured Design",
+    "structure": {
+        "pole": {},
+        ...
+        "wireEndPoints": [{
+            "id": "WEP#1",
+            ...
+            "environmentRegions": [{
+                "id": "EnvironmentRegion#1",
+                "externalId": "6388f4ba65c975021e6b5f6f",
+                "distance": {
+                    "unit": "FOOT",
+                    "value": 40.0
+                },
+                "endDistance": {
+                    "unit": "FOOT",
+                    "value": 50.0
+                },
+                "environment": "None"
+            }]
+        }]
+    }
+}]
+```
 
 ## FAQ
 
