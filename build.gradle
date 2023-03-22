@@ -8,7 +8,6 @@ apply plugin: 'groovy'
 apply plugin: 'idea'
 apply plugin: 'project-report'
 apply plugin: 'releaseNotes'
-apply plugin: 'org.owasp.dependencycheck'
 
 group = 'com.spidasoftware'
 version = '9.0.2-SNAPSHOT' // If you're changing the major version also change the currentVersion in ConverterUtils.
@@ -54,7 +53,6 @@ buildscript {
 
 	dependencies {
 		classpath (group: 'com.spidasoftware', name:'releaseNotes', version:'0.1-SNAPSHOT', changing:true)
-		classpath 'org.owasp:dependency-check-gradle:6.5.0.1'
 	}
 }
 
@@ -184,10 +182,4 @@ wrapper {
 		http://www.gradle.org/docs/current/dsl/org.gradle.api.tasks.wrapper.Wrapper.html
  	 *****************************************************************************************/
 	 distributionUrl = 'https://services.gradle.org/distributions/gradle-4.8.1-all.zip'
-}
-
-dependencyCheck {
-	failBuildOnCVSS=9
-	suppressionFile="dependency-check-suppressions.xml"
-	formats = ["HTML"]
 }
