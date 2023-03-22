@@ -3,9 +3,9 @@ SPIDA Software JSON Interfaces
 
 [![Build Status](https://travis-ci.org/spidasoftware/schema.svg?branch=master)](http://travis-ci.org/spidasoftware/schema)
 
-* LAST RELEASED VERSION: 8.0.0
+* LAST RELEASED VERSION: 8.0.0 (Java 7+)
 
-* CURRENT MASTER VERSION: 9.0.0-SNAPSHOT
+* CURRENT MASTER VERSION: 9.0.2 (Java 8+)
 
 General Overview
 --------------------------------
@@ -15,17 +15,21 @@ Versions
 -------
 The data formats, examples, and available web service interfaces will all change from version to version. Please make sure you are reading the correct documentation and validating against the correct schema for the version of the SPIDA product you are using.
 
-| Schema version                                                            | SPIDAcalc               | SPIDAstudio      | SPIDAmin      |
-|---------------------------------------------------------------------------|-------------------------|------------------|---------------|
-| [8.0.0](https://github.com/spidasoftware/schema/releases/tag/v8.0.0)      | SPIDAcalc 7.3.1 - 7.3.2 | SPIDAstudio 20.2 |               |
-| [7.0.0](https://github.com/spidasoftware/schema/releases/tag/v7.0.0)      | SPIDAcalc 7.2.0 | SPIDAstudio 19.1-20.0 |               |
-| [6.0.0](https://github.com/spidasoftware/schema/releases/tag/v6.0.0)      | SPIDAcalc 7.1.0 - 7.1.2 | SPIDAstudio 18.1-19.0.7 |               |
-| [5.0.0](https://github.com/spidasoftware/schema/releases/tag/v5.0.0)      | SPIDAcalc 7.0.2 - 7.0.4 | SPIDAstudio 18.0 |               |
-| [4.0.0](https://github.com/spidasoftware/schema/releases/tag/v4.0.0)      | SPIDAcalc 7.0.0 - 7.0.1 |                  |               |
-| [3.0.1/1.11](https://github.com/spidasoftware/schema/releases/tag/1.11)   |                         |                  | SPIDAmin 16.1 |
-| [3.0.0/1.09](https://github.com/spidasoftware/schema/releases/tag/v1.09)  | SPIDAcalc 6.1.2 - 6.4.0 |                  |               |
-| [2.0.0/1.0.6](https://github.com/spidasoftware/schema/releases/tag/1.0.6) | SPIDAcalc 6.0.0 - 6.1.1 |                  |               |
-| [1.0.0](https://github.com/spidasoftware/schema/releases/tag/1.0.0)       | SPIDAcalc 5.3.0 - 5.3.4 |                  |               |
+| Schema version                                                                   | SPIDAcalc       | SPIDAstudio             | SPIDAmin      |
+|----------------------------------------------------------------------------------|-----------------|-------------------------|---------------|
+| [9.0.2](https://github.com/spidasoftware/schema/releases/tag/v9.0.2)             | SPIDAcalc 8.0.0 | SPIDAstudio 21.0        |               |
+| [9.0.2-JAVA7](https://github.com/spidasoftware/schema/releases/tag/v9.0.2-JAVA7) | SPIDAcalc 8.0.0 | SPIDAstudio 20.2        |               |
+| [8.0.0](https://github.com/spidasoftware/schema/releases/tag/v8.0.0)             | SPIDAcalc 7.3.1 - 7.3.2 | SPIDAstudio 20.2        |               |
+| [7.0.0](https://github.com/spidasoftware/schema/releases/tag/v7.0.0)             | SPIDAcalc 7.2.0 | SPIDAstudio 19.1-20.0   |               |
+| [6.0.0](https://github.com/spidasoftware/schema/releases/tag/v6.0.0)             | SPIDAcalc 7.1.0 - 7.1.2 | SPIDAstudio 18.1-19.0.7 |               |
+| [5.0.0](https://github.com/spidasoftware/schema/releases/tag/v5.0.0)             | SPIDAcalc 7.0.2 - 7.0.4 | SPIDAstudio 18.0        |               |
+| [4.0.0](https://github.com/spidasoftware/schema/releases/tag/v4.0.0)             | SPIDAcalc 7.0.0 - 7.0.1 |                         |               |
+| [3.0.1/1.11](https://github.com/spidasoftware/schema/releases/tag/1.11)          |                 |                         | SPIDAmin 16.1 |
+| [3.0.0/1.09](https://github.com/spidasoftware/schema/releases/tag/v1.09)         | SPIDAcalc 6.1.2 - 6.4.0 |                         |               |
+| [2.0.0/1.0.6](https://github.com/spidasoftware/schema/releases/tag/1.0.6)        | SPIDAcalc 6.0.0 - 6.1.1 |                         |               |
+| [1.0.0](https://github.com/spidasoftware/schema/releases/tag/1.0.0)              | SPIDAcalc 5.3.0 - 5.3.4 |                         |               |
+
+Schema versions prior to 9.0 are compatible with Java 7+.  Schema version 9.0.2-JAVA7 is built with Java 7; version 9.0.2 is built with Java 8.  All future schema versions will require Java 8+.
 
 License
 -------
