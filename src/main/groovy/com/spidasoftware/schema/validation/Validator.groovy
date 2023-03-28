@@ -6,10 +6,10 @@ package com.spidasoftware.schema.validation
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.github.fge.jackson.JsonLoader
-import com.github.fge.jsonschema.core.exceptions.ProcessingException
-import com.github.fge.jsonschema.core.report.ListProcessingReport
-import com.github.fge.jsonschema.core.report.ProcessingMessage
-import com.github.fge.jsonschema.core.report.ProcessingReport
+import com.github.fge.jsonschema.exceptions.ProcessingException
+import com.github.fge.jsonschema.report.ListProcessingReport
+import com.github.fge.jsonschema.report.ProcessingMessage
+import com.github.fge.jsonschema.report.ProcessingReport
 import com.networknt.schema.JsonMetaSchema
 import com.networknt.schema.JsonSchema
 import com.networknt.schema.JsonSchemaFactory
