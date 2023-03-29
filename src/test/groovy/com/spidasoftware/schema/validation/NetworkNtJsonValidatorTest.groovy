@@ -4,7 +4,7 @@
 package com.spidasoftware.schema.validation
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.github.fge.jsonschema.core.report.ProcessingReport
+import com.github.fge.jsonschema.report.ProcessingReport
 import spock.lang.Specification
 
 // copied from ValidatorTest
