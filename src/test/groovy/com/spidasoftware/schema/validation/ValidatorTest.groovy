@@ -1,7 +1,7 @@
 package com.spidasoftware.schema.validation
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.github.fge.jsonschema.report.ProcessingReport
+import com.github.fge.jsonschema.core.report.ProcessingReport
 import groovy.util.logging.Log4j
 import spock.lang.Specification
 

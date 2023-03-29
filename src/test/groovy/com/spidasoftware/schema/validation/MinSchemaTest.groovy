@@ -1,7 +1,7 @@
 package com.spidasoftware.schema.validation
 
 import groovy.json.JsonOutput
-import org.apache.log4j.Logger
+import com.apache.log4j.Logger
 
 class MinSchemaTest extends GroovyTestCase {
 
