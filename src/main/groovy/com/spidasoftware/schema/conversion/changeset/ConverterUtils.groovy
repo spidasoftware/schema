@@ -17,9 +17,9 @@ import com.spidasoftware.schema.conversion.changeset.v9.EnvironmentClientDataCha
 import com.spidasoftware.schema.conversion.changeset.v9.EnvironmentDescriptionChangeset
 import com.spidasoftware.schema.conversion.changeset.v9.ExtremeWindLoadCaseChangeset
 import com.spidasoftware.schema.conversion.changeset.v9.InsulatorStrengthChangeSet
-import groovy.util.logging.Slf4j
+import groovy.util.logging.Log4j
 
-@Slf4j
+@Log4j
 class ConverterUtils {
 
     static final int currentVersion = 9

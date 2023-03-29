@@ -5,7 +5,7 @@ package com.spidasoftware.schema.conversion
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.google.common.io.Files
-import groovy.util.logging.Slf4j
+import groovy.util.logging.Log4j
 import org.apache.commons.io.FileUtils
 import org.apache.commons.io.IOUtils
 import org.apache.tools.ant.BuildException
@@ -35,7 +35,7 @@ import org.apache.tools.ant.BuildException
  * These files can be opened by using the normal open dialog.
  *
  */
-@Slf4j
+@Log4j
 public class ExchangeFile {
 	public static final String EXT = 'exchange.spida'
 	public static final String EXT_WITH_DOT = ".${EXT}"

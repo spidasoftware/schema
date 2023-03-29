@@ -7,10 +7,10 @@ import com.spidasoftware.schema.conversion.changeset.calc.CalcProjectConverter
 import com.spidasoftware.schema.conversion.changeset.v2.PoleLeanChangeSetTest
 import com.spidasoftware.schema.validation.Validator
 import groovy.json.JsonSlurper
-import groovy.util.logging.Slf4j
+import groovy.util.logging.Log4j
 import spock.lang.Specification
 
-@Slf4j
+@Log4j
 class ConverterUtilsSpec extends Specification {
 
 	def "pole-lean"() {

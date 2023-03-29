@@ -3,12 +3,12 @@
  */
 package com.spidasoftware.schema.conversion.changeset
 
-import groovy.util.logging.Slf4j
+import groovy.util.logging.Log4j
 
 /**
  * Base converter for calc & client converter
  */
-@Slf4j
+@Log4j
 abstract class AbstractConverter implements Converter {
 
 	int defaultVersion = 1

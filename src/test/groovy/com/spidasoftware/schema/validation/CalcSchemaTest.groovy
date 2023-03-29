@@ -1,10 +1,12 @@
 package com.spidasoftware.schema.validation
 
 import groovy.json.JsonSlurper
+import org.apache.log4j.Logger
 
 class CalcSchemaTest extends GroovyTestCase {
 
 	def report
+	def log = Logger.getLogger(this.class)
 	Validator validator = new Validator()
 
 

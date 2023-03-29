@@ -3,11 +3,11 @@ package com.spidasoftware.schema.conversion.changeset.v5
 import com.spidasoftware.schema.conversion.changeset.calc.CalcProjectChangeSet
 import com.spidasoftware.schema.validation.Validator
 import groovy.json.JsonSlurper
-import groovy.util.logging.Slf4j
+import groovy.util.logging.Log4j
 import spock.lang.Shared
 import spock.lang.Specification
 
-@Slf4j
+@Log4j
 class RemoveAdditionalPropertiesChangesetTest extends Specification {
 
     @Shared Map projectJSON, locationJSON, designJSON, expectedProjectJSON, expectedLocationJSON, expectedDesignJSON

@@ -1,12 +1,12 @@
 package com.spidasoftware.schema.conversion
 
 import groovy.json.JsonSlurper
-import groovy.util.logging.Slf4j
+import groovy.util.logging.Log4j
 import spock.lang.Specification
 
 import static org.junit.Assert.assertEquals
 
-@Slf4j
+@Log4j
 public class SpidaDBProjectComponentTest extends Specification {
     Map projectJSON
 

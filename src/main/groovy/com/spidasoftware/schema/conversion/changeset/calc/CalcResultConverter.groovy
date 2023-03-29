@@ -1,9 +1,9 @@
 package com.spidasoftware.schema.conversion.changeset.calc
 
 import com.spidasoftware.schema.conversion.changeset.ChangeSet
-import groovy.util.logging.Slf4j
+import groovy.util.logging.Log4j
 
-@Slf4j
+@Log4j
 class CalcResultConverter extends AbstractCalcConverter {
 
 	@Override

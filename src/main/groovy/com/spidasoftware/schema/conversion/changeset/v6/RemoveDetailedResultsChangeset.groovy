@@ -5,7 +5,7 @@ package com.spidasoftware.schema.conversion.changeset.v6
 
 import com.spidasoftware.schema.conversion.changeset.ConversionException
 import com.spidasoftware.schema.conversion.changeset.calc.AbstractCalcDesignChangeset
-import groovy.util.logging.Slf4j
+import groovy.util.logging.Log4j
 
 /**
  * In the schema v6 release we started exporting detailed results alongside summary results.  We also added the resultId
@@ -13,7 +13,7 @@ import groovy.util.logging.Slf4j
  * then we still have the summary results because we always export summary results.
  * We also remove the analysis if it references detailed results as it isn't valid in previous versions.
  */
-@Slf4j
+@Log4j
 class RemoveDetailedResultsChangeset extends AbstractCalcDesignChangeset {
 
     @Override

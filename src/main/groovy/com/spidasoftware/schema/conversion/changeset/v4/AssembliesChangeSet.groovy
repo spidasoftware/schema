@@ -4,10 +4,10 @@
 package com.spidasoftware.schema.conversion.changeset.v4
 
 import com.spidasoftware.schema.conversion.changeset.calc.AbstractCalcDesignChangeset
-import groovy.util.logging.Slf4j
+import groovy.util.logging.Log4j
 
 
-@Slf4j
+@Log4j
 class AssembliesChangeSet extends AbstractCalcDesignChangeset {
 
 	@Override

@@ -6,10 +6,10 @@ package com.spidasoftware.schema.validation
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.google.common.io.Files
-import groovy.util.logging.Slf4j
+import groovy.util.logging.Log4j
 import spock.lang.Specification
 
-@Slf4j
+@Log4j
 class ValidatorPerfTest extends Specification {
 
 	def test() {

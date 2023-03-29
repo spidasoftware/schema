@@ -2,10 +2,10 @@ package com.spidasoftware.schema.conversion.changeset.v4
 
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
-import groovy.util.logging.Slf4j
+import groovy.util.logging.Log4j
 import spock.lang.Specification
 
-@Slf4j
+@Log4j
 class GuyAttachPointChangeSetSpec extends Specification {
 
     def "test revert"() {

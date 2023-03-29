@@ -5,13 +5,13 @@ package com.spidasoftware.schema.conversion.changeset.v2
 
 import com.spidasoftware.schema.conversion.changeset.calc.AbstractCalcDesignChangeset
 import com.spidasoftware.schema.conversion.changeset.ConversionException
-import groovy.util.logging.Slf4j
+import groovy.util.logging.Log4j
 
 /**
  * Changeset to handle new Pole Lean fields in /v1/schema/spidacalc/calc/pole.schema . These are optional fields, so
  * they are not added on apply, but they must be removed on revert
  */
-@Slf4j
+@Log4j
 class PoleLeanChangeSet extends AbstractCalcDesignChangeset {
 
 	@Override

@@ -6,10 +6,10 @@ package com.spidasoftware.schema.conversion.changeset.v3
 import com.spidasoftware.schema.conversion.changeset.calc.CalcProjectChangeSet
 import com.spidasoftware.schema.conversion.changeset.v2.PoleLeanChangeSetTest
 import groovy.json.JsonSlurper
-import groovy.util.logging.Slf4j
+import groovy.util.logging.Log4j
 import spock.lang.Specification
 
-@Slf4j
+@Log4j
 class WEPEnvironmentChangeSetTest extends Specification {
 
 	def "test revert"() {

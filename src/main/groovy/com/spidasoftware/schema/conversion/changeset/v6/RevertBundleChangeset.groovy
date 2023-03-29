@@ -5,7 +5,7 @@ package com.spidasoftware.schema.conversion.changeset.v6
 
 import com.spidasoftware.schema.conversion.changeset.ConversionException
 import com.spidasoftware.schema.conversion.changeset.calc.AbstractCalcDesignChangeset
-import groovy.util.logging.Slf4j
+import groovy.util.logging.Log4j
 
 /**
  * In the schema v6 release we added Bundle type wires. On downconversion, we need to
@@ -13,7 +13,7 @@ import groovy.util.logging.Slf4j
  * The user would then have opportunity to map this likely non-existent wire to a real wire from their
  * client data.
  */
-@Slf4j
+@Log4j
 class RevertBundleChangeset extends AbstractCalcDesignChangeset {
 
     @Override
