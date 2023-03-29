@@ -6,9 +6,6 @@ package com.spidasoftware.schema.conversion.changeset.v9
 import com.spidasoftware.schema.conversion.changeset.ConversionException
 import com.spidasoftware.schema.conversion.changeset.client.AbstractClientDataChangeSet
 
-import groovy.transform.CompileStatic
-
-@CompileStatic
 /**
  * Custom environments were introduced in version 8.0.
  *
