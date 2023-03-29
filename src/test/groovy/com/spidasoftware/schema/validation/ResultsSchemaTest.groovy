@@ -1,10 +1,7 @@
 package com.spidasoftware.schema.validation
 
-import org.apache.log4j.Logger
-
 class ResultsSchemaTest extends GroovyTestCase {
 
-	def log = Logger.getLogger(this.class)
 	def report
 	Validator validator = new Validator()
 

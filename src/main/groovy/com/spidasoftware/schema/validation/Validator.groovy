@@ -18,13 +18,13 @@ import com.networknt.schema.SpecVersion
 import com.networknt.schema.ValidationMessage
 import com.networknt.schema.ValidatorTypeCode
 import groovy.transform.CompileDynamic
-import groovy.util.logging.Log4j
+import groovy.util.logging.Slf4j
 
 /**
  * Class to validate against our json schemas. Will references the schemas locally as a jar resource.
  * Uses networkNT for work now, but still reports as ProcessingReport to maintain compatibility
  */
-@Log4j
+@Slf4j
 class Validator {
 
 	private Map<String, JsonNode> schemaPathCache = [:]
@@ -215,9 +215,9 @@ class Validator {
 		try {
 			return closure()
 		} catch (IOException e) {
-			log.error(e, e)
+			log.error(e.toString(), e)
 		} catch (ProcessingException e) {
-			log.error(e, e)
+			log.error(e.toString(), e)
 		}
 		return null
 	}

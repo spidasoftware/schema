@@ -6,9 +6,9 @@ package com.spidasoftware.schema.conversion.changeset.v6
 
 import com.spidasoftware.schema.conversion.changeset.ConversionException
 import com.spidasoftware.schema.conversion.changeset.calc.CalcProjectChangeSet
-import groovy.util.logging.Log4j
+import groovy.util.logging.Slf4j
 
-@Log4j
+@Slf4j
 class SummaryNoteObjectChangeset extends CalcProjectChangeSet {
 
 	@Override

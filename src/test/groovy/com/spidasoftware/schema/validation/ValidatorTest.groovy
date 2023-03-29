@@ -2,10 +2,10 @@ package com.spidasoftware.schema.validation
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.github.fge.jsonschema.core.report.ProcessingReport
-import groovy.util.logging.Log4j
+import groovy.util.logging.Slf4j
 import spock.lang.Specification
 
-@Log4j
+@Slf4j
 class ValidatorTest extends Specification {
 
 	void "test strict works on nested schemas"() {

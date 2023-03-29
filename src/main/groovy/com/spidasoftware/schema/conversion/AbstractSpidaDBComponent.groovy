@@ -3,12 +3,12 @@
  */
 package com.spidasoftware.schema.conversion
 
-import groovy.util.logging.Log4j
+import groovy.util.logging.Slf4j
 
 /**
  * Abstract class for SPIDAdb project components that handles some of the boiler plate stuff
  */
-@Log4j
+@Slf4j
 abstract class AbstractSpidaDBComponent implements SpidaDBProjectComponent {
     Map json
 

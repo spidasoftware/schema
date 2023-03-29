@@ -2,10 +2,10 @@ package com.spidasoftware.schema.conversion.changeset.v4
 
 import com.spidasoftware.schema.conversion.changeset.calc.CalcProjectChangeSet
 import groovy.json.JsonSlurper
-import groovy.util.logging.Log4j
+import groovy.util.logging.Slf4j
 import spock.lang.Specification
 
-@Log4j
+@Slf4j
 class AnalysisTypeChangeSetSpec extends Specification {
 
     def "apply and revert"() {
