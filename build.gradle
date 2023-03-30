@@ -10,7 +10,7 @@ apply plugin: 'project-report'
 apply plugin: 'releaseNotes'
 
 group = 'com.spidasoftware'
-version = '9.0.2-JAVA7' // If you're changing the major version also change the currentVersion in ConverterUtils.
+version = '9.0.2.1-JAVA7' // If you're changing the major version also change the currentVersion in ConverterUtils.
 
 def schemaReleaseVersion = System.getenv("SCHEMA_RELEASE_VERSION")
 if(schemaReleaseVersion){
