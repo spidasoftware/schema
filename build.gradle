@@ -7,7 +7,7 @@ apply plugin: 'maven'
 apply plugin: 'groovy'
 apply plugin: 'idea'
 apply plugin: 'project-report'
-apply plugin: 'releaseNotes'
+apply plugin: 'com.spidasoftware.releaseNotes'
 apply plugin: 'org.owasp.dependencycheck'
 
 group = 'com.spidasoftware'
@@ -53,7 +53,7 @@ buildscript {
 	}
 
 	dependencies {
-		classpath (group: 'com.spidasoftware', name:'releaseNotes', version:'0.1-SNAPSHOT', changing:true)
+		classpath (group: 'com.spidasoftware', name:'releaseNotes', version:'0.3-SNAPSHOT', changing:true)
 		classpath 'org.owasp:dependency-check-gradle:6.5.0.1'
 	}
 }
@@ -173,19 +173,10 @@ task validateJson(type: JavaExec) {
 	}
 }
 
-task printVersion() << {
-	println "SCHEMA_VERSION: ${version}"
-}
-
-wrapper {
-	/*****************************************************************************************
-		NOTES:
-		1) This will also change gradle version for all subprojects.
-		2) Setting url with "-all" so that the download includes gradle documentation.
-		3) If you only set gradleVersion, it will append "-bin".
-		http://www.gradle.org/docs/current/dsl/org.gradle.api.tasks.wrapper.Wrapper.html
- 	 *****************************************************************************************/
-	 distributionUrl = 'https://services.gradle.org/distributions/gradle-4.8.1-all.zip'
+task printVersion() {
+	doLast {
+		println "SCHEMA_VERSION: ${version}"
+	}
 }
 
 dependencyCheck {
