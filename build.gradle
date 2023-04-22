@@ -3,7 +3,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 apply plugin: 'java'
-apply plugin: 'maven'
+apply plugin: 'maven-publish'
 apply plugin: 'groovy'
 apply plugin: 'idea'
 apply plugin: 'project-report'
@@ -63,10 +63,14 @@ repositories {
 	maven { url System.getenv("ARTIFACTORY_URL_EXPOSED") }
 }
 
-uploadArchives {
-	repositories.mavenDeployer {
-		repository(url: System.getenv("ARTIFACTORY_URL_EXPOSED")) {
-			authentication(userName: System.getenv("ARTIFACTORY_USERNAME"), password: System.getenv("ARTIFACTORY_PASSWORD"))
+publishing {
+	repositories {
+		maven {
+			url System.getenv("ARTIFACTORY_URL_EXPOSED")
+			credentials {
+				username = System.getenv('ARTIFACTORY_USERNAME')
+				password = System.getenv('ARTIFACTORY_PASSWORD')
+			}
 		}
 	}
 }
@@ -78,22 +82,22 @@ releaseNotes {
 }
 
 dependencies {
-	compile 'commons-codec:commons-codec:1.10'
-	compile 'commons-lang:commons-lang:2.6'
-	compile group: 'org.apache.ant', name: 'ant', version: '1.10.13'
-	compile group: 'org.apache.ant', name: 'ant-launcher', version: '1.10.13'
-	compile group: 'org.codehaus.groovy', name: 'groovy-all', version:'2.5.14'
-	compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.11'
-	compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.36'
-	compile group: 'commons-io', name: 'commons-io', version:'2.4'
-	compile 'com.github.java-json-tools:json-schema-core:1.2.14'  // fge updated to java-json-tools - results schema does not parse
- 	compile 'com.networknt:json-schema-validator:1.0.30-SNAPSHOT'
-    compile group: 'org.mongodb', name:'mongo-java-driver', version:'2.11.1'
-	compile group: 'com.spidasoftware', name: 'schema-v4', version:'0.1'
+	implementation 'commons-codec:commons-codec:1.10'
+	implementation 'commons-lang:commons-lang:2.6'
+	implementation group: 'org.apache.ant', name: 'ant', version: '1.10.13'
+	implementation group: 'org.apache.ant', name: 'ant-launcher', version: '1.10.13'
+	implementation group: 'org.codehaus.groovy', name: 'groovy-all', version:'2.5.14'
+	implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.11'
+	implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.36'
+	implementation group: 'commons-io', name: 'commons-io', version:'2.4'
+	implementation 'com.github.java-json-tools:json-schema-core:1.2.14'  // fge updated to java-json-tools - results schema does not parse
+	implementation 'com.networknt:json-schema-validator:1.0.30-SNAPSHOT'
+	implementation group: 'org.mongodb', name:'mongo-java-driver', version:'2.11.1'
+	implementation group: 'com.spidasoftware', name: 'schema-v4', version:'0.1'
 	testImplementation group: 'junit', name: 'junit', version:'4.13.2'
-    testCompile group: 'org.spockframework', name: 'spock-core', version: '2.3-groovy-2.5'
+	testImplementation group: 'org.spockframework', name: 'spock-core', version: '2.3-groovy-2.5'
 	testRuntimeOnly('net.bytebuddy:byte-buddy:1.14.2')  // so spock can create mocks
-	testCompile group: 'org.objenesis', name:'objenesis', version: '2.6'
+	testImplementation group: 'org.objenesis', name:'objenesis', version: '2.6'
 	testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.9.2")
 }
 
