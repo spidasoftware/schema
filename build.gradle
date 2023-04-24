@@ -95,9 +95,9 @@ dependencies {
 	implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.11'
 	implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.36'
 	implementation group: 'commons-io', name: 'commons-io', version:'2.4'
-	implementation 'com.github.java-json-tools:json-schema-core:1.2.14'  // fge updated to java-json-tools - results schema does not parse
+	api 'com.github.java-json-tools:json-schema-core:1.2.14'  // fge updated to java-json-tools - results schema does not parse
 	implementation 'com.networknt:json-schema-validator:1.0.30-SNAPSHOT'
-	implementation group: 'org.mongodb', name:'mongo-java-driver', version:'2.11.1'
+	api group: 'org.mongodb', name:'mongo-java-driver', version:'2.11.1'
 	implementation group: 'com.spidasoftware', name: 'schema-v4', version:'0.1'
 	testImplementation group: 'junit', name: 'junit', version:'4.13.2'
 	testImplementation group: 'org.spockframework', name: 'spock-core', version: '2.3-groovy-2.5'
