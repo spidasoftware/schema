@@ -2,10 +2,9 @@
 // General Gradle Settings
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-apply plugin: 'java'
+apply plugin: 'java-library'
 apply plugin: 'maven-publish'
 apply plugin: 'groovy'
-apply plugin: 'idea'
 apply plugin: 'project-report'
 apply plugin: 'com.spidasoftware.releaseNotes'
 apply plugin: 'org.owasp.dependencycheck'
@@ -20,8 +19,8 @@ if(schemaReleaseVersion){
 }
 description = "Schema"
 
-sourceCompatibility = 11
-targetCompatibility = 11
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
 
 sourceSets {
 	main {
@@ -64,9 +63,14 @@ repositories {
 }
 
 publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			from components.java
+		}
+	}
+
 	repositories {
 		maven {
-			url System.getenv("ARTIFACTORY_URL_EXPOSED")
 			credentials {
 				username = System.getenv('ARTIFACTORY_USERNAME')
 				password = System.getenv('ARTIFACTORY_PASSWORD')
