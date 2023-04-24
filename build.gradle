@@ -156,7 +156,7 @@ task csv(type: JavaExec) {
 	dependsOn classes
 
 	classpath = sourceSets.main.runtimeClasspath
-	main = 'com.spidasoftware.schema.conversion.PoleCSVStationConverter'
+	mainClass = 'com.spidasoftware.schema.conversion.PoleCSVStationConverter'
 	standardInput = System.in
 	standardOutput = System.out
 
@@ -170,7 +170,7 @@ task validateJson(type: JavaExec) {
 	dependsOn classes
 
 	classpath = sourceSets.main.runtimeClasspath
-	main = 'com.spidasoftware.schema.validation.CommandLineValidator'
+	mainClass = 'com.spidasoftware.schema.validation.CommandLineValidator'
 	standardInput = System.in
 	standardOutput = System.out
 
