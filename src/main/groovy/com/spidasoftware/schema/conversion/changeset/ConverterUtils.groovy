@@ -22,7 +22,7 @@ import groovy.util.logging.Slf4j
 @Slf4j
 class ConverterUtils {
 
-    static final int currentVersion = 9
+    static final int currentVersion = 10
 
     static {
         addCalcConverter(new CalcProjectConverter())
