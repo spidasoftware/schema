@@ -2,16 +2,15 @@
 // General Gradle Settings
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-apply plugin: 'java'
-apply plugin: 'maven'
+apply plugin: 'java-library'
+apply plugin: 'maven-publish'
 apply plugin: 'groovy'
-apply plugin: 'idea'
 apply plugin: 'project-report'
-apply plugin: 'releaseNotes'
+apply plugin: 'com.spidasoftware.releaseNotes'
 apply plugin: 'org.owasp.dependencycheck'
 
 group = 'com.spidasoftware'
-version = '9.0.2' // If you're changing the major version also change the currentVersion in ConverterUtils.
+version = '10.0.0-SNAPSHOT' // If you're changing the major version also change the currentVersion in ConverterUtils.
 
 def schemaReleaseVersion = System.getenv("SCHEMA_RELEASE_VERSION")
 if(schemaReleaseVersion){
@@ -20,8 +19,8 @@ if(schemaReleaseVersion){
 }
 description = "Schema"
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
 
 sourceSets {
 	main {
@@ -53,7 +52,7 @@ buildscript {
 	}
 
 	dependencies {
-		classpath (group: 'com.spidasoftware', name:'releaseNotes', version:'0.1-SNAPSHOT', changing:true)
+		classpath (group: 'com.spidasoftware', name:'releaseNotes', version:'0.3-SNAPSHOT', changing:true)
 		classpath 'org.owasp:dependency-check-gradle:6.5.0.1'
 	}
 }
@@ -63,10 +62,20 @@ repositories {
 	maven { url System.getenv("ARTIFACTORY_URL_EXPOSED") }
 }
 
-uploadArchives {
-	repositories.mavenDeployer {
-		repository(url: System.getenv("ARTIFACTORY_URL_EXPOSED")) {
-			authentication(userName: System.getenv("ARTIFACTORY_USERNAME"), password: System.getenv("ARTIFACTORY_PASSWORD"))
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			from components.java
+		}
+	}
+
+	repositories {
+		maven {
+			url System.getenv("ARTIFACTORY_URL_EXPOSED")
+			credentials {
+				username = System.getenv('ARTIFACTORY_USERNAME')
+				password = System.getenv('ARTIFACTORY_PASSWORD')
+			}
 		}
 	}
 }
@@ -78,26 +87,32 @@ releaseNotes {
 }
 
 dependencies {
-	compile 'commons-codec:commons-codec:1.10'
-	compile 'commons-lang:commons-lang:2.6'
-	compile group: 'org.apache.ant', name: 'ant', version: '1.10.13'
-	compile group: 'org.apache.ant', name: 'ant-launcher', version: '1.10.13'
-	compile group: 'org.codehaus.groovy', name: 'groovy-all', version:'2.4.15'
-	compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.11'
-	compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.36'
-	compile group: 'commons-io', name: 'commons-io', version:'2.4'
-	compile 'com.github.java-json-tools:json-schema-core:1.2.14'  // fge updated to java-json-tools - results schema does not parse
- 	compile 'com.networknt:json-schema-validator:1.0.30-SNAPSHOT'
-    compile group: 'org.mongodb', name:'mongo-java-driver', version:'2.11.1'
-	compile group: 'com.spidasoftware', name: 'schema-v4', version:'0.1'
-	testCompile group: 'junit', name: 'junit', version:'4.9'
-    testCompile group: 'org.spockframework', name: 'spock-core', version: '1.0-groovy-2.4'
-    testCompile group: 'cglib', name: 'cglib-nodep', version: '2.2'
-	testCompile group: 'org.objenesis', name:'objenesis', version: '2.1'
+	implementation 'commons-codec:commons-codec:1.10'
+	implementation 'commons-lang:commons-lang:2.6'
+	implementation group: 'org.apache.ant', name: 'ant', version: '1.10.13'
+	implementation group: 'org.apache.ant', name: 'ant-launcher', version: '1.10.13'
+	implementation group: 'org.codehaus.groovy', name: 'groovy-all', version:'2.5.14'
+	implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.11'
+	implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.36'
+	implementation group: 'commons-io', name: 'commons-io', version:'2.4'
+	api 'com.github.java-json-tools:json-schema-core:1.2.14'  // fge updated to java-json-tools - results schema does not parse
+	implementation 'com.networknt:json-schema-validator:1.0.30-SNAPSHOT'
+	api group: 'org.mongodb', name:'mongo-java-driver', version:'2.11.1'
+	implementation group: 'com.spidasoftware', name: 'schema-v4', version:'0.1'
+	testImplementation group: 'junit', name: 'junit', version:'4.13.2'
+	testImplementation group: 'org.spockframework', name: 'spock-core', version: '2.3-groovy-2.5'
+	testRuntimeOnly('net.bytebuddy:byte-buddy:1.14.2')  // so spock can create mocks
+	testImplementation group: 'org.objenesis', name:'objenesis', version: '2.6'
+	testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.9.2")
 }
 
 test {
+	useJUnitPlatform()
     testLogging.showStandardStreams = true
+}
+
+processTestResources {
+	duplicatesStrategy = DuplicatesStrategy.WARN
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -146,7 +161,7 @@ task csv(type: JavaExec) {
 	dependsOn classes
 
 	classpath = sourceSets.main.runtimeClasspath
-	main = 'com.spidasoftware.schema.conversion.PoleCSVStationConverter'
+	mainClass = 'com.spidasoftware.schema.conversion.PoleCSVStationConverter'
 	standardInput = System.in
 	standardOutput = System.out
 
@@ -160,7 +175,7 @@ task validateJson(type: JavaExec) {
 	dependsOn classes
 
 	classpath = sourceSets.main.runtimeClasspath
-	main = 'com.spidasoftware.schema.validation.CommandLineValidator'
+	mainClass = 'com.spidasoftware.schema.validation.CommandLineValidator'
 	standardInput = System.in
 	standardOutput = System.out
 
@@ -171,19 +186,10 @@ task validateJson(type: JavaExec) {
 	}
 }
 
-task printVersion() << {
-	println "SCHEMA_VERSION: ${version}"
-}
-
-wrapper {
-	/*****************************************************************************************
-		NOTES:
-		1) This will also change gradle version for all subprojects.
-		2) Setting url with "-all" so that the download includes gradle documentation.
-		3) If you only set gradleVersion, it will append "-bin".
-		http://www.gradle.org/docs/current/dsl/org.gradle.api.tasks.wrapper.Wrapper.html
- 	 *****************************************************************************************/
-	 distributionUrl = 'https://services.gradle.org/distributions/gradle-4.8.1-all.zip'
+task printVersion() {
+	doLast {
+		println "SCHEMA_VERSION: ${version}"
+	}
 }
 
 dependencyCheck {
