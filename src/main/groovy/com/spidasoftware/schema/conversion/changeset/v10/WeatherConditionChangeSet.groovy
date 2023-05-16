@@ -26,7 +26,7 @@ class WeatherConditionChangeSet extends AbstractClientDataChangeSet {
         }
 
         clientDataJSON.clearanceCases?.each { Map clearanceCase ->
-            anyChanged |= addIceDensityToClearances(clearanceCase, true)
+            anyChanged |= addIceDensityToClearanceCases(clearanceCase)
         }
         return anyChanged
     }
@@ -36,30 +36,30 @@ class WeatherConditionChangeSet extends AbstractClientDataChangeSet {
         super.applyToProject(projectJSON)
 
         projectJSON.defaultClearanceCases?.each { Map defaultClearanceCase ->
-            addIceDensityToClearances(defaultClearanceCase, true)
+            addIceDensityToClearanceCases(defaultClearanceCase)
         }
     }
 
     @Override
     void applyToDesign(Map designJSON) throws ConversionException {
         designJSON.clearanceCases?.each { Map clearanceCase ->
-            addIceDensityToClearances(clearanceCase, true)
+            addIceDensityToClearanceCases(clearanceCase)
         }
 
         if (designJSON.containsKey("clearanceResults")) {
             Map clearanceResults = designJSON.clearanceResults as Map
             clearanceResults.results?.each { Map clearanceCaseResult ->
                 clearanceCaseResult.ruleResults?.each { Map clearanceRuleResult ->
-                    addIceDensityToClearances(clearanceRuleResult, false)
+                    addIceDensityToRuleResults(clearanceRuleResult)
                 }
 
                 clearanceCaseResult.exemptions?.each { Map clearanceRuleResult ->
-                    addIceDensityToClearances(clearanceRuleResult, false)
+                    addIceDensityToRuleResults(clearanceRuleResult)
                 }
             }
 
             clearanceResults.violations?.each { Map clearanceRuleResult ->
-                addIceDensityToClearances(clearanceRuleResult, false)
+                addIceDensityToRuleResults(clearanceRuleResult)
             }
         }
     }
@@ -73,7 +73,7 @@ class WeatherConditionChangeSet extends AbstractClientDataChangeSet {
         }
 
         clientDataJSON.clearanceCases?.each { Map clearanceCase ->
-            anyChanged |= removeIceDensityFromClearances(clearanceCase, true)
+            anyChanged |= removeIceDensityFromClearanceCases(clearanceCase)
         }
         return anyChanged
     }
@@ -88,30 +88,30 @@ class WeatherConditionChangeSet extends AbstractClientDataChangeSet {
         }
 
         projectJSON.defaultClearanceCases?.each { Map defaultClearanceCase ->
-            removeIceDensityFromClearances(defaultClearanceCase, true)
+            removeIceDensityFromClearanceCases(defaultClearanceCase)
         }
     }
 
     @Override
     void revertDesign(Map designJSON) throws ConversionException {
         designJSON.clearanceCases?.each { Map clearanceCase ->
-            removeIceDensityFromClearances(clearanceCase, true)
+            removeIceDensityFromClearanceCases(clearanceCase)
         }
 
         if (designJSON.containsKey("clearanceResults")) {
             Map clearanceResults = designJSON.clearanceResults as Map
             clearanceResults.results?.each { Map clearanceCaseResult ->
                 clearanceCaseResult.ruleResults?.each { Map clearanceRuleResult ->
-                    removeIceDensityFromClearances(clearanceRuleResult, false)
+                    removeIceDensityFromRuleResults(clearanceRuleResult)
                 }
 
                 clearanceCaseResult.exemptions?.each { Map clearanceRuleResult ->
-                    removeIceDensityFromClearances(clearanceRuleResult, false)
+                    removeIceDensityFromRuleResults(clearanceRuleResult)
                 }
             }
 
             clearanceResults.violations?.each { Map clearanceRuleResult ->
-                removeIceDensityFromClearances(clearanceRuleResult, false)
+                removeIceDensityFromRuleResults(clearanceRuleResult)
             }
         }
     }
@@ -141,50 +141,53 @@ class WeatherConditionChangeSet extends AbstractClientDataChangeSet {
         return anyChanged
     }
 
-    boolean removeIceDensityFromClearances(Map clearancesJSON, boolean clearanceCase) {
+    boolean removeIceDensityFromClearanceCases(Map clearanceCaseJSON) {
         boolean anyChanged = false
 
-        if (clearanceCase) { // clearance case json
-            if (clearancesJSON.containsKey("upperThermalState")) {
-                Map upperThermalState = clearancesJSON.upperThermalState as Map
-                if (upperThermalState.containsKey("wireState")) {
-                    anyChanged |= removeIceDensityFromWireState(upperThermalState.wireState as Map)
-                }
+        if (clearanceCaseJSON.containsKey("upperThermalState")) {
+            Map upperThermalState = clearanceCaseJSON.upperThermalState as Map
+            if (upperThermalState.containsKey("wireState")) {
+                anyChanged |= removeIceDensityFromWireState(upperThermalState.wireState as Map)
             }
+        }
 
-            if (clearancesJSON.containsKey("lowerThermalState")) {
-                Map lowerThermalState = clearancesJSON.lowerThermalState as Map
-                if (lowerThermalState.containsKey("wireState")) {
-                    anyChanged |= removeIceDensityFromWireState(lowerThermalState.wireState as Map)
-                }
+        if (clearanceCaseJSON.containsKey("lowerThermalState")) {
+            Map lowerThermalState = clearanceCaseJSON.lowerThermalState as Map
+            if (lowerThermalState.containsKey("wireState")) {
+                anyChanged |= removeIceDensityFromWireState(lowerThermalState.wireState as Map)
             }
+        }
 
-            if (clearancesJSON.containsKey("upperPhysicalState")) {
-                Map upperPhysicalState = clearancesJSON.upperPhysicalState as Map
-                if (upperPhysicalState.containsKey("wireState")) {
-                    anyChanged |= removeIceDensityFromWireState(upperPhysicalState.wireState as Map)
-                }
+        if (clearanceCaseJSON.containsKey("upperPhysicalState")) {
+            Map upperPhysicalState = clearanceCaseJSON.upperPhysicalState as Map
+            if (upperPhysicalState.containsKey("wireState")) {
+                anyChanged |= removeIceDensityFromWireState(upperPhysicalState.wireState as Map)
             }
+        }
 
-            if (clearancesJSON.containsKey("lowerPhysicalState")) {
-                Map lowerPhysicalState = clearancesJSON.lowerPhysicalState as Map
-                if (lowerPhysicalState.containsKey("wireState")) {
-                    anyChanged |= removeIceDensityFromWireState(lowerPhysicalState.wireState as Map)
-                }
+        if (clearanceCaseJSON.containsKey("lowerPhysicalState")) {
+            Map lowerPhysicalState = clearanceCaseJSON.lowerPhysicalState as Map
+            if (lowerPhysicalState.containsKey("wireState")) {
+                anyChanged |= removeIceDensityFromWireState(lowerPhysicalState.wireState as Map)
             }
-        } else { // clearance rule result json
-            if (clearancesJSON.containsKey("upperWireState")) {
-                Map upperWireState = clearancesJSON.upperWireState as Map
-                if (upperWireState.containsKey("wireState")) {
-                    anyChanged |= removeIceDensityFromWireState(upperWireState.wireState as Map)
-                }
-            }
+        }
+        return anyChanged
+    }
 
-            if (clearancesJSON.containsKey("lowerWireState")) {
-                Map lowerWireState = clearancesJSON.lowerWireState as Map
-                if (lowerWireState.containsKey("wireState")) {
-                    anyChanged |= removeIceDensityFromWireState(lowerWireState.wireState as Map)
-                }
+    boolean removeIceDensityFromRuleResults(Map clearanceRuleResultJSON) {
+        boolean anyChanged = false
+
+        if (clearanceRuleResultJSON.containsKey("upperWireState")) {
+            Map upperWireState = clearanceRuleResultJSON.upperWireState as Map
+            if (upperWireState.containsKey("wireState")) {
+                anyChanged |= removeIceDensityFromWireState(upperWireState.wireState as Map)
+            }
+        }
+
+        if (clearanceRuleResultJSON.containsKey("lowerWireState")) {
+            Map lowerWireState = clearanceRuleResultJSON.lowerWireState as Map
+            if (lowerWireState.containsKey("wireState")) {
+                anyChanged |= removeIceDensityFromWireState(lowerWireState.wireState as Map)
             }
         }
         return anyChanged
@@ -215,50 +218,53 @@ class WeatherConditionChangeSet extends AbstractClientDataChangeSet {
         return anyChanged
     }
 
-    boolean addIceDensityToClearances(Map clearancesJSON, boolean clearanceCase) {
+    boolean addIceDensityToClearanceCases(Map clearancesJSON) {
         boolean anyChanged = false
 
-        if (clearanceCase) { // clearance case json
-            if (clearancesJSON.containsKey("upperThermalState")) {
-                Map upperThermalState = clearancesJSON.upperThermalState as Map
-                if (upperThermalState.containsKey("wireState")) {
-                    anyChanged |= addIceDensityToWireState(upperThermalState.wireState as Map)
-                }
+        if (clearancesJSON.containsKey("upperThermalState")) {
+            Map upperThermalState = clearancesJSON.upperThermalState as Map
+            if (upperThermalState.containsKey("wireState")) {
+                anyChanged |= addIceDensityToWireState(upperThermalState.wireState as Map)
             }
+        }
 
-            if (clearancesJSON.containsKey("lowerThermalState")) {
-                Map lowerThermalState = clearancesJSON.lowerThermalState as Map
-                if (lowerThermalState.containsKey("wireState")) {
-                    anyChanged |= addIceDensityToWireState(lowerThermalState.wireState as Map)
-                }
+        if (clearancesJSON.containsKey("lowerThermalState")) {
+            Map lowerThermalState = clearancesJSON.lowerThermalState as Map
+            if (lowerThermalState.containsKey("wireState")) {
+                anyChanged |= addIceDensityToWireState(lowerThermalState.wireState as Map)
             }
+        }
 
-            if (clearancesJSON.containsKey("upperPhysicalState")) {
-                Map upperPhysicalState = clearancesJSON.upperPhysicalState as Map
-                if (upperPhysicalState.containsKey("wireState")) {
-                    anyChanged |= addIceDensityToWireState(upperPhysicalState.wireState as Map)
-                }
+        if (clearancesJSON.containsKey("upperPhysicalState")) {
+            Map upperPhysicalState = clearancesJSON.upperPhysicalState as Map
+            if (upperPhysicalState.containsKey("wireState")) {
+                anyChanged |= addIceDensityToWireState(upperPhysicalState.wireState as Map)
             }
+        }
 
-            if (clearancesJSON.containsKey("LowerPhysicalState")) {
-                Map LowerPhysicalState = clearancesJSON.LowerPhysicalState as Map
-                if (LowerPhysicalState.containsKey("wireState")) {
-                    anyChanged |= addIceDensityToWireState(LowerPhysicalState.wireState as Map)
-                }
+        if (clearancesJSON.containsKey("LowerPhysicalState")) {
+            Map LowerPhysicalState = clearancesJSON.LowerPhysicalState as Map
+            if (LowerPhysicalState.containsKey("wireState")) {
+                anyChanged |= addIceDensityToWireState(LowerPhysicalState.wireState as Map)
             }
-        } else { // clearance rule result json
-            if (clearancesJSON.containsKey("upperWireState")) {
-                Map upperWireState = clearancesJSON.upperWireState as Map
-                if (upperWireState.containsKey("wireState")) {
-                    anyChanged |= addIceDensityToWireState(upperWireState.wireState as Map)
-                }
-            }
+        }
+        return anyChanged
+    }
 
-            if (clearancesJSON.containsKey("lowerWireState")) {
-                Map lowerWireState = clearancesJSON.lowerWireState as Map
-                if (lowerWireState.containsKey("wireState")) {
-                    anyChanged |= addIceDensityToWireState(lowerWireState.wireState as Map)
-                }
+    boolean addIceDensityToRuleResults(Map clearanceRuleResultJSON) {
+        boolean anyChanged = false
+
+        if (clearanceRuleResultJSON.containsKey("upperWireState")) {
+            Map upperWireState = clearanceRuleResultJSON.upperWireState as Map
+            if (upperWireState.containsKey("wireState")) {
+                anyChanged |= addIceDensityToWireState(upperWireState.wireState as Map)
+            }
+        }
+
+        if (clearanceRuleResultJSON.containsKey("lowerWireState")) {
+            Map lowerWireState = clearanceRuleResultJSON.lowerWireState as Map
+            if (lowerWireState.containsKey("wireState")) {
+                anyChanged |= addIceDensityToWireState(lowerWireState.wireState as Map)
             }
         }
         return anyChanged
