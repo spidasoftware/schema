@@ -24,6 +24,9 @@
       "temperature": {
         "$ref": "../../general/measurable.schema"
       },
+      "iceDensity": {
+        "$ref": "../../general/measurable.schema"
+      },
       "codeSpecificLoading": {
         "$ref": "../../spidacalc/client/code_specific_loading.schema"
       }
