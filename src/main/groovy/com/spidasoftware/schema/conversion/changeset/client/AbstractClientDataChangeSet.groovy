@@ -23,11 +23,15 @@ abstract class AbstractClientDataChangeSet extends AbstractResultsChangeSet {
 	@Override
 	void applyToProject(Map projectJSON) throws ConversionException {
 		super.applyToProject(projectJSON)
-		projectJSON.remove("clientFileVersion")
+		if (!projectJSON.containsKey("version") || ((int) projectJSON.version < 9)) {
+			projectJSON.remove("clientFileVersion")
+		}
 		if (projectJSON.containsKey("clientData")) {
 			Map clientDataJSON = projectJSON.clientData as Map
 			if (applyToClientData(clientDataJSON) && clientDataJSON.containsKey("hash")) {
-				clientDataJSON.remove("hash")
+				if (!clientDataJSON.containsKey("version") || ((int) clientDataJSON.version < 9)) {
+					clientDataJSON.remove("hash")
+				}
 			}
 		}
 	}
@@ -35,11 +39,15 @@ abstract class AbstractClientDataChangeSet extends AbstractResultsChangeSet {
 	@Override
 	void revertProject(Map projectJSON) throws ConversionException {
 		super.revertProject(projectJSON)
-		projectJSON.remove("clientFileVersion")
+		if (!projectJSON.containsKey("version") || ((int) projectJSON.version < 9)) {
+			projectJSON.remove("clientFileVersion")
+		}
 		if (projectJSON.containsKey("clientData")) {
 			Map clientDataJSON = projectJSON.clientData as Map
 			if (revertClientData(clientDataJSON) && clientDataJSON.containsKey("hash")) {
-				clientDataJSON.remove("hash")
+				if (!clientDataJSON.containsKey("version") || ((int) clientDataJSON.version < 9)) {
+					clientDataJSON.remove("hash")
+				}
 			}
 		}
 	}

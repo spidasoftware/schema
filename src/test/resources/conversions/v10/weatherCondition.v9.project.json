@@ -4,7 +4,7 @@
   "clientFile": "Demo.client",
   "date": "2023-05-11",
   "schema": "/schema/spidacalc/calc/project.schema",
-  "version": 10,
+  "version": 9,
   "engineer": "",
   "comments": "",
   "generalLocation": "",
@@ -19,7 +19,7 @@
   "userDefinedValues": {},
   "clientData": {
     "schema": "/schema/spidacalc/client/data.schema",
-    "version": 10,
+    "version": 9,
     "name": "Demo.client",
     "poles": [
       {
