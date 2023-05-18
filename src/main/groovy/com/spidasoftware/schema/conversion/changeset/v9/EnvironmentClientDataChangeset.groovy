@@ -30,6 +30,7 @@ class EnvironmentClientDataChangeset extends AbstractClientDataChangeSet {
 
 	@Override
 	void applyToProject(Map projectJSON) throws ConversionException {
+		super.applyToProject(projectJSON)
 		Set<String> projectEnvironments = []
 		projectJSON.get("leads")?.each { Map leadJSON ->
 			leadJSON.get("locations")?.each { Map locationJSON ->
@@ -123,12 +124,7 @@ class EnvironmentClientDataChangeset extends AbstractClientDataChangeSet {
 
 	@Override
 	void revertProject(Map projectJSON) throws ConversionException {
-		projectJSON.remove("clientFileVersion")
-		if (projectJSON.containsKey("clientData")) {
-			Map clientDataJSON = projectJSON.clientData as Map
-			revertClientData(clientDataJSON)
-			clientDataJSON.remove("hash")
-		}
+		super.revertProject(projectJSON)
 		projectJSON.get("leads")?.each { Map leadJSON ->
 			leadJSON.get("locations")?.each { Map locationJSON ->
 				revertLocation(locationJSON)

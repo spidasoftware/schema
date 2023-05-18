@@ -82,11 +82,6 @@ class WeatherConditionChangeSet extends AbstractClientDataChangeSet {
     void revertProject(Map projectJSON) throws ConversionException {
         super.revertProject(projectJSON)
 
-        if (projectJSON.containsKey("clientData")) {
-            Map clientData = projectJSON.clientData as Map
-            revertClientData(clientData)
-        }
-
         projectJSON.defaultClearanceCases?.each { Map defaultClearanceCase ->
             removeIceDensityFromClearanceCases(defaultClearanceCase)
         }

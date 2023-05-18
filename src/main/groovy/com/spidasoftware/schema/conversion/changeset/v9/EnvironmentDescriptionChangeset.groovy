@@ -39,11 +39,4 @@ class EnvironmentDescriptionChangeset extends AbstractClientDataChangeSet{
         return anyChanged
     }
 
-    @Override
-    void revertProject(Map projectJSON) throws ConversionException {
-        if (projectJSON.containsKey("clientData")) {
-            Map clientDataJSON = projectJSON.clientData as Map
-            revertClientData(clientDataJSON)
-        }
-    }
 }

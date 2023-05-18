@@ -46,10 +46,6 @@ class WeatherConditionChangeSetTest extends Specification {
             Map json = new JsonSlurper().parse(stream) as Map
             stream.close()
         expect:
-            json.version == 10
-            json.clientData.version == 10
-            json.clientFileVersion == "a696819d26294fde6e8db390ba5c01ac"
-            json.clientData.hash == "a696819d26294fde6e8db390ba5c01ac"
             json.defaultClearanceCases[1].upperThermalState.wireState.designCondition.iceDensity
             json.defaultClearanceCases[1].upperThermalState.wireState.highestStressCondition.iceDensity
             json.defaultClearanceCases[1].upperThermalState.wireState.creepCondition.iceDensity
@@ -74,8 +70,6 @@ class WeatherConditionChangeSetTest extends Specification {
         when: "apply changeset"
             changeSet.revertProject(json)
         then:
-            json.clientFileVersion == "a696819d26294fde6e8db390ba5c01ac"
-            json.clientData.hash == "a696819d26294fde6e8db390ba5c01ac"
             !json.defaultClearanceCases[1].upperThermalState.wireState.designCondition.iceDensity
             !json.defaultClearanceCases[1].upperThermalState.wireState.highestStressCondition.iceDensity
             !json.defaultClearanceCases[1].upperThermalState.wireState.creepCondition.iceDensity
@@ -147,10 +141,6 @@ class WeatherConditionChangeSetTest extends Specification {
             Map json = new JsonSlurper().parse(stream) as Map
             stream.close()
         expect:
-            json.version == 9
-            json.clientData.version == 9
-            json.clientFileVersion == "a696819d26294fde6e8db390ba5c01ac"
-            json.clientData.hash == "a696819d26294fde6e8db390ba5c01ac"
             !json.defaultClearanceCases[1].upperThermalState.wireState.designCondition.iceDensity
             !json.defaultClearanceCases[1].upperThermalState.wireState.highestStressCondition.iceDensity
             !json.defaultClearanceCases[1].upperThermalState.wireState.creepCondition.iceDensity
@@ -175,8 +165,6 @@ class WeatherConditionChangeSetTest extends Specification {
         when: "apply changeset"
             changeSet.applyToProject(json)
         then:
-            json.clientFileVersion == "a696819d26294fde6e8db390ba5c01ac"
-            json.clientData.hash == "a696819d26294fde6e8db390ba5c01ac"
             json.defaultClearanceCases[1].upperThermalState.wireState.designCondition.iceDensity.value == 917
             json.defaultClearanceCases[1].upperThermalState.wireState.designCondition.iceDensity.unit == "KILOGRAM_PER_CUBIC_METRE"
             json.defaultClearanceCases[1].upperThermalState.wireState.highestStressCondition.iceDensity.value == 917
