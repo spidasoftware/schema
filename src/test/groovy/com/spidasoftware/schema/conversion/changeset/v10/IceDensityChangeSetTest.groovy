@@ -6,12 +6,12 @@ package com.spidasoftware.schema.conversion.changeset.v10
 import groovy.json.JsonSlurper
 import spock.lang.Specification
 
-class WeatherConditionChangeSetTest extends Specification {
+class IceDensityChangeSetTest extends Specification {
 
     def "revert client data"() {
         setup:
-            def changeSet = new WeatherConditionChangeSet()
-            def stream = WeatherConditionChangeSet.getResourceAsStream("/conversions/v10/weatherCondition.v10.client.json".toString())
+            def changeSet = new IceDensityChangeSet()
+            def stream = IceDensityChangeSet.getResourceAsStream("/conversions/v10/weatherCondition.v10.client.json".toString())
             Map json = new JsonSlurper().parse(stream) as Map
             stream.close()
         expect:
@@ -41,8 +41,8 @@ class WeatherConditionChangeSetTest extends Specification {
 
     def "revert project"() {
         setup:
-            def changeSet = new WeatherConditionChangeSet()
-            def stream = WeatherConditionChangeSet.getResourceAsStream("/conversions/v10/weatherCondition.v10.project.json".toString())
+            def changeSet = new IceDensityChangeSet()
+            def stream = IceDensityChangeSet.getResourceAsStream("/conversions/v10/weatherCondition.v10.project.json".toString())
             Map json = new JsonSlurper().parse(stream) as Map
             stream.close()
         expect:
@@ -96,8 +96,8 @@ class WeatherConditionChangeSetTest extends Specification {
 
     def "apply client data"() {
         setup:
-            def changeSet = new WeatherConditionChangeSet()
-            def stream = WeatherConditionChangeSet.getResourceAsStream("/conversions/v10/weatherCondition.v9.client.json".toString())
+            def changeSet = new IceDensityChangeSet()
+            def stream = IceDensityChangeSet.getResourceAsStream("/conversions/v10/weatherCondition.v9.client.json".toString())
             Map json = new JsonSlurper().parse(stream) as Map
             stream.close()
         expect:
@@ -136,8 +136,8 @@ class WeatherConditionChangeSetTest extends Specification {
 
     def "apply project"() {
         setup:
-            def changeSet = new WeatherConditionChangeSet()
-            def stream = WeatherConditionChangeSet.getResourceAsStream("/conversions/v10/weatherCondition.v9.project.json".toString())
+            def changeSet = new IceDensityChangeSet()
+            def stream = IceDensityChangeSet.getResourceAsStream("/conversions/v10/weatherCondition.v9.project.json".toString())
             Map json = new JsonSlurper().parse(stream) as Map
             stream.close()
         expect:

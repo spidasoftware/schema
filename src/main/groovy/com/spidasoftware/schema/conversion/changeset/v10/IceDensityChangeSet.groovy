@@ -8,14 +8,14 @@ import com.spidasoftware.schema.conversion.changeset.client.AbstractClientDataCh
 import groovy.transform.CompileStatic
 
 /**
- * Ice density was added to Weather Condition in Calc v8.0.1
+ * Ice density was added to Calc v8.1.0
  *
  * When down converting, remove ice density
  *
- * When up converting, add ice density with a default value of 917.0 kg/m^3
+ * When up converting, add ice density to Weather Conditions with a default value of 917.0 kg/m^3
  */
 @CompileStatic
-class WeatherConditionChangeSet extends AbstractClientDataChangeSet {
+class IceDensityChangeSet extends AbstractClientDataChangeSet {
 
     @Override
     boolean applyToClientData(Map clientDataJSON) throws ConversionException {
@@ -75,6 +75,11 @@ class WeatherConditionChangeSet extends AbstractClientDataChangeSet {
         clientDataJSON.clearanceCases?.each { Map clearanceCase ->
             anyChanged |= removeIceDensityFromClearanceCases(clearanceCase)
         }
+
+        clientDataJSON.analysisCases?.each { Map analysisCase ->
+            anyChanged |= removeIceDensityFromLoadCase(analysisCase)
+        }
+
         return anyChanged
     }
 
@@ -84,6 +89,10 @@ class WeatherConditionChangeSet extends AbstractClientDataChangeSet {
 
         projectJSON.defaultClearanceCases?.each { Map defaultClearanceCase ->
             removeIceDensityFromClearanceCases(defaultClearanceCase)
+        }
+
+        projectJSON.defaultLoadCases?.each { Map loadCaseJson ->
+            removeIceDensityFromLoadCase(loadCaseJson)
         }
     }
 
@@ -108,6 +117,18 @@ class WeatherConditionChangeSet extends AbstractClientDataChangeSet {
             clearanceResults.violations?.each { Map clearanceRuleResult ->
                 removeIceDensityFromRuleResults(clearanceRuleResult)
             }
+        }
+
+        designJSON.analysis?.each { Map analysisMap ->
+            removeIceDensityFromLoadCase(analysisMap.analysisCaseDetails as Map)
+        }
+    }
+
+    @Override
+    boolean revertResults(Map resultsJSON) {
+        boolean anyChanged = false
+        resultsJSON.results?.each { Map resultMap ->
+            anyChanged |= removeIceDensityFromLoadCase(resultMap.analysisCaseDetails as Map)
         }
     }
 
@@ -263,6 +284,15 @@ class WeatherConditionChangeSet extends AbstractClientDataChangeSet {
             }
         }
         return anyChanged
+    }
+
+    boolean removeIceDensityFromLoadCase(Map loadCaseJSON) {
+        if(loadCaseJSON.containsKey("creepWireTensionIceDensity") || loadCaseJSON.containsKey("highestWireTensionIceDensity")) {
+            loadCaseJSON.remove("creepWireTensionIceDensity")
+            loadCaseJSON.remove("highestWireTensionIceDensity")
+            return true
+        }
+        return false
     }
 
 }

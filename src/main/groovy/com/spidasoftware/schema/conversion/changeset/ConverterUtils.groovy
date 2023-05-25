@@ -5,7 +5,7 @@ package com.spidasoftware.schema.conversion.changeset
 
 import com.spidasoftware.schema.conversion.changeset.calc.*
 import com.spidasoftware.schema.conversion.changeset.client.ClientDataConverter
-import com.spidasoftware.schema.conversion.changeset.v10.WeatherConditionChangeSet
+import com.spidasoftware.schema.conversion.changeset.v10.IceDensityChangeSet
 import com.spidasoftware.schema.conversion.changeset.v2.*
 import com.spidasoftware.schema.conversion.changeset.v3.*
 import com.spidasoftware.schema.conversion.changeset.v4.*
@@ -71,7 +71,7 @@ class ConverterUtils {
         converter.addChangeSet(9, new EnvironmentDescriptionChangeset())
         converter.addChangeSet(9, new ExtremeWindLoadCaseChangeset())
         converter.addChangeSet(9, new ClearancesChangeset())
-        converter.addChangeSet(10, new WeatherConditionChangeSet())
+        converter.addChangeSet(10, new IceDensityChangeSet())
 
         // add calc changesets above here
         converter.setCurrentVersion(currentVersion)
@@ -85,7 +85,7 @@ class ConverterUtils {
         converter.addChangeSet(9, new EnvironmentDescriptionChangeset())
         converter.addChangeSet(9, new ExtremeWindLoadCaseChangeset())
         converter.addChangeSet(9, new ClearancesChangeset())
-        converter.addChangeSet(10, new WeatherConditionChangeSet())
+        converter.addChangeSet(10, new IceDensityChangeSet())
         // add client data changesets above here
 
         converter.setCurrentVersion(currentVersion)

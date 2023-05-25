@@ -355,6 +355,10 @@
       "description": "the ice radius of the wire creep weather condition",
       "$ref": "../../general/measurable.schema"
     },
+    "creepWireTensionIceDensity": {
+          "description": "the ice density of the wire creep weather condition",
+          "$ref": "../../general/measurable.schema"
+        },
     "creepWireTensionWindPressure": {
       "description": "the wind pressure of the wire creep weather condition",
       "$ref": "../../general/measurable.schema"
@@ -367,6 +371,10 @@
       "description": "the ice radius of the highest wire tension weather condition",
       "$ref": "../../general/measurable.schema"
     },
+    "highestWireTensionIceDensity": {
+          "description": "the ice density of the highest wire tension weather condition",
+          "$ref": "../../general/measurable.schema"
+        },
     "highestWireTensionWindPressure": {
       "description": "the wind pressure of the highest wire tension weather condition",
       "$ref": "../../general/measurable.schema"
