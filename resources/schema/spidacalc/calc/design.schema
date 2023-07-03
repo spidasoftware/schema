@@ -119,6 +119,9 @@
         "clearanceResults": {
             "$ref": "../../spidacalc/results/clearance_results.schema"
         },
+        "terrainLayer": {
+            "$ref": "../../spidacalc/calc/terrain_layer.schema"
+        },
         "geographicCoordinate": {
             "$ref": "../../general/geometry.schema"
         },
