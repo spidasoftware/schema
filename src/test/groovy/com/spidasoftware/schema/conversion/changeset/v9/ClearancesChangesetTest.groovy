@@ -47,32 +47,30 @@ class ClearancesChangesetTest extends Specification {
             stream.close()
         expect:
             json.defaultClearanceCases
+            json.terrainLayers
             json.appliedTerrainLayers
             json.clientData.clearanceCases
             json.clientData.environments
             json.clientData.defaultEnvironment
-            json.clientData.defaultWireClasses
             json.clientData.componentGroups
             json.clientData.wireClasses
             json.clientData.wireStates
             json.clientData.assemblies[0].assemblyStructure.wireEndPoints[0].calculateClearances
-            json.clientData.assemblies[0].assemblyStructure.wireEndPoints[0].environmentRegions
             json.leads[0].locations[0].designs[0].clearanceCases
             json.leads[0].locations[0].designs[0].clearanceResults
         when:
             changeSet.revertProject(json)
         then:
             !json.defaultClearanceCases
+            !json.terrainLayers
             !json.appliedTerrainLayers
             !json.clientData.clearanceCases
             !json.clientData.environments
             !json.clientData.defaultEnvironment
-            !json.clientData.defaultWireClasses
             !json.clientData.componentGroups
             !json.clientData.wireClasses
             !json.clientData.wireStates
             !json.clientData.assemblies[0].assemblyStructure.wireEndPoints[0].calculateClearances
-            !json.clientData.assemblies[0].assemblyStructure.wireEndPoints[0].environmentRegions
             !json.leads[0].locations[0].designs[0].clearanceCases
             !json.leads[0].locations[0].designs[0].clearanceResults
     }

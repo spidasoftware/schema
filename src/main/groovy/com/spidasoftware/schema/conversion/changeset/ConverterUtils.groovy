@@ -5,7 +5,7 @@ package com.spidasoftware.schema.conversion.changeset
 
 import com.spidasoftware.schema.conversion.changeset.calc.*
 import com.spidasoftware.schema.conversion.changeset.client.ClientDataConverter
-import com.spidasoftware.schema.conversion.changeset.v10.IceDensityChangeSet
+import com.spidasoftware.schema.conversion.changeset.v10.*
 import com.spidasoftware.schema.conversion.changeset.v2.*
 import com.spidasoftware.schema.conversion.changeset.v3.*
 import com.spidasoftware.schema.conversion.changeset.v4.*
@@ -13,11 +13,7 @@ import com.spidasoftware.schema.conversion.changeset.v5.*
 import com.spidasoftware.schema.conversion.changeset.v6.*
 import com.spidasoftware.schema.conversion.changeset.v7.*
 import com.spidasoftware.schema.conversion.changeset.v8.*
-import com.spidasoftware.schema.conversion.changeset.v9.ClearancesChangeset
-import com.spidasoftware.schema.conversion.changeset.v9.EnvironmentClientDataChangeset
-import com.spidasoftware.schema.conversion.changeset.v9.EnvironmentDescriptionChangeset
-import com.spidasoftware.schema.conversion.changeset.v9.ExtremeWindLoadCaseChangeset
-import com.spidasoftware.schema.conversion.changeset.v9.InsulatorStrengthChangeSet
+import com.spidasoftware.schema.conversion.changeset.v9.*
 import groovy.util.logging.Slf4j
 
 @Slf4j
@@ -72,6 +68,7 @@ class ConverterUtils {
         converter.addChangeSet(9, new ExtremeWindLoadCaseChangeset())
         converter.addChangeSet(9, new ClearancesChangeset())
         converter.addChangeSet(10, new IceDensityChangeSet())
+        converter.addChangeSet(10, new TerrainLayerChangeSet())
 
         // add calc changesets above here
         converter.setCurrentVersion(currentVersion)
