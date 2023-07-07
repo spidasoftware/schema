@@ -56,6 +56,7 @@ class ClearancesChangesetTest extends Specification {
             json.clientData.wireClasses
             json.clientData.wireStates
             json.clientData.assemblies[0].assemblyStructure.wireEndPoints[0].calculateClearances
+            ((Map)json.clientData.assemblies[0].assemblyStructure.wireEndPoints[0]).containsKey("environmentRegions")
             json.leads[0].locations[0].designs[0].clearanceCases
             json.leads[0].locations[0].designs[0].clearanceResults
         when:
@@ -71,6 +72,7 @@ class ClearancesChangesetTest extends Specification {
             !json.clientData.wireClasses
             !json.clientData.wireStates
             !json.clientData.assemblies[0].assemblyStructure.wireEndPoints[0].calculateClearances
+            !((Map)json.clientData.assemblies[0].assemblyStructure.wireEndPoints[0]).containsKey("environmentRegions")
             !json.leads[0].locations[0].designs[0].clearanceCases
             !json.leads[0].locations[0].designs[0].clearanceResults
     }
