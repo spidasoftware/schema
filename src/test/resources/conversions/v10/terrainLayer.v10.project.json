@@ -1,1 +1,1075 @@
-{"label":"New Project","company":{"id":2,"name":"SPIDA"},"dateModified":1687789058994,"clientFile":"Demo.client","date":"2023-06-26","schema":"/schema/spidacalc/calc/project.schema","version":10,"engineer":"","comments":"","generalLocation":"","address":{"number":"","street":"","city":"","county":"","state":"","zip_code":""},"userDefinedValues":{},"clientData":{"schema":"/schema/spidacalc/client/data.schema","version":10,"name":"Demo.client","poles":[{"aliases":[],"shape":"ROUND","materialCategory":"POLYMER","classOfPole":"10\" Series II","species":"Fiberglass","height":{"unit":"METRE","value":12.192000000000002},"taper":0.0,"density":{"unit":"KILOGRAM_PER_CUBIC_METRE","value":235.471411597214},"allowable":{"unit":"NEWTON_METRE","value":135581.79483314},"ptc":{"unit":"METRE","value":0.8636000000000001},"modulus":{"unit":"PASCAL","value":2.757902917267344E10},"wallThickness":{"unit":"METRE","value":0.006350000000000001},"poissonRatio":0.32}],"wires":[{"aliases":[{"id":"1/0 ACSR","tensionGroupName":"Full"},{"id":"1/0 ACSR - S","tensionGroupName":"Slack"}],"size":"1/0 ACSR","calculation":"DYNAMIC","strength":{"unit":"NEWTON","value":19483.21067484099},"weight":{"unit":"NEWTON_PER_METRE","value":2.117575316188643},"crossArea":{"unit":"SQUARE_METRE","value":6.2451488E-5},"diameter":{"unit":"METRE","value":0.0101092},"description":"1/0 ACSR - Raven","coreStrands":1,"conductorStrands":6,"numberOfConductors":1,"usageGroups":["PRIMARY","NEUTRAL"],"conductorProperties":"TOTAL","expansionCoefficient":{"unit":"PER_CELSIUS","value":1.894968E-5},"modulus":{"unit":"PASCAL","value":7.82554952774609E10},"tensionGroups":[{"name":"Full","temperature":{"unit":"CELSIUS","value":15.55555555555558},"groups":[{"distance":{"unit":"METRE","value":1523.6952},"tension":{"unit":"NEWTON","value":2339.764569627023}}]},{"name":"Slack","temperature":{"unit":"CELSIUS","value":15.55555555555558},"groups":[{"distance":{"unit":"METRE","value":1523.6952},"tension":{"unit":"NEWTON","value":408.79156644244}}]}]}],"anchors":[],"equipments":[],"equipmentTypes":[{"name":"APPARATUS_CASE","industry":"COMMUNICATION"},{"name":"CAPACITOR","industry":"UTILITY"},{"name":"CROSS_CONNECT","industry":"COMMUNICATION"},{"name":"CUTOUT_ARRESTOR","industry":"UTILITY"},{"name":"DRIP_LOOP","industry":"UTILITY"},{"name":"JOINT_USE_BOX","industry":"COMMUNICATION"},{"name":"LOAD_COIL_CASE","industry":"COMMUNICATION"},{"name":"POWER_SUPPLY","industry":"COMMUNICATION"},{"name":"PRIMARY_METERING","industry":"UTILITY"},{"name":"RECLOSER","industry":"UTILITY"},{"name":"REGULATOR","industry":"UTILITY"},{"name":"RISER","industry":"BOTH"},{"name":"SPLICE_CASE","industry":"COMMUNICATION"},{"name":"STREET_LIGHT","industry":"UTILITY"},{"name":"SWITCH","industry":"UTILITY"},{"name":"TERMINATION_BRACKET","industry":"UTILITY"},{"name":"TRANSFORMER","industry":"UTILITY"},{"name":"WIRE_MOUNTED","industry":"BOTH"},{"name":"WIRELESS_ANTENNA","industry":"BOTH"}],"insulators":[],"foundations":[],"crossArms":[],"braces":[],"bundleComponents":[],"bundles":[],"assemblies":[],"environments":[],"defaultEnvironment":{"name":"None","description":"N/A"},"analysisCases":[],"owners":[{"industry":"UTILITY","id":"Acme Power"}],"notes":[],"locationForms":[],"projectForms":[],"customReportSetups":[],"designLayers":[{"name":"Measured Design","type":"Measured"}],"defaultLocationForms":[],"defaultProjectForms":[],"clearanceCases":[],"componentGroups":[],"wireClasses":[],"wireStates":[],"hash":"a696819d26294fde6e8db390ba5c01ac"},"clientFileVersion":"a696819d26294fde6e8db390ba5c01ac","forms":[{"title":"Project Summary","formDefinition":[{"fieldName":"Work Order #","fieldType":"customTextField"},{"fieldName":"Total Estimated Cost","fieldType":"customTextField"},{"fieldName":"Total Estimated Hours","fieldType":"customTextField"},{"fieldName":"Pole Replacements","fieldType":"customSpinner"},{"fieldName":"Rearrangements","fieldType":"customSpinner"}],"fields":{"Work Order #":"","Total Estimated Cost":"","Total Estimated Hours":"","Pole Replacements":"0","Rearrangements":"0"},"template":"a696819d26294fde6e8db390ba5c01ac-Project Summary"}],"defaultLocationForms":[],"defaultLoadCases":[],"terrainLayers":[{"name":"tl","pointConversionFrequency":{"value":15.0,"unit":"FOOT"},"profileViewWidth":{"value":20.0,"unit":"FOOT"},"convertExistingTerrainPoints":true,"points":[{"latitude":40.00381837298926,"longitude":-82.86159038543701,"elevation":{"value":245.540390015,"unit":"METRE"}},{"latitude":40.0034073191288,"longitude":-82.86159038543701,"elevation":{"value":245.280319214,"unit":"METRE"}},{"latitude":40.004229426849726,"longitude":-82.86159038543701,"elevation":{"value":244.900222778,"unit":"METRE"}},{"latitude":40.00377726760322,"longitude":-82.86159038543701,"elevation":{"value":245.559051514,"unit":"METRE"}},{"latitude":40.00373616221717,"longitude":-82.86159038543701,"elevation":{"value":245.619049072,"unit":"METRE"}},{"latitude":40.00369505683111,"longitude":-82.86159038543701,"elevation":{"value":245.518295288,"unit":"METRE"}},{"latitude":40.00365395144507,"longitude":-82.86159038543701,"elevation":{"value":245.224868774,"unit":"METRE"}},{"latitude":40.00361284605902,"longitude":-82.86159038543701,"elevation":{"value":245.164871216,"unit":"METRE"}},{"latitude":40.00357174067298,"longitude":-82.86159038543701,"elevation":{"value":245.144973755,"unit":"METRE"}},{"latitude":40.00353063528693,"longitude":-82.86159038543701,"elevation":{"value":246.004974365,"unit":"METRE"}},{"latitude":40.00348952990089,"longitude":-82.86159038543701,"elevation":{"value":245.87562561,"unit":"METRE"}},{"latitude":40.00344842451486,"longitude":-82.86159038543701,"elevation":{"value":245.095611572,"unit":"METRE"}},{"latitude":40.003859478375304,"longitude":-82.86159038543701,"elevation":{"value":245.540390015,"unit":"METRE"}},{"latitude":40.00390058376136,"longitude":-82.86159038543701,"elevation":{"value":245.551620483,"unit":"METRE"}},{"latitude":40.0039416891474,"longitude":-82.86159038543701,"elevation":{"value":245.571609497,"unit":"METRE"}},{"latitude":40.00398279453344,"longitude":-82.86159038543701,"elevation":{"value":245.234664917,"unit":"METRE"}},{"latitude":40.00402389991948,"longitude":-82.86159038543701,"elevation":{"value":245.167755127,"unit":"METRE"}},{"latitude":40.004065005305534,"longitude":-82.86159038543701,"elevation":{"value":245.107757568,"unit":"METRE"}},{"latitude":40.00410611069158,"longitude":-82.86159038543701,"elevation":{"value":245.136184692,"unit":"METRE"}},{"latitude":40.00414721607763,"longitude":-82.86159038543701,"elevation":{"value":245.296188354,"unit":"METRE"}},{"latitude":40.00418832146367,"longitude":-82.86159038543701,"elevation":{"value":245.100219727,"unit":"METRE"}}]}],"appliedTerrainLayers":[{"designLayer":"Measured Design","terrainLayer":"tl"}],"leads":[{"label":"Lead","locations":[{"label":"Location-06-26-2023-10-08-32-948","mapNumber":"","comments":"","address":{"number":"","street":"","city":"","county":"","state":"","zip_code":""},"technician":"","crossStreet1":"","crossStreet2":"","geographicCoordinate":{"type":"Point","coordinates":[-82.86159038543701,40.00381837298926,245.540390015]},"remedies":[],"poleTags":[],"userDefinedValues":{},"summaryNotes":[],"forms":[],"images":[],"photosToBeAssigned":[],"designs":[{"label":"Measured Design","layerType":"Measured","structure":{"pole":{"id":"Pole","externalId":"64999be0891014a315539309","owner":{"industry":"UTILITY","id":"Acme Power"},"glc":{"unit":"METRE","value":0.8636000000000001},"agl":{"unit":"METRE","value":10.3632},"autoGLC":true,"autoAGL":true,"environment":"None","temperature":{"unit":"CELSIUS","value":15.555555555555555},"stressRatio":1.0,"leanAngle":0,"leanDirection":0,"clientItemVersion":"a4090ef12d2f9b9c21ca6509157d445c","clientItem":{"species":"Fiberglass","classOfPole":"10\" Series II","height":{"unit":"METRE","value":12.192000000000002}}},"wireEndPoints":[{"id":"WEP#1","externalId":"64999db4891014a31553933f","direction":180,"distance":{"unit":"METRE","value":45.72073967929143},"relativeElevation":{"unit":"METRE","value":-0.26007080100001184},"inclination":{"unit":"RADIAN","value":-0.00568827637798259},"type":"PREVIOUS_POLE","comments":"","environment":"None","wires":["Wire#1"],"spanGuys":[],"spanPoints":[],"terrainPoints":[],"environmentRegions":[],"calculateClearances":true},{"id":"WEP#2","externalId":"64999db4891014a315539340","direction":0,"distance":{"unit":"METRE","value":45.72448156175561},"relativeElevation":{"unit":"METRE","value":-0.6401672370000143},"inclination":{"unit":"RADIAN","value":-0.014000993137789975},"type":"NEXT_POLE","comments":"","environment":"None","wires":["Wire#2"],"spanGuys":[],"spanPoints":[],"terrainPoints":[],"environmentRegions":[],"calculateClearances":true}],"spanPoints":[],"anchors":[],"notePoints":[],"pointLoads":[],"wirePointLoads":[],"damages":[],"wires":[{"id":"Wire#1","externalId":"64999db4891014a315539341","owner":{"industry":"UTILITY","id":"Acme Power"},"clientItemVersion":"f8ecf966d1a6c35707923cc833f98c93","clientItem":{"size":"1/0 ACSR","coreStrands":1,"conductorStrands":6},"clientItemAlias":"1/0 ACSR","attachmentHeight":{"unit":"METRE","value":8.534400000000002},"usageGroup":"PRIMARY","tensionGroup":"Full","midspanHeight":{"unit":"METRE","value":0.0},"connectedWire":"Wire#2"},{"id":"Wire#2","externalId":"64999db4891014a315539342","owner":{"industry":"UTILITY","id":"Acme Power"},"clientItemVersion":"f8ecf966d1a6c35707923cc833f98c93","clientItem":{"size":"1/0 ACSR","coreStrands":1,"conductorStrands":6},"clientItemAlias":"1/0 ACSR","attachmentHeight":{"unit":"METRE","value":8.534400000000002},"usageGroup":"PRIMARY","tensionGroup":"Full","midspanHeight":{"unit":"METRE","value":0.0},"connectedWire":"Wire#1"}],"spanGuys":[],"guys":[],"equipments":[],"guyAttachPoints":[],"crossArms":[],"insulators":[],"pushBraces":[],"sidewalkBraces":[],"foundations":[],"assemblies":[]},"mapLocation":{"type":"Point","coordinates":[-82.86159038543701,40.00381837298926,245.540390015]},"analysis":[]},{"label":"Draft#1","layerType":"Draft","structure":{"pole":{"id":"Pole","externalId":"64999be0891014a315539309","owner":{"industry":"UTILITY","id":"Acme Power"},"glc":{"unit":"METRE","value":0.8636000000000001},"agl":{"unit":"METRE","value":10.3632},"autoGLC":true,"autoAGL":true,"environment":"None","temperature":{"unit":"CELSIUS","value":15.555555555555555},"stressRatio":1.0,"leanAngle":0,"leanDirection":0,"clientItemVersion":"a4090ef12d2f9b9c21ca6509157d445c","clientItem":{"species":"Fiberglass","classOfPole":"10\" Series II","height":{"unit":"METRE","value":12.192000000000002}}},"wireEndPoints":[{"id":"WEP#1","externalId":"64999db4891014a31553933f","direction":180,"distance":{"unit":"METRE","value":45.72073967929143},"relativeElevation":{"unit":"METRE","value":-0.26007080100001184},"inclination":{"unit":"RADIAN","value":-0.00568827637798259},"type":"PREVIOUS_POLE","comments":"","environment":"None","wires":["Wire#1"],"spanGuys":[],"spanPoints":[],"terrainPoints":[],"environmentRegions":[],"calculateClearances":true},{"id":"WEP#2","externalId":"64999db4891014a315539340","direction":0,"distance":{"unit":"METRE","value":45.72448156175561},"relativeElevation":{"unit":"METRE","value":-0.6401672370000143},"inclination":{"unit":"RADIAN","value":-0.014000993137789975},"type":"NEXT_POLE","comments":"","environment":"None","wires":["Wire#2"],"spanGuys":[],"spanPoints":[],"terrainPoints":[],"environmentRegions":[],"calculateClearances":true}],"spanPoints":[],"anchors":[],"notePoints":[],"pointLoads":[],"wirePointLoads":[],"damages":[],"wires":[{"id":"Wire#1","externalId":"64999db4891014a315539341","owner":{"industry":"UTILITY","id":"Acme Power"},"clientItemVersion":"f8ecf966d1a6c35707923cc833f98c93","clientItem":{"size":"1/0 ACSR","coreStrands":1,"conductorStrands":6},"clientItemAlias":"1/0 ACSR","attachmentHeight":{"unit":"METRE","value":8.534400000000002},"usageGroup":"PRIMARY","tensionGroup":"Full","midspanHeight":{"unit":"METRE","value":0.0},"connectedWire":"Wire#2"},{"id":"Wire#2","externalId":"64999db4891014a315539342","owner":{"industry":"UTILITY","id":"Acme Power"},"clientItemVersion":"f8ecf966d1a6c35707923cc833f98c93","clientItem":{"size":"1/0 ACSR","coreStrands":1,"conductorStrands":6},"clientItemAlias":"1/0 ACSR","attachmentHeight":{"unit":"METRE","value":8.534400000000002},"usageGroup":"PRIMARY","tensionGroup":"Full","midspanHeight":{"unit":"METRE","value":0.0},"connectedWire":"Wire#1"}],"spanGuys":[],"guys":[],"equipments":[],"guyAttachPoints":[],"crossArms":[],"insulators":[],"pushBraces":[],"sidewalkBraces":[],"foundations":[],"assemblies":[]},"mapLocation":{"type":"Point","coordinates":[-82.86159038543701,40.00381837298926,245.540390015]},"analysis":[],"terrainLayer":{"name":"tl","pointConversionFrequency":{"value":15.0,"unit":"FOOT"},"profileViewWidth":{"value":20.0,"unit":"FOOT"},"convertExistingTerrainPoints":true,"points":[{"latitude":40.00381837298926,"longitude":-82.86159038543701,"elevation":{"value":245.540390015,"unit":"METRE"}},{"latitude":40.0034073191288,"longitude":-82.86159038543701,"elevation":{"value":245.280319214,"unit":"METRE"}},{"latitude":40.004229426849726,"longitude":-82.86159038543701,"elevation":{"value":244.900222778,"unit":"METRE"}},{"latitude":40.00377726760322,"longitude":-82.86159038543701,"elevation":{"value":245.559051514,"unit":"METRE"}},{"latitude":40.00373616221717,"longitude":-82.86159038543701,"elevation":{"value":245.619049072,"unit":"METRE"}},{"latitude":40.00369505683111,"longitude":-82.86159038543701,"elevation":{"value":245.518295288,"unit":"METRE"}},{"latitude":40.00365395144507,"longitude":-82.86159038543701,"elevation":{"value":245.224868774,"unit":"METRE"}},{"latitude":40.00361284605902,"longitude":-82.86159038543701,"elevation":{"value":245.164871216,"unit":"METRE"}},{"latitude":40.00357174067298,"longitude":-82.86159038543701,"elevation":{"value":245.144973755,"unit":"METRE"}},{"latitude":40.00353063528693,"longitude":-82.86159038543701,"elevation":{"value":246.004974365,"unit":"METRE"}},{"latitude":40.00348952990089,"longitude":-82.86159038543701,"elevation":{"value":245.87562561,"unit":"METRE"}},{"latitude":40.00344842451486,"longitude":-82.86159038543701,"elevation":{"value":245.095611572,"unit":"METRE"}},{"latitude":40.003859478375304,"longitude":-82.86159038543701,"elevation":{"value":245.540390015,"unit":"METRE"}},{"latitude":40.00390058376136,"longitude":-82.86159038543701,"elevation":{"value":245.551620483,"unit":"METRE"}},{"latitude":40.0039416891474,"longitude":-82.86159038543701,"elevation":{"value":245.571609497,"unit":"METRE"}},{"latitude":40.00398279453344,"longitude":-82.86159038543701,"elevation":{"value":245.234664917,"unit":"METRE"}},{"latitude":40.00402389991948,"longitude":-82.86159038543701,"elevation":{"value":245.167755127,"unit":"METRE"}},{"latitude":40.004065005305534,"longitude":-82.86159038543701,"elevation":{"value":245.107757568,"unit":"METRE"}},{"latitude":40.00410611069158,"longitude":-82.86159038543701,"elevation":{"value":245.136184692,"unit":"METRE"}},{"latitude":40.00414721607763,"longitude":-82.86159038543701,"elevation":{"value":245.296188354,"unit":"METRE"}},{"latitude":40.00418832146367,"longitude":-82.86159038543701,"elevation":{"value":245.100219727,"unit":"METRE"}}]}}]}]}]}
+{
+  "label": "New Project",
+  "company": {
+    "id": 2,
+    "name": "SPIDA"
+  },
+  "dateModified": 1687789058994,
+  "clientFile": "Demo.client",
+  "date": "2023-06-26",
+  "schema": "/schema/spidacalc/calc/project.schema",
+  "version": 10,
+  "engineer": "",
+  "comments": "",
+  "generalLocation": "",
+  "address": {
+    "number": "",
+    "street": "",
+    "city": "",
+    "county": "",
+    "state": "",
+    "zip_code": ""
+  },
+  "userDefinedValues": {},
+  "clientData": {
+    "schema": "/schema/spidacalc/client/data.schema",
+    "version": 10,
+    "name": "Demo.client",
+    "poles": [
+      {
+        "aliases": [],
+        "shape": "ROUND",
+        "materialCategory": "POLYMER",
+        "classOfPole": "10\" Series II",
+        "species": "Fiberglass",
+        "height": {
+          "unit": "METRE",
+          "value": 12.192000000000002
+        },
+        "taper": 0.0,
+        "density": {
+          "unit": "KILOGRAM_PER_CUBIC_METRE",
+          "value": 235.471411597214
+        },
+        "allowable": {
+          "unit": "NEWTON_METRE",
+          "value": 135581.79483314
+        },
+        "ptc": {
+          "unit": "METRE",
+          "value": 0.8636000000000001
+        },
+        "modulus": {
+          "unit": "PASCAL",
+          "value": 2.757902917267344E10
+        },
+        "wallThickness": {
+          "unit": "METRE",
+          "value": 0.006350000000000001
+        },
+        "poissonRatio": 0.32
+      }
+    ],
+    "wires": [
+      {
+        "aliases": [
+          {
+            "id": "1/0 ACSR",
+            "tensionGroupName": "Full"
+          },
+          {
+            "id": "1/0 ACSR - S",
+            "tensionGroupName": "Slack"
+          }
+        ],
+        "size": "1/0 ACSR",
+        "calculation": "DYNAMIC",
+        "strength": {
+          "unit": "NEWTON",
+          "value": 19483.21067484099
+        },
+        "weight": {
+          "unit": "NEWTON_PER_METRE",
+          "value": 2.117575316188643
+        },
+        "crossArea": {
+          "unit": "SQUARE_METRE",
+          "value": 6.2451488E-5
+        },
+        "diameter": {
+          "unit": "METRE",
+          "value": 0.0101092
+        },
+        "description": "1/0 ACSR - Raven",
+        "coreStrands": 1,
+        "conductorStrands": 6,
+        "numberOfConductors": 1,
+        "usageGroups": [
+          "PRIMARY",
+          "NEUTRAL"
+        ],
+        "conductorProperties": "TOTAL",
+        "expansionCoefficient": {
+          "unit": "PER_CELSIUS",
+          "value": 1.894968E-5
+        },
+        "modulus": {
+          "unit": "PASCAL",
+          "value": 7.82554952774609E10
+        },
+        "tensionGroups": [
+          {
+            "name": "Full",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.55555555555558
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 2339.764569627023
+                }
+              }
+            ]
+          },
+          {
+            "name": "Slack",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.55555555555558
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 408.79156644244
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "anchors": [],
+    "equipments": [],
+    "equipmentTypes": [
+      {
+        "name": "APPARATUS_CASE",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "CAPACITOR",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "CROSS_CONNECT",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "CUTOUT_ARRESTOR",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "DRIP_LOOP",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "JOINT_USE_BOX",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "LOAD_COIL_CASE",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "POWER_SUPPLY",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "PRIMARY_METERING",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "RECLOSER",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "REGULATOR",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "RISER",
+        "industry": "BOTH"
+      },
+      {
+        "name": "SPLICE_CASE",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "STREET_LIGHT",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "SWITCH",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "TERMINATION_BRACKET",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "TRANSFORMER",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "WIRE_MOUNTED",
+        "industry": "BOTH"
+      },
+      {
+        "name": "WIRELESS_ANTENNA",
+        "industry": "BOTH"
+      }
+    ],
+    "insulators": [],
+    "foundations": [],
+    "crossArms": [],
+    "braces": [],
+    "bundleComponents": [],
+    "bundles": [],
+    "assemblies": [],
+    "environments": [],
+    "defaultEnvironment": {
+      "name": "None",
+      "description": "N/A"
+    },
+    "analysisCases": [],
+    "owners": [
+      {
+        "industry": "UTILITY",
+        "id": "Acme Power"
+      }
+    ],
+    "notes": [],
+    "locationForms": [],
+    "projectForms": [],
+    "customReportSetups": [],
+    "designLayers": [
+      {
+        "name": "Measured Design",
+        "type": "Measured"
+      }
+    ],
+    "defaultLocationForms": [],
+    "defaultProjectForms": [],
+    "clearanceCases": [],
+    "componentGroups": [],
+    "wireClasses": [],
+    "wireStates": [],
+    "hash": "a696819d26294fde6e8db390ba5c01ac"
+  },
+  "clientFileVersion": "a696819d26294fde6e8db390ba5c01ac",
+  "forms": [
+    {
+      "title": "Project Summary",
+      "formDefinition": [
+        {
+          "fieldName": "Work Order #",
+          "fieldType": "customTextField"
+        },
+        {
+          "fieldName": "Total Estimated Cost",
+          "fieldType": "customTextField"
+        },
+        {
+          "fieldName": "Total Estimated Hours",
+          "fieldType": "customTextField"
+        },
+        {
+          "fieldName": "Pole Replacements",
+          "fieldType": "customSpinner"
+        },
+        {
+          "fieldName": "Rearrangements",
+          "fieldType": "customSpinner"
+        }
+      ],
+      "fields": {
+        "Work Order #": "",
+        "Total Estimated Cost": "",
+        "Total Estimated Hours": "",
+        "Pole Replacements": "0",
+        "Rearrangements": "0"
+      },
+      "template": "a696819d26294fde6e8db390ba5c01ac-Project Summary"
+    }
+  ],
+  "defaultLocationForms": [],
+  "defaultLoadCases": [],
+  "terrainLayers": [
+    {
+      "name": "tl",
+      "pointConversionFrequency": {
+        "value": 15.0,
+        "unit": "FOOT"
+      },
+      "profileViewWidth": {
+        "value": 20.0,
+        "unit": "FOOT"
+      },
+      "convertExistingTerrainPoints": true,
+      "points": [
+        {
+          "latitude": 40.00381837298926,
+          "longitude": -82.86159038543701,
+          "elevation": {
+            "value": 245.540390015,
+            "unit": "METRE"
+          }
+        },
+        {
+          "latitude": 40.0034073191288,
+          "longitude": -82.86159038543701,
+          "elevation": {
+            "value": 245.280319214,
+            "unit": "METRE"
+          }
+        },
+        {
+          "latitude": 40.004229426849726,
+          "longitude": -82.86159038543701,
+          "elevation": {
+            "value": 244.900222778,
+            "unit": "METRE"
+          }
+        },
+        {
+          "latitude": 40.00377726760322,
+          "longitude": -82.86159038543701,
+          "elevation": {
+            "value": 245.559051514,
+            "unit": "METRE"
+          }
+        },
+        {
+          "latitude": 40.00373616221717,
+          "longitude": -82.86159038543701,
+          "elevation": {
+            "value": 245.619049072,
+            "unit": "METRE"
+          }
+        },
+        {
+          "latitude": 40.00369505683111,
+          "longitude": -82.86159038543701,
+          "elevation": {
+            "value": 245.518295288,
+            "unit": "METRE"
+          }
+        },
+        {
+          "latitude": 40.00365395144507,
+          "longitude": -82.86159038543701,
+          "elevation": {
+            "value": 245.224868774,
+            "unit": "METRE"
+          }
+        },
+        {
+          "latitude": 40.00361284605902,
+          "longitude": -82.86159038543701,
+          "elevation": {
+            "value": 245.164871216,
+            "unit": "METRE"
+          }
+        },
+        {
+          "latitude": 40.00357174067298,
+          "longitude": -82.86159038543701,
+          "elevation": {
+            "value": 245.144973755,
+            "unit": "METRE"
+          }
+        },
+        {
+          "latitude": 40.00353063528693,
+          "longitude": -82.86159038543701,
+          "elevation": {
+            "value": 246.004974365,
+            "unit": "METRE"
+          }
+        },
+        {
+          "latitude": 40.00348952990089,
+          "longitude": -82.86159038543701,
+          "elevation": {
+            "value": 245.87562561,
+            "unit": "METRE"
+          }
+        },
+        {
+          "latitude": 40.00344842451486,
+          "longitude": -82.86159038543701,
+          "elevation": {
+            "value": 245.095611572,
+            "unit": "METRE"
+          }
+        },
+        {
+          "latitude": 40.003859478375304,
+          "longitude": -82.86159038543701,
+          "elevation": {
+            "value": 245.540390015,
+            "unit": "METRE"
+          }
+        },
+        {
+          "latitude": 40.00390058376136,
+          "longitude": -82.86159038543701,
+          "elevation": {
+            "value": 245.551620483,
+            "unit": "METRE"
+          }
+        },
+        {
+          "latitude": 40.0039416891474,
+          "longitude": -82.86159038543701,
+          "elevation": {
+            "value": 245.571609497,
+            "unit": "METRE"
+          }
+        },
+        {
+          "latitude": 40.00398279453344,
+          "longitude": -82.86159038543701,
+          "elevation": {
+            "value": 245.234664917,
+            "unit": "METRE"
+          }
+        },
+        {
+          "latitude": 40.00402389991948,
+          "longitude": -82.86159038543701,
+          "elevation": {
+            "value": 245.167755127,
+            "unit": "METRE"
+          }
+        },
+        {
+          "latitude": 40.004065005305534,
+          "longitude": -82.86159038543701,
+          "elevation": {
+            "value": 245.107757568,
+            "unit": "METRE"
+          }
+        },
+        {
+          "latitude": 40.00410611069158,
+          "longitude": -82.86159038543701,
+          "elevation": {
+            "value": 245.136184692,
+            "unit": "METRE"
+          }
+        },
+        {
+          "latitude": 40.00414721607763,
+          "longitude": -82.86159038543701,
+          "elevation": {
+            "value": 245.296188354,
+            "unit": "METRE"
+          }
+        },
+        {
+          "latitude": 40.00418832146367,
+          "longitude": -82.86159038543701,
+          "elevation": {
+            "value": 245.100219727,
+            "unit": "METRE"
+          }
+        }
+      ]
+    }
+  ],
+  "appliedTerrainLayers": [
+    {
+      "designLayer": "Measured Design",
+      "terrainLayer": "tl"
+    }
+  ],
+  "leads": [
+    {
+      "label": "Lead",
+      "locations": [
+        {
+          "label": "Location-06-26-2023-10-08-32-948",
+          "mapNumber": "",
+          "comments": "",
+          "address": {
+            "number": "",
+            "street": "",
+            "city": "",
+            "county": "",
+            "state": "",
+            "zip_code": ""
+          },
+          "technician": "",
+          "crossStreet1": "",
+          "crossStreet2": "",
+          "geographicCoordinate": {
+            "type": "Point",
+            "coordinates": [
+              -82.86159038543701,
+              40.00381837298926,
+              245.540390015
+            ]
+          },
+          "remedies": [],
+          "poleTags": [],
+          "userDefinedValues": {},
+          "summaryNotes": [],
+          "forms": [],
+          "images": [],
+          "photosToBeAssigned": [],
+          "designs": [
+            {
+              "label": "Measured Design",
+              "layerType": "Measured",
+              "structure": {
+                "pole": {
+                  "id": "Pole",
+                  "externalId": "64999be0891014a315539309",
+                  "owner": {
+                    "industry": "UTILITY",
+                    "id": "Acme Power"
+                  },
+                  "glc": {
+                    "unit": "METRE",
+                    "value": 0.8636000000000001
+                  },
+                  "agl": {
+                    "unit": "METRE",
+                    "value": 10.3632
+                  },
+                  "autoGLC": true,
+                  "autoAGL": true,
+                  "environment": "None",
+                  "temperature": {
+                    "unit": "CELSIUS",
+                    "value": 15.555555555555555
+                  },
+                  "stressRatio": 1.0,
+                  "leanAngle": 0,
+                  "leanDirection": 0,
+                  "clientItemVersion": "a4090ef12d2f9b9c21ca6509157d445c",
+                  "clientItem": {
+                    "species": "Fiberglass",
+                    "classOfPole": "10\" Series II",
+                    "height": {
+                      "unit": "METRE",
+                      "value": 12.192000000000002
+                    }
+                  }
+                },
+                "wireEndPoints": [
+                  {
+                    "id": "WEP#1",
+                    "externalId": "64999db4891014a31553933f",
+                    "direction": 180,
+                    "distance": {
+                      "unit": "METRE",
+                      "value": 45.72073967929143
+                    },
+                    "relativeElevation": {
+                      "unit": "METRE",
+                      "value": -0.26007080100001184
+                    },
+                    "inclination": {
+                      "unit": "RADIAN",
+                      "value": -0.00568827637798259
+                    },
+                    "type": "PREVIOUS_POLE",
+                    "comments": "",
+                    "environment": "None",
+                    "wires": [
+                      "Wire#1"
+                    ],
+                    "spanGuys": [],
+                    "spanPoints": [],
+                    "terrainPoints": [],
+                    "environmentRegions": [],
+                    "calculateClearances": true
+                  },
+                  {
+                    "id": "WEP#2",
+                    "externalId": "64999db4891014a315539340",
+                    "direction": 0,
+                    "distance": {
+                      "unit": "METRE",
+                      "value": 45.72448156175561
+                    },
+                    "relativeElevation": {
+                      "unit": "METRE",
+                      "value": -0.6401672370000143
+                    },
+                    "inclination": {
+                      "unit": "RADIAN",
+                      "value": -0.014000993137789975
+                    },
+                    "type": "NEXT_POLE",
+                    "comments": "",
+                    "environment": "None",
+                    "wires": [
+                      "Wire#2"
+                    ],
+                    "spanGuys": [],
+                    "spanPoints": [],
+                    "terrainPoints": [],
+                    "environmentRegions": [],
+                    "calculateClearances": true
+                  }
+                ],
+                "spanPoints": [],
+                "anchors": [],
+                "notePoints": [],
+                "pointLoads": [],
+                "wirePointLoads": [],
+                "damages": [],
+                "wires": [
+                  {
+                    "id": "Wire#1",
+                    "externalId": "64999db4891014a315539341",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "Acme Power"
+                    },
+                    "clientItemVersion": "f8ecf966d1a6c35707923cc833f98c93",
+                    "clientItem": {
+                      "size": "1/0 ACSR",
+                      "coreStrands": 1,
+                      "conductorStrands": 6
+                    },
+                    "clientItemAlias": "1/0 ACSR",
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 8.534400000000002
+                    },
+                    "usageGroup": "PRIMARY",
+                    "tensionGroup": "Full",
+                    "midspanHeight": {
+                      "unit": "METRE",
+                      "value": 0.0
+                    },
+                    "connectedWire": "Wire#2"
+                  },
+                  {
+                    "id": "Wire#2",
+                    "externalId": "64999db4891014a315539342",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "Acme Power"
+                    },
+                    "clientItemVersion": "f8ecf966d1a6c35707923cc833f98c93",
+                    "clientItem": {
+                      "size": "1/0 ACSR",
+                      "coreStrands": 1,
+                      "conductorStrands": 6
+                    },
+                    "clientItemAlias": "1/0 ACSR",
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 8.534400000000002
+                    },
+                    "usageGroup": "PRIMARY",
+                    "tensionGroup": "Full",
+                    "midspanHeight": {
+                      "unit": "METRE",
+                      "value": 0.0
+                    },
+                    "connectedWire": "Wire#1"
+                  }
+                ],
+                "spanGuys": [],
+                "guys": [],
+                "equipments": [],
+                "guyAttachPoints": [],
+                "crossArms": [],
+                "insulators": [],
+                "pushBraces": [],
+                "sidewalkBraces": [],
+                "foundations": [],
+                "assemblies": []
+              },
+              "mapLocation": {
+                "type": "Point",
+                "coordinates": [
+                  -82.86159038543701,
+                  40.00381837298926,
+                  245.540390015
+                ]
+              },
+              "analysis": []
+            },
+            {
+              "label": "Draft#1",
+              "layerType": "Draft",
+              "structure": {
+                "pole": {
+                  "id": "Pole",
+                  "externalId": "64999be0891014a315539309",
+                  "owner": {
+                    "industry": "UTILITY",
+                    "id": "Acme Power"
+                  },
+                  "glc": {
+                    "unit": "METRE",
+                    "value": 0.8636000000000001
+                  },
+                  "agl": {
+                    "unit": "METRE",
+                    "value": 10.3632
+                  },
+                  "autoGLC": true,
+                  "autoAGL": true,
+                  "environment": "None",
+                  "temperature": {
+                    "unit": "CELSIUS",
+                    "value": 15.555555555555555
+                  },
+                  "stressRatio": 1.0,
+                  "leanAngle": 0,
+                  "leanDirection": 0,
+                  "clientItemVersion": "a4090ef12d2f9b9c21ca6509157d445c",
+                  "clientItem": {
+                    "species": "Fiberglass",
+                    "classOfPole": "10\" Series II",
+                    "height": {
+                      "unit": "METRE",
+                      "value": 12.192000000000002
+                    }
+                  }
+                },
+                "wireEndPoints": [
+                  {
+                    "id": "WEP#1",
+                    "externalId": "64999db4891014a31553933f",
+                    "direction": 180,
+                    "distance": {
+                      "unit": "METRE",
+                      "value": 45.72073967929143
+                    },
+                    "relativeElevation": {
+                      "unit": "METRE",
+                      "value": -0.26007080100001184
+                    },
+                    "inclination": {
+                      "unit": "RADIAN",
+                      "value": -0.00568827637798259
+                    },
+                    "type": "PREVIOUS_POLE",
+                    "comments": "",
+                    "environment": "None",
+                    "wires": [
+                      "Wire#1"
+                    ],
+                    "spanGuys": [],
+                    "spanPoints": [],
+                    "terrainPoints": [],
+                    "environmentRegions": [],
+                    "calculateClearances": true
+                  },
+                  {
+                    "id": "WEP#2",
+                    "externalId": "64999db4891014a315539340",
+                    "direction": 0,
+                    "distance": {
+                      "unit": "METRE",
+                      "value": 45.72448156175561
+                    },
+                    "relativeElevation": {
+                      "unit": "METRE",
+                      "value": -0.6401672370000143
+                    },
+                    "inclination": {
+                      "unit": "RADIAN",
+                      "value": -0.014000993137789975
+                    },
+                    "type": "NEXT_POLE",
+                    "comments": "",
+                    "environment": "None",
+                    "wires": [
+                      "Wire#2"
+                    ],
+                    "spanGuys": [],
+                    "spanPoints": [],
+                    "terrainPoints": [],
+                    "environmentRegions": [],
+                    "calculateClearances": true
+                  }
+                ],
+                "spanPoints": [],
+                "anchors": [],
+                "notePoints": [],
+                "pointLoads": [],
+                "wirePointLoads": [],
+                "damages": [],
+                "wires": [
+                  {
+                    "id": "Wire#1",
+                    "externalId": "64999db4891014a315539341",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "Acme Power"
+                    },
+                    "clientItemVersion": "f8ecf966d1a6c35707923cc833f98c93",
+                    "clientItem": {
+                      "size": "1/0 ACSR",
+                      "coreStrands": 1,
+                      "conductorStrands": 6
+                    },
+                    "clientItemAlias": "1/0 ACSR",
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 8.534400000000002
+                    },
+                    "usageGroup": "PRIMARY",
+                    "tensionGroup": "Full",
+                    "midspanHeight": {
+                      "unit": "METRE",
+                      "value": 0.0
+                    },
+                    "connectedWire": "Wire#2"
+                  },
+                  {
+                    "id": "Wire#2",
+                    "externalId": "64999db4891014a315539342",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "Acme Power"
+                    },
+                    "clientItemVersion": "f8ecf966d1a6c35707923cc833f98c93",
+                    "clientItem": {
+                      "size": "1/0 ACSR",
+                      "coreStrands": 1,
+                      "conductorStrands": 6
+                    },
+                    "clientItemAlias": "1/0 ACSR",
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 8.534400000000002
+                    },
+                    "usageGroup": "PRIMARY",
+                    "tensionGroup": "Full",
+                    "midspanHeight": {
+                      "unit": "METRE",
+                      "value": 0.0
+                    },
+                    "connectedWire": "Wire#1"
+                  }
+                ],
+                "spanGuys": [],
+                "guys": [],
+                "equipments": [],
+                "guyAttachPoints": [],
+                "crossArms": [],
+                "insulators": [],
+                "pushBraces": [],
+                "sidewalkBraces": [],
+                "foundations": [],
+                "assemblies": []
+              },
+              "mapLocation": {
+                "type": "Point",
+                "coordinates": [
+                  -82.86159038543701,
+                  40.00381837298926,
+                  245.540390015
+                ]
+              },
+              "analysis": [],
+              "terrainLayer": {
+                "name": "tl",
+                "pointConversionFrequency": {
+                  "value": 15.0,
+                  "unit": "FOOT"
+                },
+                "profileViewWidth": {
+                  "value": 20.0,
+                  "unit": "FOOT"
+                },
+                "convertExistingTerrainPoints": true,
+                "points": [
+                  {
+                    "latitude": 40.00381837298926,
+                    "longitude": -82.86159038543701,
+                    "elevation": {
+                      "value": 245.540390015,
+                      "unit": "METRE"
+                    }
+                  },
+                  {
+                    "latitude": 40.0034073191288,
+                    "longitude": -82.86159038543701,
+                    "elevation": {
+                      "value": 245.280319214,
+                      "unit": "METRE"
+                    }
+                  },
+                  {
+                    "latitude": 40.004229426849726,
+                    "longitude": -82.86159038543701,
+                    "elevation": {
+                      "value": 244.900222778,
+                      "unit": "METRE"
+                    }
+                  },
+                  {
+                    "latitude": 40.00377726760322,
+                    "longitude": -82.86159038543701,
+                    "elevation": {
+                      "value": 245.559051514,
+                      "unit": "METRE"
+                    }
+                  },
+                  {
+                    "latitude": 40.00373616221717,
+                    "longitude": -82.86159038543701,
+                    "elevation": {
+                      "value": 245.619049072,
+                      "unit": "METRE"
+                    }
+                  },
+                  {
+                    "latitude": 40.00369505683111,
+                    "longitude": -82.86159038543701,
+                    "elevation": {
+                      "value": 245.518295288,
+                      "unit": "METRE"
+                    }
+                  },
+                  {
+                    "latitude": 40.00365395144507,
+                    "longitude": -82.86159038543701,
+                    "elevation": {
+                      "value": 245.224868774,
+                      "unit": "METRE"
+                    }
+                  },
+                  {
+                    "latitude": 40.00361284605902,
+                    "longitude": -82.86159038543701,
+                    "elevation": {
+                      "value": 245.164871216,
+                      "unit": "METRE"
+                    }
+                  },
+                  {
+                    "latitude": 40.00357174067298,
+                    "longitude": -82.86159038543701,
+                    "elevation": {
+                      "value": 245.144973755,
+                      "unit": "METRE"
+                    }
+                  },
+                  {
+                    "latitude": 40.00353063528693,
+                    "longitude": -82.86159038543701,
+                    "elevation": {
+                      "value": 246.004974365,
+                      "unit": "METRE"
+                    }
+                  },
+                  {
+                    "latitude": 40.00348952990089,
+                    "longitude": -82.86159038543701,
+                    "elevation": {
+                      "value": 245.87562561,
+                      "unit": "METRE"
+                    }
+                  },
+                  {
+                    "latitude": 40.00344842451486,
+                    "longitude": -82.86159038543701,
+                    "elevation": {
+                      "value": 245.095611572,
+                      "unit": "METRE"
+                    }
+                  },
+                  {
+                    "latitude": 40.003859478375304,
+                    "longitude": -82.86159038543701,
+                    "elevation": {
+                      "value": 245.540390015,
+                      "unit": "METRE"
+                    }
+                  },
+                  {
+                    "latitude": 40.00390058376136,
+                    "longitude": -82.86159038543701,
+                    "elevation": {
+                      "value": 245.551620483,
+                      "unit": "METRE"
+                    }
+                  },
+                  {
+                    "latitude": 40.0039416891474,
+                    "longitude": -82.86159038543701,
+                    "elevation": {
+                      "value": 245.571609497,
+                      "unit": "METRE"
+                    }
+                  },
+                  {
+                    "latitude": 40.00398279453344,
+                    "longitude": -82.86159038543701,
+                    "elevation": {
+                      "value": 245.234664917,
+                      "unit": "METRE"
+                    }
+                  },
+                  {
+                    "latitude": 40.00402389991948,
+                    "longitude": -82.86159038543701,
+                    "elevation": {
+                      "value": 245.167755127,
+                      "unit": "METRE"
+                    }
+                  },
+                  {
+                    "latitude": 40.004065005305534,
+                    "longitude": -82.86159038543701,
+                    "elevation": {
+                      "value": 245.107757568,
+                      "unit": "METRE"
+                    }
+                  },
+                  {
+                    "latitude": 40.00410611069158,
+                    "longitude": -82.86159038543701,
+                    "elevation": {
+                      "value": 245.136184692,
+                      "unit": "METRE"
+                    }
+                  },
+                  {
+                    "latitude": 40.00414721607763,
+                    "longitude": -82.86159038543701,
+                    "elevation": {
+                      "value": 245.296188354,
+                      "unit": "METRE"
+                    }
+                  },
+                  {
+                    "latitude": 40.00418832146367,
+                    "longitude": -82.86159038543701,
+                    "elevation": {
+                      "value": 245.100219727,
+                      "unit": "METRE"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
