@@ -334,13 +334,50 @@ class IceDensityChangeSetTest extends Specification {
         then:
             json.analysisCases.every { Map analysisCase ->
                 if(analysisCase.type.startsWith("CSA ")) {
-                    println analysisCase.toString()
                     analysisCase.overrides.iceDensity.value == 917 &&
                             analysisCase.overrides.iceDensity.unit == "KILOGRAM_PER_CUBIC_METRE" &&
                             analysisCase.valuesApplied.iceDensity.value == 917 &&
                             analysisCase.valuesApplied.iceDensity.unit == "KILOGRAM_PER_CUBIC_METRE"
                 } else {
                     !analysisCase.containsKey("overrides") || analysisCase.overrides.isEmpty()
+                }
+            }
+    }
+
+    def "csa ice density - results"() {
+        setup:
+            def stream = IceDensityChangeSet.getResourceAsStream("/conversions/v10/LoadCaseIceDensity-results.json".toString())
+            Map json = new JsonSlurper().parse(stream) as Map
+            stream.close()
+        expect:
+            json.results.every { Map result ->
+                if(result.analysisCaseDetails?.type?.startsWith("CSA ")) {
+                    result.analysisCaseDetails.overrides.isEmpty() && result.analysisCaseDetails.valuesApplied.containsKey("iceDensity")
+                } else {
+                    true
+                }
+            }
+        when: "reverted"
+            changeSet.revertResults(json)
+        then:
+            json.results.every { Map result ->
+                if(result.analysisCaseDetails?.type?.startsWith("CSA ")) {
+                    result.analysisCaseDetails.overrides.isEmpty()
+                } else {
+                    true
+                }
+            }
+        when: "applied"
+            changeSet.applyToResults(json)
+        then:
+            json.results.every { Map result ->
+                if(result.analysisCaseDetails?.type?.startsWith("CSA ")) {
+                    result.analysisCaseDetails.overrides.iceDensity.value == 917 &&
+                            result.analysisCaseDetails.overrides.iceDensity.unit == "KILOGRAM_PER_CUBIC_METRE" &&
+                            result.analysisCaseDetails.valuesApplied.iceDensity.value == 917 &&
+                            result.analysisCaseDetails.valuesApplied.iceDensity.unit == "KILOGRAM_PER_CUBIC_METRE"
+                } else {
+                    true
                 }
             }
     }
