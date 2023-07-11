@@ -3,7 +3,6 @@
  */
 package com.spidasoftware.schema.conversion.changeset.v10
 
-import com.spidasoftware.schema.validation.Validator
 import groovy.json.JsonSlurper
 import groovy.util.logging.Slf4j
 import spock.lang.Specification
@@ -309,6 +308,39 @@ class IceDensityChangeSetTest extends Specification {
                             }
                         }
                     }
+                }
+            }
+    }
+
+    def "csa ice density - client file"() {
+        setup:
+            def stream = IceDensityChangeSet.getResourceAsStream("/conversions/v10/LoadCaseIceDensity-client.json".toString())
+            Map json = new JsonSlurper().parse(stream) as Map
+            stream.close()
+        expect:
+            json.analysisCases.every { Map analysisCase ->
+                !analysisCase.containsKey("overrides") ||
+                        (analysisCase.overrides.isEmpty() && analysisCase.valuesApplied.containsKey("iceDensity"))
+            }
+        when: "reverted"
+            changeSet.revertClientData(json)
+        then:
+            json.analysisCases.every { Map analysisCase ->
+                !analysisCase.containsKey("overrides") ||
+                        (analysisCase.overrides.isEmpty() && !analysisCase.containsKey("iceDensity"))
+            }
+        when: "applied"
+            changeSet.applyToClientData(json)
+        then:
+            json.analysisCases.every { Map analysisCase ->
+                if(analysisCase.type.startsWith("CSA ")) {
+                    println analysisCase.toString()
+                    analysisCase.overrides.iceDensity.value == 917 &&
+                            analysisCase.overrides.iceDensity.unit == "KILOGRAM_PER_CUBIC_METRE" &&
+                            analysisCase.valuesApplied.iceDensity.value == 917 &&
+                            analysisCase.valuesApplied.iceDensity.unit == "KILOGRAM_PER_CUBIC_METRE"
+                } else {
+                    !analysisCase.containsKey("overrides") || analysisCase.overrides.isEmpty()
                 }
             }
     }
