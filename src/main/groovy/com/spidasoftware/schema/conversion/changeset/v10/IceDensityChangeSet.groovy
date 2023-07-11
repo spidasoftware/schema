@@ -28,6 +28,11 @@ class IceDensityChangeSet extends AbstractClientDataChangeSet {
         clientDataJSON.clearanceCases?.each { Map clearanceCase ->
             anyChanged |= addIceDensityToClearanceCases(clearanceCase)
         }
+
+        clientDataJSON.analysisCases?.each { Map analysisCase ->
+            anyChanged |= addIceDensityToLoadCase(analysisCase)
+        }
+
         return anyChanged
     }
 
@@ -38,10 +43,16 @@ class IceDensityChangeSet extends AbstractClientDataChangeSet {
         projectJSON.defaultClearanceCases?.each { Map defaultClearanceCase ->
             addIceDensityToClearanceCases(defaultClearanceCase)
         }
+
+        projectJSON.defaultLoadCases?.each { Map loadCase ->
+            addIceDensityToLoadCase(loadCase)
+        }
     }
 
     @Override
     void applyToDesign(Map designJSON) throws ConversionException {
+        super.applyToDesign(designJSON)
+
         designJSON.clearanceCases?.each { Map clearanceCase ->
             addIceDensityToClearanceCases(clearanceCase)
         }
@@ -62,6 +73,25 @@ class IceDensityChangeSet extends AbstractClientDataChangeSet {
                 addIceDensityToRuleResults(clearanceRuleResult)
             }
         }
+
+        designJSON.analysis?.each { Map analysisMap ->
+            if(analysisMap.analysisCaseDetails != null) {
+                addIceDensityToLoadCase(analysisMap.analysisCaseDetails as Map)
+            }
+        }
+    }
+
+    @Override
+    boolean applyToResults(Map resultsJSON) throws ConversionException {
+        boolean anyChanged = super.applyToResults(resultsJSON)
+
+        resultsJSON.results?.each { Map resultMap ->
+            if(resultMap.analysisCaseDetails != null) {
+                anyChanged |= addIceDensityToLoadCase(resultMap.analysisCaseDetails as Map)
+            }
+        }
+
+        return anyChanged
     }
 
     @Override
@@ -98,6 +128,8 @@ class IceDensityChangeSet extends AbstractClientDataChangeSet {
 
     @Override
     void revertDesign(Map designJSON) throws ConversionException {
+        super.revertDesign(designJSON)
+
         designJSON.clearanceCases?.each { Map clearanceCase ->
             removeIceDensityFromClearanceCases(clearanceCase)
         }
@@ -126,7 +158,8 @@ class IceDensityChangeSet extends AbstractClientDataChangeSet {
 
     @Override
     boolean revertResults(Map resultsJSON) {
-        boolean anyChanged = false
+        boolean anyChanged = super.revertResults(resultsJSON)
+
         resultsJSON.results?.each { Map resultMap ->
             anyChanged |= removeIceDensityFromLoadCase(resultMap.analysisCaseDetails as Map)
         }
@@ -286,12 +319,25 @@ class IceDensityChangeSet extends AbstractClientDataChangeSet {
         return anyChanged
     }
 
+    boolean addIceDensityToLoadCase(Map analysisCaseJSON) {
+        if((analysisCaseJSON.type as String)?.startsWith("CSA ")) {
+            (analysisCaseJSON.overrides as Map).put("iceDensity", ["unit": "KILOGRAM_PER_CUBIC_METRE", "value": 917])
+            (analysisCaseJSON.valuesApplied as Map).put("iceDensity", ["unit": "KILOGRAM_PER_CUBIC_METRE", "value": 917])
+            return true
+        }
+        return false
+    }
+
     boolean removeIceDensityFromLoadCase(Map loadCaseJSON) {
         if(loadCaseJSON.containsKey("creepWireTensionIceDensity") || loadCaseJSON.containsKey("highestWireTensionIceDensity")) {
             loadCaseJSON.remove("creepWireTensionIceDensity")
             loadCaseJSON.remove("highestWireTensionIceDensity")
             return true
         }
+
+        (loadCaseJSON.overrides as Map)?.remove("iceDensity")
+        // no need to remove iceDensity from valuesApplied, as extra values in that fields are ignored
+
         return false
     }
 
