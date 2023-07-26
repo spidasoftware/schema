@@ -69,6 +69,7 @@ class ConverterUtils {
         converter.addChangeSet(9, new ClearancesChangeset())
         converter.addChangeSet(10, new IceDensityChangeSet())
         converter.addChangeSet(10, new TerrainLayerChangeSet())
+        converter.addChangeSet(10, new CSAMaxWindLoadCaseChangeSet())
 
         // add calc changesets above here
         converter.setCurrentVersion(currentVersion)
@@ -83,6 +84,7 @@ class ConverterUtils {
         converter.addChangeSet(9, new ExtremeWindLoadCaseChangeset())
         converter.addChangeSet(9, new ClearancesChangeset())
         converter.addChangeSet(10, new IceDensityChangeSet())
+        converter.addChangeSet(10, new CSAMaxWindLoadCaseChangeSet())
         // add client data changesets above here
 
         converter.setCurrentVersion(currentVersion)
@@ -96,6 +98,7 @@ class ConverterUtils {
         converter.addChangeSet(9, new EnvironmentClientDataChangeset())
         converter.addChangeSet(9, new ExtremeWindLoadCaseChangeset())
         converter.addChangeSet(9, new ClearancesChangeset())
+        converter.addChangeSet(10, new CSAMaxWindLoadCaseChangeSet())
         // add result changesets above here
 
         converter.setCurrentVersion(currentVersion)

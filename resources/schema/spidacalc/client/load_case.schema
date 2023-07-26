@@ -382,6 +382,10 @@
     "outerStrandingCompression": {
       "description": "indicates whether wire outer stranding can go into compression at high temperature",
       "type": "boolean"
+    },
+    "meanWindSpeed": {
+      "description": "10 minute mean wind speed for CSA Max Wind load cases",
+      "$ref": "../../general/measurable.schema"
     }
   },
   "anyOf": [
@@ -516,6 +520,20 @@
             "CSA (Linear) 2010",
             "CSA 2010",
             "CSA 2015"
+          ]
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "constructionGrade",
+        "meanWindSpeed"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "CSA 2020 Maximum Wind"
           ]
         }
       }
