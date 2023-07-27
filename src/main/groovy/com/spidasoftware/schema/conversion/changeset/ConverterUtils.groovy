@@ -98,6 +98,7 @@ class ConverterUtils {
         converter.addChangeSet(9, new EnvironmentClientDataChangeset())
         converter.addChangeSet(9, new ExtremeWindLoadCaseChangeset())
         converter.addChangeSet(9, new ClearancesChangeset())
+        converter.addChangeSet(10, new IceDensityChangeSet())
         converter.addChangeSet(10, new CSAMaxWindLoadCaseChangeSet())
         // add result changesets above here
 

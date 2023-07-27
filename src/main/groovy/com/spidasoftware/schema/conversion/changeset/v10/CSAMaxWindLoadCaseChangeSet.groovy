@@ -8,7 +8,9 @@ import com.spidasoftware.schema.conversion.changeset.client.AbstractClientDataCh
 import groovy.transform.CompileStatic
 
 /**
+ * New CSA Max wind load case was added after Calc v8.0
  *
+ * When down converting from schema v10, we want to remove the entire load case
  */
 @CompileStatic
 class CSAMaxWindLoadCaseChangeSet extends AbstractClientDataChangeSet {
@@ -51,7 +53,7 @@ class CSAMaxWindLoadCaseChangeSet extends AbstractClientDataChangeSet {
 
     @Override
     boolean revertResults(Map resultsJSON) throws ConversionException {
-        boolean anyChanged = false
+        boolean anyChanged = super.revertResults(resultsJSON)
 
         if (resultsJSON.containsKey("results")) {
             List<Map> resultsList = resultsJSON.results as List<Map>
