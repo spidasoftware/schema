@@ -7656,6 +7656,42 @@
       }
     },
     {
+      "analysisCase": "CSA",
+      "analysisCaseVersion": "b23cc0d8e509264130da14a129c3e435",
+      "analysisDate": 1688764090268,
+      "engineVersion": "8.0.1.99999",
+      "components": [],
+      "analysisCaseDetails": {
+        "name": "CSA",
+        "type": "CSA 2015",
+        "addByDefault": false
+      }
+    },
+    {
+      "analysisCase": "Wind",
+      "analysisCaseVersion": "b23cc0d8e509264130da14a129c3e433",
+      "analysisDate": 1699764090268,
+      "engineVersion": "8.0.1.99999",
+      "components": [],
+      "analysisCaseDetails":  {
+        "name": "NESC",
+        "type": "NESC Extreme Wind 2012",
+        "addByDefault": false
+      },
+    },
+    {
+      "analysisCase": "Ice",
+      "analysisCaseVersion": "b23cc0d8e509264130da14a129c3e433",
+      "analysisDate": 1699764090268,
+      "engineVersion": "8.0.1.99999",
+      "components": [],
+      "analysisCaseDetails":  {
+        "name": "NESC",
+        "type": "NESC Extreme Ice 2012",
+        "addByDefault": false
+      },
+    },
+    {
       "analysisCase": "CSA Medium A",
       "analysisCaseVersion": "b24cc0d8e509364130da14a129c3e435",
       "analysisDate": 1688764090269,

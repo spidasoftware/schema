@@ -486,7 +486,7 @@
         "type": {
           "enum": [
             "NESC Extreme Ice 2007",
-            "NESC Extreme Ice 2012"
+            "NESC Extreme Ice 2012-2017"
           ]
         }
       }
@@ -501,7 +501,7 @@
         "type": {
           "enum": [
             "NESC Extreme Wind 2007",
-            "NESC Extreme Wind 2012"
+            "NESC Extreme Wind 2012-2017"
           ]
         }
       }
@@ -516,10 +516,10 @@
         "type": {
           "enum": [
             "NESC 2007",
-            "NESC 2012",
+            "NESC 2012-2017",
             "CSA (Linear) 2010",
             "CSA 2010",
-            "CSA 2015"
+            "CSA 2015-2020"
           ]
         }
       }
