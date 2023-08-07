@@ -61,7 +61,9 @@ class LoadCaseChangeSet extends AbstractClientDataChangeSet {
         super.applyToDesign(designJSON)
 
         designJSON.analysis?.each { Map analysis ->
-            applyName(analysis.analysisCaseDetails as Map)
+            if (analysis.containsKey("analysisCaseDetails")) {
+                applyName(analysis.analysisCaseDetails as Map)
+            }
         }
     }
 
@@ -70,7 +72,9 @@ class LoadCaseChangeSet extends AbstractClientDataChangeSet {
         super.revertDesign(designJSON)
 
         designJSON.analysis?.each { Map analysis ->
-            revertName(analysis.analysisCaseDetails as Map)
+            if (analysis.containsKey("analysisCaseDetails")) {
+                revertName(analysis.analysisCaseDetails as Map)
+            }
         }
     }
 
@@ -79,7 +83,9 @@ class LoadCaseChangeSet extends AbstractClientDataChangeSet {
         boolean anyChanged = super.applyToResults(resultsJSON)
 
         resultsJSON.results?.each { Map result ->
-            anyChanged |= applyName(result.analysisCaseDetails as Map)
+            if (result.containsKey("analysisCaseDetails")) {
+                anyChanged |= applyName(result.analysisCaseDetails as Map)
+            }
 
         }
         return anyChanged
@@ -90,7 +96,9 @@ class LoadCaseChangeSet extends AbstractClientDataChangeSet {
         boolean anyChanged = super.revertResults(resultsJSON)
 
         resultsJSON.results?.each { Map result ->
-            anyChanged |= revertName(result.analysisCaseDetails as Map)
+            if (result.containsKey("analysisCaseDetails")) {
+                anyChanged |= revertName(result.analysisCaseDetails as Map)
+            }
         }
         return anyChanged
     }
