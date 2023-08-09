@@ -4269,6 +4269,524 @@
           "SQUARE_LATTICE": 3
         }
       }
+    },
+    {
+      "name": "Extreme Wind 2012 Load Case",
+      "type": "NESC Extreme Wind 2012",
+      "analysisMethod": "DIRECT_STIFFNESS",
+      "connectionType": "CONTINUATION",
+      "displacementBasedLoadChangesLevel": "NONE",
+      "windType": "SWEEP",
+      "sweepIncrement": "DEGREE_1",
+      "windStartAngle": {
+        "unit": "RADIAN",
+        "value": 0.0
+      },
+      "windEndAngle": {
+        "unit": "RADIAN",
+        "value": 6.283185307179586
+      },
+      "useStrengthResults": false,
+      "analyzeWithAverageSpan": false,
+      "maximumLoadingRatio": 1.0,
+      "addByDefault": false,
+      "constructionType": "NEW",
+      "checkUtilityWireTension": false,
+      "maximumAllowableUtilityWireTensionRatio": {
+        "unit": "PERCENT",
+        "value": 60.0
+      },
+      "checkCommWireTension": false,
+      "maximumAllowableCommunicationWireTensionRatio": {
+        "unit": "PERCENT",
+        "value": 60.0
+      },
+      "analyzeGroundLineOnly": false,
+      "components": [],
+      "windSpeed": "MPH_90",
+      "constructionGrade": "C",
+      "analyzeWithExtremeWindOnAll": true,
+      "analyzeWithoutLinearConstant": false,
+      "wireTensionMethod": "INITIAL",
+      "creepWireTensionTemperature": {
+        "unit": "CELSIUS",
+        "value": 15.555555555555555
+      },
+      "creepWireTensionIceThickness": {
+        "unit": "METRE",
+        "value": 0.0
+      },
+      "creepWireTensionWindPressure": {
+        "unit": "PASCAL",
+        "value": 0.0
+      },
+      "creepWireTensionIceDensity": {
+        "unit": "KILOGRAM_PER_CUBIC_METRE",
+        "value": 917.0
+      },
+      "highestWireTensionTemperature": {
+        "unit": "CELSIUS",
+        "value": 15.555555555555555
+      },
+      "highestWireTensionIceThickness": {
+        "unit": "METRE",
+        "value": 0.0
+      },
+      "highestWireTensionWindPressure": {
+        "unit": "PASCAL",
+        "value": 0.0
+      },
+      "highestWireTensionIceDensity": {
+        "unit": "KILOGRAM_PER_CUBIC_METRE",
+        "value": 917.0
+      },
+      "outerStrandingCompression": false,
+      "overrides": {},
+      "valuesApplied": {
+        "ice": {
+          "unit": "METRE",
+          "value": 0.0
+        },
+        "iceDensity": {
+          "unit": "KILOGRAM_PER_CUBIC_METRE",
+          "value": 917.0
+        },
+        "temperature": {
+          "unit": "CELSIUS",
+          "value": 15.555555555555555
+        },
+        "windPressure": null,
+        "linearConstant": {
+          "unit": "NEWTON_PER_METRE",
+          "value": 0.0
+        },
+        "anchorStrengthFactor": 1.0,
+        "anchorTensionMultiplier": 1.0,
+        "anchorVerticalLoadMultiplier": 1.0,
+        "commOnlyTensionMultiplier": 0.0,
+        "guyStrengthFactor": 0.9,
+        "guyTensionMultiplier": 1.0,
+        "guyVerticalLoadMultiplier": 1.0,
+        "insulatorStrengthFactor": 1.0,
+        "insulatorTensionMultiplier": 1.0,
+        "insulatorVerticalLoadMultiplier": 1.0,
+        "insulatorWindMultiplier": 0.87,
+        "anchorWindMultiplier": 0.87,
+        "guyWindMultiplier": 0.87,
+        "foundationStrengthFactor": 1.0,
+        "foundationTensionMultiplier": 1.0,
+        "foundationVerticalLoadMultiplier": 1.0,
+        "foundationWindMultiplier": 0.87,
+        "poleStrengthFactors": {
+          "WOOD": 0.75,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 0.75,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "poleTensionMultipliers": {
+          "WOOD": 1.0,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 1.0,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "poleVerticalLoadMultipliers": {
+          "WOOD": 1.0,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 1.0,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "poleWindMultipliers": {
+          "WOOD": 0.87,
+          "METAL": 0.87,
+          "REINFORCED_CONCRETE": 0.87,
+          "POLYMER": 0.87,
+          "PRESTRESSED_CONCRETE": 0.87
+        },
+        "crossArmStrengthFactors": {
+          "WOOD": 0.75,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 0.75,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "crossArmTensionMultipliers": {
+          "WOOD": 0.87,
+          "METAL": 0.87,
+          "REINFORCED_CONCRETE": 0.87,
+          "POLYMER": 0.87,
+          "PRESTRESSED_CONCRETE": 0.87
+        },
+        "crossArmVerticalLoadMultipliers": {
+          "WOOD": 0.87,
+          "METAL": 0.87,
+          "REINFORCED_CONCRETE": 0.87,
+          "POLYMER": 0.87,
+          "PRESTRESSED_CONCRETE": 0.87
+        },
+        "crossArmWindMultipliers": {
+          "WOOD": 0.87,
+          "METAL": 0.87,
+          "REINFORCED_CONCRETE": 0.87,
+          "POLYMER": 0.87,
+          "PRESTRESSED_CONCRETE": 0.87
+        },
+        "areaMultipliers": {
+          "ROUND": 1.0,
+          "SQUARE": 1.6,
+          "ROUND_LATTICE": 2.0,
+          "SQUARE_LATTICE": 3.2
+        }
+      }
+    },
+    {
+      "name": "Extreme Ice with Wind 2012 Load Case",
+      "type": "NESC Extreme Ice 2012",
+      "analysisMethod": "DIRECT_STIFFNESS",
+      "connectionType": "CONTINUATION",
+      "displacementBasedLoadChangesLevel": "NONE",
+      "windType": "SWEEP",
+      "sweepIncrement": "DEGREE_1",
+      "windStartAngle": {
+        "unit": "RADIAN",
+        "value": 0.0
+      },
+      "windEndAngle": {
+        "unit": "RADIAN",
+        "value": 6.283185307179586
+      },
+      "useStrengthResults": false,
+      "analyzeWithAverageSpan": false,
+      "maximumLoadingRatio": 1.0,
+      "addByDefault": false,
+      "constructionType": "NEW",
+      "checkUtilityWireTension": false,
+      "maximumAllowableUtilityWireTensionRatio": {
+        "unit": "PERCENT",
+        "value": 60.0
+      },
+      "checkCommWireTension": false,
+      "maximumAllowableCommunicationWireTensionRatio": {
+        "unit": "PERCENT",
+        "value": 60.0
+      },
+      "analyzeGroundLineOnly": false,
+      "components": [],
+      "windSpeed": "MPH_30",
+      "ice": "INCH_000",
+      "constructionGrade": "C",
+      "analyzeWithExtremeIceOnAll": true,
+      "analyzeWithoutLinearConstant": false,
+      "wireTensionMethod": "INITIAL",
+      "creepWireTensionTemperature": {
+        "unit": "CELSIUS",
+        "value": -9.444444444444445
+      },
+      "creepWireTensionIceThickness": {
+        "unit": "METRE",
+        "value": 0.0
+      },
+      "creepWireTensionWindPressure": {
+        "unit": "PASCAL",
+        "value": 110.12459565477243
+      },
+      "creepWireTensionIceDensity": {
+        "unit": "KILOGRAM_PER_CUBIC_METRE",
+        "value": 917.0
+      },
+      "highestWireTensionTemperature": {
+        "unit": "CELSIUS",
+        "value": -9.444444444444445
+      },
+      "highestWireTensionIceThickness": {
+        "unit": "METRE",
+        "value": 0.0
+      },
+      "highestWireTensionWindPressure": {
+        "unit": "PASCAL",
+        "value": 110.12459565477243
+      },
+      "highestWireTensionIceDensity": {
+        "unit": "KILOGRAM_PER_CUBIC_METRE",
+        "value": 917.0
+      },
+      "outerStrandingCompression": false,
+      "overrides": {},
+      "valuesApplied": {
+        "ice": {
+          "unit": "METRE",
+          "value": 0.0
+        },
+        "iceDensity": {
+          "unit": "KILOGRAM_PER_CUBIC_METRE",
+          "value": 917.0
+        },
+        "temperature": {
+          "unit": "CELSIUS",
+          "value": -9.444444444444445
+        },
+        "windPressure": {
+          "unit": "PASCAL",
+          "value": 110.12459565477243
+        },
+        "linearConstant": {
+          "unit": "NEWTON_PER_METRE",
+          "value": 0.0
+        },
+        "anchorStrengthFactor": 1.0,
+        "anchorTensionMultiplier": 1.0,
+        "anchorVerticalLoadMultiplier": 1.0,
+        "commOnlyTensionMultiplier": 0.0,
+        "guyStrengthFactor": 0.9,
+        "guyTensionMultiplier": 1.0,
+        "guyVerticalLoadMultiplier": 1.0,
+        "insulatorStrengthFactor": 1.0,
+        "insulatorTensionMultiplier": 1.0,
+        "insulatorVerticalLoadMultiplier": 1.0,
+        "insulatorWindMultiplier": 1.0,
+        "anchorWindMultiplier": 1.0,
+        "guyWindMultiplier": 1.0,
+        "foundationStrengthFactor": 1.0,
+        "foundationTensionMultiplier": 1.0,
+        "foundationVerticalLoadMultiplier": 1.0,
+        "foundationWindMultiplier": 1.0,
+        "poleStrengthFactors": {
+          "WOOD": 0.75,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 0.75,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "poleTensionMultipliers": {
+          "WOOD": 1.0,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 1.0,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "poleVerticalLoadMultipliers": {
+          "WOOD": 1.0,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 1.0,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "poleWindMultipliers": {
+          "WOOD": 1.0,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 1.0,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "crossArmStrengthFactors": {
+          "WOOD": 0.75,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 0.75,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "crossArmTensionMultipliers": {
+          "WOOD": 1.0,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 1.0,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "crossArmVerticalLoadMultipliers": {
+          "WOOD": 1.0,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 1.0,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "crossArmWindMultipliers": {
+          "WOOD": 1.0,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 1.0,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "areaMultipliers": {
+          "ROUND": 1.0,
+          "SQUARE": 1.6,
+          "ROUND_LATTICE": 2.0,
+          "SQUARE_LATTICE": 3.2
+        }
+      }
+    },
+    {
+      "name": "json csa load case",
+      "type": "CSA 2015",
+      "analysisMethod": "DIRECT_STIFFNESS",
+      "connectionType": "CONTINUATION",
+      "displacementBasedLoadChangesLevel": "PARTIAL",
+      "windType": "SWEEP",
+      "sweepIncrement": "DEGREE_1",
+      "windStartAngle": {
+        "unit": "RADIAN",
+        "value": 0.08726646259971647
+      },
+      "windEndAngle": {
+        "unit": "RADIAN",
+        "value": 6.283185307179586
+      },
+      "useStrengthResults": false,
+      "analyzeWithAverageSpan": false,
+      "maximumLoadingRatio": 1.0,
+      "addByDefault": false,
+      "constructionType": "NEW",
+      "checkUtilityWireTension": false,
+      "maximumAllowableUtilityWireTensionRatio": {
+        "unit": "PERCENT",
+        "value": 60.0
+      },
+      "checkCommWireTension": false,
+      "maximumAllowableCommunicationWireTensionRatio": {
+        "unit": "PERCENT",
+        "value": 60.0
+      },
+      "analyzeGroundLineOnly": true,
+      "components": [],
+      "constructionGrade": "ONE",
+      "loadZone": "HEAVY",
+      "wireTensionMethod": "INITIAL",
+      "creepWireTensionTemperature": {
+        "unit": "CELSIUS",
+        "value": -20.0
+      },
+      "creepWireTensionIceThickness": {
+        "unit": "METRE",
+        "value": 0.012499999993600002
+      },
+      "creepWireTensionWindPressure": {
+        "unit": "PASCAL",
+        "value": 399.8001624858043
+      },
+      "creepWireTensionIceDensity": {
+        "unit": "KILOGRAM_PER_CUBIC_METRE",
+        "value": 900.0
+      },
+      "highestWireTensionTemperature": {
+        "unit": "CELSIUS",
+        "value": -20.0
+      },
+      "highestWireTensionIceThickness": {
+        "unit": "METRE",
+        "value": 0.012499999993600002
+      },
+      "highestWireTensionWindPressure": {
+        "unit": "PASCAL",
+        "value": 399.8001624858043
+      },
+      "highestWireTensionIceDensity": {
+        "unit": "KILOGRAM_PER_CUBIC_METRE",
+        "value": 900.0
+      },
+      "outerStrandingCompression": false,
+      "overrides": {},
+      "valuesApplied": {
+        "ice": {
+          "unit": "METRE",
+          "value": 0.012499999993600002
+        },
+        "iceDensity": {
+          "unit": "KILOGRAM_PER_CUBIC_METRE",
+          "value": 900.0
+        },
+        "temperature": {
+          "unit": "CELSIUS",
+          "value": -20.0
+        },
+        "windPressure": {
+          "unit": "PASCAL",
+          "value": 399.8001624858043
+        },
+        "linearConstant": {
+          "unit": "NEWTON_PER_METRE",
+          "value": 0.0
+        },
+        "anchorStrengthFactor": 0.9091,
+        "anchorTensionMultiplier": 0.0,
+        "anchorVerticalLoadMultiplier": 0.0,
+        "commOnlyTensionMultiplier": 0.0,
+        "guyStrengthFactor": 0.9091,
+        "guyTensionMultiplier": 0.0,
+        "guyVerticalLoadMultiplier": 0.0,
+        "insulatorStrengthFactor": 1.0,
+        "insulatorTensionMultiplier": 1.6,
+        "insulatorVerticalLoadMultiplier": 1.0,
+        "insulatorWindMultiplier": 1.0,
+        "anchorWindMultiplier": 0.0,
+        "guyWindMultiplier": 0.0,
+        "foundationStrengthFactor": 0.9091,
+        "foundationTensionMultiplier": 0.0,
+        "foundationVerticalLoadMultiplier": 0.0,
+        "foundationWindMultiplier": 0.0,
+        "poleStrengthFactors": {
+          "WOOD": 1.0,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 1.0,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "poleTensionMultipliers": {
+          "WOOD": 1.9,
+          "METAL": 1.2,
+          "REINFORCED_CONCRETE": 1.5,
+          "POLYMER": 1.2,
+          "PRESTRESSED_CONCRETE": 1.5
+        },
+        "poleVerticalLoadMultipliers": {
+          "WOOD": 2.0,
+          "METAL": 1.3,
+          "REINFORCED_CONCRETE": 1.6,
+          "POLYMER": 1.3,
+          "PRESTRESSED_CONCRETE": 1.6
+        },
+        "poleWindMultipliers": {
+          "WOOD": 1.9,
+          "METAL": 1.2,
+          "REINFORCED_CONCRETE": 1.5,
+          "POLYMER": 1.2,
+          "PRESTRESSED_CONCRETE": 1.5
+        },
+        "crossArmStrengthFactors": {
+          "WOOD": 1.0,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 1.0,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "crossArmTensionMultipliers": {
+          "WOOD": 1.6,
+          "METAL": 1.6,
+          "REINFORCED_CONCRETE": 1.6,
+          "POLYMER": 1.6,
+          "PRESTRESSED_CONCRETE": 1.6
+        },
+        "crossArmVerticalLoadMultipliers": {
+          "WOOD": 2.0,
+          "METAL": 2.0,
+          "REINFORCED_CONCRETE": 2.0,
+          "POLYMER": 2.0,
+          "PRESTRESSED_CONCRETE": 2.0
+        },
+        "crossArmWindMultipliers": {
+          "WOOD": 1.0,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 1.0,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "areaMultipliers": {
+          "ROUND": 1.0,
+          "SQUARE": 2.0,
+          "ROUND_LATTICE": 1.0,
+          "SQUARE_LATTICE": 3.0
+        }
+      }
     }
   ],
   "defaultStrengthCase": {
@@ -6677,6 +7195,135 @@
                       "unit": "METRE",
                       "value": 0.0
                     }
+                  },
+                  "results": []
+                },
+                {
+                  "id": "Testing",
+                  "analysisCaseDetails": {
+                    "type": "CSA 2015",
+                    "name": "CSA",
+                    "addByDefault": false,
+                    "overrides": {},
+                    "valuesApplied": {
+                      "ice": {
+                        "unit": "METRE",
+                        "value": 0.012500000000000002
+                      },
+                      "iceDensity": {
+                        "unit": "KILOGRAM_PER_CUBIC_METRE",
+                        "value": 900.0
+                      },
+                      "temperature": {
+                        "unit": "CELSIUS",
+                        "value": -20.0
+                      },
+                      "windPressure": {
+                        "unit": "PASCAL",
+                        "value": 399.8001624858043
+                      },
+                      "linearConstant": {
+                        "unit": "NEWTON_PER_METRE",
+                        "value": 0.0
+                      },
+                      "anchorStrengthFactor": 1.0,
+                      "anchorTensionMultiplier": 1.25,
+                      "anchorVerticalLoadMultiplier": 1.0,
+                      "commOnlyTensionMultiplier": 0.0,
+                      "guyStrengthFactor": 1.0,
+                      "guyTensionMultiplier": 1.25,
+                      "guyVerticalLoadMultiplier": 1.0,
+                      "insulatorStrengthFactor": 1.0,
+                      "insulatorTensionMultiplier": 1.6,
+                      "insulatorVerticalLoadMultiplier": 1.0,
+                      "insulatorWindMultiplier": 1.0,
+                      "anchorWindMultiplier": 1.25,
+                      "guyWindMultiplier": 1.25,
+                      "foundationStrengthFactor": 1.0,
+                      "foundationTensionMultiplier": 1.3,
+                      "foundationVerticalLoadMultiplier": 1.5,
+                      "foundationWindMultiplier": 1.3,
+                      "poleStrengthFactors": {
+                        "WOOD": 1.0,
+                        "METAL": 1.0,
+                        "REINFORCED_CONCRETE": 1.0,
+                        "POLYMER": 1.0,
+                        "PRESTRESSED_CONCRETE": 1.0
+                      },
+                      "poleTensionMultipliers": {
+                        "WOOD": 1.3,
+                        "METAL": 1.1,
+                        "REINFORCED_CONCRETE": 1.2,
+                        "POLYMER": 1.1,
+                        "PRESTRESSED_CONCRETE": 1.2
+                      },
+                      "poleVerticalLoadMultipliers": {
+                        "WOOD": 1.5,
+                        "METAL": 1.15,
+                        "REINFORCED_CONCRETE": 1.3,
+                        "POLYMER": 1.15,
+                        "PRESTRESSED_CONCRETE": 1.3
+                      },
+                      "poleWindMultipliers": {
+                        "WOOD": 1.3,
+                        "METAL": 1.1,
+                        "REINFORCED_CONCRETE": 1.2,
+                        "POLYMER": 1.1,
+                        "PRESTRESSED_CONCRETE": 1.2
+                      },
+                      "crossArmStrengthFactors": {
+                        "WOOD": 1.0,
+                        "METAL": 1.0,
+                        "REINFORCED_CONCRETE": 1.0,
+                        "POLYMER": 1.0,
+                        "PRESTRESSED_CONCRETE": 1.0
+                      },
+                      "crossArmTensionMultipliers": {
+                        "WOOD": 1.6,
+                        "METAL": 1.6,
+                        "REINFORCED_CONCRETE": 1.6,
+                        "POLYMER": 1.6,
+                        "PRESTRESSED_CONCRETE": 1.6
+                      },
+                      "crossArmVerticalLoadMultipliers": {
+                        "WOOD": 2.0,
+                        "METAL": 2.0,
+                        "REINFORCED_CONCRETE": 2.0,
+                        "POLYMER": 2.0,
+                        "PRESTRESSED_CONCRETE": 2.0
+                      },
+                      "crossArmWindMultipliers": {
+                        "WOOD": 1.0,
+                        "METAL": 1.0,
+                        "REINFORCED_CONCRETE": 1.0,
+                        "POLYMER": 1.0,
+                        "PRESTRESSED_CONCRETE": 1.0
+                      },
+                      "areaMultipliers": {
+                        "ROUND": 1.0,
+                        "SQUARE": 2.0,
+                        "ROUND_LATTICE": 1.0,
+                        "SQUARE_LATTICE": 3.0
+                      }
+                    }
+                  },
+                  "results": []
+                },
+                {
+                  "id": "NESC Extreme Wind 2012",
+                  "analysisCaseDetails": {
+                    "type": "NESC Extreme Wind 2012",
+                    "name": "NESC",
+                    "addByDefault": false
+                  },
+                  "results": []
+                },
+                {
+                  "id": "NESC Extreme Ice 2012",
+                  "analysisCaseDetails": {
+                    "type": "NESC Extreme Ice 2012",
+                    "name": "NESC",
+                    "addByDefault": false
                   },
                   "results": []
                 }

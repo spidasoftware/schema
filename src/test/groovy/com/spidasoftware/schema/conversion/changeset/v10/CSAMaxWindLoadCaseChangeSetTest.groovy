@@ -21,13 +21,13 @@ class CSAMaxWindLoadCaseChangeSetTest extends Specification {
             stream.close()
         expect:
             json.analysisCases.findAll { it.type == "CSA 2020 Maximum Wind" }.size() == 1
-            json.analysisCases.size() == 14
+            json.analysisCases.size() == 17
         when: "apply changeset"
             boolean anyChanged = changeSet.revertClientData(json)
         then: "csa max wind case gets removed"
             anyChanged
             json.analysisCases.findAll { it.type == "CSA 2020 Maximum Wind" }.size() == 0
-            json.analysisCases.size() == 13
+            json.analysisCases.size() == 16
     }
 
     def "revert project json"() {
@@ -37,12 +37,12 @@ class CSAMaxWindLoadCaseChangeSetTest extends Specification {
             stream.close()
         expect:
             json.defaultLoadCases.findAll { it.type == "CSA 2020 Maximum Wind" }.size() == 1
-            json.defaultLoadCases.size() == 11
+            json.defaultLoadCases.size() == 14
         when: "apply changeset"
             changeSet.revertProject(json)
         then: "csa max wind case gets removed"
             json.defaultLoadCases.findAll { it.type == "CSA 2020 Maximum Wind" }.size() == 0
-            json.defaultLoadCases.size() == 10
+            json.defaultLoadCases.size() == 13
     }
 
     def "revert results json"() {
@@ -52,12 +52,12 @@ class CSAMaxWindLoadCaseChangeSetTest extends Specification {
             stream.close()
         expect:
             json.results.findAll { it.analysisCaseDetails.type == "CSA 2020 Maximum Wind" }.size() == 1
-            json.results.size() == 12
+            json.results.size() == 15
         when: "apply changeset"
             boolean anyChanged = changeSet.revertResults(json)
         then: "csa max wind case gets removed"
             anyChanged
             json.results.findAll { it.analysisCaseDetails.type == "CSA 2020 Maximum Wind" }.size() == 0
-            json.results.size() == 11
+            json.results.size() == 14
     }
 }

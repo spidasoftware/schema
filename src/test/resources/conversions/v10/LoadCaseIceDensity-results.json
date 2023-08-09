@@ -7656,6 +7656,144 @@
       }
     },
     {
+      "analysisCase": "CSA",
+      "analysisCaseVersion": "b23cc0d8e509264130da14a129c3e435",
+      "analysisDate": 1688764090268,
+      "engineVersion": "8.0.1.99999",
+      "components": [],
+      "analysisCaseDetails": {
+        "name": "CSA",
+        "type": "CSA 2015",
+        "addByDefault": false,
+        "overrides": {},
+        "valuesApplied": {
+          "ice": {
+            "unit": "METRE",
+            "value": 0.012500000000000002
+          },
+          "iceDensity": {
+            "unit": "KILOGRAM_PER_CUBIC_METRE",
+            "value": 900.0
+          },
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": -20.0
+          },
+          "windPressure": {
+            "unit": "PASCAL",
+            "value": 399.8001624858043
+          },
+          "linearConstant": {
+            "unit": "NEWTON_PER_METRE",
+            "value": 0.0
+          },
+          "anchorStrengthFactor": 1.0,
+          "anchorTensionMultiplier": 1.25,
+          "anchorVerticalLoadMultiplier": 1.0,
+          "commOnlyTensionMultiplier": 0.0,
+          "guyStrengthFactor": 1.0,
+          "guyTensionMultiplier": 1.25,
+          "guyVerticalLoadMultiplier": 1.0,
+          "insulatorStrengthFactor": 1.0,
+          "insulatorTensionMultiplier": 1.6,
+          "insulatorVerticalLoadMultiplier": 1.0,
+          "insulatorWindMultiplier": 1.0,
+          "anchorWindMultiplier": 1.25,
+          "guyWindMultiplier": 1.25,
+          "foundationStrengthFactor": 1.0,
+          "foundationTensionMultiplier": 1.3,
+          "foundationVerticalLoadMultiplier": 1.5,
+          "foundationWindMultiplier": 1.3,
+          "poleStrengthFactors": {
+            "WOOD": 1.0,
+            "METAL": 1.0,
+            "REINFORCED_CONCRETE": 1.0,
+            "POLYMER": 1.0,
+            "PRESTRESSED_CONCRETE": 1.0
+          },
+          "poleTensionMultipliers": {
+            "WOOD": 1.3,
+            "METAL": 1.1,
+            "REINFORCED_CONCRETE": 1.2,
+            "POLYMER": 1.1,
+            "PRESTRESSED_CONCRETE": 1.2
+          },
+          "poleVerticalLoadMultipliers": {
+            "WOOD": 1.5,
+            "METAL": 1.15,
+            "REINFORCED_CONCRETE": 1.3,
+            "POLYMER": 1.15,
+            "PRESTRESSED_CONCRETE": 1.3
+          },
+          "poleWindMultipliers": {
+            "WOOD": 1.3,
+            "METAL": 1.1,
+            "REINFORCED_CONCRETE": 1.2,
+            "POLYMER": 1.1,
+            "PRESTRESSED_CONCRETE": 1.2
+          },
+          "crossArmStrengthFactors": {
+            "WOOD": 1.0,
+            "METAL": 1.0,
+            "REINFORCED_CONCRETE": 1.0,
+            "POLYMER": 1.0,
+            "PRESTRESSED_CONCRETE": 1.0
+          },
+          "crossArmTensionMultipliers": {
+            "WOOD": 1.6,
+            "METAL": 1.6,
+            "REINFORCED_CONCRETE": 1.6,
+            "POLYMER": 1.6,
+            "PRESTRESSED_CONCRETE": 1.6
+          },
+          "crossArmVerticalLoadMultipliers": {
+            "WOOD": 2.0,
+            "METAL": 2.0,
+            "REINFORCED_CONCRETE": 2.0,
+            "POLYMER": 2.0,
+            "PRESTRESSED_CONCRETE": 2.0
+          },
+          "crossArmWindMultipliers": {
+            "WOOD": 1.0,
+            "METAL": 1.0,
+            "REINFORCED_CONCRETE": 1.0,
+            "POLYMER": 1.0,
+            "PRESTRESSED_CONCRETE": 1.0
+          },
+          "areaMultipliers": {
+            "ROUND": 1.0,
+            "SQUARE": 2.0,
+            "ROUND_LATTICE": 1.0,
+            "SQUARE_LATTICE": 3.0
+          }
+        }
+      }
+    },
+    {
+      "analysisCase": "Wind",
+      "analysisCaseVersion": "b23cc0d8e509264130da14a129c3e433",
+      "analysisDate": 1699764090268,
+      "engineVersion": "8.0.1.99999",
+      "components": [],
+      "analysisCaseDetails":  {
+        "name": "NESC",
+        "type": "NESC Extreme Wind 2012",
+        "addByDefault": false
+      },
+    },
+    {
+      "analysisCase": "Ice",
+      "analysisCaseVersion": "b23cc0d8e509264130da14a129c3e433",
+      "analysisDate": 1699764090268,
+      "engineVersion": "8.0.1.99999",
+      "components": [],
+      "analysisCaseDetails":  {
+        "name": "NESC",
+        "type": "NESC Extreme Ice 2012",
+        "addByDefault": false
+      },
+    },
+    {
       "analysisCase": "CSA Medium A",
       "analysisCaseVersion": "b24cc0d8e509364130da14a129c3e435",
       "analysisDate": 1688764090269,
