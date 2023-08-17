@@ -7775,11 +7775,11 @@
       "analysisDate": 1699764090268,
       "engineVersion": "8.0.1.99999",
       "components": [],
-      "analysisCaseDetails":  {
+      "analysisCaseDetails": {
         "name": "NESC",
         "type": "NESC Extreme Wind 2012",
         "addByDefault": false
-      },
+      }
     },
     {
       "analysisCase": "Ice",
@@ -7787,11 +7787,11 @@
       "analysisDate": 1699764090268,
       "engineVersion": "8.0.1.99999",
       "components": [],
-      "analysisCaseDetails":  {
+      "analysisCaseDetails": {
         "name": "NESC",
         "type": "NESC Extreme Ice 2012",
         "addByDefault": false
-      },
+      }
     },
     {
       "analysisCase": "CSA Medium A",
@@ -79702,6 +79702,181 @@
         "heightToIncludeAtGroundline": {
           "unit": "METRE",
           "value": 0.0
+        }
+      }
+    },
+    {
+      "analysisCase": "NESC Wind 2023",
+      "analysisCaseDetails": {
+        "name": "NESC Extreme Wind 2023",
+        "type": "NESC Extreme Wind 2023",
+        "analysisMethod": "DIRECT_STIFFNESS",
+        "connectionType": "CONTINUATION",
+        "displacementBasedLoadChangesLevel": "PARTIAL",
+        "windType": "SWEEP",
+        "sweepIncrement": "DEGREE_1",
+        "windStartAngle": {
+          "unit": "RADIAN",
+          "value": 0
+        },
+        "windEndAngle": {
+          "unit": "RADIAN",
+          "value": 6.283185307179586
+        },
+        "useStrengthResults": false,
+        "analyzeWithAverageSpan": false,
+        "maximumLoadingRatio": 1,
+        "addByDefault": false,
+        "constructionType": "NEW",
+        "checkUtilityWireTension": false,
+        "maximumAllowableUtilityWireTensionRatio": {
+          "unit": "PERCENT",
+          "value": 60
+        },
+        "checkCommWireTension": false,
+        "maximumAllowableCommunicationWireTensionRatio": {
+          "unit": "PERCENT",
+          "value": 60
+        },
+        "analyzeGroundLineOnly": false,
+        "components": [],
+        "constructionGrade": "ONE",
+        "meanWindSpeed": {
+          "unit": "KILOMETRE_PER_HOUR",
+          "value": 80
+        },
+        "wireTensionMethod": "INITIAL",
+        "creepWireTensionTemperature": {
+          "unit": "CELSIUS",
+          "value": -20
+        },
+        "creepWireTensionIceThickness": {
+          "unit": "METRE",
+          "value": 0
+        },
+        "creepWireTensionWindPressure": {
+          "unit": "PASCAL",
+          "value": 0
+        },
+        "creepWireTensionIceDensity": {
+          "unit": "KILOGRAM_PER_CUBIC_METRE",
+          "value": 900
+        },
+        "highestWireTensionTemperature": {
+          "unit": "CELSIUS",
+          "value": -20
+        },
+        "highestWireTensionIceThickness": {
+          "unit": "METRE",
+          "value": 0
+        },
+        "highestWireTensionWindPressure": {
+          "unit": "PASCAL",
+          "value": 0
+        },
+        "highestWireTensionIceDensity": {
+          "unit": "KILOGRAM_PER_CUBIC_METRE",
+          "value": 900
+        },
+        "outerStrandingCompression": false,
+        "overrides": {},
+        "valuesApplied": {
+          "ice": {
+            "unit": "METRE",
+            "value": 0
+          },
+          "iceDensity": {
+            "unit": "KILOGRAM_PER_CUBIC_METRE",
+            "value": 900
+          },
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": -20
+          },
+          "windPressure": null,
+          "linearConstant": {
+            "unit": "NEWTON_PER_METRE",
+            "value": 0
+          },
+          "anchorStrengthFactor": 1,
+          "anchorTensionMultiplier": 1.6,
+          "anchorVerticalLoadMultiplier": 1,
+          "commOnlyTensionMultiplier": 0,
+          "guyStrengthFactor": 1,
+          "guyTensionMultiplier": 1.6,
+          "guyVerticalLoadMultiplier": 1,
+          "insulatorStrengthFactor": 1,
+          "insulatorTensionMultiplier": 1.6,
+          "insulatorVerticalLoadMultiplier": 1,
+          "insulatorWindMultiplier": 1,
+          "anchorWindMultiplier": 1.6,
+          "guyWindMultiplier": 1.6,
+          "foundationStrengthFactor": 1,
+          "foundationTensionMultiplier": 1.9,
+          "foundationVerticalLoadMultiplier": 2,
+          "foundationWindMultiplier": 1.9,
+          "poleStrengthFactors": {
+            "WOOD": 1,
+            "METAL": 1,
+            "REINFORCED_CONCRETE": 1,
+            "POLYMER": 1,
+            "PRESTRESSED_CONCRETE": 1
+          },
+          "poleTensionMultipliers": {
+            "WOOD": 1.9,
+            "METAL": 1.2,
+            "REINFORCED_CONCRETE": 1.5,
+            "POLYMER": 1.2,
+            "PRESTRESSED_CONCRETE": 1.5
+          },
+          "poleVerticalLoadMultipliers": {
+            "WOOD": 2,
+            "METAL": 1.3,
+            "REINFORCED_CONCRETE": 1.6,
+            "POLYMER": 1.3,
+            "PRESTRESSED_CONCRETE": 1.6
+          },
+          "poleWindMultipliers": {
+            "WOOD": 1.9,
+            "METAL": 1.2,
+            "REINFORCED_CONCRETE": 1.5,
+            "POLYMER": 1.2,
+            "PRESTRESSED_CONCRETE": 1.5
+          },
+          "crossArmStrengthFactors": {
+            "WOOD": 1,
+            "METAL": 1,
+            "REINFORCED_CONCRETE": 1,
+            "POLYMER": 1,
+            "PRESTRESSED_CONCRETE": 1
+          },
+          "crossArmTensionMultipliers": {
+            "WOOD": 1.6,
+            "METAL": 1.6,
+            "REINFORCED_CONCRETE": 1.6,
+            "POLYMER": 1.6,
+            "PRESTRESSED_CONCRETE": 1.6
+          },
+          "crossArmVerticalLoadMultipliers": {
+            "WOOD": 2,
+            "METAL": 2,
+            "REINFORCED_CONCRETE": 2,
+            "POLYMER": 2,
+            "PRESTRESSED_CONCRETE": 2
+          },
+          "crossArmWindMultipliers": {
+            "WOOD": 1,
+            "METAL": 1,
+            "REINFORCED_CONCRETE": 1,
+            "POLYMER": 1,
+            "PRESTRESSED_CONCRETE": 1
+          },
+          "areaMultipliers": {
+            "ROUND": 1,
+            "SQUARE": 2,
+            "ROUND_LATTICE": 1,
+            "SQUARE_LATTICE": 3
+          }
         }
       }
     },

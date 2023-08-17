@@ -173,29 +173,36 @@
       ]
     },
     "windSpeed": {
-      "enum": [
-        "MPH_30",
-        "MPH_40",
-        "MPH_50",
-        "MPH_60",
-        "MPH_85",
-        "MPH_90",
-        "MPH_95",
-        "MPH_100",
-        "MPH_105",
-        "MPH_110",
-        "MPH_115",
-        "MPH_120",
-        "MPH_125",
-        "MPH_130",
-        "MPH_135",
-        "MPH_140",
-        "MPH_145",
-        "MPH_150",
-        "MPH_155",
-        "MPH_160",
-        "MPH_165",
-        "MPH_170"
+      "anyOf": [
+        {
+          "enum": [
+            "MPH_30",
+            "MPH_40",
+            "MPH_50",
+            "MPH_60",
+            "MPH_85",
+            "MPH_90",
+            "MPH_95",
+            "MPH_100",
+            "MPH_105",
+            "MPH_110",
+            "MPH_115",
+            "MPH_120",
+            "MPH_125",
+            "MPH_130",
+            "MPH_135",
+            "MPH_140",
+            "MPH_145",
+            "MPH_150",
+            "MPH_155",
+            "MPH_160",
+            "MPH_165",
+            "MPH_170"
+          ]
+        },
+        {
+          "$ref": "../../general/measurable.schema"
+        }
       ]
     },
     "ice": {
@@ -501,7 +508,8 @@
         "type": {
           "enum": [
             "NESC Extreme Wind 2007",
-            "NESC Extreme Wind 2012-2017"
+            "NESC Extreme Wind 2012-2017",
+            "NESC Extreme Wind 2023"
           ]
         }
       }
