@@ -14,101 +14,62 @@ class LoadCaseChangeSetTest extends Specification {
         changeSet = new LoadCaseChangeSet()
     }
 
-    def "apply/revert client data"() {
+    def "revert client data json"() {
         setup:
             def stream = LoadCaseChangeSetTest.getResourceAsStream("/conversions/v10/LoadCaseIceDensity-client.json".toString())
             Map json = new JsonSlurper().parse(stream) as Map
             stream.close()
-            boolean anyChanged
         expect:
-            json.analysisCases[9].type == "NESC 2012"
-            json.analysisCases[14].type == "NESC Extreme Wind 2012"
-            json.analysisCases[15].type == "NESC Extreme Ice 2012"
-            json.analysisCases[16].type == "CSA 2015"
-        when: "apply to client data"
-            anyChanged = changeSet.applyToClientData(json)
-        then: "types get updated"
+            json.analysisCases.findAll { it.type == "CSA 2020 Maximum Wind" }.size() == 1
+            json.analysisCases.findAll { it.type == "NESC Extreme Wind 2023" }.size() == 1
+            json.analysisCases.findAll { it.type == "NESC Extreme Ice 2023" }.size() == 1
+            json.analysisCases.size() == 19
+        when: "apply changeset"
+            boolean anyChanged = changeSet.revertClientData(json)
+        then: "load cases get removed"
             anyChanged
-            json.analysisCases[9].type == "NESC 2012-2017"
-            json.analysisCases[14].type == "NESC Extreme Wind 2012-2017"
-            json.analysisCases[15].type == "NESC Extreme Ice 2012-2017"
-            json.analysisCases[16].type == "CSA 2015-2020"
-        when: "revert client data"
-            anyChanged = changeSet.revertClientData(json)
-        then: "types get updated"
-            anyChanged
-            json.analysisCases[9].type == "NESC 2012"
-            json.analysisCases[14].type == "NESC Extreme Wind 2012"
-            json.analysisCases[15].type == "NESC Extreme Ice 2012"
-            json.analysisCases[16].type == "CSA 2015"
+            json.analysisCases.findAll { it.type == "CSA 2020 Maximum Wind" }.size() == 0
+            json.analysisCases.findAll { it.type == "NESC Extreme Wind 2023" }.size() == 0
+            json.analysisCases.findAll { it.type == "NESC Extreme Ice 2023" }.size() == 0
+            json.analysisCases.size() == 16
     }
 
-    def "apply/revert project json"() {
+    def "revert project json"() {
         setup:
             def stream = LoadCaseChangeSetTest.getResourceAsStream("/conversions/v10/LoadCaseIceDensity-project.json".toString())
             Map json = new JsonSlurper().parse(stream) as Map
             stream.close()
         expect:
-            json.defaultLoadCases[6].type == "NESC 2012"
-            json.defaultLoadCases[11].type == "NESC Extreme Wind 2012"
-            json.defaultLoadCases[12].type == "NESC Extreme Ice 2012"
-            json.defaultLoadCases[13].type == "CSA 2015"
-            json.leads[0].locations[0].designs[0].analysis[6].analysisCaseDetails.type == "NESC 2012"
-            json.leads[0].locations[0].designs[0].analysis[11].analysisCaseDetails.type == "CSA 2015"
-            json.leads[0].locations[0].designs[0].analysis[12].analysisCaseDetails.type == "NESC Extreme Wind 2012"
-            json.leads[0].locations[0].designs[0].analysis[13].analysisCaseDetails.type == "NESC Extreme Ice 2012"
-
-        when:
-            changeSet.applyToProject(json)
-        then:
-            json.defaultLoadCases[6].type == "NESC 2012-2017"
-            json.defaultLoadCases[11].type == "NESC Extreme Wind 2012-2017"
-            json.defaultLoadCases[12].type == "NESC Extreme Ice 2012-2017"
-            json.defaultLoadCases[13].type == "CSA 2015-2020"
-            json.leads[0].locations[0].designs[0].analysis[6].analysisCaseDetails.type == "NESC 2012-2017"
-            json.leads[0].locations[0].designs[0].analysis[11].analysisCaseDetails.type == "CSA 2015-2020"
-            json.leads[0].locations[0].designs[0].analysis[12].analysisCaseDetails.type == "NESC Extreme Wind 2012-2017"
-            json.leads[0].locations[0].designs[0].analysis[13].analysisCaseDetails.type == "NESC Extreme Ice 2012-2017"
-        when:
+            json.defaultLoadCases.findAll { it.type == "CSA 2020 Maximum Wind" }.size() == 1
+            json.defaultLoadCases.findAll { it.type == "NESC Extreme Wind 2023" }.size() == 1
+            json.defaultLoadCases.findAll { it.type == "NESC Extreme Ice 2023" }.size() == 1
+            json.defaultLoadCases.size() == 16
+        when: "apply changeset"
             changeSet.revertProject(json)
-        then:
-            json.defaultLoadCases[6].type == "NESC 2012"
-            json.defaultLoadCases[11].type == "NESC Extreme Wind 2012"
-            json.defaultLoadCases[12].type == "NESC Extreme Ice 2012"
-            json.defaultLoadCases[13].type == "CSA 2015"
-            json.leads[0].locations[0].designs[0].analysis[6].analysisCaseDetails.type == "NESC 2012"
-            json.leads[0].locations[0].designs[0].analysis[11].analysisCaseDetails.type == "CSA 2015"
-            json.leads[0].locations[0].designs[0].analysis[12].analysisCaseDetails.type == "NESC Extreme Wind 2012"
-            json.leads[0].locations[0].designs[0].analysis[13].analysisCaseDetails.type == "NESC Extreme Ice 2012"
+        then: "load cases get removed"
+            json.defaultLoadCases.findAll { it.type == "CSA 2020 Maximum Wind" }.size() == 0
+            json.defaultLoadCases.findAll { it.type == "NESC Extreme Wind 2023" }.size() == 0
+            json.defaultLoadCases.findAll { it.type == "NESC Extreme Ice 2023" }.size() == 0
+            json.defaultLoadCases.size() == 13
     }
 
-    def "apply/revert results json"() {
+    def "revert results json"() {
         setup:
             def stream = LoadCaseChangeSetTest.getResourceAsStream("/conversions/v10/LoadCaseIceDensity-results.json".toString())
             Map json = new JsonSlurper().parse(stream) as Map
             stream.close()
-            boolean anyChanged
         expect:
-            json.results[1].analysisCaseDetails.type == "CSA 2015"
-            json.results[2].analysisCaseDetails.type == "NESC Extreme Wind 2012"
-            json.results[3].analysisCaseDetails.type == "NESC Extreme Ice 2012"
-            json.results[9].analysisCaseDetails.type == "NESC 2012"
-        when:
-            anyChanged = changeSet.applyToResults(json)
-        then:
+            json.results.findAll { it.analysisCaseDetails.type == "CSA 2020 Maximum Wind" }.size() == 1
+            json.results.findAll { it.analysisCaseDetails.type == "NESC Extreme Wind 2023" }.size() == 1
+            json.results.findAll { it.analysisCaseDetails.type == "NESC Extreme Ice 2023" }.size() == 1
+            json.results.size() == 17
+        when: "apply changeset"
+            boolean anyChanged = changeSet.revertResults(json)
+        then: "load cases get removed"
             anyChanged
-            json.results[1].analysisCaseDetails.type == "CSA 2015-2020"
-            json.results[2].analysisCaseDetails.type == "NESC Extreme Wind 2012-2017"
-            json.results[3].analysisCaseDetails.type == "NESC Extreme Ice 2012-2017"
-            json.results[9].analysisCaseDetails.type == "NESC 2012-2017"
-        when:
-            anyChanged = changeSet.revertResults(json)
-        then:
-            anyChanged
-            json.results[1].analysisCaseDetails.type == "CSA 2015"
-            json.results[2].analysisCaseDetails.type == "NESC Extreme Wind 2012"
-            json.results[3].analysisCaseDetails.type == "NESC Extreme Ice 2012"
-            json.results[9].analysisCaseDetails.type == "NESC 2012"
+            json.results.findAll { it.analysisCaseDetails.type == "CSA 2020 Maximum Wind" }.size() == 0
+            json.results.findAll { it.analysisCaseDetails.type == "NESC Extreme Wind 2023" }.size() == 0
+            json.results.findAll { it.analysisCaseDetails.type == "NESC Extreme Ice 2023" }.size() == 0
+            json.results.size() == 14
     }
-
 }

@@ -8,62 +8,40 @@ import com.spidasoftware.schema.conversion.changeset.client.AbstractClientDataCh
 import groovy.transform.CompileStatic
 
 /**
- * The 2015 CSA load case name was changed to say '2015-2020'
+ * New load cases were added after Calc v8.0
  *
- * All 2012 NESC load case names were changed to say '2012-2017'
- *
- * When up-converting, we will change '2015' to '2015-2020' for CSA load cases and '2012' to '2012-2017' for NESC
- * When down-converting, we will change '2015-2020' to '2015' for CSA and '2012-2017' to '2012' for NESC
+ * When down converting from schema v10, we want to remove these load cases
  */
 @CompileStatic
 class LoadCaseChangeSet extends AbstractClientDataChangeSet {
 
+    // list of load cases we want to remove
+    private List<String> loadCases = ["CSA 2020 Maximum Wind", "NESC Extreme Wind 2023", "NESC Extreme Ice 2023"]
+
     @Override
     boolean applyToClientData(Map clientDataJSON) throws ConversionException {
-        boolean anyChanged = false
-
-        clientDataJSON.analysisCases?.each { Map analysisCase ->
-            anyChanged |= applyName(analysisCase)
-        }
-        return anyChanged
+        return false
     }
 
     @Override
     boolean revertClientData(Map clientDataJSON) throws ConversionException {
         boolean anyChanged = false
 
-        clientDataJSON.analysisCases?.each { Map analysisCase ->
-            anyChanged |= revertName(analysisCase)
+        if (clientDataJSON.containsKey("analysisCases")) {
+            List<Map> analysisCases = clientDataJSON.analysisCases as List<Map>
+            anyChanged = analysisCases.removeAll { loadCases.contains(it.type) }
         }
+
         return anyChanged
-    }
-
-    @Override
-    void applyToProject(Map projectJSON) throws ConversionException {
-        super.applyToProject(projectJSON)
-
-        projectJSON.defaultLoadCases?.each { Map loadCase ->
-            applyName(loadCase)
-        }
     }
 
     @Override
     void revertProject(Map projectJSON) throws ConversionException {
         super.revertProject(projectJSON)
 
-        projectJSON.defaultLoadCases?.each { Map loadCase ->
-            revertName(loadCase)
-        }
-    }
-
-    @Override
-    void applyToDesign(Map designJSON) throws ConversionException {
-        super.applyToDesign(designJSON)
-
-        designJSON.analysis?.each { Map analysis ->
-            if (analysis.containsKey("analysisCaseDetails")) {
-                applyName(analysis.analysisCaseDetails as Map)
-            }
+        if (projectJSON.containsKey("defaultLoadCases")) {
+            List<Map> defaultLoadCases = projectJSON.defaultLoadCases as List<Map>
+            defaultLoadCases.removeAll { loadCases.contains(it.type) }
         }
     }
 
@@ -71,73 +49,20 @@ class LoadCaseChangeSet extends AbstractClientDataChangeSet {
     void revertDesign(Map designJSON) throws ConversionException {
         super.revertDesign(designJSON)
 
-        designJSON.analysis?.each { Map analysis ->
-            if (analysis.containsKey("analysisCaseDetails")) {
-                revertName(analysis.analysisCaseDetails as Map)
-            }
+        if (designJSON.containsKey("analysis")) {
+            List<Map> analysisList = designJSON.analysis as List<Map>
+            analysisList.removeAll { loadCases.contains((it.analysisCaseDetails as Map).type) }
         }
-    }
-
-    @Override
-    boolean applyToResults(Map resultsJSON) throws ConversionException {
-        boolean anyChanged = super.applyToResults(resultsJSON)
-
-        resultsJSON.results?.each { Map result ->
-            if (result.containsKey("analysisCaseDetails")) {
-                anyChanged |= applyName(result.analysisCaseDetails as Map)
-            }
-
-        }
-        return anyChanged
     }
 
     @Override
     boolean revertResults(Map resultsJSON) throws ConversionException {
         boolean anyChanged = super.revertResults(resultsJSON)
 
-        resultsJSON.results?.each { Map result ->
-            if (result.containsKey("analysisCaseDetails")) {
-                anyChanged |= revertName(result.analysisCaseDetails as Map)
-            }
+        if (resultsJSON.containsKey("results")) {
+            List<Map> resultsList = resultsJSON.results as List<Map>
+            anyChanged = resultsList.removeAll { loadCases.contains((it.analysisCaseDetails as Map).type) }
         }
         return anyChanged
-    }
-
-    boolean applyName(Map loadCase) {
-        switch (loadCase.type) {
-            case "CSA 2015":
-                loadCase.type = "CSA 2015-2020"
-                return true
-            case "NESC 2012":
-                loadCase.type = "NESC 2012-2017"
-                return true
-            case "NESC Extreme Wind 2012":
-                loadCase.type = "NESC Extreme Wind 2012-2017"
-                return true
-            case "NESC Extreme Ice 2012":
-                loadCase.type = "NESC Extreme Ice 2012-2017"
-                return true
-            default:
-                return false
-        }
-    }
-
-    boolean revertName(Map loadCase) {
-        switch (loadCase.type) {
-            case "CSA 2015-2020":
-                loadCase.type = "CSA 2015"
-                return true
-            case "NESC 2012-2017":
-                loadCase.type = "NESC 2012"
-                return true
-            case "NESC Extreme Wind 2012-2017":
-                loadCase.type = "NESC Extreme Wind 2012"
-                return true
-            case "NESC Extreme Ice 2012-2017":
-                loadCase.type = "NESC Extreme Ice 2012"
-                return true
-            default:
-                return false
-        }
     }
 }
