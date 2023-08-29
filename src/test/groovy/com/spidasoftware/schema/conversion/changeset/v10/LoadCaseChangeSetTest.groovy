@@ -22,13 +22,15 @@ class LoadCaseChangeSetTest extends Specification {
         expect:
             json.analysisCases.findAll { it.type == "CSA 2020 Maximum Wind" }.size() == 1
             json.analysisCases.findAll { it.type == "NESC Extreme Wind 2023" }.size() == 1
-            json.analysisCases.size() == 18
+            json.analysisCases.findAll { it.type == "NESC Extreme Ice 2023" }.size() == 1
+            json.analysisCases.size() == 19
         when: "apply changeset"
             boolean anyChanged = changeSet.revertClientData(json)
-        then: "csa max wind case gets removed"
+        then: "load cases get removed"
             anyChanged
             json.analysisCases.findAll { it.type == "CSA 2020 Maximum Wind" }.size() == 0
             json.analysisCases.findAll { it.type == "NESC Extreme Wind 2023" }.size() == 0
+            json.analysisCases.findAll { it.type == "NESC Extreme Ice 2023" }.size() == 0
             json.analysisCases.size() == 16
     }
 
@@ -40,12 +42,14 @@ class LoadCaseChangeSetTest extends Specification {
         expect:
             json.defaultLoadCases.findAll { it.type == "CSA 2020 Maximum Wind" }.size() == 1
             json.defaultLoadCases.findAll { it.type == "NESC Extreme Wind 2023" }.size() == 1
-            json.defaultLoadCases.size() == 15
+            json.defaultLoadCases.findAll { it.type == "NESC Extreme Ice 2023" }.size() == 1
+            json.defaultLoadCases.size() == 16
         when: "apply changeset"
             changeSet.revertProject(json)
-        then: "csa max wind case gets removed"
+        then: "load cases get removed"
             json.defaultLoadCases.findAll { it.type == "CSA 2020 Maximum Wind" }.size() == 0
             json.defaultLoadCases.findAll { it.type == "NESC Extreme Wind 2023" }.size() == 0
+            json.defaultLoadCases.findAll { it.type == "NESC Extreme Ice 2023" }.size() == 0
             json.defaultLoadCases.size() == 13
     }
 
@@ -57,13 +61,15 @@ class LoadCaseChangeSetTest extends Specification {
         expect:
             json.results.findAll { it.analysisCaseDetails.type == "CSA 2020 Maximum Wind" }.size() == 1
             json.results.findAll { it.analysisCaseDetails.type == "NESC Extreme Wind 2023" }.size() == 1
-            json.results.size() == 16
+            json.results.findAll { it.analysisCaseDetails.type == "NESC Extreme Ice 2023" }.size() == 1
+            json.results.size() == 17
         when: "apply changeset"
             boolean anyChanged = changeSet.revertResults(json)
-        then: "csa max wind case gets removed"
+        then: "load cases get removed"
             anyChanged
             json.results.findAll { it.analysisCaseDetails.type == "CSA 2020 Maximum Wind" }.size() == 0
             json.results.findAll { it.analysisCaseDetails.type == "NESC Extreme Wind 2023" }.size() == 0
+            json.results.findAll { it.analysisCaseDetails.type == "NESC Extreme Ice 2023" }.size() == 0
             json.results.size() == 14
     }
 }

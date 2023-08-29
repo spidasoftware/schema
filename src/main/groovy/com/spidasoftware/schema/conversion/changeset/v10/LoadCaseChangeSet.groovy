@@ -8,12 +8,16 @@ import com.spidasoftware.schema.conversion.changeset.client.AbstractClientDataCh
 import groovy.transform.CompileStatic
 
 /**
- * New CSA Max wind load case was added after Calc v8.0
+ * New load cases were added after Calc v8.0
  *
- * When down converting from schema v10, we want to remove the entire load case
+ * When down converting from schema v10, we want to remove these load cases
  */
 @CompileStatic
 class LoadCaseChangeSet extends AbstractClientDataChangeSet {
+
+    // list of load cases we want to remove
+    private List<String> loadCases = ["CSA 2020 Maximum Wind", "NESC Extreme Wind 2023", "NESC Extreme Ice 2023"]
+
     @Override
     boolean applyToClientData(Map clientDataJSON) throws ConversionException {
         return false
@@ -25,7 +29,7 @@ class LoadCaseChangeSet extends AbstractClientDataChangeSet {
 
         if (clientDataJSON.containsKey("analysisCases")) {
             List<Map> analysisCases = clientDataJSON.analysisCases as List<Map>
-            anyChanged = analysisCases.removeAll { it.type == "CSA 2020 Maximum Wind" || it.type == "NESC Extreme Wind 2023" }
+            anyChanged = analysisCases.removeAll { loadCases.contains(it.type) }
         }
 
         return anyChanged
@@ -37,7 +41,7 @@ class LoadCaseChangeSet extends AbstractClientDataChangeSet {
 
         if (projectJSON.containsKey("defaultLoadCases")) {
             List<Map> defaultLoadCases = projectJSON.defaultLoadCases as List<Map>
-            defaultLoadCases.removeAll { it.type == "CSA 2020 Maximum Wind" || it.type == "NESC Extreme Wind 2023" }
+            defaultLoadCases.removeAll { loadCases.contains(it.type) }
         }
     }
 
@@ -47,7 +51,7 @@ class LoadCaseChangeSet extends AbstractClientDataChangeSet {
 
         if (designJSON.containsKey("analysis")) {
             List<Map> analysisList = designJSON.analysis as List<Map>
-            analysisList.removeAll { (it.analysisCaseDetails as Map).type == "CSA 2020 Maximum Wind" || (it.analysisCaseDetails as Map).type == "NESC Extreme Wind 2023" }
+            analysisList.removeAll { loadCases.contains((it.analysisCaseDetails as Map).type) }
         }
     }
 
@@ -57,7 +61,7 @@ class LoadCaseChangeSet extends AbstractClientDataChangeSet {
 
         if (resultsJSON.containsKey("results")) {
             List<Map> resultsList = resultsJSON.results as List<Map>
-            anyChanged = resultsList.removeAll { (it.analysisCaseDetails as Map).type == "CSA 2020 Maximum Wind" || (it.analysisCaseDetails as Map).type == "NESC Extreme Wind 2023" }
+            anyChanged = resultsList.removeAll { loadCases.contains((it.analysisCaseDetails as Map).type) }
         }
         return anyChanged
     }
