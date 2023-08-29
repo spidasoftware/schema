@@ -4271,6 +4271,181 @@
       }
     },
     {
+      "name": "NESC Extreme Ice 2023",
+      "type": "NESC Extreme Ice 2023",
+      "analysisMethod": "DIRECT_STIFFNESS",
+      "connectionType": "CONTINUATION",
+      "displacementBasedLoadChangesLevel": "NONE",
+      "windType": "SWEEP",
+      "sweepIncrement": "DEGREE_1",
+      "windStartAngle": {
+        "unit": "RADIAN",
+        "value": 0.0
+      },
+      "windEndAngle": {
+        "unit": "RADIAN",
+        "value": 6.283185307179586
+      },
+      "useStrengthResults": false,
+      "analyzeWithAverageSpan": false,
+      "maximumLoadingRatio": 1.0,
+      "addByDefault": false,
+      "constructionType": "NEW",
+      "checkUtilityWireTension": false,
+      "maximumAllowableUtilityWireTensionRatio": {
+        "unit": "PERCENT",
+        "value": 60.0
+      },
+      "checkCommWireTension": false,
+      "maximumAllowableCommunicationWireTensionRatio": {
+        "unit": "PERCENT",
+        "value": 60.0
+      },
+      "analyzeGroundLineOnly": false,
+      "components": [],
+      "windSpeed": "MPH_30",
+      "ice": "INCH_000",
+      "constructionGrade": "C",
+      "analyzeWithExtremeIceOnAll": false,
+      "analyzeWithoutLinearConstant": false,
+      "wireTensionMethod": "INITIAL",
+      "creepWireTensionTemperature": {
+        "unit": "CELSIUS",
+        "value": -9.444444444444445
+      },
+      "creepWireTensionIceThickness": {
+        "unit": "METRE",
+        "value": 0.0
+      },
+      "creepWireTensionWindPressure": {
+        "unit": "PASCAL",
+        "value": 110.12459565477243
+      },
+      "creepWireTensionIceDensity": {
+        "unit": "KILOGRAM_PER_CUBIC_METRE",
+        "value": 900.0
+      },
+      "highestWireTensionTemperature": {
+        "unit": "CELSIUS",
+        "value": -9.444444444444445
+      },
+      "highestWireTensionIceThickness": {
+        "unit": "METRE",
+        "value": 0.0
+      },
+      "highestWireTensionWindPressure": {
+        "unit": "PASCAL",
+        "value": 110.12459565477243
+      },
+      "highestWireTensionIceDensity": {
+        "unit": "KILOGRAM_PER_CUBIC_METRE",
+        "value": 900.0
+      },
+      "outerStrandingCompression": false,
+      "overrides": {},
+      "valuesApplied": {
+        "ice": {
+          "unit": "METRE",
+          "value": 0.0
+        },
+        "iceDensity": {
+          "unit": "KILOGRAM_PER_CUBIC_METRE",
+          "value": 900.0
+        },
+        "temperature": {
+          "unit": "CELSIUS",
+          "value": -9.444444444444445
+        },
+        "windPressure": {
+          "unit": "PASCAL",
+          "value": 110.12459565477243
+        },
+        "linearConstant": {
+          "unit": "NEWTON_PER_METRE",
+          "value": 0.0
+        },
+        "anchorStrengthFactor": 1.0,
+        "anchorTensionMultiplier": 1.0,
+        "anchorVerticalLoadMultiplier": 1.0,
+        "commOnlyTensionMultiplier": 0.0,
+        "guyStrengthFactor": 0.9,
+        "guyTensionMultiplier": 1.0,
+        "guyVerticalLoadMultiplier": 1.0,
+        "insulatorStrengthFactor": 1.0,
+        "insulatorTensionMultiplier": 1.0,
+        "insulatorVerticalLoadMultiplier": 1.0,
+        "insulatorWindMultiplier": 1.0,
+        "anchorWindMultiplier": 1.0,
+        "guyWindMultiplier": 1.0,
+        "foundationStrengthFactor": 1.0,
+        "foundationTensionMultiplier": 1.0,
+        "foundationVerticalLoadMultiplier": 1.0,
+        "foundationWindMultiplier": 1.0,
+        "poleStrengthFactors": {
+          "WOOD": 0.75,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 0.75,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "poleTensionMultipliers": {
+          "WOOD": 1.0,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 1.0,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "poleVerticalLoadMultipliers": {
+          "WOOD": 1.0,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 1.0,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "poleWindMultipliers": {
+          "WOOD": 1.0,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 1.0,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "crossArmStrengthFactors": {
+          "WOOD": 0.75,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 0.75,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "crossArmTensionMultipliers": {
+          "WOOD": 1.0,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 1.0,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "crossArmVerticalLoadMultipliers": {
+          "WOOD": 1.0,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 1.0,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "crossArmWindMultipliers": {
+          "WOOD": 1.0,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 1.0,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "areaMultipliers": {
+          "ROUND": 1.0,
+          "SQUARE": 1.6,
+          "ROUND_LATTICE": 2.0,
+          "SQUARE_LATTICE": 3.2
+        }
+      }
+    },
+    {
       "name": "NESC Extreme Wind 2023",
       "type": "NESC Extreme Wind 2023",
       "analysisMethod": "DIRECT_STIFFNESS",
