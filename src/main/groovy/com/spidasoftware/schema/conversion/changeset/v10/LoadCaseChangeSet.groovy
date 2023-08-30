@@ -16,7 +16,7 @@ import groovy.transform.CompileStatic
 class LoadCaseChangeSet extends AbstractClientDataChangeSet {
 
     // list of load cases we want to remove
-    private List<String> loadCases = ["CSA 2020 Maximum Wind", "NESC Extreme Wind 2023", "NESC Extreme Ice 2023"]
+    private List<String> loadCases = ["CSA 2020 Maximum Wind", "NESC Extreme Wind 2023", "NESC Extreme Ice 2023", "NESC 2023"]
 
     @Override
     boolean applyToClientData(Map clientDataJSON) throws ConversionException {
