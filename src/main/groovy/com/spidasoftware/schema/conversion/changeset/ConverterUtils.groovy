@@ -71,6 +71,7 @@ class ConverterUtils {
         converter.addChangeSet(10, new TerrainLayerChangeSet())
         converter.addChangeSet(10, new LoadCaseChangeSet())
         converter.addChangeSet(10, new LoadCaseNameChangeSet())
+        converter.addChangeSet(10, new DecimalDirectionsChangeset())
 
         // add calc changesets above here
         converter.setCurrentVersion(currentVersion)
@@ -87,6 +88,7 @@ class ConverterUtils {
         converter.addChangeSet(10, new IceDensityChangeSet())
         converter.addChangeSet(10, new LoadCaseChangeSet())
         converter.addChangeSet(10, new LoadCaseNameChangeSet())
+        converter.addChangeSet(10, new DecimalDirectionsChangeset())
         // add client data changesets above here
 
         converter.setCurrentVersion(currentVersion)
@@ -103,6 +105,7 @@ class ConverterUtils {
         converter.addChangeSet(10, new IceDensityChangeSet())
         converter.addChangeSet(10, new LoadCaseChangeSet())
         converter.addChangeSet(10, new LoadCaseNameChangeSet())
+        converter.addChangeSet(10, new DecimalDirectionsChangeset())
         // add result changesets above here
 
         converter.setCurrentVersion(currentVersion)
