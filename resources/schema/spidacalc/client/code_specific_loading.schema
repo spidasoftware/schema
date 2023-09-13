@@ -7,7 +7,7 @@
     ],
     "properties": {
       "type": {
-        "enum": [ "ExtremeWind", "LinearConstant" ]
+        "enum": [ "ExtremeWind", "ExtremeWind2023", "LinearConstant" ]
       },
       "loadZone": {
         "enum": [
@@ -24,7 +24,7 @@
         "type": "object",
         "properties": {
           "type": {
-            "enum": [ "ExtremeWind" ]
+            "enum": [ "ExtremeWind", "ExtremeWind2023" ]
           }
         }
       },
