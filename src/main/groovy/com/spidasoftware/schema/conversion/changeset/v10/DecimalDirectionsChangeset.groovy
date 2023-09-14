@@ -13,12 +13,23 @@ class DecimalDirectionsChangeset extends AbstractClientDataChangeSet {
 
 	@Override
 	boolean revertClientData(Map clientDataJSON) throws ConversionException {
-		return false  // todo ensure client assembly structure directions are integers
+		boolean anyChanged = false
+
+		clientDataJSON.assemblies.each {
+			anyChanged |= revertStructure(it.assemblyStructure)
+		}
+
+		return anyChanged
 	}
 
 	@Override
 	boolean revertResults(Map resultsJSON) throws ConversionException {
-		return false // todo revert analyzed structure
+		super.revertResults(resultsJSON)
+
+		if(resultsJSON.analyzedStructure != null) {
+			return revertStructure(resultsJSON.analyzedStructure)
+		}
+		return false
 	}
 
 	/**
@@ -26,6 +37,8 @@ class DecimalDirectionsChangeset extends AbstractClientDataChangeSet {
 	 */
 	@Override
 	void applyToDesign(Map designJSON) throws ConversionException {
+		super.applyToDesign(designJSON)
+
 		if(!designJSON.analysisCurrent || (designJSON.structure == null)) {
 			return
 		}
@@ -83,10 +96,6 @@ class DecimalDirectionsChangeset extends AbstractClientDataChangeSet {
 		return structure.wireEndPoints.find { it.id == wepId }
 	}
 
-	protected Map getAnchor(String anchorId, Map structure) {
-		return structure.anchors.find { it.id == anchorId }
-	}
-
 	protected Map getAnchorForGuy(String guyId, Map structure) {
 		return structure.anchors.find { it.guys.contains(guyId) }
 	}
@@ -101,6 +110,66 @@ class DecimalDirectionsChangeset extends AbstractClientDataChangeSet {
 
 	@Override
 	void revertDesign(Map designJSON) throws ConversionException {
-		// todo ensure directions are integers
+		super.revertDesign(designJSON)
+
+		if(designJSON.structure != null) {
+			revertStructure(designJSON.structure)
+		}
+	}
+
+	protected boolean revertStructure(Map structure) {
+		boolean anyChanged = false
+
+		if(structure.pole) {
+			anyChanged |= revertDirection(structure.pole, "leanDirection")
+		}
+		structure.anchors.each {
+			anyChanged |= revertDirection(it, "direction")
+		}
+		structure.damages.each {
+			anyChanged |= revertDirection(it, "direction")
+		}
+		structure.notePoints.each {
+			anyChanged |= revertDirection(it, "direction")
+		}
+		structure.sidewalkBraces.each {
+			anyChanged |= revertDirection(it, "direction")
+		}
+		structure.equipments.each {
+			anyChanged |= revertDirection(it, "direction")
+		}
+		structure.crossArms.each {
+			anyChanged |= revertDirection(it, "direction")
+		}
+		structure.insulators.each {
+			anyChanged |= revertDirection(it, "direction")
+		}
+		structure.pushBraces.each {
+			anyChanged |= revertDirection(it, "direction")
+		}
+		structure.wireEndPoints.each {
+			anyChanged |= revertDirection(it, "direction")
+		}
+
+		return anyChanged
+	}
+
+	/**
+	 * If map.key is a double, it is rounded to an integer.
+	 * @return True if the value associated with map.key was changed.
+	 */
+	protected boolean revertDirection(Map map, String key) {
+		if(!isInteger(map[key])) {
+			map.put(key, Math.round(map[key]))
+			return true
+		}
+		return false
+	}
+
+	protected boolean isInteger(Number number) {
+		if(number instanceof BigDecimal) {
+			return number.remainder(1) == BigDecimal.ZERO
+		}
+		return number % 1 == 0
 	}
 }
