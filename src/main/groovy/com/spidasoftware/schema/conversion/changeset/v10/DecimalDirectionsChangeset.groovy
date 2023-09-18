@@ -4,7 +4,9 @@ import com.spidasoftware.schema.conversion.changeset.ConversionException
 import com.spidasoftware.schema.conversion.changeset.client.AbstractClientDataChangeSet
 import groovy.transform.CompileDynamic
 import groovy.transform.CompileStatic
+import groovy.util.logging.Slf4j
 
+@Slf4j
 @CompileStatic
 class DecimalDirectionsChangeset extends AbstractClientDataChangeSet {
 
@@ -132,7 +134,9 @@ class DecimalDirectionsChangeset extends AbstractClientDataChangeSet {
 			anyChanged |= revertDirection((Map) it, "direction")
 		}
 		structure.damages.each {
-			anyChanged |= revertDirection((Map) it, "direction")
+			if(((Map) it).direction != null) {  // some types of damage have null directions
+				anyChanged |= revertDirection((Map) it, "direction")
+			}
 		}
 		structure.notePoints.each {
 			anyChanged |= revertDirection((Map) it, "direction")
