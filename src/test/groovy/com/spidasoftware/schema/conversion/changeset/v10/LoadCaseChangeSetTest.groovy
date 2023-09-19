@@ -24,7 +24,8 @@ class LoadCaseChangeSetTest extends Specification {
             json.analysisCases.findAll { it.type == "NESC Extreme Wind 2023" }.size() == 1
             json.analysisCases.findAll { it.type == "NESC Extreme Ice 2023" }.size() == 1
             json.analysisCases.findAll { it.type == "NESC 2023" }.size() == 1
-            json.analysisCases.size() == 20
+            json.analysisCases.findAll { it.type == "GO95 01-2020" }.size() == 1
+            json.analysisCases.size() == 21
         when: "apply changeset"
             boolean anyChanged = changeSet.revertClientData(json)
         then: "load cases get removed"
@@ -33,6 +34,7 @@ class LoadCaseChangeSetTest extends Specification {
             json.analysisCases.findAll { it.type == "NESC Extreme Wind 2023" }.size() == 0
             json.analysisCases.findAll { it.type == "NESC Extreme Ice 2023" }.size() == 0
             json.analysisCases.findAll { it.type == "NESC 2023" }.size() == 0
+            json.analysisCases.findAll { it.type == "GO95 01-2020" }.size() == 0
             json.analysisCases.size() == 16
     }
 
@@ -46,7 +48,8 @@ class LoadCaseChangeSetTest extends Specification {
             json.defaultLoadCases.findAll { it.type == "NESC Extreme Wind 2023" }.size() == 1
             json.defaultLoadCases.findAll { it.type == "NESC Extreme Ice 2023" }.size() == 1
             json.defaultLoadCases.findAll { it.type == "NESC 2023" }.size() == 1
-            json.defaultLoadCases.size() == 17
+            json.defaultLoadCases.findAll { it.type == "GO95 01-2020" }.size() == 1
+            json.defaultLoadCases.size() == 18
         when: "apply changeset"
             changeSet.revertProject(json)
         then: "load cases get removed"
@@ -54,6 +57,7 @@ class LoadCaseChangeSetTest extends Specification {
             json.defaultLoadCases.findAll { it.type == "NESC Extreme Wind 2023" }.size() == 0
             json.defaultLoadCases.findAll { it.type == "NESC Extreme Ice 2023" }.size() == 0
             json.defaultLoadCases.findAll { it.type == "NESC 2023" }.size() == 0
+            json.defaultLoadCases.findAll { it.type == "GO95 01-2020" }.size() == 0
             json.defaultLoadCases.size() == 13
     }
 
@@ -67,7 +71,8 @@ class LoadCaseChangeSetTest extends Specification {
             json.results.findAll { it.analysisCaseDetails.type == "NESC Extreme Wind 2023" }.size() == 1
             json.results.findAll { it.analysisCaseDetails.type == "NESC Extreme Ice 2023" }.size() == 1
             json.results.findAll { it.analysisCaseDetails.type == "NESC 2023" }.size() == 1
-            json.results.size() == 18
+            json.results.findAll { it.analysisCaseDetails.type == "GO95 01-2020" }.size() == 1
+            json.results.size() == 19
         when: "apply changeset"
             boolean anyChanged = changeSet.revertResults(json)
         then: "load cases get removed"
@@ -76,6 +81,7 @@ class LoadCaseChangeSetTest extends Specification {
             json.results.findAll { it.analysisCaseDetails.type == "NESC Extreme Wind 2023" }.size() == 0
             json.results.findAll { it.analysisCaseDetails.type == "NESC Extreme Ice 2023" }.size() == 0
             json.results.findAll { it.analysisCaseDetails.type == "NESC 2023" }.size() == 0
+            json.results.findAll { it.analysisCaseDetails.type == "GO95 01-2020" }.size() == 0
             json.results.size() == 14
     }
 }
