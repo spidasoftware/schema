@@ -72,6 +72,7 @@ class ConverterUtils {
         converter.addChangeSet(10, new LoadCaseChangeSet())
         converter.addChangeSet(10, new LoadCaseNameChangeSet())
         converter.addChangeSet(10, new DecimalDirectionsChangeset())
+        converter.addChangeSet(10, new TemperatureOverridesChangeSet())
 
         // add calc changesets above here
         converter.setCurrentVersion(currentVersion)
@@ -89,6 +90,7 @@ class ConverterUtils {
         converter.addChangeSet(10, new LoadCaseChangeSet())
         converter.addChangeSet(10, new LoadCaseNameChangeSet())
         converter.addChangeSet(10, new DecimalDirectionsChangeset())
+        converter.addChangeSet(10, new TemperatureOverridesChangeSet())
         // add client data changesets above here
 
         converter.setCurrentVersion(currentVersion)

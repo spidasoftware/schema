@@ -6,6 +6,12 @@ package com.spidasoftware.schema.conversion.changeset.v10
 import com.spidasoftware.schema.conversion.changeset.ConversionException
 import com.spidasoftware.schema.conversion.changeset.client.AbstractClientDataChangeSet
 
+/**
+ * ComponentGroupMeta.thermalTemperatureOverride can be set in the client editor's clearance case table.
+ * In calc v8.0.0, the value set in the CE was only being set in clearanceCases.upper.thermalTemperatureOverride, but calc was looking for it in clearanceCases.clearances.upper.thermalTemperatureOverride
+ *
+ * When up converting, we make the values in both places the same
+ */
 class TemperatureOverridesChangeSet extends AbstractClientDataChangeSet {
 
     @Override
