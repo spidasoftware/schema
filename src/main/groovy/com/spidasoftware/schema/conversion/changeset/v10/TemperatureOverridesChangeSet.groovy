@@ -5,6 +5,7 @@ package com.spidasoftware.schema.conversion.changeset.v10
 
 import com.spidasoftware.schema.conversion.changeset.ConversionException
 import com.spidasoftware.schema.conversion.changeset.client.AbstractClientDataChangeSet
+import groovy.transform.CompileStatic
 
 /**
  * ComponentGroupMeta.thermalTemperatureOverride can be set in the client editor's clearance case table.
@@ -12,6 +13,7 @@ import com.spidasoftware.schema.conversion.changeset.client.AbstractClientDataCh
  *
  * When up converting, we make the values in both places the same
  */
+@CompileStatic
 class TemperatureOverridesChangeSet extends AbstractClientDataChangeSet {
 
     @Override
