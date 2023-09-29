@@ -59,7 +59,7 @@ class TemperatureOverridesChangeSet extends AbstractClientDataChangeSet {
         clearanceCase.upper.each { Map upper ->
             clearanceCase.clearances?.each { Map clearance ->
                 Map clearanceUpper = clearance.upper as Map
-                if ((upper.componentGroup as Map).name != (clearanceUpper.componentGroup as Map).name) {
+                if ((upper.componentGroup as Map)?.name != (clearanceUpper.componentGroup as Map)?.name) {
                     return // from closure
                 }
 
