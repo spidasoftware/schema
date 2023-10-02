@@ -51,7 +51,7 @@ class TemperatureOverridesChangeSet extends AbstractClientDataChangeSet {
     }
 
     boolean updateTempOverrides(Map clearanceCase) {
-        if (clearanceCase.type == "AT_POLE") { // AT_POLE uppers are not ComponentGroupMeta
+        if (clearanceCase.type == "At Pole") { // AT_POLE uppers are not ComponentGroupMeta
             return false
         }
         boolean anyChanged = false
@@ -59,7 +59,7 @@ class TemperatureOverridesChangeSet extends AbstractClientDataChangeSet {
         clearanceCase.upper.each { Map upper ->
             clearanceCase.clearances?.each { Map clearance ->
                 Map clearanceUpper = clearance.upper as Map
-                if ((upper.componentGroup as Map)?.name != (clearanceUpper.componentGroup as Map)?.name) {
+                if ((upper.componentGroup as Map).name != (clearanceUpper.componentGroup as Map).name) {
                     return // from closure
                 }
 
