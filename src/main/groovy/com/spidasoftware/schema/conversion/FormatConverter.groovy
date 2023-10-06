@@ -6,6 +6,7 @@ package com.spidasoftware.schema.conversion
 import com.spidasoftware.schema.conversion.changeset.calc.CalcProjectChangeSet
 import groovy.util.logging.Slf4j
 import org.bson.types.ObjectId
+import com.spidasoftware.utils.json.JsonIO
 
 @Slf4j
 class FormatConverter {
