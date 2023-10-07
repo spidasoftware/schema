@@ -6,7 +6,6 @@ package com.spidasoftware.schema.conversion
 import com.spidasoftware.schema.conversion.changeset.calc.CalcProjectChangeSet
 import groovy.util.logging.Slf4j
 import org.bson.types.ObjectId
-import com.spidasoftware.utils.json.JsonIO
 
 @Slf4j
 class FormatConverter {
@@ -14,7 +13,13 @@ class FormatConverter {
     public static final double INFINITE_RESULT = Double.MAX_VALUE
     private static final String LOCATION_SCHEMA_PATH = "/schema/spidacalc/calc/location.schema"
 
-    Collection<SpidaDBProjectComponent> convertCalcProject(Map calcProject) {
+    /**
+     *
+     * @param calcProject
+     * @param resultsFiles
+     * @return
+     */
+    Collection<SpidaDBProjectComponent> convertCalcProject(Map calcProject, List<File> resultsFiles = null) {
         List<SpidaDBProjectComponent> components = []
         addDBIdsToProject(calcProject)
         Map referencedProject = [:]
@@ -23,10 +28,10 @@ class FormatConverter {
 
         //Project JSON that will get added to the referencedProject
         Map convertedProject = CalcProjectChangeSet.duplicateAsJson(calcProject)
+
         convertedProject.leads.each { lead ->
             lead.locations.each { location ->
-                components.addAll(convertCalcLocation(location, calcProject))
-
+                components.addAll(convertCalcLocation(location, calcProject, resultsFiles))
                 //clear out everything except the label and id
                 //These will be kept as references to the child components
                 def locId = location.id
@@ -34,7 +39,6 @@ class FormatConverter {
                 location.clear()
                 location.put("id", locId)
                 location.put("label", locLabel)
-
             }
         }
         referencedProject.put("calcProject", convertedProject)
@@ -43,10 +47,17 @@ class FormatConverter {
     }
 
     Collection<SpidaDBProjectComponent> convertCalcLocation(Map calcLocation) {
-        return convertCalcLocation(calcLocation, null)
+        return convertCalcLocation(calcLocation, null, null)
     }
 
-    Collection<SpidaDBProjectComponent> convertCalcLocation(Map calcLocation, Map calcProject) {
+    /**
+     *
+     * @param calcLocation
+     * @param calcProject
+     * @param resultsFiles
+     * @return
+     */
+    Collection<SpidaDBProjectComponent> convertCalcLocation(Map calcLocation, Map calcProject, List<File> resultsFiles) {
         ArrayList<SpidaDBProjectComponent> components = []
         addDBIdsToLocation(calcLocation)
 
@@ -66,11 +77,29 @@ class FormatConverter {
         //the calc location that will get saved as part of the referenced location
         Map convertedLocation = CalcProjectChangeSet.duplicateAsJson(calcLocation)
         convertedLocation.get("designs").each { design ->
-            if(design.containsKey("analysisDetails") && design.get("analysisDetails").containsKey("detailedResults")) {
-                SpidaDBResult spidaDBResult = convertCalcResult(design.analysisDetails.detailedResults)
-                components.add(spidaDBResult)
-                design.analysisDetails.remove("detailedResults")
-                design.analysisDetails.put("id", spidaDBResult.spidaDBId)
+            // if the design has analysis details then handle results
+            if (design.containsKey("analysisDetails")) {
+                // results are included in json files
+                if (resultsFiles) {
+                    // find the file
+                    //TODO: locate the file
+                    // parse the file to a map
+                    //TODO: parse json
+                    // convert the calc result from the file
+                    SpidaDBResult spidaDBResult = convertCalcResult(design.analysisDetails.detailedResults)
+                    // add component to the return
+                    components.add(spidaDBResult)
+                    // set the id to the spida db id
+                    design.analysisDetails.put("id", spidaDBResult.spidaDBId)
+                } else {
+                    // results are included in the locations map
+                    if (design.containsKey("analysisDetails") && design.get("analysisDetails").containsKey("detailedResults")) {
+                        SpidaDBResult spidaDBResult = convertCalcResult(design.analysisDetails.detailedResults)
+                        components.add(spidaDBResult)
+                        design.analysisDetails.remove("detailedResults")
+                        design.analysisDetails.put("id", spidaDBResult.spidaDBId)
+                    }
+                }
             }
             SpidaDBDesign convertedDesign = convertCalcDesign(design, calcLocation, calcProject)
             components.add(convertedDesign)
