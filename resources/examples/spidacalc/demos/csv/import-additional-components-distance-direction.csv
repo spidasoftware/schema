@@ -2,4 +2,4 @@ Location,Component,Type,Distance,Direction,Relative Elevation Ft,
 P1,Anchor,Rock Wedge,15,315,15,
 P1,WEP,Other,155,90,50,
 P2,Anchor,"10"" - 10"" Double Helix (Class 4) 1 1/4"" Rod",10,270,5,
-P2,WEP,Building,100,180,40,
+P2,WEP,Building,100,180,40
