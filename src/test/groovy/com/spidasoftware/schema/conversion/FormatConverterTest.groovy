@@ -388,7 +388,7 @@ class FormatConverterTest extends Specification {
 		setup:
 			JsonSlurper jsonSlurper = new JsonSlurper()
 			FormatConverter formatConverter = new FormatConverter()
-			Map calcProject = new JsonSlurper().parse(FormatConverterSpec.getResourceAsStream("/conversions/studio/project.json"))
+			Map calcProject = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/studio/project.json"))
 			List<File> resultsFiles = []
 		when:
 			def components = formatConverter.convertCalcProject(calcProject, resultsFiles)
@@ -400,8 +400,8 @@ class FormatConverterTest extends Specification {
 		setup:
 			JsonSlurper jsonSlurper = new JsonSlurper()
 			FormatConverter formatConverter = new FormatConverter()
-			Map calcProject = new JsonSlurper().parse(FormatConverterSpec.getResourceAsStream("/conversions/studio/project.json"))
-			Map calcLocation = new JsonSlurper().parse(FormatConverterSpec.getResourceAsStream("/conversions/studio/location-3630533.json"))
+			Map calcProject = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/studio/project.json"))
+			Map calcLocation = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/studio/location-3630533.json"))
 			File resultsFile = new File(getClass().getResource("/conversions/studio/628fa8efd0bb6c664573e719.json").toURI())
 			List<File> resultsFiles = [resultsFile]
 		when:
