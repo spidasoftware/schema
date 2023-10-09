@@ -4,9 +4,9 @@
 package com.spidasoftware.schema.conversion
 
 import com.spidasoftware.schema.conversion.changeset.calc.CalcProjectChangeSet
+import groovy.json.JsonSlurper
 import groovy.util.logging.Slf4j
 import org.bson.types.ObjectId
-import com.spidasoftware.utils.json.JsonIO
 
 @Slf4j
 class FormatConverter {
@@ -78,37 +78,24 @@ class FormatConverter {
         //the calc location that will get saved as part of the referenced location
         Map convertedLocation = CalcProjectChangeSet.duplicateAsJson(calcLocation)
         convertedLocation.get("designs").each { design ->
-            // if the design has analysis details then handle results
             if (design.containsKey("analysisDetails")) {
-                /*
-                if (design.get("analysisDetails").containsKey("resultId")) {
-                    String resultId = design.get("analysisDetails").get("resultId")
-                    File resultsFile = resultsFiles.find { File resultsFile -> resultsFile.name -  ~/\.\w+$/ == resultId }
-                    //String resultsFileJSON = JsonIO.parse(resultsFile)
-                }
-                // results are included in json files
-                if (resultsFiles) {
-                    // find the file
-                    //TODO: locate the file
-                    // parse the file to a map
-                    //TODO: parse json
-                    // convert the calc result from the file
-                    SpidaDBResult spidaDBResult = convertCalcResult(design.analysisDetails.detailedResults)
-                    // add component to the return
+                if (design.get("analysisDetails").containsKey("detailedResults")) {
+                    Map detailedResults = design.analysisDetails.detailedResults
+                    SpidaDBResult spidaDBResult = convertCalcResult(detailedResults)
+                    design.analysisDetails.remove("detailedResults")
                     components.add(spidaDBResult)
-                    // set the id to the spida db id
                     design.analysisDetails.put("id", spidaDBResult.spidaDBId)
-                } else {
-
-                 */
-                    // results are included in the locations map
-                    if (design.get("analysisDetails").containsKey("detailedResults")) {
-                        SpidaDBResult spidaDBResult = convertCalcResult(design.analysisDetails.detailedResults)
+                } else if (design.get("analysisDetails").containsKey("resultId")) {
+                    String resultId = design.get("analysisDetails").get("resultId")
+                    File resultsFile = resultsFiles.find { File resultsFile -> resultsFile.name - ~/\.\w+$/ == resultId }
+                    if (resultsFile) {
+                        JsonSlurper jsonSlurper = new JsonSlurper()
+                        Map detailedResults = jsonSlurper.parse(resultsFile)
+                        SpidaDBResult spidaDBResult = convertCalcResult(detailedResults)
                         components.add(spidaDBResult)
-                        design.analysisDetails.remove("detailedResults")
                         design.analysisDetails.put("id", spidaDBResult.spidaDBId)
                     }
-                //}
+                }
             }
             SpidaDBDesign convertedDesign = convertCalcDesign(design, calcLocation, calcProject)
             components.add(convertedDesign)
