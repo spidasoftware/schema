@@ -79,6 +79,11 @@ class FormatConverter {
         convertedLocation.get("designs").each { design ->
             // if the design has analysis details then handle results
             if (design.containsKey("analysisDetails")) {
+                if (design.get("analysisDetails").containsKey("resultId")) {
+                    String resultId = design.get("analysisDetails").get("resultId")
+                    File resultsFile = resultsFiles.find { File resultsFile -> resultsFile.name -  ~/\.\w+$/ == resultId }
+                    //String resultsFileJSON = JsonIO.parse(resultsFile)
+                }
                 // results are included in json files
                 if (resultsFiles) {
                     // find the file
@@ -93,7 +98,7 @@ class FormatConverter {
                     design.analysisDetails.put("id", spidaDBResult.spidaDBId)
                 } else {
                     // results are included in the locations map
-                    if (design.containsKey("analysisDetails") && design.get("analysisDetails").containsKey("detailedResults")) {
+                    if (design.get("analysisDetails").containsKey("detailedResults")) {
                         SpidaDBResult spidaDBResult = convertCalcResult(design.analysisDetails.detailedResults)
                         components.add(spidaDBResult)
                         design.analysisDetails.remove("detailedResults")
