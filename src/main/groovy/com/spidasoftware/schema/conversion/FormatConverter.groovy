@@ -6,6 +6,7 @@ package com.spidasoftware.schema.conversion
 import com.spidasoftware.schema.conversion.changeset.calc.CalcProjectChangeSet
 import groovy.util.logging.Slf4j
 import org.bson.types.ObjectId
+import com.spidasoftware.utils.json.JsonIO
 
 @Slf4j
 class FormatConverter {
@@ -79,6 +80,7 @@ class FormatConverter {
         convertedLocation.get("designs").each { design ->
             // if the design has analysis details then handle results
             if (design.containsKey("analysisDetails")) {
+                /*
                 if (design.get("analysisDetails").containsKey("resultId")) {
                     String resultId = design.get("analysisDetails").get("resultId")
                     File resultsFile = resultsFiles.find { File resultsFile -> resultsFile.name -  ~/\.\w+$/ == resultId }
@@ -97,6 +99,8 @@ class FormatConverter {
                     // set the id to the spida db id
                     design.analysisDetails.put("id", spidaDBResult.spidaDBId)
                 } else {
+
+                 */
                     // results are included in the locations map
                     if (design.get("analysisDetails").containsKey("detailedResults")) {
                         SpidaDBResult spidaDBResult = convertCalcResult(design.analysisDetails.detailedResults)
@@ -104,7 +108,7 @@ class FormatConverter {
                         design.analysisDetails.remove("detailedResults")
                         design.analysisDetails.put("id", spidaDBResult.spidaDBId)
                     }
-                }
+                //}
             }
             SpidaDBDesign convertedDesign = convertCalcDesign(design, calcLocation, calcProject)
             components.add(convertedDesign)

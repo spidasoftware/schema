@@ -10,9 +10,21 @@ class FormatConverterSpec extends Specification {
         setup:
             FormatConverter formatConverter = new FormatConverter()
             File workingDirectory = new File("/home/jeffseifert/tmp/components/")
+            Map calcProject = [:]
+            List<File> resultsFiles = []
+        when:
+            def components = formatConverter.convertCalcProject(calcProject, resultsFiles)
+        then:
+            components.size() == 2
+    }
+
+    def "test convert calc location"() {
+        setup:
+            FormatConverter formatConverter = new FormatConverter()
+            File workingDirectory = new File("/home/jeffseifert/tmp/components/")
             ExchangeFile exchangeFile = new ExchangeFile(workingDirectory)
         when:
-            def components = formatConverter.convertCalcProject(exchangeFile)
+            def components = formatConverter.convertCalcProject(calcProject, resultsFiles)
         then:
             components.size() == 2
     }
