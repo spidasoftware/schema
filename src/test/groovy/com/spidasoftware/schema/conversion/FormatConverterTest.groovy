@@ -391,7 +391,7 @@ class FormatConverterTest extends Specification {
 			Map calcProject = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/studio/project.json"))
 			List<File> resultsFiles = []
 		when:
-			def components = formatConverter.convertCalcProject(calcProject, resultsFiles)
+			Collection<SpidaDBProjectComponent> components = formatConverter.convertCalcProject(calcProject, resultsFiles)
 		then:
 			components.size() > 0
 	}
@@ -405,7 +405,7 @@ class FormatConverterTest extends Specification {
 			File resultsFile = new File(getClass().getResource("/conversions/studio/628fa8efd0bb6c664573e719.json").toURI())
 			List<File> resultsFiles = [resultsFile]
 		when:
-			def components = formatConverter.convertCalcLocation(calcLocation, calcProject, resultsFiles)
+			Collection<SpidaDBProjectComponent> components = formatConverter.convertCalcLocation(calcLocation, calcProject, resultsFiles)
 		then:
 			components.size() > 0
 	}
