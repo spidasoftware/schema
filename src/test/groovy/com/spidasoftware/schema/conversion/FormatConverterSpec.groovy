@@ -1,8 +1,5 @@
 package com.spidasoftware.schema.conversion
 
-import com.spidasoftware.schema.validation.JSONServletException
-import com.spidasoftware.schema.validation.Validator
-import com.spidasoftware.utils.json.JsonIO
 import groovy.json.JsonSlurper
 import spock.lang.Specification
 

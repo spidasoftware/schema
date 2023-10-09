@@ -10,7 +10,7 @@ apply plugin: 'com.spidasoftware.releaseNotes'
 apply plugin: 'org.owasp.dependencycheck'
 
 group = 'com.spidasoftware'
-version = '9.0.3-SNAPSHOT' // If you're changing the major version also change the currentVersion in ConverterUtils.
+version = '10.1.0-SNAPSHOT' // If you're changing the major version also change the currentVersion in ConverterUtils.
 
 def schemaReleaseVersion = System.getenv("SCHEMA_RELEASE_VERSION")
 if(schemaReleaseVersion){
@@ -49,13 +49,6 @@ buildscript {
 	repositories {
 		mavenCentral()
 		maven { url System.getenv("ARTIFACTORY_URL_EXPOSED") }
-		maven {
-			credentials {
-				username = System.getenv('ARTIFACTORY_USERNAME')
-				password = System.getenv('ARTIFACTORY_PASSWORD')
-			}
-			url System.getenv("ARTIFACTORY_URL_PRIVATE")
-		}
 	}
 
 	dependencies {
@@ -67,13 +60,6 @@ buildscript {
 repositories {
 	mavenCentral()
 	maven { url System.getenv("ARTIFACTORY_URL_EXPOSED") }
-	maven {
-		credentials {
-			username = System.getenv('ARTIFACTORY_USERNAME')
-			password = System.getenv('ARTIFACTORY_PASSWORD')
-		}
-		url System.getenv("ARTIFACTORY_URL_PRIVATE")
-	}
 }
 
 publishing {
@@ -118,11 +104,6 @@ dependencies {
 	testRuntimeOnly('net.bytebuddy:byte-buddy:1.14.2')  // so spock can create mocks
 	testImplementation group: 'org.objenesis', name:'objenesis', version: '2.6'
 	testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.9.2")
-
-	// utils
-	implementation("com.spidasoftware:utils:1.1.22-SNAPSHOT") {
-		exclude module: 'groovy-all'
-	}
 }
 
 test {
