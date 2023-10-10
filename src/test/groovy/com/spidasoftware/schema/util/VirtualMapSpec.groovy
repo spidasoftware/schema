@@ -62,7 +62,7 @@ class VirtualMapSpec extends Specification  {
     }
 
     private Map getTestMap() {
-        File f =  new File (this.getClass().getResource("/conversions/studio/project-1.json").toURI())
+        File f =  new File (this.getClass().getResource("/conversions/one-of-everything-project.json").toURI())
         JsonSlurper jsonSlurper = new JsonSlurper()
         jsonSlurper.parse(f)
     }
