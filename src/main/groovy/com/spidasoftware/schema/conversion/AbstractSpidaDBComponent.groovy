@@ -3,6 +3,7 @@
  */
 package com.spidasoftware.schema.conversion
 
+import com.spidasoftware.schema.util.VirtualMap
 import groovy.util.logging.Slf4j
 
 /**
@@ -10,7 +11,7 @@ import groovy.util.logging.Slf4j
  */
 @Slf4j
 abstract class AbstractSpidaDBComponent implements SpidaDBProjectComponent {
-    Map json
+    VirtualMap json
 
     public AbstractSpidaDBComponent(Map json){
         this.json = json

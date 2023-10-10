@@ -18,7 +18,7 @@ class SpidaDBResult extends AbstractSpidaDBComponent {
 
 	@Override
 	Map getCalcJSON() {
-		return getMap().get('calcResult')
+		return getMap().get('calcResult') as Map
 	}
 
 	@Override

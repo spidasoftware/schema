@@ -7,9 +7,10 @@ import java.nio.file.Files
 import java.nio.file.Path
 
 /**
- * Map class backed by temporary file to minimize memory usage.
+ * Map class implementation backed by temporary file to minimize memory usage.
  */
-class VirtualMap {
+class VirtualMap implements Map {
+
     static final String PREFIX = "temp-"
     static final String SUFFIX = ".vmap"
 
@@ -20,39 +21,90 @@ class VirtualMap {
 
     VirtualMap(Map map) {
         if (map) {
-            put(map)
+            putAll(map)
         }
     }
 
-    Map get() {
-        JsonSlurper jsonSlurper = new JsonSlurper()
-        file ? jsonSlurper.parse(file) : [:]
+    @Override
+    int size() {
+        return file ? getFileMap().size() : 0
     }
 
-    void put(Map map) {
-        if (!file) {
-            Path path = Files.createTempFile(PREFIX, SUFFIX)
-            file = path.toFile()
-            save(map)
-        }
+    @Override
+    boolean isEmpty() {
+        return getFileMap().isEmpty()
     }
 
+    @Override
+    boolean containsKey(Object key) {
+        return getFileMap().containsKey(key)
+    }
+
+    @Override
+    boolean containsValue(Object value) {
+        return getFileMap().containsValue(value)
+    }
+
+    @Override
     Object get(Object key) {
-        get()?.get(key)
+        return getFileMap()?.get(key)
     }
 
+    @Override
     Object put(Object key, Object value) {
-        Map map = get()
+        Map map = new HashMap(getFileMap())
         map.put(key,value)
         save(map)
+        return map
+    }
+
+    @Override
+    Object remove(Object key) {
+        return getFileMap().remove(key)
+    }
+
+    @Override
+    void putAll(Map m) {
+        save(m)
+    }
+
+    @Override
+    void clear() {
+        getFileMap().clear()
+    }
+
+    @Override
+    Set keySet() {
+        return getFileMap().keySet()
+    }
+
+    @Override
+    Collection values() {
+        return getFileMap().values()
+    }
+
+    @Override
+    Set<Entry> entrySet() {
+        return getFileMap().entrySet()
+    }
+
+    private Map getFileMap() {
+        JsonSlurper jsonSlurper = new JsonSlurper()
+        file ? jsonSlurper.parse(file) : new VirtualMap()
     }
 
     private void save(Map map) {
-        String json = JsonOutput.toJson(map)
-        file.write(json)
+        if (!file) {
+            Path path = Files.createTempFile(PREFIX, SUFFIX)
+            file = path.toFile()
+            file.deleteOnExit()
+        }
+        file.write(JsonOutput.toJson(map))
     }
 
     private void discard() {
-        Files.deleteIfExists(file.toPath())
+        if (file) {
+            Files.deleteIfExists(file.toPath())
+        }
     }
 }

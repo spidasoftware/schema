@@ -19,17 +19,16 @@ class SpidaDBLocation extends AbstractSpidaDBComponent {
     }
 
     void updateLocationIds(Map<String, String> oldToNew){
-
-        def id = getMap().get("id")
+        Map map = new HashMap(getMap())
+        def id = map.get("id")
         if(oldToNew.get(id)){
-            getMap().put("id", oldToNew.get(id) )
+            map.put("id", oldToNew.get(id) )
         }
-
         def calcId = getCalcJSON().get("id")
         if(oldToNew.get(calcId)){
-            getCalcJSON().put("id", oldToNew.get(calcId) )
+            map.calcLocation["id"] = oldToNew.get(calcId)
         }
-
+        getMap().putAll(map)
     }
 
     /**
@@ -42,7 +41,7 @@ class SpidaDBLocation extends AbstractSpidaDBComponent {
 
 	@Override
 	Map getCalcJSON() {
-		return getMap().get('calcLocation')
+		return getMap().get('calcLocation') as Map
 	}
 
     @Override

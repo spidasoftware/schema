@@ -10,7 +10,7 @@ class VirtualMapSpec extends Specification  {
             Map map = getTestMap()
             VirtualMap vMap = new VirtualMap()
         when:
-            vMap.put(map)
+            vMap.putAll(map)
         then:
             vMap.get("label") == "20190110896"
         cleanup:
@@ -48,6 +48,15 @@ class VirtualMapSpec extends Specification  {
             vMap.put("label","123")
         then:
             vMap.get("label") == "123"
+        cleanup:
+            vMap.discard()
+    }
+
+    void "test size"() {
+        given:
+            Map vMap = new VirtualMap()
+        expect:
+            vMap.size() == 0
         cleanup:
             vMap.discard()
     }

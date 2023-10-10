@@ -38,7 +38,7 @@ class SpidaDBDesign extends AbstractSpidaDBComponent {
     }
 
 	public Map getWorstCaseAnalysisResults(){
-		return getMap().get('worstCaseAnalysisResults')
+		return getMap().get('worstCaseAnalysisResults') as Map
 	}
 
     /**
@@ -61,7 +61,7 @@ class SpidaDBDesign extends AbstractSpidaDBComponent {
 
 	@Override
 	Map getCalcJSON() {
-		return getMap().get('calcDesign')
+		return getMap().get('calcDesign') as Map
 	}
 
     /**
