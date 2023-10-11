@@ -93,7 +93,7 @@ abstract class AbstractSpidaDBComponent implements SpidaDBProjectComponent {
 	 * @param schema
 	 */
 	void setSchema(String schema) {
-		update("schema",schema)
+		update("schema", schema)
 	}
 
 	/**
@@ -101,7 +101,15 @@ abstract class AbstractSpidaDBComponent implements SpidaDBProjectComponent {
 	 * @param version
 	 */
 	void setVersion(String version) {
-		update("version",version)
+		update("version", version)
+	}
+
+	/**
+	 * sets the 'clientFileId' key value in the map
+	 * @param clientFileId
+	 */
+	void setClientFileId(String clientFileId) {
+		update("clientFileId", clientFileId)
 	}
 
 	/**
