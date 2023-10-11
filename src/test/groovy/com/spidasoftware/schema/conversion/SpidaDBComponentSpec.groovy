@@ -69,52 +69,141 @@ class SpidaDBComponentSpec extends Specification{
 
 	def "set schema in location"() {
 	    when:
-	        location.setSchema("added")
+	        location.updateCalcJSONSchema("added")
         then:
             location.getMap().calcLocation.schema=="added"
 	}
 
 	def "set schema in design"() {
 	    when:
-	        design.setSchema("added")
+	        design.updateCalcJSONSchema("added")
         then:
             design.getMap().calcDesign.schema=="added"
 	}
 
 	def "set schema in result"() {
 	    when:
-	        result.setSchema("added")
+	        result.updateCalcJSONSchema("added")
         then:
             result.getMap().calcResult.schema=="added"
 	}
 
 	def "set version in location"() {
 	    when:
-	        location.setVersion("11")
+	        location.updateCalcJSONVersion("11")
         then:
             location.getMap().calcLocation.version=="11"
 	}
 
 	def "set version in design"() {
 	    when:
-	        design.setVersion("11")
+	        design.updateCalcJSONVersion("11")
         then:
             design.getMap().calcDesign.version=="11"
 	}
 
 	def "set version in result"() {
 	    when:
-	        result.setVersion("11")
+	        result.updateCalcJSONVersion("11")
         then:
             result.getMap().calcResult.version=="11"
 	}
+
+	def "set client file id in project"() {
+	    when:
+	        project.updateClientFileId("123456")
+        then:
+            project.getMap().clientFileId=="123456"
+	}
+
+	def "set client file id in location"() {
+	    when:
+	        location.updateClientFileId("123456")
+        then:
+            location.getMap().clientFileId=="123456"
+	}
+
+	def "set client file id in design"() {
+	    when:
+	        design.updateClientFileId("123456")
+        then:
+            design.getMap().clientFileId=="123456"
+	}
+
+	def "set client file id in result"() {
+	    when:
+	        result.updateClientFileId("123456")
+        then:
+            result.getMap().clientFileId=="123456"
+    }
+
+	def "set analysis summary in design"() {
+	    when:
+	        design.updateAnalysisSummary([key1:"value1", key2:"value2", key3: "value3"])
+        then:
+            design.getMap().calcDesign.analysisSummary==[key1:"value1", key2:"value2", key3: "value3"]
+	}
+
+ 	def "set id in project"() {
+ 	    when:
+ 	        project.updateId("123")
+         then:
+             project.getMap().id=="123"
+ 	}
+
+ 	def "set id in location"() {
+ 	    when:
+ 	        location.updateId("123")
+         then:
+             location.getMap().id=="123"
+ 	}
+
+ 	def "set id in design"() {
+ 	    when:
+ 	        design.updateId("123")
+         then:
+             design.getMap().id=="123"
+ 	}
+
+ 	def "set id in result"() {
+ 	    when:
+ 	        result.updateId("123")
+         then:
+             result.getMap().id=="123"
+     }
+
+ 	def "set id in calcJSON project"() {
+ 	    when:
+ 	        project.updateCalcJSONId("123")
+         then:
+             project.getMap().calcProject.id=="123"
+ 	}
+
+ 	def "set id in calcJSON location"() {
+ 	    when:
+ 	        location.updateCalcJSONId("123")
+         then:
+             location.getMap().calcLocation.id=="123"
+ 	}
+
+ 	def "set id in calcJSON design"() {
+ 	    when:
+ 	        design.updateCalcJSONId("123")
+         then:
+             design.getMap().calcDesign.id=="123"
+ 	}
+
+ 	def "set id in calcJSON result"() {
+ 	    when:
+ 	        result.updateCalcJSONId("123")
+         then:
+             result.getMap().calcResult.id=="123"
+     }
 
 	def "get map is immutable"() {
 	    when:
 	        location.getMap().put("newKey","newValue")
 	    then:
 	        thrown(UnsupportedOperationException)
-
-
 	}
 }

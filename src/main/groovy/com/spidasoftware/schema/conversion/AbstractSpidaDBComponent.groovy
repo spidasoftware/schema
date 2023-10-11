@@ -92,24 +92,48 @@ abstract class AbstractSpidaDBComponent implements SpidaDBProjectComponent {
 	 * sets the 'schema' key value in the map
 	 * @param schema
 	 */
-	void setSchema(String schema) {
-		update("schema", schema)
+	void updateCalcJSONSchema(String schema) {
+		updateCalcJSON("schema", schema)
 	}
 
 	/**
 	 * sets the 'version' key value in the map
 	 * @param version
 	 */
-	void setVersion(String version) {
-		update("version", version)
+	void updateCalcJSONVersion(String version) {
+		updateCalcJSON("version", version)
 	}
 
 	/**
 	 * sets the 'clientFileId' key value in the map
 	 * @param clientFileId
 	 */
-	void setClientFileId(String clientFileId) {
-		update("clientFileId", clientFileId)
+	void updateClientFileId(String clientFileId) {
+		updateJSON("clientFileId", clientFileId)
+	}
+
+	/**
+	 * sets the 'analysisSummary' key value in the map
+	 * @param analysisSummary
+	 */
+	void updateAnalysisSummary(Map analysisSummary) {
+		updateCalcJSON("analysisSummary", analysisSummary)
+	}
+
+	/**
+	 * sets the 'id' key value in the map
+	 * @param id
+	 */
+	void updateCalcJSONId(String id) {
+		updateCalcJSON("id", id)
+	}
+
+	/**
+	 * sets the 'id' key value in the map
+	 * @param id
+	 */
+	void updateId(String id) {
+		updateJSON("id", id)
 	}
 
 	/**
@@ -117,7 +141,20 @@ abstract class AbstractSpidaDBComponent implements SpidaDBProjectComponent {
 	 * @param key
 	 * @param value
 	 */
-	private void update(Object key, Object value) {
+	private void updateJSON(Object key, Object value) {
+		Map map = new HashMap(getInternalMap())
+		if (map) {
+			map[key] = value
+		}
+		getInternalMap().putAll(map)
+	}
+
+	/**
+	 * set the key as value in the calc json internal map
+	 * @param key
+	 * @param value
+	 */
+	private void updateCalcJSON(Object key, Object value) {
 		Map map = new HashMap(getInternalMap())
 		if (map?.get(getCalcJSONName())) {
 			map.get(getCalcJSONName())[key] = value
