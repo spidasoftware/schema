@@ -61,6 +61,31 @@ class VirtualMapSpec extends Specification  {
             vMap.discard()
     }
 
+    void "test get immutable"() {
+        given:
+            Map map = getTestMap()
+            VirtualMap vMap = new VirtualMap(map)
+        when:
+            Object address = vMap.get("address")
+        then:
+            address instanceof Map
+        when:
+            address.putAt("number","123")
+        then:
+            thrown(UnsupportedOperationException)
+        when:
+            address["number"] = "123"
+        then:
+            thrown(UnsupportedOperationException)
+        when:
+            Collection collection = vMap.values()
+            collection[0] = "replaced"
+        then:
+            thrown(MissingMethodException)
+        cleanup:
+            vMap.discard()
+    }
+
     private Map getTestMap() {
         File f =  new File (this.getClass().getResource("/conversions/one-of-everything-project.json").toURI())
         JsonSlurper jsonSlurper = new JsonSlurper()

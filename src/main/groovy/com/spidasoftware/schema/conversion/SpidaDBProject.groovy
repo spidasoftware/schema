@@ -37,8 +37,8 @@ class SpidaDBProject extends AbstractSpidaDBComponent {
 	}
 
 	@Override
-	Map getCalcJSON() {
-		return getMap().get(getCalcJSONName())
+	final Map getCalcJSON() {
+		return (getMap().get(getCalcJSONName()) as Map).asImmutable()
 	}
 
     @Override

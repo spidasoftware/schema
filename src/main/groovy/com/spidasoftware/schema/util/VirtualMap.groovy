@@ -47,7 +47,8 @@ class VirtualMap implements Map {
 
     @Override
     Object get(Object key) {
-        return getFileMap()?.get(key)
+        Object object = getFileMap()?.get(key)
+        return (object instanceof Map | object instanceof List) ? object.asImmutable() : object
     }
 
     @Override
@@ -55,7 +56,7 @@ class VirtualMap implements Map {
         Map map = new HashMap(getFileMap())
         map.put(key,value)
         save(map)
-        return map
+        return map.asImmutable()
     }
 
     @Override
@@ -80,17 +81,18 @@ class VirtualMap implements Map {
 
     @Override
     Collection values() {
-        return getFileMap().values()
+        return getFileMap().values().asImmutable()
     }
 
     @Override
     Set<Entry> entrySet() {
-        return getFileMap().entrySet()
+        return getFileMap().entrySet().asImmutable()
     }
 
     private Map getFileMap() {
         JsonSlurper jsonSlurper = new JsonSlurper()
-        file ? jsonSlurper.parse(file) : [:]
+        Map map = file ? jsonSlurper.parse(file) : [:]
+        return map.asImmutable()
     }
 
     private void save(Map map) {

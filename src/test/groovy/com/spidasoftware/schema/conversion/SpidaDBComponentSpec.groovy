@@ -200,10 +200,23 @@ class SpidaDBComponentSpec extends Specification{
              result.getMap().calcResult.id=="123"
      }
 
-	def "get map is immutable"() {
-	    when:
-	        location.getMap().put("newKey","newValue")
-	    then:
-	        thrown(UnsupportedOperationException)
-	}
+   	def "test calc json is immutable"() {
+   	    when:
+   	        project.getCalcJSON().put("id","123")
+        then:
+            thrown(UnsupportedOperationException)
+   	    when:
+   	        location.getCalcJSON().put("id","123")
+        then:
+            thrown(UnsupportedOperationException)
+   	    when:
+   	        design.getCalcJSON().put("id","123")
+        then:
+            thrown(UnsupportedOperationException)
+   	    when:
+   	        result.getCalcJSON().put("id","123")
+        then:
+            thrown(UnsupportedOperationException)
+
+    }
 }

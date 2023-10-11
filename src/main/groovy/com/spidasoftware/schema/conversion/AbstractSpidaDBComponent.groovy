@@ -24,20 +24,12 @@ abstract class AbstractSpidaDBComponent implements SpidaDBProjectComponent {
         this.json = json
     }
 
-	/**
-	 * gets an immutable map for the component
-	 * @return an immutable map for the component
-	 */
     @Override
-    public final Map getMap() {
+    final public Map getMap() {
         return this.json.asImmutable()
     }
 
-	/**
-	 * gets a mutable map for the component
-	 * @return a mutable map for the component
-	 */
-	protected final Map getInternalMap() {
+	protected Map getInternalMap() {
 		return this.json
 	}
 
@@ -142,11 +134,7 @@ abstract class AbstractSpidaDBComponent implements SpidaDBProjectComponent {
 	 * @param value
 	 */
 	private void updateJSON(Object key, Object value) {
-		Map map = new HashMap(getInternalMap())
-		if (map) {
-			map[key] = value
-		}
-		getInternalMap().putAll(map)
+		getInternalMap().put(key, value)
 	}
 
 	/**
