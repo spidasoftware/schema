@@ -17,8 +17,6 @@ public interface SpidaDBProjectComponent {
      */
     public Map getMap()
 
-    public void setMap(Map json)
-
     /**
      * @return the name of the component. This matches the displayed id of the component in Calc
      */

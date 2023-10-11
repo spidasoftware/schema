@@ -59,11 +59,6 @@ public class SpidaDBPhoto implements SpidaDBProjectComponent {
     }
 
     @Override
-    public void setMap(Map json) {
-        this.json = json
-    }
-
-    @Override
     public String getName() {
         return this.name
     }

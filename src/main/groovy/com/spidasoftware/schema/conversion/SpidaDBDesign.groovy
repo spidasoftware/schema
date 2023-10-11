@@ -22,9 +22,9 @@ class SpidaDBDesign extends AbstractSpidaDBComponent {
 
 	void updateLocationIds(Map<String, String> oldToNew){
 
-		def locationId = getMap().get("locationId")
+		def locationId = getInternalMap().get("locationId")
 		if(oldToNew.get(locationId)){
-			getMap().put("locationId", oldToNew.get(locationId) )
+			getInternalMap().put("locationId", oldToNew.get(locationId) )
 		}
 
 	}
@@ -61,7 +61,7 @@ class SpidaDBDesign extends AbstractSpidaDBComponent {
 
 	@Override
 	Map getCalcJSON() {
-		return getMap().get('calcDesign') as Map
+		return getMap().get(getCalcJSONName()) as Map
 	}
 
 	@Override

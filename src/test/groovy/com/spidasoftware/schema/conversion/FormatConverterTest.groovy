@@ -384,56 +384,6 @@ class FormatConverterTest extends Specification {
 			report.isSuccess()
 	}
 
-//	def "test convert calc project"() {
-//		setup:
-//			JsonSlurper jsonSlurper = new JsonSlurper()
-//			FormatConverter formatConverter = new FormatConverter()
-//			Map calcProject = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/project.json"))
-//			List<File> resultsFiles = []
-//		when:
-//			Collection<SpidaDBProjectComponent> components = formatConverter.convertCalcProject(calcProject, resultsFiles)
-//		then:
-//			components.size() > 0
-//	}
-//
-//	def "test convert calc location"() {
-//		setup:
-//			JsonSlurper jsonSlurper = new JsonSlurper()
-//			FormatConverter formatConverter = new FormatConverter()
-//			Map calcProject = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/project.json"))
-//			Map calcLocation = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/location-3630533.json"))
-//			File resultsFile = new File(getClass().getResource("/conversions/studio/628fa8efd0bb6c664573e719.json").toURI())
-//			List<File> resultsFiles = [resultsFile]
-//		when:
-//			Collection<SpidaDBProjectComponent> components = formatConverter.convertCalcLocation(calcLocation, calcProject, resultsFiles)
-//		then:
-//			components.size() > 0
-//	}
-
-//	def "test compare"() {
-//		setup:
-//			String workingPath = new File("C:\\Users\\Jeff.Seifert\\OneDrive - Bentley Systems, Inc\\Documents\\Tickets\\185884650-add format converter method convert calc project for files\\components from exchange file in tmp")
-//			File working = new File(workingPath)
-//			File projectFile = new File("C:\\Users\\Jeff.Seifert\\OneDrive - Bentley Systems, Inc\\Documents\\Tickets\\185884650-add format converter method convert calc project for files\\components from exchange file in tmp\\project.json")
-//			File projectCombinedFile = new File("C:\\Users\\Jeff.Seifert\\OneDrive - Bentley Systems, Inc\\Documents\\Tickets\\185884650-add format converter method convert calc project for files\\components from exchange file in tmp\\project-combined.json")
-//			File resultsDir = new File("C:\\Users\\Jeff.Seifert\\OneDrive - Bentley Systems, Inc\\Documents\\Tickets\\185884650-add format converter method convert calc project for files\\components from exchange file in tmp\\Results")
-//			List<File> resultsFiles = resultsDir?.listFiles()?.collect()
-//			Map calcProject = new JsonSlurper().parse(projectFile)
-//			Map calcProjectCombined = new JsonSlurper().parse(projectCombinedFile)
-//			FormatConverter formatConverter = new FormatConverter()
-//		when:
-//			Collection<SpidaDBProjectComponent> components = formatConverter.convertCalcProject(calcProject, resultsFiles)
-//
-//			List<SpidaDBLocation> spidaDBLocations = (List<SpidaDBLocation>) components.findAll {
-//				it instanceof SpidaDBLocation
-//			}
-//		then:
-//			calcProject.size() > 0
-//			components.size() > 0
-//			spidaDBLocations.size() > 0
-//
-//	}
-
 	def "test convert calc project"() {
 		setup:
 			JsonSlurper jsonSlurper = new JsonSlurper()

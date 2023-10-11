@@ -11,24 +11,22 @@ import groovy.util.logging.Slf4j
  */
 @Slf4j
 abstract class AbstractSpidaDBComponent implements SpidaDBProjectComponent {
-    VirtualMap json
+    private VirtualMap json
 
     public AbstractSpidaDBComponent(Map json){
         this.json = json
     }
 
-	// make these private?
     @Override
-    public Map getMap() {
-        return this.json
+    public final Map getMap() {
+        return this.json.asImmutable()
     }
 
-    @Override
-    public void setMap(Map json) {
-        this.json = json
-    }
+	protected final Map getInternalMap() {
+		return this.json
+	}
 
-    @Override
+	@Override
     public String getName() {
         return getCalcJSON().get("label")
     }
@@ -72,34 +70,22 @@ abstract class AbstractSpidaDBComponent implements SpidaDBProjectComponent {
 		Map user = [:]
 		user.put('id', id)
 		user.put('email', email)
-		getMap().put('user', user)
+		getInternalMap().put('user', user)
 	}
 
 	/**
-	 *
-	 * @param schema
+	 * set the key as value in the internal map
+	 * @param key
+	 * @param value
 	 */
-	void setSchema(String schema) {
-		Map map = new HashMap(getMap())
+	void update(Object key, Object value) {
+		Map map = new HashMap(getInternalMap())
 		if (map?.get(getCalcJSONName())) {
-			map.get(getCalcJSONName())["schema"] = schema
+			map.get(getCalcJSONName())[key] = value
 		}
-		getMap().putAll(map)
-	}
-
-	/**
-	 *
-	 * @param version
-	 */
-	void setVersion(String version) {
-		Map map = new HashMap(getMap())
-		if (map?.get(getCalcJSONName())) {
-			map.get(getCalcJSONName())["version"] = version
-		}
-		getMap().putAll(map)
+		getInternalMap().putAll(map)
 	}
 
 	abstract Map getCalcJSON()
-
 	abstract String getCalcJSONName()
 }

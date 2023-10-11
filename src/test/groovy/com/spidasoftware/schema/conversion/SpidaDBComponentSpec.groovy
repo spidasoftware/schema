@@ -28,6 +28,11 @@ class SpidaDBComponentSpec extends Specification{
 		return new SpidaDBProject(projectJson)
 	}
 
+	private SpidaDBResult loadResult(String resourceString) {
+        Map json = getResource(resourceString)
+    	return new SpidaDBResult(json.get('results').get(0))
+    }
+
 	private Map getResource(String resourceString) {
 		String text = getClass().getResourceAsStream(resourceString).text
 		return new JsonSlurper().parseText(text)
@@ -37,6 +42,7 @@ class SpidaDBComponentSpec extends Specification{
 		project = loadProject("/formats/spidadb/minimal-project-valid/projects.json")
 		location = loadLocation("/formats/spidadb/minimal-project-valid/locations.json")
 		design = loadDesign("/formats/spidadb/minimal-project-valid/designs.json")
+		result = loadResult("/formats/spidadb/minimal-project-valid/results.json")
 	}
 
 	def "replace locations ids on project"(){
@@ -63,41 +69,52 @@ class SpidaDBComponentSpec extends Specification{
 
 	def "set schema in location"() {
 	    when:
-	        location.setSchema("added")
+	        location.update("schema","added")
         then:
             location.getMap().calcLocation.schema=="added"
 	}
 
 	def "set schema in design"() {
 	    when:
-	        design.setSchema("added")
+	        design.update("schema","added")
         then:
             design.getMap().calcDesign.schema=="added"
 	}
 
-//	def "set schema in result"() {
-//	    when:
-//	        result.setSchema("added")
-//        then:
-//            result.getMap().calcResult.schema=="added"
-//	}
+	def "set schema in result"() {
+	    when:
+	        result.update("schema","added")
+        then:
+            result.getMap().calcResult.schema=="added"
+	}
 
 	def "set version in location"() {
 	    when:
-	        location.setVersion("11")
+	        location.update("version","11")
         then:
             location.getMap().calcLocation.version=="11"
 	}
 
 	def "set version in design"() {
 	    when:
-	        design.setVersion("11")
+	        design.update("version","11")
         then:
             design.getMap().calcDesign.version=="11"
 	}
 
 	def "set version in result"() {
-        expect:
-            1==1
+	    when:
+	        result.update("version","11")
+        then:
+            result.getMap().calcResult.version=="11"
+	}
+
+	def "get map is immutable"() {
+	    when:
+	        location.getMap().put("newKey","newValue")
+	    then:
+	        thrown(UnsupportedOperationException)
+
+
 	}
 }

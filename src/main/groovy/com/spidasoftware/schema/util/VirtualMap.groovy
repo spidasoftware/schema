@@ -90,7 +90,7 @@ class VirtualMap implements Map {
 
     private Map getFileMap() {
         JsonSlurper jsonSlurper = new JsonSlurper()
-        file ? jsonSlurper.parse(file) : new VirtualMap()
+        file ? jsonSlurper.parse(file) : [:]
     }
 
     private void save(Map map) {

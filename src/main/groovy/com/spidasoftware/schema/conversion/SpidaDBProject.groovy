@@ -20,15 +20,15 @@ class SpidaDBProject extends AbstractSpidaDBComponent {
     }
 
     void updateLocationIds(Map<String, String> oldToNew){
-      Map map = new HashMap(getMap())
-      map.calcProject.leads.each{Map lead ->
-           lead.locations.each{Map location ->
-	           if(oldToNew.get(location.id)){
-		           location.put("id", oldToNew.get(location.id))
-	           }
-           }
-      }
-      getMap().putAll(map)
+        Map map = new HashMap(getInternalMap())
+        map.calcProject.leads.each{Map lead ->
+            lead.locations.each{Map location ->
+    	        if(oldToNew.get(location.id)){
+    		        location.put("id", oldToNew.get(location.id))
+                }
+            }
+        }
+        getInternalMap().putAll(map)
     }
 
 	@Override
@@ -38,7 +38,7 @@ class SpidaDBProject extends AbstractSpidaDBComponent {
 
 	@Override
 	Map getCalcJSON() {
-		return getMap().get('calcProject')
+		return getMap().get(getCalcJSONName())
 	}
 
     @Override
