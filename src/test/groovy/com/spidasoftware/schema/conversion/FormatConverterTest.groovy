@@ -390,10 +390,18 @@ class FormatConverterTest extends Specification {
 			FormatConverter formatConverter = new FormatConverter()
 			Map calcProject = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/project.json"))
 			Map results1 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/60301ed53e4c05c7c458712d.json"))
-			List<File> resultsFiles = [results1]
+			Map results2 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/60301ee03e4c05c7c458713c.json"))
+			Map results3 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/60301eea3e4c05c7c4587150.json"))
+			Map results4 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/60301f1e3e4c05c7c458715c.json"))
+			Map results5 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/60301f8e3e4c05c7c45871a5.json"))
+			Map results6 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/60301f323e4c05c7c4587172.json"))
+			Map results7 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/60301f333e4c05c7c458718b.json"))
+			Map results8 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/603020093e4c05c7c4587257.json"))
+			Map results9 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/603020143e4c05c7c4587279.json"))
+			List<File> resultsFiles = [results1, results2, results3, results4, results5, results6, results7, results8, results9]
 		expect:
 			calcProject.size() > 0
-			resultsFiles.size() == 1
+			resultsFiles.size() == 9
 	}
 
 	static void combineProjectResults(Map projectJSON, List<Map> projectDetailedResults) {
