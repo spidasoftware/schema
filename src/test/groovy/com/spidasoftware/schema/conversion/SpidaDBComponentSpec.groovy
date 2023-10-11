@@ -69,42 +69,42 @@ class SpidaDBComponentSpec extends Specification{
 
 	def "set schema in location"() {
 	    when:
-	        location.update("schema","added")
+	        location.setSchema("added")
         then:
             location.getMap().calcLocation.schema=="added"
 	}
 
 	def "set schema in design"() {
 	    when:
-	        design.update("schema","added")
+	        design.setSchema("added")
         then:
             design.getMap().calcDesign.schema=="added"
 	}
 
 	def "set schema in result"() {
 	    when:
-	        result.update("schema","added")
+	        result.setSchema("added")
         then:
             result.getMap().calcResult.schema=="added"
 	}
 
 	def "set version in location"() {
 	    when:
-	        location.update("version","11")
+	        location.setVersion("11")
         then:
             location.getMap().calcLocation.version=="11"
 	}
 
 	def "set version in design"() {
 	    when:
-	        design.update("version","11")
+	        design.setVersion("11")
         then:
             design.getMap().calcDesign.version=="11"
 	}
 
 	def "set version in result"() {
 	    when:
-	        result.update("version","11")
+	        result.setVersion("11")
         then:
             result.getMap().calcResult.version=="11"
 	}

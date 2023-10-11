@@ -389,7 +389,7 @@ class FormatConverterTest extends Specification {
 			JsonSlurper jsonSlurper = new JsonSlurper()
 			FormatConverter formatConverter = new FormatConverter()
 			Map calcProject = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/project.json"))
-			File resultsDir = new File(getClass().getResource("/conversions/exchange/spidacalc-module-7-starter-file/results").toURI())
+			File resultsDir = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results").toURI())
 			List<File> resultsFiles = resultsDir?.listFiles()?.collect()
 		expect:
 			calcProject.size() > 0

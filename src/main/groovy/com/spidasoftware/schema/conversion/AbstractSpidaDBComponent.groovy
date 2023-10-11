@@ -11,17 +11,32 @@ import groovy.util.logging.Slf4j
  */
 @Slf4j
 abstract class AbstractSpidaDBComponent implements SpidaDBProjectComponent {
+
+	// file-backed json map for the component
     private VirtualMap json
 
+	/**
+	 * Constructor - once created, the map can only be changed using methods in this class hierarchy.
+	 * Direct updates on the json map are not permitted.
+	 * @param json
+	 */
     public AbstractSpidaDBComponent(Map json){
         this.json = json
     }
 
+	/**
+	 * gets an immutable map for the component
+	 * @return an immutable map for the component
+	 */
     @Override
     public final Map getMap() {
         return this.json.asImmutable()
     }
 
+	/**
+	 * gets a mutable map for the component
+	 * @return a mutable map for the component
+	 */
 	protected final Map getInternalMap() {
 		return this.json
 	}
@@ -74,11 +89,27 @@ abstract class AbstractSpidaDBComponent implements SpidaDBProjectComponent {
 	}
 
 	/**
+	 * sets the 'schema' key value in the map
+	 * @param schema
+	 */
+	void setSchema(String schema) {
+		update("schema",schema)
+	}
+
+	/**
+	 * sets the 'version' key value in the map
+	 * @param version
+	 */
+	void setVersion(String version) {
+		update("version",version)
+	}
+
+	/**
 	 * set the key as value in the internal map
 	 * @param key
 	 * @param value
 	 */
-	void update(Object key, Object value) {
+	private void update(Object key, Object value) {
 		Map map = new HashMap(getInternalMap())
 		if (map?.get(getCalcJSONName())) {
 			map.get(getCalcJSONName())[key] = value
