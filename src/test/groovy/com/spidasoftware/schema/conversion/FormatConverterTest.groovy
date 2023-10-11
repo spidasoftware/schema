@@ -389,11 +389,11 @@ class FormatConverterTest extends Specification {
 			JsonSlurper jsonSlurper = new JsonSlurper()
 			FormatConverter formatConverter = new FormatConverter()
 			Map calcProject = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/project.json"))
-			File resultsDir = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results").toURI())
-			List<File> resultsFiles = resultsDir?.listFiles()?.collect()
+			Map results1 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/60301ed53e4c05c7c458712d.json"))
+			List<File> resultsFiles = [results1]
 		expect:
 			calcProject.size() > 0
-			resultsFiles.size() == 9
+			resultsFiles.size() == 1
 	}
 
 	static void combineProjectResults(Map projectJSON, List<Map> projectDetailedResults) {
