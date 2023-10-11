@@ -3,7 +3,7 @@
  */
 package com.spidasoftware.schema.conversion
 
-import com.spidasoftware.schema.util.VirtualMap
+import com.spidasoftware.utils.map.VirtualMap
 import groovy.util.logging.Slf4j
 
 /**

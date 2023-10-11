@@ -4,7 +4,7 @@
 package com.spidasoftware.schema.conversion
 
 import com.spidasoftware.schema.conversion.changeset.calc.CalcProjectChangeSet
-import groovy.json.JsonSlurper
+import com.spidasoftware.utils.json.JsonIO
 import groovy.util.logging.Slf4j
 import org.bson.types.ObjectId
 
@@ -89,8 +89,7 @@ class FormatConverter {
                     String resultId = design.get("analysisDetails").get("resultId")
                     File resultsFile = resultsFiles.find { File resultsFile -> resultsFile.name - ~/\.\w+$/ == resultId }
                     if (resultsFile) {
-                        JsonSlurper jsonSlurper = new JsonSlurper()
-                        Map detailedResults = jsonSlurper.parse(resultsFile)
+                        Map detailedResults = JsonIO.parse(resultsFile)
                         SpidaDBResult spidaDBResult = convertCalcResult(detailedResults)
                         components.add(spidaDBResult)
                         design.analysisDetails.put("id", spidaDBResult.spidaDBId)

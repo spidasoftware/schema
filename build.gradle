@@ -41,6 +41,10 @@ sourceSets {
 	}
 }
 
+configurations.all {
+	resolutionStrategy.cacheChangingModulesFor 10, 'minutes'
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependencies
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -49,6 +53,13 @@ buildscript {
 	repositories {
 		mavenCentral()
 		maven { url System.getenv("ARTIFACTORY_URL_EXPOSED") }
+		maven {
+			credentials {
+				username = System.getenv('ARTIFACTORY_USERNAME')
+				password = System.getenv('ARTIFACTORY_PASSWORD')
+			}
+			url System.getenv('ARTIFACTORY_URL_PRIVATE')
+		}
 	}
 
 	dependencies {
@@ -60,6 +71,13 @@ buildscript {
 repositories {
 	mavenCentral()
 	maven { url System.getenv("ARTIFACTORY_URL_EXPOSED") }
+	maven {
+		credentials {
+			username = System.getenv('ARTIFACTORY_USERNAME')
+			password = System.getenv('ARTIFACTORY_PASSWORD')
+		}
+		url System.getenv('ARTIFACTORY_URL_PRIVATE')
+	}
 }
 
 publishing {
@@ -104,6 +122,9 @@ dependencies {
 	testRuntimeOnly('net.bytebuddy:byte-buddy:1.14.2')  // so spock can create mocks
 	testImplementation group: 'org.objenesis', name:'objenesis', version: '2.6'
 	testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.9.2")
+	implementation("com.spidasoftware:utils:1.1.22-SNAPSHOT") {
+		changing = true
+	}
 }
 
 test {
