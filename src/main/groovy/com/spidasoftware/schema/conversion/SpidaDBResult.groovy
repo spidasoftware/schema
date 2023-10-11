@@ -22,6 +22,11 @@ class SpidaDBResult extends AbstractSpidaDBComponent {
 	}
 
 	@Override
+	String getCalcJSONName() {
+		return 'calcResult'
+	}
+
+	@Override
 	String getName(){
 		return "Result"
 	}

@@ -45,6 +45,11 @@ class SpidaDBLocation extends AbstractSpidaDBComponent {
 	}
 
     @Override
+    String getCalcJSONName() {
+        return 'calcLocation'
+    }
+
+    @Override
     String toString(){
         return getName()?: "Location without a label"
     }

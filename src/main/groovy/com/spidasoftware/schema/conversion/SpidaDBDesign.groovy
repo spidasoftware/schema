@@ -64,7 +64,12 @@ class SpidaDBDesign extends AbstractSpidaDBComponent {
 		return getMap().get('calcDesign') as Map
 	}
 
-    /**
+	@Override
+	String getCalcJSONName() {
+		return 'calcDesign'
+	}
+
+	/**
      * returns the name of this design's parent project if it has one.
      * otherwise returns null.
      * @return

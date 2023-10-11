@@ -74,6 +74,31 @@ abstract class AbstractSpidaDBComponent implements SpidaDBProjectComponent {
 		getMap().put('user', user)
 	}
 
+	/**
+	 *
+	 * @param schema
+	 */
+	void setSchema(String schema) {
+		Map map = new HashMap(getMap())
+		if (map?.get(getCalcJSONName())) {
+			map.get(getCalcJSONName())["schema"] = schema
+		}
+		getMap().putAll(map)
+	}
+
+	/**
+	 *
+	 * @param version
+	 */
+	void setVersion(String version) {
+		Map map = new HashMap(getMap())
+		if (map?.get(getCalcJSONName())) {
+			map.get(getCalcJSONName())["version"] = version
+		}
+		getMap().putAll(map)
+	}
+
 	abstract Map getCalcJSON()
 
+	abstract String getCalcJSONName()
 }

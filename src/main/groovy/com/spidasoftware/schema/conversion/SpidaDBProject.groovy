@@ -41,7 +41,12 @@ class SpidaDBProject extends AbstractSpidaDBComponent {
 		return getMap().get('calcProject')
 	}
 
-	@Override
+    @Override
+    String getCalcJSONName() {
+        return 'calcProject'
+    }
+
+    @Override
     String toString() {
         return getName()?: "Project"
     }
