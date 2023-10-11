@@ -42,7 +42,7 @@ sourceSets {
 }
 
 configurations.all {
-	resolutionStrategy.cacheChangingModulesFor 10, 'minutes'
+	resolutionStrategy.cacheChangingModulesFor 15, 'minutes'
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
