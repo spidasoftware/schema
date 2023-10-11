@@ -17,6 +17,7 @@ abstract class AbstractSpidaDBComponent implements SpidaDBProjectComponent {
         this.json = json
     }
 
+	// make these private?
     @Override
     public Map getMap() {
         return this.json
