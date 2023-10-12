@@ -21,7 +21,7 @@ abstract class AbstractSpidaDBComponent implements SpidaDBProjectComponent {
 	 * @param json
 	 */
     public AbstractSpidaDBComponent(Map json){
-        this.json = json
+        this.json = new VirtualMap(json, this.class.getSimpleName().toLowerCase())
     }
 
     @Override
