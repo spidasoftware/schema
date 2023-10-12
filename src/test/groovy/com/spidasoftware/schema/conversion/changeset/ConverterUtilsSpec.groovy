@@ -77,8 +77,10 @@ SCHEMA_VERSION: 6.0.0-SNAPSHOT
 BUILD SUCCESSFUL in 0s
 	 */
 	def testSchemaVersionMatchesConverterUtilsVersion() {
+	    given:
+	        boolean isWindows = System.properties['os.name']?.toString()?.toLowerCase()?.contains('windows')
 		when:
-			Process process = "./gradlew printVersion".execute()
+			Process process = isWindows ? "cmd /c gradlew printVersion".execute() : "./gradlew printVersion".execute()
 			process.waitFor()
 			String output = process.text.trim()
 			int indexOfMajorVersion = output.indexOf("SCHEMA_VERSION: ") + "SCHEMA_VERSION: ".length()
