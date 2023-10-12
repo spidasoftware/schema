@@ -389,31 +389,31 @@ class FormatConverterTest extends Specification {
 		setup:
 			FormatConverter formatConverter = new FormatConverter()
 
-			Map calcProjectCombined = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/project.json"))
+			Map calcProjectCombined = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file-v7/project.json"))
 
-			Map results1 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/60301ed53e4c05c7c458712d.json"))
-			Map results2 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/60301ee03e4c05c7c458713c.json"))
-			Map results3 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/60301eea3e4c05c7c4587150.json"))
-			Map results4 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/60301f1e3e4c05c7c458715c.json"))
-			Map results5 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/60301f8e3e4c05c7c45871a5.json"))
-			Map results6 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/60301f323e4c05c7c4587172.json"))
-			Map results7 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/60301f333e4c05c7c458718b.json"))
-			Map results8 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/603020093e4c05c7c4587257.json"))
-			Map results9 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/603020143e4c05c7c4587279.json"))
+			Map results1 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/60301ed53e4c05c7c458712d.json"))
+			Map results2 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/60301ee03e4c05c7c458713c.json"))
+			Map results3 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/60301eea3e4c05c7c4587150.json"))
+			Map results4 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/60301f1e3e4c05c7c458715c.json"))
+			Map results5 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/60301f8e3e4c05c7c45871a5.json"))
+			Map results6 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/60301f323e4c05c7c4587172.json"))
+			Map results7 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/60301f333e4c05c7c458718b.json"))
+			Map results8 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/603020093e4c05c7c4587257.json"))
+			Map results9 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/603020143e4c05c7c4587279.json"))
 			List<Map> detailedResults = [results1, results2, results3, results4, results5, results6, results7, results8, results9]
 			combineProjectResults(calcProjectCombined, detailedResults)
 
-			Map calcProject = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/project.json"))
+			Map calcProject = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file-v7/project.json"))
 
-			File resultsFile1 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/60301ed53e4c05c7c458712d.json").toURI())
-			File resultsFile2 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/60301ee03e4c05c7c458713c.json").toURI())
-			File resultsFile3 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/60301eea3e4c05c7c4587150.json").toURI())
-			File resultsFile4 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/60301f1e3e4c05c7c458715c.json").toURI())
-			File resultsFile5 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/60301f8e3e4c05c7c45871a5.json").toURI())
-			File resultsFile6 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/60301f323e4c05c7c4587172.json").toURI())
-			File resultsFile7 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/60301f333e4c05c7c458718b.json").toURI())
-			File resultsFile8 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/603020093e4c05c7c4587257.json").toURI())
-			File resultsFile9 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/603020143e4c05c7c4587279.json").toURI())
+			File resultsFile1 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/60301ed53e4c05c7c458712d.json").toURI())
+			File resultsFile2 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/60301ee03e4c05c7c458713c.json").toURI())
+			File resultsFile3 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/60301eea3e4c05c7c4587150.json").toURI())
+			File resultsFile4 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/60301f1e3e4c05c7c458715c.json").toURI())
+			File resultsFile5 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/60301f8e3e4c05c7c45871a5.json").toURI())
+			File resultsFile6 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/60301f323e4c05c7c4587172.json").toURI())
+			File resultsFile7 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/60301f333e4c05c7c458718b.json").toURI())
+			File resultsFile8 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/603020093e4c05c7c4587257.json").toURI())
+			File resultsFile9 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/603020143e4c05c7c4587279.json").toURI())
 			List<File> resultsFiles = [resultsFile1, resultsFile2, resultsFile3, resultsFile4, resultsFile5, resultsFile6, resultsFile7, resultsFile8, resultsFile9]
 		when:
 			Collection<SpidaDBProjectComponent> componentsFromCombined = formatConverter.convertCalcProject(calcProject, resultsFiles)
@@ -463,17 +463,17 @@ class FormatConverterTest extends Specification {
 	def "test convert calc project from combined results"() {
 		setup:
 			FormatConverter formatConverter = new FormatConverter()
-			Map calcProjectCombined = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/project.json"))
+			Map calcProjectCombined = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file-v7/project.json"))
 
-			Map results1 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/60301ed53e4c05c7c458712d.json"))
-			Map results2 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/60301ee03e4c05c7c458713c.json"))
-			Map results3 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/60301eea3e4c05c7c4587150.json"))
-			Map results4 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/60301f1e3e4c05c7c458715c.json"))
-			Map results5 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/60301f8e3e4c05c7c45871a5.json"))
-			Map results6 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/60301f323e4c05c7c4587172.json"))
-			Map results7 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/60301f333e4c05c7c458718b.json"))
-			Map results8 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/603020093e4c05c7c4587257.json"))
-			Map results9 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/603020143e4c05c7c4587279.json"))
+			Map results1 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/60301ed53e4c05c7c458712d.json"))
+			Map results2 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/60301ee03e4c05c7c458713c.json"))
+			Map results3 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/60301eea3e4c05c7c4587150.json"))
+			Map results4 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/60301f1e3e4c05c7c458715c.json"))
+			Map results5 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/60301f8e3e4c05c7c45871a5.json"))
+			Map results6 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/60301f323e4c05c7c4587172.json"))
+			Map results7 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/60301f333e4c05c7c458718b.json"))
+			Map results8 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/603020093e4c05c7c4587257.json"))
+			Map results9 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/603020143e4c05c7c4587279.json"))
 			List<Map> detailedResults = [results1, results2, results3, results4, results5, results6, results7, results8, results9]
 			combineProjectResults(calcProjectCombined, detailedResults)
 		when:
@@ -496,17 +496,17 @@ class FormatConverterTest extends Specification {
 	def "test convert calc project with results files"() {
 		setup:
 			FormatConverter formatConverter = new FormatConverter()
-			Map calcProject = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/project.json"))
+			Map calcProject = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file-v7/project.json"))
 
-			File resultsFile1 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/60301ed53e4c05c7c458712d.json").toURI())
-			File resultsFile2 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/60301ee03e4c05c7c458713c.json").toURI())
-			File resultsFile3 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/60301eea3e4c05c7c4587150.json").toURI())
-			File resultsFile4 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/60301f1e3e4c05c7c458715c.json").toURI())
-			File resultsFile5 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/60301f8e3e4c05c7c45871a5.json").toURI())
-			File resultsFile6 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/60301f323e4c05c7c4587172.json").toURI())
-			File resultsFile7 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/60301f333e4c05c7c458718b.json").toURI())
-			File resultsFile8 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/603020093e4c05c7c4587257.json").toURI())
-			File resultsFile9 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/603020143e4c05c7c4587279.json").toURI())
+			File resultsFile1 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/60301ed53e4c05c7c458712d.json").toURI())
+			File resultsFile2 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/60301ee03e4c05c7c458713c.json").toURI())
+			File resultsFile3 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/60301eea3e4c05c7c4587150.json").toURI())
+			File resultsFile4 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/60301f1e3e4c05c7c458715c.json").toURI())
+			File resultsFile5 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/60301f8e3e4c05c7c45871a5.json").toURI())
+			File resultsFile6 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/60301f323e4c05c7c4587172.json").toURI())
+			File resultsFile7 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/60301f333e4c05c7c458718b.json").toURI())
+			File resultsFile8 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/603020093e4c05c7c4587257.json").toURI())
+			File resultsFile9 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file-v7/results/603020143e4c05c7c4587279.json").toURI())
 			List<File> resultsFiles = [resultsFile1, resultsFile2, resultsFile3, resultsFile4, resultsFile5, resultsFile6, resultsFile7, resultsFile8, resultsFile9]
 		when:
 			Collection<SpidaDBProjectComponent> components = formatConverter.convertCalcProject(calcProject, resultsFiles)
