@@ -1,6 +1,7 @@
 package com.spidasoftware.schema.conversion
 
 import com.github.fge.jsonschema.core.report.ProcessingReport
+import com.google.common.collect.MapDifference
 import com.spidasoftware.schema.conversion.changeset.Converter
 import com.spidasoftware.schema.conversion.changeset.ConverterUtils
 import com.spidasoftware.schema.validation.Validator
@@ -384,12 +385,12 @@ class FormatConverterTest extends Specification {
 			report.isSuccess()
 	}
 
-	def "test convert calc project"() {
+	def "test compare convert calc project from combined and non-combined with results files"() {
 		setup:
-			JsonSlurper jsonSlurper = new JsonSlurper()
 			FormatConverter formatConverter = new FormatConverter()
-			Map calcProject = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/project.json"))
+
 			Map calcProjectCombined = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/project.json"))
+
 			Map results1 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/60301ed53e4c05c7c458712d.json"))
 			Map results2 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/60301ee03e4c05c7c458713c.json"))
 			Map results3 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/60301eea3e4c05c7c4587150.json"))
@@ -402,6 +403,8 @@ class FormatConverterTest extends Specification {
 			List<Map> detailedResults = [results1, results2, results3, results4, results5, results6, results7, results8, results9]
 			combineProjectResults(calcProjectCombined, detailedResults)
 
+			Map calcProject = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/project.json"))
+
 			File resultsFile1 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/60301ed53e4c05c7c458712d.json").toURI())
 			File resultsFile2 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/60301ee03e4c05c7c458713c.json").toURI())
 			File resultsFile3 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/60301eea3e4c05c7c4587150.json").toURI())
@@ -411,15 +414,21 @@ class FormatConverterTest extends Specification {
 			File resultsFile7 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/60301f333e4c05c7c458718b.json").toURI())
 			File resultsFile8 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/603020093e4c05c7c4587257.json").toURI())
 			File resultsFile9 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/603020143e4c05c7c4587279.json").toURI())
-
+			List<File> resultsFiles = [resultsFile1, resultsFile2, resultsFile3, resultsFile4, resultsFile5, resultsFile6, resultsFile7, resultsFile8, resultsFile9]
 		when:
-			Collection<SpidaDBProjectComponent> componentsFromCombined = formatConverter.convertCalcProject(calcProjectCombined)
+			Collection<SpidaDBProjectComponent> componentsFromCombined = formatConverter.convertCalcProject(calcProject, resultsFiles)
 			SpidaDBProject spidaDBProjectCombined = (SpidaDBProject) componentsFromCombined.find { it instanceof SpidaDBProject }
 			List<SpidaDBLocation> spidaDBLocationsCombined = (List<SpidaDBLocation>) componentsFromCombined.findAll { it instanceof SpidaDBLocation }
 			List<SpidaDBDesign> spidaDBDesignsCombined = (List<SpidaDBDesign>) componentsFromCombined.findAll { it instanceof SpidaDBDesign }
 			List<SpidaDBResult> spidaDBResultsCombined = (List<SpidaDBDesign>) componentsFromCombined.findAll { it instanceof SpidaDBResult }
+
+			Collection<SpidaDBProjectComponent> components = formatConverter.convertCalcProject(calcProject, resultsFiles)
+			SpidaDBProject spidaDBProject = (SpidaDBProject) components.find { it instanceof SpidaDBProject }
+			List<SpidaDBLocation> spidaDBLocations = (List<SpidaDBLocation>) components.findAll { it instanceof SpidaDBLocation }
+			List<SpidaDBDesign> spidaDBDesigns = (List<SpidaDBDesign>) components.findAll { it instanceof SpidaDBDesign }
+			List<SpidaDBResult> spidaDBResults = (List<SpidaDBDesign>) components.findAll { it instanceof SpidaDBResult }
 		then:
-			calcProject.size() > 0
+			calcProjectCombined.size() > 0
 			calcProjectCombined.size() > 0
 			detailedResults.size() == 9
 			componentsFromCombined.size() == 28
@@ -428,6 +437,91 @@ class FormatConverterTest extends Specification {
 			spidaDBDesignsCombined.size() == 9
 			spidaDBResultsCombined.size() == 9
 
+			calcProject.size() > 0
+			resultsFiles.size() == 9
+			components.size() == 28
+			spidaDBProjectCombined != null
+			spidaDBLocationsCombined.size() == 9
+			spidaDBDesignsCombined.size() == 9
+			spidaDBResultsCombined.size() == 9
+
+			spidaDBResults.size() == spidaDBResultsCombined.size()
+
+			spidaDBResults.eachWithIndex { SpidaDBResult spidaDbResult, int index  ->
+
+			}
+			MapDifference<String, String> diff = com.google.common.collect.Maps.difference(spidaDBResults[0].getMap(),spidaDBResultsCombined[0].getMap() );
+			Map<String, MapDifference.ValueDifference<String>> entriesDiffering = diff.entriesDiffering();
+
+			!diff.areEqual()
+//			assertEquals(1, entriesDiffering.size());
+//			assertThat(entriesDiffering, hasKey("id"));
+//			assertEquals("New Delhi", entriesDiffering.get("India").leftValue());
+//			assertEquals("Delhi", entriesDiffering.get("India").rightValue());
+	}
+
+	def "test convert calc project from combined results"() {
+		setup:
+			FormatConverter formatConverter = new FormatConverter()
+			Map calcProjectCombined = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/project.json"))
+
+			Map results1 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/60301ed53e4c05c7c458712d.json"))
+			Map results2 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/60301ee03e4c05c7c458713c.json"))
+			Map results3 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/60301eea3e4c05c7c4587150.json"))
+			Map results4 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/60301f1e3e4c05c7c458715c.json"))
+			Map results5 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/60301f8e3e4c05c7c45871a5.json"))
+			Map results6 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/60301f323e4c05c7c4587172.json"))
+			Map results7 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/60301f333e4c05c7c458718b.json"))
+			Map results8 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/603020093e4c05c7c4587257.json"))
+			Map results9 = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/results/603020143e4c05c7c4587279.json"))
+			List<Map> detailedResults = [results1, results2, results3, results4, results5, results6, results7, results8, results9]
+			combineProjectResults(calcProjectCombined, detailedResults)
+		when:
+			Collection<SpidaDBProjectComponent> componentsFromCombined = formatConverter.convertCalcProject(calcProjectCombined)
+			SpidaDBProject spidaDBProjectCombined = (SpidaDBProject) componentsFromCombined.find { it instanceof SpidaDBProject }
+			List<SpidaDBLocation> spidaDBLocationsCombined = (List<SpidaDBLocation>) componentsFromCombined.findAll { it instanceof SpidaDBLocation }
+			List<SpidaDBDesign> spidaDBDesignsCombined = (List<SpidaDBDesign>) componentsFromCombined.findAll { it instanceof SpidaDBDesign }
+			List<SpidaDBResult> spidaDBResultsCombined = (List<SpidaDBDesign>) componentsFromCombined.findAll { it instanceof SpidaDBResult }
+		then:
+			calcProjectCombined.size() > 0
+			calcProjectCombined.size() > 0
+			detailedResults.size() == 9
+			componentsFromCombined.size() == 28
+			spidaDBProjectCombined != null
+			spidaDBLocationsCombined.size() == 9
+			spidaDBDesignsCombined.size() == 9
+			spidaDBResultsCombined.size() == 9
+	}
+
+	def "test convert calc project with results files"() {
+		setup:
+			FormatConverter formatConverter = new FormatConverter()
+			Map calcProject = new JsonSlurper().parse(FormatConverterTest.getResourceAsStream("/conversions/exchange/spidacalc-module-7-starter-file/project.json"))
+
+			File resultsFile1 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/60301ed53e4c05c7c458712d.json").toURI())
+			File resultsFile2 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/60301ee03e4c05c7c458713c.json").toURI())
+			File resultsFile3 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/60301eea3e4c05c7c4587150.json").toURI())
+			File resultsFile4 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/60301f1e3e4c05c7c458715c.json").toURI())
+			File resultsFile5 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/60301f8e3e4c05c7c45871a5.json").toURI())
+			File resultsFile6 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/60301f323e4c05c7c4587172.json").toURI())
+			File resultsFile7 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/60301f333e4c05c7c458718b.json").toURI())
+			File resultsFile8 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/603020093e4c05c7c4587257.json").toURI())
+			File resultsFile9 = new File(FormatConverterTest.getResource("/conversions/exchange/spidacalc-module-7-starter-file/results/603020143e4c05c7c4587279.json").toURI())
+			List<File> resultsFiles = [resultsFile1, resultsFile2, resultsFile3, resultsFile4, resultsFile5, resultsFile6, resultsFile7, resultsFile8, resultsFile9]
+		when:
+			Collection<SpidaDBProjectComponent> components = formatConverter.convertCalcProject(calcProject, resultsFiles)
+			SpidaDBProject spidaDBProject = (SpidaDBProject) components.find { it instanceof SpidaDBProject }
+			List<SpidaDBLocation> spidaDBLocations = (List<SpidaDBLocation>) components.findAll { it instanceof SpidaDBLocation }
+			List<SpidaDBDesign> spidaDBDesigns = (List<SpidaDBDesign>) components.findAll { it instanceof SpidaDBDesign }
+			List<SpidaDBResult> spidaDBResults = (List<SpidaDBDesign>) components.findAll { it instanceof SpidaDBResult }
+		then:
+			calcProject.size() > 0
+			resultsFiles.size() == 9
+			components.size() == 28
+			spidaDBProject != null
+			spidaDBLocations.size() == 9
+			spidaDBDesigns.size() == 9
+			spidaDBResults.size() == 9
 	}
 
 	static void combineProjectResults(Map projectJSON, List<Map> projectDetailedResults) {
