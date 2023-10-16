@@ -2,4 +2,4 @@ Lead,Location,Species,Length,Class,AGL,GLC,Northing,Easting,Zone,Elevation M
 temp,P1,Western Red Cedar,45,3,36,2,5262276.77,514159.06,11T,667.2
 temp,P2,Western Red Cedar,45,3,44,,5262213.30,514109.67,11T,670
 temp,P3,Western Red Cedar,50,2,,,5262300.00,514251.54,11T,668.6
-temp,P4,Western Red Cedar,45,2,,2,5262312.19,514327.71,11T,660.8,
+temp,P4,Western Red Cedar,45,2,,2,5262312.19,514327.71,11T,660.8
