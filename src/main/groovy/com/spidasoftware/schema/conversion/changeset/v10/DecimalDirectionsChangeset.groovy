@@ -185,7 +185,7 @@ class DecimalDirectionsChangeset extends AbstractClientDataChangeSet {
 		if(number instanceof BigDecimal) {
 			return number.remainder(1) == BigDecimal.ZERO
 		}
-		
+
 		return number % 1 == 0
 	}
 }

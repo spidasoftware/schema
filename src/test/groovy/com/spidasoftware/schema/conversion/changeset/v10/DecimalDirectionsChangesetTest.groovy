@@ -47,6 +47,7 @@ class DecimalDirectionsChangesetTest extends Specification {
 			changeset.isInteger(map."int-valued double")
 			!changeset.isInteger(map.real)
 			!changeset.isInteger(map.bigdecimal)
+			changeset.isInteger(map."int-valued bigdecimal")
 			changeset.isInteger(map.null)
 	}
 
