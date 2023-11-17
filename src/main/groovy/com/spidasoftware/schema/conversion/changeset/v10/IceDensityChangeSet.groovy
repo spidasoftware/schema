@@ -152,7 +152,9 @@ class IceDensityChangeSet extends AbstractClientDataChangeSet {
         }
 
         designJSON.analysis?.each { Map analysisMap ->
-            removeIceDensityFromLoadCase(analysisMap.analysisCaseDetails as Map)
+            if(analysisMap.analysisCaseDetails != null) {
+                removeIceDensityFromLoadCase(analysisMap.analysisCaseDetails as Map)
+            }
         }
     }
 
@@ -161,7 +163,9 @@ class IceDensityChangeSet extends AbstractClientDataChangeSet {
         boolean anyChanged = super.revertResults(resultsJSON)
 
         resultsJSON.results?.each { Map resultMap ->
-            anyChanged |= removeIceDensityFromLoadCase(resultMap.analysisCaseDetails as Map)
+            if(resultMap.analysisCaseDetails != null) {
+                anyChanged |= removeIceDensityFromLoadCase(resultMap.analysisCaseDetails as Map)
+            }
         }
     }
 
