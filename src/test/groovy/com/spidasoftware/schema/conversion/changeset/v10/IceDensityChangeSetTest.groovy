@@ -381,4 +381,18 @@ class IceDensityChangeSetTest extends Specification {
                 }
             }
     }
+
+    def "revert design json when design.analysis have no analysisCaseDetails"() {
+        setup:
+            def stream = IceDensityChangeSet.getResourceAsStream("/conversions/v10/StudioDesignWithoutAnalysisCaseDetails.json".toString())
+            Map json = new JsonSlurper().parse(stream) as Map
+            stream.close()
+        expect:
+            json.calcDesign.analysis.size() == 2
+            json.calcDesign.analysis.every { !it.containsKey("analysisCaseDetails") }
+        when: "apply changeset"
+            boolean anyChanged = changeSet.revertDesign(json.calcDesign)
+        then: "no exception thrown"
+            !anyChanged
+    }
 }
