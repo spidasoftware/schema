@@ -51,7 +51,7 @@ class LoadCaseChangeSet extends AbstractClientDataChangeSet {
 
         if (designJSON.containsKey("analysis")) {
             List<Map> analysisList = designJSON.analysis as List<Map>
-            analysisList.removeAll { loadCases.contains((it.analysisCaseDetails as Map).type) }
+            analysisList.removeAll { loadCases.contains((it.analysisCaseDetails as Map)?.type) }
         }
     }
 
@@ -61,7 +61,7 @@ class LoadCaseChangeSet extends AbstractClientDataChangeSet {
 
         if (resultsJSON.containsKey("results")) {
             List<Map> resultsList = resultsJSON.results as List<Map>
-            anyChanged = resultsList.removeAll { loadCases.contains((it.analysisCaseDetails as Map).type) }
+            anyChanged = resultsList.removeAll { loadCases.contains((it.analysisCaseDetails as Map)?.type) }
         }
         return anyChanged
     }
