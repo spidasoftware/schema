@@ -35,12 +35,19 @@ class DecimalDirectionsChangesetTest extends Specification {
 	def "is integer"() {
 		setup:
 			DecimalDirectionsChangeset changeset = new DecimalDirectionsChangeset()
-			Map map = ["integer": 1i, "int-valued double": 1.0d, "real": 1.0001d, "bigdecimal": new BigDecimal(1.0001)]
+			Map map = [
+					"integer": 1i,
+					"int-valued double": 1.0d,
+					"real": 1.0001d,
+					"bigdecimal": new BigDecimal(1.0001),
+					"int-valued bigdecimal": new BigDecimal(1.0),
+					"null": null]
 		expect:
 			changeset.isInteger(map.integer)
 			changeset.isInteger(map."int-valued double")
 			!changeset.isInteger(map.real)
 			!changeset.isInteger(map.bigdecimal)
+			changeset.isInteger(map.null)
 	}
 
 	def "revert direction"() {

@@ -178,9 +178,14 @@ class DecimalDirectionsChangeset extends AbstractClientDataChangeSet {
 
 	@CompileDynamic
 	protected boolean isInteger(Number number) {
+		if(number == null) {
+			return true
+		}
+
 		if(number instanceof BigDecimal) {
 			return number.remainder(1) == BigDecimal.ZERO
 		}
+		
 		return number % 1 == 0
 	}
 }
