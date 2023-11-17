@@ -1,0 +1,378 @@
+{
+    "_id": {
+        "$oid": "65568d46c9e77c0001096fb1"
+    },
+    "dateModified": {
+        "$numberLong": "1700171078710"
+    },
+    "id": "65568d46c9e77c0001096fab",
+    "locationLabel": "4159729E",
+    "locationId": "65568d46c9e77c0001096fad",
+    "projectLabel": "EnhancedAction1 111623",
+    "projectId": "65568d46c9e77c0001096fae",
+    "clientFile": "SCE.client",
+    "calcDesign": {
+        "label": "As Is - Draft",
+        "structure": {
+            "pole": {
+                "glc": {
+                    "unit": "METRE",
+                    "value": 1.0858500000000002
+                },
+                "agl": {
+                    "unit": "METRE",
+                    "value": 7.467600000000001
+                },
+                "environment": "Street",
+                "temperature": {
+                    "unit": "CELSIUS",
+                    "value": 15.555555555555555
+                },
+                "stressRatio": 1,
+                "leanAngle": 0,
+                "leanDirection": 0,
+                "clientItem": {
+                    "species": "Composite Fiberglass",
+                    "classOfPole": "5",
+                    "height": {
+                        "unit": "METRE",
+                        "value": 9.144
+                    }
+                },
+                "externalId": "5bfc18e0e2c610a599cbab1a",
+                "owner": {
+                    "id": "SCE",
+                    "industry": "UTILITY",
+                    "externalId": "b2ad09d4-7ddb-4c68-be8e-60c57cd3bcd0"
+                }
+            },
+            "wireEndPoints": [],
+            "spanPoints": [],
+            "anchors": [
+                {
+                    "id": "Anchor#1",
+                    "externalId": "5bfc2373e2c610a599cbc05a",
+                    "distance": {
+                        "unit": "FOOT",
+                        "value": 8
+                    },
+                    "direction": 180,
+                    "owner": {
+                        "id": "SCE",
+                        "industry": "UTILITY",
+                        "externalId": "b2ad09d4-7ddb-4c68-be8e-60c57cd3bcd0"
+                    },
+                    "height": {
+                        "unit": "FOOT",
+                        "value": 0
+                    },
+                    "clientItem": "1 1/4\" Triple Eye - Anchor Rod and Plate",
+                    "guys": [
+                        "Guy#1"
+                    ],
+                    "supportedWEPs": []
+                },
+                {
+                    "id": "Anchor#2",
+                    "externalId": "5bfc2387e2c610a599cbc0a8",
+                    "distance": {
+                        "unit": "FOOT",
+                        "value": 6
+                    },
+                    "direction": 180,
+                    "owner": {
+                        "id": "Charter Communications",
+                        "industry": "COMMUNICATION",
+                        "externalId": "fe222755-5e57-4439-926d-5e304610e799"
+                    },
+                    "height": {
+                        "unit": "FOOT",
+                        "value": 0
+                    },
+                    "clientItem": "1 1/4\" Triple Eye - Anchor Rod and Plate",
+                    "guys": [
+                        "Guy#2"
+                    ],
+                    "supportedWEPs": []
+                }
+            ],
+            "notePoints": [],
+            "pointLoads": [
+                {
+                    "id": "PointLoad#1",
+                    "externalId": "5bfc2380e2c610a599cbc065",
+                    "owner": {
+                        "id": "SCE",
+                        "industry": "UTILITY",
+                        "externalId": "b2ad09d4-7ddb-4c68-be8e-60c57cd3bcd0"
+                    },
+                    "attachHeight": {
+                        "unit": "FOOT",
+                        "value": 23.75
+                    },
+                    "XForce": {
+                        "unit": "POUND_FORCE",
+                        "value": 4000
+                    },
+                    "YForce": {
+                        "unit": "POUND_FORCE",
+                        "value": 0
+                    },
+                    "ZForce": {
+                        "unit": "POUND_FORCE",
+                        "value": 0
+                    }
+                },
+                {
+                    "id": "PointLoad#2",
+                    "externalId": "5bfc23a5e2c610a599cbc0bd",
+                    "owner": {
+                        "id": "SCE",
+                        "industry": "UTILITY",
+                        "externalId": "b2ad09d4-7ddb-4c68-be8e-60c57cd3bcd0"
+                    },
+                    "attachHeight": {
+                        "unit": "FOOT",
+                        "value": 16.5
+                    },
+                    "XForce": {
+                        "unit": "POUND_FORCE",
+                        "value": 4200
+                    },
+                    "YForce": {
+                        "unit": "POUND_FORCE",
+                        "value": 0
+                    },
+                    "ZForce": {
+                        "unit": "POUND_FORCE",
+                        "value": 0
+                    }
+                }
+            ],
+            "damages": [],
+            "wires": [],
+            "spanGuys": [],
+            "guys": [
+                {
+                    "id": "Guy#1",
+                    "externalId": "5bfc2378e2c610a599cbc05f",
+                    "owner": {
+                        "id": "SCE",
+                        "industry": "UTILITY",
+                        "externalId": "b2ad09d4-7ddb-4c68-be8e-60c57cd3bcd0"
+                    },
+                    "clientItem": {
+                        "size": "1/4\" EHS",
+                        "coreStrands": 0,
+                        "conductorStrands": 7
+                    },
+                    "attachmentHeight": {
+                        "unit": "FOOT",
+                        "value": 23.666666666666664
+                    }
+                },
+                {
+                    "id": "Guy#2",
+                    "externalId": "5bfc2394e2c610a599cbc0b2",
+                    "owner": {
+                        "id": "Charter Communications",
+                        "industry": "COMMUNICATION",
+                        "externalId": "fe222755-5e57-4439-926d-5e304610e799"
+                    },
+                    "clientItem": {
+                        "size": "1/4\" EHS",
+                        "coreStrands": 0,
+                        "conductorStrands": 7
+                    },
+                    "attachmentHeight": {
+                        "unit": "FOOT",
+                        "value": 16.25
+                    }
+                }
+            ],
+            "equipments": [],
+            "crossArms": [],
+            "insulators": [],
+            "pushBraces": [],
+            "sidewalkBraces": [
+                {
+                    "id": "SidewalkBrace#1",
+                    "externalId": "5bfc2378e2c610a599cbc05e",
+                    "owner": {
+                        "id": "SCE",
+                        "industry": "UTILITY",
+                        "externalId": "b2ad09d4-7ddb-4c68-be8e-60c57cd3bcd0"
+                    },
+                    "clientItem": "2\" Schedule 40",
+                    "attachmentHeight": {
+                        "unit": "FOOT",
+                        "value": 18.5
+                    },
+                    "length": {
+                        "unit": "FOOT",
+                        "value": 21
+                    },
+                    "direction": 180,
+                    "guys": [
+                        "Guy#1"
+                    ]
+                },
+                {
+                    "id": "SidewalkBrace#2",
+                    "externalId": "5bfc2394e2c610a599cbc0b1",
+                    "owner": {
+                        "id": "Charter Communications",
+                        "industry": "COMMUNICATION",
+                        "externalId": "fe222755-5e57-4439-926d-5e304610e799"
+                    },
+                    "clientItem": "2\" Schedule 40",
+                    "attachmentHeight": {
+                        "unit": "FOOT",
+                        "value": 10
+                    },
+                    "length": {
+                        "unit": "FOOT",
+                        "value": 21
+                    },
+                    "direction": 180,
+                    "guys": [
+                        "Guy#2"
+                    ]
+                }
+            ],
+            "foundations": []
+        },
+        "analysis": [
+            {
+                "id": "In Service, Light, 8 lb, Grade B",
+                "results": [
+                    {
+                        "actual": 0.668635498681494,
+                        "allowable": 1.3333333333333333,
+                        "unit": "SF",
+                        "analysisDate": {
+                            "$numberLong": "1547846288821"
+                        },
+                        "component": "SidewalkBrace#1",
+                        "loadInfo": "In Service, Light, 8 lb, Grade B",
+                        "passes": false,
+                        "analysisType": "FORCE"
+                    },
+                    {
+                        "actual": 0.4083600873962943,
+                        "allowable": 1.3333333333333333,
+                        "unit": "SF",
+                        "analysisDate": {
+                            "$numberLong": "1547846288821"
+                        },
+                        "component": "SidewalkBrace#2",
+                        "loadInfo": "In Service, Light, 8 lb, Grade B",
+                        "passes": false,
+                        "analysisType": "FORCE"
+                    },
+                    {
+                        "actual": 0.8852570798538103,
+                        "allowable": 1.3333333333333333,
+                        "unit": "SF",
+                        "analysisDate": {
+                            "$numberLong": "1547846288821"
+                        },
+                        "component": "Guy#2",
+                        "loadInfo": "In Service, Light, 8 lb, Grade B",
+                        "passes": false,
+                        "analysisType": "FORCE"
+                    },
+                    {
+                        "actual": 1.1975379589782433,
+                        "allowable": 1.3333333333333333,
+                        "unit": "SF",
+                        "analysisDate": {
+                            "$numberLong": "1547846288821"
+                        },
+                        "component": "Guy#1",
+                        "loadInfo": "In Service, Light, 8 lb, Grade B",
+                        "passes": false,
+                        "analysisType": "FORCE"
+                    },
+                    {
+                        "actual": 1.1616775003886946,
+                        "allowable": 2,
+                        "unit": "SF",
+                        "analysisDate": {
+                            "$numberLong": "1547846288821"
+                        },
+                        "component": "Pole",
+                        "loadInfo": "In Service, Light, 8 lb, Grade B",
+                        "passes": false,
+                        "analysisType": "STRESS"
+                    }
+                ]
+            },
+            {
+                "id": "GO95",
+                "results": [
+                    {
+                        "actual": 100,
+                        "allowable": 66.66666666666666,
+                        "unit": "PERCENT",
+                        "analysisDate": {
+                            "$numberLong": "1547846288822"
+                        },
+                        "component": "Pole",
+                        "loadInfo": "GO95",
+                        "passes": true,
+                        "analysisType": "STRENGTH"
+                    }
+                ]
+            }
+        ],
+        "analysisCurrent": false,
+        "version": 10,
+        "layerType": "Draft",
+        "id": "65568d46c9e77c0001096fab",
+        "schema": "/schema/spidacalc/calc/design.schema"
+    },
+    "worstCaseAnalysisResults": {
+        "guys": {
+            "actual": 0.8852570798538103,
+            "allowable": 1.3333333333333333,
+            "unit": "SF",
+            "analysisDate": {
+                "$numberLong": "1547846288821"
+            },
+            "component": "Guy#2",
+            "loadInfo": "In Service, Light, 8 lb, Grade B",
+            "passes": false,
+            "analysisType": "FORCE"
+        },
+        "sidewalkBraces": {
+            "actual": 0.4083600873962943,
+            "allowable": 1.3333333333333333,
+            "unit": "SF",
+            "analysisDate": {
+                "$numberLong": "1547846288821"
+            },
+            "component": "SidewalkBrace#2",
+            "loadInfo": "In Service, Light, 8 lb, Grade B",
+            "passes": false,
+            "analysisType": "FORCE"
+        },
+        "pole": {
+            "actual": 1.1616775003886946,
+            "allowable": 2,
+            "unit": "SF",
+            "analysisDate": {
+                "$numberLong": "1547846288821"
+            },
+            "component": "Pole",
+            "loadInfo": "In Service, Light, 8 lb, Grade B",
+            "passes": false,
+            "analysisType": "STRESS"
+        }
+    },
+    "user": {
+        "id": "11519191",
+        "email": "josh.henry@bentley.com"
+    },
+    "companyId": 1
+}
