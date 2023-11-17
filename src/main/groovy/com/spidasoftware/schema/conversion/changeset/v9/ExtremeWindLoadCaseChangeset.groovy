@@ -52,10 +52,12 @@ class ExtremeWindLoadCaseChangeset extends AbstractClientDataChangeSet{
         if (designJSON.containsKey("analysis")) {
             List<Map> analysisList = designJSON.analysis as List<Map>
             analysisList.each { Map analysisMap ->
-                Map analysisCaseDetails = analysisMap.analysisCaseDetails as Map
-                if (analysisCaseDetails.type == "NESC Extreme Wind 2007" || analysisCaseDetails.type == "NESC Extreme Wind 2012") {
-                    if (analysisCaseDetails.windSpeed == "MPH_85") {
-                        analysisCaseDetails.windSpeed = "MPH_90"
+                if(analysisMap.analysisCaseDetails != null) {
+                    Map analysisCaseDetails = analysisMap.analysisCaseDetails as Map
+                    if (analysisCaseDetails.type == "NESC Extreme Wind 2007" || analysisCaseDetails.type == "NESC Extreme Wind 2012") {
+                        if (analysisCaseDetails.windSpeed == "MPH_85") {
+                            analysisCaseDetails.windSpeed = "MPH_90"
+                        }
                     }
                 }
             }
