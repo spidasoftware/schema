@@ -185,7 +185,33 @@
                         "spanGuys": [],
                         "spanPoints": [],
                         "terrainPoints": []
+                    },
+                    {
+                        "id": "WEP#3",
+                        "direction": 180,
+                        "distance": {
+                            "unit": "METRE",
+                            "value": 0.3048
+                        },
+                        "relativeElevation": {
+                            "unit": "METRE",
+                            "value": 0.0
+                        },
+                        "inclination": {
+                            "unit": "RADIAN",
+                            "value": 0.0
+                        },
+                        "type": "NEXT_POLE",
+                        "comments": "",
+                        "wires": [
+                            "Wire#2",
+                            "Wire#4"
+                        ],
+                        "spanGuys": [],
+                        "spanPoints": [],
+                        "terrainPoints": []
                     }
+
                 ],
                 "spanPoints": [],
                 "anchors": [],

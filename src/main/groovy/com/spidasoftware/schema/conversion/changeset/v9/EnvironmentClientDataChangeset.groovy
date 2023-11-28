@@ -188,12 +188,14 @@ class EnvironmentClientDataChangeset extends AbstractClientDataChangeSet {
 
 	protected boolean revertEnvironmentToEnumFormat(Map environmentItem) {
 		boolean anyChanged = false
-		Environment defaultEnvironment = Environment.getEnvironment(environmentItem.environment as String)
-		if (defaultEnvironment != null) {
-			environmentItem.put("environment", defaultEnvironment.name())
-		} else {
-			environmentItem.put("environment", Environment.NONE.name())
-			anyChanged = true
+		if (environmentItem.environment) {
+			Environment defaultEnvironment = Environment.getEnvironment(environmentItem.environment as String)
+			if (defaultEnvironment != null) {
+				environmentItem.put("environment", defaultEnvironment.name())
+			} else {
+				environmentItem.put("environment", Environment.NONE.name())
+				anyChanged = true
+			}
 		}
 		return anyChanged
 	}
