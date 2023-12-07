@@ -1,3 +1,6 @@
+/*
+ * Copyright (c) 2023 Bentley Systems, Incorporated. All rights reserved.
+ */
 package com.spidasoftware.schema.conversion.changeset.v10
 
 import com.spidasoftware.schema.validation.Validator
@@ -54,7 +57,7 @@ class DecimalDirectionsChangesetTest extends Specification {
 	def "revert direction"() {
 		setup:
 			DecimalDirectionsChangeset changeset = new DecimalDirectionsChangeset()
-			Map map = ["integer": 1i, "int-valued double": 1.0d, "real": 1.0001d]
+			Map map = ["integer": 1i, "int-valued double": 1.0d, "real": 1.0001d, "bigdecimal zero": BigDecimal.ZERO, "bigdecimal real": new BigDecimal(0.6d)]
 			boolean result
 
 		when:
@@ -62,18 +65,35 @@ class DecimalDirectionsChangesetTest extends Specification {
 		then:
 			!result
 			map.integer == 1i
+			(map.integer instanceof Integer) || (map.integer instanceof Long)
 
 		when:
 			result = changeset.revertDirection(map, "int-valued double")
 		then:
 			!result
 			map."int-valued double" == 1i
+			(map."int-valued double" instanceof Integer) || (map."int-valued double" instanceof Long)
 
 		when:
 			result = changeset.revertDirection(map, "real")
 		then:
 			result
 			map.real == 1i
+			(map.real instanceof Integer) || (map.real instanceof Long)
+
+		when:
+			result = changeset.revertDirection(map, "bigdecimal zero")
+		then:
+			!result
+			map."bigdecimal zero" == 0i
+			(map."bigdecimal zero" instanceof Integer) || (map."bigdecimal zero" instanceof Long)
+
+		when:
+			result = changeset.revertDirection(map, "bigdecimal real")
+		then:
+			result
+			map."bigdecimal real" == 1i
+			(map."bigdecimal real" instanceof Integer) || (map."bigdecimal real" instanceof Long)
 	}
 
 	def "revert design"() {

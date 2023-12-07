@@ -1,3 +1,6 @@
+/*
+ * Copyright (c) 2023 Bentley Systems, Incorporated. All rights reserved.
+ */
 package com.spidasoftware.schema.conversion.changeset.v10
 
 import com.spidasoftware.schema.conversion.changeset.ConversionException
@@ -169,11 +172,12 @@ class DecimalDirectionsChangeset extends AbstractClientDataChangeSet {
 	 */
 	@CompileDynamic
 	protected boolean revertDirection(Map map, String key) {
-		if (!isInteger(map[key])) {
-			map.put(key, Math.round(map[key]))
-			return true
+		if(map[key] == null) {
+			return false
 		}
-		return false
+		boolean isInteger = isInteger(map[key])
+		map.put(key, Math.round(map[key]))
+		return !isInteger
 	}
 
 	@CompileDynamic
