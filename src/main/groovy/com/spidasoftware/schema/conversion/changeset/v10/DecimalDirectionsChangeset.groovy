@@ -1,3 +1,6 @@
+/*
+ * Copyright (c) 2023 Bentley Systems, Incorporated. All rights reserved.
+ */
 package com.spidasoftware.schema.conversion.changeset.v10
 
 import com.spidasoftware.schema.conversion.changeset.ConversionException
@@ -164,16 +167,18 @@ class DecimalDirectionsChangeset extends AbstractClientDataChangeSet {
 	}
 
 	/**
-	 * If map.key is a double, it is rounded to an integer.
-	 * @return True if the value associated with map.key was changed.
+	 * Rounds map.key to an integer.
+	 * @return True if the value associated with map.key was really changed (like 0.7 -> 1);
+	 * false if converting to a long didn't change the numeric value (like 0.0 -> 0).
 	 */
 	@CompileDynamic
 	protected boolean revertDirection(Map map, String key) {
-		if (!isInteger(map[key])) {
-			map.put(key, Math.round(map[key]))
-			return true
+		if(map[key] == null) {
+			return false
 		}
-		return false
+		boolean isInteger = isInteger(map[key])
+		map.put(key, Math.round(map[key]))
+		return !isInteger
 	}
 
 	@CompileDynamic
