@@ -92,7 +92,9 @@ dependencies {
 	implementation group: 'org.apache.ant', name: 'ant', version: '1.10.13'
 	implementation group: 'org.apache.ant', name: 'ant-launcher', version: '1.10.13'
 	implementation group: 'org.codehaus.groovy', name: 'groovy-all', version:'2.5.14'
-	implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.11'
+	implementation (group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.13') {
+		exclude(module: 'slf4j-api')
+	}
 	implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.36'
 	implementation group: 'commons-io', name: 'commons-io', version:'2.4'
 	api 'com.github.java-json-tools:json-schema-core:1.2.14'  // fge updated to java-json-tools - results schema does not parse
