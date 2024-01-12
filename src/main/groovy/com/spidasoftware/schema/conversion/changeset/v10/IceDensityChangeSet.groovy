@@ -1,5 +1,5 @@
 /*
- * ©2009-2023 SPIDAWEB LLC
+ * Copyright (c) 2024 Bentley Systems, Incorporated. All rights reserved.
  */
 package com.spidasoftware.schema.conversion.changeset.v10
 
@@ -8,7 +8,7 @@ import com.spidasoftware.schema.conversion.changeset.client.AbstractClientDataCh
 import groovy.transform.CompileStatic
 
 /**
- * Ice density was added to Calc v8.1.0
+ * Ice density was added to Calc v24.0
  *
  * When down converting, remove ice density
  *
@@ -333,16 +333,20 @@ class IceDensityChangeSet extends AbstractClientDataChangeSet {
     }
 
     boolean removeIceDensityFromLoadCase(Map loadCaseJSON) {
+        boolean changed = false
+
         if(loadCaseJSON.containsKey("creepWireTensionIceDensity") || loadCaseJSON.containsKey("highestWireTensionIceDensity")) {
             loadCaseJSON.remove("creepWireTensionIceDensity")
             loadCaseJSON.remove("highestWireTensionIceDensity")
-            return true
+            changed = true
+        }
+        if ((loadCaseJSON.overrides as Map)?.containsKey("iceDensity")) {
+            (loadCaseJSON.overrides as Map)?.remove("iceDensity")
+            // no need to remove iceDensity from valuesApplied, as extra values in that fields are ignored
+            changed = true
         }
 
-        (loadCaseJSON.overrides as Map)?.remove("iceDensity")
-        // no need to remove iceDensity from valuesApplied, as extra values in that fields are ignored
-
-        return false
+        return changed
     }
 
 }

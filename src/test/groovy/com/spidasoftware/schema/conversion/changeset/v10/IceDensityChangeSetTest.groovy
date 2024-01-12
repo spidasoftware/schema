@@ -1,5 +1,5 @@
 /*
- * ©2009-2023 SPIDAWEB LLC
+ * Copyright (c) 2024 Bentley Systems, Incorporated. All rights reserved.
  */
 package com.spidasoftware.schema.conversion.changeset.v10
 
@@ -394,5 +394,39 @@ class IceDensityChangeSetTest extends Specification {
             boolean anyChanged = changeSet.revertDesign(json.calcDesign)
         then: "no exception thrown"
             !anyChanged
+    }
+
+    def "remove ice density override from load case"() {
+        setup:
+            Map loadCase
+            boolean changed
+
+        when: "load case does not contain creepWireTensionIceDensity or highestWireTensionIceDensity"
+            loadCase = [overrides: [iceDensity: 6.0]]
+            changed = changeSet.removeIceDensityFromLoadCase(loadCase)
+        then: "changed"
+            changed
+        and: "ice density override removed"
+            !loadCase.overrides.containsKey("iceDensity")
+
+        when: "load case contains creepWireTensionIceDensity or highestWireTensionIceDensity"
+            loadCase = [creepWireTensionIceDensity: 5.0, overrides: [iceDensity: 6.0]]
+            changed = changeSet.removeIceDensityFromLoadCase(loadCase)
+        then: "changed"
+            changed
+        and: "ice density override removed"
+            !loadCase.overrides.containsKey("iceDensity")
+
+        when: "overrides does not contain ice density"
+            loadCase = [overrides: [:]]
+            changed = changeSet.removeIceDensityFromLoadCase(loadCase)
+        then: "not changed"
+            !changed
+
+        when: "load case does not contain overrides"
+            loadCase = [:]
+            changed = changeSet.removeIceDensityFromLoadCase(loadCase)
+        then: "not changed"
+            !changed
     }
 }
