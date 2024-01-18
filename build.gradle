@@ -83,7 +83,6 @@ publishing {
 releaseNotes {
     start = "git describe HEAD~1 --abbrev=0 --tags --match v*".execute().text.trim()
     project = "147173"
-    token = "22ca5f31f85239e3039879981d321dc9"
 }
 
 dependencies {
