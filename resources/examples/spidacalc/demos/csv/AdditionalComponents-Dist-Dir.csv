@@ -1,0 +1,5 @@
+Location,Component,Type,Distance Ft,Direction,Relative Elevation Ft
+P1,Anchor,"14"" Single Helix (Class 4) 5/8"" Rod",9,270,1
+P1,WEP,Other,197,15,82
+P2,Anchor,"14"" Single Helix (Class 4) 5/8"" Rod",15,85,0
+P2,WEP,Building,60,330,5

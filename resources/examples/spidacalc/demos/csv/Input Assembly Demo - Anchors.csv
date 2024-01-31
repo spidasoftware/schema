@@ -1,0 +1,14 @@
+Location,Component,Type,Distance Ft,Direction,Relative Elevation Ft
+WL0,Anchor,10" Single Helix (Class 4) 3/4" Rod,15,270,0
+WL0,WEP,Other,200,0,0
+WL0,WEP,Other,200,180,0
+WL2,Anchor,10" Single Helix (Class 4) 3/4" Rod,15,172.5,0
+WL4,Anchor,10" Single Helix (Class 4) 3/4" Rod,15,231,0
+WL4,Anchor,10" Single Helix (Class 4) 3/4" Rod,15,130,0
+WL5,Anchor,10" Single Helix (Class 4) 3/4" Rod,15,51,0
+WL5,Anchor,10" Single Helix (Class 4) 3/4" Rod,19.67,51,0
+WL6,Anchor,10" Single Helix (Class 4) 3/4" Rod,15,180,0
+WL7,Anchor,10" Single Helix (Class 4) 3/4" Rod,15,0,0
+WL7,WEP,Building,50,307,0
+WL7,WEP,Building,50,50,0
+WL8,Anchor,10" Single Helix (Class 4) 3/4" Rod,15,17,0
