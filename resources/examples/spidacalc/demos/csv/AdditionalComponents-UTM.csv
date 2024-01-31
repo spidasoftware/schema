@@ -1,0 +1,5 @@
+Location,Component,Type,Northing,Easting,Zone,Elevation M
+P1,Anchor,"14"" Single Helix (Class 4) 5/8"" Rod",4429477.922,341080.7086,17T,6
+P1,WEP,Other,4429535.246,341106.4932,17T,30
+P2,Anchor,"14"" Single Helix (Class 4) 5/8"" Rod",4429482.961,340989.361,17T,10
+P2,WEP,Building,4429534.454,340945.3888,17T,15
