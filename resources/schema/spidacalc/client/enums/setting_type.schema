@@ -1,0 +1,8 @@
+{
+    "enum": [
+      "ANSI",
+      "GO95",
+      "CUSTOM"
+    ],
+    "type": "string"
+}
