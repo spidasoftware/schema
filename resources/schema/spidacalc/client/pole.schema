@@ -81,7 +81,7 @@
       "required": [ "customSettingDepth" ],
       "properties": {
         "settingType": {
-          "enum": "CUSTOM"
+          "enum": [ "CUSTOM" ]
         }
       }
     },
@@ -92,7 +92,7 @@
       },
       "properties": {
         "settingType": {
-          "enum": "ANSI"
+          "enum": [ "ANSI" ]
         }
       }
     },
@@ -103,7 +103,7 @@
       },
       "properties": {
         "settingType": {
-          "enum": "GO95"
+          "enum": [ "GO95" ]
         }
       }
     }

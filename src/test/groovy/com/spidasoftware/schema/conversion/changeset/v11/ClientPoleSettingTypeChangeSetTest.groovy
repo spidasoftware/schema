@@ -25,8 +25,9 @@ class ClientPoleSettingTypeChangeSetTest extends Specification {
             !json.poles[1].settingType
             !json.poles[1].customSettingDepth
         when: "up convert"
-            clientPoleSettingTypeChangeSet.applyToClientData(json)
+            boolean changes = clientPoleSettingTypeChangeSet.applyToClientData(json)
         then: "setting type is added to each client pole"
+            changes
             json.poles[0].settingType == "ANSI"
             !json.poles[0].customSettingDepth
             json.poles[1].settingType == "ANSI"
@@ -46,8 +47,9 @@ class ClientPoleSettingTypeChangeSetTest extends Specification {
             json.poles[2].settingType == "CUSTOM"
             json.poles[2].customSettingDepth == [value: 1, unit: "METRE"]
         when: "revert client data"
-            clientPoleSettingTypeChangeSet.revertClientData(json)
+            boolean changes = clientPoleSettingTypeChangeSet.revertClientData(json)
         then: "setting type and possibly custom setting depth are removed"
+            changes
             !json.poles[0].settingType
             !json.poles[0].customSettingDepth
             !json.poles[1].settingType

@@ -50,7 +50,8 @@
 				"unit": "METRE",
 				"value": 0.006350000000000001
 			},
-			"poissonRatio": 0.32
+			"poissonRatio": 0.32,
+			"settingType": "GO95"
 		}],
 		"wires": [],
 		"anchors": [],
