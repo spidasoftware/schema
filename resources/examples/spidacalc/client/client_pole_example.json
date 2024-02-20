@@ -28,5 +28,6 @@
   "wallThickness": {
     "unit": "INCH", 
     "value": -1
-  }
+  },
+  "settingType": "ANSI"
 }

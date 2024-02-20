@@ -1,1 +1,2166 @@
-{"label":"New Project","company":{"id":2,"name":"SPIDA"},"dateModified":1694721746701,"clientFile":"Demo.client","date":"2023-09-14","schema":"/schema/spidacalc/calc/project.schema","version":10,"engineer":"","comments":"","generalLocation":"","address":{"number":"","street":"","city":"","county":"","state":"","zip_code":""},"userDefinedValues":{},"clientData":{"schema":"/schema/spidacalc/client/data.schema","version":10,"name":"Demo.client","poles":[{"aliases":[],"shape":"ROUND","materialCategory":"WOOD","classOfPole":"3","species":"Southern Pine","height":{"unit":"METRE","value":10.668000000000001},"taper":0.120738201,"density":{"unit":"KILOGRAM_PER_CUBIC_METRE","value":576.664681462565},"allowable":{"unit":"PASCAL","value":5.515805834534689E7},"ptc":{"unit":"METRE","value":0.5841999645522462},"modulus":{"unit":"PASCAL","value":1.72368932329209E10},"wallThickness":{"unit":"METRE","value":-0.0254},"poissonRatio":0.3},{"aliases":[{"id":"45-4"}],"shape":"ROUND","materialCategory":"WOOD","classOfPole":"4","species":"Southern Pine","height":{"unit":"METRE","value":13.716000000000001},"taper":0.114265099,"density":{"unit":"KILOGRAM_PER_CUBIC_METRE","value":576.664681462565},"allowable":{"unit":"PASCAL","value":5.515805834534689E7},"ptc":{"unit":"METRE","value":0.5334000189229626},"modulus":{"unit":"PASCAL","value":1.72368932329209E10},"wallThickness":{"unit":"METRE","value":-0.0254},"poissonRatio":0.3}],"wires":[{"aliases":[{"id":"1/0 AAAC","tensionGroupName":"Full"},{"id":"1/0 AAAC - S","tensionGroupName":"Slack"}],"size":"1/0 AAAC","calculation":"DYNAMIC","strength":{"unit":"NEWTON","value":18993.90629716233},"weight":{"unit":"NEWTON_PER_METRE","value":1.676839447485011},"crossArea":{"unit":"SQUARE_METRE","value":6.2451488E-5},"diameter":{"unit":"METRE","value":0.0101092},"description":"1/0 AAAC - Azusa","coreStrands":0,"conductorStrands":7,"numberOfConductors":1,"usageGroups":["PRIMARY","NEUTRAL"],"conductorProperties":"TOTAL","expansionCoefficient":{"unit":"PER_CELSIUS","value":2.303999999999999E-5},"modulus":{"unit":"PASCAL","value":6.136333990919842E10},"tensionGroups":[{"name":"Full","temperature":{"unit":"CELSIUS","value":15.55555555555555},"groups":[{"distance":{"unit":"METRE","value":1523.6952},"tension":{"unit":"NEWTON","value":2279.26875565948}}]},{"name":"Slack","temperature":{"unit":"CELSIUS","value":15.55555555555555},"groups":[{"distance":{"unit":"METRE","value":1523.6952},"tension":{"unit":"NEWTON","value":474.8476574290584}}]}]},{"aliases":[],"size":"1/4\" EHS","calculation":"DYNAMIC","strength":{"unit":"NEWTON","value":29580.67374148232},"weight":{"unit":"NEWTON_PER_METRE","value":1.765862255401969},"crossArea":{"unit":"SQUARE_METRE","value":2.2709632E-5},"diameter":{"unit":"METRE","value":0.006350000000000001},"description":"1/4\" EHS Steel - Class A Galvanizing (1)","coreStrands":0,"conductorStrands":7,"numberOfConductors":1,"usageGroups":["GUY"],"conductorProperties":"TOTAL","expansionCoefficient":{"unit":"PER_CELSIUS","value":1.151999999999999E-5},"modulus":{"unit":"PASCAL","value":1.72368932329209E11},"tensionGroups":[{"name":"Full","temperature":{"unit":"CELSIUS","value":15.55555555555555},"groups":[{"distance":{"unit":"METRE","value":1523.6952},"tension":{"unit":"NEWTON","value":7395.168435370581}}]},{"name":"Slack","temperature":{"unit":"CELSIUS","value":15.55555555555555},"groups":[{"distance":{"unit":"METRE","value":1523.6952},"tension":{"unit":"NEWTON","value":739.5168435370582}}]}]}],"anchors":[{"aliases":[{"id":"Anchor"}],"size":"10\" - 10\" Double Helix (Class 4) 1 1/4\" Rod","strength":{"unit":"NEWTON","value":137894.8700730755}}],"equipments":[{"aliases":[],"size":"3-Unit Rack 300 Kvar (Fixed)","type":{"name":"CAPACITOR","industry":"UTILITY"},"distanceToBottom":{"unit":"METRE","value":0.065022984},"distanceToTop":{"unit":"METRE","value":0.390144},"valuePerLength":{"unit":"METRE","value":0.0},"shape":"SQUARE","offset":{"unit":"METRE","value":0.252984},"weight":{"unit":"NEWTON","value":938.5747608199655},"lateralArea":{"unit":"SQUARE_METRE","value":0.12662684352},"poleSideArea":{"unit":"SQUARE_METRE","value":0.25111691712},"throughHoleDiameter":{"unit":"METRE","value":-0.0015875000000000002}}],"equipmentTypes":[{"name":"APPARATUS_CASE","industry":"COMMUNICATION"},{"name":"CAPACITOR","industry":"UTILITY"},{"name":"CROSS_CONNECT","industry":"COMMUNICATION"},{"name":"CUTOUT_ARRESTOR","industry":"UTILITY"},{"name":"DRIP_LOOP","industry":"UTILITY"},{"name":"JOINT_USE_BOX","industry":"COMMUNICATION"},{"name":"LOAD_COIL_CASE","industry":"COMMUNICATION"},{"name":"POWER_SUPPLY","industry":"COMMUNICATION"},{"name":"PRIMARY_METERING","industry":"UTILITY"},{"name":"RECLOSER","industry":"UTILITY"},{"name":"REGULATOR","industry":"UTILITY"},{"name":"RISER","industry":"BOTH"},{"name":"SPLICE_CASE","industry":"COMMUNICATION"},{"name":"STREET_LIGHT","industry":"UTILITY"},{"name":"SWITCH","industry":"UTILITY"},{"name":"TERMINATION_BRACKET","industry":"UTILITY"},{"name":"TRANSFORMER","industry":"UTILITY"},{"name":"WIRE_MOUNTED","industry":"BOTH"},{"name":"WIRELESS_ANTENNA","industry":"BOTH"}],"insulators":[{"aliases":[],"size":"13.2 kV Pin Type Insulator (Crossarm)","type":"PIN","horizontalOffset":{"unit":"METRE","value":0.0},"verticalOffset":{"unit":"METRE","value":0.127},"lateralArea":{"unit":"SQUARE_METRE","value":0.008618615020800002},"poleSideArea":{"unit":"SQUARE_METRE","value":0.008618615020800002},"shape":"ROUND","strength":{"unit":"NEWTON","value":11120.55403815125},"weight":{"unit":"NEWTON","value":4.4482216152605},"throughHoleDiameter":{"unit":"METRE","value":-0.0015875000000000002}},{"aliases":[],"size":"15 kV Dead End Insulator","type":"DEADEND","horizontalOffset":{"unit":"METRE","value":0.6096000000000001},"verticalOffset":{"unit":"METRE","value":0.0},"lateralArea":{"unit":"SQUARE_METRE","value":0.017038417536},"poleSideArea":{"unit":"SQUARE_METRE","value":0.018241511904},"shape":"ROUND","strength":{"unit":"NEWTON","value":33361.66211445375},"weight":{"unit":"NEWTON","value":4.4482216152605},"throughHoleDiameter":{"unit":"METRE","value":-0.0015875000000000002}},{"aliases":[],"size":"15 kV Running Angle Insulator","type":"RUNNING_ANGLE","horizontalOffset":{"unit":"METRE","value":0.7366000000000001},"verticalOffset":{"unit":"METRE","value":0.0},"lateralArea":{"unit":"SQUARE_METRE","value":0.029236586688},"poleSideArea":{"unit":"SQUARE_METRE","value":0.018241511904},"shape":"ROUND","strength":{"unit":"NEWTON","value":33361.66211445375},"weight":{"unit":"NEWTON","value":4.4482216152605},"throughHoleDiameter":{"unit":"METRE","value":-0.0015875000000000002}}],"foundations":[],"crossArms":[{"aliases":[],"size":"10 Foot Cross Arm","doubleCrossArm":false,"poissonRatio":0.3,"wallThickness":{"unit":"METRE","value":-0.0254},"materialCategory":"WOOD","width":{"unit":"METRE","value":0.0889},"height":{"unit":"METRE","value":0.1143},"length":{"unit":"METRE","value":3.048},"shape":"SQUARE","density":{"unit":"KILOGRAM_PER_CUBIC_METRE","value":576.664681462565},"modulus":{"unit":"PASCAL","value":1.72368932329209E10},"stressAllow":{"unit":"PASCAL","value":5.515805834534689E7},"throughHoleDiameter":{"unit":"METRE","value":-0.0015875000000000002}}],"braces":[{"aliases":[],"size":"2\" Schedule 40","outerDiameter":{"unit":"METRE","value":0.06032500000000001},"wallThickness":{"unit":"METRE","value":0.0039116},"density":{"unit":"KILOGRAM_PER_CUBIC_METRE","value":7849.047053240469},"modulus":{"unit":"PASCAL","value":1.999479615018824E11},"capacities":[{"length":{"unit":"METRE","value":1.524},"force":{"unit":"NEWTON","value":145012.0246574923}},{"length":{"unit":"METRE","value":2.4384},"force":{"unit":"NEWTON","value":95191.94256657471}},{"length":{"unit":"METRE","value":3.048},"force":{"unit":"NEWTON","value":62275.102613647}},{"length":{"unit":"METRE","value":3.6576},"force":{"unit":"NEWTON","value":42702.9275065008}},{"length":{"unit":"METRE","value":4.572},"force":{"unit":"NEWTON","value":27578.9740146151}}]}],"bundleComponents":[],"bundles":[],"assemblies":[{"aliases":[],"code":"fdf","group":"fractional direction framing","assemblyStructure":{"wireEndPoints":[{"id":"WEP#1","direction":35.35,"distance":{"unit":"METRE","value":45.720000000000006},"relativeElevation":{"unit":"METRE","value":0.0},"inclination":{"unit":"RADIAN","value":0.0},"type":"PREVIOUS_POLE","comments":"","environment":"None","wires":["Wire#1","Wire#2"],"spanGuys":[],"spanPoints":[],"terrainPoints":[],"environmentRegions":[],"calculateClearances":true}],"spanPoints":[],"anchors":[],"notePoints":[],"pointLoads":[],"wirePointLoads":[],"damages":[],"wires":[{"id":"Wire#1","owner":{"industry":"UTILITY","id":"Acme Power"},"attachmentHeight":{"unit":"METRE","value":-2.2542499999999994},"usageGroup":"PRIMARY","tensionGroup":"Full","midspanHeight":{"unit":"METRE","value":0.0}},{"id":"Wire#2","owner":{"industry":"UTILITY","id":"Acme Power"},"attachmentHeight":{"unit":"METRE","value":-1.5240000000000002},"usageGroup":"PRIMARY","tensionGroup":"Full","midspanHeight":{"unit":"METRE","value":0.0}}],"spanGuys":[],"guys":[],"equipments":[{"id":"Equip#1","direction":45.45,"owner":{"industry":"UTILITY","id":"Acme Power"},"clientItemVersion":"ff830b85df8aa21fce838ab3761c325a","clientItem":{"type":"CAPACITOR","size":"3-Unit Rack 300 Kvar (Fixed)"},"attachmentHeight":{"unit":"METRE","value":0.0},"bottomHeight":{"unit":"METRE","value":-0.06502298399999974},"autoBottomHeight":true}],"guyAttachPoints":[{"id":"GuyAttachPoint#1","supportedWEPs":[],"attachHeight":{"unit":"METRE","value":-5.1816}}],"crossArms":[{"id":"CrossArm#1","direction":125.35,"owner":{"industry":"UTILITY","id":"Acme Power"},"supportedWEPs":["WEP#1"],"clientItemVersion":"ff88591cf4661d9698618be0e8d709ce","clientItem":"10 Foot Cross Arm","attachmentHeight":{"unit":"METRE","value":-2.4383999999999992},"offset":{"unit":"METRE","value":1.524},"insulators":["Insulator#1"]}],"insulators":[{"id":"Insulator#1","owner":{"industry":"UTILITY","id":"Acme Power"},"clientItemVersion":"dccf9200ad615464e81b2eca0ba93eab","clientItem":"13.2 kV Pin Type Insulator (Crossarm)","offset":{"unit":"METRE","value":0.10160000000000001},"direction":35.35,"doubleInsulator":false,"wires":["Wire#1"]},{"id":"Insulator#2","owner":{"industry":"UTILITY","id":"Acme Power"},"clientItemVersion":"d732a3c6f9ff3557721b7b8b9352b760","clientItem":"15 kV Dead End Insulator","offset":{"unit":"METRE","value":-1.5240000000000002},"direction":35.35,"doubleInsulator":false,"wires":["Wire#2"]},{"id":"Insulator#3","owner":{"industry":"UTILITY","id":"Acme Power"},"clientItemVersion":"076d965e8e52d1bf680e8347516f6c68","clientItem":"15 kV Running Angle Insulator","offset":{"unit":"METRE","value":-3.6576000000000004},"direction":40.4,"doubleInsulator":false,"wires":[]}],"pushBraces":[],"sidewalkBraces":[],"foundations":[],"assemblies":[]},"distanceFromPoleTop":{"unit":"METRE","value":0.7620000000000005},"distanceToUnderbuild":{"unit":"METRE","value":0.0},"minimumLineAngle":{"unit":"RADIAN","value":0.0},"maximumLineAngle":{"unit":"RADIAN","value":3.141592653589793},"assemblyType":"FRAMING"},{"aliases":[],"code":"fds","group":"fractional direction support","assemblyStructure":{"wireEndPoints":[],"spanPoints":[],"anchors":[{"id":"Anchor#1","height":{"unit":"METRE","value":0.0},"direction":0.0,"distance":{"unit":"METRE","value":4.572},"owner":{"industry":"UTILITY","id":"Acme Power"},"supportedWEPs":[],"clientItemVersion":"9475b4f81c6299f0df4609c62576f3d7","clientItem":"10\" - 10\" Double Helix (Class 4) 1 1/4\" Rod","clientItemAlias":"Anchor","guys":["Guy#1"]}],"notePoints":[],"pointLoads":[],"wirePointLoads":[],"damages":[],"wires":[],"spanGuys":[],"guys":[{"id":"Guy#1","owner":{"industry":"UTILITY","id":"Acme Power"},"clientItemVersion":"534171bd07f4d5d5dba070467be1fd65","clientItem":{"size":"1/4\" EHS","coreStrands":0,"conductorStrands":7},"attachmentHeight":{"unit":"METRE","value":0.0}}],"equipments":[],"guyAttachPoints":[],"crossArms":[],"insulators":[],"pushBraces":[],"sidewalkBraces":[{"id":"SidewalkBrace#1","direction":0.0,"owner":{"industry":"UTILITY","id":"Acme Power"},"clientItemVersion":"fe5e432d04ae114ea2831c36341b2568","clientItem":"2\" Schedule 40","attachmentHeight":{"unit":"METRE","value":0.3048},"length":{"unit":"METRE","value":4.572},"guys":["Guy#1"]}],"foundations":[],"assemblies":[]},"assemblyType":"SUPPORT"}],"environments":[],"defaultEnvironment":{"name":"None","description":"N/A"},"analysisCases":[{"name":"Light","type":"NESC 2012-2017","analysisMethod":"DIRECT_STIFFNESS","connectionType":"CONTINUATION","displacementBasedLoadChangesLevel":"NONE","windType":"SWEEP","sweepIncrement":"DEGREE_1","windStartAngle":{"unit":"RADIAN","value":0.0},"windEndAngle":{"unit":"RADIAN","value":6.283185307179586},"useStrengthResults":false,"analyzeWithAverageSpan":true,"maximumLoadingRatio":1.0,"addByDefault":false,"constructionType":"NEW","checkUtilityWireTension":false,"maximumAllowableUtilityWireTensionRatio":{"unit":"PERCENT","value":60.0},"checkCommWireTension":false,"maximumAllowableCommunicationWireTensionRatio":{"unit":"PERCENT","value":60.0},"analyzeGroundLineOnly":false,"components":[],"analyzeWithoutLinearConstant":false,"constructionGrade":"C","loadZone":"LIGHT","wireTensionMethod":"INITIAL","creepWireTensionTemperature":{"unit":"CELSIUS","value":-1.1111111111111112},"creepWireTensionIceThickness":{"unit":"METRE","value":0.0},"creepWireTensionWindPressure":{"unit":"PASCAL","value":430.9223308230226},"creepWireTensionIceDensity":{"unit":"KILOGRAM_PER_CUBIC_METRE","value":917.0},"highestWireTensionTemperature":{"unit":"CELSIUS","value":-1.1111111111111112},"highestWireTensionIceThickness":{"unit":"METRE","value":0.0},"highestWireTensionWindPressure":{"unit":"PASCAL","value":430.9223308230226},"highestWireTensionIceDensity":{"unit":"KILOGRAM_PER_CUBIC_METRE","value":917.0},"outerStrandingCompression":false,"overrides":{},"valuesApplied":{"ice":{"unit":"METRE","value":0.0},"iceDensity":{"unit":"KILOGRAM_PER_CUBIC_METRE","value":917.0},"temperature":{"unit":"CELSIUS","value":-1.1111111111111112},"windPressure":{"unit":"PASCAL","value":430.9223308230226},"linearConstant":{"unit":"NEWTON_PER_METRE","value":0.7296951468603182},"anchorStrengthFactor":1.0,"anchorTensionMultiplier":1.1,"anchorVerticalLoadMultiplier":1.5,"commOnlyTensionMultiplier":0.0,"guyStrengthFactor":0.9,"guyTensionMultiplier":1.1,"guyVerticalLoadMultiplier":1.5,"insulatorStrengthFactor":1.0,"insulatorTensionMultiplier":1.3,"insulatorVerticalLoadMultiplier":1.9,"insulatorWindMultiplier":1.75,"anchorWindMultiplier":1.75,"guyWindMultiplier":1.75,"foundationStrengthFactor":1.0,"foundationTensionMultiplier":1.3,"foundationVerticalLoadMultiplier":1.9,"foundationWindMultiplier":1.75,"poleStrengthFactors":{"WOOD":0.85,"METAL":1.0,"REINFORCED_CONCRETE":0.85,"POLYMER":1.0,"PRESTRESSED_CONCRETE":1.0},"poleTensionMultipliers":{"WOOD":1.3,"METAL":1.1,"REINFORCED_CONCRETE":1.3,"POLYMER":1.3,"PRESTRESSED_CONCRETE":1.1},"poleVerticalLoadMultipliers":{"WOOD":1.9,"METAL":1.5,"REINFORCED_CONCRETE":1.9,"POLYMER":1.5,"PRESTRESSED_CONCRETE":1.5},"poleWindMultipliers":{"WOOD":1.75,"METAL":1.75,"REINFORCED_CONCRETE":1.75,"POLYMER":1.75,"PRESTRESSED_CONCRETE":1.75},"crossArmStrengthFactors":{"WOOD":0.85,"METAL":1.0,"REINFORCED_CONCRETE":0.85,"POLYMER":1.0,"PRESTRESSED_CONCRETE":1.0},"crossArmTensionMultipliers":{"WOOD":1.3,"METAL":1.1,"REINFORCED_CONCRETE":1.3,"POLYMER":1.3,"PRESTRESSED_CONCRETE":1.1},"crossArmVerticalLoadMultipliers":{"WOOD":1.9,"METAL":1.5,"REINFORCED_CONCRETE":1.9,"POLYMER":1.5,"PRESTRESSED_CONCRETE":1.5},"crossArmWindMultipliers":{"WOOD":1.75,"METAL":1.75,"REINFORCED_CONCRETE":1.75,"POLYMER":1.75,"PRESTRESSED_CONCRETE":1.75},"areaMultipliers":{"ROUND":1.0,"SQUARE":1.6,"ROUND_LATTICE":2.0,"SQUARE_LATTICE":3.2}},"bucklingCase":{"sectionHeightMode":"LOAD","diameterMethod":"TAPERED_DIAMETER","analysisMethod":"TRADITIONAL_EULER","unguyedConstant":2.0,"bucklingCoefficient":0.384,"loadingHeightPercent":1.0,"diameterHeightPercent":0.33,"guyedConstants":[{"angle":{"unit":"RADIAN","value":6.283185307179586},"constant":0.707}]},"deflectionCase":{"type":"PERCENT_OF_HEIGHT_DEFLECTION","percent":0.15}}],"owners":[{"industry":"UTILITY","id":"Acme Power"}],"notes":[],"locationForms":[],"projectForms":[],"customReportSetups":[],"designLayers":[{"name":"Measured Design","type":"Measured"}],"defaultLocationForms":[],"defaultProjectForms":[],"clearanceCases":[],"componentGroups":[],"wireClasses":[],"wireStates":[],"hash":"44303ffd59089bb476b6dfa592018236"},"clientFileVersion":"44303ffd59089bb476b6dfa592018236","forms":[{"title":"Project Summary","formDefinition":[{"fieldName":"Work Order #","fieldType":"customTextField"},{"fieldName":"Total Estimated Cost","fieldType":"customTextField"},{"fieldName":"Total Estimated Hours","fieldType":"customTextField"},{"fieldName":"Pole Replacements","fieldType":"customSpinner"},{"fieldName":"Rearrangements","fieldType":"customSpinner"}],"fields":{"Work Order #":"","Total Estimated Cost":"","Total Estimated Hours":"","Pole Replacements":"0","Rearrangements":"0"},"template":"44303ffd59089bb476b6dfa592018236-Project Summary"}],"defaultLocationForms":[],"defaultLoadCases":[{"name":"Light","type":"NESC 2012-2017","analysisMethod":"DIRECT_STIFFNESS","connectionType":"CONTINUATION","displacementBasedLoadChangesLevel":"NONE","windType":"SWEEP","sweepIncrement":"DEGREE_1","windStartAngle":{"unit":"RADIAN","value":0.0},"windEndAngle":{"unit":"RADIAN","value":6.283185307179586},"useStrengthResults":false,"analyzeWithAverageSpan":true,"maximumLoadingRatio":1.0,"addByDefault":false,"constructionType":"NEW","checkUtilityWireTension":false,"maximumAllowableUtilityWireTensionRatio":{"unit":"PERCENT","value":60.0},"checkCommWireTension":false,"maximumAllowableCommunicationWireTensionRatio":{"unit":"PERCENT","value":60.0},"analyzeGroundLineOnly":false,"components":[],"analyzeWithoutLinearConstant":false,"constructionGrade":"C","loadZone":"LIGHT","wireTensionMethod":"INITIAL","creepWireTensionTemperature":{"unit":"CELSIUS","value":-1.1111111111111112},"creepWireTensionIceThickness":{"unit":"METRE","value":0.0},"creepWireTensionWindPressure":{"unit":"PASCAL","value":430.9223308230226},"creepWireTensionIceDensity":{"unit":"KILOGRAM_PER_CUBIC_METRE","value":917.0},"highestWireTensionTemperature":{"unit":"CELSIUS","value":-1.1111111111111112},"highestWireTensionIceThickness":{"unit":"METRE","value":0.0},"highestWireTensionWindPressure":{"unit":"PASCAL","value":430.9223308230226},"highestWireTensionIceDensity":{"unit":"KILOGRAM_PER_CUBIC_METRE","value":917.0},"outerStrandingCompression":false,"overrides":{},"valuesApplied":{"ice":{"unit":"METRE","value":0.0},"iceDensity":{"unit":"KILOGRAM_PER_CUBIC_METRE","value":917.0},"temperature":{"unit":"CELSIUS","value":-1.1111111111111112},"windPressure":{"unit":"PASCAL","value":430.9223308230226},"linearConstant":{"unit":"NEWTON_PER_METRE","value":0.7296951468603182},"anchorStrengthFactor":1.0,"anchorTensionMultiplier":1.1,"anchorVerticalLoadMultiplier":1.5,"commOnlyTensionMultiplier":0.0,"guyStrengthFactor":0.9,"guyTensionMultiplier":1.1,"guyVerticalLoadMultiplier":1.5,"insulatorStrengthFactor":1.0,"insulatorTensionMultiplier":1.3,"insulatorVerticalLoadMultiplier":1.9,"insulatorWindMultiplier":1.75,"anchorWindMultiplier":1.75,"guyWindMultiplier":1.75,"foundationStrengthFactor":1.0,"foundationTensionMultiplier":1.3,"foundationVerticalLoadMultiplier":1.9,"foundationWindMultiplier":1.75,"poleStrengthFactors":{"WOOD":0.85,"METAL":1.0,"REINFORCED_CONCRETE":0.85,"POLYMER":1.0,"PRESTRESSED_CONCRETE":1.0},"poleTensionMultipliers":{"WOOD":1.3,"METAL":1.1,"REINFORCED_CONCRETE":1.3,"POLYMER":1.3,"PRESTRESSED_CONCRETE":1.1},"poleVerticalLoadMultipliers":{"WOOD":1.9,"METAL":1.5,"REINFORCED_CONCRETE":1.9,"POLYMER":1.5,"PRESTRESSED_CONCRETE":1.5},"poleWindMultipliers":{"WOOD":1.75,"METAL":1.75,"REINFORCED_CONCRETE":1.75,"POLYMER":1.75,"PRESTRESSED_CONCRETE":1.75},"crossArmStrengthFactors":{"WOOD":0.85,"METAL":1.0,"REINFORCED_CONCRETE":0.85,"POLYMER":1.0,"PRESTRESSED_CONCRETE":1.0},"crossArmTensionMultipliers":{"WOOD":1.3,"METAL":1.1,"REINFORCED_CONCRETE":1.3,"POLYMER":1.3,"PRESTRESSED_CONCRETE":1.1},"crossArmVerticalLoadMultipliers":{"WOOD":1.9,"METAL":1.5,"REINFORCED_CONCRETE":1.9,"POLYMER":1.5,"PRESTRESSED_CONCRETE":1.5},"crossArmWindMultipliers":{"WOOD":1.75,"METAL":1.75,"REINFORCED_CONCRETE":1.75,"POLYMER":1.75,"PRESTRESSED_CONCRETE":1.75},"areaMultipliers":{"ROUND":1.0,"SQUARE":1.6,"ROUND_LATTICE":2.0,"SQUARE_LATTICE":3.2}},"bucklingCase":{"sectionHeightMode":"LOAD","diameterMethod":"TAPERED_DIAMETER","analysisMethod":"TRADITIONAL_EULER","unguyedConstant":2.0,"bucklingCoefficient":0.384,"loadingHeightPercent":1.0,"diameterHeightPercent":0.33,"guyedConstants":[{"angle":{"unit":"RADIAN","value":6.283185307179586},"constant":0.707}]},"deflectionCase":{"type":"PERCENT_OF_HEIGHT_DEFLECTION","percent":0.15}}],"leads":[{"label":"Lead","locations":[{"label":"Location-09-14-2023-15-20-52-825","mapNumber":"","comments":"","address":{"number":"","street":"","city":"","county":"","state":"","zip_code":""},"technician":"","crossStreet1":"","crossStreet2":"","remedies":[],"poleTags":[],"userDefinedValues":{},"summaryNotes":[],"forms":[],"images":[],"photosToBeAssigned":[],"designs":[{"label":"Measured Design","layerType":"Measured","structure":{"pole":{"id":"Pole","externalId":"65035d14f910ba3d64e995f5","owner":{"industry":"UTILITY","id":"Acme Power"},"glc":{"unit":"METRE","value":0.8844410803607529},"agl":{"unit":"METRE","value":11.734800000000002},"autoGLC":true,"autoAGL":true,"environment":"None","temperature":{"unit":"CELSIUS","value":15.555555555555555},"stressRatio":1.0,"leanAngle":0,"leanDirection":1.1,"clientItemVersion":"ab466e687d3281499970ac4913878870","clientItem":{"species":"Southern Pine","classOfPole":"4","height":{"unit":"METRE","value":13.716000000000001}},"clientItemAlias":"45-4"},"wireEndPoints":[{"id":"WEP#1","externalId":"65036534f910740b202ba6c2","direction":35.35,"distance":{"unit":"METRE","value":45.720000000000006},"relativeElevation":{"unit":"METRE","value":0.0},"inclination":{"unit":"RADIAN","value":0.0},"type":"PREVIOUS_POLE","comments":"","environment":"None","wires":["Wire#1","Wire#2"],"spanGuys":[],"spanPoints":[],"terrainPoints":[],"environmentRegions":[],"calculateClearances":true}],"spanPoints":[],"anchors":[{"id":"Anchor#1","externalId":"65036202f910ba3d64e9963f","height":{"unit":"METRE","value":0.0},"direction":180.1,"distance":{"unit":"METRE","value":4.572},"owner":{"industry":"UTILITY","id":"Acme Power"},"supportedWEPs":[],"clientItemVersion":"9475b4f81c6299f0df4609c62576f3d7","clientItem":"10\" - 10\" Double Helix (Class 4) 1 1/4\" Rod","clientItemAlias":"Anchor","guys":["Guy#1"]}],"notePoints":[{"id":"NotePoint#1","externalId":"650362bcf910740b202ba5bc","height":{"unit":"METRE","value":9.937934328358212},"direction":180.01,"distance":{"unit":"METRE","value":0.0},"note":"fractional dir np"}],"pointLoads":[],"wirePointLoads":[],"damages":[{"id":"Damage#1","externalId":"6503644af910740b202ba621","direction":0.01,"attachHeight":{"unit":"METRE","value":0.9144000000000001},"damageHeight":{"unit":"METRE","value":0.025400000000000002},"damageType":"ARC","arc":{"unit":"METRE","value":0.06856697851340388},"depth":{"unit":"METRE","value":0.025400000000000002}}],"wires":[{"id":"Wire#1","externalId":"65036534f910740b202ba6c4","owner":{"industry":"UTILITY","id":"Acme Power"},"clientItemVersion":"47129fcc1a0626b9180b049ee42132e3","clientItem":{"size":"1/0 AAAC","coreStrands":0,"conductorStrands":7},"clientItemAlias":"1/0 AAAC","attachmentHeight":{"unit":"METRE","value":8.718550000000002},"usageGroup":"PRIMARY","tensionGroup":"Full","midspanHeight":{"unit":"METRE","value":0.0}},{"id":"Wire#2","externalId":"6503656df910740b202ba7ee","owner":{"industry":"UTILITY","id":"Acme Power"},"clientItemVersion":"47129fcc1a0626b9180b049ee42132e3","clientItem":{"size":"1/0 AAAC","coreStrands":0,"conductorStrands":7},"clientItemAlias":"1/0 AAAC","attachmentHeight":{"unit":"METRE","value":9.448800000000002},"usageGroup":"PRIMARY","tensionGroup":"Full","midspanHeight":{"unit":"METRE","value":0.0}}],"spanGuys":[],"guys":[{"id":"Guy#1","externalId":"65036202f910ba3d64e99640","owner":{"industry":"UTILITY","id":"Acme Power"},"clientItemVersion":"534171bd07f4d5d5dba070467be1fd65","clientItem":{"size":"1/4\" EHS","coreStrands":0,"conductorStrands":7},"attachmentHeight":{"unit":"METRE","value":5.791200000000001}}],"equipments":[{"id":"Equip#1","externalId":"6503650df910740b202ba67d","direction":45.45,"owner":{"industry":"UTILITY","id":"Acme Power"},"clientItemVersion":"ff830b85df8aa21fce838ab3761c325a","clientItem":{"type":"CAPACITOR","size":"3-Unit Rack 300 Kvar (Fixed)"},"attachmentHeight":{"unit":"METRE","value":10.972800000000001},"bottomHeight":{"unit":"METRE","value":10.907777016},"autoBottomHeight":true}],"guyAttachPoints":[{"id":"GuyAttachPoint#1","externalId":"650365c8f910740b202ba9f4","supportedWEPs":[],"attachHeight":{"unit":"METRE","value":5.791200000000001},"guy":"Guy#1"}],"crossArms":[{"id":"CrossArm#1","externalId":"65036534f910740b202ba6bf","direction":125.35,"owner":{"industry":"UTILITY","id":"Acme Power"},"supportedWEPs":["WEP#1"],"clientItemVersion":"ff88591cf4661d9698618be0e8d709ce","clientItem":"10 Foot Cross Arm","attachmentHeight":{"unit":"METRE","value":8.534400000000002},"offset":{"unit":"METRE","value":1.524},"insulators":["Insulator#1"]}],"insulators":[{"id":"Insulator#1","externalId":"65036534f910740b202ba6c1","owner":{"industry":"UTILITY","id":"Acme Power"},"clientItemVersion":"dccf9200ad615464e81b2eca0ba93eab","clientItem":"13.2 kV Pin Type Insulator (Crossarm)","offset":{"unit":"METRE","value":0.10160000000000001},"direction":35.35,"doubleInsulator":false,"wires":["Wire#1"]},{"id":"Insulator#2","externalId":"6503656df910740b202ba7eb","owner":{"industry":"UTILITY","id":"Acme Power"},"clientItemVersion":"d732a3c6f9ff3557721b7b8b9352b760","clientItem":"15 kV Dead End Insulator","offset":{"unit":"METRE","value":9.448800000000002},"direction":35.35,"doubleInsulator":false,"wires":["Wire#2"]},{"id":"Insulator#3","externalId":"65036582f910740b202ba885","owner":{"industry":"UTILITY","id":"Acme Power"},"clientItemVersion":"076d965e8e52d1bf680e8347516f6c68","clientItem":"15 kV Running Angle Insulator","offset":{"unit":"METRE","value":7.315200000000001},"direction":40.4,"doubleInsulator":false,"wires":[]}],"pushBraces":[{"id":"PushBrace#1","externalId":"65036592f910740b202ba8f3","direction":70.7,"distance":{"unit":"METRE","value":4.572},"owner":{"industry":"UTILITY","id":"Acme Power"},"clientItemVersion":"ea0bdc2a3cb2f0a427492063613204f1","clientItem":{"species":"Southern Pine","classOfPole":"3","height":{"unit":"METRE","value":10.668000000000001}},"attachmentHeight":{"unit":"METRE","value":4.572000000000001},"glc":{"unit":"METRE","value":0.6096}}],"sidewalkBraces":[{"id":"SidewalkBrace#1","externalId":"65036202f910ba3d64e99641","direction":180.1,"owner":{"industry":"UTILITY","id":"Acme Power"},"clientItemVersion":"fe5e432d04ae114ea2831c36341b2568","clientItem":"2\" Schedule 40","attachmentHeight":{"unit":"METRE","value":3.0480000000000005},"length":{"unit":"METRE","value":4.572},"guys":["Guy#1"]}],"foundations":[],"assemblies":[{"id":"Assembly#1","source":"LOCAL_ASSEMBLIES","externalId":"650365c8f910740b202ba9f3","clientItemVersion":"ff914839f027ffd6caacad666da1d7f8","clientItem":"fdf","items":["Equip#1","CrossArm#1","Insulator#1","Wire#1","Wire#2","Insulator#2","Insulator#3","GuyAttachPoint#1"]},{"id":"Assembly#2","source":"LOCAL_ASSEMBLIES","externalId":"650365fcf910740b202baa2f","clientItemVersion":"db83def3d5276731de4c4fa706c6165e","clientItem":"fds","items":["Guy#1","Anchor#1","SidewalkBrace#1"]}]},"analysis":[{"id":"Light","analysisCaseDetails":{"name":"Light","type":"NESC 2012-2017","analysisMethod":"DIRECT_STIFFNESS","connectionType":"CONTINUATION","displacementBasedLoadChangesLevel":"NONE","windType":"SWEEP","sweepIncrement":"DEGREE_1","windStartAngle":{"unit":"RADIAN","value":0.0},"windEndAngle":{"unit":"RADIAN","value":6.283185307179586},"useStrengthResults":false,"analyzeWithAverageSpan":true,"maximumLoadingRatio":1.0,"addByDefault":false,"constructionType":"NEW","checkUtilityWireTension":false,"maximumAllowableUtilityWireTensionRatio":{"unit":"PERCENT","value":60.0},"checkCommWireTension":false,"maximumAllowableCommunicationWireTensionRatio":{"unit":"PERCENT","value":60.0},"analyzeGroundLineOnly":false,"components":[],"analyzeWithoutLinearConstant":false,"constructionGrade":"C","loadZone":"LIGHT","wireTensionMethod":"INITIAL","creepWireTensionTemperature":{"unit":"CELSIUS","value":-1.1111111111111112},"creepWireTensionIceThickness":{"unit":"METRE","value":0.0},"creepWireTensionWindPressure":{"unit":"PASCAL","value":430.9223308230226},"creepWireTensionIceDensity":{"unit":"KILOGRAM_PER_CUBIC_METRE","value":917.0},"highestWireTensionTemperature":{"unit":"CELSIUS","value":-1.1111111111111112},"highestWireTensionIceThickness":{"unit":"METRE","value":0.0},"highestWireTensionWindPressure":{"unit":"PASCAL","value":430.9223308230226},"highestWireTensionIceDensity":{"unit":"KILOGRAM_PER_CUBIC_METRE","value":917.0},"outerStrandingCompression":false,"overrides":{},"valuesApplied":{"ice":{"unit":"METRE","value":0.0},"iceDensity":{"unit":"KILOGRAM_PER_CUBIC_METRE","value":917.0},"temperature":{"unit":"CELSIUS","value":-1.1111111111111112},"windPressure":{"unit":"PASCAL","value":430.9223308230226},"linearConstant":{"unit":"NEWTON_PER_METRE","value":0.7296951468603182},"anchorStrengthFactor":1.0,"anchorTensionMultiplier":1.1,"anchorVerticalLoadMultiplier":1.5,"commOnlyTensionMultiplier":0.0,"guyStrengthFactor":0.9,"guyTensionMultiplier":1.1,"guyVerticalLoadMultiplier":1.5,"insulatorStrengthFactor":1.0,"insulatorTensionMultiplier":1.3,"insulatorVerticalLoadMultiplier":1.9,"insulatorWindMultiplier":1.75,"anchorWindMultiplier":1.75,"guyWindMultiplier":1.75,"foundationStrengthFactor":1.0,"foundationTensionMultiplier":1.3,"foundationVerticalLoadMultiplier":1.9,"foundationWindMultiplier":1.75,"poleStrengthFactors":{"WOOD":0.85,"METAL":1.0,"REINFORCED_CONCRETE":0.85,"POLYMER":1.0,"PRESTRESSED_CONCRETE":1.0},"poleTensionMultipliers":{"WOOD":1.3,"METAL":1.1,"REINFORCED_CONCRETE":1.3,"POLYMER":1.3,"PRESTRESSED_CONCRETE":1.1},"poleVerticalLoadMultipliers":{"WOOD":1.9,"METAL":1.5,"REINFORCED_CONCRETE":1.9,"POLYMER":1.5,"PRESTRESSED_CONCRETE":1.5},"poleWindMultipliers":{"WOOD":1.75,"METAL":1.75,"REINFORCED_CONCRETE":1.75,"POLYMER":1.75,"PRESTRESSED_CONCRETE":1.75},"crossArmStrengthFactors":{"WOOD":0.85,"METAL":1.0,"REINFORCED_CONCRETE":0.85,"POLYMER":1.0,"PRESTRESSED_CONCRETE":1.0},"crossArmTensionMultipliers":{"WOOD":1.3,"METAL":1.1,"REINFORCED_CONCRETE":1.3,"POLYMER":1.3,"PRESTRESSED_CONCRETE":1.1},"crossArmVerticalLoadMultipliers":{"WOOD":1.9,"METAL":1.5,"REINFORCED_CONCRETE":1.9,"POLYMER":1.5,"PRESTRESSED_CONCRETE":1.5},"crossArmWindMultipliers":{"WOOD":1.75,"METAL":1.75,"REINFORCED_CONCRETE":1.75,"POLYMER":1.75,"PRESTRESSED_CONCRETE":1.75},"areaMultipliers":{"ROUND":1.0,"SQUARE":1.6,"ROUND_LATTICE":2.0,"SQUARE_LATTICE":3.2}},"bucklingCase":{"sectionHeightMode":"LOAD","diameterMethod":"TAPERED_DIAMETER","analysisMethod":"TRADITIONAL_EULER","unguyedConstant":2.0,"bucklingCoefficient":0.384,"loadingHeightPercent":1.0,"diameterHeightPercent":0.33,"guyedConstants":[{"angle":{"unit":"RADIAN","value":6.283185307179586},"constant":0.707}]},"deflectionCase":{"type":"PERCENT_OF_HEIGHT_DEFLECTION","percent":0.15}},"results":[{"actual":2.0380258851053403,"allowable":100.0,"unit":"PERCENT","analysisDate":1694721740598,"component":"PushBrace#1","loadInfo":"Light","passes":true,"analysisType":"STRESS"},{"actual":0.035387637664689824,"allowable":100.0,"unit":"PERCENT","analysisDate":1694721740598,"component":"Insulator#3","loadInfo":"Light","passes":true,"analysisType":"FORCE"},{"actual":48.40087028667321,"allowable":100.0,"unit":"PERCENT","analysisDate":1694721740598,"component":"Insulator#1","loadInfo":"Light","passes":true,"analysisType":"FORCE"},{"actual":108.4744262543784,"allowable":100.0,"unit":"PERCENT","analysisDate":1694721740598,"component":"CrossArm#1","loadInfo":"Light","passes":false,"analysisType":"STRESS"},{"actual":16.134960059598253,"allowable":100.0,"unit":"PERCENT","analysisDate":1694721740598,"component":"Insulator#2","loadInfo":"Light","passes":true,"analysisType":"FORCE"},{"actual":70.98610229787924,"allowable":100.0,"unit":"PERCENT","analysisDate":1694721740598,"component":"Pole","loadInfo":"Light","passes":true,"analysisType":"STRESS"},{"actual":0.26412913877929156,"allowable":100.0,"unit":"PERCENT","analysisDate":1694721740598,"component":"Pole","loadInfo":"Light","passes":true,"analysisType":"BUCKLING"},{"actual":21.894609383775606,"allowable":100.0,"unit":"PERCENT","analysisDate":1694721740598,"component":"Pole","loadInfo":"Light","passes":true,"analysisType":"DEFLECTION"},{"actual":6.3694567359789245,"allowable":100.0,"unit":"PERCENT","analysisDate":1694721740598,"component":"Anchor#1","loadInfo":"Light","passes":true,"analysisType":"FORCE"},{"actual":60.46051243536923,"allowable":100.0,"unit":"PERCENT","analysisDate":1694721740598,"component":"SidewalkBrace#1","loadInfo":"Light","passes":true,"analysisType":"FORCE"},{"actual":65.42710322668995,"allowable":100.0,"unit":"PERCENT","analysisDate":1694721740598,"component":"Guy#1","loadInfo":"Light","passes":true,"analysisType":"FORCE"}]}],"analysisDetails":{"resultId":"650366caf910740b202baa4d"},"analysisCurrent":true}]}]}]}
+{
+  "label": "New Project",
+  "company": {
+    "id": 2,
+    "name": "SPIDA"
+  },
+  "dateModified": 1694721746701,
+  "clientFile": "Demo.client",
+  "date": "2023-09-14",
+  "schema": "/schema/spidacalc/calc/project.schema",
+  "version": 10,
+  "engineer": "",
+  "comments": "",
+  "generalLocation": "",
+  "address": {
+    "number": "",
+    "street": "",
+    "city": "",
+    "county": "",
+    "state": "",
+    "zip_code": ""
+  },
+  "userDefinedValues": {},
+  "clientData": {
+    "schema": "/schema/spidacalc/client/data.schema",
+    "version": 10,
+    "name": "Demo.client",
+    "poles": [
+      {
+        "aliases": [],
+        "shape": "ROUND",
+        "materialCategory": "WOOD",
+        "classOfPole": "3",
+        "species": "Southern Pine",
+        "height": {
+          "unit": "METRE",
+          "value": 10.668000000000001
+        },
+        "taper": 0.120738201,
+        "density": {
+          "unit": "KILOGRAM_PER_CUBIC_METRE",
+          "value": 576.664681462565
+        },
+        "allowable": {
+          "unit": "PASCAL",
+          "value": 5.515805834534689E7
+        },
+        "ptc": {
+          "unit": "METRE",
+          "value": 0.5841999645522462
+        },
+        "modulus": {
+          "unit": "PASCAL",
+          "value": 1.72368932329209E10
+        },
+        "wallThickness": {
+          "unit": "METRE",
+          "value": -0.0254
+        },
+        "poissonRatio": 0.3,
+        "settingType": "ANSI"
+      },
+      {
+        "aliases": [
+          {
+            "id": "45-4"
+          }
+        ],
+        "shape": "ROUND",
+        "materialCategory": "WOOD",
+        "classOfPole": "4",
+        "species": "Southern Pine",
+        "height": {
+          "unit": "METRE",
+          "value": 13.716000000000001
+        },
+        "taper": 0.114265099,
+        "density": {
+          "unit": "KILOGRAM_PER_CUBIC_METRE",
+          "value": 576.664681462565
+        },
+        "allowable": {
+          "unit": "PASCAL",
+          "value": 5.515805834534689E7
+        },
+        "ptc": {
+          "unit": "METRE",
+          "value": 0.5334000189229626
+        },
+        "modulus": {
+          "unit": "PASCAL",
+          "value": 1.72368932329209E10
+        },
+        "wallThickness": {
+          "unit": "METRE",
+          "value": -0.0254
+        },
+        "poissonRatio": 0.3,
+        "settingType": "ANSI"
+      }
+    ],
+    "wires": [
+      {
+        "aliases": [
+          {
+            "id": "1/0 AAAC",
+            "tensionGroupName": "Full"
+          },
+          {
+            "id": "1/0 AAAC - S",
+            "tensionGroupName": "Slack"
+          }
+        ],
+        "size": "1/0 AAAC",
+        "calculation": "DYNAMIC",
+        "strength": {
+          "unit": "NEWTON",
+          "value": 18993.90629716233
+        },
+        "weight": {
+          "unit": "NEWTON_PER_METRE",
+          "value": 1.676839447485011
+        },
+        "crossArea": {
+          "unit": "SQUARE_METRE",
+          "value": 6.2451488E-5
+        },
+        "diameter": {
+          "unit": "METRE",
+          "value": 0.0101092
+        },
+        "description": "1/0 AAAC - Azusa",
+        "coreStrands": 0,
+        "conductorStrands": 7,
+        "numberOfConductors": 1,
+        "usageGroups": [
+          "PRIMARY",
+          "NEUTRAL"
+        ],
+        "conductorProperties": "TOTAL",
+        "expansionCoefficient": {
+          "unit": "PER_CELSIUS",
+          "value": 2.303999999999999E-5
+        },
+        "modulus": {
+          "unit": "PASCAL",
+          "value": 6.136333990919842E10
+        },
+        "tensionGroups": [
+          {
+            "name": "Full",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.55555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 2279.26875565948
+                }
+              }
+            ]
+          },
+          {
+            "name": "Slack",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.55555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 474.8476574290584
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "aliases": [],
+        "size": "1/4\" EHS",
+        "calculation": "DYNAMIC",
+        "strength": {
+          "unit": "NEWTON",
+          "value": 29580.67374148232
+        },
+        "weight": {
+          "unit": "NEWTON_PER_METRE",
+          "value": 1.765862255401969
+        },
+        "crossArea": {
+          "unit": "SQUARE_METRE",
+          "value": 2.2709632E-5
+        },
+        "diameter": {
+          "unit": "METRE",
+          "value": 0.006350000000000001
+        },
+        "description": "1/4\" EHS Steel - Class A Galvanizing (1)",
+        "coreStrands": 0,
+        "conductorStrands": 7,
+        "numberOfConductors": 1,
+        "usageGroups": [
+          "GUY"
+        ],
+        "conductorProperties": "TOTAL",
+        "expansionCoefficient": {
+          "unit": "PER_CELSIUS",
+          "value": 1.151999999999999E-5
+        },
+        "modulus": {
+          "unit": "PASCAL",
+          "value": 1.72368932329209E11
+        },
+        "tensionGroups": [
+          {
+            "name": "Full",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.55555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 7395.168435370581
+                }
+              }
+            ]
+          },
+          {
+            "name": "Slack",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.55555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 739.5168435370582
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "anchors": [
+      {
+        "aliases": [
+          {
+            "id": "Anchor"
+          }
+        ],
+        "size": "10\" - 10\" Double Helix (Class 4) 1 1/4\" Rod",
+        "strength": {
+          "unit": "NEWTON",
+          "value": 137894.8700730755
+        }
+      }
+    ],
+    "equipments": [
+      {
+        "aliases": [],
+        "size": "3-Unit Rack 300 Kvar (Fixed)",
+        "type": {
+          "name": "CAPACITOR",
+          "industry": "UTILITY"
+        },
+        "distanceToBottom": {
+          "unit": "METRE",
+          "value": 0.065022984
+        },
+        "distanceToTop": {
+          "unit": "METRE",
+          "value": 0.390144
+        },
+        "valuePerLength": {
+          "unit": "METRE",
+          "value": 0.0
+        },
+        "shape": "SQUARE",
+        "offset": {
+          "unit": "METRE",
+          "value": 0.252984
+        },
+        "weight": {
+          "unit": "NEWTON",
+          "value": 938.5747608199655
+        },
+        "lateralArea": {
+          "unit": "SQUARE_METRE",
+          "value": 0.12662684352
+        },
+        "poleSideArea": {
+          "unit": "SQUARE_METRE",
+          "value": 0.25111691712
+        },
+        "throughHoleDiameter": {
+          "unit": "METRE",
+          "value": -0.0015875000000000002
+        }
+      }
+    ],
+    "equipmentTypes": [
+      {
+        "name": "APPARATUS_CASE",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "CAPACITOR",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "CROSS_CONNECT",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "CUTOUT_ARRESTOR",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "DRIP_LOOP",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "JOINT_USE_BOX",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "LOAD_COIL_CASE",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "POWER_SUPPLY",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "PRIMARY_METERING",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "RECLOSER",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "REGULATOR",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "RISER",
+        "industry": "BOTH"
+      },
+      {
+        "name": "SPLICE_CASE",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "STREET_LIGHT",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "SWITCH",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "TERMINATION_BRACKET",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "TRANSFORMER",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "WIRE_MOUNTED",
+        "industry": "BOTH"
+      },
+      {
+        "name": "WIRELESS_ANTENNA",
+        "industry": "BOTH"
+      }
+    ],
+    "insulators": [
+      {
+        "aliases": [],
+        "size": "13.2 kV Pin Type Insulator (Crossarm)",
+        "type": "PIN",
+        "horizontalOffset": {
+          "unit": "METRE",
+          "value": 0.0
+        },
+        "verticalOffset": {
+          "unit": "METRE",
+          "value": 0.127
+        },
+        "lateralArea": {
+          "unit": "SQUARE_METRE",
+          "value": 0.008618615020800002
+        },
+        "poleSideArea": {
+          "unit": "SQUARE_METRE",
+          "value": 0.008618615020800002
+        },
+        "shape": "ROUND",
+        "strength": {
+          "unit": "NEWTON",
+          "value": 11120.55403815125
+        },
+        "weight": {
+          "unit": "NEWTON",
+          "value": 4.4482216152605
+        },
+        "throughHoleDiameter": {
+          "unit": "METRE",
+          "value": -0.0015875000000000002
+        }
+      },
+      {
+        "aliases": [],
+        "size": "15 kV Dead End Insulator",
+        "type": "DEADEND",
+        "horizontalOffset": {
+          "unit": "METRE",
+          "value": 0.6096000000000001
+        },
+        "verticalOffset": {
+          "unit": "METRE",
+          "value": 0.0
+        },
+        "lateralArea": {
+          "unit": "SQUARE_METRE",
+          "value": 0.017038417536
+        },
+        "poleSideArea": {
+          "unit": "SQUARE_METRE",
+          "value": 0.018241511904
+        },
+        "shape": "ROUND",
+        "strength": {
+          "unit": "NEWTON",
+          "value": 33361.66211445375
+        },
+        "weight": {
+          "unit": "NEWTON",
+          "value": 4.4482216152605
+        },
+        "throughHoleDiameter": {
+          "unit": "METRE",
+          "value": -0.0015875000000000002
+        }
+      },
+      {
+        "aliases": [],
+        "size": "15 kV Running Angle Insulator",
+        "type": "RUNNING_ANGLE",
+        "horizontalOffset": {
+          "unit": "METRE",
+          "value": 0.7366000000000001
+        },
+        "verticalOffset": {
+          "unit": "METRE",
+          "value": 0.0
+        },
+        "lateralArea": {
+          "unit": "SQUARE_METRE",
+          "value": 0.029236586688
+        },
+        "poleSideArea": {
+          "unit": "SQUARE_METRE",
+          "value": 0.018241511904
+        },
+        "shape": "ROUND",
+        "strength": {
+          "unit": "NEWTON",
+          "value": 33361.66211445375
+        },
+        "weight": {
+          "unit": "NEWTON",
+          "value": 4.4482216152605
+        },
+        "throughHoleDiameter": {
+          "unit": "METRE",
+          "value": -0.0015875000000000002
+        }
+      }
+    ],
+    "foundations": [],
+    "crossArms": [
+      {
+        "aliases": [],
+        "size": "10 Foot Cross Arm",
+        "doubleCrossArm": false,
+        "poissonRatio": 0.3,
+        "wallThickness": {
+          "unit": "METRE",
+          "value": -0.0254
+        },
+        "materialCategory": "WOOD",
+        "width": {
+          "unit": "METRE",
+          "value": 0.0889
+        },
+        "height": {
+          "unit": "METRE",
+          "value": 0.1143
+        },
+        "length": {
+          "unit": "METRE",
+          "value": 3.048
+        },
+        "shape": "SQUARE",
+        "density": {
+          "unit": "KILOGRAM_PER_CUBIC_METRE",
+          "value": 576.664681462565
+        },
+        "modulus": {
+          "unit": "PASCAL",
+          "value": 1.72368932329209E10
+        },
+        "stressAllow": {
+          "unit": "PASCAL",
+          "value": 5.515805834534689E7
+        },
+        "throughHoleDiameter": {
+          "unit": "METRE",
+          "value": -0.0015875000000000002
+        }
+      }
+    ],
+    "braces": [
+      {
+        "aliases": [],
+        "size": "2\" Schedule 40",
+        "outerDiameter": {
+          "unit": "METRE",
+          "value": 0.06032500000000001
+        },
+        "wallThickness": {
+          "unit": "METRE",
+          "value": 0.0039116
+        },
+        "density": {
+          "unit": "KILOGRAM_PER_CUBIC_METRE",
+          "value": 7849.047053240469
+        },
+        "modulus": {
+          "unit": "PASCAL",
+          "value": 1.999479615018824E11
+        },
+        "capacities": [
+          {
+            "length": {
+              "unit": "METRE",
+              "value": 1.524
+            },
+            "force": {
+              "unit": "NEWTON",
+              "value": 145012.0246574923
+            }
+          },
+          {
+            "length": {
+              "unit": "METRE",
+              "value": 2.4384
+            },
+            "force": {
+              "unit": "NEWTON",
+              "value": 95191.94256657471
+            }
+          },
+          {
+            "length": {
+              "unit": "METRE",
+              "value": 3.048
+            },
+            "force": {
+              "unit": "NEWTON",
+              "value": 62275.102613647
+            }
+          },
+          {
+            "length": {
+              "unit": "METRE",
+              "value": 3.6576
+            },
+            "force": {
+              "unit": "NEWTON",
+              "value": 42702.9275065008
+            }
+          },
+          {
+            "length": {
+              "unit": "METRE",
+              "value": 4.572
+            },
+            "force": {
+              "unit": "NEWTON",
+              "value": 27578.9740146151
+            }
+          }
+        ]
+      }
+    ],
+    "bundleComponents": [],
+    "bundles": [],
+    "assemblies": [
+      {
+        "aliases": [],
+        "code": "fdf",
+        "group": "fractional direction framing",
+        "assemblyStructure": {
+          "wireEndPoints": [
+            {
+              "id": "WEP#1",
+              "direction": 35.35,
+              "distance": {
+                "unit": "METRE",
+                "value": 45.720000000000006
+              },
+              "relativeElevation": {
+                "unit": "METRE",
+                "value": 0.0
+              },
+              "inclination": {
+                "unit": "RADIAN",
+                "value": 0.0
+              },
+              "type": "PREVIOUS_POLE",
+              "comments": "",
+              "environment": "None",
+              "wires": [
+                "Wire#1",
+                "Wire#2"
+              ],
+              "spanGuys": [],
+              "spanPoints": [],
+              "terrainPoints": [],
+              "environmentRegions": [],
+              "calculateClearances": true
+            }
+          ],
+          "spanPoints": [],
+          "anchors": [],
+          "notePoints": [],
+          "pointLoads": [],
+          "wirePointLoads": [],
+          "damages": [],
+          "wires": [
+            {
+              "id": "Wire#1",
+              "owner": {
+                "industry": "UTILITY",
+                "id": "Acme Power"
+              },
+              "attachmentHeight": {
+                "unit": "METRE",
+                "value": -2.2542499999999994
+              },
+              "usageGroup": "PRIMARY",
+              "tensionGroup": "Full",
+              "midspanHeight": {
+                "unit": "METRE",
+                "value": 0.0
+              }
+            },
+            {
+              "id": "Wire#2",
+              "owner": {
+                "industry": "UTILITY",
+                "id": "Acme Power"
+              },
+              "attachmentHeight": {
+                "unit": "METRE",
+                "value": -1.5240000000000002
+              },
+              "usageGroup": "PRIMARY",
+              "tensionGroup": "Full",
+              "midspanHeight": {
+                "unit": "METRE",
+                "value": 0.0
+              }
+            }
+          ],
+          "spanGuys": [],
+          "guys": [],
+          "equipments": [
+            {
+              "id": "Equip#1",
+              "direction": 45.45,
+              "owner": {
+                "industry": "UTILITY",
+                "id": "Acme Power"
+              },
+              "clientItemVersion": "ff830b85df8aa21fce838ab3761c325a",
+              "clientItem": {
+                "type": "CAPACITOR",
+                "size": "3-Unit Rack 300 Kvar (Fixed)"
+              },
+              "attachmentHeight": {
+                "unit": "METRE",
+                "value": 0.0
+              },
+              "bottomHeight": {
+                "unit": "METRE",
+                "value": -0.06502298399999974
+              },
+              "autoBottomHeight": true
+            }
+          ],
+          "guyAttachPoints": [
+            {
+              "id": "GuyAttachPoint#1",
+              "supportedWEPs": [],
+              "attachHeight": {
+                "unit": "METRE",
+                "value": -5.1816
+              }
+            }
+          ],
+          "crossArms": [
+            {
+              "id": "CrossArm#1",
+              "direction": 125.35,
+              "owner": {
+                "industry": "UTILITY",
+                "id": "Acme Power"
+              },
+              "supportedWEPs": [
+                "WEP#1"
+              ],
+              "clientItemVersion": "ff88591cf4661d9698618be0e8d709ce",
+              "clientItem": "10 Foot Cross Arm",
+              "attachmentHeight": {
+                "unit": "METRE",
+                "value": -2.4383999999999992
+              },
+              "offset": {
+                "unit": "METRE",
+                "value": 1.524
+              },
+              "insulators": [
+                "Insulator#1"
+              ]
+            }
+          ],
+          "insulators": [
+            {
+              "id": "Insulator#1",
+              "owner": {
+                "industry": "UTILITY",
+                "id": "Acme Power"
+              },
+              "clientItemVersion": "dccf9200ad615464e81b2eca0ba93eab",
+              "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
+              "offset": {
+                "unit": "METRE",
+                "value": 0.10160000000000001
+              },
+              "direction": 35.35,
+              "doubleInsulator": false,
+              "wires": [
+                "Wire#1"
+              ]
+            },
+            {
+              "id": "Insulator#2",
+              "owner": {
+                "industry": "UTILITY",
+                "id": "Acme Power"
+              },
+              "clientItemVersion": "d732a3c6f9ff3557721b7b8b9352b760",
+              "clientItem": "15 kV Dead End Insulator",
+              "offset": {
+                "unit": "METRE",
+                "value": -1.5240000000000002
+              },
+              "direction": 35.35,
+              "doubleInsulator": false,
+              "wires": [
+                "Wire#2"
+              ]
+            },
+            {
+              "id": "Insulator#3",
+              "owner": {
+                "industry": "UTILITY",
+                "id": "Acme Power"
+              },
+              "clientItemVersion": "076d965e8e52d1bf680e8347516f6c68",
+              "clientItem": "15 kV Running Angle Insulator",
+              "offset": {
+                "unit": "METRE",
+                "value": -3.6576000000000004
+              },
+              "direction": 40.4,
+              "doubleInsulator": false,
+              "wires": []
+            }
+          ],
+          "pushBraces": [],
+          "sidewalkBraces": [],
+          "foundations": [],
+          "assemblies": []
+        },
+        "distanceFromPoleTop": {
+          "unit": "METRE",
+          "value": 0.7620000000000005
+        },
+        "distanceToUnderbuild": {
+          "unit": "METRE",
+          "value": 0.0
+        },
+        "minimumLineAngle": {
+          "unit": "RADIAN",
+          "value": 0.0
+        },
+        "maximumLineAngle": {
+          "unit": "RADIAN",
+          "value": 3.141592653589793
+        },
+        "assemblyType": "FRAMING"
+      },
+      {
+        "aliases": [],
+        "code": "fds",
+        "group": "fractional direction support",
+        "assemblyStructure": {
+          "wireEndPoints": [],
+          "spanPoints": [],
+          "anchors": [
+            {
+              "id": "Anchor#1",
+              "height": {
+                "unit": "METRE",
+                "value": 0.0
+              },
+              "direction": 0.0,
+              "distance": {
+                "unit": "METRE",
+                "value": 4.572
+              },
+              "owner": {
+                "industry": "UTILITY",
+                "id": "Acme Power"
+              },
+              "supportedWEPs": [],
+              "clientItemVersion": "9475b4f81c6299f0df4609c62576f3d7",
+              "clientItem": "10\" - 10\" Double Helix (Class 4) 1 1/4\" Rod",
+              "clientItemAlias": "Anchor",
+              "guys": [
+                "Guy#1"
+              ]
+            }
+          ],
+          "notePoints": [],
+          "pointLoads": [],
+          "wirePointLoads": [],
+          "damages": [],
+          "wires": [],
+          "spanGuys": [],
+          "guys": [
+            {
+              "id": "Guy#1",
+              "owner": {
+                "industry": "UTILITY",
+                "id": "Acme Power"
+              },
+              "clientItemVersion": "534171bd07f4d5d5dba070467be1fd65",
+              "clientItem": {
+                "size": "1/4\" EHS",
+                "coreStrands": 0,
+                "conductorStrands": 7
+              },
+              "attachmentHeight": {
+                "unit": "METRE",
+                "value": 0.0
+              }
+            }
+          ],
+          "equipments": [],
+          "guyAttachPoints": [],
+          "crossArms": [],
+          "insulators": [],
+          "pushBraces": [],
+          "sidewalkBraces": [
+            {
+              "id": "SidewalkBrace#1",
+              "direction": 0.0,
+              "owner": {
+                "industry": "UTILITY",
+                "id": "Acme Power"
+              },
+              "clientItemVersion": "fe5e432d04ae114ea2831c36341b2568",
+              "clientItem": "2\" Schedule 40",
+              "attachmentHeight": {
+                "unit": "METRE",
+                "value": 0.3048
+              },
+              "length": {
+                "unit": "METRE",
+                "value": 4.572
+              },
+              "guys": [
+                "Guy#1"
+              ]
+            }
+          ],
+          "foundations": [],
+          "assemblies": []
+        },
+        "assemblyType": "SUPPORT"
+      }
+    ],
+    "environments": [],
+    "defaultEnvironment": {
+      "name": "None",
+      "description": "N/A"
+    },
+    "analysisCases": [
+      {
+        "name": "Light",
+        "type": "NESC 2012-2017",
+        "analysisMethod": "DIRECT_STIFFNESS",
+        "connectionType": "CONTINUATION",
+        "displacementBasedLoadChangesLevel": "NONE",
+        "windType": "SWEEP",
+        "sweepIncrement": "DEGREE_1",
+        "windStartAngle": {
+          "unit": "RADIAN",
+          "value": 0.0
+        },
+        "windEndAngle": {
+          "unit": "RADIAN",
+          "value": 6.283185307179586
+        },
+        "useStrengthResults": false,
+        "analyzeWithAverageSpan": true,
+        "maximumLoadingRatio": 1.0,
+        "addByDefault": false,
+        "constructionType": "NEW",
+        "checkUtilityWireTension": false,
+        "maximumAllowableUtilityWireTensionRatio": {
+          "unit": "PERCENT",
+          "value": 60.0
+        },
+        "checkCommWireTension": false,
+        "maximumAllowableCommunicationWireTensionRatio": {
+          "unit": "PERCENT",
+          "value": 60.0
+        },
+        "analyzeGroundLineOnly": false,
+        "components": [],
+        "analyzeWithoutLinearConstant": false,
+        "constructionGrade": "C",
+        "loadZone": "LIGHT",
+        "wireTensionMethod": "INITIAL",
+        "creepWireTensionTemperature": {
+          "unit": "CELSIUS",
+          "value": -1.1111111111111112
+        },
+        "creepWireTensionIceThickness": {
+          "unit": "METRE",
+          "value": 0.0
+        },
+        "creepWireTensionWindPressure": {
+          "unit": "PASCAL",
+          "value": 430.9223308230226
+        },
+        "creepWireTensionIceDensity": {
+          "unit": "KILOGRAM_PER_CUBIC_METRE",
+          "value": 917.0
+        },
+        "highestWireTensionTemperature": {
+          "unit": "CELSIUS",
+          "value": -1.1111111111111112
+        },
+        "highestWireTensionIceThickness": {
+          "unit": "METRE",
+          "value": 0.0
+        },
+        "highestWireTensionWindPressure": {
+          "unit": "PASCAL",
+          "value": 430.9223308230226
+        },
+        "highestWireTensionIceDensity": {
+          "unit": "KILOGRAM_PER_CUBIC_METRE",
+          "value": 917.0
+        },
+        "outerStrandingCompression": false,
+        "overrides": {},
+        "valuesApplied": {
+          "ice": {
+            "unit": "METRE",
+            "value": 0.0
+          },
+          "iceDensity": {
+            "unit": "KILOGRAM_PER_CUBIC_METRE",
+            "value": 917.0
+          },
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": -1.1111111111111112
+          },
+          "windPressure": {
+            "unit": "PASCAL",
+            "value": 430.9223308230226
+          },
+          "linearConstant": {
+            "unit": "NEWTON_PER_METRE",
+            "value": 0.7296951468603182
+          },
+          "anchorStrengthFactor": 1.0,
+          "anchorTensionMultiplier": 1.1,
+          "anchorVerticalLoadMultiplier": 1.5,
+          "commOnlyTensionMultiplier": 0.0,
+          "guyStrengthFactor": 0.9,
+          "guyTensionMultiplier": 1.1,
+          "guyVerticalLoadMultiplier": 1.5,
+          "insulatorStrengthFactor": 1.0,
+          "insulatorTensionMultiplier": 1.3,
+          "insulatorVerticalLoadMultiplier": 1.9,
+          "insulatorWindMultiplier": 1.75,
+          "anchorWindMultiplier": 1.75,
+          "guyWindMultiplier": 1.75,
+          "foundationStrengthFactor": 1.0,
+          "foundationTensionMultiplier": 1.3,
+          "foundationVerticalLoadMultiplier": 1.9,
+          "foundationWindMultiplier": 1.75,
+          "poleStrengthFactors": {
+            "WOOD": 0.85,
+            "METAL": 1.0,
+            "REINFORCED_CONCRETE": 0.85,
+            "POLYMER": 1.0,
+            "PRESTRESSED_CONCRETE": 1.0
+          },
+          "poleTensionMultipliers": {
+            "WOOD": 1.3,
+            "METAL": 1.1,
+            "REINFORCED_CONCRETE": 1.3,
+            "POLYMER": 1.3,
+            "PRESTRESSED_CONCRETE": 1.1
+          },
+          "poleVerticalLoadMultipliers": {
+            "WOOD": 1.9,
+            "METAL": 1.5,
+            "REINFORCED_CONCRETE": 1.9,
+            "POLYMER": 1.5,
+            "PRESTRESSED_CONCRETE": 1.5
+          },
+          "poleWindMultipliers": {
+            "WOOD": 1.75,
+            "METAL": 1.75,
+            "REINFORCED_CONCRETE": 1.75,
+            "POLYMER": 1.75,
+            "PRESTRESSED_CONCRETE": 1.75
+          },
+          "crossArmStrengthFactors": {
+            "WOOD": 0.85,
+            "METAL": 1.0,
+            "REINFORCED_CONCRETE": 0.85,
+            "POLYMER": 1.0,
+            "PRESTRESSED_CONCRETE": 1.0
+          },
+          "crossArmTensionMultipliers": {
+            "WOOD": 1.3,
+            "METAL": 1.1,
+            "REINFORCED_CONCRETE": 1.3,
+            "POLYMER": 1.3,
+            "PRESTRESSED_CONCRETE": 1.1
+          },
+          "crossArmVerticalLoadMultipliers": {
+            "WOOD": 1.9,
+            "METAL": 1.5,
+            "REINFORCED_CONCRETE": 1.9,
+            "POLYMER": 1.5,
+            "PRESTRESSED_CONCRETE": 1.5
+          },
+          "crossArmWindMultipliers": {
+            "WOOD": 1.75,
+            "METAL": 1.75,
+            "REINFORCED_CONCRETE": 1.75,
+            "POLYMER": 1.75,
+            "PRESTRESSED_CONCRETE": 1.75
+          },
+          "areaMultipliers": {
+            "ROUND": 1.0,
+            "SQUARE": 1.6,
+            "ROUND_LATTICE": 2.0,
+            "SQUARE_LATTICE": 3.2
+          }
+        },
+        "bucklingCase": {
+          "sectionHeightMode": "LOAD",
+          "diameterMethod": "TAPERED_DIAMETER",
+          "analysisMethod": "TRADITIONAL_EULER",
+          "unguyedConstant": 2.0,
+          "bucklingCoefficient": 0.384,
+          "loadingHeightPercent": 1.0,
+          "diameterHeightPercent": 0.33,
+          "guyedConstants": [
+            {
+              "angle": {
+                "unit": "RADIAN",
+                "value": 6.283185307179586
+              },
+              "constant": 0.707
+            }
+          ]
+        },
+        "deflectionCase": {
+          "type": "PERCENT_OF_HEIGHT_DEFLECTION",
+          "percent": 0.15
+        }
+      }
+    ],
+    "owners": [
+      {
+        "industry": "UTILITY",
+        "id": "Acme Power"
+      }
+    ],
+    "notes": [],
+    "locationForms": [],
+    "projectForms": [],
+    "customReportSetups": [],
+    "designLayers": [
+      {
+        "name": "Measured Design",
+        "type": "Measured"
+      }
+    ],
+    "defaultLocationForms": [],
+    "defaultProjectForms": [],
+    "clearanceCases": [],
+    "componentGroups": [],
+    "wireClasses": [],
+    "wireStates": [],
+    "hash": "44303ffd59089bb476b6dfa592018236"
+  },
+  "clientFileVersion": "44303ffd59089bb476b6dfa592018236",
+  "forms": [
+    {
+      "title": "Project Summary",
+      "formDefinition": [
+        {
+          "fieldName": "Work Order #",
+          "fieldType": "customTextField"
+        },
+        {
+          "fieldName": "Total Estimated Cost",
+          "fieldType": "customTextField"
+        },
+        {
+          "fieldName": "Total Estimated Hours",
+          "fieldType": "customTextField"
+        },
+        {
+          "fieldName": "Pole Replacements",
+          "fieldType": "customSpinner"
+        },
+        {
+          "fieldName": "Rearrangements",
+          "fieldType": "customSpinner"
+        }
+      ],
+      "fields": {
+        "Work Order #": "",
+        "Total Estimated Cost": "",
+        "Total Estimated Hours": "",
+        "Pole Replacements": "0",
+        "Rearrangements": "0"
+      },
+      "template": "44303ffd59089bb476b6dfa592018236-Project Summary"
+    }
+  ],
+  "defaultLocationForms": [],
+  "defaultLoadCases": [
+    {
+      "name": "Light",
+      "type": "NESC 2012-2017",
+      "analysisMethod": "DIRECT_STIFFNESS",
+      "connectionType": "CONTINUATION",
+      "displacementBasedLoadChangesLevel": "NONE",
+      "windType": "SWEEP",
+      "sweepIncrement": "DEGREE_1",
+      "windStartAngle": {
+        "unit": "RADIAN",
+        "value": 0.0
+      },
+      "windEndAngle": {
+        "unit": "RADIAN",
+        "value": 6.283185307179586
+      },
+      "useStrengthResults": false,
+      "analyzeWithAverageSpan": true,
+      "maximumLoadingRatio": 1.0,
+      "addByDefault": false,
+      "constructionType": "NEW",
+      "checkUtilityWireTension": false,
+      "maximumAllowableUtilityWireTensionRatio": {
+        "unit": "PERCENT",
+        "value": 60.0
+      },
+      "checkCommWireTension": false,
+      "maximumAllowableCommunicationWireTensionRatio": {
+        "unit": "PERCENT",
+        "value": 60.0
+      },
+      "analyzeGroundLineOnly": false,
+      "components": [],
+      "analyzeWithoutLinearConstant": false,
+      "constructionGrade": "C",
+      "loadZone": "LIGHT",
+      "wireTensionMethod": "INITIAL",
+      "creepWireTensionTemperature": {
+        "unit": "CELSIUS",
+        "value": -1.1111111111111112
+      },
+      "creepWireTensionIceThickness": {
+        "unit": "METRE",
+        "value": 0.0
+      },
+      "creepWireTensionWindPressure": {
+        "unit": "PASCAL",
+        "value": 430.9223308230226
+      },
+      "creepWireTensionIceDensity": {
+        "unit": "KILOGRAM_PER_CUBIC_METRE",
+        "value": 917.0
+      },
+      "highestWireTensionTemperature": {
+        "unit": "CELSIUS",
+        "value": -1.1111111111111112
+      },
+      "highestWireTensionIceThickness": {
+        "unit": "METRE",
+        "value": 0.0
+      },
+      "highestWireTensionWindPressure": {
+        "unit": "PASCAL",
+        "value": 430.9223308230226
+      },
+      "highestWireTensionIceDensity": {
+        "unit": "KILOGRAM_PER_CUBIC_METRE",
+        "value": 917.0
+      },
+      "outerStrandingCompression": false,
+      "overrides": {},
+      "valuesApplied": {
+        "ice": {
+          "unit": "METRE",
+          "value": 0.0
+        },
+        "iceDensity": {
+          "unit": "KILOGRAM_PER_CUBIC_METRE",
+          "value": 917.0
+        },
+        "temperature": {
+          "unit": "CELSIUS",
+          "value": -1.1111111111111112
+        },
+        "windPressure": {
+          "unit": "PASCAL",
+          "value": 430.9223308230226
+        },
+        "linearConstant": {
+          "unit": "NEWTON_PER_METRE",
+          "value": 0.7296951468603182
+        },
+        "anchorStrengthFactor": 1.0,
+        "anchorTensionMultiplier": 1.1,
+        "anchorVerticalLoadMultiplier": 1.5,
+        "commOnlyTensionMultiplier": 0.0,
+        "guyStrengthFactor": 0.9,
+        "guyTensionMultiplier": 1.1,
+        "guyVerticalLoadMultiplier": 1.5,
+        "insulatorStrengthFactor": 1.0,
+        "insulatorTensionMultiplier": 1.3,
+        "insulatorVerticalLoadMultiplier": 1.9,
+        "insulatorWindMultiplier": 1.75,
+        "anchorWindMultiplier": 1.75,
+        "guyWindMultiplier": 1.75,
+        "foundationStrengthFactor": 1.0,
+        "foundationTensionMultiplier": 1.3,
+        "foundationVerticalLoadMultiplier": 1.9,
+        "foundationWindMultiplier": 1.75,
+        "poleStrengthFactors": {
+          "WOOD": 0.85,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 0.85,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "poleTensionMultipliers": {
+          "WOOD": 1.3,
+          "METAL": 1.1,
+          "REINFORCED_CONCRETE": 1.3,
+          "POLYMER": 1.3,
+          "PRESTRESSED_CONCRETE": 1.1
+        },
+        "poleVerticalLoadMultipliers": {
+          "WOOD": 1.9,
+          "METAL": 1.5,
+          "REINFORCED_CONCRETE": 1.9,
+          "POLYMER": 1.5,
+          "PRESTRESSED_CONCRETE": 1.5
+        },
+        "poleWindMultipliers": {
+          "WOOD": 1.75,
+          "METAL": 1.75,
+          "REINFORCED_CONCRETE": 1.75,
+          "POLYMER": 1.75,
+          "PRESTRESSED_CONCRETE": 1.75
+        },
+        "crossArmStrengthFactors": {
+          "WOOD": 0.85,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 0.85,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "crossArmTensionMultipliers": {
+          "WOOD": 1.3,
+          "METAL": 1.1,
+          "REINFORCED_CONCRETE": 1.3,
+          "POLYMER": 1.3,
+          "PRESTRESSED_CONCRETE": 1.1
+        },
+        "crossArmVerticalLoadMultipliers": {
+          "WOOD": 1.9,
+          "METAL": 1.5,
+          "REINFORCED_CONCRETE": 1.9,
+          "POLYMER": 1.5,
+          "PRESTRESSED_CONCRETE": 1.5
+        },
+        "crossArmWindMultipliers": {
+          "WOOD": 1.75,
+          "METAL": 1.75,
+          "REINFORCED_CONCRETE": 1.75,
+          "POLYMER": 1.75,
+          "PRESTRESSED_CONCRETE": 1.75
+        },
+        "areaMultipliers": {
+          "ROUND": 1.0,
+          "SQUARE": 1.6,
+          "ROUND_LATTICE": 2.0,
+          "SQUARE_LATTICE": 3.2
+        }
+      },
+      "bucklingCase": {
+        "sectionHeightMode": "LOAD",
+        "diameterMethod": "TAPERED_DIAMETER",
+        "analysisMethod": "TRADITIONAL_EULER",
+        "unguyedConstant": 2.0,
+        "bucklingCoefficient": 0.384,
+        "loadingHeightPercent": 1.0,
+        "diameterHeightPercent": 0.33,
+        "guyedConstants": [
+          {
+            "angle": {
+              "unit": "RADIAN",
+              "value": 6.283185307179586
+            },
+            "constant": 0.707
+          }
+        ]
+      },
+      "deflectionCase": {
+        "type": "PERCENT_OF_HEIGHT_DEFLECTION",
+        "percent": 0.15
+      }
+    }
+  ],
+  "leads": [
+    {
+      "label": "Lead",
+      "locations": [
+        {
+          "label": "Location-09-14-2023-15-20-52-825",
+          "mapNumber": "",
+          "comments": "",
+          "address": {
+            "number": "",
+            "street": "",
+            "city": "",
+            "county": "",
+            "state": "",
+            "zip_code": ""
+          },
+          "technician": "",
+          "crossStreet1": "",
+          "crossStreet2": "",
+          "remedies": [],
+          "poleTags": [],
+          "userDefinedValues": {},
+          "summaryNotes": [],
+          "forms": [],
+          "images": [],
+          "photosToBeAssigned": [],
+          "designs": [
+            {
+              "label": "Measured Design",
+              "layerType": "Measured",
+              "structure": {
+                "pole": {
+                  "id": "Pole",
+                  "externalId": "65035d14f910ba3d64e995f5",
+                  "owner": {
+                    "industry": "UTILITY",
+                    "id": "Acme Power"
+                  },
+                  "glc": {
+                    "unit": "METRE",
+                    "value": 0.8844410803607529
+                  },
+                  "agl": {
+                    "unit": "METRE",
+                    "value": 11.734800000000002
+                  },
+                  "autoGLC": true,
+                  "autoAGL": true,
+                  "environment": "None",
+                  "temperature": {
+                    "unit": "CELSIUS",
+                    "value": 15.555555555555555
+                  },
+                  "stressRatio": 1.0,
+                  "leanAngle": 0,
+                  "leanDirection": 1.1,
+                  "clientItemVersion": "ab466e687d3281499970ac4913878870",
+                  "clientItem": {
+                    "species": "Southern Pine",
+                    "classOfPole": "4",
+                    "height": {
+                      "unit": "METRE",
+                      "value": 13.716000000000001
+                    }
+                  },
+                  "clientItemAlias": "45-4"
+                },
+                "wireEndPoints": [
+                  {
+                    "id": "WEP#1",
+                    "externalId": "65036534f910740b202ba6c2",
+                    "direction": 35.35,
+                    "distance": {
+                      "unit": "METRE",
+                      "value": 45.720000000000006
+                    },
+                    "relativeElevation": {
+                      "unit": "METRE",
+                      "value": 0.0
+                    },
+                    "inclination": {
+                      "unit": "RADIAN",
+                      "value": 0.0
+                    },
+                    "type": "PREVIOUS_POLE",
+                    "comments": "",
+                    "environment": "None",
+                    "wires": [
+                      "Wire#1",
+                      "Wire#2"
+                    ],
+                    "spanGuys": [],
+                    "spanPoints": [],
+                    "terrainPoints": [],
+                    "environmentRegions": [],
+                    "calculateClearances": true
+                  }
+                ],
+                "spanPoints": [],
+                "anchors": [
+                  {
+                    "id": "Anchor#1",
+                    "externalId": "65036202f910ba3d64e9963f",
+                    "height": {
+                      "unit": "METRE",
+                      "value": 0.0
+                    },
+                    "direction": 180.1,
+                    "distance": {
+                      "unit": "METRE",
+                      "value": 4.572
+                    },
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "Acme Power"
+                    },
+                    "supportedWEPs": [],
+                    "clientItemVersion": "9475b4f81c6299f0df4609c62576f3d7",
+                    "clientItem": "10\" - 10\" Double Helix (Class 4) 1 1/4\" Rod",
+                    "clientItemAlias": "Anchor",
+                    "guys": [
+                      "Guy#1"
+                    ]
+                  }
+                ],
+                "notePoints": [
+                  {
+                    "id": "NotePoint#1",
+                    "externalId": "650362bcf910740b202ba5bc",
+                    "height": {
+                      "unit": "METRE",
+                      "value": 9.937934328358212
+                    },
+                    "direction": 180.01,
+                    "distance": {
+                      "unit": "METRE",
+                      "value": 0.0
+                    },
+                    "note": "fractional dir np"
+                  }
+                ],
+                "pointLoads": [],
+                "wirePointLoads": [],
+                "damages": [
+                  {
+                    "id": "Damage#1",
+                    "externalId": "6503644af910740b202ba621",
+                    "direction": 0.01,
+                    "attachHeight": {
+                      "unit": "METRE",
+                      "value": 0.9144000000000001
+                    },
+                    "damageHeight": {
+                      "unit": "METRE",
+                      "value": 0.025400000000000002
+                    },
+                    "damageType": "ARC",
+                    "arc": {
+                      "unit": "METRE",
+                      "value": 0.06856697851340388
+                    },
+                    "depth": {
+                      "unit": "METRE",
+                      "value": 0.025400000000000002
+                    }
+                  }
+                ],
+                "wires": [
+                  {
+                    "id": "Wire#1",
+                    "externalId": "65036534f910740b202ba6c4",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "Acme Power"
+                    },
+                    "clientItemVersion": "47129fcc1a0626b9180b049ee42132e3",
+                    "clientItem": {
+                      "size": "1/0 AAAC",
+                      "coreStrands": 0,
+                      "conductorStrands": 7
+                    },
+                    "clientItemAlias": "1/0 AAAC",
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 8.718550000000002
+                    },
+                    "usageGroup": "PRIMARY",
+                    "tensionGroup": "Full",
+                    "midspanHeight": {
+                      "unit": "METRE",
+                      "value": 0.0
+                    }
+                  },
+                  {
+                    "id": "Wire#2",
+                    "externalId": "6503656df910740b202ba7ee",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "Acme Power"
+                    },
+                    "clientItemVersion": "47129fcc1a0626b9180b049ee42132e3",
+                    "clientItem": {
+                      "size": "1/0 AAAC",
+                      "coreStrands": 0,
+                      "conductorStrands": 7
+                    },
+                    "clientItemAlias": "1/0 AAAC",
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 9.448800000000002
+                    },
+                    "usageGroup": "PRIMARY",
+                    "tensionGroup": "Full",
+                    "midspanHeight": {
+                      "unit": "METRE",
+                      "value": 0.0
+                    }
+                  }
+                ],
+                "spanGuys": [],
+                "guys": [
+                  {
+                    "id": "Guy#1",
+                    "externalId": "65036202f910ba3d64e99640",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "Acme Power"
+                    },
+                    "clientItemVersion": "534171bd07f4d5d5dba070467be1fd65",
+                    "clientItem": {
+                      "size": "1/4\" EHS",
+                      "coreStrands": 0,
+                      "conductorStrands": 7
+                    },
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 5.791200000000001
+                    }
+                  }
+                ],
+                "equipments": [
+                  {
+                    "id": "Equip#1",
+                    "externalId": "6503650df910740b202ba67d",
+                    "direction": 45.45,
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "Acme Power"
+                    },
+                    "clientItemVersion": "ff830b85df8aa21fce838ab3761c325a",
+                    "clientItem": {
+                      "type": "CAPACITOR",
+                      "size": "3-Unit Rack 300 Kvar (Fixed)"
+                    },
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 10.972800000000001
+                    },
+                    "bottomHeight": {
+                      "unit": "METRE",
+                      "value": 10.907777016
+                    },
+                    "autoBottomHeight": true
+                  }
+                ],
+                "guyAttachPoints": [
+                  {
+                    "id": "GuyAttachPoint#1",
+                    "externalId": "650365c8f910740b202ba9f4",
+                    "supportedWEPs": [],
+                    "attachHeight": {
+                      "unit": "METRE",
+                      "value": 5.791200000000001
+                    },
+                    "guy": "Guy#1"
+                  }
+                ],
+                "crossArms": [
+                  {
+                    "id": "CrossArm#1",
+                    "externalId": "65036534f910740b202ba6bf",
+                    "direction": 125.35,
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "Acme Power"
+                    },
+                    "supportedWEPs": [
+                      "WEP#1"
+                    ],
+                    "clientItemVersion": "ff88591cf4661d9698618be0e8d709ce",
+                    "clientItem": "10 Foot Cross Arm",
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 8.534400000000002
+                    },
+                    "offset": {
+                      "unit": "METRE",
+                      "value": 1.524
+                    },
+                    "insulators": [
+                      "Insulator#1"
+                    ]
+                  }
+                ],
+                "insulators": [
+                  {
+                    "id": "Insulator#1",
+                    "externalId": "65036534f910740b202ba6c1",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "Acme Power"
+                    },
+                    "clientItemVersion": "dccf9200ad615464e81b2eca0ba93eab",
+                    "clientItem": "13.2 kV Pin Type Insulator (Crossarm)",
+                    "offset": {
+                      "unit": "METRE",
+                      "value": 0.10160000000000001
+                    },
+                    "direction": 35.35,
+                    "doubleInsulator": false,
+                    "wires": [
+                      "Wire#1"
+                    ]
+                  },
+                  {
+                    "id": "Insulator#2",
+                    "externalId": "6503656df910740b202ba7eb",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "Acme Power"
+                    },
+                    "clientItemVersion": "d732a3c6f9ff3557721b7b8b9352b760",
+                    "clientItem": "15 kV Dead End Insulator",
+                    "offset": {
+                      "unit": "METRE",
+                      "value": 9.448800000000002
+                    },
+                    "direction": 35.35,
+                    "doubleInsulator": false,
+                    "wires": [
+                      "Wire#2"
+                    ]
+                  },
+                  {
+                    "id": "Insulator#3",
+                    "externalId": "65036582f910740b202ba885",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "Acme Power"
+                    },
+                    "clientItemVersion": "076d965e8e52d1bf680e8347516f6c68",
+                    "clientItem": "15 kV Running Angle Insulator",
+                    "offset": {
+                      "unit": "METRE",
+                      "value": 7.315200000000001
+                    },
+                    "direction": 40.4,
+                    "doubleInsulator": false,
+                    "wires": []
+                  }
+                ],
+                "pushBraces": [
+                  {
+                    "id": "PushBrace#1",
+                    "externalId": "65036592f910740b202ba8f3",
+                    "direction": 70.7,
+                    "distance": {
+                      "unit": "METRE",
+                      "value": 4.572
+                    },
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "Acme Power"
+                    },
+                    "clientItemVersion": "ea0bdc2a3cb2f0a427492063613204f1",
+                    "clientItem": {
+                      "species": "Southern Pine",
+                      "classOfPole": "3",
+                      "height": {
+                        "unit": "METRE",
+                        "value": 10.668000000000001
+                      }
+                    },
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 4.572000000000001
+                    },
+                    "glc": {
+                      "unit": "METRE",
+                      "value": 0.6096
+                    }
+                  }
+                ],
+                "sidewalkBraces": [
+                  {
+                    "id": "SidewalkBrace#1",
+                    "externalId": "65036202f910ba3d64e99641",
+                    "direction": 180.1,
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "Acme Power"
+                    },
+                    "clientItemVersion": "fe5e432d04ae114ea2831c36341b2568",
+                    "clientItem": "2\" Schedule 40",
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 3.0480000000000005
+                    },
+                    "length": {
+                      "unit": "METRE",
+                      "value": 4.572
+                    },
+                    "guys": [
+                      "Guy#1"
+                    ]
+                  }
+                ],
+                "foundations": [],
+                "assemblies": [
+                  {
+                    "id": "Assembly#1",
+                    "source": "LOCAL_ASSEMBLIES",
+                    "externalId": "650365c8f910740b202ba9f3",
+                    "clientItemVersion": "ff914839f027ffd6caacad666da1d7f8",
+                    "clientItem": "fdf",
+                    "items": [
+                      "Equip#1",
+                      "CrossArm#1",
+                      "Insulator#1",
+                      "Wire#1",
+                      "Wire#2",
+                      "Insulator#2",
+                      "Insulator#3",
+                      "GuyAttachPoint#1"
+                    ]
+                  },
+                  {
+                    "id": "Assembly#2",
+                    "source": "LOCAL_ASSEMBLIES",
+                    "externalId": "650365fcf910740b202baa2f",
+                    "clientItemVersion": "db83def3d5276731de4c4fa706c6165e",
+                    "clientItem": "fds",
+                    "items": [
+                      "Guy#1",
+                      "Anchor#1",
+                      "SidewalkBrace#1"
+                    ]
+                  }
+                ]
+              },
+              "analysis": [
+                {
+                  "id": "Light",
+                  "analysisCaseDetails": {
+                    "name": "Light",
+                    "type": "NESC 2012-2017",
+                    "analysisMethod": "DIRECT_STIFFNESS",
+                    "connectionType": "CONTINUATION",
+                    "displacementBasedLoadChangesLevel": "NONE",
+                    "windType": "SWEEP",
+                    "sweepIncrement": "DEGREE_1",
+                    "windStartAngle": {
+                      "unit": "RADIAN",
+                      "value": 0.0
+                    },
+                    "windEndAngle": {
+                      "unit": "RADIAN",
+                      "value": 6.283185307179586
+                    },
+                    "useStrengthResults": false,
+                    "analyzeWithAverageSpan": true,
+                    "maximumLoadingRatio": 1.0,
+                    "addByDefault": false,
+                    "constructionType": "NEW",
+                    "checkUtilityWireTension": false,
+                    "maximumAllowableUtilityWireTensionRatio": {
+                      "unit": "PERCENT",
+                      "value": 60.0
+                    },
+                    "checkCommWireTension": false,
+                    "maximumAllowableCommunicationWireTensionRatio": {
+                      "unit": "PERCENT",
+                      "value": 60.0
+                    },
+                    "analyzeGroundLineOnly": false,
+                    "components": [],
+                    "analyzeWithoutLinearConstant": false,
+                    "constructionGrade": "C",
+                    "loadZone": "LIGHT",
+                    "wireTensionMethod": "INITIAL",
+                    "creepWireTensionTemperature": {
+                      "unit": "CELSIUS",
+                      "value": -1.1111111111111112
+                    },
+                    "creepWireTensionIceThickness": {
+                      "unit": "METRE",
+                      "value": 0.0
+                    },
+                    "creepWireTensionWindPressure": {
+                      "unit": "PASCAL",
+                      "value": 430.9223308230226
+                    },
+                    "creepWireTensionIceDensity": {
+                      "unit": "KILOGRAM_PER_CUBIC_METRE",
+                      "value": 917.0
+                    },
+                    "highestWireTensionTemperature": {
+                      "unit": "CELSIUS",
+                      "value": -1.1111111111111112
+                    },
+                    "highestWireTensionIceThickness": {
+                      "unit": "METRE",
+                      "value": 0.0
+                    },
+                    "highestWireTensionWindPressure": {
+                      "unit": "PASCAL",
+                      "value": 430.9223308230226
+                    },
+                    "highestWireTensionIceDensity": {
+                      "unit": "KILOGRAM_PER_CUBIC_METRE",
+                      "value": 917.0
+                    },
+                    "outerStrandingCompression": false,
+                    "overrides": {},
+                    "valuesApplied": {
+                      "ice": {
+                        "unit": "METRE",
+                        "value": 0.0
+                      },
+                      "iceDensity": {
+                        "unit": "KILOGRAM_PER_CUBIC_METRE",
+                        "value": 917.0
+                      },
+                      "temperature": {
+                        "unit": "CELSIUS",
+                        "value": -1.1111111111111112
+                      },
+                      "windPressure": {
+                        "unit": "PASCAL",
+                        "value": 430.9223308230226
+                      },
+                      "linearConstant": {
+                        "unit": "NEWTON_PER_METRE",
+                        "value": 0.7296951468603182
+                      },
+                      "anchorStrengthFactor": 1.0,
+                      "anchorTensionMultiplier": 1.1,
+                      "anchorVerticalLoadMultiplier": 1.5,
+                      "commOnlyTensionMultiplier": 0.0,
+                      "guyStrengthFactor": 0.9,
+                      "guyTensionMultiplier": 1.1,
+                      "guyVerticalLoadMultiplier": 1.5,
+                      "insulatorStrengthFactor": 1.0,
+                      "insulatorTensionMultiplier": 1.3,
+                      "insulatorVerticalLoadMultiplier": 1.9,
+                      "insulatorWindMultiplier": 1.75,
+                      "anchorWindMultiplier": 1.75,
+                      "guyWindMultiplier": 1.75,
+                      "foundationStrengthFactor": 1.0,
+                      "foundationTensionMultiplier": 1.3,
+                      "foundationVerticalLoadMultiplier": 1.9,
+                      "foundationWindMultiplier": 1.75,
+                      "poleStrengthFactors": {
+                        "WOOD": 0.85,
+                        "METAL": 1.0,
+                        "REINFORCED_CONCRETE": 0.85,
+                        "POLYMER": 1.0,
+                        "PRESTRESSED_CONCRETE": 1.0
+                      },
+                      "poleTensionMultipliers": {
+                        "WOOD": 1.3,
+                        "METAL": 1.1,
+                        "REINFORCED_CONCRETE": 1.3,
+                        "POLYMER": 1.3,
+                        "PRESTRESSED_CONCRETE": 1.1
+                      },
+                      "poleVerticalLoadMultipliers": {
+                        "WOOD": 1.9,
+                        "METAL": 1.5,
+                        "REINFORCED_CONCRETE": 1.9,
+                        "POLYMER": 1.5,
+                        "PRESTRESSED_CONCRETE": 1.5
+                      },
+                      "poleWindMultipliers": {
+                        "WOOD": 1.75,
+                        "METAL": 1.75,
+                        "REINFORCED_CONCRETE": 1.75,
+                        "POLYMER": 1.75,
+                        "PRESTRESSED_CONCRETE": 1.75
+                      },
+                      "crossArmStrengthFactors": {
+                        "WOOD": 0.85,
+                        "METAL": 1.0,
+                        "REINFORCED_CONCRETE": 0.85,
+                        "POLYMER": 1.0,
+                        "PRESTRESSED_CONCRETE": 1.0
+                      },
+                      "crossArmTensionMultipliers": {
+                        "WOOD": 1.3,
+                        "METAL": 1.1,
+                        "REINFORCED_CONCRETE": 1.3,
+                        "POLYMER": 1.3,
+                        "PRESTRESSED_CONCRETE": 1.1
+                      },
+                      "crossArmVerticalLoadMultipliers": {
+                        "WOOD": 1.9,
+                        "METAL": 1.5,
+                        "REINFORCED_CONCRETE": 1.9,
+                        "POLYMER": 1.5,
+                        "PRESTRESSED_CONCRETE": 1.5
+                      },
+                      "crossArmWindMultipliers": {
+                        "WOOD": 1.75,
+                        "METAL": 1.75,
+                        "REINFORCED_CONCRETE": 1.75,
+                        "POLYMER": 1.75,
+                        "PRESTRESSED_CONCRETE": 1.75
+                      },
+                      "areaMultipliers": {
+                        "ROUND": 1.0,
+                        "SQUARE": 1.6,
+                        "ROUND_LATTICE": 2.0,
+                        "SQUARE_LATTICE": 3.2
+                      }
+                    },
+                    "bucklingCase": {
+                      "sectionHeightMode": "LOAD",
+                      "diameterMethod": "TAPERED_DIAMETER",
+                      "analysisMethod": "TRADITIONAL_EULER",
+                      "unguyedConstant": 2.0,
+                      "bucklingCoefficient": 0.384,
+                      "loadingHeightPercent": 1.0,
+                      "diameterHeightPercent": 0.33,
+                      "guyedConstants": [
+                        {
+                          "angle": {
+                            "unit": "RADIAN",
+                            "value": 6.283185307179586
+                          },
+                          "constant": 0.707
+                        }
+                      ]
+                    },
+                    "deflectionCase": {
+                      "type": "PERCENT_OF_HEIGHT_DEFLECTION",
+                      "percent": 0.15
+                    }
+                  },
+                  "results": [
+                    {
+                      "actual": 2.0380258851053403,
+                      "allowable": 100.0,
+                      "unit": "PERCENT",
+                      "analysisDate": 1694721740598,
+                      "component": "PushBrace#1",
+                      "loadInfo": "Light",
+                      "passes": true,
+                      "analysisType": "STRESS"
+                    },
+                    {
+                      "actual": 0.035387637664689824,
+                      "allowable": 100.0,
+                      "unit": "PERCENT",
+                      "analysisDate": 1694721740598,
+                      "component": "Insulator#3",
+                      "loadInfo": "Light",
+                      "passes": true,
+                      "analysisType": "FORCE"
+                    },
+                    {
+                      "actual": 48.40087028667321,
+                      "allowable": 100.0,
+                      "unit": "PERCENT",
+                      "analysisDate": 1694721740598,
+                      "component": "Insulator#1",
+                      "loadInfo": "Light",
+                      "passes": true,
+                      "analysisType": "FORCE"
+                    },
+                    {
+                      "actual": 108.4744262543784,
+                      "allowable": 100.0,
+                      "unit": "PERCENT",
+                      "analysisDate": 1694721740598,
+                      "component": "CrossArm#1",
+                      "loadInfo": "Light",
+                      "passes": false,
+                      "analysisType": "STRESS"
+                    },
+                    {
+                      "actual": 16.134960059598253,
+                      "allowable": 100.0,
+                      "unit": "PERCENT",
+                      "analysisDate": 1694721740598,
+                      "component": "Insulator#2",
+                      "loadInfo": "Light",
+                      "passes": true,
+                      "analysisType": "FORCE"
+                    },
+                    {
+                      "actual": 70.98610229787924,
+                      "allowable": 100.0,
+                      "unit": "PERCENT",
+                      "analysisDate": 1694721740598,
+                      "component": "Pole",
+                      "loadInfo": "Light",
+                      "passes": true,
+                      "analysisType": "STRESS"
+                    },
+                    {
+                      "actual": 0.26412913877929156,
+                      "allowable": 100.0,
+                      "unit": "PERCENT",
+                      "analysisDate": 1694721740598,
+                      "component": "Pole",
+                      "loadInfo": "Light",
+                      "passes": true,
+                      "analysisType": "BUCKLING"
+                    },
+                    {
+                      "actual": 21.894609383775606,
+                      "allowable": 100.0,
+                      "unit": "PERCENT",
+                      "analysisDate": 1694721740598,
+                      "component": "Pole",
+                      "loadInfo": "Light",
+                      "passes": true,
+                      "analysisType": "DEFLECTION"
+                    },
+                    {
+                      "actual": 6.3694567359789245,
+                      "allowable": 100.0,
+                      "unit": "PERCENT",
+                      "analysisDate": 1694721740598,
+                      "component": "Anchor#1",
+                      "loadInfo": "Light",
+                      "passes": true,
+                      "analysisType": "FORCE"
+                    },
+                    {
+                      "actual": 60.46051243536923,
+                      "allowable": 100.0,
+                      "unit": "PERCENT",
+                      "analysisDate": 1694721740598,
+                      "component": "SidewalkBrace#1",
+                      "loadInfo": "Light",
+                      "passes": true,
+                      "analysisType": "FORCE"
+                    },
+                    {
+                      "actual": 65.42710322668995,
+                      "allowable": 100.0,
+                      "unit": "PERCENT",
+                      "analysisDate": 1694721740598,
+                      "component": "Guy#1",
+                      "loadInfo": "Light",
+                      "passes": true,
+                      "analysisType": "FORCE"
+                    }
+                  ]
+                }
+              ],
+              "analysisDetails": {
+                "resultId": "650366caf910740b202baa4d"
+              },
+              "analysisCurrent": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

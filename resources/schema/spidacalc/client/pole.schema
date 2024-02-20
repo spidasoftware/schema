@@ -13,7 +13,8 @@
     "shape",
     "species",
     "allowable",
-    "taper"
+    "taper",
+    "settingType"
   ],
   "properties": {
     "id": {
@@ -66,7 +67,46 @@
       "items": {
         "$ref": "../../spidacalc/client/alias.schema"
       }
+    },
+    "settingType": {
+      "$ref": "../../spidacalc/client/enums/setting_type.schema"
+    },
+    "customSettingDepth": {
+      "$ref": "../../general/measurable.schema"
     }
   },
+  "oneOf": [
+    {
+      "type": "object",
+      "required": [ "customSettingDepth" ],
+      "properties": {
+        "settingType": {
+          "enum": [ "CUSTOM" ]
+        }
+      }
+    },
+    {
+      "type": "object",
+      "not": {
+        "required": [ "customSettingDepth" ]
+      },
+      "properties": {
+        "settingType": {
+          "enum": [ "ANSI" ]
+        }
+      }
+    },
+    {
+      "type": "object",
+      "not": {
+        "required": [ "customSettingDepth" ]
+      },
+      "properties": {
+        "settingType": {
+          "enum": [ "GO95" ]
+        }
+      }
+    }
+  ],
   "additionalProperties": false
 }
