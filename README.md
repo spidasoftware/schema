@@ -35,7 +35,7 @@ The data formats, examples, and available web service interfaces will all change
 
 License
 -------
-By accessing, downloading, or using the APIs defined here you are agreeing to these terms of use [here.](https://github.com/spidasoftware/schema/raw/master/SPIDAWEB_EULA%20(19%20June%202019).pdf)
+By accessing, downloading, or using the APIs defined here you are agreeing to these terms of use [here.](https://www.bentley.com/legal/eula/)
 
 Products
 ----------
@@ -134,5 +134,5 @@ The jar can be compiled with:
 
 ***
 
-SPIDA® is a registered trademark of SPIDAWeb LLC. Copyright © 2018 SPIDAWeb LLC. All rights reserved. All other brands or product names are the property of their respective holders.
-[spidasoftware.com](http://www.spidasoftware.com/)
+SPIDA® is a registered trademark of Bentley Systems Inc. All other brands or product names are the property of their respective holders. Copyright © 2024 Bentley Systems Inc. All rights reserved.
+[bentley.com](https://www.bentley.com/)
