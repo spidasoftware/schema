@@ -10,7 +10,12 @@ class ClientPoleSettingTypeChangeSet extends AbstractClientDataChangeSet {
 
     @Override
     boolean applyToClientData(Map clientDataJSON) throws ConversionException {
-        return false
+        boolean anyChanged = false
+        clientDataJSON.poles?.each { Map clientPole ->
+            clientPole.settingType = "ANSI"
+            anyChanged = true
+        }
+        return anyChanged
     }
 
     @Override

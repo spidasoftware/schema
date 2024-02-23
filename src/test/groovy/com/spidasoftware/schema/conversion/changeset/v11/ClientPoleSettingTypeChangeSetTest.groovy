@@ -16,6 +16,26 @@ class ClientPoleSettingTypeChangeSetTest extends Specification {
         clientPoleSettingTypeChangeSet = new ClientPoleSettingTypeChangeSet()
     }
 
+    def "apply client data"() {
+        setup:
+            InputStream stream = ClientPoleSettingTypeChangeSetTest.getResourceAsStream("/conversions/v11/ClientPole-client-v10.json")
+            Map json = new JsonSlurper().parse(stream) as Map
+            stream.close()
+        expect:
+            !json.poles[0].settingType
+            !json.poles[0].customSettingDepth
+            !json.poles[1].settingType
+            !json.poles[1].customSettingDepth
+        when: "up convert"
+            boolean changes = clientPoleSettingTypeChangeSet.applyToClientData(json)
+        then:
+            changes
+            json.poles[0].settingType == "ANSI"
+            !json.poles[0].customSettingDepth
+            json.poles[1].settingType == "ANSI"
+            !json.poles[1].customSettingDepth
+    }
+
     def "revert client data"() {
         setup:
             InputStream stream = ClientPoleSettingTypeChangeSetTest.getResourceAsStream("/conversions/v11/ClientPole-client-v11.json")
