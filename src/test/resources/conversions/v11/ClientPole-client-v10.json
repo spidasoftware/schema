@@ -29,7 +29,7 @@
       },
       "wallThickness": {
         "unit": "METRE",
-        "value": -0.02540000000000002
+        "value": -0.025400000000000002
       },
       "poissonRatio": 0.3
     },
@@ -62,7 +62,7 @@
       },
       "wallThickness": {
         "unit": "METRE",
-        "value": -0.02540000000000002
+        "value": -0.025400000000000002
       },
       "poissonRatio": 0.3
     }

@@ -28,7 +28,7 @@ class ClientPoleSettingTypeChangeSetTest extends Specification {
             !json.poles[1].customSettingDepth
         when: "up convert"
             boolean changes = clientPoleSettingTypeChangeSet.applyToClientData(json)
-        then:
+        then: "setting type is added to each client pole"
             changes
             json.poles[0].settingType == "ANSI"
             !json.poles[0].customSettingDepth
