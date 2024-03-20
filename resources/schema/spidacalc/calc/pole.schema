@@ -35,6 +35,10 @@
       "description": "enable or disable auto calculating the agl based on client pole properties",
       "type": "boolean"
     },
+    "cutTop": {
+      "description": "Measurable height that was cut off from top of pole",
+      "$ref": "../../general/measurable.schema"
+    },
     "leanAngle": {
       "description": "Lean angle measured vertical.",
       "type": "integer",
