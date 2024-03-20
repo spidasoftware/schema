@@ -5,6 +5,7 @@ package com.spidasoftware.schema.conversion.changeset.v11
 
 import com.spidasoftware.schema.conversion.changeset.ConversionException
 import com.spidasoftware.schema.conversion.changeset.client.AbstractClientDataChangeSet
+import groovy.transform.CompileStatic
 
 /**
  * In 2024.1, we added the functionality to cut part of the top of the pole off.
@@ -14,7 +15,9 @@ import com.spidasoftware.schema.conversion.changeset.client.AbstractClientDataCh
  *
  * When up converting, add the cutTop property with a value of 0
  */
+@CompileStatic
 class PoleCutTopChangeSet extends AbstractClientDataChangeSet {
+
     @Override
     boolean applyToClientData(Map clientDataJSON) throws ConversionException {
         return false
