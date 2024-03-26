@@ -30,6 +30,7 @@ class EnvironmentClientDataChangeset extends AbstractClientDataChangeSet {
 
 	@Override
 	void applyToProject(Map projectJSON) throws ConversionException {
+		super.applyToProject(projectJSON)
 		Set<String> projectEnvironments = []
 		projectJSON.get("leads")?.each { Map leadJSON ->
 			leadJSON.get("locations")?.each { Map locationJSON ->
@@ -123,12 +124,7 @@ class EnvironmentClientDataChangeset extends AbstractClientDataChangeSet {
 
 	@Override
 	void revertProject(Map projectJSON) throws ConversionException {
-		projectJSON.remove("clientFileVersion")
-		if (projectJSON.containsKey("clientData")) {
-			Map clientDataJSON = projectJSON.clientData as Map
-			revertClientData(clientDataJSON)
-			clientDataJSON.remove("hash")
-		}
+		super.revertProject(projectJSON)
 		projectJSON.get("leads")?.each { Map leadJSON ->
 			leadJSON.get("locations")?.each { Map locationJSON ->
 				revertLocation(locationJSON)
@@ -192,12 +188,14 @@ class EnvironmentClientDataChangeset extends AbstractClientDataChangeSet {
 
 	protected boolean revertEnvironmentToEnumFormat(Map environmentItem) {
 		boolean anyChanged = false
-		Environment defaultEnvironment = Environment.getEnvironment(environmentItem.environment as String)
-		if (defaultEnvironment != null) {
-			environmentItem.put("environment", defaultEnvironment.name())
-		} else {
-			environmentItem.put("environment", Environment.NONE.name())
-			anyChanged = true
+		if (environmentItem.environment) {
+			Environment defaultEnvironment = Environment.getEnvironment(environmentItem.environment as String)
+			if (defaultEnvironment != null) {
+				environmentItem.put("environment", defaultEnvironment.name())
+			} else {
+				environmentItem.put("environment", Environment.NONE.name())
+				anyChanged = true
+			}
 		}
 		return anyChanged
 	}

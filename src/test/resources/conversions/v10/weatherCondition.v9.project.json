@@ -1,0 +1,2833 @@
+{
+  "label": "New Project",
+  "dateModified": 1683850097139,
+  "clientFile": "Demo.client",
+  "date": "2023-05-11",
+  "schema": "/schema/spidacalc/calc/project.schema",
+  "version": 9,
+  "engineer": "",
+  "comments": "",
+  "generalLocation": "",
+  "address": {
+    "number": "",
+    "street": "",
+    "city": "",
+    "county": "",
+    "state": "",
+    "zip_code": ""
+  },
+  "userDefinedValues": {},
+  "clientData": {
+    "schema": "/schema/spidacalc/client/data.schema",
+    "version": 9,
+    "name": "Demo.client",
+    "poles": [
+      {
+        "aliases": [],
+        "shape": "ROUND",
+        "materialCategory": "POLYMER",
+        "classOfPole": "10\" Series II",
+        "species": "Fiberglass",
+        "height": {
+          "unit": "METRE",
+          "value": 12.192000000000002
+        },
+        "taper": 0.0,
+        "density": {
+          "unit": "KILOGRAM_PER_CUBIC_METRE",
+          "value": 235.471411597214
+        },
+        "allowable": {
+          "unit": "NEWTON_METRE",
+          "value": 135581.79483314
+        },
+        "ptc": {
+          "unit": "METRE",
+          "value": 0.8636000000000001
+        },
+        "modulus": {
+          "unit": "PASCAL",
+          "value": 2.757902917267344E10
+        },
+        "wallThickness": {
+          "unit": "METRE",
+          "value": 0.006350000000000001
+        },
+        "poissonRatio": 0.32
+      }
+    ],
+    "wires": [],
+    "anchors": [],
+    "equipments": [],
+    "equipmentTypes": [
+      {
+        "name": "APPARATUS_CASE",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "CAPACITOR",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "CROSS_CONNECT",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "CUTOUT_ARRESTOR",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "DRIP_LOOP",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "JOINT_USE_BOX",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "LOAD_COIL_CASE",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "POWER_SUPPLY",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "PRIMARY_METERING",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "RECLOSER",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "REGULATOR",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "RISER",
+        "industry": "BOTH"
+      },
+      {
+        "name": "SPLICE_CASE",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "STREET_LIGHT",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "SWITCH",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "TERMINATION_BRACKET",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "TRANSFORMER",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "WIRE_MOUNTED",
+        "industry": "BOTH"
+      },
+      {
+        "name": "WIRELESS_ANTENNA",
+        "industry": "BOTH"
+      }
+    ],
+    "insulators": [],
+    "foundations": [],
+    "crossArms": [],
+    "braces": [],
+    "bundleComponents": [],
+    "bundles": [],
+    "assemblies": [],
+    "environments": [
+      {
+        "name": "Street",
+        "description": "Test Environment"
+      }
+    ],
+    "defaultEnvironment": {
+      "name": "None",
+      "description": "N/A"
+    },
+    "analysisCases": [],
+    "owners": [
+      {
+        "industry": "UTILITY",
+        "id": "Acme Power"
+      }
+    ],
+    "notes": [],
+    "locationForms": [],
+    "projectForms": [],
+    "customReportSetups": [],
+    "designLayers": [
+      {
+        "name": "Measured Design",
+        "type": "Measured"
+      }
+    ],
+    "defaultLocationForms": [],
+    "defaultProjectForms": [],
+    "clearanceCases": [
+      {
+        "type": "Vertical to Ground",
+        "name": "Test ToGround Clearance Case",
+        "upper": [
+          {
+            "componentGroup": {
+              "type": "Wire",
+              "name": "Wire Component Group",
+              "description": "I am a test wire component group",
+              "industry": "UTILITY",
+              "includedOwners": [
+                {
+                  "industry": "UTILITY",
+                  "id": "Owner#1"
+                },
+                {
+                  "industry": "UTILITY",
+                  "id": "Owner#2"
+                }
+              ],
+              "excludedOwners": [
+                {
+                  "industry": "UTILITY",
+                  "id": "Owner#3"
+                },
+                {
+                  "industry": "UTILITY",
+                  "id": "Owner#4"
+                }
+              ],
+              "includedClientItems": [
+                {
+                  "size": "1/0 AACR",
+                  "coreStrands": 0,
+                  "conductorStrands": 7
+                },
+                {
+                  "size": "2 AAAC",
+                  "coreStrands": 0,
+                  "conductorStrands": 7
+                }
+              ],
+              "wireClasses": [
+                {
+                  "name": "Secondary Wire Class",
+                  "usageGroup": "SECONDARY"
+                }
+              ],
+              "usageGroups": [
+                "PRIMARY",
+                "OPEN_WIRE"
+              ]
+            },
+            "thermalTemperatureOverride": {
+              "value": 50.0,
+              "unit": "FAHRENHEIT"
+            }
+          }
+        ],
+        "lower": [
+          {
+            "name": "Street",
+            "description": "Test Environment"
+          }
+        ],
+        "clearances": [
+          {
+            "upper": {
+              "componentGroup": {
+                "type": "Wire",
+                "name": "Wire Component Group",
+                "description": "I am a test wire component group",
+                "industry": "UTILITY",
+                "includedOwners": [
+                  {
+                    "industry": "UTILITY",
+                    "id": "Owner#1"
+                  },
+                  {
+                    "industry": "UTILITY",
+                    "id": "Owner#2"
+                  }
+                ],
+                "excludedOwners": [
+                  {
+                    "industry": "UTILITY",
+                    "id": "Owner#3"
+                  },
+                  {
+                    "industry": "UTILITY",
+                    "id": "Owner#4"
+                  }
+                ],
+                "includedClientItems": [
+                  {
+                    "size": "1/0 AACR",
+                    "coreStrands": 0,
+                    "conductorStrands": 7
+                  },
+                  {
+                    "size": "2 AAAC",
+                    "coreStrands": 0,
+                    "conductorStrands": 7
+                  }
+                ],
+                "wireClasses": [
+                  {
+                    "name": "Secondary Wire Class",
+                    "usageGroup": "SECONDARY"
+                  }
+                ],
+                "usageGroups": [
+                  "PRIMARY",
+                  "OPEN_WIRE"
+                ]
+              },
+              "thermalTemperatureOverride": {
+                "value": 50.0,
+                "unit": "FAHRENHEIT"
+              }
+            },
+            "lower": {
+              "name": "Street",
+              "description": "Test Environment"
+            }
+          }
+        ],
+        "exception": false,
+        "addByDefault": false,
+        "minimumSpan": {
+          "value": 50.0,
+          "unit": "METRE"
+        },
+        "maximumSpan": {
+          "value": 100.0,
+          "unit": "METRE"
+        },
+        "upperThermalState": {
+          "type": "Wire State",
+          "wireState": {
+            "name": "Wire State Test",
+            "wireTensionType": "FINAL_WITH_CREEP",
+            "designCondition": {
+              "name": "Test Weather Condition#1",
+              "iceThickness": {
+                "value": 15.0,
+                "unit": "CENTIMETRE"
+              },
+              "windPressure": {
+                "value": 5.0,
+                "unit": "PASCAL"
+              },
+              "windSpeed": {
+                "value": 2.8559773898876992,
+                "unit": "METRE_PER_SECOND"
+              },
+              "temperature": {
+                "value": 20.0,
+                "unit": "CELSIUS"
+              }
+            },
+            "highestStressCondition": {
+              "name": "Test Weather Condition#2",
+              "iceThickness": {
+                "value": 15.0,
+                "unit": "CENTIMETRE"
+              },
+              "windPressure": {
+                "value": 5.0,
+                "unit": "PASCAL"
+              },
+              "windSpeed": {
+                "value": 2.8559773898876992,
+                "unit": "METRE_PER_SECOND"
+              },
+              "temperature": {
+                "value": 20.0,
+                "unit": "CELSIUS"
+              }
+            },
+            "creepCondition": {
+              "name": "Test Weather Condition#3",
+              "iceThickness": {
+                "value": 15.0,
+                "unit": "CENTIMETRE"
+              },
+              "windPressure": {
+                "value": 5.0,
+                "unit": "PASCAL"
+              },
+              "windSpeed": {
+                "value": 2.8559773898876992,
+                "unit": "METRE_PER_SECOND"
+              },
+              "temperature": {
+                "value": 20.0,
+                "unit": "CELSIUS"
+              }
+            },
+            "outerStrandingCompression": false
+          },
+          "name": "Wire State Test"
+        },
+        "checkPhysicalState": false,
+        "upperPhysicalState": {
+          "type": "Wire State",
+          "wireState": {
+            "name": "Wire State Test",
+            "wireTensionType": "FINAL_WITH_CREEP",
+            "designCondition": {
+              "name": "Test Weather Condition#1",
+              "iceThickness": {
+                "value": 15.0,
+                "unit": "CENTIMETRE"
+              },
+              "windPressure": {
+                "value": 5.0,
+                "unit": "PASCAL"
+              },
+              "windSpeed": {
+                "value": 2.8559773898876992,
+                "unit": "METRE_PER_SECOND"
+              },
+              "temperature": {
+                "value": 20.0,
+                "unit": "CELSIUS"
+              }
+            },
+            "highestStressCondition": {
+              "name": "Test Weather Condition#2",
+              "iceThickness": {
+                "value": 15.0,
+                "unit": "CENTIMETRE"
+              },
+              "windPressure": {
+                "value": 5.0,
+                "unit": "PASCAL"
+              },
+              "windSpeed": {
+                "value": 2.8559773898876992,
+                "unit": "METRE_PER_SECOND"
+              },
+              "temperature": {
+                "value": 20.0,
+                "unit": "CELSIUS"
+              }
+            },
+            "creepCondition": {
+              "name": "Test Weather Condition#3",
+              "iceThickness": {
+                "value": 15.0,
+                "unit": "CENTIMETRE"
+              },
+              "windPressure": {
+                "value": 5.0,
+                "unit": "PASCAL"
+              },
+              "windSpeed": {
+                "value": 2.8559773898876992,
+                "unit": "METRE_PER_SECOND"
+              },
+              "temperature": {
+                "value": 20.0,
+                "unit": "CELSIUS"
+              }
+            },
+            "outerStrandingCompression": false
+          },
+          "name": "Wire State Test"
+        }
+      },
+      {
+        "type": "At Pole",
+        "name": "Test AtPole Clearance Case",
+        "upper": [
+          {
+            "type": "Wire",
+            "name": "Wire Component Group",
+            "description": "I am a test wire component group",
+            "industry": "UTILITY",
+            "includedOwners": [
+              {
+                "industry": "UTILITY",
+                "id": "Owner#1"
+              },
+              {
+                "industry": "UTILITY",
+                "id": "Owner#2"
+              }
+            ],
+            "excludedOwners": [
+              {
+                "industry": "UTILITY",
+                "id": "Owner#3"
+              },
+              {
+                "industry": "UTILITY",
+                "id": "Owner#4"
+              }
+            ],
+            "includedClientItems": [
+              {
+                "size": "1/0 AACR",
+                "coreStrands": 0,
+                "conductorStrands": 7
+              },
+              {
+                "size": "2 AAAC",
+                "coreStrands": 0,
+                "conductorStrands": 7
+              }
+            ],
+            "wireClasses": [
+              {
+                "name": "Secondary Wire Class",
+                "usageGroup": "SECONDARY"
+              }
+            ],
+            "usageGroups": [
+              "PRIMARY",
+              "OPEN_WIRE"
+            ]
+          }
+        ],
+        "lower": [
+          {
+            "type": "Wire",
+            "name": "Wire Component Group",
+            "description": "I am a test wire component group",
+            "industry": "UTILITY",
+            "includedOwners": [
+              {
+                "industry": "UTILITY",
+                "id": "Owner#1"
+              },
+              {
+                "industry": "UTILITY",
+                "id": "Owner#2"
+              }
+            ],
+            "excludedOwners": [
+              {
+                "industry": "UTILITY",
+                "id": "Owner#3"
+              },
+              {
+                "industry": "UTILITY",
+                "id": "Owner#4"
+              }
+            ],
+            "includedClientItems": [
+              {
+                "size": "1/0 AACR",
+                "coreStrands": 0,
+                "conductorStrands": 7
+              },
+              {
+                "size": "2 AAAC",
+                "coreStrands": 0,
+                "conductorStrands": 7
+              }
+            ],
+            "wireClasses": [
+              {
+                "name": "Secondary Wire Class",
+                "usageGroup": "SECONDARY"
+              }
+            ],
+            "usageGroups": [
+              "PRIMARY",
+              "OPEN_WIRE"
+            ]
+          }
+        ],
+        "clearances": [
+          {
+            "upper": {
+              "type": "Wire",
+              "name": "Wire Component Group",
+              "description": "I am a test wire component group",
+              "industry": "UTILITY",
+              "includedOwners": [
+                {
+                  "industry": "UTILITY",
+                  "id": "Owner#1"
+                },
+                {
+                  "industry": "UTILITY",
+                  "id": "Owner#2"
+                }
+              ],
+              "excludedOwners": [
+                {
+                  "industry": "UTILITY",
+                  "id": "Owner#3"
+                },
+                {
+                  "industry": "UTILITY",
+                  "id": "Owner#4"
+                }
+              ],
+              "includedClientItems": [
+                {
+                  "size": "1/0 AACR",
+                  "coreStrands": 0,
+                  "conductorStrands": 7
+                },
+                {
+                  "size": "2 AAAC",
+                  "coreStrands": 0,
+                  "conductorStrands": 7
+                }
+              ],
+              "wireClasses": [
+                {
+                  "name": "Secondary Wire Class",
+                  "usageGroup": "SECONDARY"
+                }
+              ],
+              "usageGroups": [
+                "PRIMARY",
+                "OPEN_WIRE"
+              ]
+            },
+            "lower": {
+              "type": "Wire",
+              "name": "Wire Component Group",
+              "description": "I am a test wire component group",
+              "industry": "UTILITY",
+              "includedOwners": [
+                {
+                  "industry": "UTILITY",
+                  "id": "Owner#1"
+                },
+                {
+                  "industry": "UTILITY",
+                  "id": "Owner#2"
+                }
+              ],
+              "excludedOwners": [
+                {
+                  "industry": "UTILITY",
+                  "id": "Owner#3"
+                },
+                {
+                  "industry": "UTILITY",
+                  "id": "Owner#4"
+                }
+              ],
+              "includedClientItems": [
+                {
+                  "size": "1/0 AACR",
+                  "coreStrands": 0,
+                  "conductorStrands": 7
+                },
+                {
+                  "size": "2 AAAC",
+                  "coreStrands": 0,
+                  "conductorStrands": 7
+                }
+              ],
+              "wireClasses": [
+                {
+                  "name": "Secondary Wire Class",
+                  "usageGroup": "SECONDARY"
+                }
+              ],
+              "usageGroups": [
+                "PRIMARY",
+                "OPEN_WIRE"
+              ]
+            }
+          }
+        ],
+        "exception": false,
+        "addByDefault": false
+      }
+    ],
+    "componentGroups": [
+      {
+        "type": "Wire",
+        "name": "Wire Component Group",
+        "description": "I am a test wire component group",
+        "industry": "UTILITY",
+        "includedOwners": [
+          {
+            "industry": "UTILITY",
+            "id": "Owner#1"
+          },
+          {
+            "industry": "UTILITY",
+            "id": "Owner#2"
+          }
+        ],
+        "excludedOwners": [
+          {
+            "industry": "UTILITY",
+            "id": "Owner#3"
+          },
+          {
+            "industry": "UTILITY",
+            "id": "Owner#4"
+          }
+        ],
+        "includedClientItems": [
+          {
+            "size": "1/0 AACR",
+            "coreStrands": 0,
+            "conductorStrands": 7
+          },
+          {
+            "size": "2 AAAC",
+            "coreStrands": 0,
+            "conductorStrands": 7
+          }
+        ],
+        "wireClasses": [
+          {
+            "name": "Secondary Wire Class",
+            "usageGroup": "SECONDARY"
+          }
+        ],
+        "usageGroups": [
+          "PRIMARY",
+          "OPEN_WIRE"
+        ]
+      }
+    ],
+    "wireClasses": [
+      {
+        "name": "Secondary Wire Class",
+        "usageGroup": "SECONDARY"
+      }
+    ],
+    "wireStates": [
+      {
+        "name": "Wire State Test",
+        "wireTensionType": "FINAL_WITH_CREEP",
+        "designCondition": {
+          "name": "Test Weather Condition#1",
+          "iceThickness": {
+            "value": 15.0,
+            "unit": "CENTIMETRE"
+          },
+          "windPressure": {
+            "value": 5.0,
+            "unit": "PASCAL"
+          },
+          "windSpeed": {
+            "value": 2.8559773898876992,
+            "unit": "METRE_PER_SECOND"
+          },
+          "temperature": {
+            "value": 20.0,
+            "unit": "CELSIUS"
+          }
+        },
+        "highestStressCondition": {
+          "name": "Test Weather Condition#2",
+          "iceThickness": {
+            "value": 15.0,
+            "unit": "CENTIMETRE"
+          },
+          "windPressure": {
+            "value": 5.0,
+            "unit": "PASCAL"
+          },
+          "windSpeed": {
+            "value": 2.8559773898876992,
+            "unit": "METRE_PER_SECOND"
+          },
+          "temperature": {
+            "value": 20.0,
+            "unit": "CELSIUS"
+          }
+        },
+        "creepCondition": {
+          "name": "Test Weather Condition#3",
+          "iceThickness": {
+            "value": 15.0,
+            "unit": "CENTIMETRE"
+          },
+          "windPressure": {
+            "value": 5.0,
+            "unit": "PASCAL"
+          },
+          "windSpeed": {
+            "value": 2.8559773898876992,
+            "unit": "METRE_PER_SECOND"
+          },
+          "temperature": {
+            "value": 20.0,
+            "unit": "CELSIUS"
+          }
+        },
+        "outerStrandingCompression": false
+      }
+    ],
+    "hash": "a696819d26294fde6e8db390ba5c01ac"
+  },
+  "clientFileVersion": "a696819d26294fde6e8db390ba5c01ac",
+  "forms": [
+    {
+      "title": "Project Summary",
+      "formDefinition": [
+        {
+          "fieldName": "Work Order #",
+          "fieldType": "customTextField"
+        },
+        {
+          "fieldName": "Total Estimated Cost",
+          "fieldType": "customTextField"
+        },
+        {
+          "fieldName": "Total Estimated Hours",
+          "fieldType": "customTextField"
+        },
+        {
+          "fieldName": "Pole Replacements",
+          "fieldType": "customSpinner"
+        },
+        {
+          "fieldName": "Rearrangements",
+          "fieldType": "customSpinner"
+        }
+      ],
+      "fields": {
+        "Work Order #": "",
+        "Total Estimated Cost": "",
+        "Total Estimated Hours": "",
+        "Pole Replacements": "0",
+        "Rearrangements": "0"
+      },
+      "template": "a696819d26294fde6e8db390ba5c01ac-Project Summary"
+    }
+  ],
+  "defaultLocationForms": [],
+  "defaultLoadCases": [],
+  "defaultClearanceCases": [
+    {
+      "type": "At Pole",
+      "name": "Test AtPole Clearance Case",
+      "upper": [
+        {
+          "type": "Wire",
+          "name": "Wire Component Group",
+          "description": "I am a test wire component group",
+          "industry": "UTILITY",
+          "includedOwners": [
+            {
+              "industry": "UTILITY",
+              "id": "Owner#1"
+            },
+            {
+              "industry": "UTILITY",
+              "id": "Owner#2"
+            }
+          ],
+          "excludedOwners": [
+            {
+              "industry": "UTILITY",
+              "id": "Owner#3"
+            },
+            {
+              "industry": "UTILITY",
+              "id": "Owner#4"
+            }
+          ],
+          "includedClientItems": [
+            {
+              "size": "1/0 AACR",
+              "coreStrands": 0,
+              "conductorStrands": 7
+            },
+            {
+              "size": "2 AAAC",
+              "coreStrands": 0,
+              "conductorStrands": 7
+            }
+          ],
+          "wireClasses": [
+            {
+              "name": "Secondary Wire Class",
+              "usageGroup": "SECONDARY"
+            }
+          ],
+          "usageGroups": [
+            "PRIMARY",
+            "OPEN_WIRE"
+          ]
+        }
+      ],
+      "lower": [
+        {
+          "type": "Wire",
+          "name": "Wire Component Group",
+          "description": "I am a test wire component group",
+          "industry": "UTILITY",
+          "includedOwners": [
+            {
+              "industry": "UTILITY",
+              "id": "Owner#1"
+            },
+            {
+              "industry": "UTILITY",
+              "id": "Owner#2"
+            }
+          ],
+          "excludedOwners": [
+            {
+              "industry": "UTILITY",
+              "id": "Owner#3"
+            },
+            {
+              "industry": "UTILITY",
+              "id": "Owner#4"
+            }
+          ],
+          "includedClientItems": [
+            {
+              "size": "1/0 AACR",
+              "coreStrands": 0,
+              "conductorStrands": 7
+            },
+            {
+              "size": "2 AAAC",
+              "coreStrands": 0,
+              "conductorStrands": 7
+            }
+          ],
+          "wireClasses": [
+            {
+              "name": "Secondary Wire Class",
+              "usageGroup": "SECONDARY"
+            }
+          ],
+          "usageGroups": [
+            "PRIMARY",
+            "OPEN_WIRE"
+          ]
+        }
+      ],
+      "clearances": [
+        {
+          "upper": {
+            "type": "Wire",
+            "name": "Wire Component Group",
+            "description": "I am a test wire component group",
+            "industry": "UTILITY",
+            "includedOwners": [
+              {
+                "industry": "UTILITY",
+                "id": "Owner#1"
+              },
+              {
+                "industry": "UTILITY",
+                "id": "Owner#2"
+              }
+            ],
+            "excludedOwners": [
+              {
+                "industry": "UTILITY",
+                "id": "Owner#3"
+              },
+              {
+                "industry": "UTILITY",
+                "id": "Owner#4"
+              }
+            ],
+            "includedClientItems": [
+              {
+                "size": "1/0 AACR",
+                "coreStrands": 0,
+                "conductorStrands": 7
+              },
+              {
+                "size": "2 AAAC",
+                "coreStrands": 0,
+                "conductorStrands": 7
+              }
+            ],
+            "wireClasses": [
+              {
+                "name": "Secondary Wire Class",
+                "usageGroup": "SECONDARY"
+              }
+            ],
+            "usageGroups": [
+              "PRIMARY",
+              "OPEN_WIRE"
+            ]
+          },
+          "lower": {
+            "type": "Wire",
+            "name": "Wire Component Group",
+            "description": "I am a test wire component group",
+            "industry": "UTILITY",
+            "includedOwners": [
+              {
+                "industry": "UTILITY",
+                "id": "Owner#1"
+              },
+              {
+                "industry": "UTILITY",
+                "id": "Owner#2"
+              }
+            ],
+            "excludedOwners": [
+              {
+                "industry": "UTILITY",
+                "id": "Owner#3"
+              },
+              {
+                "industry": "UTILITY",
+                "id": "Owner#4"
+              }
+            ],
+            "includedClientItems": [
+              {
+                "size": "1/0 AACR",
+                "coreStrands": 0,
+                "conductorStrands": 7
+              },
+              {
+                "size": "2 AAAC",
+                "coreStrands": 0,
+                "conductorStrands": 7
+              }
+            ],
+            "wireClasses": [
+              {
+                "name": "Secondary Wire Class",
+                "usageGroup": "SECONDARY"
+              }
+            ],
+            "usageGroups": [
+              "PRIMARY",
+              "OPEN_WIRE"
+            ]
+          }
+        }
+      ],
+      "exception": false,
+      "addByDefault": false
+    },
+    {
+      "type": "Vertical to Ground",
+      "name": "Test ToGround Clearance Case",
+      "upper": [
+        {
+          "componentGroup": {
+            "type": "Wire",
+            "name": "Wire Component Group",
+            "description": "I am a test wire component group",
+            "industry": "UTILITY",
+            "includedOwners": [
+              {
+                "industry": "UTILITY",
+                "id": "Owner#1"
+              },
+              {
+                "industry": "UTILITY",
+                "id": "Owner#2"
+              }
+            ],
+            "excludedOwners": [
+              {
+                "industry": "UTILITY",
+                "id": "Owner#3"
+              },
+              {
+                "industry": "UTILITY",
+                "id": "Owner#4"
+              }
+            ],
+            "includedClientItems": [
+              {
+                "size": "1/0 AACR",
+                "coreStrands": 0,
+                "conductorStrands": 7
+              },
+              {
+                "size": "2 AAAC",
+                "coreStrands": 0,
+                "conductorStrands": 7
+              }
+            ],
+            "wireClasses": [
+              {
+                "name": "Secondary Wire Class",
+                "usageGroup": "SECONDARY"
+              }
+            ],
+            "usageGroups": [
+              "PRIMARY",
+              "OPEN_WIRE"
+            ]
+          },
+          "thermalTemperatureOverride": {
+            "value": 50.0,
+            "unit": "FAHRENHEIT"
+          }
+        }
+      ],
+      "lower": [
+        {
+          "name": "Street",
+          "description": "Test Environment"
+        }
+      ],
+      "clearances": [
+        {
+          "upper": {
+            "componentGroup": {
+              "type": "Wire",
+              "name": "Wire Component Group",
+              "description": "I am a test wire component group",
+              "industry": "UTILITY",
+              "includedOwners": [
+                {
+                  "industry": "UTILITY",
+                  "id": "Owner#1"
+                },
+                {
+                  "industry": "UTILITY",
+                  "id": "Owner#2"
+                }
+              ],
+              "excludedOwners": [
+                {
+                  "industry": "UTILITY",
+                  "id": "Owner#3"
+                },
+                {
+                  "industry": "UTILITY",
+                  "id": "Owner#4"
+                }
+              ],
+              "includedClientItems": [
+                {
+                  "size": "1/0 AACR",
+                  "coreStrands": 0,
+                  "conductorStrands": 7
+                },
+                {
+                  "size": "2 AAAC",
+                  "coreStrands": 0,
+                  "conductorStrands": 7
+                }
+              ],
+              "wireClasses": [
+                {
+                  "name": "Secondary Wire Class",
+                  "usageGroup": "SECONDARY"
+                }
+              ],
+              "usageGroups": [
+                "PRIMARY",
+                "OPEN_WIRE"
+              ]
+            },
+            "thermalTemperatureOverride": {
+              "value": 50.0,
+              "unit": "FAHRENHEIT"
+            }
+          },
+          "lower": {
+            "name": "Street",
+            "description": "Test Environment"
+          }
+        }
+      ],
+      "exception": false,
+      "addByDefault": false,
+      "minimumSpan": {
+        "value": 50.0,
+        "unit": "METRE"
+      },
+      "maximumSpan": {
+        "value": 100.0,
+        "unit": "METRE"
+      },
+      "upperThermalState": {
+        "type": "Wire State",
+        "wireState": {
+          "name": "Wire State Test",
+          "wireTensionType": "FINAL_WITH_CREEP",
+          "designCondition": {
+            "name": "Test Weather Condition#1",
+            "iceThickness": {
+              "value": 15.0,
+              "unit": "CENTIMETRE"
+            },
+            "windPressure": {
+              "value": 5.0,
+              "unit": "PASCAL"
+            },
+            "windSpeed": {
+              "value": 2.8559773898876992,
+              "unit": "METRE_PER_SECOND"
+            },
+            "temperature": {
+              "value": 20.0,
+              "unit": "CELSIUS"
+            }
+          },
+          "highestStressCondition": {
+            "name": "Test Weather Condition#2",
+            "iceThickness": {
+              "value": 15.0,
+              "unit": "CENTIMETRE"
+            },
+            "windPressure": {
+              "value": 5.0,
+              "unit": "PASCAL"
+            },
+            "windSpeed": {
+              "value": 2.8559773898876992,
+              "unit": "METRE_PER_SECOND"
+            },
+            "temperature": {
+              "value": 20.0,
+              "unit": "CELSIUS"
+            }
+          },
+          "creepCondition": {
+            "name": "Test Weather Condition#3",
+            "iceThickness": {
+              "value": 15.0,
+              "unit": "CENTIMETRE"
+            },
+            "windPressure": {
+              "value": 5.0,
+              "unit": "PASCAL"
+            },
+            "windSpeed": {
+              "value": 2.8559773898876992,
+              "unit": "METRE_PER_SECOND"
+            },
+            "temperature": {
+              "value": 20.0,
+              "unit": "CELSIUS"
+            }
+          },
+          "outerStrandingCompression": false
+        },
+        "name": "Wire State Test"
+      },
+      "checkPhysicalState": false,
+      "upperPhysicalState": {
+        "type": "Wire State",
+        "wireState": {
+          "name": "Wire State Test",
+          "wireTensionType": "FINAL_WITH_CREEP",
+          "designCondition": {
+            "name": "Test Weather Condition#1",
+            "iceThickness": {
+              "value": 15.0,
+              "unit": "CENTIMETRE"
+            },
+            "windPressure": {
+              "value": 5.0,
+              "unit": "PASCAL"
+            },
+            "windSpeed": {
+              "value": 2.8559773898876992,
+              "unit": "METRE_PER_SECOND"
+            },
+            "temperature": {
+              "value": 20.0,
+              "unit": "CELSIUS"
+            }
+          },
+          "highestStressCondition": {
+            "name": "Test Weather Condition#2",
+            "iceThickness": {
+              "value": 15.0,
+              "unit": "CENTIMETRE"
+            },
+            "windPressure": {
+              "value": 5.0,
+              "unit": "PASCAL"
+            },
+            "windSpeed": {
+              "value": 2.8559773898876992,
+              "unit": "METRE_PER_SECOND"
+            },
+            "temperature": {
+              "value": 20.0,
+              "unit": "CELSIUS"
+            }
+          },
+          "creepCondition": {
+            "name": "Test Weather Condition#3",
+            "iceThickness": {
+              "value": 15.0,
+              "unit": "CENTIMETRE"
+            },
+            "windPressure": {
+              "value": 5.0,
+              "unit": "PASCAL"
+            },
+            "windSpeed": {
+              "value": 2.8559773898876992,
+              "unit": "METRE_PER_SECOND"
+            },
+            "temperature": {
+              "value": 20.0,
+              "unit": "CELSIUS"
+            }
+          },
+          "outerStrandingCompression": false
+        },
+        "name": "Wire State Test"
+      }
+    }
+  ],
+  "leads": [
+    {
+      "label": "Lead",
+      "locations": [
+        {
+          "label": "Location-05-11-2023-19-08-17-301",
+          "mapNumber": "",
+          "comments": "",
+          "address": {
+            "number": "",
+            "street": "",
+            "city": "",
+            "county": "",
+            "state": "",
+            "zip_code": ""
+          },
+          "technician": "",
+          "crossStreet1": "",
+          "crossStreet2": "",
+          "remedies": [],
+          "poleTags": [],
+          "userDefinedValues": {},
+          "summaryNotes": [],
+          "forms": [],
+          "images": [],
+          "photosToBeAssigned": [],
+          "designs": [
+            {
+              "label": "Measured Design",
+              "layerType": "Measured",
+              "structure": {
+                "pole": {
+                  "id": "Pole",
+                  "externalId": "645d83718e6eb924d7945235",
+                  "owner": {
+                    "industry": "UTILITY",
+                    "id": "Acme Power"
+                  },
+                  "glc": {
+                    "unit": "METRE",
+                    "value": 0.8636000000000001
+                  },
+                  "agl": {
+                    "unit": "METRE",
+                    "value": 10.3632
+                  },
+                  "autoGLC": true,
+                  "autoAGL": true,
+                  "environment": "None",
+                  "temperature": {
+                    "unit": "CELSIUS",
+                    "value": 15.555555555555555
+                  },
+                  "stressRatio": 1.0,
+                  "leanAngle": 0,
+                  "leanDirection": 0,
+                  "clientItemVersion": "a4090ef12d2f9b9c21ca6509157d445c",
+                  "clientItem": {
+                    "species": "Fiberglass",
+                    "classOfPole": "10\" Series II",
+                    "height": {
+                      "unit": "METRE",
+                      "value": 12.192000000000002
+                    }
+                  }
+                },
+                "wireEndPoints": [],
+                "spanPoints": [],
+                "anchors": [],
+                "notePoints": [],
+                "pointLoads": [],
+                "wirePointLoads": [],
+                "damages": [],
+                "wires": [],
+                "spanGuys": [],
+                "guys": [],
+                "equipments": [],
+                "guyAttachPoints": [],
+                "crossArms": [],
+                "insulators": [],
+                "pushBraces": [],
+                "sidewalkBraces": [],
+                "foundations": [],
+                "assemblies": []
+              },
+              "analysis": [],
+              "clearanceCases": [
+                {
+                  "type": "At Pole",
+                  "name": "Test AtPole Clearance Case",
+                  "upper": [
+                    {
+                      "type": "Wire",
+                      "name": "Wire Component Group",
+                      "description": "I am a test wire component group",
+                      "industry": "UTILITY",
+                      "includedOwners": [
+                        {
+                          "industry": "UTILITY",
+                          "id": "Owner#1"
+                        },
+                        {
+                          "industry": "UTILITY",
+                          "id": "Owner#2"
+                        }
+                      ],
+                      "excludedOwners": [
+                        {
+                          "industry": "UTILITY",
+                          "id": "Owner#3"
+                        },
+                        {
+                          "industry": "UTILITY",
+                          "id": "Owner#4"
+                        }
+                      ],
+                      "includedClientItems": [
+                        {
+                          "size": "1/0 AACR",
+                          "coreStrands": 0,
+                          "conductorStrands": 7
+                        },
+                        {
+                          "size": "2 AAAC",
+                          "coreStrands": 0,
+                          "conductorStrands": 7
+                        }
+                      ],
+                      "wireClasses": [
+                        {
+                          "name": "Secondary Wire Class",
+                          "usageGroup": "SECONDARY"
+                        }
+                      ],
+                      "usageGroups": [
+                        "PRIMARY",
+                        "OPEN_WIRE"
+                      ]
+                    }
+                  ],
+                  "lower": [
+                    {
+                      "type": "Wire",
+                      "name": "Wire Component Group",
+                      "description": "I am a test wire component group",
+                      "industry": "UTILITY",
+                      "includedOwners": [
+                        {
+                          "industry": "UTILITY",
+                          "id": "Owner#1"
+                        },
+                        {
+                          "industry": "UTILITY",
+                          "id": "Owner#2"
+                        }
+                      ],
+                      "excludedOwners": [
+                        {
+                          "industry": "UTILITY",
+                          "id": "Owner#3"
+                        },
+                        {
+                          "industry": "UTILITY",
+                          "id": "Owner#4"
+                        }
+                      ],
+                      "includedClientItems": [
+                        {
+                          "size": "1/0 AACR",
+                          "coreStrands": 0,
+                          "conductorStrands": 7
+                        },
+                        {
+                          "size": "2 AAAC",
+                          "coreStrands": 0,
+                          "conductorStrands": 7
+                        }
+                      ],
+                      "wireClasses": [
+                        {
+                          "name": "Secondary Wire Class",
+                          "usageGroup": "SECONDARY"
+                        }
+                      ],
+                      "usageGroups": [
+                        "PRIMARY",
+                        "OPEN_WIRE"
+                      ]
+                    }
+                  ],
+                  "clearances": [
+                    {
+                      "upper": {
+                        "type": "Wire",
+                        "name": "Wire Component Group",
+                        "description": "I am a test wire component group",
+                        "industry": "UTILITY",
+                        "includedOwners": [
+                          {
+                            "industry": "UTILITY",
+                            "id": "Owner#1"
+                          },
+                          {
+                            "industry": "UTILITY",
+                            "id": "Owner#2"
+                          }
+                        ],
+                        "excludedOwners": [
+                          {
+                            "industry": "UTILITY",
+                            "id": "Owner#3"
+                          },
+                          {
+                            "industry": "UTILITY",
+                            "id": "Owner#4"
+                          }
+                        ],
+                        "includedClientItems": [
+                          {
+                            "size": "1/0 AACR",
+                            "coreStrands": 0,
+                            "conductorStrands": 7
+                          },
+                          {
+                            "size": "2 AAAC",
+                            "coreStrands": 0,
+                            "conductorStrands": 7
+                          }
+                        ],
+                        "wireClasses": [
+                          {
+                            "name": "Secondary Wire Class",
+                            "usageGroup": "SECONDARY"
+                          }
+                        ],
+                        "usageGroups": [
+                          "PRIMARY",
+                          "OPEN_WIRE"
+                        ]
+                      },
+                      "lower": {
+                        "type": "Wire",
+                        "name": "Wire Component Group",
+                        "description": "I am a test wire component group",
+                        "industry": "UTILITY",
+                        "includedOwners": [
+                          {
+                            "industry": "UTILITY",
+                            "id": "Owner#1"
+                          },
+                          {
+                            "industry": "UTILITY",
+                            "id": "Owner#2"
+                          }
+                        ],
+                        "excludedOwners": [
+                          {
+                            "industry": "UTILITY",
+                            "id": "Owner#3"
+                          },
+                          {
+                            "industry": "UTILITY",
+                            "id": "Owner#4"
+                          }
+                        ],
+                        "includedClientItems": [
+                          {
+                            "size": "1/0 AACR",
+                            "coreStrands": 0,
+                            "conductorStrands": 7
+                          },
+                          {
+                            "size": "2 AAAC",
+                            "coreStrands": 0,
+                            "conductorStrands": 7
+                          }
+                        ],
+                        "wireClasses": [
+                          {
+                            "name": "Secondary Wire Class",
+                            "usageGroup": "SECONDARY"
+                          }
+                        ],
+                        "usageGroups": [
+                          "PRIMARY",
+                          "OPEN_WIRE"
+                        ]
+                      }
+                    }
+                  ],
+                  "exception": false,
+                  "addByDefault": false
+                },
+                {
+                  "type": "Vertical to Ground",
+                  "name": "Test ToGround Clearance Case",
+                  "upper": [
+                    {
+                      "componentGroup": {
+                        "type": "Wire",
+                        "name": "Wire Component Group",
+                        "description": "I am a test wire component group",
+                        "industry": "UTILITY",
+                        "includedOwners": [
+                          {
+                            "industry": "UTILITY",
+                            "id": "Owner#1"
+                          },
+                          {
+                            "industry": "UTILITY",
+                            "id": "Owner#2"
+                          }
+                        ],
+                        "excludedOwners": [
+                          {
+                            "industry": "UTILITY",
+                            "id": "Owner#3"
+                          },
+                          {
+                            "industry": "UTILITY",
+                            "id": "Owner#4"
+                          }
+                        ],
+                        "includedClientItems": [
+                          {
+                            "size": "1/0 AACR",
+                            "coreStrands": 0,
+                            "conductorStrands": 7
+                          },
+                          {
+                            "size": "2 AAAC",
+                            "coreStrands": 0,
+                            "conductorStrands": 7
+                          }
+                        ],
+                        "wireClasses": [
+                          {
+                            "name": "Secondary Wire Class",
+                            "usageGroup": "SECONDARY"
+                          }
+                        ],
+                        "usageGroups": [
+                          "PRIMARY",
+                          "OPEN_WIRE"
+                        ]
+                      },
+                      "thermalTemperatureOverride": {
+                        "value": 50.0,
+                        "unit": "FAHRENHEIT"
+                      }
+                    }
+                  ],
+                  "lower": [
+                    {
+                      "name": "Street",
+                      "description": "Test Environment"
+                    }
+                  ],
+                  "clearances": [
+                    {
+                      "upper": {
+                        "componentGroup": {
+                          "type": "Wire",
+                          "name": "Wire Component Group",
+                          "description": "I am a test wire component group",
+                          "industry": "UTILITY",
+                          "includedOwners": [
+                            {
+                              "industry": "UTILITY",
+                              "id": "Owner#1"
+                            },
+                            {
+                              "industry": "UTILITY",
+                              "id": "Owner#2"
+                            }
+                          ],
+                          "excludedOwners": [
+                            {
+                              "industry": "UTILITY",
+                              "id": "Owner#3"
+                            },
+                            {
+                              "industry": "UTILITY",
+                              "id": "Owner#4"
+                            }
+                          ],
+                          "includedClientItems": [
+                            {
+                              "size": "1/0 AACR",
+                              "coreStrands": 0,
+                              "conductorStrands": 7
+                            },
+                            {
+                              "size": "2 AAAC",
+                              "coreStrands": 0,
+                              "conductorStrands": 7
+                            }
+                          ],
+                          "wireClasses": [
+                            {
+                              "name": "Secondary Wire Class",
+                              "usageGroup": "SECONDARY"
+                            }
+                          ],
+                          "usageGroups": [
+                            "PRIMARY",
+                            "OPEN_WIRE"
+                          ]
+                        },
+                        "thermalTemperatureOverride": {
+                          "value": 50.0,
+                          "unit": "FAHRENHEIT"
+                        }
+                      },
+                      "lower": {
+                        "name": "Street",
+                        "description": "Test Environment"
+                      }
+                    }
+                  ],
+                  "exception": false,
+                  "addByDefault": false,
+                  "minimumSpan": {
+                    "value": 50.0,
+                    "unit": "METRE"
+                  },
+                  "maximumSpan": {
+                    "value": 100.0,
+                    "unit": "METRE"
+                  },
+                  "upperThermalState": {
+                    "type": "Wire State",
+                    "wireState": {
+                      "name": "Wire State Test",
+                      "wireTensionType": "FINAL_WITH_CREEP",
+                      "designCondition": {
+                        "name": "Test Weather Condition#1",
+                        "iceThickness": {
+                          "value": 15.0,
+                          "unit": "CENTIMETRE"
+                        },
+                        "windPressure": {
+                          "value": 5.0,
+                          "unit": "PASCAL"
+                        },
+                        "windSpeed": {
+                          "value": 2.8559773898876992,
+                          "unit": "METRE_PER_SECOND"
+                        },
+                        "temperature": {
+                          "value": 20.0,
+                          "unit": "CELSIUS"
+                        }
+                      },
+                      "highestStressCondition": {
+                        "name": "Test Weather Condition#2",
+                        "iceThickness": {
+                          "value": 15.0,
+                          "unit": "CENTIMETRE"
+                        },
+                        "windPressure": {
+                          "value": 5.0,
+                          "unit": "PASCAL"
+                        },
+                        "windSpeed": {
+                          "value": 2.8559773898876992,
+                          "unit": "METRE_PER_SECOND"
+                        },
+                        "temperature": {
+                          "value": 20.0,
+                          "unit": "CELSIUS"
+                        }
+                      },
+                      "creepCondition": {
+                        "name": "Test Weather Condition#3",
+                        "iceThickness": {
+                          "value": 15.0,
+                          "unit": "CENTIMETRE"
+                        },
+                        "windPressure": {
+                          "value": 5.0,
+                          "unit": "PASCAL"
+                        },
+                        "windSpeed": {
+                          "value": 2.8559773898876992,
+                          "unit": "METRE_PER_SECOND"
+                        },
+                        "temperature": {
+                          "value": 20.0,
+                          "unit": "CELSIUS"
+                        }
+                      },
+                      "outerStrandingCompression": false
+                    },
+                    "name": "Wire State Test"
+                  },
+                  "checkPhysicalState": false,
+                  "upperPhysicalState": {
+                    "type": "Wire State",
+                    "wireState": {
+                      "name": "Wire State Test",
+                      "wireTensionType": "FINAL_WITH_CREEP",
+                      "designCondition": {
+                        "name": "Test Weather Condition#1",
+                        "iceThickness": {
+                          "value": 15.0,
+                          "unit": "CENTIMETRE"
+                        },
+                        "windPressure": {
+                          "value": 5.0,
+                          "unit": "PASCAL"
+                        },
+                        "windSpeed": {
+                          "value": 2.8559773898876992,
+                          "unit": "METRE_PER_SECOND"
+                        },
+                        "temperature": {
+                          "value": 20.0,
+                          "unit": "CELSIUS"
+                        }
+                      },
+                      "highestStressCondition": {
+                        "name": "Test Weather Condition#2",
+                        "iceThickness": {
+                          "value": 15.0,
+                          "unit": "CENTIMETRE"
+                        },
+                        "windPressure": {
+                          "value": 5.0,
+                          "unit": "PASCAL"
+                        },
+                        "windSpeed": {
+                          "value": 2.8559773898876992,
+                          "unit": "METRE_PER_SECOND"
+                        },
+                        "temperature": {
+                          "value": 20.0,
+                          "unit": "CELSIUS"
+                        }
+                      },
+                      "creepCondition": {
+                        "name": "Test Weather Condition#3",
+                        "iceThickness": {
+                          "value": 15.0,
+                          "unit": "CENTIMETRE"
+                        },
+                        "windPressure": {
+                          "value": 5.0,
+                          "unit": "PASCAL"
+                        },
+                        "windSpeed": {
+                          "value": 2.8559773898876992,
+                          "unit": "METRE_PER_SECOND"
+                        },
+                        "temperature": {
+                          "value": 20.0,
+                          "unit": "CELSIUS"
+                        }
+                      },
+                      "outerStrandingCompression": false
+                    },
+                    "name": "Wire State Test"
+                  }
+                }
+              ],
+              "clearanceResults": {
+                "results": [
+                  {
+                    "clearanceCase": "My At Pole Case",
+                    "clearanceCaseType": "AT_POLE",
+                    "ruleResults": [
+                      {
+                        "clearanceCaseName": "My At Pole Case",
+                        "clearanceRuleName": "Any Power to Any Comm",
+                        "clearanceCaseType": "AT_POLE",
+                        "exceptionCase": false,
+                        "upperId": "Equip#10",
+                        "upperAttachHeight": {
+                          "value": 11,
+                          "unit": "FOOT"
+                        },
+                        "upperOwner": "Acme Power",
+                        "upperDescription": "Any Power",
+                        "lowerId": "Wire#2",
+                        "lowerAttachHeight": {
+                          "value": 8,
+                          "unit": "FOOT"
+                        },
+                        "lowerOwner": "Bob's Cable",
+                        "lowerDescription": "Any Comm",
+                        "upperHeight": {
+                          "value": 10,
+                          "unit": "FOOT"
+                        },
+                        "lowerHeight": {
+                          "value": 8,
+                          "unit": "FOOT"
+                        },
+                        "distanceToHeights": {
+                          "value": 0,
+                          "unit": "FOOT"
+                        },
+                        "allowable": {
+                          "value": 3,
+                          "unit": "FOOT"
+                        },
+                        "actual": {
+                          "value": 2,
+                          "unit": "FOOT"
+                        },
+                        "status": "FAILING",
+                        "difference": {
+                          "value": -1,
+                          "unit": "FOOT"
+                        }
+                      },
+                      {
+                        "clearanceCaseName": "My At Pole Case",
+                        "clearanceRuleName": "Any Power to Any Comm",
+                        "clearanceCaseType": "AT_POLE",
+                        "exceptionCase": false,
+                        "upperId": "Equip#11",
+                        "upperAttachHeight": {
+                          "value": 11,
+                          "unit": "FOOT"
+                        },
+                        "upperOwner": "Acme Power",
+                        "upperDescription": "Any Power",
+                        "lowerId": "Wire#2",
+                        "lowerAttachHeight": {
+                          "value": 8,
+                          "unit": "FOOT"
+                        },
+                        "lowerOwner": "Bob's Cable",
+                        "lowerDescription": "Any Comm",
+                        "upperHeight": {
+                          "value": 10,
+                          "unit": "FOOT"
+                        },
+                        "lowerHeight": {
+                          "value": 8,
+                          "unit": "FOOT"
+                        },
+                        "distanceToHeights": {
+                          "value": 0,
+                          "unit": "FOOT"
+                        },
+                        "allowable": {
+                          "value": 3,
+                          "unit": "FOOT"
+                        },
+                        "actual": {
+                          "value": 2,
+                          "unit": "FOOT"
+                        },
+                        "status": "FAILING",
+                        "difference": {
+                          "value": -1,
+                          "unit": "FOOT"
+                        }
+                      },
+                      {
+                        "clearanceCaseName": "My At Pole Case",
+                        "clearanceRuleName": "Any Power to Any Comm",
+                        "clearanceCaseType": "AT_POLE",
+                        "exceptionCase": false,
+                        "upperId": "Equip#12",
+                        "upperAttachHeight": {
+                          "value": 11,
+                          "unit": "FOOT"
+                        },
+                        "upperOwner": "Acme Power",
+                        "upperDescription": "Any Power",
+                        "lowerId": "Wire#2",
+                        "lowerAttachHeight": {
+                          "value": 8,
+                          "unit": "FOOT"
+                        },
+                        "lowerOwner": "Bob's Cable",
+                        "lowerDescription": "Any Comm",
+                        "upperHeight": {
+                          "value": 10,
+                          "unit": "FOOT"
+                        },
+                        "lowerHeight": {
+                          "value": 8,
+                          "unit": "FOOT"
+                        },
+                        "distanceToHeights": {
+                          "value": 0,
+                          "unit": "FOOT"
+                        },
+                        "allowable": {
+                          "value": 3,
+                          "unit": "FOOT"
+                        },
+                        "actual": {
+                          "value": 2,
+                          "unit": "FOOT"
+                        },
+                        "status": "FAILING",
+                        "difference": {
+                          "value": -1,
+                          "unit": "FOOT"
+                        }
+                      }
+                    ],
+                    "exemptions": []
+                  },
+                  {
+                    "clearanceCase": "My To Ground Case",
+                    "clearanceCaseType": "TO_GROUND",
+                    "ruleResults": [
+                      {
+                        "clearanceCaseName": "My To Ground Case",
+                        "clearanceRuleName": "Any Component to Railroad Crossing",
+                        "clearanceCaseType": "TO_GROUND",
+                        "exceptionCase": false,
+                        "upperId": "Wire#10",
+                        "upperAttachHeight": {
+                          "value": 10,
+                          "unit": "FOOT"
+                        },
+                        "upperOwner": "Acme Power",
+                        "upperDescription": "Any Power",
+                        "lowerId": "Railroad Crossing",
+                        "lowerDescription": "Railroad Crossing",
+                        "upperHeight": {
+                          "value": 10,
+                          "unit": "FOOT"
+                        },
+                        "lowerHeight": {
+                          "value": 3,
+                          "unit": "FOOT"
+                        },
+                        "distanceToHeights": {
+                          "value": 0,
+                          "unit": "FOOT"
+                        },
+                        "allowable": {
+                          "value": 8,
+                          "unit": "FOOT"
+                        },
+                        "actual": {
+                          "value": 7,
+                          "unit": "FOOT"
+                        },
+                        "status": "FAILING",
+                        "upperWireState": {
+                          "type": "Wire State",
+                          "wireState": {
+                            "name": "my weather case",
+                            "wireTensionType": "INITIAL",
+                            "designCondition": {
+                              "name": "zero",
+                              "iceThickness": {
+                                "value": 0,
+                                "unit": "MILLIMETRE"
+                              },
+                              "windPressure": {
+                                "value": 0,
+                                "unit": "PASCAL"
+                              },
+                              "windSpeed": {
+                                "value": 0,
+                                "unit": "METRE_PER_SECOND"
+                              },
+                              "temperature": {
+                                "value": 0,
+                                "unit": "CELSIUS"
+                              }
+                            },
+                            "outerStrandingCompression": false
+                          },
+                          "name": "my weather case"
+                        },
+                        "upperWireStatus": {
+                          "sag": {
+                            "value": 1,
+                            "unit": "METRE"
+                          },
+                          "tension": {
+                            "value": 1000,
+                            "unit": "NEWTON"
+                          },
+                          "verticalForce": {
+                            "value": 100,
+                            "unit": "NEWTON"
+                          },
+                          "windForce": {
+                            "value": 10,
+                            "unit": "NEWTON"
+                          },
+                          "tensionMethod": "NONLINEAR_STRESS_STRAIN",
+                          "wireTensionType": "FINAL_WITH_CREEP",
+                          "outerStrandInCompression": true,
+                          "distanceToLowestPoint": {
+                            "value": -20,
+                            "unit": "METRE"
+                          },
+                          "distanceToSagPoint": {
+                            "value": 50,
+                            "unit": "METRE"
+                          },
+                          "lowestPointBelowAttachment": {
+                            "value": 0.5,
+                            "unit": "METRE"
+                          }
+                        },
+                        "difference": {
+                          "value": -1,
+                          "unit": "FOOT"
+                        }
+                      },
+                      {
+                        "clearanceCaseName": "My To Ground Case",
+                        "clearanceRuleName": "Any Component to Railroad Crossing",
+                        "clearanceCaseType": "TO_GROUND",
+                        "exceptionCase": false,
+                        "upperId": "Wire#11",
+                        "upperAttachHeight": {
+                          "value": 10,
+                          "unit": "FOOT"
+                        },
+                        "upperOwner": "Acme Power",
+                        "upperDescription": "Any Power",
+                        "lowerId": "Railroad Crossing",
+                        "lowerDescription": "Railroad Crossing",
+                        "upperHeight": {
+                          "value": 10,
+                          "unit": "FOOT"
+                        },
+                        "lowerHeight": {
+                          "value": 3,
+                          "unit": "FOOT"
+                        },
+                        "distanceToHeights": {
+                          "value": 0,
+                          "unit": "FOOT"
+                        },
+                        "allowable": {
+                          "value": 8,
+                          "unit": "FOOT"
+                        },
+                        "actual": {
+                          "value": 7,
+                          "unit": "FOOT"
+                        },
+                        "status": "FAILING",
+                        "upperWireState": {
+                          "type": "Wire State",
+                          "wireState": {
+                            "name": "my weather case",
+                            "wireTensionType": "INITIAL",
+                            "designCondition": {
+                              "name": "zero",
+                              "iceThickness": {
+                                "value": 0,
+                                "unit": "MILLIMETRE"
+                              },
+                              "windPressure": {
+                                "value": 0,
+                                "unit": "PASCAL"
+                              },
+                              "windSpeed": {
+                                "value": 0,
+                                "unit": "METRE_PER_SECOND"
+                              },
+                              "temperature": {
+                                "value": 0,
+                                "unit": "CELSIUS"
+                              }
+                            },
+                            "outerStrandingCompression": false
+                          },
+                          "name": "my weather case"
+                        },
+                        "upperWireStatus": {
+                          "sag": {
+                            "value": 1,
+                            "unit": "METRE"
+                          },
+                          "tension": {
+                            "value": 1000,
+                            "unit": "NEWTON"
+                          },
+                          "verticalForce": {
+                            "value": 100,
+                            "unit": "NEWTON"
+                          },
+                          "windForce": {
+                            "value": 10,
+                            "unit": "NEWTON"
+                          },
+                          "tensionMethod": "NONLINEAR_STRESS_STRAIN",
+                          "wireTensionType": "FINAL_WITH_CREEP",
+                          "outerStrandInCompression": true,
+                          "distanceToLowestPoint": {
+                            "value": -20,
+                            "unit": "METRE"
+                          },
+                          "distanceToSagPoint": {
+                            "value": 50,
+                            "unit": "METRE"
+                          },
+                          "lowestPointBelowAttachment": {
+                            "value": 0.5,
+                            "unit": "METRE"
+                          }
+                        },
+                        "difference": {
+                          "value": -1,
+                          "unit": "FOOT"
+                        }
+                      },
+                      {
+                        "clearanceCaseName": "My To Ground Case",
+                        "clearanceRuleName": "Any Component to Railroad Crossing",
+                        "clearanceCaseType": "TO_GROUND",
+                        "exceptionCase": false,
+                        "upperId": "Wire#12",
+                        "upperAttachHeight": {
+                          "value": 10,
+                          "unit": "FOOT"
+                        },
+                        "upperOwner": "Acme Power",
+                        "upperDescription": "Any Power",
+                        "lowerId": "Railroad Crossing",
+                        "lowerDescription": "Railroad Crossing",
+                        "upperHeight": {
+                          "value": 10,
+                          "unit": "FOOT"
+                        },
+                        "lowerHeight": {
+                          "value": 3,
+                          "unit": "FOOT"
+                        },
+                        "distanceToHeights": {
+                          "value": 0,
+                          "unit": "FOOT"
+                        },
+                        "allowable": {
+                          "value": 8,
+                          "unit": "FOOT"
+                        },
+                        "actual": {
+                          "value": 7,
+                          "unit": "FOOT"
+                        },
+                        "status": "FAILING",
+                        "upperWireState": {
+                          "type": "Wire State",
+                          "wireState": {
+                            "name": "my weather case",
+                            "wireTensionType": "INITIAL",
+                            "designCondition": {
+                              "name": "zero",
+                              "iceThickness": {
+                                "value": 0,
+                                "unit": "MILLIMETRE"
+                              },
+                              "windPressure": {
+                                "value": 0,
+                                "unit": "PASCAL"
+                              },
+                              "windSpeed": {
+                                "value": 0,
+                                "unit": "METRE_PER_SECOND"
+                              },
+                              "temperature": {
+                                "value": 0,
+                                "unit": "CELSIUS"
+                              }
+                            },
+                            "outerStrandingCompression": false
+                          },
+                          "name": "my weather case"
+                        },
+                        "upperWireStatus": {
+                          "sag": {
+                            "value": 1,
+                            "unit": "METRE"
+                          },
+                          "tension": {
+                            "value": 1000,
+                            "unit": "NEWTON"
+                          },
+                          "verticalForce": {
+                            "value": 100,
+                            "unit": "NEWTON"
+                          },
+                          "windForce": {
+                            "value": 10,
+                            "unit": "NEWTON"
+                          },
+                          "tensionMethod": "NONLINEAR_STRESS_STRAIN",
+                          "wireTensionType": "FINAL_WITH_CREEP",
+                          "outerStrandInCompression": true,
+                          "distanceToLowestPoint": {
+                            "value": -20,
+                            "unit": "METRE"
+                          },
+                          "distanceToSagPoint": {
+                            "value": 50,
+                            "unit": "METRE"
+                          },
+                          "lowestPointBelowAttachment": {
+                            "value": 0.5,
+                            "unit": "METRE"
+                          }
+                        },
+                        "difference": {
+                          "value": -1,
+                          "unit": "FOOT"
+                        }
+                      }
+                    ],
+                    "exemptions": []
+                  },
+                  {
+                    "clearanceCase": "My Wire To Wire Case",
+                    "clearanceCaseType": "BETWEEN",
+                    "ruleResults": [
+                      {
+                        "clearanceCaseName": "My Wire to Wire Case",
+                        "clearanceRuleName": "Any Power to Any Comm",
+                        "clearanceCaseType": "BETWEEN",
+                        "exceptionCase": false,
+                        "upperId": "Spanguy#10",
+                        "upperAttachHeight": {
+                          "value": 11,
+                          "unit": "FOOT"
+                        },
+                        "upperOwner": "Acme Power",
+                        "upperDescription": "Any Power",
+                        "lowerId": "Wire#2",
+                        "lowerAttachHeight": {
+                          "value": 8,
+                          "unit": "FOOT"
+                        },
+                        "lowerOwner": "Bob's Cable",
+                        "lowerDescription": "Any Comm",
+                        "upperHeight": {
+                          "value": 10,
+                          "unit": "FOOT"
+                        },
+                        "lowerHeight": {
+                          "value": 8,
+                          "unit": "FOOT"
+                        },
+                        "distanceToHeights": {
+                          "value": 0,
+                          "unit": "FOOT"
+                        },
+                        "allowable": {
+                          "value": 3,
+                          "unit": "FOOT"
+                        },
+                        "actual": {
+                          "value": 2,
+                          "unit": "FOOT"
+                        },
+                        "status": "FAILING",
+                        "upperWireState": {
+                          "type": "Wire State",
+                          "wireState": {
+                            "name": "everyday",
+                            "wireTensionType": "INITIAL",
+                            "designCondition": {
+                              "name": "everday",
+                              "iceThickness": {
+                                "value": 0,
+                                "unit": "MILLIMETRE"
+                              },
+                              "windPressure": {
+                                "value": 0,
+                                "unit": "PASCAL"
+                              },
+                              "windSpeed": {
+                                "value": 0,
+                                "unit": "METRE_PER_SECOND"
+                              },
+                              "temperature": {
+                                "value": 15,
+                                "unit": "CELSIUS"
+                              }
+                            },
+                            "outerStrandingCompression": false
+                          },
+                          "name": "everyday"
+                        },
+                        "upperWireStatus": {
+                          "sag": {
+                            "value": 1,
+                            "unit": "METRE"
+                          },
+                          "tension": {
+                            "value": 1000,
+                            "unit": "NEWTON"
+                          },
+                          "verticalForce": {
+                            "value": 100,
+                            "unit": "NEWTON"
+                          },
+                          "windForce": {
+                            "value": 10,
+                            "unit": "NEWTON"
+                          },
+                          "tensionMethod": "NONLINEAR_STRESS_STRAIN",
+                          "wireTensionType": "FINAL_WITH_CREEP",
+                          "outerStrandInCompression": true,
+                          "distanceToLowestPoint": {
+                            "value": -20,
+                            "unit": "METRE"
+                          },
+                          "distanceToSagPoint": {
+                            "value": 50,
+                            "unit": "METRE"
+                          },
+                          "lowestPointBelowAttachment": {
+                            "value": 0.5,
+                            "unit": "METRE"
+                          }
+                        },
+                        "lowerWireState": {
+                          "type": "Wire State",
+                          "wireState": {
+                            "name": "zero",
+                            "wireTensionType": "INITIAL",
+                            "designCondition": {
+                              "name": "zero",
+                              "iceThickness": {
+                                "value": 0,
+                                "unit": "MILLIMETRE"
+                              },
+                              "windPressure": {
+                                "value": 0,
+                                "unit": "PASCAL"
+                              },
+                              "windSpeed": {
+                                "value": 0,
+                                "unit": "METRE_PER_SECOND"
+                              },
+                              "temperature": {
+                                "value": 0,
+                                "unit": "CELSIUS"
+                              }
+                            },
+                            "outerStrandingCompression": false
+                          },
+                          "name": "zero"
+                        },
+                        "lowerWireStatus": {
+                          "sag": {
+                            "value": 1,
+                            "unit": "METRE"
+                          },
+                          "tension": {
+                            "value": 1000,
+                            "unit": "NEWTON"
+                          },
+                          "verticalForce": {
+                            "value": 100,
+                            "unit": "NEWTON"
+                          },
+                          "windForce": {
+                            "value": 10,
+                            "unit": "NEWTON"
+                          },
+                          "tensionMethod": "NONLINEAR_STRESS_STRAIN",
+                          "wireTensionType": "FINAL_WITH_CREEP",
+                          "outerStrandInCompression": true,
+                          "distanceToLowestPoint": {
+                            "value": -20,
+                            "unit": "METRE"
+                          },
+                          "distanceToSagPoint": {
+                            "value": 50,
+                            "unit": "METRE"
+                          },
+                          "lowestPointBelowAttachment": {
+                            "value": 0.5,
+                            "unit": "METRE"
+                          }
+                        },
+                        "difference": {
+                          "value": -1,
+                          "unit": "FOOT"
+                        }
+                      },
+                      {
+                        "clearanceCaseName": "My Wire to Wire Case",
+                        "clearanceRuleName": "Any Power to Any Comm",
+                        "clearanceCaseType": "BETWEEN",
+                        "exceptionCase": false,
+                        "upperId": "Spanguy#11",
+                        "upperAttachHeight": {
+                          "value": 11,
+                          "unit": "FOOT"
+                        },
+                        "upperOwner": "Acme Power",
+                        "upperDescription": "Any Power",
+                        "lowerId": "Wire#2",
+                        "lowerAttachHeight": {
+                          "value": 8,
+                          "unit": "FOOT"
+                        },
+                        "lowerOwner": "Bob's Cable",
+                        "lowerDescription": "Any Comm",
+                        "upperHeight": {
+                          "value": 10,
+                          "unit": "FOOT"
+                        },
+                        "lowerHeight": {
+                          "value": 8,
+                          "unit": "FOOT"
+                        },
+                        "distanceToHeights": {
+                          "value": 0,
+                          "unit": "FOOT"
+                        },
+                        "allowable": {
+                          "value": 3,
+                          "unit": "FOOT"
+                        },
+                        "actual": {
+                          "value": 2,
+                          "unit": "FOOT"
+                        },
+                        "status": "FAILING",
+                        "upperWireState": {
+                          "type": "Wire State",
+                          "wireState": {
+                            "name": "everyday",
+                            "wireTensionType": "INITIAL",
+                            "designCondition": {
+                              "name": "everday",
+                              "iceThickness": {
+                                "value": 0,
+                                "unit": "MILLIMETRE"
+                              },
+                              "windPressure": {
+                                "value": 0,
+                                "unit": "PASCAL"
+                              },
+                              "windSpeed": {
+                                "value": 0,
+                                "unit": "METRE_PER_SECOND"
+                              },
+                              "temperature": {
+                                "value": 15,
+                                "unit": "CELSIUS"
+                              }
+                            },
+                            "outerStrandingCompression": false
+                          },
+                          "name": "everyday"
+                        },
+                        "upperWireStatus": {
+                          "sag": {
+                            "value": 1,
+                            "unit": "METRE"
+                          },
+                          "tension": {
+                            "value": 1000,
+                            "unit": "NEWTON"
+                          },
+                          "verticalForce": {
+                            "value": 100,
+                            "unit": "NEWTON"
+                          },
+                          "windForce": {
+                            "value": 10,
+                            "unit": "NEWTON"
+                          },
+                          "tensionMethod": "NONLINEAR_STRESS_STRAIN",
+                          "wireTensionType": "FINAL_WITH_CREEP",
+                          "outerStrandInCompression": true,
+                          "distanceToLowestPoint": {
+                            "value": -20,
+                            "unit": "METRE"
+                          },
+                          "distanceToSagPoint": {
+                            "value": 50,
+                            "unit": "METRE"
+                          },
+                          "lowestPointBelowAttachment": {
+                            "value": 0.5,
+                            "unit": "METRE"
+                          }
+                        },
+                        "lowerWireState": {
+                          "type": "Wire State",
+                          "wireState": {
+                            "name": "zero",
+                            "wireTensionType": "INITIAL",
+                            "designCondition": {
+                              "name": "zero",
+                              "iceThickness": {
+                                "value": 0,
+                                "unit": "MILLIMETRE"
+                              },
+                              "windPressure": {
+                                "value": 0,
+                                "unit": "PASCAL"
+                              },
+                              "windSpeed": {
+                                "value": 0,
+                                "unit": "METRE_PER_SECOND"
+                              },
+                              "temperature": {
+                                "value": 0,
+                                "unit": "CELSIUS"
+                              }
+                            },
+                            "outerStrandingCompression": false
+                          },
+                          "name": "zero"
+                        },
+                        "lowerWireStatus": {
+                          "sag": {
+                            "value": 1,
+                            "unit": "METRE"
+                          },
+                          "tension": {
+                            "value": 1000,
+                            "unit": "NEWTON"
+                          },
+                          "verticalForce": {
+                            "value": 100,
+                            "unit": "NEWTON"
+                          },
+                          "windForce": {
+                            "value": 10,
+                            "unit": "NEWTON"
+                          },
+                          "tensionMethod": "NONLINEAR_STRESS_STRAIN",
+                          "wireTensionType": "FINAL_WITH_CREEP",
+                          "outerStrandInCompression": true,
+                          "distanceToLowestPoint": {
+                            "value": -20,
+                            "unit": "METRE"
+                          },
+                          "distanceToSagPoint": {
+                            "value": 50,
+                            "unit": "METRE"
+                          },
+                          "lowestPointBelowAttachment": {
+                            "value": 0.5,
+                            "unit": "METRE"
+                          }
+                        },
+                        "difference": {
+                          "value": -1,
+                          "unit": "FOOT"
+                        }
+                      },
+                      {
+                        "clearanceCaseName": "My Wire to Wire Case",
+                        "clearanceRuleName": "Any Power to Any Comm",
+                        "clearanceCaseType": "BETWEEN",
+                        "exceptionCase": false,
+                        "upperId": "Spanguy#12",
+                        "upperAttachHeight": {
+                          "value": 11,
+                          "unit": "FOOT"
+                        },
+                        "upperOwner": "Acme Power",
+                        "upperDescription": "Any Power",
+                        "lowerId": "Wire#2",
+                        "lowerAttachHeight": {
+                          "value": 8,
+                          "unit": "FOOT"
+                        },
+                        "lowerOwner": "Bob's Cable",
+                        "lowerDescription": "Any Comm",
+                        "upperHeight": {
+                          "value": 10,
+                          "unit": "FOOT"
+                        },
+                        "lowerHeight": {
+                          "value": 8,
+                          "unit": "FOOT"
+                        },
+                        "distanceToHeights": {
+                          "value": 0,
+                          "unit": "FOOT"
+                        },
+                        "allowable": {
+                          "value": 3,
+                          "unit": "FOOT"
+                        },
+                        "actual": {
+                          "value": 2,
+                          "unit": "FOOT"
+                        },
+                        "status": "FAILING",
+                        "upperWireState": {
+                          "type": "Wire State",
+                          "wireState": {
+                            "name": "everyday",
+                            "wireTensionType": "INITIAL",
+                            "designCondition": {
+                              "name": "everday",
+                              "iceThickness": {
+                                "value": 0,
+                                "unit": "MILLIMETRE"
+                              },
+                              "windPressure": {
+                                "value": 0,
+                                "unit": "PASCAL"
+                              },
+                              "windSpeed": {
+                                "value": 0,
+                                "unit": "METRE_PER_SECOND"
+                              },
+                              "temperature": {
+                                "value": 15,
+                                "unit": "CELSIUS"
+                              }
+                            },
+                            "outerStrandingCompression": false
+                          },
+                          "name": "everyday"
+                        },
+                        "upperWireStatus": {
+                          "sag": {
+                            "value": 1,
+                            "unit": "METRE"
+                          },
+                          "tension": {
+                            "value": 1000,
+                            "unit": "NEWTON"
+                          },
+                          "verticalForce": {
+                            "value": 100,
+                            "unit": "NEWTON"
+                          },
+                          "windForce": {
+                            "value": 10,
+                            "unit": "NEWTON"
+                          },
+                          "tensionMethod": "NONLINEAR_STRESS_STRAIN",
+                          "wireTensionType": "FINAL_WITH_CREEP",
+                          "outerStrandInCompression": true,
+                          "distanceToLowestPoint": {
+                            "value": -20,
+                            "unit": "METRE"
+                          },
+                          "distanceToSagPoint": {
+                            "value": 50,
+                            "unit": "METRE"
+                          },
+                          "lowestPointBelowAttachment": {
+                            "value": 0.5,
+                            "unit": "METRE"
+                          }
+                        },
+                        "lowerWireState": {
+                          "type": "Wire State",
+                          "wireState": {
+                            "name": "zero",
+                            "wireTensionType": "INITIAL",
+                            "designCondition": {
+                              "name": "zero",
+                              "iceThickness": {
+                                "value": 0,
+                                "unit": "MILLIMETRE"
+                              },
+                              "windPressure": {
+                                "value": 0,
+                                "unit": "PASCAL"
+                              },
+                              "windSpeed": {
+                                "value": 0,
+                                "unit": "METRE_PER_SECOND"
+                              },
+                              "temperature": {
+                                "value": 0,
+                                "unit": "CELSIUS"
+                              }
+                            },
+                            "outerStrandingCompression": false
+                          },
+                          "name": "zero"
+                        },
+                        "lowerWireStatus": {
+                          "sag": {
+                            "value": 1,
+                            "unit": "METRE"
+                          },
+                          "tension": {
+                            "value": 1000,
+                            "unit": "NEWTON"
+                          },
+                          "verticalForce": {
+                            "value": 100,
+                            "unit": "NEWTON"
+                          },
+                          "windForce": {
+                            "value": 10,
+                            "unit": "NEWTON"
+                          },
+                          "tensionMethod": "NONLINEAR_STRESS_STRAIN",
+                          "wireTensionType": "FINAL_WITH_CREEP",
+                          "outerStrandInCompression": true,
+                          "distanceToLowestPoint": {
+                            "value": -20,
+                            "unit": "METRE"
+                          },
+                          "distanceToSagPoint": {
+                            "value": 50,
+                            "unit": "METRE"
+                          },
+                          "lowestPointBelowAttachment": {
+                            "value": 0.5,
+                            "unit": "METRE"
+                          }
+                        },
+                        "difference": {
+                          "value": -1,
+                          "unit": "FOOT"
+                        }
+                      }
+                    ],
+                    "exemptions": []
+                  }
+                ],
+                "violations": [],
+                "itemIds": [],
+                "id": "645e4f098e6e819750bb8dea",
+                "status": "PASSING"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

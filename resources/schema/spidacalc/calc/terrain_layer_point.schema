@@ -1,6 +1,6 @@
 {
   "type": "object",
-  "id": "#/spidacalc/client/terrain_layer.schema",
+  "id": "#/spidacalc/calc/terrain_layer_point.schema",
   "required": [
     "latitude",
     "longitude",

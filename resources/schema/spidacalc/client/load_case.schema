@@ -173,29 +173,36 @@
       ]
     },
     "windSpeed": {
-      "enum": [
-        "MPH_30",
-        "MPH_40",
-        "MPH_50",
-        "MPH_60",
-        "MPH_85",
-        "MPH_90",
-        "MPH_95",
-        "MPH_100",
-        "MPH_105",
-        "MPH_110",
-        "MPH_115",
-        "MPH_120",
-        "MPH_125",
-        "MPH_130",
-        "MPH_135",
-        "MPH_140",
-        "MPH_145",
-        "MPH_150",
-        "MPH_155",
-        "MPH_160",
-        "MPH_165",
-        "MPH_170"
+      "anyOf": [
+        {
+          "enum": [
+            "MPH_30",
+            "MPH_40",
+            "MPH_50",
+            "MPH_60",
+            "MPH_85",
+            "MPH_90",
+            "MPH_95",
+            "MPH_100",
+            "MPH_105",
+            "MPH_110",
+            "MPH_115",
+            "MPH_120",
+            "MPH_125",
+            "MPH_130",
+            "MPH_135",
+            "MPH_140",
+            "MPH_145",
+            "MPH_150",
+            "MPH_155",
+            "MPH_160",
+            "MPH_165",
+            "MPH_170"
+          ]
+        },
+        {
+          "$ref": "../../general/measurable.schema"
+        }
       ]
     },
     "ice": {
@@ -355,6 +362,10 @@
       "description": "the ice radius of the wire creep weather condition",
       "$ref": "../../general/measurable.schema"
     },
+    "creepWireTensionIceDensity": {
+          "description": "the ice density of the wire creep weather condition",
+          "$ref": "../../general/measurable.schema"
+        },
     "creepWireTensionWindPressure": {
       "description": "the wind pressure of the wire creep weather condition",
       "$ref": "../../general/measurable.schema"
@@ -367,6 +378,10 @@
       "description": "the ice radius of the highest wire tension weather condition",
       "$ref": "../../general/measurable.schema"
     },
+    "highestWireTensionIceDensity": {
+          "description": "the ice density of the highest wire tension weather condition",
+          "$ref": "../../general/measurable.schema"
+        },
     "highestWireTensionWindPressure": {
       "description": "the wind pressure of the highest wire tension weather condition",
       "$ref": "../../general/measurable.schema"
@@ -374,6 +389,10 @@
     "outerStrandingCompression": {
       "description": "indicates whether wire outer stranding can go into compression at high temperature",
       "type": "boolean"
+    },
+    "meanWindSpeed": {
+      "description": "10 minute mean wind speed for CSA Max Wind load cases",
+      "$ref": "../../general/measurable.schema"
     }
   },
   "anyOf": [
@@ -458,7 +477,8 @@
         "type": {
           "enum": [
             "GO95 01-2012",
-            "GO95 02-2014"
+            "GO95 02-2014",
+            "GO95 01-2020"
           ]
         }
       }
@@ -474,7 +494,8 @@
         "type": {
           "enum": [
             "NESC Extreme Ice 2007",
-            "NESC Extreme Ice 2012"
+            "NESC Extreme Ice 2012-2017",
+            "NESC Extreme Ice 2023"
           ]
         }
       }
@@ -489,7 +510,8 @@
         "type": {
           "enum": [
             "NESC Extreme Wind 2007",
-            "NESC Extreme Wind 2012"
+            "NESC Extreme Wind 2012-2017",
+            "NESC Extreme Wind 2023"
           ]
         }
       }
@@ -504,10 +526,25 @@
         "type": {
           "enum": [
             "NESC 2007",
-            "NESC 2012",
+            "NESC 2012-2017",
+            "NESC 2023",
             "CSA (Linear) 2010",
             "CSA 2010",
-            "CSA 2015"
+            "CSA 2015-2020"
+          ]
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "constructionGrade",
+        "meanWindSpeed"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "CSA 2020 Maximum Wind"
           ]
         }
       }

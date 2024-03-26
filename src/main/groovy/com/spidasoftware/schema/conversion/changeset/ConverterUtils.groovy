@@ -5,6 +5,8 @@ package com.spidasoftware.schema.conversion.changeset
 
 import com.spidasoftware.schema.conversion.changeset.calc.*
 import com.spidasoftware.schema.conversion.changeset.client.ClientDataConverter
+import com.spidasoftware.schema.conversion.changeset.v10.*
+import com.spidasoftware.schema.conversion.changeset.v11.ClientPoleSettingTypeChangeSet
 import com.spidasoftware.schema.conversion.changeset.v2.*
 import com.spidasoftware.schema.conversion.changeset.v3.*
 import com.spidasoftware.schema.conversion.changeset.v4.*
@@ -12,17 +14,13 @@ import com.spidasoftware.schema.conversion.changeset.v5.*
 import com.spidasoftware.schema.conversion.changeset.v6.*
 import com.spidasoftware.schema.conversion.changeset.v7.*
 import com.spidasoftware.schema.conversion.changeset.v8.*
-import com.spidasoftware.schema.conversion.changeset.v9.ClearancesChangeset
-import com.spidasoftware.schema.conversion.changeset.v9.EnvironmentClientDataChangeset
-import com.spidasoftware.schema.conversion.changeset.v9.EnvironmentDescriptionChangeset
-import com.spidasoftware.schema.conversion.changeset.v9.ExtremeWindLoadCaseChangeset
-import com.spidasoftware.schema.conversion.changeset.v9.InsulatorStrengthChangeSet
+import com.spidasoftware.schema.conversion.changeset.v9.*
 import groovy.util.logging.Slf4j
 
 @Slf4j
 class ConverterUtils {
 
-    static final int currentVersion = 9
+    static final int currentVersion = 11
 
     static {
         addCalcConverter(new CalcProjectConverter())
@@ -70,6 +68,13 @@ class ConverterUtils {
         converter.addChangeSet(9, new EnvironmentDescriptionChangeset())
         converter.addChangeSet(9, new ExtremeWindLoadCaseChangeset())
         converter.addChangeSet(9, new ClearancesChangeset())
+        converter.addChangeSet(10, new IceDensityChangeSet())
+        converter.addChangeSet(10, new TerrainLayerChangeSet())
+        converter.addChangeSet(10, new LoadCaseChangeSet())
+        converter.addChangeSet(10, new LoadCaseNameChangeSet())
+        converter.addChangeSet(10, new DecimalDirectionsChangeset())
+        converter.addChangeSet(10, new TemperatureOverridesChangeSet())
+        converter.addChangeSet(11, new ClientPoleSettingTypeChangeSet())
 
         // add calc changesets above here
         converter.setCurrentVersion(currentVersion)
@@ -83,6 +88,12 @@ class ConverterUtils {
         converter.addChangeSet(9, new EnvironmentDescriptionChangeset())
         converter.addChangeSet(9, new ExtremeWindLoadCaseChangeset())
         converter.addChangeSet(9, new ClearancesChangeset())
+        converter.addChangeSet(10, new IceDensityChangeSet())
+        converter.addChangeSet(10, new LoadCaseChangeSet())
+        converter.addChangeSet(10, new LoadCaseNameChangeSet())
+        converter.addChangeSet(10, new DecimalDirectionsChangeset())
+        converter.addChangeSet(10, new TemperatureOverridesChangeSet())
+        converter.addChangeSet(11, new ClientPoleSettingTypeChangeSet())
         // add client data changesets above here
 
         converter.setCurrentVersion(currentVersion)
@@ -96,6 +107,10 @@ class ConverterUtils {
         converter.addChangeSet(9, new EnvironmentClientDataChangeset())
         converter.addChangeSet(9, new ExtremeWindLoadCaseChangeset())
         converter.addChangeSet(9, new ClearancesChangeset())
+        converter.addChangeSet(10, new IceDensityChangeSet())
+        converter.addChangeSet(10, new LoadCaseChangeSet())
+        converter.addChangeSet(10, new LoadCaseNameChangeSet())
+        converter.addChangeSet(10, new DecimalDirectionsChangeset())
         // add result changesets above here
 
         converter.setCurrentVersion(currentVersion)

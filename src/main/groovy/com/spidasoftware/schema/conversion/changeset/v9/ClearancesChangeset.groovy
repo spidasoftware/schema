@@ -52,6 +52,7 @@ class ClearancesChangeset extends AbstractClientDataChangeSet {
 	void revertProject(Map projectJSON) throws ConversionException {
 		super.revertProject(projectJSON)
 		projectJSON.remove("defaultClearanceCases")
+		projectJSON.remove("terrainLayers")
 		projectJSON.remove("appliedTerrainLayers")
 		if (projectJSON.containsKey("clientData")) {
 			Map clientDataJSON = projectJSON.clientData as Map

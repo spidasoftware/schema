@@ -341,7 +341,8 @@
      "wallThickness": {
        "unit": "METRE",
        "value": -1
-     }
+     },
+     "settingType": "ANSI"
    }],
    "wires": [{
      "aliases": [],

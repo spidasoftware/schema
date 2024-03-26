@@ -46,4 +46,19 @@ class ExtremeWindLoadCaseChangesetTest extends Specification {
             json.leads[0].locations[0].designs[0].analysisDetails.detailedResults.results[3].analysisCaseDetails.windSpeed == "MPH_90"
             json.leads[0].locations[0].designs[0].analysisCurrent == false
     }
+
+    def "revert design json when design.analysis have no analysisCaseDetails"() {
+        setup:
+            def stream = ExtremeWindLoadCaseChangeset.getResourceAsStream("/conversions/v10/StudioDesignWithoutAnalysisCaseDetails.json".toString())
+            Map json = new JsonSlurper().parse(stream) as Map
+            stream.close()
+        expect:
+            json.calcDesign.analysis.size() == 2
+            json.calcDesign.analysis.every { !it.containsKey("analysisCaseDetails") }
+        when: "apply changeset"
+            def changeSet = new ExtremeWindLoadCaseChangeset()
+            boolean anyChanged = changeSet.revertDesign(json.calcDesign)
+        then: "no exception thrown"
+            !anyChanged
+    }
 }

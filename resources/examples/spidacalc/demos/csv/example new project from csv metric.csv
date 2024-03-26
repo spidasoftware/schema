@@ -1,5 +1,5 @@
-Lead,Location,Species,Length,Class,Latitude,Longitude,Elevation M
-temp,P1,Western Red Cedar,45,3,47.51376603,-116.811949,667.2
-temp,P2,Western Red Cedar,45,3,47.513196,-116.812607,670
-temp,P3,Western Red Cedar,50,2,47.51397299,-116.81072,668.6
-temp,P4,Western Red Cedar,45,2,47.51408123,-116.8097082,660.8
+Lead,Location,Species,Length,Class,AGL,GLC,Latitude,Longitude,Elevation M
+temp,P1,Western Red Cedar,45,3,36,2,47.51376603,-116.811949,667.2
+temp,P2,Western Red Cedar,45,3,44,,47.513196,-116.812607,670
+temp,P3,Western Red Cedar,50,2,,,47.51397299,-116.81072,668.6
+temp,P4,Western Red Cedar,45,2,,2,47.51408123,-116.8097082,660.8

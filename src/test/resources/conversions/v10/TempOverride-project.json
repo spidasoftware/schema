@@ -1,0 +1,265 @@
+{
+  "defaultClearanceCases": [
+    {
+      "type": "Wire To Wire",
+      "name": "Temp Change w2w overrides",
+      "upper": [
+        {
+          "componentGroup": {
+            "type": "Wire",
+            "name": "Primary",
+            "description": "",
+            "industry": "UTILITY",
+            "includedOwners": [],
+            "excludedOwners": [],
+            "includedClientItems": [],
+            "wireClasses": [],
+            "usageGroups": ["PRIMARY"]
+          },
+          "thermalTemperatureOverride": { "value": 25.0, "unit": "FAHRENHEIT" }
+        },
+        {
+          "componentGroup": {
+            "type": "Wire",
+            "name": "Neutral",
+            "description": "",
+            "industry": "UTILITY",
+            "includedOwners": [],
+            "excludedOwners": [],
+            "includedClientItems": [],
+            "wireClasses": [],
+            "usageGroups": ["NEUTRAL"]
+          },
+          "thermalTemperatureOverride": { "value": 50.0, "unit": "FAHRENHEIT" }
+        },
+        {
+          "componentGroup": {
+            "type": "Wire",
+            "name": "Secondary",
+            "description": "",
+            "industry": "UTILITY",
+            "includedOwners": [],
+            "excludedOwners": [],
+            "includedClientItems": [],
+            "wireClasses": [],
+            "usageGroups": ["SECONDARY", "OPEN_WIRE"]
+          }
+        }
+      ],
+      "lower": [
+        {
+          "type": "Wire",
+          "name": "Communication",
+          "description": "",
+          "industry": "COMMUNICATION",
+          "includedOwners": [],
+          "excludedOwners": [],
+          "includedClientItems": [],
+          "wireClasses": [],
+          "usageGroups": [
+            "COMMUNICATION_BUNDLE",
+            "COMMUNICATION",
+            "COMMUNICATION_SERVICE"
+          ]
+        }
+      ],
+      "clearances": [
+        {
+          "upper": {
+            "componentGroup": {
+              "type": "Wire",
+              "name": "Primary",
+              "description": "",
+              "industry": "UTILITY",
+              "includedOwners": [],
+              "excludedOwners": [],
+              "includedClientItems": [],
+              "wireClasses": [],
+              "usageGroups": ["PRIMARY"]
+            },
+            "thermalTemperatureOverride": {
+              "value": 0,
+              "unit": "FAHRENHEIT"
+            }
+          },
+          "lower": {
+            "type": "Wire",
+            "name": "Communication",
+            "description": "",
+            "industry": "COMMUNICATION",
+            "includedOwners": [],
+            "excludedOwners": [],
+            "includedClientItems": [],
+            "wireClasses": [],
+            "usageGroups": [
+              "COMMUNICATION_BUNDLE",
+              "COMMUNICATION",
+              "COMMUNICATION_SERVICE"
+            ]
+          },
+          "allowable": { "value": 4.0, "unit": "FOOT" }
+        },
+        {
+          "upper": {
+            "componentGroup": {
+              "type": "Wire",
+              "name": "Neutral",
+              "description": "",
+              "industry": "UTILITY",
+              "includedOwners": [],
+              "excludedOwners": [],
+              "includedClientItems": [],
+              "wireClasses": [],
+              "usageGroups": ["NEUTRAL"]
+            }
+          },
+          "lower": {
+            "type": "Wire",
+            "name": "Communication",
+            "description": "",
+            "industry": "COMMUNICATION",
+            "includedOwners": [],
+            "excludedOwners": [],
+            "includedClientItems": [],
+            "wireClasses": [],
+            "usageGroups": [
+              "COMMUNICATION_BUNDLE",
+              "COMMUNICATION",
+              "COMMUNICATION_SERVICE"
+            ]
+          },
+          "allowable": { "value": 4.0, "unit": "FOOT" }
+        },
+        {
+          "upper": {
+            "componentGroup": {
+              "type": "Wire",
+              "name": "Secondary",
+              "description": "",
+              "industry": "UTILITY",
+              "includedOwners": [],
+              "excludedOwners": [],
+              "includedClientItems": [],
+              "wireClasses": [],
+              "usageGroups": ["SECONDARY", "OPEN_WIRE"]
+            },
+            "thermalTemperatureOverride": {
+              "value": 75.0,
+              "unit": "FAHRENHEIT"
+            }
+          },
+          "lower": {
+            "type": "Wire",
+            "name": "Communication",
+            "description": "",
+            "industry": "COMMUNICATION",
+            "includedOwners": [],
+            "excludedOwners": [],
+            "includedClientItems": [],
+            "wireClasses": [],
+            "usageGroups": [
+              "COMMUNICATION_BUNDLE",
+              "COMMUNICATION",
+              "COMMUNICATION_SERVICE"
+            ]
+          }
+        }
+      ],
+      "exception": false,
+      "addByDefault": false,
+      "upperThermalState": {
+        "type": "Wire State",
+        "wireState": {
+          "name": "Warm",
+          "wireTensionType": "FINAL_WITH_CREEP",
+          "designCondition": {
+            "name": "Warm",
+            "iceThickness": { "value": 0.0, "unit": "INCH" },
+            "iceDensity": {
+              "value": 917.0,
+              "unit": "KILOGRAM_PER_CUBIC_METRE"
+            },
+            "windPressure": { "value": 0.0, "unit": "PASCAL" },
+            "windSpeed": { "value": 0.0, "unit": "METRE_PER_SECOND" },
+            "temperature": { "value": 75.0, "unit": "FAHRENHEIT" }
+          },
+          "highestStressCondition": {
+            "name": "default",
+            "iceThickness": { "value": 0.5, "unit": "INCH" },
+            "iceDensity": {
+              "value": 917.0,
+              "unit": "KILOGRAM_PER_CUBIC_METRE"
+            },
+            "windPressure": { "value": 191.52103592134338, "unit": "PASCAL" },
+            "windSpeed": {
+              "value": 17.67575624301227,
+              "unit": "METRE_PER_SECOND"
+            },
+            "temperature": { "value": 0.0, "unit": "FAHRENHEIT" }
+          },
+          "creepCondition": {
+            "name": "default",
+            "iceThickness": { "value": 0.0, "unit": "MILLIMETRE" },
+            "iceDensity": {
+              "value": 917.0,
+              "unit": "KILOGRAM_PER_CUBIC_METRE"
+            },
+            "windPressure": { "value": 0.0, "unit": "PASCAL" },
+            "windSpeed": { "value": 0.0, "unit": "METRE_PER_SECOND" },
+            "temperature": { "value": 60.0, "unit": "FAHRENHEIT" }
+          },
+          "outerStrandingCompression": false
+        },
+        "name": "Warm"
+      },
+      "checkPhysicalState": true,
+      "upperPhysicalState": {
+        "type": "Wire State",
+        "wireState": {
+          "name": "Everyday",
+          "wireTensionType": "FINAL_WITH_CREEP",
+          "designCondition": {
+            "name": "Everyday",
+            "iceThickness": { "value": 0.0, "unit": "INCH" },
+            "iceDensity": {
+              "value": 917.0,
+              "unit": "KILOGRAM_PER_CUBIC_METRE"
+            },
+            "windPressure": { "value": 0.0, "unit": "PASCAL" },
+            "windSpeed": { "value": 0.0, "unit": "METRE_PER_SECOND" },
+            "temperature": { "value": 60.0, "unit": "FAHRENHEIT" }
+          },
+          "highestStressCondition": {
+            "name": "default",
+            "iceThickness": { "value": 0.5, "unit": "INCH" },
+            "iceDensity": {
+              "value": 917.0,
+              "unit": "KILOGRAM_PER_CUBIC_METRE"
+            },
+            "windPressure": { "value": 191.52103592134338, "unit": "PASCAL" },
+            "windSpeed": {
+              "value": 17.67575624301227,
+              "unit": "METRE_PER_SECOND"
+            },
+            "temperature": { "value": 0.0, "unit": "FAHRENHEIT" }
+          },
+          "creepCondition": {
+            "name": "default",
+            "iceThickness": { "value": 0.0, "unit": "MILLIMETRE" },
+            "iceDensity": {
+              "value": 917.0,
+              "unit": "KILOGRAM_PER_CUBIC_METRE"
+            },
+            "windPressure": { "value": 0.0, "unit": "PASCAL" },
+            "windSpeed": { "value": 0.0, "unit": "METRE_PER_SECOND" },
+            "temperature": { "value": 60.0, "unit": "FAHRENHEIT" }
+          },
+          "outerStrandingCompression": false
+        },
+        "name": "Everyday"
+      },
+      "lowerThermalState": { "type": "Line of Sight", "name": "Line of Sight" },
+      "lowerPhysicalState": { "type": "Line of Sight", "name": "Line of Sight" }
+    }
+  ]
+}

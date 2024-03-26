@@ -1,0 +1,70 @@
+{
+  "poles": [
+    {
+      "aliases": [],
+      "shape": "ROUND",
+      "materialCategory": "WOOD",
+      "classOfPole": "10\" Series II",
+      "species": "Fiberglass",
+      "height": {
+        "unit": "METRE",
+        "value": 12.192000000000002
+      },
+      "taper": 0.0,
+      "density": {
+        "unit": "KILOGRAM_PER_CUBIC_METRE",
+        "value": 160.1846337396014
+      },
+      "allowable": {
+        "unit": "PASCAL",
+        "value": 6.894757293168361E7
+      },
+      "ptc": {
+        "unit": "METRE",
+        "value": 0.957557440814169
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 6.894757293168361E10
+      },
+      "wallThickness": {
+        "unit": "METRE",
+        "value": -0.025400000000000002
+      },
+      "poissonRatio": 0.3
+    },
+    {
+      "aliases": [],
+      "shape": "ROUND",
+      "materialCategory": "WOOD",
+      "classOfPole": "10\" Series II",
+      "species": "Fiberglass",
+      "height": {
+        "unit": "METRE",
+        "value": 12.192000000000002
+      },
+      "taper": 0.0,
+      "density": {
+        "unit": "KILOGRAM_PER_CUBIC_METRE",
+        "value": 160.1846337396014
+      },
+      "allowable": {
+        "unit": "PASCAL",
+        "value": 6.894757293168361E7
+      },
+      "ptc": {
+        "unit": "METRE",
+        "value": 0.957557440814169
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 6.894757293168361E10
+      },
+      "wallThickness": {
+        "unit": "METRE",
+        "value": -0.025400000000000002
+      },
+      "poissonRatio": 0.3
+    }
+  ]
+}
