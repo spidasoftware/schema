@@ -5,6 +5,7 @@
   "required": [
     "clearanceCaseName",
     "clearanceRuleName",
+    "clearanceStateName",
     "clearanceCaseType",
     "exceptionCase",
     "upperId",
@@ -21,6 +22,10 @@
     },
     "clearanceRuleName": {
       "description": "name of the clearance rule",
+      "type": "string"
+    },
+    "clearanceStateName": {
+      "description": "name of the wire states group being applied to rule. ex: 'thermal' or 'physical'",
       "type": "string"
     },
     "clearanceCaseType": {
