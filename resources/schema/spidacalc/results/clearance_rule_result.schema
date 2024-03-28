@@ -5,7 +5,6 @@
   "required": [
     "clearanceCaseName",
     "clearanceRuleName",
-    "clearanceStateName",
     "clearanceCaseType",
     "exceptionCase",
     "upperId",
@@ -114,5 +113,33 @@
       "type": "string"
     }
   },
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "clearanceCaseType": {
+          "enum": [ "AT_POLE" ]
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [ "clearanceStateName" ],
+      "properties": {
+        "clearanceCaseType": {
+          "enum": [ "BETWEEN" ]
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [ "clearanceStateName" ],
+      "properties": {
+        "clearanceCaseType": {
+          "enum": [ "TO_GROUND" ]
+        }
+      }
+    }
+  ],
   "additionalProperties": false
 }
