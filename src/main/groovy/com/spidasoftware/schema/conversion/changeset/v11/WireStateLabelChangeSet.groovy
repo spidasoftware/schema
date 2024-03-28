@@ -5,7 +5,9 @@ package com.spidasoftware.schema.conversion.changeset.v11
 
 import com.spidasoftware.schema.conversion.changeset.ConversionException
 import com.spidasoftware.schema.conversion.changeset.client.AbstractClientDataChangeSet
+import groovy.transform.CompileStatic
 
+@CompileStatic
 class WireStateLabelChangeSet extends AbstractClientDataChangeSet {
 
     @Override
