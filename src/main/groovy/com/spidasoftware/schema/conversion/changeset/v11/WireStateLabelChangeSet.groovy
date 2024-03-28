@@ -149,8 +149,7 @@ class WireStateLabelChangeSet extends AbstractClientDataChangeSet {
         }
 
         String name = isThermal ? "Thermal" : "Physical"
-        ruleResult.clearanceRuleName = ruleResult.clearanceRuleName + " - " + name
-
+        ruleResult.clearanceRuleName = (ruleResult.clearanceRuleName as String) + " - " + name
     }
 
 }
