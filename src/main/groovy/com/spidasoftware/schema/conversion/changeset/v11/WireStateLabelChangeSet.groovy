@@ -62,7 +62,7 @@ class WireStateLabelChangeSet extends AbstractClientDataChangeSet {
     void applyToDesign(Map designJSON) throws ConversionException {
         super.applyToDesign(designJSON)
 
-        designJSON.clearanceCases.each { Map clearanceCase ->
+        designJSON.clearanceCases?.each { Map clearanceCase ->
             if (clearanceCase.type != "At Pole") {
                 clearanceCase.thermalStateName = "Thermal"
                 clearanceCase.physicalStateName = "Physical"
