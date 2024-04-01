@@ -90,26 +90,27 @@ class WireStateLabelChangeSet extends AbstractClientDataChangeSet {
     @Override
     void revertDesign(Map designJSON) throws ConversionException {
         super.revertDesign(designJSON)
-        List<Map> clearanceCases = designJSON.clearanceCases as List<Map>
-        clearanceCases?.each { Map clearanceCase ->
-            if (clearanceCase.type != "At Pole") {
-                clearanceCase.remove("thermalStateName")
-                clearanceCase.remove("physicalStateName")
-            }
-        }
 
+        // must down convert rule results before clearance cases because the rule result down convert logic needs the up converted clearance cases
         if (designJSON.containsKey("clearanceResults")) {
             Map clearanceResults = designJSON.clearanceResults as Map
             clearanceResults.results.each { Map clearanceCaseResult ->
                 clearanceCaseResult.ruleResults.each { Map ruleResult ->
-                    revertRuleResult(ruleResult, clearanceCases)
+                    revertRuleResult(ruleResult, designJSON.clearanceCases as List<Map>)
                 }
                 clearanceCaseResult.exemptions.each { Map ruleResult ->
-                    revertRuleResult(ruleResult, clearanceCases)
+                    revertRuleResult(ruleResult, designJSON.clearanceCases as List<Map>)
                 }
             }
             clearanceResults.violations.each { Map ruleResult ->
-                revertRuleResult(ruleResult, clearanceCases)
+                revertRuleResult(ruleResult, designJSON.clearanceCases as List<Map>)
+            }
+        }
+
+        designJSON.clearanceCases?.each { Map clearanceCase ->
+            if (clearanceCase.type != "At Pole") {
+                clearanceCase.remove("thermalStateName")
+                clearanceCase.remove("physicalStateName")
             }
         }
     }
@@ -135,21 +136,12 @@ class WireStateLabelChangeSet extends AbstractClientDataChangeSet {
             return
         }
 
-        ruleResult.remove("clearanceStateName")
-
-        // if the ruleResults upper matches the clearanceCases upperThermalState, then we need to append thermal
-        // else append physical
-        boolean isThermal = false
-        clearanceCases.each { Map clearanceCase ->
-            if (clearanceCase.name == ruleResult.clearanceCaseName) {
-                if ((clearanceCase.upperThermalState as Map).name == (ruleResult.upperWireState as Map).name) {
-                    isThermal = true
-                }
-            }
-        }
-
-        String name = isThermal ? "Thermal" : "Physical"
+        // find clearance case associated with this rule result
+        Map clearanceCase = clearanceCases.find { it.name == ruleResult.clearanceCaseName }
+        // if clearanceStateName equals the cases thermalStateName then it is a thermal rule
+        String name = clearanceCase.thermalStateName == ruleResult.clearanceStateName ? "Thermal" : "Physical"
         ruleResult.clearanceRuleName = (ruleResult.clearanceRuleName as String) + " - " + name
+        ruleResult.remove("clearanceStateName")
     }
 
 }
