@@ -7,6 +7,7 @@ import com.spidasoftware.schema.conversion.changeset.calc.*
 import com.spidasoftware.schema.conversion.changeset.client.ClientDataConverter
 import com.spidasoftware.schema.conversion.changeset.v10.*
 import com.spidasoftware.schema.conversion.changeset.v11.ClientPoleSettingTypeChangeSet
+import com.spidasoftware.schema.conversion.changeset.v11.PoleCutTopChangeSet
 import com.spidasoftware.schema.conversion.changeset.v2.*
 import com.spidasoftware.schema.conversion.changeset.v3.*
 import com.spidasoftware.schema.conversion.changeset.v4.*
@@ -75,6 +76,7 @@ class ConverterUtils {
         converter.addChangeSet(10, new DecimalDirectionsChangeset())
         converter.addChangeSet(10, new TemperatureOverridesChangeSet())
         converter.addChangeSet(11, new ClientPoleSettingTypeChangeSet())
+        converter.addChangeSet(11, new PoleCutTopChangeSet())
 
         // add calc changesets above here
         converter.setCurrentVersion(currentVersion)
@@ -111,6 +113,7 @@ class ConverterUtils {
         converter.addChangeSet(10, new LoadCaseChangeSet())
         converter.addChangeSet(10, new LoadCaseNameChangeSet())
         converter.addChangeSet(10, new DecimalDirectionsChangeset())
+        converter.addChangeSet(11, new PoleCutTopChangeSet())
         // add result changesets above here
 
         converter.setCurrentVersion(currentVersion)
