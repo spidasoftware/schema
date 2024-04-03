@@ -53,6 +53,12 @@
       },
       "checkPhysicalState": {
         "type": "boolean"
+      },
+      "checkThermalTemperatureOverride": {
+        "type": "boolean"
+      },
+      "checkPhysicalTemperatureOverride": {
+        "type": "boolean"
       }
     },
     "oneOf": [
@@ -104,6 +110,12 @@
             "$ref": "../../spidacalc/client/wire_height_calculator.schema"
           },
           "checkPhysicalState": {
+            "type": "boolean"
+          },
+          "checkThermalTemperatureOverride": {
+            "type": "boolean"
+          },
+          "checkPhysicalTemperatureOverride": {
             "type": "boolean"
           }
         }
@@ -199,6 +211,12 @@
             "$ref": "../../spidacalc/client/wire_height_calculator.schema"
           },
           "checkPhysicalState": {
+            "type": "boolean"
+          },
+          "checkThermalTemperatureOverride": {
+            "type": "boolean"
+          },
+          "checkPhysicalTemperatureOverride": {
             "type": "boolean"
           }
         }
