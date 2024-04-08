@@ -5,9 +5,6 @@ package com.spidasoftware.schema.conversion.changeset
 
 import com.spidasoftware.schema.conversion.changeset.calc.*
 import com.spidasoftware.schema.conversion.changeset.client.ClientDataConverter
-import com.spidasoftware.schema.conversion.changeset.v10.*
-import com.spidasoftware.schema.conversion.changeset.v11.ClientPoleSettingTypeChangeSet
-import com.spidasoftware.schema.conversion.changeset.v11.UpdateTempOverridesChangeSet
 import com.spidasoftware.schema.conversion.changeset.v2.*
 import com.spidasoftware.schema.conversion.changeset.v3.*
 import com.spidasoftware.schema.conversion.changeset.v4.*
@@ -16,6 +13,8 @@ import com.spidasoftware.schema.conversion.changeset.v6.*
 import com.spidasoftware.schema.conversion.changeset.v7.*
 import com.spidasoftware.schema.conversion.changeset.v8.*
 import com.spidasoftware.schema.conversion.changeset.v9.*
+import com.spidasoftware.schema.conversion.changeset.v10.*
+import com.spidasoftware.schema.conversion.changeset.v11.*
 import groovy.util.logging.Slf4j
 
 @Slf4j
@@ -77,6 +76,7 @@ class ConverterUtils {
         converter.addChangeSet(10, new TemperatureOverridesChangeSet())
         converter.addChangeSet(11, new ClientPoleSettingTypeChangeSet())
         converter.addChangeSet(11, new UpdateTempOverridesChangeSet())
+        converter.addChangeSet(11, new PoleCutTopChangeSet())
 
         // add calc changesets above here
         converter.setCurrentVersion(currentVersion)
@@ -114,6 +114,7 @@ class ConverterUtils {
         converter.addChangeSet(10, new LoadCaseChangeSet())
         converter.addChangeSet(10, new LoadCaseNameChangeSet())
         converter.addChangeSet(10, new DecimalDirectionsChangeset())
+        converter.addChangeSet(11, new PoleCutTopChangeSet())
         // add result changesets above here
 
         converter.setCurrentVersion(currentVersion)
