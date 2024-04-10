@@ -64,14 +64,13 @@ class UpdateTempOverridesChangeSet extends AbstractClientDataChangeSet {
         super.revertDesign(designJSON)
 
         if (designJSON.containsKey("clearanceResults")) {
-            boolean shouldClearResults = false
             Map clearanceResults = designJSON.clearanceResults as Map
-            clearanceResults.results.each { Map clearanceCaseResult ->
-                clearanceCaseResult.ruleResults.each { Map ruleResult ->
-                    Map clearanceCase = designJSON.clearanceCases.find { Map clearanceCase ->
-                        clearanceCase.name == ruleResult.clearanceCaseType
+            boolean shouldClearResults = clearanceResults.results.any { Map clearanceCaseResult ->
+                return clearanceCaseResult.ruleResults.any { Map ruleResult ->
+                    Map clearanceCase = designJSON.clearanceCases?.find { Map clearanceCase ->
+                        clearanceCase.name == ruleResult.clearanceCaseName
                     } as Map
-                    shouldClearResults = (clearanceCase.checkThermalTemperatureOverride == false) || (clearanceCase.checkPhysicalTemperatureOverride == true)
+                    return (clearanceCase?.checkThermalTemperatureOverride == false) || (clearanceCase?.checkPhysicalTemperatureOverride == true)
                 }
             }
             if (shouldClearResults) {

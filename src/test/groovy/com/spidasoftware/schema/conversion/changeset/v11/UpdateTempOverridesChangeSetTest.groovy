@@ -92,4 +92,43 @@ class UpdateTempOverridesChangeSetTest extends Specification {
             !json.defaultClearanceCases[0].upper[1].temperatureOverride
             !json.defaultClearanceCases[0].upper[2].temperatureOverride
     }
+
+    def "test clear clearance results"() {
+        setup:
+            def stream = UpdateTempOverridesChangeSetTest.getResourceAsStream("/conversions/v11/UpdateTempOverrides-project-v11.json")
+            Map json = new JsonSlurper().parse(stream) as Map
+            stream.close()
+            Map clearanceResults = json.leads[0].locations[0].designs[0].clearanceResults
+        expect:
+            json.leads[0].locations[0].designs[0].clearanceResults
+        when: "check thermal and not physical"
+            json.leads[0].locations[0].designs[0].clearanceCases[0].checkThermalTemperatureOverride = true
+            json.leads[0].locations[0].designs[0].clearanceCases[0].checkPhysicalTemperatureOverride = false
+            changeSet.revertProject(json)
+        then: "clearance results are not cleared"
+            json.leads[0].locations[0].designs[0].clearanceResults
+        when: "check physical but not thermal"
+            changeSet.applyToProject(json)
+            json.leads[0].locations[0].designs[0].clearanceCases[0].checkThermalTemperatureOverride = false
+            json.leads[0].locations[0].designs[0].clearanceCases[0].checkPhysicalTemperatureOverride = true
+            changeSet.revertProject(json)
+        then: "clearance results are cleared"
+            !json.leads[0].locations[0].designs[0].clearanceResults
+        when: "both thermal and physical are checked"
+            changeSet.applyToProject(json)
+            json.leads[0].locations[0].designs[0].clearanceResults = clearanceResults
+            json.leads[0].locations[0].designs[0].clearanceCases[0].checkThermalTemperatureOverride = true
+            json.leads[0].locations[0].designs[0].clearanceCases[0].checkPhysicalTemperatureOverride = true
+            changeSet.revertProject(json)
+        then: "clearance results are cleared"
+            !json.leads[0].locations[0].designs[0].clearanceResults
+        when: "both thermal and physical are not checked"
+            changeSet.applyToProject(json)
+            json.leads[0].locations[0].designs[0].clearanceResults = clearanceResults
+            json.leads[0].locations[0].designs[0].clearanceCases[0].checkThermalTemperatureOverride = false
+            json.leads[0].locations[0].designs[0].clearanceCases[0].checkPhysicalTemperatureOverride = false
+            changeSet.revertProject(json)
+        then: "clearance results are cleared"
+            !json.leads[0].locations[0].designs[0].clearanceResults
+    }
 }
