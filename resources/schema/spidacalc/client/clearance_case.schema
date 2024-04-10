@@ -59,6 +59,14 @@
       },
       "checkPhysicalTemperatureOverride": {
         "type": "boolean"
+      },
+      "thermalStateName": {
+        "type": "string",
+        "description": "Custom name for thermal wire states"
+      },
+      "physicalStateName": {
+        "type": "string",
+        "description": "Custom name for physical wire states"
       }
     },
     "oneOf": [
@@ -117,6 +125,12 @@
           },
           "checkPhysicalTemperatureOverride": {
             "type": "boolean"
+          },
+          "thermalStateName": {
+            "type": "string"
+          },
+          "physicalStateName": {
+            "type": "string"
           }
         }
       },
@@ -218,6 +232,12 @@
           },
           "checkPhysicalTemperatureOverride": {
             "type": "boolean"
+          },
+          "thermalStateName": {
+            "type": "string"
+          },
+          "physicalStateName": {
+            "type": "string"
           }
         }
       }

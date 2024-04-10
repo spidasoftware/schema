@@ -1,5 +1,5 @@
 /*
- * ©2009-2019 SPIDAWEB LLC
+ * Copyright (c) 2024 Bentley Systems, Incorporated. All rights reserved.
  */
 package com.spidasoftware.schema.conversion.changeset
 
@@ -76,6 +76,7 @@ class ConverterUtils {
         converter.addChangeSet(10, new TemperatureOverridesChangeSet())
         converter.addChangeSet(11, new ClientPoleSettingTypeChangeSet())
         converter.addChangeSet(11, new UpdateTempOverridesChangeSet())
+        converter.addChangeSet(11, new WireStateLabelChangeSet())
         converter.addChangeSet(11, new PoleCutTopChangeSet())
 
         // add calc changesets above here
@@ -97,6 +98,7 @@ class ConverterUtils {
         converter.addChangeSet(10, new TemperatureOverridesChangeSet())
         converter.addChangeSet(11, new ClientPoleSettingTypeChangeSet())
         converter.addChangeSet(11, new UpdateTempOverridesChangeSet())
+        converter.addChangeSet(11, new WireStateLabelChangeSet())
         // add client data changesets above here
 
         converter.setCurrentVersion(currentVersion)
