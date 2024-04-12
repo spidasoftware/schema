@@ -156,6 +156,12 @@ class IceDensityChangeSetTest extends Specification {
             !json.leads[0].locations[0].designs[0].clearanceCases[1].upperPhysicalState.wireState.designCondition.iceDensity
             !json.leads[0].locations[0].designs[0].clearanceCases[1].upperPhysicalState.wireState.highestStressCondition.iceDensity
             !json.leads[0].locations[0].designs[0].clearanceCases[1].upperPhysicalState.wireState.creepCondition.iceDensity
+            !json.leads[0].locations[0].designs[0].clearanceCases[2].upperThermalState.wireState.designCondition.iceDensity
+            !json.leads[0].locations[0].designs[0].clearanceCases[2].upperThermalState.wireState.highestStressCondition.iceDensity
+            !json.leads[0].locations[0].designs[0].clearanceCases[2].upperThermalState.wireState.creepCondition.iceDensity
+            !json.leads[0].locations[0].designs[0].clearanceCases[2].upperPhysicalState.wireState.designCondition.iceDensity
+            !json.leads[0].locations[0].designs[0].clearanceCases[2].upperPhysicalState.wireState.highestStressCondition.iceDensity
+            !json.leads[0].locations[0].designs[0].clearanceCases[2].upperPhysicalState.wireState.creepCondition.iceDensity
             !json.leads[0].locations[0].designs[0].clearanceResults.results[1].ruleResults[0].upperWireState.wireState.designCondition.iceDensity
             !json.leads[0].locations[0].designs[0].clearanceResults.results[1].ruleResults[1].upperWireState.wireState.designCondition.iceDensity
             !json.leads[0].locations[0].designs[0].clearanceResults.results[1].ruleResults[2].upperWireState.wireState.designCondition.iceDensity
@@ -192,6 +198,18 @@ class IceDensityChangeSetTest extends Specification {
             json.leads[0].locations[0].designs[0].clearanceCases[1].upperPhysicalState.wireState.highestStressCondition.iceDensity.unit == "KILOGRAM_PER_CUBIC_METRE"
             json.leads[0].locations[0].designs[0].clearanceCases[1].upperPhysicalState.wireState.creepCondition.iceDensity.value == 917
             json.leads[0].locations[0].designs[0].clearanceCases[1].upperPhysicalState.wireState.creepCondition.iceDensity.unit == "KILOGRAM_PER_CUBIC_METRE"
+            json.leads[0].locations[0].designs[0].clearanceCases[2].upperThermalState.wireState.designCondition.iceDensity.value == 917
+            json.leads[0].locations[0].designs[0].clearanceCases[2].upperThermalState.wireState.designCondition.iceDensity.unit == "KILOGRAM_PER_CUBIC_METRE"
+            json.leads[0].locations[0].designs[0].clearanceCases[2].upperThermalState.wireState.highestStressCondition.iceDensity.value == 917
+            json.leads[0].locations[0].designs[0].clearanceCases[2].upperThermalState.wireState.highestStressCondition.iceDensity.unit == "KILOGRAM_PER_CUBIC_METRE"
+            json.leads[0].locations[0].designs[0].clearanceCases[2].upperThermalState.wireState.creepCondition.iceDensity.value == 917
+            json.leads[0].locations[0].designs[0].clearanceCases[2].upperThermalState.wireState.creepCondition.iceDensity.unit == "KILOGRAM_PER_CUBIC_METRE"
+            json.leads[0].locations[0].designs[0].clearanceCases[2].upperPhysicalState.wireState.designCondition.iceDensity.value == 917
+            json.leads[0].locations[0].designs[0].clearanceCases[2].upperPhysicalState.wireState.designCondition.iceDensity.unit == "KILOGRAM_PER_CUBIC_METRE"
+            json.leads[0].locations[0].designs[0].clearanceCases[2].upperPhysicalState.wireState.highestStressCondition.iceDensity.value == 917
+            json.leads[0].locations[0].designs[0].clearanceCases[2].upperPhysicalState.wireState.highestStressCondition.iceDensity.unit == "KILOGRAM_PER_CUBIC_METRE"
+            json.leads[0].locations[0].designs[0].clearanceCases[2].upperPhysicalState.wireState.creepCondition.iceDensity.value == 917
+            json.leads[0].locations[0].designs[0].clearanceCases[2].upperPhysicalState.wireState.creepCondition.iceDensity.unit == "KILOGRAM_PER_CUBIC_METRE"
             json.leads[0].locations[0].designs[0].clearanceResults.results[1].ruleResults[0].upperWireState.wireState.designCondition.iceDensity.value == 917
             json.leads[0].locations[0].designs[0].clearanceResults.results[1].ruleResults[0].upperWireState.wireState.designCondition.iceDensity.unit == "KILOGRAM_PER_CUBIC_METRE"
             json.leads[0].locations[0].designs[0].clearanceResults.results[1].ruleResults[1].upperWireState.wireState.designCondition.iceDensity.value == 917

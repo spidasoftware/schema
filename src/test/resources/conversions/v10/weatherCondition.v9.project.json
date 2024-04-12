@@ -1854,6 +1854,497 @@
                     },
                     "name": "Wire State Test"
                   }
+                },
+                {
+                  "type": "Wire To Wire",
+                  "name": "Test Between Clearance Case",
+                  "upper": [
+                    {
+                      "componentGroup": {
+                        "type": "Wire",
+                        "name": "Wire Component Group",
+                        "description": "I am a test wire component group",
+                        "industry": "UTILITY",
+                        "includedOwners": [
+                          {
+                            "industry": "UTILITY",
+                            "id": "Owner#1"
+                          },
+                          {
+                            "industry": "UTILITY",
+                            "id": "Owner#2"
+                          }
+                        ],
+                        "excludedOwners": [
+                          {
+                            "industry": "UTILITY",
+                            "id": "Owner#3"
+                          },
+                          {
+                            "industry": "UTILITY",
+                            "id": "Owner#4"
+                          }
+                        ],
+                        "includedClientItems": [
+                          {
+                            "size": "1/0 AACR",
+                            "coreStrands": 0,
+                            "conductorStrands": 7
+                          },
+                          {
+                            "size": "2 AAAC",
+                            "coreStrands": 0,
+                            "conductorStrands": 7
+                          }
+                        ],
+                        "wireClasses": [
+                          {
+                            "name": "Secondary Wire Class",
+                            "usageGroup": "SECONDARY"
+                          }
+                        ],
+                        "usageGroups": [
+                          "PRIMARY",
+                          "OPEN_WIRE"
+                        ]
+                      },
+                      "thermalTemperatureOverride": {
+                        "value": 100.0,
+                        "unit": "FAHRENHEIT"
+                      }
+                    }
+                  ],
+                  "lower": [
+                    {
+                      "type": "Wire",
+                      "name": "Wire Component Group",
+                      "description": "I am a test wire component group",
+                      "industry": "UTILITY",
+                      "includedOwners": [
+                        {
+                          "industry": "UTILITY",
+                          "id": "Owner#1"
+                        },
+                        {
+                          "industry": "UTILITY",
+                          "id": "Owner#2"
+                        }
+                      ],
+                      "excludedOwners": [
+                        {
+                          "industry": "UTILITY",
+                          "id": "Owner#3"
+                        },
+                        {
+                          "industry": "UTILITY",
+                          "id": "Owner#4"
+                        }
+                      ],
+                      "includedClientItems": [
+                        {
+                          "size": "1/0 AACR",
+                          "coreStrands": 0,
+                          "conductorStrands": 7
+                        },
+                        {
+                          "size": "2 AAAC",
+                          "coreStrands": 0,
+                          "conductorStrands": 7
+                        }
+                      ],
+                      "wireClasses": [
+                        {
+                          "name": "Secondary Wire Class",
+                          "usageGroup": "SECONDARY"
+                        }
+                      ],
+                      "usageGroups": [
+                        "PRIMARY",
+                        "OPEN_WIRE"
+                      ]
+                    }
+                  ],
+                  "clearances": [
+                    {
+                      "upper": {
+                        "componentGroup": {
+                          "type": "Wire",
+                          "name": "Wire Component Group",
+                          "description": "I am a test wire component group",
+                          "industry": "UTILITY",
+                          "includedOwners": [
+                            {
+                              "industry": "UTILITY",
+                              "id": "Owner#1"
+                            },
+                            {
+                              "industry": "UTILITY",
+                              "id": "Owner#2"
+                            }
+                          ],
+                          "excludedOwners": [
+                            {
+                              "industry": "UTILITY",
+                              "id": "Owner#3"
+                            },
+                            {
+                              "industry": "UTILITY",
+                              "id": "Owner#4"
+                            }
+                          ],
+                          "includedClientItems": [
+                            {
+                              "size": "1/0 AACR",
+                              "coreStrands": 0,
+                              "conductorStrands": 7
+                            },
+                            {
+                              "size": "2 AAAC",
+                              "coreStrands": 0,
+                              "conductorStrands": 7
+                            }
+                          ],
+                          "wireClasses": [
+                            {
+                              "name": "Secondary Wire Class",
+                              "usageGroup": "SECONDARY"
+                            }
+                          ],
+                          "usageGroups": [
+                            "PRIMARY",
+                            "OPEN_WIRE"
+                          ]
+                        },
+                        "thermalTemperatureOverride": {
+                          "value": 100.0,
+                          "unit": "FAHRENHEIT"
+                        }
+                      },
+                      "lower": {
+                        "type": "Wire",
+                        "name": "Wire Component Group",
+                        "description": "I am a test wire component group",
+                        "industry": "UTILITY",
+                        "includedOwners": [
+                          {
+                            "industry": "UTILITY",
+                            "id": "Owner#1"
+                          },
+                          {
+                            "industry": "UTILITY",
+                            "id": "Owner#2"
+                          }
+                        ],
+                        "excludedOwners": [
+                          {
+                            "industry": "UTILITY",
+                            "id": "Owner#3"
+                          },
+                          {
+                            "industry": "UTILITY",
+                            "id": "Owner#4"
+                          }
+                        ],
+                        "includedClientItems": [
+                          {
+                            "size": "1/0 AACR",
+                            "coreStrands": 0,
+                            "conductorStrands": 7
+                          },
+                          {
+                            "size": "2 AAAC",
+                            "coreStrands": 0,
+                            "conductorStrands": 7
+                          }
+                        ],
+                        "wireClasses": [
+                          {
+                            "name": "Secondary Wire Class",
+                            "usageGroup": "SECONDARY"
+                          }
+                        ],
+                        "usageGroups": [
+                          "PRIMARY",
+                          "OPEN_WIRE"
+                        ]
+                      }
+                    }
+                  ],
+                  "exception": false,
+                  "addByDefault": false,
+                  "minimumSpan": {
+                    "value": 50.0,
+                    "unit": "METRE"
+                  },
+                  "maximumSpan": {
+                    "value": 100.0,
+                    "unit": "METRE"
+                  },
+                  "upperThermalState": {
+                    "type": "Wire State",
+                    "wireState": {
+                      "name": "Wire State Test",
+                      "wireTensionType": "FINAL_WITH_CREEP",
+                      "designCondition": {
+                        "name": "Test Weather Condition#1",
+                        "iceThickness": {
+                          "value": 15.0,
+                          "unit": "CENTIMETRE"
+                        },
+                        "windPressure": {
+                          "value": 5.0,
+                          "unit": "PASCAL"
+                        },
+                        "windSpeed": {
+                          "value": 2.8559773898876992,
+                          "unit": "METRE_PER_SECOND"
+                        },
+                        "temperature": {
+                          "value": 20.0,
+                          "unit": "CELSIUS"
+                        }
+                      },
+                      "highestStressCondition": {
+                        "name": "Test Weather Condition#2",
+                        "iceThickness": {
+                          "value": 15.0,
+                          "unit": "CENTIMETRE"
+                        },
+                        "windPressure": {
+                          "value": 5.0,
+                          "unit": "PASCAL"
+                        },
+                        "windSpeed": {
+                          "value": 2.8559773898876992,
+                          "unit": "METRE_PER_SECOND"
+                        },
+                        "temperature": {
+                          "value": 20.0,
+                          "unit": "CELSIUS"
+                        }
+                      },
+                      "creepCondition": {
+                        "name": "Test Weather Condition#3",
+                        "iceThickness": {
+                          "value": 15.0,
+                          "unit": "CENTIMETRE"
+                        },
+                        "windPressure": {
+                          "value": 5.0,
+                          "unit": "PASCAL"
+                        },
+                        "windSpeed": {
+                          "value": 2.8559773898876992,
+                          "unit": "METRE_PER_SECOND"
+                        },
+                        "temperature": {
+                          "value": 20.0,
+                          "unit": "CELSIUS"
+                        }
+                      },
+                      "outerStrandingCompression": false
+                    },
+                    "name": "Wire State Test"
+                  },
+                  "checkPhysicalState": false,
+                  "upperPhysicalState": {
+                    "type": "Wire State",
+                    "wireState": {
+                      "name": "Wire State Test",
+                      "wireTensionType": "FINAL_WITH_CREEP",
+                      "designCondition": {
+                        "name": "Test Weather Condition#1",
+                        "iceThickness": {
+                          "value": 15.0,
+                          "unit": "CENTIMETRE"
+                        },
+                        "windPressure": {
+                          "value": 5.0,
+                          "unit": "PASCAL"
+                        },
+                        "windSpeed": {
+                          "value": 2.8559773898876992,
+                          "unit": "METRE_PER_SECOND"
+                        },
+                        "temperature": {
+                          "value": 20.0,
+                          "unit": "CELSIUS"
+                        }
+                      },
+                      "highestStressCondition": {
+                        "name": "Test Weather Condition#2",
+                        "iceThickness": {
+                          "value": 15.0,
+                          "unit": "CENTIMETRE"
+                        },
+                        "windPressure": {
+                          "value": 5.0,
+                          "unit": "PASCAL"
+                        },
+                        "windSpeed": {
+                          "value": 2.8559773898876992,
+                          "unit": "METRE_PER_SECOND"
+                        },
+                        "temperature": {
+                          "value": 20.0,
+                          "unit": "CELSIUS"
+                        }
+                      },
+                      "creepCondition": {
+                        "name": "Test Weather Condition#3",
+                        "iceThickness": {
+                          "value": 15.0,
+                          "unit": "CENTIMETRE"
+                        },
+                        "windPressure": {
+                          "value": 5.0,
+                          "unit": "PASCAL"
+                        },
+                        "windSpeed": {
+                          "value": 2.8559773898876992,
+                          "unit": "METRE_PER_SECOND"
+                        },
+                        "temperature": {
+                          "value": 20.0,
+                          "unit": "CELSIUS"
+                        }
+                      },
+                      "outerStrandingCompression": false
+                    },
+                    "name": "Wire State Test"
+                  },
+                  "lowerThermalState": {
+                    "type": "Wire State",
+                    "wireState": {
+                      "name": "Wire State Test",
+                      "wireTensionType": "FINAL_WITH_CREEP",
+                      "designCondition": {
+                        "name": "Test Weather Condition#1",
+                        "iceThickness": {
+                          "value": 15.0,
+                          "unit": "CENTIMETRE"
+                        },
+                        "windPressure": {
+                          "value": 5.0,
+                          "unit": "PASCAL"
+                        },
+                        "windSpeed": {
+                          "value": 2.8559773898876992,
+                          "unit": "METRE_PER_SECOND"
+                        },
+                        "temperature": {
+                          "value": 20.0,
+                          "unit": "CELSIUS"
+                        }
+                      },
+                      "highestStressCondition": {
+                        "name": "Test Weather Condition#2",
+                        "iceThickness": {
+                          "value": 15.0,
+                          "unit": "CENTIMETRE"
+                        },
+                        "windPressure": {
+                          "value": 5.0,
+                          "unit": "PASCAL"
+                        },
+                        "windSpeed": {
+                          "value": 2.8559773898876992,
+                          "unit": "METRE_PER_SECOND"
+                        },
+                        "temperature": {
+                          "value": 20.0,
+                          "unit": "CELSIUS"
+                        }
+                      },
+                      "creepCondition": {
+                        "name": "Test Weather Condition#3",
+                        "iceThickness": {
+                          "value": 15.0,
+                          "unit": "CENTIMETRE"
+                        },
+                        "windPressure": {
+                          "value": 5.0,
+                          "unit": "PASCAL"
+                        },
+                        "windSpeed": {
+                          "value": 2.8559773898876992,
+                          "unit": "METRE_PER_SECOND"
+                        },
+                        "temperature": {
+                          "value": 20.0,
+                          "unit": "CELSIUS"
+                        }
+                      },
+                      "outerStrandingCompression": false
+                    },
+                    "name": "Wire State Test"
+                  },
+                  "lowerPhysicalState": {
+                    "type": "Wire State",
+                    "wireState": {
+                      "name": "Wire State Test",
+                      "wireTensionType": "FINAL_WITH_CREEP",
+                      "designCondition": {
+                        "name": "Test Weather Condition#1",
+                        "iceThickness": {
+                          "value": 15.0,
+                          "unit": "CENTIMETRE"
+                        },
+                        "windPressure": {
+                          "value": 5.0,
+                          "unit": "PASCAL"
+                        },
+                        "windSpeed": {
+                          "value": 2.8559773898876992,
+                          "unit": "METRE_PER_SECOND"
+                        },
+                        "temperature": {
+                          "value": 20.0,
+                          "unit": "CELSIUS"
+                        }
+                      },
+                      "highestStressCondition": {
+                        "name": "Test Weather Condition#2",
+                        "iceThickness": {
+                          "value": 15.0,
+                          "unit": "CENTIMETRE"
+                        },
+                        "windPressure": {
+                          "value": 5.0,
+                          "unit": "PASCAL"
+                        },
+                        "windSpeed": {
+                          "value": 2.8559773898876992,
+                          "unit": "METRE_PER_SECOND"
+                        },
+                        "temperature": {
+                          "value": 20.0,
+                          "unit": "CELSIUS"
+                        }
+                      },
+                      "creepCondition": {
+                        "name": "Test Weather Condition#3",
+                        "iceThickness": {
+                          "value": 15.0,
+                          "unit": "CENTIMETRE"
+                        },
+                        "windPressure": {
+                          "value": 5.0,
+                          "unit": "PASCAL"
+                        },
+                        "windSpeed": {
+                          "value": 2.8559773898876992,
+                          "unit": "METRE_PER_SECOND"
+                        },
+                        "temperature": {
+                          "value": 20.0,
+                          "unit": "CELSIUS"
+                        }
+                      },
+                      "outerStrandingCompression": false
+                    },
+                    "name": "Wire State Test"
+                  }
                 }
               ],
               "clearanceResults": {
