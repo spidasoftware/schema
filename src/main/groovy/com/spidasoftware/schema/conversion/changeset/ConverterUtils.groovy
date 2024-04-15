@@ -1,13 +1,10 @@
 /*
- * ©2009-2019 SPIDAWEB LLC
+ * Copyright (c) 2024 Bentley Systems, Incorporated. All rights reserved.
  */
 package com.spidasoftware.schema.conversion.changeset
 
 import com.spidasoftware.schema.conversion.changeset.calc.*
 import com.spidasoftware.schema.conversion.changeset.client.ClientDataConverter
-import com.spidasoftware.schema.conversion.changeset.v10.*
-import com.spidasoftware.schema.conversion.changeset.v11.ClientPoleSettingTypeChangeSet
-import com.spidasoftware.schema.conversion.changeset.v11.PoleCutTopChangeSet
 import com.spidasoftware.schema.conversion.changeset.v2.*
 import com.spidasoftware.schema.conversion.changeset.v3.*
 import com.spidasoftware.schema.conversion.changeset.v4.*
@@ -16,6 +13,8 @@ import com.spidasoftware.schema.conversion.changeset.v6.*
 import com.spidasoftware.schema.conversion.changeset.v7.*
 import com.spidasoftware.schema.conversion.changeset.v8.*
 import com.spidasoftware.schema.conversion.changeset.v9.*
+import com.spidasoftware.schema.conversion.changeset.v10.*
+import com.spidasoftware.schema.conversion.changeset.v11.*
 import groovy.util.logging.Slf4j
 
 @Slf4j
@@ -76,6 +75,7 @@ class ConverterUtils {
         converter.addChangeSet(10, new DecimalDirectionsChangeset())
         converter.addChangeSet(10, new TemperatureOverridesChangeSet())
         converter.addChangeSet(11, new ClientPoleSettingTypeChangeSet())
+        converter.addChangeSet(11, new WireStateLabelChangeSet())
         converter.addChangeSet(11, new PoleCutTopChangeSet())
 
         // add calc changesets above here
@@ -96,6 +96,7 @@ class ConverterUtils {
         converter.addChangeSet(10, new DecimalDirectionsChangeset())
         converter.addChangeSet(10, new TemperatureOverridesChangeSet())
         converter.addChangeSet(11, new ClientPoleSettingTypeChangeSet())
+        converter.addChangeSet(11, new WireStateLabelChangeSet())
         // add client data changesets above here
 
         converter.setCurrentVersion(currentVersion)

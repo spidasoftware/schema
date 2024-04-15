@@ -23,6 +23,10 @@
       "description": "name of the clearance rule",
       "type": "string"
     },
+    "clearanceStateName": {
+      "description": "name of the wire states group being applied to rule. ex: 'thermal' or 'physical'",
+      "type": "string"
+    },
     "clearanceCaseType": {
       "$ref": "../../spidacalc/client/enums/clearance_case_type.schema"
     },
@@ -109,5 +113,33 @@
       "type": "string"
     }
   },
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "clearanceCaseType": {
+          "enum": [ "AT_POLE" ]
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [ "clearanceStateName" ],
+      "properties": {
+        "clearanceCaseType": {
+          "enum": [ "BETWEEN" ]
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [ "clearanceStateName" ],
+      "properties": {
+        "clearanceCaseType": {
+          "enum": [ "TO_GROUND" ]
+        }
+      }
+    }
+  ],
   "additionalProperties": false
 }
