@@ -15,7 +15,7 @@
         "unit": "KILOGRAM_PER_CUBIC_METRE",
         "value": 160.1846337396014
       },
-      "allowable": {
+      "maximumAllowableStress": {
         "unit": "PASCAL",
         "value": 6.894757293168361E7
       },
@@ -49,8 +49,8 @@
         "unit": "KILOGRAM_PER_CUBIC_METRE",
         "value": 160.1846337396014
       },
-      "allowable": {
-        "unit": "PASCAL",
+      "maximumGroundLineMoment": {
+        "unit": "NEWTON_METRE",
         "value": 6.894757293168361E7
       },
       "ptc": {
@@ -83,7 +83,7 @@
         "unit": "KILOGRAM_PER_CUBIC_METRE",
         "value": 160.1846337396014
       },
-      "allowable": {
+      "maximumAllowableStress": {
         "unit": "PASCAL",
         "value": 6.894757293168361E7
       },
@@ -105,6 +105,144 @@
         "unit": "METRE",
         "value": 1.0
       }
+    },
+    {
+      "aliases": [],
+      "shape": "ROUND",
+      "materialCategory": "WOOD",
+      "classOfPole": "10\" Series II",
+      "species": "Fiberglass",
+      "height": {
+        "unit": "METRE",
+        "value": 12.192000000000002
+      },
+      "taper": 0.0,
+      "density": {
+        "unit": "KILOGRAM_PER_CUBIC_METRE",
+        "value": 160.1846337396014
+      },
+      "maximumAllowableStress": {
+        "unit": "PASCAL",
+        "value": 6.894757293168361E7
+      },
+      "ptc": {
+        "unit": "METRE",
+        "value": 0.957557440814169
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 6.894757293168361E10
+      },
+      "wallThickness": {
+        "unit": "METRE",
+        "value": -0.025400000000000002
+      },
+      "poissonRatio": 0.3,
+      "settingType": "ANSI",
+      "momentAtHeights": [
+        {
+          "distanceFromTip": {
+            "unit": "METRE",
+            "value": 6.096000000000001
+          },
+          "maximumAllowableMoment": {
+            "unit": "NEWTON_METRE",
+            "value": 5.0
+          }
+        }
+      ]
+    },
+    {
+      "aliases": [],
+      "shape": "ROUND",
+      "materialCategory": "WOOD",
+      "classOfPole": "10\" Series II",
+      "species": "Fiberglass",
+      "height": {
+        "unit": "METRE",
+        "value": 12.192000000000002
+      },
+      "taper": 0.0,
+      "density": {
+        "unit": "KILOGRAM_PER_CUBIC_METRE",
+        "value": 160.1846337396014
+      },
+      "maximumGroundLineMoment": {
+        "unit": "NEWTON_METRE",
+        "value": 6.894757293168361E7
+      },
+      "ptc": {
+        "unit": "METRE",
+        "value": 0.957557440814169
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 6.894757293168361E10
+      },
+      "wallThickness": {
+        "unit": "METRE",
+        "value": -0.025400000000000002
+      },
+      "poissonRatio": 0.3,
+      "settingType": "ANSI",
+      "momentAtHeights": [
+        {
+          "distanceFromTip": {
+            "unit": "METRE",
+            "value": 6.096000000000001
+          },
+          "maximumAllowableMoment": {
+            "unit": "NEWTON_METRE",
+            "value": 5.0
+          }
+        }
+      ]
+    },
+    {
+      "aliases": [],
+      "shape": "ROUND",
+      "materialCategory": "WOOD",
+      "classOfPole": "10\" Series II",
+      "species": "Fiberglass",
+      "height": {
+        "unit": "METRE",
+        "value": 12.192000000000002
+      },
+      "taper": 0.0,
+      "density": {
+        "unit": "KILOGRAM_PER_CUBIC_METRE",
+        "value": 160.1846337396014
+      },
+      "ptc": {
+        "unit": "METRE",
+        "value": 0.957557440814169
+      },
+      "modulus": {
+        "unit": "PASCAL",
+        "value": 6.894757293168361E10
+      },
+      "wallThickness": {
+        "unit": "METRE",
+        "value": -0.025400000000000002
+      },
+      "poissonRatio": 0.3,
+      "settingType": "ANSI",
+      "maximumAllowableStress": {
+        "value": 6.812,
+        "unit": "PASCAL"
+      },
+      "momentAtHeights": [
+        {
+          "distanceFromTip": {
+            "unit": "METRE",
+            "value": 6.096000000000001
+          },
+          "maximumAllowableMoment": {
+            "unit": "NEWTON_METRE",
+            "value": 101.0
+          }
+        }
+      ]
     }
   ]
 }
