@@ -20,7 +20,7 @@
   }, 
   "shape": "ROUND", 
   "species": "Douglas Fir", 
-  "allowable": {
+  "maximumGroundLineMoment": {
     "unit": "POUND_FORCE_PER_SQUARE_INCH", 
     "value": 8000
   }, 

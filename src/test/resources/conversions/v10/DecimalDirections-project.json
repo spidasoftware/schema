@@ -41,7 +41,7 @@
           "unit": "KILOGRAM_PER_CUBIC_METRE",
           "value": 576.664681462565
         },
-        "allowable": {
+        "maximumAllowableStress": {
           "unit": "PASCAL",
           "value": 5.515805834534689E7
         },
@@ -79,7 +79,7 @@
           "unit": "KILOGRAM_PER_CUBIC_METRE",
           "value": 576.664681462565
         },
-        "allowable": {
+        "maximumAllowableStress": {
           "unit": "PASCAL",
           "value": 5.515805834534689E7
         },
