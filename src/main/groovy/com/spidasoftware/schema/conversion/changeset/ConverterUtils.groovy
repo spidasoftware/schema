@@ -77,6 +77,7 @@ class ConverterUtils {
         converter.addChangeSet(11, new ClientPoleSettingTypeChangeSet())
         converter.addChangeSet(11, new WireStateLabelChangeSet())
         converter.addChangeSet(11, new PoleCutTopChangeSet())
+        converter.addChangeSet(11, new WireMountedEquipmentChangeSet())
 
         // add calc changesets above here
         converter.setCurrentVersion(currentVersion)
