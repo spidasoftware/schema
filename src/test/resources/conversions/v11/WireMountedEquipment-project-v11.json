@@ -1,0 +1,739 @@
+{
+    "label": "New Project",
+    "company": {
+        "id": 60425,
+        "name": "Standard"
+    },
+    "dateModified": 1713525580591,
+    "clientFile": "Demo.client",
+    "date": "2024-04-19",
+    "schema": "/schema/spidacalc/calc/project.schema",
+    "version": 11,
+    "engineer": "",
+    "comments": "",
+    "generalLocation": "",
+    "address": {
+        "number": "",
+        "street": "",
+        "city": "",
+        "county": "",
+        "state": "",
+        "zip_code": ""
+    },
+    "userDefinedValues": {},
+    "clientData": {
+        "schema": "/schema/spidacalc/client/data.schema",
+        "version": 11,
+        "name": "Demo.client",
+        "poles": [
+            {
+                "aliases": [
+                    {
+                        "id": "40-3"
+                    }
+                ],
+                "shape": "ROUND",
+                "materialCategory": "WOOD",
+                "classOfPole": "3",
+                "species": "Southern Pine",
+                "height": {
+                    "unit": "METRE",
+                    "value": 12.192000000000002
+                },
+                "taper": 0.121706702,
+                "density": {
+                    "unit": "KILOGRAM_PER_CUBIC_METRE",
+                    "value": 576.664681462565
+                },
+                "allowable": {
+                    "unit": "PASCAL",
+                    "value": 5.515805834534689E7
+                },
+                "ptc": {
+                    "unit": "METRE",
+                    "value": 0.5841999645522462
+                },
+                "modulus": {
+                    "unit": "PASCAL",
+                    "value": 1.72368932329209E10
+                },
+                "wallThickness": {
+                    "unit": "METRE",
+                    "value": -0.0254
+                },
+                "poissonRatio": 0.3,
+                "settingType": "ANSI"
+            }
+        ],
+        "wires": [
+            {
+                "aliases": [
+                    {
+                        "id": "1/0 AAAC",
+                        "tensionGroupName": "Full"
+                    },
+                    {
+                        "id": "1/0 AAAC - S",
+                        "tensionGroupName": "Slack"
+                    }
+                ],
+                "size": "1/0 AAAC",
+                "calculation": "DYNAMIC",
+                "strength": {
+                    "unit": "NEWTON",
+                    "value": 18993.90629716233
+                },
+                "weight": {
+                    "unit": "NEWTON_PER_METRE",
+                    "value": 1.676839447485011
+                },
+                "crossArea": {
+                    "unit": "SQUARE_METRE",
+                    "value": 6.2451488E-5
+                },
+                "diameter": {
+                    "unit": "METRE",
+                    "value": 0.0101092
+                },
+                "description": "1/0 AAAC - Azusa",
+                "coreStrands": 0,
+                "conductorStrands": 7,
+                "numberOfConductors": 1,
+                "usageGroups": [
+                    "PRIMARY",
+                    "NEUTRAL"
+                ],
+                "conductorProperties": "TOTAL",
+                "expansionCoefficient": {
+                    "unit": "PER_CELSIUS",
+                    "value": 2.303999999999999E-5
+                },
+                "modulus": {
+                    "unit": "PASCAL",
+                    "value": 6.136333990919842E10
+                },
+                "tensionGroups": [
+                    {
+                        "name": "Full",
+                        "temperature": {
+                            "unit": "CELSIUS",
+                            "value": 15.55555555555555
+                        },
+                        "groups": [
+                            {
+                                "distance": {
+                                    "unit": "METRE",
+                                    "value": 1523.6952
+                                },
+                                "tension": {
+                                    "unit": "NEWTON",
+                                    "value": 2279.26875565948
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Slack",
+                        "temperature": {
+                            "unit": "CELSIUS",
+                            "value": 15.55555555555555
+                        },
+                        "groups": [
+                            {
+                                "distance": {
+                                    "unit": "METRE",
+                                    "value": 1523.6952
+                                },
+                                "tension": {
+                                    "unit": "NEWTON",
+                                    "value": 474.8476574290584
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "anchors": [],
+        "equipments": [
+            {
+                "aliases": [],
+                "size": "testsize",
+                "type": {
+                    "name": "WIRE_MOUNTED",
+                    "industry": "BOTH"
+                },
+                "distanceToBottom": {
+                    "unit": "METRE",
+                    "value": 0.01
+                },
+                "distanceToTop": {
+                    "unit": "METRE",
+                    "value": 0.01
+                },
+                "valuePerLength": {
+                    "unit": "METRE",
+                    "value": 0.0
+                },
+                "shape": "ROUND",
+                "offset": {
+                    "unit": "METRE",
+                    "value": 0.0
+                },
+                "weight": {
+                    "unit": "NEWTON",
+                    "value": 1.0
+                },
+                "lateralArea": {
+                    "unit": "SQUARE_METRE",
+                    "value": 1.0
+                },
+                "poleSideArea": {
+                    "unit": "SQUARE_METRE",
+                    "value": 1.0
+                },
+                "throughHoleDiameter": {
+                    "unit": "METRE",
+                    "value": -0.0015875000000000002
+                }
+            }
+        ],
+        "equipmentTypes": [
+            {
+                "name": "APPARATUS_CASE",
+                "industry": "COMMUNICATION"
+            },
+            {
+                "name": "CAPACITOR",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "CROSS_CONNECT",
+                "industry": "COMMUNICATION"
+            },
+            {
+                "name": "CUTOUT_ARRESTOR",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "DRIP_LOOP",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "JOINT_USE_BOX",
+                "industry": "COMMUNICATION"
+            },
+            {
+                "name": "LOAD_COIL_CASE",
+                "industry": "COMMUNICATION"
+            },
+            {
+                "name": "POWER_SUPPLY",
+                "industry": "COMMUNICATION"
+            },
+            {
+                "name": "PRIMARY_METERING",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "RECLOSER",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "REGULATOR",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "RISER",
+                "industry": "BOTH"
+            },
+            {
+                "name": "SPLICE_CASE",
+                "industry": "COMMUNICATION"
+            },
+            {
+                "name": "STREET_LIGHT",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "SWITCH",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "TERMINATION_BRACKET",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "TRANSFORMER",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "WIRE_MOUNTED",
+                "industry": "BOTH"
+            },
+            {
+                "name": "WIRELESS_ANTENNA",
+                "industry": "BOTH"
+            }
+        ],
+        "insulators": [],
+        "foundations": [],
+        "crossArms": [],
+        "braces": [],
+        "bundleComponents": [],
+        "bundles": [],
+        "assemblies": [],
+        "environments": [],
+        "defaultEnvironment": {
+            "name": "None",
+            "description": "N/A"
+        },
+        "analysisCases": [],
+        "owners": [
+            {
+                "industry": "UTILITY",
+                "id": "Acme Power"
+            }
+        ],
+        "notes": [],
+        "locationForms": [],
+        "projectForms": [],
+        "customReportSetups": [],
+        "designLayers": [
+            {
+                "name": "Measured Design",
+                "type": "Measured"
+            }
+        ],
+        "defaultLocationForms": [],
+        "defaultProjectForms": [],
+        "clearanceCases": [],
+        "componentGroups": [],
+        "wireClasses": [],
+        "wireStates": [],
+        "hash": "c5e8645d5e685b655fa8c4599d906076"
+    },
+    "clientFileVersion": "c5e8645d5e685b655fa8c4599d906076",
+    "forms": [
+        {
+            "title": "Project Summary",
+            "formDefinition": [
+                {
+                    "fieldName": "Work Order #",
+                    "fieldType": "customTextField"
+                },
+                {
+                    "fieldName": "Total Estimated Cost",
+                    "fieldType": "customTextField"
+                },
+                {
+                    "fieldName": "Total Estimated Hours",
+                    "fieldType": "customTextField"
+                },
+                {
+                    "fieldName": "Pole Replacements",
+                    "fieldType": "customSpinner"
+                },
+                {
+                    "fieldName": "Rearrangements",
+                    "fieldType": "customSpinner"
+                }
+            ],
+            "fields": {
+                "Work Order #": "",
+                "Total Estimated Cost": "",
+                "Total Estimated Hours": "",
+                "Pole Replacements": "0",
+                "Rearrangements": "0"
+            },
+            "template": "c5e8645d5e685b655fa8c4599d906076-Project Summary"
+        }
+    ],
+    "defaultLocationForms": [],
+    "defaultLoadCases": [],
+    "leads": [
+        {
+            "label": "Lead",
+            "locations": [
+                {
+                    "label": "Location-04-19-2024-04-19-03-98",
+                    "mapNumber": "",
+                    "comments": "",
+                    "address": {
+                        "number": "",
+                        "street": "",
+                        "city": "",
+                        "county": "",
+                        "state": "",
+                        "zip_code": ""
+                    },
+                    "technician": "",
+                    "crossStreet1": "",
+                    "crossStreet2": "",
+                    "geographicCoordinate": {
+                        "type": "Point",
+                        "coordinates": [
+                            -117.82305300235748,
+                            49.10379394649906
+                        ]
+                    },
+                    "remedies": [],
+                    "poleTags": [],
+                    "userDefinedValues": {},
+                    "summaryNotes": [],
+                    "forms": [],
+                    "images": [],
+                    "photosToBeAssigned": [],
+                    "designs": [
+                        {
+                            "label": "Measured Design",
+                            "layerType": "Measured",
+                            "structure": {
+                                "pole": {
+                                    "id": "Pole",
+                                    "externalId": "6622532789b805cd19508ce4",
+                                    "owner": {
+                                        "industry": "UTILITY",
+                                        "id": "Acme Power"
+                                    },
+                                    "glc": {
+                                        "unit": "METRE",
+                                        "value": 0.9143999124938956
+                                    },
+                                    "agl": {
+                                        "unit": "METRE",
+                                        "value": 10.3632
+                                    },
+                                    "autoGLC": true,
+                                    "autoAGL": true,
+                                    "cutTop": {
+                                        "unit": "METRE",
+                                        "value": 0.0
+                                    },
+                                    "environment": "None",
+                                    "temperature": {
+                                        "unit": "CELSIUS",
+                                        "value": 15.555555555555555
+                                    },
+                                    "stressRatio": 1.0,
+                                    "leanAngle": 0,
+                                    "leanDirection": 0.0,
+                                    "clientItemVersion": "3219d86b8b284a56353c345d061f0203",
+                                    "clientItem": {
+                                        "species": "Southern Pine",
+                                        "classOfPole": "3",
+                                        "height": {
+                                            "unit": "METRE",
+                                            "value": 12.192000000000002
+                                        }
+                                    },
+                                    "clientItemAlias": "40-3"
+                                },
+                                "wireEndPoints": [
+                                    {
+                                        "id": "WEP#1",
+                                        "externalId": "6622533f89b805cd19508d20",
+                                        "direction": 95.0,
+                                        "distance": {
+                                            "unit": "METRE",
+                                            "value": 74.00000000065205
+                                        },
+                                        "relativeElevation": {
+                                            "unit": "METRE",
+                                            "value": 0.0
+                                        },
+                                        "inclination": {
+                                            "unit": "RADIAN",
+                                            "value": 0.0
+                                        },
+                                        "type": "NEXT_POLE",
+                                        "comments": "",
+                                        "environment": "None",
+                                        "wires": [
+                                            "Wire#1"
+                                        ],
+                                        "spanGuys": [],
+                                        "spanPoints": [],
+                                        "terrainPoints": [],
+                                        "environmentRegions": [],
+                                        "connectionId": "6622533f89b805cd19508d26"
+                                    }
+                                ],
+                                "spanPoints": [],
+                                "anchors": [],
+                                "notePoints": [],
+                                "pointLoads": [],
+                                "wirePointLoads": [],
+                                "damages": [],
+                                "wires": [
+                                    {
+                                        "id": "Wire#1",
+                                        "externalId": "6622534589b805cd19508d4f",
+                                        "owner": {
+                                            "industry": "UTILITY",
+                                            "id": "Acme Power"
+                                        },
+                                        "clientItemVersion": "47129fcc1a0626b9180b049ee42132e3",
+                                        "clientItem": {
+                                            "size": "1/0 AAAC",
+                                            "coreStrands": 0,
+                                            "conductorStrands": 7
+                                        },
+                                        "clientItemAlias": "1/0 AAAC",
+                                        "attachmentHeight": {
+                                            "unit": "METRE",
+                                            "value": 7.6
+                                        },
+                                        "usageGroup": "PRIMARY",
+                                        "tensionGroup": "Full",
+                                        "midspanHeight": {
+                                            "unit": "METRE",
+                                            "value": 0.0
+                                        },
+                                        "connectionId": "6622534689b805cd19508d6d",
+                                        "wireEndPointPlacement": {
+                                            "vector": [
+                                                0.009327250221939169,
+                                                0.10661095787135905,
+                                                7.6
+                                            ],
+                                            "unit": "METRE"
+                                        }
+                                    }
+                                ],
+                                "spanGuys": [],
+                                "guys": [],
+                                "equipments": [],
+                                "wireMountedEquipments": [
+                                    {
+                                        "id": "Equip#1",
+                                        "externalId": "6622534b89b805cd19508d75",
+                                        "distance": {
+                                            "value": 73.69520000065205,
+                                            "unit": "METRE"
+                                        },
+                                        "owner": {
+                                            "industry": "UTILITY",
+                                            "id": "Acme Power"
+                                        },
+                                        "clientItemVersion": "87591cd49240a70ee747e267779cec9b",
+                                        "clientItem": {
+                                            "type": "WIRE_MOUNTED",
+                                            "size": "testsize"
+                                        },
+                                        "wireId": "Wire#1",
+                                        "connectionId": "6622534c89b805cd19508da3"
+                                    }
+                                ],
+                                "guyAttachPoints": [],
+                                "crossArms": [],
+                                "insulators": [],
+                                "pushBraces": [],
+                                "sidewalkBraces": [],
+                                "foundations": [],
+                                "assemblies": []
+                            },
+                            "mapLocation": {
+                                "type": "Point",
+                                "coordinates": [
+                                    -117.82305300235748,
+                                    49.10379394649906
+                                ]
+                            },
+                            "analysis": []
+                        }
+                    ]
+                },
+                {
+                    "label": "Location-04-19-2024-04-19-27-863",
+                    "mapNumber": "",
+                    "comments": "",
+                    "address": {
+                        "number": "",
+                        "street": "",
+                        "city": "",
+                        "county": "",
+                        "state": "",
+                        "zip_code": ""
+                    },
+                    "technician": "",
+                    "crossStreet1": "",
+                    "crossStreet2": "",
+                    "geographicCoordinate": {
+                        "type": "Point",
+                        "coordinates": [
+                            -117.82204064991518,
+                            49.10373595646209
+                        ]
+                    },
+                    "remedies": [],
+                    "poleTags": [],
+                    "userDefinedValues": {},
+                    "summaryNotes": [],
+                    "forms": [],
+                    "images": [],
+                    "photosToBeAssigned": [],
+                    "designs": [
+                        {
+                            "label": "Measured Design",
+                            "layerType": "Measured",
+                            "structure": {
+                                "pole": {
+                                    "id": "Pole",
+                                    "externalId": "6622533f89b805cd19508d1e",
+                                    "owner": {
+                                        "industry": "UTILITY",
+                                        "id": "Acme Power"
+                                    },
+                                    "glc": {
+                                        "unit": "METRE",
+                                        "value": 0.9143999124938956
+                                    },
+                                    "agl": {
+                                        "unit": "METRE",
+                                        "value": 10.3632
+                                    },
+                                    "autoGLC": true,
+                                    "autoAGL": true,
+                                    "cutTop": {
+                                        "unit": "METRE",
+                                        "value": 0.0
+                                    },
+                                    "environment": "None",
+                                    "temperature": {
+                                        "unit": "CELSIUS",
+                                        "value": 15.555555555555555
+                                    },
+                                    "stressRatio": 1.0,
+                                    "leanAngle": 0,
+                                    "leanDirection": 0.0,
+                                    "clientItemVersion": "3219d86b8b284a56353c345d061f0203",
+                                    "clientItem": {
+                                        "species": "Southern Pine",
+                                        "classOfPole": "3",
+                                        "height": {
+                                            "unit": "METRE",
+                                            "value": 12.192000000000002
+                                        }
+                                    },
+                                    "clientItemAlias": "40-3"
+                                },
+                                "wireEndPoints": [
+                                    {
+                                        "id": "WEP#1",
+                                        "externalId": "6622533f89b805cd19508d27",
+                                        "direction": 275.0,
+                                        "distance": {
+                                            "unit": "METRE",
+                                            "value": 74.00000000065205
+                                        },
+                                        "relativeElevation": {
+                                            "unit": "METRE",
+                                            "value": -0.0
+                                        },
+                                        "inclination": {
+                                            "unit": "RADIAN",
+                                            "value": -0.0
+                                        },
+                                        "type": "PREVIOUS_POLE",
+                                        "comments": "",
+                                        "environment": "None",
+                                        "wires": [
+                                            "Wire#1"
+                                        ],
+                                        "spanGuys": [],
+                                        "spanPoints": [],
+                                        "terrainPoints": [],
+                                        "environmentRegions": [],
+                                        "connectionId": "6622533f89b805cd19508d26"
+                                    }
+                                ],
+                                "spanPoints": [],
+                                "anchors": [],
+                                "notePoints": [],
+                                "pointLoads": [],
+                                "wirePointLoads": [],
+                                "damages": [],
+                                "wires": [
+                                    {
+                                        "id": "Wire#1",
+                                        "externalId": "6622534589b805cd19508d4f",
+                                        "owner": {
+                                            "industry": "UTILITY",
+                                            "id": "Acme Power"
+                                        },
+                                        "clientItemVersion": "47129fcc1a0626b9180b049ee42132e3",
+                                        "clientItem": {
+                                            "size": "1/0 AAAC",
+                                            "coreStrands": 0,
+                                            "conductorStrands": 7
+                                        },
+                                        "clientItemAlias": "1/0 AAAC",
+                                        "attachmentHeight": {
+                                            "unit": "METRE",
+                                            "value": 7.6
+                                        },
+                                        "usageGroup": "PRIMARY",
+                                        "tensionGroup": "Full",
+                                        "midspanHeight": {
+                                            "unit": "METRE",
+                                            "value": 0.0
+                                        },
+                                        "connectionId": "6622534689b805cd19508d6d",
+                                        "wireEndPointPlacement": {
+                                            "vector": [
+                                                -0.009327250221939207,
+                                                -0.10661095787135905,
+                                                7.6
+                                            ],
+                                            "unit": "METRE"
+                                        }
+                                    }
+                                ],
+                                "spanGuys": [],
+                                "guys": [],
+                                "equipments": [],
+                                "wireMountedEquipments": [
+                                    {
+                                        "id": "Equip#1",
+                                        "externalId": "6622534b89b805cd19508d75",
+                                        "distance": {
+                                            "value": 0.3048000000000002,
+                                            "unit": "METRE"
+                                        },
+                                        "owner": {
+                                            "industry": "UTILITY",
+                                            "id": "Acme Power"
+                                        },
+                                        "clientItemVersion": "87591cd49240a70ee747e267779cec9b",
+                                        "clientItem": {
+                                            "type": "WIRE_MOUNTED",
+                                            "size": "testsize"
+                                        },
+                                        "wireId": "Wire#1",
+                                        "connectionId": "6622534c89b805cd19508da3"
+                                    }
+                                ],
+                                "guyAttachPoints": [],
+                                "crossArms": [],
+                                "insulators": [],
+                                "pushBraces": [],
+                                "sidewalkBraces": [],
+                                "foundations": [],
+                                "assemblies": []
+                            },
+                            "mapLocation": {
+                                "type": "Point",
+                                "coordinates": [
+                                    -117.82204064991518,
+                                    49.10373595646209
+                                ]
+                            },
+                            "analysis": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -556,10 +556,64 @@
             "pattern": "[a-f0-9]{32}",
             "description": "Hash of the client item containing the engineering properties for this equipment."
           },
-		  "clientItemAlias": {
-			"type": "string",
-			"description": "An alias for a client equipment. Used for integration."
-		  }
+          "clientItemAlias": {
+            "type": "string",
+            "description": "An alias for a client equipment. Used for integration."
+          }
+        }
+      }
+    },
+    "wireMountedEquipments": {
+      "description": "List of all wire mounted equipment attached to the structure",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "id": "wireMountedEquipment",
+        "required": [
+          "id",
+          "distance",
+          "owner"
+        ],
+        "anyOf": [
+          {"required":["clientItem"]},
+          {"required":["clientItemVersion"]},
+          {"required":["clientItemAlias"]}
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The display ID for the attachment. Must be unique within the pole."
+          },
+          "externalId": {
+            "type": "string",
+            "description": "An optional externalId for the item."
+          },
+          "owner": {
+            "$ref": "../../general/owner.schema"
+          },
+          "wireId": {
+            "type": "string",
+            "description": "ID to parent wire"
+          },
+          "distance": {
+            "$ref": "../../general/measurable.schema",
+            "description": "Measured distance from the pole along its attached wire"
+          },
+          "connectionId": {
+            "description": "The shared connection id.  Represents the unique connection between two objects.  Must be two and only two objects with the same id.",
+            "pattern": "[a-f0-9]{24}",
+            "type": "string"
+          },
+          "clientItem": {
+            "$ref": "../../spidacalc/calc/client_references/equipment.schema",
+            "description": "Reference to the client item with the engineering properties for this equipment."
+          },
+          "clientItemVersion": {
+            "type": "string",
+            "pattern": "[a-f0-9]{32}",
+            "description": "Hash of the client item containing the engineering properties for this equipment."
+          }
         }
       }
     },
