@@ -1,0 +1,86 @@
+{
+  "leads": [
+    {
+      "locations": [
+        {
+          "designs": [
+            {
+              "clearanceCases": [
+                {
+                  "type": "Wire To Wire",
+                  "name": "In Span Same cct",
+                  "checkThermalTemperatureOverride": true,
+                  "checkPhysicalTemperatureOverride": false
+                },
+                {
+                  "type": "Wire To Wire",
+                  "name": "In Span Same cct override",
+                  "checkThermalTemperatureOverride": true,
+                  "checkPhysicalTemperatureOverride": false
+                }
+              ],
+              "clearanceResults": {
+                "results": [
+                  {
+                    "clearanceCase": "In Span Same cct",
+                    "clearanceCaseType": "BETWEEN",
+                    "ruleResults": [
+                      {
+                        "clearanceCaseName": "In Span Same cct",
+                        "clearanceRuleName": "Primary to 0-750V - Thermal",
+                        "clearanceCaseType": "BETWEEN"
+                      },
+                      {
+                        "clearanceCaseName": "In Span Same cct",
+                        "clearanceRuleName": "Primary to 0-750V - Physical",
+                        "clearanceCaseType": "BETWEEN"
+                      }
+                    ]
+                  },
+                  {
+                    "clearanceCase": "In Span Same cct override",
+                    "clearanceCaseType": "BETWEEN",
+                    "ruleResults": [
+                      {
+                        "clearanceCaseName": "In Span Same cct override",
+                        "clearanceRuleName": "Primary to 0-750V - Thermal",
+                        "clearanceCaseType": "BETWEEN"
+                      },
+                      {
+                        "clearanceCaseName": "In Span Same cct override",
+                        "clearanceRuleName": "Primary to 0-750V - Physical",
+                        "clearanceCaseType": "BETWEEN"
+                      }
+                    ]
+                  }
+                ],
+                "violations": [
+                  {
+                    "clearanceCaseName": "In Span Same cct",
+                    "clearanceRuleName": "Primary to 0-750V - Thermal",
+                    "clearanceCaseType": "BETWEEN"
+                  },
+                  {
+                    "clearanceCaseName": "In Span Same cct",
+                    "clearanceRuleName": "Primary to 0-750V - Physical",
+                    "clearanceCaseType": "BETWEEN"
+                  },
+                  {
+                    "clearanceCaseName": "In Span Same cct override",
+                    "clearanceRuleName": "Primary to 0-750V - Thermal",
+                    "clearanceCaseType": "BETWEEN"
+                  },
+                  {
+                    "clearanceCaseName": "In Span Same cct override",
+                    "clearanceRuleName": "Primary to 0-750V - Physical",
+                    "clearanceCaseType": "BETWEEN"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
