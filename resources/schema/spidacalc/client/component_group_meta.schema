@@ -7,7 +7,7 @@
       "componentGroup": {
         "$ref": "../../spidacalc/client/component_group.schema"
       },
-      "thermalTemperatureOverride": {
+      "temperatureOverride": {
         "$ref": "../../general/measurable.schema"
       }
     },

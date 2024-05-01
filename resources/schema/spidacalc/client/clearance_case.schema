@@ -54,6 +54,12 @@
       "checkPhysicalState": {
         "type": "boolean"
       },
+      "checkThermalTemperatureOverride": {
+        "type": "boolean"
+      },
+      "checkPhysicalTemperatureOverride": {
+        "type": "boolean"
+      },
       "thermalStateName": {
         "type": "string",
         "description": "Custom name for thermal wire states"
@@ -112,6 +118,12 @@
             "$ref": "../../spidacalc/client/wire_height_calculator.schema"
           },
           "checkPhysicalState": {
+            "type": "boolean"
+          },
+          "checkThermalTemperatureOverride": {
+            "type": "boolean"
+          },
+          "checkPhysicalTemperatureOverride": {
             "type": "boolean"
           },
           "thermalStateName": {
@@ -213,6 +225,12 @@
             "$ref": "../../spidacalc/client/wire_height_calculator.schema"
           },
           "checkPhysicalState": {
+            "type": "boolean"
+          },
+          "checkThermalTemperatureOverride": {
+            "type": "boolean"
+          },
+          "checkPhysicalTemperatureOverride": {
             "type": "boolean"
           },
           "thermalStateName": {

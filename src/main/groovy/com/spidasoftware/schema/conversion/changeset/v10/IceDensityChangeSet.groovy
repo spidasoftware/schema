@@ -295,10 +295,10 @@ class IceDensityChangeSet extends AbstractClientDataChangeSet {
             }
         }
 
-        if (clearancesJSON.containsKey("LowerPhysicalState")) {
-            Map LowerPhysicalState = clearancesJSON.LowerPhysicalState as Map
-            if (LowerPhysicalState.containsKey("wireState")) {
-                anyChanged |= addIceDensityToWireState(LowerPhysicalState.wireState as Map)
+        if (clearancesJSON.containsKey("lowerPhysicalState")) {
+            Map lowerPhysicalState = clearancesJSON.lowerPhysicalState as Map
+            if (lowerPhysicalState.containsKey("wireState")) {
+                anyChanged |= addIceDensityToWireState(lowerPhysicalState.wireState as Map)
             }
         }
         return anyChanged
