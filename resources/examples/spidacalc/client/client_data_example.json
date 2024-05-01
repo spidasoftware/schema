@@ -312,7 +312,7 @@
    }],
    "poles": [{
      "aliases": [],
-     "allowable": {
+     "maximumAllowableStress": {
        "unit": "PASCAL",
        "value": 55158058.34534689
      },
