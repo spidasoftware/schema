@@ -244,5 +244,27 @@
         }
       ]
     }
+  ],
+  "trusses": [
+    {
+      "size": "client truss",
+      "lateralArea": {
+        "unit": "SQUARE_METRE",
+        "value": 21.2
+      },
+      "poleSideArea": {
+        "unit": "SQUARE_METRE",
+        "value": 18.7
+      },
+      "shape": "ROUND",
+      "defaultHeightAboveGround": {
+        "unit": "METRE",
+        "value": 15.0
+      },
+      "momentCapacity": {
+        "unit": "NEWTON_METRE",
+        "value": 1000.0
+      }
+    }
   ]
 }

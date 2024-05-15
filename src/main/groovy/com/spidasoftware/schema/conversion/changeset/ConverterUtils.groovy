@@ -79,6 +79,7 @@ class ConverterUtils {
         converter.addChangeSet(11, new WireStateLabelChangeSet())
         converter.addChangeSet(11, new PoleCutTopChangeSet())
         converter.addChangeSet(11, new MomentAtHeightChangeSet())
+        converter.addChangeSet(11, new ClientTrussChangeSet())
 
         // add calc changesets above here
         converter.setCurrentVersion(currentVersion)
@@ -101,6 +102,7 @@ class ConverterUtils {
         converter.addChangeSet(11, new MomentAtHeightChangeSet())
         converter.addChangeSet(11, new UpdateTempOverridesChangeSet())
         converter.addChangeSet(11, new WireStateLabelChangeSet())
+        converter.addChangeSet(11, new ClientTrussChangeSet())
         // add client data changesets above here
 
         converter.setCurrentVersion(currentVersion)
