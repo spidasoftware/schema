@@ -6,7 +6,7 @@ package com.spidasoftware.schema.conversion.changeset.v11
 import com.spidasoftware.schema.conversion.changeset.ConversionException
 import com.spidasoftware.schema.conversion.changeset.client.AbstractClientDataChangeSet
 
-class ClientTrussChangeSet extends AbstractClientDataChangeSet {
+class TrussChangeSet extends AbstractClientDataChangeSet {
 
     @Override
     boolean applyToClientData(Map clientDataJSON) throws ConversionException {
