@@ -1,0 +1,50 @@
+{
+  "description": "A single truss in a structure",
+  "id": "#/spidacalc/calc/truss.schema",
+  "type": "object",
+  "required": [
+    "id",
+    "attachmentHeight",
+    "direction",
+    "doubleTruss"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "externalId": {
+      "type": "string",
+    },
+    "owner": {
+      "$ref": "../../general/owner.schema"
+    },
+    "attachmentHeight": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "direction": {
+      "$ref": "../../general/bearing.schema"
+    },
+    "doubleTruss": {
+      "type": "boolean"
+    },
+    "clientItem": {
+      "type": "string",
+      "description": "the size of the client truss"
+    },
+    "clientItemVersion": {
+      "type": "string",
+      "description": "the client truss version hash"
+      "pattern": "[a-f0-9]{32}"
+    },
+    "clientItemAlias": {
+      "type": "string",
+      "description": "an alias for a client truss"
+    }
+  },
+  "anyOf": [
+    { "required": ["clientItem"] },
+    { "required": ["clientItemVersion"] },
+    { "required": ["clientItemAlias"] }
+  ],
+  "additionalValues": false
+}
