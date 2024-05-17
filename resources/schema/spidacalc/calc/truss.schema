@@ -13,7 +13,7 @@
       "type": "string"
     },
     "externalId": {
-      "type": "string",
+      "type": "string"
     },
     "owner": {
       "$ref": "../../general/owner.schema"
@@ -33,7 +33,7 @@
     },
     "clientItemVersion": {
       "type": "string",
-      "description": "the client truss version hash"
+      "description": "the client truss version hash",
       "pattern": "[a-f0-9]{32}"
     },
     "clientItemAlias": {
