@@ -4,6 +4,7 @@
   "type": "object",
   "required": [
     "id",
+    "owner",
     "attachmentHeight",
     "direction",
     "doubleTruss"
