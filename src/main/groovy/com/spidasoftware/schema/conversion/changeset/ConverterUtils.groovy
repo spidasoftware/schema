@@ -121,6 +121,7 @@ class ConverterUtils {
         converter.addChangeSet(10, new LoadCaseNameChangeSet())
         converter.addChangeSet(10, new DecimalDirectionsChangeset())
         converter.addChangeSet(11, new PoleCutTopChangeSet())
+        converter.addChangeSet(11, new TrussChangeSet())
         // add result changesets above here
 
         converter.setCurrentVersion(currentVersion)

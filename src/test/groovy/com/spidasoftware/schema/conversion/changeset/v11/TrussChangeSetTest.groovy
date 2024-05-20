@@ -16,14 +16,47 @@ class TrussChangeSetTest extends Specification {
 
     def "revert client data"() {
         setup:
-            InputStream stream = TrussChangeSetTest.getResourceAsStream("/conversions/v11/ClientPole-client-v11.json")
+            InputStream stream = TrussChangeSetTest.getResourceAsStream("/conversions/v11/Truss-project-v11.json")
             Map json = new JsonSlurper().parse(stream) as Map
             stream.close()
         expect:
-            json.trusses
+            json.clientData.trusses
+            json.clientData.assemblies[0].assemblyStructure.trusses
         when:
-            trussChangeSet.revertClientData(json)
+            boolean changed = trussChangeSet.revertClientData(json.clientData as Map)
         then:
-            !json.trusses
+            changed
+            !json.clientData.trusses
+            !json.clientData.assemblies[0].assemblyStructure.trusses
+    }
+
+    def "revert project json"() {
+        setup:
+            InputStream stream = TrussChangeSetTest.getResourceAsStream("/conversions/v11/Truss-project-v11.json")
+            Map json = new JsonSlurper().parse(stream) as Map
+            stream.close()
+        expect:
+            json.clientData.trusses
+            json.clientData.assemblies[0].assemblyStructure.trusses
+            json.leads[0].locations[0].designs[0].structure.trusses
+        when:
+            trussChangeSet.revertProject(json)
+        then:
+            !json.clientData.trusses
+            !json.clientData.assemblies[0].assemblyStructure.trusses
+            !json.leads[0].locations[0].designs[0].structure.trusses
+    }
+
+    def "revert results"() {
+        setup:
+            InputStream stream = TrussChangeSetTest.getResourceAsStream("/conversions/v11/Truss-results-v11.json")
+            Map json = new JsonSlurper().parse(stream) as Map
+            stream.close()
+        expect:
+            json.analyzedStructure.trusses
+        when:
+            trussChangeSet.revertResults(json)
+        then:
+            !json.analyzedStructure.trusses
     }
 }

@@ -773,6 +773,13 @@
           {"$ref": "assembly.schema"}
         ]
       }
+    },
+    "trusses": {
+      "description": "List of all trusses on the pole",
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/calc/truss.schema"
+      }
     }
   }
 }
