@@ -1,0 +1,82 @@
+{
+  "clientData": {
+    "trusses": [
+      {
+        "size": "Test Client Truss",
+        "lateralArea": {
+          "value": 0.6493922496000001,
+          "unit": "SQUARE_METRE"
+        },
+        "poleSideArea": {
+          "value": 0.6317406720000001,
+          "unit": "SQUARE_METRE"
+        },
+        "shape": "ROUND",
+        "defaultHeightAboveGround": {
+          "value": 6.09600001,
+          "unit": "METRE"
+        },
+        "momentCapacity": {
+          "value": 5423.271793325602,
+          "unit": "NEWTON_METRE"
+        }
+      }
+    ],
+    "assemblies": [
+      {
+        "assemblyStructure": {
+          "trusses": [
+            {
+              "id": "Truss#1",
+              "externalId": "66466a18a2c13a39daad6dd9",
+              "direction": 0.0,
+              "owner": {
+                "id": "Acme Power",
+                "industry": "UTILITY"
+              },
+              "attachmentHeight": {
+                "value": 10.0,
+                "unit": "METRE"
+              },
+              "doubleTruss": false,
+              "clientItem": "Test Client Truss",
+              "clientItemVersion": "71f444403d762ae710ce3f0a0ef8b2c2"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "leads": [
+    {
+      "locations": [
+        {
+          "designs": [
+            {
+              "structure": {
+                "trusses": [
+                  {
+                    "id": "Truss#1",
+                    "externalId": "66466a18a2c13a39daad6dd9",
+                    "direction": 0.0,
+                    "owner": {
+                      "id": "Acme Power",
+                      "industry": "UTILITY"
+                    },
+                    "attachmentHeight": {
+                      "value": 10.0,
+                      "unit": "METRE"
+                    },
+                    "doubleTruss": false,
+                    "clientItem": "Test Client Truss",
+                    "clientItemVersion": "71f444403d762ae710ce3f0a0ef8b2c2"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

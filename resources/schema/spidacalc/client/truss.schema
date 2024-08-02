@@ -1,0 +1,40 @@
+{
+  "description": "Engineering properties for a truss",
+  "id": "#/spidacalc/client/truss.schema",
+  "type": "object",
+  "required": [
+    "size",
+    "lateralArea",
+    "poleSideArea",
+    "shape",
+    "defaultHeightAboveGround",
+    "momentCapacity"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "size": {
+      "type": "string"
+    },
+    "lateralArea": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "poleSideArea": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "shape": {
+      "$ref": "../../spidacalc/client/enums/shape.schema"
+    },
+    "defaultHeightAboveGround": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "momentCapacity": {
+      "$ref": "../../general/measurable.schema"
+    }
+  },
+  "additionalProperties": false
+}

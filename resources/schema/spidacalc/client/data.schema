@@ -203,6 +203,12 @@
       "items": {
         "$ref": "../../spidacalc/client/wire_state.schema"
       }
+    },
+    "trusses": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/client/truss.schema"
+      }
     }
   },
   "additionalProperties": false
