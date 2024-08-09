@@ -71,7 +71,7 @@
           "includedClientItems": {
             "type": "array",
             "items": {
-              "oneOf": [
+              "type": [
                 {
                   "$ref": "../../spidacalc/calc/client_references/wire.schema"
                 },
