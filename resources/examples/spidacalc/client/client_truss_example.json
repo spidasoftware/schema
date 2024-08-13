@@ -1,0 +1,20 @@
+{
+  "size": "client truss",
+  "lateralArea": {
+    "unit": "SQUARE_METRE",
+    "value": 10.0
+  },
+  "poleSideArea": {
+    "unit": "SQUARE_METRE",
+    "value": 10.0
+  },
+  "shape": "ROUND",
+  "defaultHeightAboveGround": {
+    "unit": "METRE",
+    "value": 15.0
+  },
+  "momentCapacity": {
+    "unit": "NEWTON_METRE",
+    "value": 1000.0
+  }
+}

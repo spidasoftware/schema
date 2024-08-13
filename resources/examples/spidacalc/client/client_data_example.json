@@ -312,7 +312,7 @@
    }],
    "poles": [{
      "aliases": [],
-     "allowable": {
+     "maximumAllowableStress": {
        "unit": "PASCAL",
        "value": 55158058.34534689
      },
@@ -410,5 +410,27 @@
        "unit": "NEWTON_PER_METRE",
        "value": 1.144161990276978
      }
-   }]
+   }],
+   "trusses": [
+     {
+       "size": "client truss",
+       "lateralArea": {
+         "unit": "SQUARE_METRE",
+         "value": 10.0
+       },
+       "poleSideArea": {
+         "unit": "SQUARE_METRE",
+         "value": 10.0
+       },
+       "shape": "ROUND",
+       "defaultHeightAboveGround": {
+         "unit": "METRE",
+         "value": 15.0
+       },
+       "momentCapacity": {
+         "unit": "NEWTON_METRE",
+         "value": 1000.0
+       }
+     }
+   ]
  }

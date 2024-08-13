@@ -12,7 +12,6 @@
     "ptc",
     "shape",
     "species",
-    "allowable",
     "taper",
     "settingType"
   ],
@@ -38,8 +37,10 @@
     "modulus": {
       "$ref": "../../general/measurable.schema"
     },
-    "allowable": {
-      "description":"Either the stress or moment allowable for this client pole.",
+    "maximumAllowableStress": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "maximumGroundLineMoment": {
       "$ref": "../../general/measurable.schema"
     },
     "poissonRatio": {
@@ -73,39 +74,75 @@
     },
     "customSettingDepth": {
       "$ref": "../../general/measurable.schema"
+    },
+    "momentAtHeights": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "map entry of distance to pole tip to maximum allowable moment",
+        "required": ["distanceFromTip", "maximumAllowableMoment"],
+        "properties": {
+          "distanceFromTip": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "maximumAllowableMoment": {
+            "$ref": "../../general/measurable.schema"
+          }
+        }
+      }
     }
   },
-  "oneOf": [
+  "allOf": [
     {
-      "type": "object",
-      "required": [ "customSettingDepth" ],
-      "properties": {
-        "settingType": {
-          "enum": [ "CUSTOM" ]
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [ "customSettingDepth" ],
+          "properties": {
+            "settingType": {
+              "enum": [ "CUSTOM" ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "not": {
+            "required": [ "customSettingDepth" ]
+          },
+          "properties": {
+            "settingType": {
+              "enum": [ "ANSI" ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "not": {
+            "required": [ "customSettingDepth" ]
+          },
+          "properties": {
+            "settingType": {
+              "enum": [ "GO95" ]
+            }
+          }
         }
-      }
+      ]
     },
     {
-      "type": "object",
-      "not": {
-        "required": [ "customSettingDepth" ]
-      },
-      "properties": {
-        "settingType": {
-          "enum": [ "ANSI" ]
+      "oneOf": [
+        {
+          "required": [ "maximumAllowableStress" ],
+          "not": {
+            "required": [ "maximumGroundLineMoment" ]
+          }
+        },
+        {
+          "required": [ "maximumGroundLineMoment" ],
+          "not": {
+            "required": [ "maximumAllowableStress" ]
+          }
         }
-      }
-    },
-    {
-      "type": "object",
-      "not": {
-        "required": [ "customSettingDepth" ]
-      },
-      "properties": {
-        "settingType": {
-          "enum": [ "GO95" ]
-        }
-      }
+      ]
     }
   ],
   "additionalProperties": false

@@ -1,3 +1,6 @@
+/*
+ * Copyright (c) 2024 Bentley Systems, Incorporated. All rights reserved.
+ */
 package com.spidasoftware.schema.validation
 
 class ClientSchemaTest extends GroovyTestCase {
@@ -42,6 +45,7 @@ class ClientSchemaTest extends GroovyTestCase {
 		test('data')
 	}
 
-
-
+	void testClientTruss() {
+		test("truss")
+	}
 }
