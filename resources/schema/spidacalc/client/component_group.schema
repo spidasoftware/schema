@@ -71,7 +71,14 @@
           "includedClientItems": {
             "type": "array",
             "items": {
-              "$ref": "../../spidacalc/calc/client_references/wire.schema"
+              "anyOf": [
+                {
+                  "$ref": "../../spidacalc/calc/client_references/wire.schema"
+                },
+                {
+                  "$ref": "../../spidacalc/calc/client_references/bundle.schema"
+                }
+              ]
             }
           },
           "wireClasses": {
