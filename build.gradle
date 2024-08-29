@@ -86,7 +86,7 @@ releaseNotes {
 }
 
 dependencies {
-	implementation 'commons-codec:commons-codec:1.10'
+	implementation 'commons-codec:commons-codec:1.15'
 	implementation 'commons-lang:commons-lang:2.6'
 	implementation group: 'org.apache.ant', name: 'ant', version: '1.10.13'
 	implementation group: 'org.apache.ant', name: 'ant-launcher', version: '1.10.13'
