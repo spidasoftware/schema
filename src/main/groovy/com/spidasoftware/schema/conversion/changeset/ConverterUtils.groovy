@@ -78,6 +78,7 @@ class ConverterUtils {
         converter.addChangeSet(11, new UpdateTempOverridesChangeSet())
         converter.addChangeSet(11, new WireStateLabelChangeSet())
         converter.addChangeSet(11, new PoleCutTopChangeSet())
+        converter.addChangeSet(11, new WireMountedEquipmentChangeSet())
         converter.addChangeSet(11, new MomentAtHeightChangeSet())
         converter.addChangeSet(11, new TrussChangeSet())
 
