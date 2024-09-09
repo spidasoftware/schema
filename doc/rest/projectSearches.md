@@ -183,32 +183,35 @@ Create a project search.
 `POST {{host}}/projectmanager/rest/projectSearches/projectSearch=<project-search-json>?token={{token}}`
 
 ```
-project-search-json={
-   "name": "test",
-   "userId": null,
-   "groups": [
-      {
-         "entries": [
+{
+    projectSearch: {
+        "name": "test",
+        "userId": null,
+        "groups": [
             {
-               "projectContains": true,
-               "entryType": "PROJECT_CODE",
-               "rows": [
-                  {
-                     "cells": [
-                        {
-                           "operator": "EQUALS",
-                           "value": "123",
-                           "secondValue": null,
-                           "active": true,
-                           "field": "CODE_COMPANY_NAME"
-                        }
-                     ]
-                  }
-               ]
+                "entries": [
+                    {
+                        "projectContains": true,
+                        "entryType": "PROJECT_CODE",
+                        "rows": [
+                            {
+                                "cells": [
+                                    {
+                                        "operator": "EQUALS",
+                                        "value": "123",
+                                        "secondValue": null,
+                                        "active": true,
+                                        "field": "CODE_COMPANY_NAME",
+                                        "caseSensitive":false
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             }
-         ]
-      }
-   ]
+        ]
+    }
 }
 ```
 
