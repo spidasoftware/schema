@@ -202,7 +202,7 @@ Create a project search.
                                         "secondValue": null,
                                         "active": true,
                                         "field": "CODE_COMPANY_NAME",
-                                        "caseSensitive":false
+                                        "caseSensitive": false
                                     }
                                 ]
                             }
