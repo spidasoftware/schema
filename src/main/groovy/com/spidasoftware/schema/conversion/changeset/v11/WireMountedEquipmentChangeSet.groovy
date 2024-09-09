@@ -1,8 +1,13 @@
+/*
+ * Copyright (c) 2024 Bentley Systems, Incorporated. All rights reserved.
+ */
 package com.spidasoftware.schema.conversion.changeset.v11
 
 import com.spidasoftware.schema.conversion.changeset.ConversionException
 import com.spidasoftware.schema.conversion.changeset.calc.AbstractCalcDesignChangeset
+import groovy.transform.CompileStatic
 
+@CompileStatic
 class WireMountedEquipmentChangeSet extends AbstractCalcDesignChangeset {
 
 	@Override
@@ -12,9 +17,7 @@ class WireMountedEquipmentChangeSet extends AbstractCalcDesignChangeset {
 
 	@Override
 	void revertDesign(Map designJSON) throws ConversionException {
-		def structure = designJSON.structure as Map
-		if (structure.wireMountedEquipments) {
-			structure.remove("wireMountedEquipments")
-		}
+		Map structure = designJSON.structure as Map
+		structure?.remove("wireMountedEquipments")
 	}
 }
