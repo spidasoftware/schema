@@ -16,10 +16,12 @@ class WireMountedEquipmentChangeSetTest extends Specification {
 			stream.close()
 		expect:
 			json.leads[0].locations[0].designs[0].structure.wireMountedEquipments
+			!json.leads[0].locations[1].designs[0].structure
 		when:
 			changeSet.revertDesign(json.leads[0].locations[0].designs[0])
 		then:
 			!json.leads[0].locations[0].designs[0].structure.wireMountedEquipments
+			!json.leads[0].locations[1].designs[0].structure
 	}
 
 }
