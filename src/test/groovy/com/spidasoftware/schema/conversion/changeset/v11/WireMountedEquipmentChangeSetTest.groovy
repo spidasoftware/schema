@@ -1,3 +1,6 @@
+/*
+ * Copyright (c) 2024 Bentley Systems, Incorporated. All rights reserved.
+ */
 package com.spidasoftware.schema.conversion.changeset.v11
 
 import groovy.json.JsonSlurper
@@ -13,10 +16,15 @@ class WireMountedEquipmentChangeSetTest extends Specification {
 			stream.close()
 		expect:
 			json.leads[0].locations[0].designs[0].structure.wireMountedEquipments
+			!json.leads[0].locations[1].designs[0].structure
 		when:
 			changeSet.revertDesign(json.leads[0].locations[0].designs[0])
 		then:
 			!json.leads[0].locations[0].designs[0].structure.wireMountedEquipments
+		when: "try to revert design with no structure"
+			changeSet.revertDesign(json.leads[0].locations[1].designs[0])
+		then: "changeset does not throw NPE"
+			!json.leads[0].locations[1].designs[0].structure
 	}
 
 }
