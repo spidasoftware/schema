@@ -34,6 +34,13 @@
     },
     "momentCapacity": {
       "$ref": "../../general/measurable.schema"
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "description": "A list of alternative aliases/framing codes for this item in integrations.",
+        "$ref": "../../spidacalc/client/alias.schema"
+      }
     }
   },
   "additionalProperties": false

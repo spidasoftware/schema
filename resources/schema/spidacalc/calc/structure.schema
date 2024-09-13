@@ -613,6 +613,10 @@
             "type": "string",
             "pattern": "[a-f0-9]{32}",
             "description": "Hash of the client item containing the engineering properties for this equipment."
+          },
+          "clientItemAlias": {
+            "type": "string",
+            "description": "An alias for a client truss. Used for integration."
           }
         }
       }
