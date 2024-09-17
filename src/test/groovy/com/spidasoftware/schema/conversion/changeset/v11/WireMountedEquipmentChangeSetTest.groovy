@@ -3,6 +3,7 @@
  */
 package com.spidasoftware.schema.conversion.changeset.v11
 
+import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
 import spock.lang.Specification
 
@@ -25,6 +26,21 @@ class WireMountedEquipmentChangeSetTest extends Specification {
 			changeSet.revertDesign(json.leads[0].locations[1].designs[0])
 		then: "changeset does not throw NPE"
 			!json.leads[0].locations[1].designs[0].structure
+	}
+
+	def "revert a project containing an assembly"() {
+		setup:
+			WireMountedEquipmentChangeSet changeSet = new WireMountedEquipmentChangeSet()
+			def stream = WireMountedEquipmentChangeSetTest.getResourceAsStream("/conversions/v11/project-with-assembly-v11.json")
+			String jsonStr = stream.text
+			stream.close()
+			Map json = (new JsonSlurper()).parseText(jsonStr)
+		expect:
+			jsonStr.contains("wireMountedEquipments")
+		when:
+			changeSet.revertProject(json)
+		then:
+			!JsonOutput.toJson(json).contains("wireMountedEquipments")
 	}
 
 }
