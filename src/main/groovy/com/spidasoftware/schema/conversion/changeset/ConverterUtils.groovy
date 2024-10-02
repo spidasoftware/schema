@@ -15,12 +15,13 @@ import com.spidasoftware.schema.conversion.changeset.v8.*
 import com.spidasoftware.schema.conversion.changeset.v9.*
 import com.spidasoftware.schema.conversion.changeset.v10.*
 import com.spidasoftware.schema.conversion.changeset.v11.*
+import com.spidasoftware.schema.conversion.changeset.v12.*
 import groovy.util.logging.Slf4j
 
 @Slf4j
 class ConverterUtils {
 
-    static final int currentVersion = 11
+    static final int currentVersion = 12
 
     static {
         addCalcConverter(new CalcProjectConverter())
@@ -81,6 +82,7 @@ class ConverterUtils {
         converter.addChangeSet(11, new WireMountedEquipmentChangeSet())
         converter.addChangeSet(11, new MomentAtHeightChangeSet())
         converter.addChangeSet(11, new TrussChangeSet())
+        converter.addChangeSet(12, new CSAMaxWindTemperatureChangeset())
 
         // add calc changesets above here
         converter.setCurrentVersion(currentVersion)
@@ -105,6 +107,7 @@ class ConverterUtils {
         converter.addChangeSet(11, new WireStateLabelChangeSet())
         converter.addChangeSet(11, new WireMountedEquipmentChangeSet())
         converter.addChangeSet(11, new TrussChangeSet())
+        converter.addChangeSet(12, new CSAMaxWindTemperatureChangeset())
         // add client data changesets above here
 
         converter.setCurrentVersion(currentVersion)
@@ -128,6 +131,7 @@ class ConverterUtils {
         converter.addChangeSet(11, new WireStateLabelChangeSet())
         converter.addChangeSet(11, new WireMountedEquipmentChangeSet())
         converter.addChangeSet(11, new TrussChangeSet())
+        converter.addChangeSet(12, new CSAMaxWindTemperatureChangeset())
         // add result changesets above here
 
         converter.setCurrentVersion(currentVersion)
