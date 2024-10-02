@@ -26,6 +26,7 @@ class CSAMaxWindTemperatureChangeset extends AbstractClientDataChangeSet {
 
     @Override
     void applyToProject(Map projectJSON) throws ConversionException {
+        super.applyToProject(projectJSON)
         projectJSON.defaultLoadCases?.each { Map loadCase ->
             applyTemperatureToLoadCase(loadCase)
         }
@@ -33,6 +34,7 @@ class CSAMaxWindTemperatureChangeset extends AbstractClientDataChangeSet {
 
     @Override
     void applyToDesign(Map designJSON) throws ConversionException {
+        super.applyToDesign(designJSON)
         designJSON.analysis?.each { Map analysis ->
             if (analysis.analysisCaseDetails != null) {
                 applyTemperatureToLoadCase(analysis.analysisCaseDetails as Map)
@@ -42,7 +44,7 @@ class CSAMaxWindTemperatureChangeset extends AbstractClientDataChangeSet {
 
     @Override
     boolean applyToResults(Map resultsJSON) throws ConversionException {
-        boolean changed = false
+        boolean changed = super.applyToResults(resultsJSON)
         resultsJSON.results?.each { Map result ->
             if (result.analysisCaseDetails != null) {
                 changed |= applyTemperatureToLoadCase(result.analysisCaseDetails as Map)
@@ -62,6 +64,7 @@ class CSAMaxWindTemperatureChangeset extends AbstractClientDataChangeSet {
 
     @Override
     void revertProject(Map projectJSON) throws ConversionException {
+        super.revertProject(projectJSON)
         projectJSON.defaultLoadCases?.each { Map loadCase ->
             revertTemperatureFromLoadCase(loadCase)
         }
@@ -69,6 +72,7 @@ class CSAMaxWindTemperatureChangeset extends AbstractClientDataChangeSet {
 
     @Override
     void revertDesign(Map designJSON) throws ConversionException {
+        super.revertDesign(designJSON)
         designJSON.analysis?.each { Map analysis ->
             if (analysis.analysisCaseDetails != null) {
                 revertTemperatureFromLoadCase(analysis.analysisCaseDetails as Map)
@@ -78,7 +82,7 @@ class CSAMaxWindTemperatureChangeset extends AbstractClientDataChangeSet {
 
     @Override
     boolean revertResults(Map resultsJSON) throws ConversionException {
-        boolean changed = false
+        boolean changed = super.revertResults(resultsJSON)
         resultsJSON.results?.each { Map result ->
             if (result.analysisCaseDetails != null) {
                 changed |= revertTemperatureFromLoadCase(result.analysisCaseDetails as Map)
@@ -89,8 +93,8 @@ class CSAMaxWindTemperatureChangeset extends AbstractClientDataChangeSet {
 
     boolean applyTemperatureToLoadCase(Map loadCaseJSON) {
         if (loadCaseJSON.type == "CSA 2020 Maximum Wind") {
-            (loadCaseJSON.overrides as Map).temperature = [value: 15, unit: "CELSIUS"]
-            (loadCaseJSON.valuesApplied as Map).temperature = [value: 15, unit: "CELSIUS"]
+            (loadCaseJSON.overrides as Map).temperature = [value: 15.0, unit: "CELSIUS"]
+            (loadCaseJSON.valuesApplied as Map).temperature = [value: 15.0, unit: "CELSIUS"]
             return true
         }
         return false
