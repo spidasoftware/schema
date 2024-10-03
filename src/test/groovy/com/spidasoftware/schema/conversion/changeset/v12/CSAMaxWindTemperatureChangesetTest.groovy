@@ -109,13 +109,19 @@ class CSAMaxWindTemperatureChangesetTest extends Specification {
             !changed
             !loadCase.overrides
             !loadCase.valuesApplied
-        when: "load case is csa max wind"
+        when: "load case is csa max wind without temp override"
             loadCase = [type: "CSA 2020 Maximum Wind", overrides: [:], valuesApplied: [:]]
             changed = changeset.applyTemperatureToLoadCase(loadCase)
         then:
             changed
             (loadCase.overrides as Map) == [temperature: [unit: "CELSIUS", value: 15]]
             (loadCase.valuesApplied as Map) == [temperature: [unit: "CELSIUS", value: 15]]
+        when: "load case is csa max wind with temp override"
+            loadCase = [type: "CSA 2020 Maximum Wind", overrides: [temperature: [unit: "CELSIUS", value: 40.0]], valuesApplied: [:]]
+            changed = changeset.applyTemperatureToLoadCase(loadCase)
+        then:
+            !changed
+            (loadCase.overrides as Map).temperature == [unit: "CELSIUS", value: 40.0]
     }
 
     def "revertTemperatureFromLoadCase"() {
@@ -127,11 +133,17 @@ class CSAMaxWindTemperatureChangesetTest extends Specification {
             changed = changeset.revertTemperatureFromLoadCase(loadCase)
         then:
             !changed
-        when: "overrides has temperature"
+        when: "overrides has temperature equal to 15"
             loadCase = [type: "CSA 2020 Maximum Wind", overrides: [temperature: [unit: "CELSIUS", value: 15]]]
             changed = changeset.revertTemperatureFromLoadCase(loadCase)
         then:
             changed
             !(loadCase.overrides as Map).temperature
+        when: "overrides has temperature not equal to 15"
+            loadCase = [type: "CSA 2020 Maximum Wind", overrides: [temperature: [unit: "CELSIUS", value: 40.0]]]
+            changed = changeset.revertTemperatureFromLoadCase(loadCase)
+        then:
+            !changed
+            (loadCase.overrides as Map).temperature == [unit: "CELSIUS", value: 40.0]
     }
 }

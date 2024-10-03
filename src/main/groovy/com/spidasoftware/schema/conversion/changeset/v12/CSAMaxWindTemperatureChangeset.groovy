@@ -10,8 +10,8 @@ import com.spidasoftware.schema.conversion.changeset.client.AbstractClientDataCh
  * In version 24.1, the default temperature for CSA Maximum Wind load cases was -20 °C.
  * CSA 60826 code updates the default temperature to 15 °C.
  *
- * When up-converting, we override the default temperature to be 15 °C.
- * When down-converting, we remove the override.
+ * When up-converting, we override the default temperature to be 15 °C if there was not already a temperature override.
+ * When down-converting, we remove the temperature override if we added it while up-converting.
  */
 class CSAMaxWindTemperatureChangeset extends AbstractClientDataChangeSet {
 
@@ -93,14 +93,24 @@ class CSAMaxWindTemperatureChangeset extends AbstractClientDataChangeSet {
 
     boolean applyTemperatureToLoadCase(Map loadCaseJSON) {
         if (loadCaseJSON.type == "CSA 2020 Maximum Wind") {
-            (loadCaseJSON.overrides as Map).temperature = [value: 15.0, unit: "CELSIUS"]
-            (loadCaseJSON.valuesApplied as Map).temperature = [value: 15.0, unit: "CELSIUS"]
-            return true
+            boolean tempOverridesPresent = (loadCaseJSON.overrides as Map).containsKey("temperature")
+            if (!tempOverridesPresent) {
+                (loadCaseJSON.overrides as Map).temperature = [value: 15.0, unit: "CELSIUS"]
+                (loadCaseJSON.valuesApplied as Map).temperature = [value: 15.0, unit: "CELSIUS"]
+                return true
+            }
         }
         return false
     }
 
     boolean revertTemperatureFromLoadCase(Map loadCaseJSON) {
-        return (loadCaseJSON.overrides as Map)?.remove("temperature") != null
+        if (loadCaseJSON.type == "CSA 2020 Maximum Wind") {
+            boolean shouldRemoveTempOverride = (loadCaseJSON.overrides as Map).temperature == [unit: "CELSIUS", value: 15.0]
+            if (shouldRemoveTempOverride) {
+                (loadCaseJSON.overrides as Map).remove("temperature")
+                return true
+            }
+        }
+        return false
     }
 }
