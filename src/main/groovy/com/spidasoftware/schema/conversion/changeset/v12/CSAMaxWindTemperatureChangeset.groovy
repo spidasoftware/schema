@@ -10,8 +10,15 @@ import com.spidasoftware.schema.conversion.changeset.client.AbstractClientDataCh
  * In version 24.1, the default temperature for CSA Maximum Wind load cases was -20 °C.
  * CSA 60826 code updates the default temperature to 15 °C.
  *
- * When up-converting, we override the default temperature to be 15 °C if there was not already a temperature override.
- * When down-converting, we remove the temperature override if we added it while up-converting.
+ * When up-converting load cases created in older version:
+ *      - add a temperature override to keep the value the same.
+ * When up-converting load cases created in current version:
+ *      - remove temperature override if it's equal to default value.
+ *
+ * When down-converting load cases created in older version:
+ *      - remove temperature override if it's equal to old default value.
+ * When down-converting load cases created in current version:
+ *      - add a temperature override to keep the value the same.
  */
 class CSAMaxWindTemperatureChangeset extends AbstractClientDataChangeSet {
 
@@ -93,10 +100,12 @@ class CSAMaxWindTemperatureChangeset extends AbstractClientDataChangeSet {
 
     boolean applyTemperatureToLoadCase(Map loadCaseJSON) {
         if (loadCaseJSON.type == "CSA 2020 Maximum Wind") {
-            boolean tempOverridesPresent = (loadCaseJSON.overrides as Map).containsKey("temperature")
-            if (!tempOverridesPresent) {
-                (loadCaseJSON.overrides as Map).temperature = [value: 15.0, unit: "CELSIUS"]
-                (loadCaseJSON.valuesApplied as Map).temperature = [value: 15.0, unit: "CELSIUS"]
+            Map currTempOverride = (loadCaseJSON.overrides as Map).temperature as Map
+            if (currTempOverride == null) { // up-converting a load case that was created in an old version
+                (loadCaseJSON.overrides as Map).temperature = [value: -20.0, unit: "CELSIUS"]
+                return true
+            } else if (currTempOverride.value == 15.0) { // up-converting a load case that was created in current version
+                (loadCaseJSON.overrides as Map).remove("temperature")
                 return true
             }
         }
@@ -105,8 +114,11 @@ class CSAMaxWindTemperatureChangeset extends AbstractClientDataChangeSet {
 
     boolean revertTemperatureFromLoadCase(Map loadCaseJSON) {
         if (loadCaseJSON.type == "CSA 2020 Maximum Wind") {
-            boolean shouldRemoveTempOverride = (loadCaseJSON.overrides as Map).temperature == [unit: "CELSIUS", value: 15.0]
-            if (shouldRemoveTempOverride) {
+            Map currTempOverride = (loadCaseJSON.overrides as Map).temperature as Map
+            if (currTempOverride == null) { // down-converting a load case that was created in the current version
+                (loadCaseJSON.overrides as Map).temperature = [value: 15.0, unit: "CELSIUS"]
+                return true
+            } else if (currTempOverride.value == -20.0) { // down-converting a load case that was created in old version
                 (loadCaseJSON.overrides as Map).remove("temperature")
                 return true
             }
