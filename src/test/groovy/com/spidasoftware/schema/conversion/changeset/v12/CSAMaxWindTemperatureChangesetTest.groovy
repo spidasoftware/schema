@@ -19,20 +19,17 @@ class CSAMaxWindTemperatureChangesetTest extends Specification {
             InputStream stream = CSAMaxWindTemperatureChangesetTest.getResourceAsStream("/conversions/v12/csaMaxWindTemperature-v11-project.json")
             Map json = new JsonSlurper().parse(stream) as Map
             stream.close()
-            boolean changed
         expect:
             !json.clientData.analysisCases[0].overrides.temperature
             json.clientData.analysisCases[1].overrides.temperature.value == 15.0
         when: "up convert"
-            changed = changeset.applyToClientData(json.clientData as Map)
+            changeset.applyToClientData(json.clientData as Map)
         then:
-            changed
             json.clientData.analysisCases[0].overrides.temperature.value == -20.0
             !json.clientData.analysisCases[1].overrides.temperature
         when: "down convert"
-            changed = changeset.revertClientData(json.clientData as Map)
+            changeset.revertClientData(json.clientData as Map)
         then:
-            changed
             !json.clientData.analysisCases[0].overrides.temperature
             json.clientData.analysisCases[1].overrides.temperature.value == 15.0
     }
@@ -74,24 +71,21 @@ class CSAMaxWindTemperatureChangesetTest extends Specification {
             InputStream stream = CSAMaxWindTemperatureChangesetTest.getResourceAsStream("/conversions/v12/csaMaxWindTemperature-v11-results.json")
             Map json = new JsonSlurper().parse(stream) as Map
             stream.close()
-            boolean changed
         expect:
             !json.clientData.analysisCases[0].overrides.temperature
             json.clientData.analysisCases[1].overrides.temperature.value == 15.0
             !json.results[0].analysisCaseDetails.overrides.temperature
             json.results[1].analysisCaseDetails.overrides.temperature.value == 15.0
         when: "up convert"
-            changed = changeset.applyToResults(json)
+            changeset.applyToResults(json)
         then:
-            changed
             json.clientData.analysisCases[0].overrides.temperature.value == -20.0
             !json.clientData.analysisCases[1].overrides.temperature
             json.results[0].analysisCaseDetails.overrides.temperature.value == -20.0
             !json.results[1].analysisCaseDetails.overrides.temperature
         when: "down convert"
-            changed = changeset.revertResults(json)
+            changeset.revertResults(json)
         then:
-            changed
             !json.clientData.analysisCases[0].overrides.temperature
             json.clientData.analysisCases[1].overrides.temperature.value == 15.0
             !json.results[0].analysisCaseDetails.overrides.temperature
@@ -101,48 +95,40 @@ class CSAMaxWindTemperatureChangesetTest extends Specification {
     def "applyTemperatureToLoadCase"() {
         setup:
             Map loadCase
-            boolean changed
         when: "old csa max wind load case"
             loadCase = [type: "CSA 2020 Maximum Wind", overrides: [:]]
-            changed = changeset.applyTemperatureToLoadCase(loadCase)
+            changeset.applyTemperatureToLoadCase(loadCase)
         then: "create override with old default value"
-            changed
             (loadCase.overrides as Map).temperature == [unit: "CELSIUS", value: -20.0]
         when: "new csa max wind load case"
             loadCase = [type: "CSA 2020 Maximum Wind", overrides: [temperature: [unit: "CELSIUS", value: 15.0]]]
-            changed = changeset.applyTemperatureToLoadCase(loadCase)
+            changeset.applyTemperatureToLoadCase(loadCase)
         then: "remove un-needed override"
-            changed
             (loadCase.overrides as Map).temperature == null
         when: "csa max wind load case with custom override"
             loadCase = [type: "CSA 2020 Maximum Wind", overrides: [temperature: [unit: "CELSIUS", value: 100.0]]]
-            changed = changeset.applyTemperatureToLoadCase(loadCase)
+            changeset.applyTemperatureToLoadCase(loadCase)
         then: "leave as is"
-            !changed
             (loadCase.overrides as Map).temperature == [unit: "CELSIUS", value: 100.0]
     }
 
     def "revertTemperatureFromLoadCase"() {
         setup:
             Map loadCase
-            boolean changed
         when: "old csa max wind load case"
             loadCase = [type: "CSA 2020 Maximum Wind", overrides: [temperature: [unit: "CELSIUS", value: -20.0]]]
-            changed = changeset.revertTemperatureFromLoadCase(loadCase)
+            changeset.revertTemperatureFromLoadCase(loadCase)
         then: "remove un-needed override"
-            changed
             (loadCase.overrides as Map).temperature == null
         when: "new csa max wind load case"
             loadCase = [type: "CSA 2020 Maximum Wind", overrides: [:]]
-            changed = changeset.revertTemperatureFromLoadCase(loadCase)
+            changeset.revertTemperatureFromLoadCase(loadCase)
         then: "create override with new default value"
-            changed
             (loadCase.overrides as Map).temperature == [unit: "CELSIUS", value: 15.0]
         when: "csa max wind load case with custom override"
             loadCase = [type: "CSA 2020 Maximum Wind", overrides: [temperature: [unit: "CELSIUS", value: 100.0]]]
-            changed = changeset.revertTemperatureFromLoadCase(loadCase)
+            changeset.revertTemperatureFromLoadCase(loadCase)
         then:
-            !changed
             (loadCase.overrides as Map).temperature == [unit: "CELSIUS", value: 100.0]
     }
 }
