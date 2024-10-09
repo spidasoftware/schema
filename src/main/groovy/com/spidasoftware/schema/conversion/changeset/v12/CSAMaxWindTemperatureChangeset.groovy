@@ -5,6 +5,7 @@ package com.spidasoftware.schema.conversion.changeset.v12
 
 import com.spidasoftware.schema.conversion.changeset.ConversionException
 import com.spidasoftware.schema.conversion.changeset.client.AbstractClientDataChangeSet
+import groovy.transform.CompileStatic
 
 /**
  * In version 24.1, the default temperature for CSA Maximum Wind load cases was -20 °C.
@@ -22,6 +23,7 @@ import com.spidasoftware.schema.conversion.changeset.client.AbstractClientDataCh
  *
  * This changeset only makes changes to the json to insure the same results between different versions.
  */
+@CompileStatic
 class CSAMaxWindTemperatureChangeset extends AbstractClientDataChangeSet {
 
     @Override
