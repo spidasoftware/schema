@@ -17,6 +17,7 @@ import com.spidasoftware.schema.conversion.changeset.v10.*
 import com.spidasoftware.schema.conversion.changeset.v11.*
 import com.spidasoftware.schema.conversion.changeset.v12.*
 import groovy.util.logging.Slf4j
+import org.apache.commons.lang3.StringUtils
 
 @Slf4j
 class ConverterUtils {
@@ -148,6 +149,44 @@ class ConverterUtils {
     //example: [4, 3, 2]
     static LinkedHashSet<Integer> getPossibleVersionsNewestToOldest(){
     	return currentVersion..2 as LinkedHashSet<Integer>
+    }
+
+    /**
+     * Returns the schema version for an engine version.
+     * Provides a way to determine the schema version for a detailed results json.
+     * @param engineVersion  The engine version as found in the detailed results json, or null if the version cannot be determined.
+     */
+    static Integer getSchemaVersion(String engineVersionStr) {
+        if(engineVersionStr == null) {
+            return null
+        }
+        BigDecimal engineVersion
+        try {
+            int indexOfSecondDot = StringUtils.ordinalIndexOf(engineVersionStr, ".", 2)
+            String engineVersionMajorMinor = engineVersionStr.substring(0, indexOfSecondDot)
+            engineVersion = new BigDecimal(engineVersionMajorMinor)
+        } catch (Exception ex) {
+            log.warn("unable to parse engine version ${engineVersionStr}", ex)
+            return null
+        }
+        switch (engineVersion) {
+            case 25.0:
+                return 12
+            case 24.1:
+                return 11
+            case 24.0:
+                return 10
+            case 8.1:
+                return 9
+            case 8.0:
+                return 9
+            case 7.3:
+                return 8
+            case {  it < 7.3 }:
+                return 7 // there are no results changesets before schema version 8
+        }
+        log.warn("unknown schema version for engine version ${engineVersionStr}")
+        return null
     }
 
     static void convertJSON(Map json, int toVersion) throws ConversionException {
