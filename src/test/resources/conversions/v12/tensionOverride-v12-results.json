@@ -1,0 +1,22 @@
+{
+  "analyzedStructure": {
+    "wires": [
+      {
+        "tensionOverride": "INITIAL"
+      }
+    ]
+  },
+  "clientData": {
+    "assemblies": [
+      {
+        "assemblyStructure": {
+          "wires": [
+            {
+              "tensionOverride": "INITIAL"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

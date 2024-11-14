@@ -1,0 +1,34 @@
+{
+  "clientData": {
+    "assemblies": [
+      {
+        "assemblyStructure": {
+          "wires": [
+            {
+              "tensionOverride": "INITIAL"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "leads": [
+    {
+      "locations": [
+        {
+          "designs": [
+            {
+              "structure": {
+                "wires": [
+                  {
+                    "tensionOverride": "INITIAL"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
