@@ -76,6 +76,10 @@
     "wireEndPointPlacement": {
       "description": "The optional placement at the opposite end from the pole. The measurement is in relation to the base of the associated wire end point.",
       "$ref": "../../general/triad.schema"
+    },
+    "tensionOverride": {
+      "description": "Override load case tension type during analysis and wire tension load calculations",
+      "$ref": "../../spidacalc/client/enums/wire_tension_type.schema"
     }
   },
   "additionalProperties": false
