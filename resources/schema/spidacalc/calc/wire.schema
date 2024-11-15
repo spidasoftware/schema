@@ -79,7 +79,7 @@
     },
     "tensionOverride": {
       "description": "Override load case tension type during analysis and wire tension load calculations",
-      "$ref": "../../spidacalc/client/enums/wire_tension_type.schema"
+      "$ref": "../../spidacalc/client/wire_state.schema"
     }
   },
   "additionalProperties": false
