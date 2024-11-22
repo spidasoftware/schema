@@ -794,6 +794,9 @@
           "attachmentHeight": {
             "$ref": "../../general/measurable.schema"
           },
+          "height": {
+            "$ref": "../../general/measurable.schema"
+          },
           "glc": {
             "$ref": "../../general/measurable.schema",
             "description": "Ground line circumference of push brace."
