@@ -16,7 +16,7 @@ class PushBraceHeightChangeSetTest extends Specification {
 
 	def "project"() {
 		setup:
-			InputStream stream = PushBraceHeightChangeSetTest.getResourceAsStream("/conversions/v12/pushBrace-project-v12.json")
+			InputStream stream = PushBraceHeightChangeSetTest.getResourceAsStream("/conversions/v12/pushBrace-project-v11.json")
 			Map json = new JsonSlurper().parse(stream) as Map
 			stream.close()
 		expect:
@@ -35,7 +35,7 @@ class PushBraceHeightChangeSetTest extends Specification {
 
 	def "results"() {
 		setup:
-			InputStream stream = PushBraceHeightChangeSetTest.getResourceAsStream("/conversions/v12/pushBrace-results-v12.json")
+			InputStream stream = PushBraceHeightChangeSetTest.getResourceAsStream("/conversions/v12/pushBrace-results-v11.json")
 			Map json = new JsonSlurper().parse(stream) as Map
 			stream.close()
 		expect:

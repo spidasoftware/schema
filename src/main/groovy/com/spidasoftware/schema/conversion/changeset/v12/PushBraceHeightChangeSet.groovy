@@ -38,12 +38,22 @@ class PushBraceHeightChangeSet extends AbstractResultsChangeSet {
 
 	@Override
 	boolean applyToResults(Map resultsJSON) throws ConversionException {
-		resultsJSON.get("analyzedStructure")?.get("pushBraces")?.each { Map pushBrace ->
+		applyToStructure(resultsJSON)
+		if (resultsJSON.containsKey("analysisDetails") && ((Map)resultsJSON.analysisDetails).containsKey("detailedResults")) {
+			Map detailedResultsJson = ((Map)resultsJSON.analysisDetails).detailedResults as Map
+			return applyToStructure(detailedResultsJson)
+		}
+		return false
+	}
+
+	protected boolean applyToStructure(Map structureJSON) {
+		structureJSON.get("analyzedStructure")?.get("pushBraces")?.each { Map pushBrace ->
 			def measurable = [:]
 			measurable.put("value", 0)
 			measurable.put("unit", "METRE")
 			pushBrace.put("height", measurable)
 		}
-		return resultsJSON.analyzedStructure?.get("pushBraces")?.last()?.height
+		List pushBraces = structureJSON.analyzedStructure?.get("pushBraces")
+		return pushBraces ? pushBraces.last()?.height : false
 	}
 }
