@@ -4,6 +4,7 @@
 package com.spidasoftware.schema.conversion.changeset.client
 
 import com.spidasoftware.schema.conversion.changeset.ConversionException
+import com.spidasoftware.schema.conversion.changeset.ConverterUtils
 import com.spidasoftware.schema.conversion.changeset.calc.AbstractResultsChangeSet
 import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
@@ -72,6 +73,11 @@ abstract class AbstractClientDataChangeSet extends AbstractResultsChangeSet {
 				clientDataJSON.remove("hash")
                 anyChanged = true
 			}
+		}
+
+		if (!resultsJSON.containsKey("version")) {
+			resultsJSON.version = ConverterUtils.currentVersion
+			anyChanged = true
 		}
         return anyChanged
 	}
