@@ -75,10 +75,6 @@ abstract class AbstractClientDataChangeSet extends AbstractResultsChangeSet {
 			}
 		}
 
-		if (!resultsJSON.containsKey("version")) {
-			resultsJSON.version = ConverterUtils.currentVersion
-			anyChanged = true
-		}
         return anyChanged
 	}
 
