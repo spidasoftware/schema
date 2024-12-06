@@ -133,6 +133,7 @@ class ConverterUtils {
         converter.addChangeSet(11, new WireMountedEquipmentChangeSet())
         converter.addChangeSet(11, new TrussChangeSet())
         converter.addChangeSet(12, new CSAMaxWindTemperatureChangeset())
+        converter.addChangeSet(12, new DetailedResultsVersionChangeset())
         // add result changesets above here
 
         converter.setCurrentVersion(currentVersion)
