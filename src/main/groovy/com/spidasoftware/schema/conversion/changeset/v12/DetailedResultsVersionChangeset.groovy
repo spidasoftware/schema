@@ -8,7 +8,6 @@ import com.spidasoftware.schema.conversion.changeset.client.AbstractClientDataCh
 import groovy.transform.CompileStatic
 
 /**
- * The results schema now requires the version property.
  * When up-converting, add the version property with value of 12
  * When down-converting, remove version property
  *
