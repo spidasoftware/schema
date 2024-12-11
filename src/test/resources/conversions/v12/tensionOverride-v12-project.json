@@ -1,0 +1,108 @@
+{
+  "clientData": {
+    "assemblies": [
+      {
+        "assemblyStructure": {
+          "wires": [
+            {
+              "tensionOverride": {
+                "name": "Energized 100C",
+                "wireTensionType": "FINAL_WITH_CREEP",
+                "designCondition": {
+                  "name": "Energized 100C",
+                  "iceThickness": { "value": 0.0, "unit": "CENTIMETRE" },
+                  "iceDensity": {
+                    "value": 917.0,
+                    "unit": "KILOGRAM_PER_CUBIC_METRE"
+                  },
+                  "windPressure": { "value": 0.0, "unit": "PASCAL" },
+                  "windSpeed": { "value": 0.0, "unit": "METRE_PER_SECOND" },
+                  "temperature": { "value": 100.0, "unit": "CELSIUS" }
+                },
+                "highestStressCondition": {
+                  "name": "default",
+                  "iceThickness": { "value": 0.0, "unit": "MILLIMETRE" },
+                  "iceDensity": {
+                    "value": 917.0,
+                    "unit": "KILOGRAM_PER_CUBIC_METRE"
+                  },
+                  "windPressure": { "value": 0.0, "unit": "PASCAL" },
+                  "windSpeed": { "value": 0.0, "unit": "METRE_PER_SECOND" },
+                  "temperature": { "value": 60.0, "unit": "FAHRENHEIT" }
+                },
+                "creepCondition": {
+                  "name": "default",
+                  "iceThickness": { "value": 0.0, "unit": "MILLIMETRE" },
+                  "iceDensity": {
+                    "value": 917.0,
+                    "unit": "KILOGRAM_PER_CUBIC_METRE"
+                  },
+                  "windPressure": { "value": 0.0, "unit": "PASCAL" },
+                  "windSpeed": { "value": 0.0, "unit": "METRE_PER_SECOND" },
+                  "temperature": { "value": 60.0, "unit": "FAHRENHEIT" }
+                },
+                "outerStrandingCompression": false
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "leads": [
+    {
+      "locations": [
+        {
+          "designs": [
+            {
+              "structure": {
+                "wires": [
+                  {
+                    "tensionOverride": {
+                      "name": "Energized 100C",
+                      "wireTensionType": "FINAL_WITH_CREEP",
+                      "designCondition": {
+                        "name": "Energized 100C",
+                        "iceThickness": { "value": 0.0, "unit": "CENTIMETRE" },
+                        "iceDensity": {
+                          "value": 917.0,
+                          "unit": "KILOGRAM_PER_CUBIC_METRE"
+                        },
+                        "windPressure": { "value": 0.0, "unit": "PASCAL" },
+                        "windSpeed": { "value": 0.0, "unit": "METRE_PER_SECOND" },
+                        "temperature": { "value": 100.0, "unit": "CELSIUS" }
+                      },
+                      "highestStressCondition": {
+                        "name": "default",
+                        "iceThickness": { "value": 0.0, "unit": "MILLIMETRE" },
+                        "iceDensity": {
+                          "value": 917.0,
+                          "unit": "KILOGRAM_PER_CUBIC_METRE"
+                        },
+                        "windPressure": { "value": 0.0, "unit": "PASCAL" },
+                        "windSpeed": { "value": 0.0, "unit": "METRE_PER_SECOND" },
+                        "temperature": { "value": 60.0, "unit": "FAHRENHEIT" }
+                      },
+                      "creepCondition": {
+                        "name": "default",
+                        "iceThickness": { "value": 0.0, "unit": "MILLIMETRE" },
+                        "iceDensity": {
+                          "value": 917.0,
+                          "unit": "KILOGRAM_PER_CUBIC_METRE"
+                        },
+                        "windPressure": { "value": 0.0, "unit": "PASCAL" },
+                        "windSpeed": { "value": 0.0, "unit": "METRE_PER_SECOND" },
+                        "temperature": { "value": 60.0, "unit": "FAHRENHEIT" }
+                      },
+                      "outerStrandingCompression": false
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
