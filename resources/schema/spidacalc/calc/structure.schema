@@ -795,7 +795,8 @@
             "$ref": "../../general/measurable.schema"
           },
           "height": {
-            "$ref": "../../general/measurable.schema"
+            "$ref": "../../general/measurable.schema",
+            "description": "An optional height for base of push brace."
           },
           "glc": {
             "$ref": "../../general/measurable.schema",
