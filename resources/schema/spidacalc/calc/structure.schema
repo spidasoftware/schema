@@ -768,7 +768,6 @@
         "required": [
           "id",
           "attachmentHeight",
-          "height",
           "owner",
           "distance",
           "direction",
