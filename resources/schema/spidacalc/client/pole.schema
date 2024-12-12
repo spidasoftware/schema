@@ -126,20 +126,28 @@
             }
           }
         }
-      ]
-    },
-    {
+      ],
+      "anyOf": [
+        {
+          "required": [ "maximumGroundLineMoment" ]
+        },
+        {
+          "required": [ "maximumAllowableStress" ]
+        }
+      ],
       "oneOf": [
         {
-          "required": [ "maximumAllowableStress" ],
+          "required": [ "maximumGroundLineMoment", "maximumAllowableStress", "momentAtHeights" ]
+        },
+        {
+          "required": [ "maximumGroundLineMoment", "momentAtHeights" ],
           "not": {
-            "required": [ "maximumGroundLineMoment" ]
+            "required": [ "maximumAllowableStress" ]
           }
         },
         {
-          "required": [ "maximumGroundLineMoment" ],
           "not": {
-            "required": [ "maximumAllowableStress" ]
+            "required": [ "momentAtHeights" ]
           }
         }
       ]
