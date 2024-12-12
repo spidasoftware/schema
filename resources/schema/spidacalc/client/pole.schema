@@ -126,7 +126,9 @@
             }
           }
         }
-      ],
+      ]
+    },
+    {
       "anyOf": [
         {
           "required": [ "maximumGroundLineMoment" ]
@@ -134,7 +136,9 @@
         {
           "required": [ "maximumAllowableStress" ]
         }
-      ],
+      ]
+    },
+    {
       "oneOf": [
         {
           "required": [ "maximumGroundLineMoment", "maximumAllowableStress", "momentAtHeights" ]
