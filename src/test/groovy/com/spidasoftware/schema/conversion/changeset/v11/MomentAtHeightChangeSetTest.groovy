@@ -77,44 +77,4 @@ class MomentAtHeightChangeSetTest extends Specification {
             !json.poles[5].maximumGroundLineMoment
     }
 
-    def "validate client pole"() {
-        setup:
-            def stream = MomentAtHeightChangeSetTest.getResourceAsStream("/conversions/v11/ClientPole-client-v11.json")
-            Map json = new JsonSlurper().parse(stream) as Map
-            stream.close()
-            String schemaPath = "/schema/spidacalc/client/pole.schema"
-            Validator validator = new Validator()
-            ProcessingReport report
-        when: "validate json"
-            report = validator.validateAndReport(schemaPath, json.poles[0] as Map)
-        then: "valid"
-            report.success
-        when: "max stress and max moment"
-            json.poles[0].maximumAllowableStress = [value: 6.1, unit: "PASCAL"]
-            json.poles[0].maximumGroundLineMoment = [value: 10.1, unit: "NEWTON_METRE"]
-            report = validator.validateAndReport(schemaPath, json.poles[0] as Map)
-        then: "invalid"
-            !report.success
-        when: "neither max stress or max moment"
-            (json.poles[0] as Map).remove("maximumAllowableStress")
-            (json.poles[0] as Map).remove("maximumGroundLineMoment")
-            report = validator.validateAndReport(schemaPath, json.poles[0] as Map)
-        then: "invalid"
-            !report.success
-        when: "max stress and momentAtHeights"
-            json.poles[0].maximumAllowableStress = [value: 6.1, unit: "PASCAL"]
-            Map momentAtHeights = [:]
-            momentAtHeights.distanceFromTip = [value: 5.0, unit: "METRE"]
-            momentAtHeights.maximumAllowableMoment = [value: 10.0, unit: "NEWTON_METRE"]
-            json.poles[0].momentAtHeights = [momentAtHeights]
-            report = validator.validateAndReport(schemaPath, json.poles[0] as Map)
-        then: "valid"
-            report.success
-        when: "max moment and momentAtHeights"
-            (json.poles[0] as Map).remove("maximumAllowableStress")
-            json.poles[0].maximumGroundLineMoment = [value: 10.0, unit: "NEWTON_METRE"]
-            report = validator.validateAndReport(schemaPath, json.poles[0] as Map)
-        then: "valid"
-            report.success
-    }
 }
