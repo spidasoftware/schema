@@ -56,6 +56,10 @@
     "phone": {
       "type": "string",
       "description": "phone number"
+    },
+    "ultimateId": {
+      "type": "number",
+      "description": "Ultimate ID from Bentley IMS."
     }
   },
   "additionalProperties": false
