@@ -67,7 +67,7 @@
     },
     "imsUserId": {
       "type": "string",
-      "description": "User Id from Bentley IMS."
+      "description": "User Id from Bentley IMS"
     }
   },
   "additionalProperties": false
