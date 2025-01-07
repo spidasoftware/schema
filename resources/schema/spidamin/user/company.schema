@@ -59,11 +59,11 @@
     },
     "ultimateId": {
       "type": "number",
-      "description": "Ultimate ID from Bentley IMS."
+      "description": "Ultimate ID from Bentley IMS"
     },
     "commercialProgram": {
       "type": "string",
-      "description": "Commercial program from Bentley IMS."
+      "description": "Commercial program from Bentley IMS"
     }
   },
   "additionalProperties": false
