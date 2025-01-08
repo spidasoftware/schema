@@ -23,6 +23,7 @@
       "$ref": "../../general/measurable.schema"
     },
     "direction": {
+      "description": "the trusses compass direction",
       "$ref": "../../general/bearing.schema"
     },
     "doubleTruss": {

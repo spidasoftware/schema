@@ -29,7 +29,23 @@
             {
               "id": "Truss#1",
               "externalId": "66466a18a2c13a39daad6dd9",
-              "direction": 0.0,
+              "direction": 358.5,
+              "owner": {
+                "id": "Acme Power",
+                "industry": "UTILITY"
+              },
+              "attachmentHeight": {
+                "value": 10.0,
+                "unit": "METRE"
+              },
+              "doubleTruss": false,
+              "clientItem": "Test Client Truss",
+              "clientItemVersion": "71f444403d762ae710ce3f0a0ef8b2c2"
+            },
+            {
+              "id": "Truss#1",
+              "externalId": "66466a18a2c13a39daad6dd9",
+              "direction": 1.5,
               "owner": {
                 "id": "Acme Power",
                 "industry": "UTILITY"
@@ -58,7 +74,23 @@
                   {
                     "id": "Truss#1",
                     "externalId": "66466a18a2c13a39daad6dd9",
-                    "direction": 0.0,
+                    "direction": 358.5,
+                    "owner": {
+                      "id": "Acme Power",
+                      "industry": "UTILITY"
+                    },
+                    "attachmentHeight": {
+                      "value": 10.0,
+                      "unit": "METRE"
+                    },
+                    "doubleTruss": false,
+                    "clientItem": "Test Client Truss",
+                    "clientItemVersion": "71f444403d762ae710ce3f0a0ef8b2c2"
+                  },
+                  {
+                    "id": "Truss#1",
+                    "externalId": "66466a18a2c13a39daad6dd9",
+                    "direction": 1.5,
                     "owner": {
                       "id": "Acme Power",
                       "industry": "UTILITY"

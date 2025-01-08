@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Bentley Systems, Incorporated. All rights reserved.
+ * Copyright (c) 2025 Bentley Systems, Incorporated. All rights reserved.
  */
 package com.spidasoftware.schema.conversion.changeset
 
@@ -86,6 +86,7 @@ class ConverterUtils {
         converter.addChangeSet(12, new CSAMaxWindTemperatureChangeset())
         converter.addChangeSet(12, new PushBraceHeightChangeSet())
         converter.addChangeSet(12, new TensionOverrideChangeset())
+        converter.addChangeSet(12, new TrussDirectionChangeset())
         // add calc changesets above here
 
         converter.setCurrentVersion(currentVersion)
@@ -112,6 +113,7 @@ class ConverterUtils {
         converter.addChangeSet(11, new TrussChangeSet())
         converter.addChangeSet(12, new CSAMaxWindTemperatureChangeset())
         converter.addChangeSet(12, new TensionOverrideChangeset())
+        converter.addChangeSet(12, new TrussDirectionChangeset())
         // add client data changesets above here
 
         converter.setCurrentVersion(currentVersion)
@@ -139,6 +141,7 @@ class ConverterUtils {
         converter.addChangeSet(12, new PushBraceHeightChangeSet())
         converter.addChangeSet(12, new TensionOverrideChangeset())
         converter.addChangeSet(12, new DetailedResultsVersionChangeset())
+        converter.addChangeSet(12, new TrussDirectionChangeset())
         // add result changesets above here
 
         converter.setCurrentVersion(currentVersion)
