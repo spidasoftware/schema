@@ -64,6 +64,10 @@
     "source": {
       "type": "string",
       "description": "Either SPIDA, SAML, or API_TOKEN_ONLY."
+    },
+    "imsUserId": {
+      "type": "string",
+      "description": "User Id from Bentley IMS"
     }
   },
   "additionalProperties": false
