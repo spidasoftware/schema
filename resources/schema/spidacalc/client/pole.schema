@@ -90,6 +90,27 @@
           }
         }
       }
+    },
+    "numberOfSides": {
+      "type": "number"
+    },
+    "tipWidth": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "tipDepth": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "baseWidth": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "baseDepth": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "maximumLongitudinalMoment": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "maximumTransverseMoment": {
+      "$ref": "../../general/measurable.schema"
     }
   },
   "allOf": [
@@ -133,13 +154,96 @@
         {
           "required": [ "maximumAllowableStress" ],
           "not": {
-            "required": [ "maximumGroundLineMoment" ]
+            "anyOf": [
+              { "required": [ "maximumGroundLineMoment" ] },
+              { "required": [ "maximumLongitudinalMoment" ] },
+              { "required": [ "maximumTransverseMoment" ] }
+            ]
           }
         },
         {
           "required": [ "maximumGroundLineMoment" ],
           "not": {
-            "required": [ "maximumAllowableStress" ]
+            "anyOf": [
+              { "required": [ "maximumAllowableStress" ] },
+              { "required": [ "maximumLongitudinalMoment" ] },
+              { "required": [ "maximumTransverseMoment" ] }
+            ]
+          }
+        },
+        {
+          "required": [ "maximumLongitudinalMoment", "maximumTransverseMoment" ],
+          "not": {
+            "anyOf": [
+              { "required": [ "maximumAllowableStress" ] },
+              { "required": [ "maximumGroundLineMoment" ] }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "oneOf": [
+        {
+          "properties": {
+            "shape": {
+              "enum": [ "SQUARE" ]
+            }
+          },
+          "required": [ "tipWidth", "baseWidth" ],
+          "not": {
+            "anyOf": [
+              { "required": [ "numberOfSides" ] },
+              { "required": [ "tipDepth" ] },
+              { "required": [ "baseDepth" ] },
+              { "required": [ "maximumLongitudinalMoment" ] },
+              { "required": [ "maximumTransverseMoment" ] }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "shape": {
+              "enum": [ "POLYGON" ]
+            }
+          },
+          "required": [ "tipWidth", "baseWidth", "numberOfSides" ],
+          "not": {
+            "anyOf": [
+              { "required": [ "tipDepth" ] },
+              { "required": [ "baseDepth" ] },
+              { "required": [ "maximumLongitudinalMoment" ] },
+              { "required": [ "maximumTransverseMoment" ] }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "shape": {
+              "enum": [ "RECTANGLE" ]
+            }
+          },
+          "required": [ "tipWidth", "tipDepth", "baseWidth", "baseDepth" ],
+          "not": {
+            "required": [ "numberOfSides" ]
+          }
+        },
+        {
+          "properties": {
+            "shape": {
+              "enum": [ "ROUND" ]
+            }
+          },
+          "not": {
+            "anyOf": [
+              { "required": [ "numberOfSides" ] },
+              { "required": [ "tipWidth" ] },
+              { "required": [ "tipDepth" ] },
+              { "required": [ "baseWidth" ] },
+              { "required": [ "baseDepth" ] },
+              { "required": [ "maximumLongitudinalMoment" ] },
+              { "required": [ "maximumTransverseMoment" ] }
+            ]
           }
         }
       ]
