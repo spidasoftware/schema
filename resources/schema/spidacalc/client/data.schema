@@ -209,6 +209,12 @@
       "items": {
         "$ref": "../../spidacalc/client/truss.schema"
       }
+    },
+    "componentBraces": {
+        "type": "array",
+        "items": {
+            "$ref": "../../spidacalc/client/componentBrace.schema"
+        }
     }
   },
   "additionalProperties": false

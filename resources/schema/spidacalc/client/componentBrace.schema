@@ -1,0 +1,79 @@
+{
+  "description": "Engineering properties for a component brace",
+  "id": "#/spidacalc/client/componentBrace.schema",
+  "type": "object",
+  "required": [
+    "size",
+    "width",
+    "depth",
+    "weightPerLength",
+    "modulus",
+    "wallThickness",
+    "shape",
+    "materialCategory",
+    "alleyArm",
+    "throughHoleDiameter"
+  ],
+  "anyOf":[
+      {"required":["maxStrength"]},
+      {"required":["maxTension", "maxCompression"]}
+    ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "size": {
+      "type": "string"
+    },
+    "length": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "width": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "depth": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "weightPerLength": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "modulus": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "wallThickness": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "shape": {
+      "$ref": "../../spidacalc/client/enums/shape.schema"
+    },
+    "materialCategory": {
+      "$ref": "../../spidacalc/client/enums/material_category.schema"
+    },
+    "alleyArm": {
+      "type": "boolean"
+    },
+    "maxStrength": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "maxTension": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "maxCompression": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "throughHoleDiameter": {
+      "$ref": "../../general/measurable.schema"
+    }
+    "aliases": {
+      "type": "array",
+      "items": {
+        "description": "A list of alternative aliases/framing codes for this item in integrations.",
+        "$ref": "../../spidacalc/client/alias.schema"
+      }
+    }
+  },
+  "additionalProperties": false
+}
