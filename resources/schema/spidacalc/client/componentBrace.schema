@@ -11,7 +11,6 @@
     "wallThickness",
     "shape",
     "materialCategory",
-    "alleyArm",
     "throughHoleDiameter"
   ],
   "anyOf":[
@@ -51,9 +50,6 @@
     },
     "materialCategory": {
       "$ref": "../../spidacalc/client/enums/material_category.schema"
-    },
-    "alleyArm": {
-      "type": "boolean"
     },
     "maxStrength": {
       "$ref": "../../general/measurable.schema"
