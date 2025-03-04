@@ -50,6 +50,16 @@ class ComponentBraceChangeset extends AbstractClientDataChangeSet {
 	}
 
 	protected boolean revertStructure(Map structureJSON) {
-		return false  // todo AB#1614910
+		boolean anyChanged = (structureJSON.componentBraces as List)?.size() > 0
+
+		structureJSON.remove("componentBraces")
+
+		if (anyChanged) {
+			(structureJSON.crossArms as List<Map>).each {
+				it.remove("braces")
+			}
+		}
+
+		return anyChanged
 	}
 }
