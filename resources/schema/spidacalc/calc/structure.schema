@@ -842,6 +842,13 @@
       "items": {
         "$ref": "../../spidacalc/calc/truss.schema"
       }
+    },
+    "componentBraces": {
+      "description": "List of all component braces on the pole",
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/calc/componentBrace.schema"
+      }
     }
   }
 }
