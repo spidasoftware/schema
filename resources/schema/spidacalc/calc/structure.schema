@@ -678,6 +678,13 @@
               "type": "string"
             }
           },
+          "braces": {
+            "description": "List of IDs of all component braces attached to this crossarm.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
           "clientItem": {
             "type": "string",
             "description": "Reference to the client item with the engineering properties for this crossarm."
