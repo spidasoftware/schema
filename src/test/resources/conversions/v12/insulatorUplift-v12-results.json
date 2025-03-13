@@ -1,0 +1,1719 @@
+{
+    "results": [
+        {
+            "analysisCase": "Medium with insulators",
+            "analysisCaseVersion": "c7ab07c3f543deb6cd4d911f451cfd04",
+            "analysisDate": 1741769912170,
+            "engineVersion": "25.0.0.99999",
+            "components": [
+                {
+                    "id": "Insulator#3",
+                    "clientItem": "3 Bolt Clamp",
+                    "owner": "Janet's Telco",
+                    "position": {
+                        "unit": "METRE",
+                        "value": 4.927600000000001
+                    },
+                    "resultsType": "PERCENT_LOADED",
+                    "analysisType": "FORCE",
+                    "failingRatio": 1.0,
+                    "allowable": 100.0,
+                    "additionalValues": [],
+                    "allowableEngineering": {
+                        "unit": "NEWTON",
+                        "value": 60000.0
+                    },
+                    "actualEngineering": {
+                        "unit": "NEWTON",
+                        "value": 11153.865033885757
+                    },
+                    "atDirection": [
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 0.0
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11071.58835432683
+                            },
+                            "status": "PASSING",
+                            "actual": 18.45264725721138,
+                            "ratio": 0.18452647257211383
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 0.3839724354387525
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11142.166753052685
+                            },
+                            "status": "PASSING",
+                            "actual": 18.570277921754474,
+                            "ratio": 0.18570277921754474
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 0.47123889803846897
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11150.217223966474
+                            },
+                            "status": "PASSING",
+                            "actual": 18.583695373277457,
+                            "ratio": 0.18583695373277456
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 0.5235987755982988
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11152.892851836608
+                            },
+                            "status": "PASSING",
+                            "actual": 18.588154753061016,
+                            "ratio": 0.18588154753061015
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 0.5410520681182421
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11153.408176796269
+                            },
+                            "status": "PASSING",
+                            "actual": 18.58901362799378,
+                            "ratio": 0.18589013627993778
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 0.5585053606381855
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11153.732513908779
+                            },
+                            "status": "PASSING",
+                            "actual": 18.589554189847966,
+                            "ratio": 0.18589554189847968
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 0.5759586531581288
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11153.865024904824
+                            },
+                            "status": "PASSING",
+                            "actual": 18.58977504150804,
+                            "ratio": 0.18589775041508041
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 0.593411945678072
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11153.805402219634
+                            },
+                            "status": "PASSING",
+                            "actual": 18.589675670366056,
+                            "ratio": 0.18589675670366057
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 0.6108652381980153
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11153.5538701267
+                            },
+                            "status": "PASSING",
+                            "actual": 18.589256450211167,
+                            "ratio": 0.18589256450211167
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 0.6632251157578453
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11151.658000779104
+                            },
+                            "status": "PASSING",
+                            "actual": 18.586096667965172,
+                            "ratio": 0.1858609666796517
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 0.767944870877505
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11142.950294159411
+                            },
+                            "status": "PASSING",
+                            "actual": 18.57158382359902,
+                            "ratio": 0.1857158382359902
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 1.1519173063162575
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11073.528030727435
+                            },
+                            "status": "PASSING",
+                            "actual": 18.455880051212393,
+                            "ratio": 0.18455880051212392
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 1.3439035240356336
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11035.980751061215
+                            },
+                            "status": "PASSING",
+                            "actual": 18.393301251768694,
+                            "ratio": 0.18393301251768693
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 1.5533430342749532
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11007.236318817975
+                            },
+                            "status": "PASSING",
+                            "actual": 18.345393864696625,
+                            "ratio": 0.18345393864696624
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 1.9373154697137058
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 10990.485845960246
+                            },
+                            "status": "PASSING",
+                            "actual": 18.317476409933743,
+                            "ratio": 0.18317476409933742
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 2.129301687433082
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 10990.048761567654
+                            },
+                            "status": "PASSING",
+                            "actual": 18.31674793594609,
+                            "ratio": 0.1831674793594609
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 2.3387411976724017
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 10990.376121419464
+                            },
+                            "status": "PASSING",
+                            "actual": 18.317293535699104,
+                            "ratio": 0.18317293535699103
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 2.722713633111154
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11005.559395272512
+                            },
+                            "status": "PASSING",
+                            "actual": 18.342598992120855,
+                            "ratio": 0.18342598992120857
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 2.91469985083053
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11030.12789421662
+                            },
+                            "status": "PASSING",
+                            "actual": 18.383546490361034,
+                            "ratio": 0.18383546490361036
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 3.12413936106985
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11069.870000892684
+                            },
+                            "status": "PASSING",
+                            "actual": 18.44978333482114,
+                            "ratio": 0.1844978333482114
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 3.508111796508602
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11140.90618957219
+                            },
+                            "status": "PASSING",
+                            "actual": 18.568176982620315,
+                            "ratio": 0.18568176982620316
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 3.595378259108319
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11149.462380032843
+                            },
+                            "status": "PASSING",
+                            "actual": 18.58243730005474,
+                            "ratio": 0.18582437300054738
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 3.6477381366681487
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11152.478633318075
+                            },
+                            "status": "PASSING",
+                            "actual": 18.58746438886346,
+                            "ratio": 0.1858746438886346
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 3.665191429188092
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11153.111192137998
+                            },
+                            "status": "PASSING",
+                            "actual": 18.58851865356333,
+                            "ratio": 0.1858851865356333
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 3.6826447217080354
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11153.553879075123
+                            },
+                            "status": "PASSING",
+                            "actual": 18.589256465125207,
+                            "ratio": 0.18589256465125206
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 3.7000980142279785
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11153.80541127388
+                            },
+                            "status": "PASSING",
+                            "actual": 18.589675685456466,
+                            "ratio": 0.18589675685456467
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 3.717551306747922
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11153.865033885757
+                            },
+                            "status": "PASSING",
+                            "actual": 18.589775056476263,
+                            "ratio": 0.18589775056476263
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 3.735004599267865
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11153.732522860468
+                            },
+                            "status": "PASSING",
+                            "actual": 18.58955420476745,
+                            "ratio": 0.1858955420476745
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 3.7524578917878086
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11153.408185885806
+                            },
+                            "status": "PASSING",
+                            "actual": 18.58901364314301,
+                            "ratio": 0.1858901364314301
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 3.8048177693476384
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11151.295235539279
+                            },
+                            "status": "PASSING",
+                            "actual": 18.58549205923213,
+                            "ratio": 0.1858549205923213
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 3.9095375244672983
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11142.16676167137
+                            },
+                            "status": "PASSING",
+                            "actual": 18.57027793611895,
+                            "ratio": 0.18570277936118948
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 4.293509959906051
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11071.588360577778
+                            },
+                            "status": "PASSING",
+                            "actual": 18.45264726762963,
+                            "ratio": 0.1845264726762963
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 4.485496177625427
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11033.817560035915
+                            },
+                            "status": "PASSING",
+                            "actual": 18.389695933393195,
+                            "ratio": 0.18389695933393196
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 4.694935687864747
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11005.137680504551
+                            },
+                            "status": "PASSING",
+                            "actual": 18.341896134174252,
+                            "ratio": 0.18341896134174251
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 5.078908123303499
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 10989.075500361734
+                            },
+                            "status": "PASSING",
+                            "actual": 18.315125833936225,
+                            "ratio": 0.18315125833936224
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 5.270894341022875
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 10988.870231889856
+                            },
+                            "status": "PASSING",
+                            "actual": 18.314783719816425,
+                            "ratio": 0.18314783719816424
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 5.480333851262195
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 10988.998556008957
+                            },
+                            "status": "PASSING",
+                            "actual": 18.314997593348263,
+                            "ratio": 0.18314997593348262
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 5.8643062867009474
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11003.479557611077
+                            },
+                            "status": "PASSING",
+                            "actual": 18.339132596018462,
+                            "ratio": 0.18339132596018462
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 6.056292504420323
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11027.95354876378
+                            },
+                            "status": "PASSING",
+                            "actual": 18.379922581272968,
+                            "ratio": 0.18379922581272967
+                        },
+                        {
+                            "direction": {
+                                "unit": "RADIAN",
+                                "value": 6.265732014659643
+                            },
+                            "value": {
+                                "unit": "NEWTON",
+                                "value": 11067.898847378212
+                            },
+                            "status": "PASSING",
+                            "actual": 18.446498078963685,
+                            "ratio": 0.18446498078963686
+                        }
+                    ],
+                    "actual": 18.589775056476263,
+                    "ratio": 0.18589775056476263,
+                    "status": "PASSING",
+                    "windDirection": 213,
+                    "atHeight": [
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 0.0
+                            },
+                            "deflection": {
+                                "vector": [
+                                    0.0,
+                                    0.0,
+                                    0.0
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": []
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 0.02
+                            },
+                            "deflection": {
+                                "vector": [
+                                    2.8263082275470594E-6,
+                                    1.146267241376649E-6,
+                                    -9.591852003656674E-8
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": []
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 0.06
+                            },
+                            "deflection": {
+                                "vector": [
+                                    2.5423760665291555E-5,
+                                    1.0303215072388416E-5,
+                                    -2.87326218694201E-7
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": []
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 0.1
+                            },
+                            "deflection": {
+                                "vector": [
+                                    7.058296746842138E-5,
+                                    2.858231045686884E-5,
+                                    -4.782135779579451E-7
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": []
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 0.3
+                            },
+                            "deflection": {
+                                "vector": [
+                                    6.355749636814666E-4,
+                                    2.563602185820268E-4,
+                                    -1.425663471663536E-6
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": []
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 0.5
+                            },
+                            "deflection": {
+                                "vector": [
+                                    0.0017622577051423147,
+                                    7.079173898105676E-4,
+                                    -2.360810063184441E-6
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": []
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 1.0
+                            },
+                            "deflection": {
+                                "vector": [
+                                    0.007031421482487062,
+                                    0.0027940644245201484,
+                                    -4.642905186561922E-6
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": []
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 1.5
+                            },
+                            "deflection": {
+                                "vector": [
+                                    0.01572902056513306,
+                                    0.006176618834816359,
+                                    -6.844192806857213E-6
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": []
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 2.0
+                            },
+                            "deflection": {
+                                "vector": [
+                                    0.027774190581039027,
+                                    0.010765366788902957,
+                                    -8.965109069446223E-6
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": []
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 2.5
+                            },
+                            "deflection": {
+                                "vector": [
+                                    0.04306020655243184,
+                                    0.016451503265851066,
+                                    -1.1002214327268468E-5
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": []
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 2.9464000000000006
+                            },
+                            "deflection": {
+                                "vector": [
+                                    0.05932978871808772,
+                                    0.0223480123603497,
+                                    -1.2748740538506895E-5
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": [
+                                "Wire#4"
+                            ]
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 3.0
+                            },
+                            "deflection": {
+                                "vector": [
+                                    0.061442614874937386,
+                                    0.023102384565668373,
+                                    -1.296420240953206E-5
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": []
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 3.5
+                            },
+                            "deflection": {
+                                "vector": [
+                                    0.0828304667062196,
+                                    0.030564622946015932,
+                                    -1.492895483689447E-5
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": []
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 4.0
+                            },
+                            "deflection": {
+                                "vector": [
+                                    0.10729460882183046,
+                                    0.038647250720622424,
+                                    -1.680813819035304E-5
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": []
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 4.5
+                            },
+                            "deflection": {
+                                "vector": [
+                                    0.134944077279666,
+                                    0.04712558893987082,
+                                    -1.8599838431468824E-5
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": []
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 4.927600000000001
+                            },
+                            "deflection": {
+                                "vector": [
+                                    0.1611975453615973,
+                                    0.05449229805627964,
+                                    -2.00621835940519E-5
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": [
+                                "Insulator#3"
+                            ]
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 5.0
+                            },
+                            "deflection": {
+                                "vector": [
+                                    0.16588437670156497,
+                                    0.055736237506281906,
+                                    -2.028023593266177E-5
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": []
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 5.5
+                            },
+                            "deflection": {
+                                "vector": [
+                                    0.2001904096505718,
+                                    0.06425590176810014,
+                                    -2.1731585610641098E-5
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": []
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 6.0
+                            },
+                            "deflection": {
+                                "vector": [
+                                    0.2377444778361755,
+                                    0.07265921119854385,
+                                    -2.3082418942799987E-5
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": []
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 6.5
+                            },
+                            "deflection": {
+                                "vector": [
+                                    0.2783706620191676,
+                                    0.08095598231988989,
+                                    -2.4329740823362152E-5
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": []
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 7.0
+                            },
+                            "deflection": {
+                                "vector": [
+                                    0.3218471448918108,
+                                    0.08915713342565693,
+                                    -2.5471603626834674E-5
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": []
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 7.5
+                            },
+                            "deflection": {
+                                "vector": [
+                                    0.3678937517404582,
+                                    0.09727495653839262,
+                                    -2.650326435472271E-5
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": []
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 7.924800000000001
+                            },
+                            "deflection": {
+                                "vector": [
+                                    0.40876992843649157,
+                                    0.10411688779046625,
+                                    -2.7290023379632643E-5
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": [
+                                "Wire#3"
+                            ]
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 8.0
+                            },
+                            "deflection": {
+                                "vector": [
+                                    0.4161527363968847,
+                                    0.10532362359596432,
+                                    -2.744424848829561E-5
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": []
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 8.5
+                            },
+                            "deflection": {
+                                "vector": [
+                                    0.4662811545116827,
+                                    0.1133170475323338,
+                                    -2.840673019711633E-5
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": []
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 9.0
+                            },
+                            "deflection": {
+                                "vector": [
+                                    0.5180309136606915,
+                                    0.12126575469793033,
+                                    -2.9253948047192596E-5
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": []
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 9.144000000000002
+                            },
+                            "deflection": {
+                                "vector": [
+                                    0.5331953020878901,
+                                    0.1235481904506267,
+                                    -2.9475627892636473E-5
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": [
+                                "Insulator#2"
+                            ]
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 9.5
+                            },
+                            "deflection": {
+                                "vector": [
+                                    0.5711329505566833,
+                                    0.12917964196204124,
+                                    -3.001425038168798E-5
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": []
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 10.0
+                            },
+                            "deflection": {
+                                "vector": [
+                                    0.6254185153221081,
+                                    0.13706560368508872,
+                                    -3.066669892669763E-5
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": []
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 10.5
+                            },
+                            "deflection": {
+                                "vector": [
+                                    0.6807372055875746,
+                                    0.14493003708502722,
+                                    -3.119162693519652E-5
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": []
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 11.0
+                            },
+                            "deflection": {
+                                "vector": [
+                                    0.7369019331831916,
+                                    0.15277887304310955,
+                                    -3.15833054060365E-5
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": []
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 11.5
+                            },
+                            "deflection": {
+                                "vector": [
+                                    0.7936753769853075,
+                                    0.16061752048631456,
+                                    -3.183584493938306E-5
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": []
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 11.6332
+                            },
+                            "deflection": {
+                                "vector": [
+                                    0.8088655253917713,
+                                    0.16270469810079918,
+                                    -3.187839967536949E-5
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": [
+                                "Insulator#1"
+                            ]
+                        },
+                        {
+                            "height": {
+                                "unit": "METRE",
+                                "value": 11.734800000000002
+                            },
+                            "deflection": {
+                                "vector": [
+                                    0.8204589029088398,
+                                    0.16429660372670676,
+                                    -3.18816170087054E-5
+                                ],
+                                "unit": "METRE"
+                            },
+                            "components": []
+                        }
+                    ],
+                    "uplift": {
+                        "unit": "NEWTON",
+                        "value": -274.7290480295196
+                    },
+                    "poles": [
+                        {
+                            "id": "Pole",
+                            "clientItem": "45'-3 Southern Pine",
+                            "owner": "Acme Power",
+                            "applied": {
+                                "translational": {
+                                    "vector": [
+                                        -804.2573312228747,
+                                        -522.2908177809003,
+                                        -5997.606819209098
+                                    ],
+                                    "unit": "NEWTON"
+                                },
+                                "rotational": {
+                                    "vector": [
+                                        -147.17159048589753,
+                                        557.4177242358319,
+                                        0.0
+                                    ],
+                                    "unit": "NEWTON_METRE"
+                                }
+                            },
+                            "reaction": {
+                                "translational": {
+                                    "vector": [
+                                        -14724.19575260207,
+                                        -8271.49122197908,
+                                        5904.380859897945
+                                    ],
+                                    "unit": "NEWTON"
+                                },
+                                "rotational": {
+                                    "vector": [
+                                        40159.431247912056,
+                                        -98981.80289121301,
+                                        -2082.7478070513735
+                                    ],
+                                    "unit": "NEWTON_METRE"
+                                }
+                            }
+                        }
+                    ],
+                    "wires": [
+                        {
+                            "id": "Wire#1",
+                            "clientItem": "1/0 ACSR (6/1)",
+                            "owner": "Acme Power",
+                            "position": {
+                                "unit": "METRE",
+                                "value": 11.922252
+                            },
+                            "actingOn": [
+                                {
+                                    "component": "Insulator#1",
+                                    "load": {
+                                        "translational": {
+                                            "vector": [
+                                                3044.9579413694014,
+                                                -27.581327303762507,
+                                                -48.1768185195259
+                                            ],
+                                            "unit": "NEWTON"
+                                        }
+                                    }
+                                }
+                            ],
+                            "sag": {
+                                "unit": "METRE",
+                                "value": 0.24629725626965301
+                            },
+                            "tension": {
+                                "unit": "NEWTON",
+                                "value": 3044.9579413694014
+                            },
+                            "verticalForce": {
+                                "unit": "NEWTON",
+                                "value": -48.1768185195259
+                            },
+                            "distanceToSagPoint": {
+                                "unit": "METRE",
+                                "value": 11.889019080673737
+                            },
+                            "lowestPointBelowAttachment": {
+                                "unit": "METRE",
+                                "value": -0.10081052297439033
+                            },
+                            "distanceToLowestPoint": {
+                                "unit": "METRE",
+                                "value": 7.606186085733765
+                            },
+                            "windForce": {
+                                "unit": "NEWTON",
+                                "value": 27.581327303762507
+                            },
+                            "tensionMethod": "NONLINEAR_STRESS_STRAIN",
+                            "outerStrandInCompression": false,
+                            "wireTensionType": "INITIAL"
+                        },
+                        {
+                            "id": "Wire#2",
+                            "clientItem": "1/0 ACSR (6/1)",
+                            "owner": "Acme Power",
+                            "position": {
+                                "unit": "METRE",
+                                "value": 9.144000000000002
+                            },
+                            "actingOn": [
+                                {
+                                    "component": "Insulator#2",
+                                    "load": {
+                                        "translational": {
+                                            "vector": [
+                                                3043.933205314368,
+                                                -27.697488556689056,
+                                                65.81472203825736
+                                            ],
+                                            "unit": "NEWTON"
+                                        }
+                                    }
+                                }
+                            ],
+                            "sag": {
+                                "unit": "METRE",
+                                "value": 0.24658743101502129
+                            },
+                            "tension": {
+                                "unit": "NEWTON",
+                                "value": 3043.933205314368
+                            },
+                            "verticalForce": {
+                                "unit": "NEWTON",
+                                "value": 65.81472203825736
+                            },
+                            "distanceToSagPoint": {
+                                "unit": "METRE",
+                                "value": 11.890984829091934
+                            },
+                            "lowestPointBelowAttachment": {
+                                "unit": "METRE",
+                                "value": -1.1705956462300087E-4
+                            },
+                            "distanceToLowestPoint": {
+                                "unit": "METRE",
+                                "value": 0.2591336169104963
+                            },
+                            "windForce": {
+                                "unit": "NEWTON",
+                                "value": 27.697488556689056
+                            },
+                            "tensionMethod": "NONLINEAR_STRESS_STRAIN",
+                            "outerStrandInCompression": false,
+                            "wireTensionType": "INITIAL"
+                        },
+                        {
+                            "id": "Wire#3",
+                            "clientItem": "1/0 Triplex Bus (6/1)",
+                            "owner": "Acme Power",
+                            "position": {
+                                "unit": "METRE",
+                                "value": 7.924800000000001
+                            },
+                            "actingOn": [
+                                {
+                                    "component": "Pole",
+                                    "load": {
+                                        "translational": {
+                                            "vector": [
+                                                4656.386818918385,
+                                                -126.823810284514,
+                                                212.9089003685146
+                                            ],
+                                            "unit": "NEWTON"
+                                        }
+                                    }
+                                }
+                            ],
+                            "sag": {
+                                "unit": "METRE",
+                                "value": 0.2704574628722497
+                            },
+                            "tension": {
+                                "unit": "NEWTON",
+                                "value": 4657.891009335159
+                            },
+                            "verticalForce": {
+                                "unit": "NEWTON",
+                                "value": 212.9089003685146
+                            },
+                            "distanceToSagPoint": {
+                                "unit": "METRE",
+                                "value": 11.784434910251779
+                            },
+                            "lowestPointBelowAttachment": {
+                                "unit": "METRE",
+                                "value": -0.05632717852573648
+                            },
+                            "distanceToLowestPoint": {
+                                "unit": "METRE",
+                                "value": -5.3815917968026525
+                            },
+                            "windForce": {
+                                "unit": "NEWTON",
+                                "value": 45.53933911094944
+                            },
+                            "tensionMethod": "NONLINEAR_STRESS_STRAIN",
+                            "outerStrandInCompression": false,
+                            "wireTensionType": "INITIAL"
+                        },
+                        {
+                            "id": "Wire#5",
+                            "clientItem": "C11.2M1000 (7/0)",
+                            "owner": "Janet's Telco",
+                            "position": {
+                                "unit": "METRE",
+                                "value": 4.927600000000001
+                            },
+                            "actingOn": [
+                                {
+                                    "component": "Insulator#3",
+                                    "load": {
+                                        "translational": {
+                                            "vector": [
+                                                -6199.722870518938,
+                                                9268.010939130496,
+                                                -259.5161301073958
+                                            ],
+                                            "unit": "NEWTON"
+                                        }
+                                    }
+                                }
+                            ],
+                            "sag": {
+                                "unit": "METRE",
+                                "value": 0.13617702257059017
+                            },
+                            "tension": {
+                                "unit": "NEWTON",
+                                "value": 11149.419079605002
+                            },
+                            "verticalForce": {
+                                "unit": "NEWTON",
+                                "value": -259.5161301073958
+                            },
+                            "distanceToSagPoint": {
+                                "unit": "METRE",
+                                "value": 11.887200000000002
+                            },
+                            "lowestPointBelowAttachment": {
+                                "unit": "METRE",
+                                "value": -0.13617702257059017
+                            },
+                            "distanceToLowestPoint": {
+                                "unit": "METRE",
+                                "value": 11.887200000000002
+                            },
+                            "windForce": {
+                                "unit": "NEWTON",
+                                "value": 151.80456652560497
+                            },
+                            "tensionMethod": "DYNAMIC",
+                            "outerStrandInCompression": false
+                        },
+                        {
+                            "id": "Wire#4",
+                            "clientItem": "C11.2M1000 (7/0)",
+                            "owner": "Bob's Cable",
+                            "position": {
+                                "unit": "METRE",
+                                "value": 2.9464000000000006
+                            },
+                            "actingOn": [
+                                {
+                                    "component": "Pole",
+                                    "load": {
+                                        "translational": {
+                                            "vector": [
+                                                10990.049470291699,
+                                                -238.77738171045178,
+                                                194.30425740142132
+                                            ],
+                                            "unit": "NEWTON"
+                                        }
+                                    }
+                                }
+                            ],
+                            "sag": {
+                                "unit": "METRE",
+                                "value": 0.11954305979270385
+                            },
+                            "tension": {
+                                "unit": "NEWTON",
+                                "value": 10992.542872439517
+                            },
+                            "verticalForce": {
+                                "unit": "NEWTON",
+                                "value": 194.30425740142127
+                            },
+                            "distanceToSagPoint": {
+                                "unit": "METRE",
+                                "value": 11.75275427183539
+                            },
+                            "lowestPointBelowAttachment": {
+                                "unit": "METRE",
+                                "value": -0.017241633697668148
+                            },
+                            "distanceToLowestPoint": {
+                                "unit": "METRE",
+                                "value": -4.46392894991472
+                            },
+                            "windForce": {
+                                "unit": "NEWTON",
+                                "value": 46.938204637289914
+                            },
+                            "tensionMethod": "DYNAMIC",
+                            "outerStrandInCompression": false
+                        }
+                    ],
+                    "insulators": [
+                        {
+                            "id": "Insulator#1",
+                            "clientItem": "13.2 kV Pin Type Insulator (Pole Top)",
+                            "owner": "Acme Power",
+                            "position": {
+                                "unit": "METRE",
+                                "value": 11.6332
+                            },
+                            "applied": {
+                                "translational": {
+                                    "vector": [
+                                        -3.969350471516363,
+                                        -2.577726336264845,
+                                        -54.428439684327486
+                                    ],
+                                    "unit": "NEWTON"
+                                }
+                            },
+                            "actingOn": [
+                                {
+                                    "component": "Pole",
+                                    "load": {
+                                        "translational": {
+                                            "vector": [
+                                                3040.6984608379425,
+                                                -52.852182532209554,
+                                                -102.60525820194744
+                                            ],
+                                            "unit": "NEWTON"
+                                        },
+                                        "rotational": {
+                                            "vector": [
+                                                26.40912918293543,
+                                                879.2928310788702,
+                                                361.5805665319349
+                                            ],
+                                            "unit": "NEWTON_METRE"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "id": "Insulator#2",
+                            "clientItem": "3\" Spool Bolt",
+                            "owner": "Acme Power",
+                            "position": {
+                                "unit": "METRE",
+                                "value": 9.144000000000002
+                            },
+                            "applied": {
+                                "translational": {
+                                    "vector": [
+                                        -1.6321342399327154,
+                                        -1.059920368529953,
+                                        -10.14194528279394
+                                    ],
+                                    "unit": "NEWTON"
+                                }
+                            },
+                            "actingOn": [
+                                {
+                                    "component": "Pole",
+                                    "load": {
+                                        "translational": {
+                                            "vector": [
+                                                3041.9458018324804,
+                                                -55.18807317044775,
+                                                55.67277674289653
+                                            ],
+                                            "unit": "NEWTON"
+                                        },
+                                        "rotational": {
+                                            "vector": [
+                                                -5.88670893690869,
+                                                0.10275288589764386,
+                                                321.7500763917633
+                                            ],
+                                            "unit": "NEWTON_METRE"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "id": "Insulator#3",
+                            "clientItem": "3 Bolt Clamp",
+                            "owner": "Janet's Telco",
+                            "position": {
+                                "unit": "METRE",
+                                "value": 4.927600000000001
+                            },
+                            "applied": {
+                                "translational": {
+                                    "vector": [
+                                        -1.7522593199917638,
+                                        -1.1379305076537578,
+                                        -15.21291792419091
+                                    ],
+                                    "unit": "NEWTON"
+                                }
+                            },
+                            "actingOn": [
+                                {
+                                    "component": "Pole",
+                                    "load": {
+                                        "translational": {
+                                            "vector": [
+                                                -6201.475129920756,
+                                                9266.873008587223,
+                                                -274.7290480295196
+                                            ],
+                                            "unit": "NEWTON"
+                                        },
+                                        "rotational": {
+                                            "vector": [
+                                                -18.93472319759894,
+                                                29.15691685161437,
+                                                1410.9052667584037
+                                            ],
+                                            "unit": "NEWTON_METRE"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    "pushBraces": [],
+                    "anchors": [],
+                    "guys": [],
+                    "spanGuys": [],
+                    "pointLoads": [],
+                    "crossArms": [],
+                    "sidewalkBraces": [],
+                    "equipments": []
+                }
+            ],
+            "analysisCaseDetails": {
+                "name": "Medium with insulators",
+                "type": "NESC 2012-2017",
+                "analysisMethod": "DIRECT_STIFFNESS",
+                "connectionType": "CONTINUATION",
+                "displacementBasedLoadChangesLevel": "ALL",
+                "windType": "SWEEP",
+                "sweepIncrement": "DEGREE_1",
+                "windStartAngle": {
+                    "unit": "RADIAN",
+                    "value": 0.0
+                },
+                "windEndAngle": {
+                    "unit": "RADIAN",
+                    "value": 6.283185307179586
+                },
+                "useStrengthResults": false,
+                "analyzeWithAverageSpan": false,
+                "maximumLoadingRatio": 1.0,
+                "addByDefault": true,
+                "constructionType": "NEW",
+                "checkUtilityWireTension": false,
+                "maximumAllowableUtilityWireTensionRatio": {
+                    "unit": "PERCENT",
+                    "value": 60.0
+                },
+                "checkCommWireTension": false,
+                "maximumAllowableCommunicationWireTensionRatio": {
+                    "unit": "PERCENT",
+                    "value": 60.0
+                },
+                "analyzeGroundLineOnly": false,
+                "components": [],
+                "insulatorTypes": [
+                    "DEADEND",
+                    "CLAMP"
+                ],
+                "analyzeWithoutLinearConstant": false,
+                "constructionGrade": "C",
+                "loadZone": "MEDIUM",
+                "wireTensionMethod": "INITIAL",
+                "creepWireTensionTemperature": {
+                    "unit": "CELSIUS",
+                    "value": -9.444444444444445
+                },
+                "creepWireTensionIceThickness": {
+                    "unit": "METRE",
+                    "value": 0.006350000000000001
+                },
+                "creepWireTensionWindPressure": {
+                    "unit": "PASCAL",
+                    "value": 191.52103592134338
+                },
+                "creepWireTensionIceDensity": {
+                    "unit": "KILOGRAM_PER_CUBIC_METRE",
+                    "value": 917.0
+                },
+                "highestWireTensionTemperature": {
+                    "unit": "CELSIUS",
+                    "value": -9.444444444444445
+                },
+                "highestWireTensionIceThickness": {
+                    "unit": "METRE",
+                    "value": 0.006350000000000001
+                },
+                "highestWireTensionWindPressure": {
+                    "unit": "PASCAL",
+                    "value": 191.52103592134338
+                },
+                "highestWireTensionIceDensity": {
+                    "unit": "KILOGRAM_PER_CUBIC_METRE",
+                    "value": 917.0
+                },
+                "outerStrandingCompression": false,
+                "overrides": {},
+                "valuesApplied": {
+                    "ice": {
+                        "unit": "METRE",
+                        "value": 0.006350000000000001
+                    },
+                    "iceDensity": {
+                        "unit": "KILOGRAM_PER_CUBIC_METRE",
+                        "value": 917.0
+                    },
+                    "temperature": {
+                        "unit": "CELSIUS",
+                        "value": -9.444444444444445
+                    },
+                    "windPressure": {
+                        "unit": "PASCAL",
+                        "value": 191.52103592134338
+                    },
+                    "linearConstant": {
+                        "unit": "NEWTON_PER_METRE",
+                        "value": 2.918780587441273
+                    },
+                    "anchorStrengthFactor": 1.0,
+                    "anchorTensionMultiplier": 1.1,
+                    "anchorVerticalLoadMultiplier": 1.5,
+                    "commOnlyTensionMultiplier": 0.0,
+                    "guyStrengthFactor": 0.9,
+                    "guyTensionMultiplier": 1.1,
+                    "guyVerticalLoadMultiplier": 1.5,
+                    "insulatorStrengthFactor": 1.0,
+                    "insulatorTensionMultiplier": 1.3,
+                    "insulatorVerticalLoadMultiplier": 1.9,
+                    "insulatorWindMultiplier": 1.75,
+                    "anchorWindMultiplier": 1.75,
+                    "guyWindMultiplier": 1.75,
+                    "foundationStrengthFactor": 1.0,
+                    "foundationTensionMultiplier": 1.3,
+                    "foundationVerticalLoadMultiplier": 1.9,
+                    "foundationWindMultiplier": 1.75,
+                    "poleStrengthFactors": {
+                        "WOOD": 0.85,
+                        "METAL": 1.0,
+                        "REINFORCED_CONCRETE": 0.85,
+                        "POLYMER": 1.0,
+                        "PRESTRESSED_CONCRETE": 1.0
+                    },
+                    "poleTensionMultipliers": {
+                        "WOOD": 1.3,
+                        "METAL": 1.1,
+                        "REINFORCED_CONCRETE": 1.3,
+                        "POLYMER": 1.3,
+                        "PRESTRESSED_CONCRETE": 1.1
+                    },
+                    "poleVerticalLoadMultipliers": {
+                        "WOOD": 1.9,
+                        "METAL": 1.5,
+                        "REINFORCED_CONCRETE": 1.9,
+                        "POLYMER": 1.5,
+                        "PRESTRESSED_CONCRETE": 1.5
+                    },
+                    "poleWindMultipliers": {
+                        "WOOD": 1.75,
+                        "METAL": 1.75,
+                        "REINFORCED_CONCRETE": 1.75,
+                        "POLYMER": 1.75,
+                        "PRESTRESSED_CONCRETE": 1.75
+                    },
+                    "crossArmStrengthFactors": {
+                        "WOOD": 0.85,
+                        "METAL": 1.0,
+                        "REINFORCED_CONCRETE": 0.85,
+                        "POLYMER": 1.0,
+                        "PRESTRESSED_CONCRETE": 1.0
+                    },
+                    "crossArmTensionMultipliers": {
+                        "WOOD": 1.3,
+                        "METAL": 1.1,
+                        "REINFORCED_CONCRETE": 1.3,
+                        "POLYMER": 1.3,
+                        "PRESTRESSED_CONCRETE": 1.1
+                    },
+                    "crossArmVerticalLoadMultipliers": {
+                        "WOOD": 1.9,
+                        "METAL": 1.5,
+                        "REINFORCED_CONCRETE": 1.9,
+                        "POLYMER": 1.5,
+                        "PRESTRESSED_CONCRETE": 1.5
+                    },
+                    "crossArmWindMultipliers": {
+                        "WOOD": 1.75,
+                        "METAL": 1.75,
+                        "REINFORCED_CONCRETE": 1.75,
+                        "POLYMER": 1.75,
+                        "PRESTRESSED_CONCRETE": 1.75
+                    },
+                    "areaMultipliers": {
+                        "ROUND": 1.0,
+                        "SQUARE": 1.6,
+                        "ROUND_LATTICE": 2.0,
+                        "SQUARE_LATTICE": 3.2
+                    }
+                }
+            }
+        }
+    ],
+    "id": "67d14cb65eb1b71aaaf9ce4a",
+    "version": 12
+}

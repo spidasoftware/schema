@@ -1,0 +1,3349 @@
+{
+    "label": "Two Pole Project",
+    "company": {
+        "id": 2,
+        "name": "SPIDA"
+    },
+    "dateModified": 1741493152528,
+    "clientFile": "Clearance Reviews Updated 230417.client",
+    "date": "2023-07-06",
+    "schema": "/schema/spidacalc/calc/project.schema",
+    "version": 12,
+    "engineer": "",
+    "comments": "",
+    "generalLocation": "",
+    "address": {
+        "number": "",
+        "street": "",
+        "city": "",
+        "county": "",
+        "state": "",
+        "zip_code": ""
+    },
+    "userDefinedValues": {},
+    "clientData": {
+        "schema": "/schema/spidacalc/client/data.schema",
+        "version": 12,
+        "name": "Clearance Reviews Updated 230417.client",
+        "poles": [
+            {
+                "aliases": [],
+                "shape": "ROUND",
+                "materialCategory": "WOOD",
+                "classOfPole": "3",
+                "species": "Southern Pine",
+                "height": {
+                    "unit": "METRE",
+                    "value": 13.716000000000001
+                },
+                "taper": 0.118345998,
+                "density": {
+                    "unit": "KILOGRAM_PER_CUBIC_METRE",
+                    "value": 576.664681462565
+                },
+                "maximumAllowableStress": {
+                    "unit": "PASCAL",
+                    "value": 5.515805834534689E7
+                },
+                "ptc": {
+                    "unit": "METRE",
+                    "value": 0.5841999645522462
+                },
+                "modulus": {
+                    "unit": "PASCAL",
+                    "value": 1.72368932329209E10
+                },
+                "wallThickness": {
+                    "unit": "METRE",
+                    "value": -0.0254
+                },
+                "poissonRatio": 0.3,
+                "settingType": "ANSI",
+                "momentAtHeights": []
+            }
+        ],
+        "wires": [
+            {
+                "aliases": [
+                    {
+                        "id": "1/0 ACSR 45m",
+                        "tensionGroupName": "45m"
+                    },
+                    {
+                        "id": "1/0 ACSR 60m",
+                        "tensionGroupName": "60m"
+                    },
+                    {
+                        "id": "1/0 ACSR 75m",
+                        "tensionGroupName": "75m"
+                    },
+                    {
+                        "id": "1/0 ACSR-Reduced",
+                        "tensionGroupName": "Reduced"
+                    }
+                ],
+                "size": "1/0 ACSR",
+                "calculation": "NONLINEAR_STRESS_STRAIN",
+                "strength": {
+                    "unit": "NEWTON",
+                    "value": 19483.21067484099
+                },
+                "weight": {
+                    "unit": "NEWTON_PER_METRE",
+                    "value": 2.120494096776085
+                },
+                "crossArea": {
+                    "unit": "SQUARE_METRE",
+                    "value": 6.2451488E-5
+                },
+                "diameter": {
+                    "unit": "METRE",
+                    "value": 0.010109200000000002
+                },
+                "description": "1/0 ACSR - Raven",
+                "coreStrands": 1,
+                "conductorStrands": 6,
+                "numberOfConductors": 1,
+                "usageGroups": [
+                    "PRIMARY",
+                    "NEUTRAL"
+                ],
+                "conductorProperties": "CORE_AND_OUTER",
+                "coreExpansionCoefficient": {
+                    "unit": "PER_CELSIUS",
+                    "value": 1.152E-5
+                },
+                "coreModulus": {
+                    "unit": "PASCAL",
+                    "value": 2.77858718914685E10
+                },
+                "outerExpansionCoefficient": {
+                    "unit": "PER_CELSIUS",
+                    "value": 2.304E-5
+                },
+                "outerModulus": {
+                    "unit": "PASCAL",
+                    "value": 5.046962338599241E10
+                },
+                "stressStrainPolynomials": {
+                    "outer": [
+                        {
+                            "unit": "PASCAL",
+                            "value": -4289228.512080038
+                        },
+                        {
+                            "unit": "PASCAL",
+                            "value": 4.3618234116198075E8
+                        },
+                        {
+                            "unit": "PASCAL",
+                            "value": -5.0021257319217664E8
+                        },
+                        {
+                            "unit": "PASCAL",
+                            "value": 2.0633940151264957E8
+                        },
+                        {
+                            "unit": "PASCAL",
+                            "value": 0.0
+                        }
+                    ],
+                    "core": [
+                        {
+                            "unit": "PASCAL",
+                            "value": 64121.242826465765
+                        },
+                        {
+                            "unit": "PASCAL",
+                            "value": 2.659149308557294E8
+                        },
+                        {
+                            "unit": "PASCAL",
+                            "value": 1.297938060438944E7
+                        },
+                        {
+                            "unit": "PASCAL",
+                            "value": -1.764299443748852E8
+                        },
+                        {
+                            "unit": "PASCAL",
+                            "value": 1.0555183940111445E8
+                        }
+                    ]
+                },
+                "creepPolynomials": {
+                    "outer": [
+                        {
+                            "unit": "PASCAL",
+                            "value": -6194249.952182456
+                        },
+                        {
+                            "unit": "PASCAL",
+                            "value": 2.6483314343643132E8
+                        },
+                        {
+                            "unit": "PASCAL",
+                            "value": -4.831170224837657E8
+                        },
+                        {
+                            "unit": "PASCAL",
+                            "value": 4.758968326463598E8
+                        },
+                        {
+                            "unit": "PASCAL",
+                            "value": -1.9361857430675393E8
+                        }
+                    ],
+                    "core": [
+                        {
+                            "unit": "PASCAL",
+                            "value": 64121.242826465765
+                        },
+                        {
+                            "unit": "PASCAL",
+                            "value": 2.659149308557294E8
+                        },
+                        {
+                            "unit": "PASCAL",
+                            "value": 1.297938060438944E7
+                        },
+                        {
+                            "unit": "PASCAL",
+                            "value": -1.764299443748852E8
+                        },
+                        {
+                            "unit": "PASCAL",
+                            "value": 1.0555183940111445E8
+                        }
+                    ]
+                },
+                "stressStrainTemperature": {
+                    "unit": "CELSIUS",
+                    "value": 23.88888888888889
+                },
+                "tensionGroups": [
+                    {
+                        "name": "30m",
+                        "temperature": {
+                            "unit": "CELSIUS",
+                            "value": 0.0
+                        },
+                        "groups": [
+                            {
+                                "distance": {
+                                    "unit": "METRE",
+                                    "value": 54.0
+                                },
+                                "tension": {
+                                    "unit": "NEWTON",
+                                    "value": 480.0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "45m",
+                        "temperature": {
+                            "unit": "CELSIUS",
+                            "value": -3.157967714489334E-14
+                        },
+                        "groups": [
+                            {
+                                "distance": {
+                                    "unit": "METRE",
+                                    "value": 72.00000000000001
+                                },
+                                "tension": {
+                                    "unit": "NEWTON",
+                                    "value": 960.0000000000001
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "60m",
+                        "temperature": {
+                            "unit": "CELSIUS",
+                            "value": -3.157967714489334E-14
+                        },
+                        "groups": [
+                            {
+                                "distance": {
+                                    "unit": "METRE",
+                                    "value": 93.0
+                                },
+                                "tension": {
+                                    "unit": "NEWTON",
+                                    "value": 1080.0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "75m",
+                        "temperature": {
+                            "unit": "CELSIUS",
+                            "value": -3.157967714489334E-14
+                        },
+                        "groups": [
+                            {
+                                "distance": {
+                                    "unit": "METRE",
+                                    "value": 116.0
+                                },
+                                "tension": {
+                                    "unit": "NEWTON",
+                                    "value": 1254.0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Reduced",
+                        "temperature": {
+                            "unit": "CELSIUS",
+                            "value": -3.157967714489334E-14
+                        },
+                        "groups": [
+                            {
+                                "distance": {
+                                    "unit": "METRE",
+                                    "value": 40.00000000000001
+                                },
+                                "tension": {
+                                    "unit": "NEWTON",
+                                    "value": 335.0
+                                }
+                            },
+                            {
+                                "distance": {
+                                    "unit": "METRE",
+                                    "value": 20.000000000000004
+                                },
+                                "tension": {
+                                    "unit": "NEWTON",
+                                    "value": 355.0
+                                }
+                            },
+                            {
+                                "distance": {
+                                    "unit": "METRE",
+                                    "value": 50.0
+                                },
+                                "tension": {
+                                    "unit": "NEWTON",
+                                    "value": 332.0
+                                }
+                            },
+                            {
+                                "distance": {
+                                    "unit": "METRE",
+                                    "value": 30.000000000000004
+                                },
+                                "tension": {
+                                    "unit": "NEWTON",
+                                    "value": 340.0
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "aliases": [
+                    {
+                        "id": "1/0 Triplex Bus 45m",
+                        "tensionGroupName": "45m"
+                    },
+                    {
+                        "id": "1/0 Triplex Bus 60m",
+                        "tensionGroupName": "60m"
+                    }
+                ],
+                "size": "1/0 Triplex Bus",
+                "calculation": "NONLINEAR_STRESS_STRAIN",
+                "strength": {
+                    "unit": "NEWTON",
+                    "value": 12677.431603492425
+                },
+                "weight": {
+                    "unit": "NEWTON_PER_METRE",
+                    "value": 5.326774572080323
+                },
+                "crossArea": {
+                    "unit": "SQUARE_METRE",
+                    "value": 3.9225728E-5
+                },
+                "diameter": {
+                    "unit": "METRE",
+                    "value": 0.024130000000000002
+                },
+                "description": "Janthina - Triplex ACSR Neutral",
+                "coreStrands": 1,
+                "conductorStrands": 6,
+                "numberOfConductors": 1,
+                "usageGroups": [
+                    "SECONDARY"
+                ],
+                "conductorProperties": "CORE_AND_OUTER",
+                "coreExpansionCoefficient": {
+                    "unit": "PER_CELSIUS",
+                    "value": 1.152E-5
+                },
+                "coreModulus": {
+                    "unit": "PASCAL",
+                    "value": 2.8268504901990284E10
+                },
+                "outerExpansionCoefficient": {
+                    "unit": "PER_CELSIUS",
+                    "value": 2.304E-5
+                },
+                "outerModulus": {
+                    "unit": "PASCAL",
+                    "value": 5.1572784552899345E10
+                },
+                "stressStrainPolynomials": {
+                    "outer": [
+                        {
+                            "unit": "PASCAL",
+                            "value": -4977325.28993824
+                        },
+                        {
+                            "unit": "PASCAL",
+                            "value": 5.509069656659263E8
+                        },
+                        {
+                            "unit": "PASCAL",
+                            "value": -9.237388978668176E8
+                        },
+                        {
+                            "unit": "PASCAL",
+                            "value": 7.662695360481454E8
+                        },
+                        {
+                            "unit": "PASCAL",
+                            "value": -2.4026850215233105E8
+                        }
+                    ],
+                    "core": [
+                        {
+                            "unit": "PASCAL",
+                            "value": 2036021.8286726172
+                        },
+                        {
+                            "unit": "PASCAL",
+                            "value": 2.218663949368647E8
+                        },
+                        {
+                            "unit": "PASCAL",
+                            "value": 3.759821468081398E8
+                        },
+                        {
+                            "unit": "PASCAL",
+                            "value": -9.178576698957449E8
+                        },
+                        {
+                            "unit": "PASCAL",
+                            "value": 5.236637111734302E8
+                        }
+                    ]
+                },
+                "creepPolynomials": {
+                    "outer": [
+                        {
+                            "unit": "PASCAL",
+                            "value": 4249238.919779661
+                        },
+                        {
+                            "unit": "PASCAL",
+                            "value": 1.682596569824807E8
+                        },
+                        {
+                            "unit": "PASCAL",
+                            "value": -2.920577820842359E8
+                        },
+                        {
+                            "unit": "PASCAL",
+                            "value": 3.5632105691094095E8
+                        },
+                        {
+                            "unit": "PASCAL",
+                            "value": -1.8642044769268617E8
+                        }
+                    ],
+                    "core": [
+                        {
+                            "unit": "PASCAL",
+                            "value": 2036021.8286726172
+                        },
+                        {
+                            "unit": "PASCAL",
+                            "value": 2.218663949368647E8
+                        },
+                        {
+                            "unit": "PASCAL",
+                            "value": 3.759821468081398E8
+                        },
+                        {
+                            "unit": "PASCAL",
+                            "value": -9.178576698957449E8
+                        },
+                        {
+                            "unit": "PASCAL",
+                            "value": 5.236637111734302E8
+                        }
+                    ]
+                },
+                "stressStrainTemperature": {
+                    "unit": "CELSIUS",
+                    "value": 21.11111111111111
+                },
+                "tensionGroups": [
+                    {
+                        "name": "30m",
+                        "temperature": {
+                            "unit": "CELSIUS",
+                            "value": 0.0
+                        },
+                        "groups": [
+                            {
+                                "distance": {
+                                    "unit": "METRE",
+                                    "value": 54.0
+                                },
+                                "tension": {
+                                    "unit": "NEWTON",
+                                    "value": 1320.0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "45m",
+                        "temperature": {
+                            "unit": "CELSIUS",
+                            "value": -3.157967714489334E-14
+                        },
+                        "groups": [
+                            {
+                                "distance": {
+                                    "unit": "METRE",
+                                    "value": 72.00000000000001
+                                },
+                                "tension": {
+                                    "unit": "NEWTON",
+                                    "value": 2570.0
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "60m",
+                        "temperature": {
+                            "unit": "CELSIUS",
+                            "value": -3.157967714489334E-14
+                        },
+                        "groups": [
+                            {
+                                "distance": {
+                                    "unit": "METRE",
+                                    "value": 93.0
+                                },
+                                "tension": {
+                                    "unit": "NEWTON",
+                                    "value": 2913.0
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "aliases": [],
+                "size": "C11.2M1000",
+                "calculation": "DYNAMIC",
+                "strength": {
+                    "unit": "NEWTON",
+                    "value": 49820.0820909176
+                },
+                "weight": {
+                    "unit": "NEWTON_PER_METRE",
+                    "value": 5.7937794660709265
+                },
+                "crossArea": {
+                    "unit": "SQUARE_METRE",
+                    "value": 3.838702E-5
+                },
+                "diameter": {
+                    "unit": "METRE",
+                    "value": 0.025400000000000002
+                },
+                "description": "1 Inch Cable Bundle with 11,200 lb. Strength (5/16\" EHS)",
+                "coreStrands": 0,
+                "conductorStrands": 7,
+                "numberOfConductors": 1,
+                "usageGroups": [
+                    "COMMUNICATION",
+                    "COMMUNICATION_SERVICE"
+                ],
+                "conductorProperties": "TOTAL",
+                "expansionCoefficient": {
+                    "unit": "PER_CELSIUS",
+                    "value": 1.1519999999999998E-5
+                },
+                "modulus": {
+                    "unit": "PASCAL",
+                    "value": 1.72368932329209E11
+                },
+                "tensionGroups": [
+                    {
+                        "name": "Full",
+                        "temperature": {
+                            "unit": "CELSIUS",
+                            "value": 15.555555555555555
+                        },
+                        "groups": [
+                            {
+                                "distance": {
+                                    "unit": "METRE",
+                                    "value": 1523.6952
+                                },
+                                "tension": {
+                                    "unit": "NEWTON",
+                                    "value": 6227.5102613647
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Slack",
+                        "temperature": {
+                            "unit": "CELSIUS",
+                            "value": 15.555555555555555
+                        },
+                        "groups": [
+                            {
+                                "distance": {
+                                    "unit": "METRE",
+                                    "value": 1523.6952
+                                },
+                                "tension": {
+                                    "unit": "NEWTON",
+                                    "value": 1245.50205227294
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "anchors": [],
+        "equipments": [],
+        "equipmentTypes": [
+            {
+                "name": "APPARATUS_CASE",
+                "industry": "COMMUNICATION"
+            },
+            {
+                "name": "CAPACITOR",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "CROSS_CONNECT",
+                "industry": "COMMUNICATION"
+            },
+            {
+                "name": "CUTOUT_ARRESTOR",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "DRIP_LOOP",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "JOINT_USE_BOX",
+                "industry": "COMMUNICATION"
+            },
+            {
+                "name": "LOAD_COIL_CASE",
+                "industry": "COMMUNICATION"
+            },
+            {
+                "name": "POWER_SUPPLY",
+                "industry": "COMMUNICATION"
+            },
+            {
+                "name": "PRIMARY_METERING",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "RECLOSER",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "REGULATOR",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "RISER",
+                "industry": "BOTH"
+            },
+            {
+                "name": "SPLICE_CASE",
+                "industry": "COMMUNICATION"
+            },
+            {
+                "name": "STREET_LIGHT",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "SWITCH",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "TERMINATION_BRACKET",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "TRANSFORMER",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "WIRE_MOUNTED",
+                "industry": "BOTH"
+            },
+            {
+                "name": "WIRELESS_ANTENNA",
+                "industry": "BOTH"
+            }
+        ],
+        "insulators": [
+            {
+                "aliases": [],
+                "size": "13.2 kV Pin Type Insulator (Pole Top)",
+                "type": "POLE_TOP",
+                "horizontalOffset": {
+                    "unit": "METRE",
+                    "value": 0.025400000000000002
+                },
+                "verticalOffset": {
+                    "unit": "METRE",
+                    "value": 0.2890520000000001
+                },
+                "lateralArea": {
+                    "unit": "SQUARE_METRE",
+                    "value": 0.014121262079999997
+                },
+                "poleSideArea": {
+                    "unit": "SQUARE_METRE",
+                    "value": 0.014121262079999997
+                },
+                "shape": "ROUND",
+                "strength": {
+                    "unit": "NEWTON",
+                    "value": 13344.6648457815
+                },
+                "weight": {
+                    "unit": "NEWTON",
+                    "value": 28.646547202277624
+                },
+                "throughHoleDiameter": {
+                    "unit": "METRE",
+                    "value": -0.0015875000000000002
+                }
+            },
+            {
+                "aliases": [],
+                "size": "15 kV Dead End Insulator",
+                "type": "DEADEND",
+                "horizontalOffset": {
+                    "unit": "METRE",
+                    "value": 0.3302
+                },
+                "verticalOffset": {
+                    "unit": "METRE",
+                    "value": 0.0
+                },
+                "lateralArea": {
+                    "unit": "SQUARE_METRE",
+                    "value": 0.00520257024
+                },
+                "poleSideArea": {
+                    "unit": "SQUARE_METRE",
+                    "value": 0.01932383232
+                },
+                "shape": "ROUND",
+                "strength": {
+                    "unit": "NEWTON",
+                    "value": 35003.05589048487
+                },
+                "weight": {
+                    "unit": "NEWTON",
+                    "value": 11.5653761996773
+                },
+                "throughHoleDiameter": {
+                    "unit": "METRE",
+                    "value": -0.0015875000000000002
+                }
+            },
+            {
+                "aliases": [],
+                "size": "3 Bolt Clamp",
+                "type": "CLAMP",
+                "horizontalOffset": {
+                    "unit": "METRE",
+                    "value": 0.0
+                },
+                "verticalOffset": {
+                    "unit": "METRE",
+                    "value": 0.0
+                },
+                "lateralArea": {
+                    "unit": "SQUARE_METRE",
+                    "value": 0.001755867456
+                },
+                "poleSideArea": {
+                    "unit": "SQUARE_METRE",
+                    "value": 0.006233793984000002
+                },
+                "shape": "ROUND",
+                "strength": {
+                    "unit": "NEWTON",
+                    "value": 60000.0
+                },
+                "weight": {
+                    "unit": "NEWTON",
+                    "value": 8.0067989074689
+                },
+                "throughHoleDiameter": {
+                    "unit": "METRE",
+                    "value": -0.0015875000000000002
+                }
+            },
+            {
+                "aliases": [],
+                "size": "3\" Spool Bolt",
+                "type": "CLAMP",
+                "horizontalOffset": {
+                    "unit": "METRE",
+                    "value": 0.0
+                },
+                "verticalOffset": {
+                    "unit": "METRE",
+                    "value": 0.0
+                },
+                "lateralArea": {
+                    "unit": "SQUARE_METRE",
+                    "value": 0.00580644
+                },
+                "poleSideArea": {
+                    "unit": "SQUARE_METRE",
+                    "value": 0.00580644
+                },
+                "shape": "ROUND",
+                "strength": {
+                    "unit": "NEWTON",
+                    "value": 13344.6648457815
+                },
+                "weight": {
+                    "unit": "NEWTON",
+                    "value": 5.3378659383126
+                },
+                "throughHoleDiameter": {
+                    "unit": "METRE",
+                    "value": -0.0015875000000000002
+                }
+            },
+            {
+                "aliases": [],
+                "size": "Neutral - D/E Clamp",
+                "type": "DEADEND",
+                "horizontalOffset": {
+                    "unit": "METRE",
+                    "value": 0.22860000000000003
+                },
+                "verticalOffset": {
+                    "unit": "METRE",
+                    "value": 0.0
+                },
+                "lateralArea": {
+                    "unit": "SQUARE_METRE",
+                    "value": 0.0068748249599999995
+                },
+                "poleSideArea": {
+                    "unit": "SQUARE_METRE",
+                    "value": 3.716121600000001E-4
+                },
+                "shape": "ROUND",
+                "strength": {
+                    "unit": "NEWTON",
+                    "value": 31137.5513068235
+                },
+                "weight": {
+                    "unit": "NEWTON",
+                    "value": 8.896443230521001
+                },
+                "throughHoleDiameter": {
+                    "unit": "METRE",
+                    "value": -0.0015875000000000002
+                }
+            }
+        ],
+        "foundations": [],
+        "crossArms": [],
+        "braces": [],
+        "bundleComponents": [],
+        "bundles": [],
+        "assemblies": [
+            {
+                "aliases": [],
+                "code": "A1",
+                "group": "RUS",
+                "assemblyStructure": {
+                    "wireEndPoints": [
+                        {
+                            "id": "WEP#1",
+                            "direction": 0.0,
+                            "distance": {
+                                "unit": "METRE",
+                                "value": 0.3048
+                            },
+                            "relativeElevation": {
+                                "unit": "METRE",
+                                "value": 0.0
+                            },
+                            "inclination": {
+                                "unit": "RADIAN",
+                                "value": 0.0
+                            },
+                            "type": "PREVIOUS_POLE",
+                            "comments": "",
+                            "environment": "None",
+                            "wires": [
+                                "Wire#1",
+                                "Wire#3"
+                            ],
+                            "spanGuys": [],
+                            "spanPoints": [],
+                            "terrainPoints": [],
+                            "environmentRegions": [],
+                            "calculateClearances": true
+                        },
+                        {
+                            "id": "WEP#2",
+                            "direction": 180.0,
+                            "distance": {
+                                "unit": "METRE",
+                                "value": 0.3048
+                            },
+                            "relativeElevation": {
+                                "unit": "METRE",
+                                "value": 0.0
+                            },
+                            "inclination": {
+                                "unit": "RADIAN",
+                                "value": 0.0
+                            },
+                            "type": "NEXT_POLE",
+                            "comments": "",
+                            "environment": "None",
+                            "wires": [
+                                "Wire#2",
+                                "Wire#4"
+                            ],
+                            "spanGuys": [],
+                            "spanPoints": [],
+                            "terrainPoints": [],
+                            "environmentRegions": [],
+                            "calculateClearances": true
+                        }
+                    ],
+                    "spanPoints": [],
+                    "anchors": [],
+                    "notePoints": [],
+                    "pointLoads": [],
+                    "wirePointLoads": [],
+                    "damages": [],
+                    "wires": [
+                        {
+                            "id": "Wire#1",
+                            "owner": {
+                                "industry": "UTILITY",
+                                "id": "none"
+                            },
+                            "attachmentHeight": {
+                                "unit": "METRE",
+                                "value": 0.2890520000000001
+                            },
+                            "usageGroup": "PRIMARY",
+                            "tensionGroup": "dummyTensionGroup",
+                            "midspanHeight": {
+                                "unit": "METRE",
+                                "value": 0.0
+                            }
+                        },
+                        {
+                            "id": "Wire#2",
+                            "owner": {
+                                "industry": "UTILITY",
+                                "id": "none"
+                            },
+                            "attachmentHeight": {
+                                "unit": "METRE",
+                                "value": 0.2890520000000001
+                            },
+                            "usageGroup": "PRIMARY",
+                            "tensionGroup": "dummyTensionGroup",
+                            "midspanHeight": {
+                                "unit": "METRE",
+                                "value": 0.0
+                            }
+                        },
+                        {
+                            "id": "Wire#3",
+                            "owner": {
+                                "industry": "UTILITY",
+                                "id": "none"
+                            },
+                            "attachmentHeight": {
+                                "unit": "METRE",
+                                "value": -0.9652000000000001
+                            },
+                            "usageGroup": "NEUTRAL",
+                            "tensionGroup": "dummyTensionGroup",
+                            "midspanHeight": {
+                                "unit": "METRE",
+                                "value": 0.0
+                            }
+                        },
+                        {
+                            "id": "Wire#4",
+                            "owner": {
+                                "industry": "UTILITY",
+                                "id": "none"
+                            },
+                            "attachmentHeight": {
+                                "unit": "METRE",
+                                "value": -0.9652000000000001
+                            },
+                            "usageGroup": "NEUTRAL",
+                            "tensionGroup": "dummyTensionGroup",
+                            "midspanHeight": {
+                                "unit": "METRE",
+                                "value": 0.0
+                            }
+                        }
+                    ],
+                    "spanGuys": [],
+                    "guys": [],
+                    "equipments": [],
+                    "wireMountedEquipments": [],
+                    "guyAttachPoints": [
+                        {
+                            "id": "GuyAttachPoint#1",
+                            "supportedWEPs": [
+                                "WEP#1",
+                                "WEP#2"
+                            ],
+                            "attachHeight": {
+                                "unit": "METRE",
+                                "value": -0.5842
+                            }
+                        }
+                    ],
+                    "crossArms": [],
+                    "insulators": [
+                        {
+                            "id": "Insulator#1",
+                            "owner": {
+                                "industry": "UTILITY",
+                                "id": "none"
+                            },
+                            "clientItemVersion": "300cbd1a9eea83b86ec3a8a37d0fed15",
+                            "clientItem": "13.2 kV Pin Type Insulator (Pole Top)",
+                            "offset": {
+                                "unit": "METRE",
+                                "value": 0.0
+                            },
+                            "direction": 90.0,
+                            "doubleInsulator": false,
+                            "wires": [
+                                "Wire#1",
+                                "Wire#2"
+                            ]
+                        },
+                        {
+                            "id": "Insulator#2",
+                            "owner": {
+                                "industry": "UTILITY",
+                                "id": "none"
+                            },
+                            "clientItemVersion": "e88a3ba7208e629c3d5a46156cbb8d86",
+                            "clientItem": "3\" Spool Bolt",
+                            "offset": {
+                                "unit": "METRE",
+                                "value": -0.9652000000000001
+                            },
+                            "direction": 90.0,
+                            "doubleInsulator": false,
+                            "wires": [
+                                "Wire#3",
+                                "Wire#4"
+                            ]
+                        }
+                    ],
+                    "pushBraces": [],
+                    "sidewalkBraces": [],
+                    "foundations": [],
+                    "trusses": [],
+                    "assemblies": []
+                },
+                "distanceFromPoleTop": {
+                    "unit": "METRE",
+                    "value": 0.10160000000000001
+                },
+                "distanceToUnderbuild": {
+                    "unit": "METRE",
+                    "value": 0.9144000000000001
+                },
+                "minimumLineAngle": {
+                    "unit": "RADIAN",
+                    "value": 0.0
+                },
+                "maximumLineAngle": {
+                    "unit": "RADIAN",
+                    "value": 0.08726646259971647
+                },
+                "assemblyType": "FRAMING"
+            },
+            {
+                "aliases": [],
+                "code": "Deadend: Vertical (15 kV)",
+                "group": "Single Phase Deadend",
+                "assemblyStructure": {
+                    "wireEndPoints": [
+                        {
+                            "id": "WEP#1",
+                            "direction": 30.0,
+                            "distance": {
+                                "unit": "METRE",
+                                "value": 48.76800000000001
+                            },
+                            "relativeElevation": {
+                                "unit": "METRE",
+                                "value": 0.0
+                            },
+                            "inclination": {
+                                "unit": "RADIAN",
+                                "value": 0.0
+                            },
+                            "type": "OTHER_POLE",
+                            "comments": "",
+                            "environment": "None",
+                            "wires": [
+                                "Wire#1",
+                                "Wire#2"
+                            ],
+                            "spanGuys": [],
+                            "spanPoints": [],
+                            "terrainPoints": [],
+                            "environmentRegions": [],
+                            "calculateClearances": true
+                        }
+                    ],
+                    "spanPoints": [],
+                    "anchors": [],
+                    "notePoints": [],
+                    "pointLoads": [],
+                    "wirePointLoads": [],
+                    "damages": [],
+                    "wires": [
+                        {
+                            "id": "Wire#1",
+                            "owner": {
+                                "industry": "UTILITY",
+                                "id": "Acme Power"
+                            },
+                            "attachmentHeight": {
+                                "unit": "METRE",
+                                "value": 0.0
+                            },
+                            "usageGroup": "PRIMARY",
+                            "tensionGroup": "Full",
+                            "midspanHeight": {
+                                "unit": "METRE",
+                                "value": 0.0
+                            }
+                        },
+                        {
+                            "id": "Wire#2",
+                            "owner": {
+                                "industry": "UTILITY",
+                                "id": "Acme Power"
+                            },
+                            "attachmentHeight": {
+                                "unit": "METRE",
+                                "value": -1.219199999999999
+                            },
+                            "usageGroup": "NEUTRAL",
+                            "tensionGroup": "Full",
+                            "midspanHeight": {
+                                "unit": "METRE",
+                                "value": 0.0
+                            }
+                        }
+                    ],
+                    "spanGuys": [],
+                    "guys": [],
+                    "equipments": [],
+                    "wireMountedEquipments": [],
+                    "guyAttachPoints": [
+                        {
+                            "id": "GuyAttachPoint#1",
+                            "supportedWEPs": [],
+                            "attachHeight": {
+                                "unit": "METRE",
+                                "value": -0.5334000000000001
+                            }
+                        }
+                    ],
+                    "crossArms": [],
+                    "insulators": [
+                        {
+                            "id": "Insulator#1",
+                            "owner": {
+                                "industry": "UTILITY",
+                                "id": "Acme Power"
+                            },
+                            "clientItemVersion": "dbe1343b5a14dd3423902fc9fb974c21",
+                            "clientItem": "15 kV Dead End Insulator",
+                            "offset": {
+                                "unit": "METRE",
+                                "value": 0.0
+                            },
+                            "direction": 30.0,
+                            "doubleInsulator": false,
+                            "wires": [
+                                "Wire#1"
+                            ]
+                        },
+                        {
+                            "id": "Insulator#2",
+                            "owner": {
+                                "industry": "UTILITY",
+                                "id": "Acme Power"
+                            },
+                            "clientItemVersion": "130fd4a4a7f56d25966e47619f1e4110",
+                            "clientItem": "Neutral - D/E Clamp",
+                            "offset": {
+                                "unit": "METRE",
+                                "value": -1.219199999999999
+                            },
+                            "direction": 30.0,
+                            "doubleInsulator": false,
+                            "wires": [
+                                "Wire#2"
+                            ]
+                        }
+                    ],
+                    "pushBraces": [],
+                    "sidewalkBraces": [],
+                    "foundations": [],
+                    "trusses": [],
+                    "assemblies": []
+                },
+                "distanceFromPoleTop": {
+                    "unit": "METRE",
+                    "value": 0.1524
+                },
+                "distanceToUnderbuild": {
+                    "unit": "METRE",
+                    "value": 0.9144000000000001
+                },
+                "minimumLineAngle": {
+                    "unit": "RADIAN",
+                    "value": 0.0
+                },
+                "maximumLineAngle": {
+                    "unit": "RADIAN",
+                    "value": 1.5707963267948966
+                },
+                "assemblyType": "FRAMING"
+            },
+            {
+                "aliases": [],
+                "code": "Janet's TELCO Bundle",
+                "group": "Joint Use",
+                "assemblyStructure": {
+                    "wireEndPoints": [
+                        {
+                            "id": "WEP#1",
+                            "direction": 180.0,
+                            "distance": {
+                                "unit": "METRE",
+                                "value": 45.720000000000006
+                            },
+                            "relativeElevation": {
+                                "unit": "METRE",
+                                "value": 0.0
+                            },
+                            "inclination": {
+                                "unit": "RADIAN",
+                                "value": 0.0
+                            },
+                            "type": "PREVIOUS_POLE",
+                            "comments": "",
+                            "environment": "None",
+                            "wires": [
+                                "Wire#1"
+                            ],
+                            "spanGuys": [],
+                            "spanPoints": [],
+                            "terrainPoints": [],
+                            "environmentRegions": [],
+                            "calculateClearances": true
+                        },
+                        {
+                            "id": "WEP#2",
+                            "direction": 0.0,
+                            "distance": {
+                                "unit": "METRE",
+                                "value": 45.720000000000006
+                            },
+                            "relativeElevation": {
+                                "unit": "METRE",
+                                "value": 0.0
+                            },
+                            "inclination": {
+                                "unit": "RADIAN",
+                                "value": 0.0
+                            },
+                            "type": "NEXT_POLE",
+                            "comments": "",
+                            "environment": "None",
+                            "wires": [
+                                "Wire#2"
+                            ],
+                            "spanGuys": [],
+                            "spanPoints": [],
+                            "terrainPoints": [],
+                            "environmentRegions": [],
+                            "calculateClearances": true
+                        }
+                    ],
+                    "spanPoints": [],
+                    "anchors": [],
+                    "notePoints": [],
+                    "pointLoads": [],
+                    "wirePointLoads": [],
+                    "damages": [],
+                    "wires": [
+                        {
+                            "id": "Wire#1",
+                            "owner": {
+                                "industry": "COMMUNICATION",
+                                "id": "Janet's Telco"
+                            },
+                            "attachmentHeight": {
+                                "unit": "METRE",
+                                "value": 0.0
+                            },
+                            "usageGroup": "COMMUNICATION",
+                            "tensionGroup": "Full",
+                            "midspanHeight": {
+                                "unit": "METRE",
+                                "value": 0.0
+                            },
+                            "connectedWire": "Wire#2"
+                        },
+                        {
+                            "id": "Wire#2",
+                            "owner": {
+                                "industry": "COMMUNICATION",
+                                "id": "Janet's Telco"
+                            },
+                            "attachmentHeight": {
+                                "unit": "METRE",
+                                "value": 0.0
+                            },
+                            "usageGroup": "COMMUNICATION",
+                            "tensionGroup": "Full",
+                            "midspanHeight": {
+                                "unit": "METRE",
+                                "value": 0.0
+                            },
+                            "connectedWire": "Wire#1"
+                        }
+                    ],
+                    "spanGuys": [],
+                    "guys": [],
+                    "equipments": [],
+                    "wireMountedEquipments": [],
+                    "guyAttachPoints": [],
+                    "crossArms": [],
+                    "insulators": [
+                        {
+                            "id": "Insulator#1",
+                            "owner": {
+                                "industry": "COMMUNICATION",
+                                "id": "Janet's Telco"
+                            },
+                            "clientItemVersion": "5ebd379375991181f3bdbc1d166e81ca",
+                            "clientItem": "3 Bolt Clamp",
+                            "offset": {
+                                "unit": "METRE",
+                                "value": 0.0
+                            },
+                            "direction": 90.0,
+                            "doubleInsulator": false,
+                            "wires": [
+                                "Wire#1",
+                                "Wire#2"
+                            ]
+                        }
+                    ],
+                    "pushBraces": [],
+                    "sidewalkBraces": [],
+                    "foundations": [],
+                    "trusses": [],
+                    "assemblies": []
+                },
+                "distanceFromPoleTop": {
+                    "unit": "METRE",
+                    "value": 4.7244
+                },
+                "distanceToUnderbuild": {
+                    "unit": "METRE",
+                    "value": 0.0
+                },
+                "minimumLineAngle": {
+                    "unit": "RADIAN",
+                    "value": 0.0
+                },
+                "maximumLineAngle": {
+                    "unit": "RADIAN",
+                    "value": 3.141592653589793
+                },
+                "assemblyType": "FRAMING"
+            }
+        ],
+        "trusses": [],
+        "environments": [],
+        "defaultEnvironment": {
+            "name": "None",
+            "description": "N/A"
+        },
+        "analysisCases": [
+            {
+                "type": "zoneStrengthCase",
+                "name": "NESC ZONE",
+                "addByDefault": false,
+                "includeThroughBolts": false,
+                "minimumAllowableRatio": 0.6666666666666666,
+                "heightToIncludeAtGroundline": {
+                    "unit": "METRE",
+                    "value": 0.0
+                }
+            },
+            {
+                "name": "Medium with insulators",
+                "type": "NESC 2012-2017",
+                "analysisMethod": "DIRECT_STIFFNESS",
+                "connectionType": "CONTINUATION",
+                "displacementBasedLoadChangesLevel": "ALL",
+                "windType": "SWEEP",
+                "sweepIncrement": "DEGREE_1",
+                "windStartAngle": {
+                    "unit": "RADIAN",
+                    "value": 0.0
+                },
+                "windEndAngle": {
+                    "unit": "RADIAN",
+                    "value": 6.283185307179586
+                },
+                "useStrengthResults": false,
+                "analyzeWithAverageSpan": false,
+                "maximumLoadingRatio": 1.0,
+                "addByDefault": true,
+                "constructionType": "NEW",
+                "checkUtilityWireTension": false,
+                "maximumAllowableUtilityWireTensionRatio": {
+                    "unit": "PERCENT",
+                    "value": 60.0
+                },
+                "checkCommWireTension": false,
+                "maximumAllowableCommunicationWireTensionRatio": {
+                    "unit": "PERCENT",
+                    "value": 60.0
+                },
+                "analyzeGroundLineOnly": false,
+                "components": [],
+                "insulatorTypes": [
+                    "DEADEND",
+                    "CLAMP"
+                ],
+                "analyzeWithoutLinearConstant": false,
+                "constructionGrade": "C",
+                "loadZone": "MEDIUM",
+                "wireTensionMethod": "INITIAL",
+                "creepWireTensionTemperature": {
+                    "unit": "CELSIUS",
+                    "value": -9.444444444444445
+                },
+                "creepWireTensionIceThickness": {
+                    "unit": "METRE",
+                    "value": 0.006350000000000001
+                },
+                "creepWireTensionWindPressure": {
+                    "unit": "PASCAL",
+                    "value": 191.52103592134338
+                },
+                "creepWireTensionIceDensity": {
+                    "unit": "KILOGRAM_PER_CUBIC_METRE",
+                    "value": 917.0
+                },
+                "highestWireTensionTemperature": {
+                    "unit": "CELSIUS",
+                    "value": -9.444444444444445
+                },
+                "highestWireTensionIceThickness": {
+                    "unit": "METRE",
+                    "value": 0.006350000000000001
+                },
+                "highestWireTensionWindPressure": {
+                    "unit": "PASCAL",
+                    "value": 191.52103592134338
+                },
+                "highestWireTensionIceDensity": {
+                    "unit": "KILOGRAM_PER_CUBIC_METRE",
+                    "value": 917.0
+                },
+                "outerStrandingCompression": false,
+                "overrides": {},
+                "valuesApplied": {
+                    "ice": {
+                        "unit": "METRE",
+                        "value": 0.006350000000000001
+                    },
+                    "iceDensity": {
+                        "unit": "KILOGRAM_PER_CUBIC_METRE",
+                        "value": 917.0
+                    },
+                    "temperature": {
+                        "unit": "CELSIUS",
+                        "value": -9.444444444444445
+                    },
+                    "windPressure": {
+                        "unit": "PASCAL",
+                        "value": 191.52103592134338
+                    },
+                    "linearConstant": {
+                        "unit": "NEWTON_PER_METRE",
+                        "value": 2.918780587441273
+                    },
+                    "anchorStrengthFactor": 1.0,
+                    "anchorTensionMultiplier": 1.1,
+                    "anchorVerticalLoadMultiplier": 1.5,
+                    "commOnlyTensionMultiplier": 0.0,
+                    "guyStrengthFactor": 0.9,
+                    "guyTensionMultiplier": 1.1,
+                    "guyVerticalLoadMultiplier": 1.5,
+                    "insulatorStrengthFactor": 1.0,
+                    "insulatorTensionMultiplier": 1.3,
+                    "insulatorVerticalLoadMultiplier": 1.9,
+                    "insulatorWindMultiplier": 1.75,
+                    "anchorWindMultiplier": 1.75,
+                    "guyWindMultiplier": 1.75,
+                    "foundationStrengthFactor": 1.0,
+                    "foundationTensionMultiplier": 1.3,
+                    "foundationVerticalLoadMultiplier": 1.9,
+                    "foundationWindMultiplier": 1.75,
+                    "poleStrengthFactors": {
+                        "WOOD": 0.85,
+                        "METAL": 1.0,
+                        "REINFORCED_CONCRETE": 0.85,
+                        "POLYMER": 1.0,
+                        "PRESTRESSED_CONCRETE": 1.0
+                    },
+                    "poleTensionMultipliers": {
+                        "WOOD": 1.3,
+                        "METAL": 1.1,
+                        "REINFORCED_CONCRETE": 1.3,
+                        "POLYMER": 1.3,
+                        "PRESTRESSED_CONCRETE": 1.1
+                    },
+                    "poleVerticalLoadMultipliers": {
+                        "WOOD": 1.9,
+                        "METAL": 1.5,
+                        "REINFORCED_CONCRETE": 1.9,
+                        "POLYMER": 1.5,
+                        "PRESTRESSED_CONCRETE": 1.5
+                    },
+                    "poleWindMultipliers": {
+                        "WOOD": 1.75,
+                        "METAL": 1.75,
+                        "REINFORCED_CONCRETE": 1.75,
+                        "POLYMER": 1.75,
+                        "PRESTRESSED_CONCRETE": 1.75
+                    },
+                    "crossArmStrengthFactors": {
+                        "WOOD": 0.85,
+                        "METAL": 1.0,
+                        "REINFORCED_CONCRETE": 0.85,
+                        "POLYMER": 1.0,
+                        "PRESTRESSED_CONCRETE": 1.0
+                    },
+                    "crossArmTensionMultipliers": {
+                        "WOOD": 1.3,
+                        "METAL": 1.1,
+                        "REINFORCED_CONCRETE": 1.3,
+                        "POLYMER": 1.3,
+                        "PRESTRESSED_CONCRETE": 1.1
+                    },
+                    "crossArmVerticalLoadMultipliers": {
+                        "WOOD": 1.9,
+                        "METAL": 1.5,
+                        "REINFORCED_CONCRETE": 1.9,
+                        "POLYMER": 1.5,
+                        "PRESTRESSED_CONCRETE": 1.5
+                    },
+                    "crossArmWindMultipliers": {
+                        "WOOD": 1.75,
+                        "METAL": 1.75,
+                        "REINFORCED_CONCRETE": 1.75,
+                        "POLYMER": 1.75,
+                        "PRESTRESSED_CONCRETE": 1.75
+                    },
+                    "areaMultipliers": {
+                        "ROUND": 1.0,
+                        "SQUARE": 1.6,
+                        "ROUND_LATTICE": 2.0,
+                        "SQUARE_LATTICE": 3.2
+                    }
+                }
+            }
+        ],
+        "owners": [
+            {
+                "industry": "UTILITY",
+                "id": "Acme Power"
+            },
+            {
+                "industry": "COMMUNICATION",
+                "id": "Bob's Cable"
+            },
+            {
+                "industry": "COMMUNICATION",
+                "id": "Janet's Telco"
+            }
+        ],
+        "notes": [],
+        "locationForms": [],
+        "projectForms": [],
+        "customReportSetups": [],
+        "designLayers": [
+            {
+                "name": "Measured Design",
+                "type": "Measured"
+            }
+        ],
+        "defaultLocationForms": [],
+        "defaultProjectForms": [],
+        "clearanceCases": [],
+        "componentGroups": [],
+        "wireClasses": [
+            {
+                "name": "0.75kV-5kV",
+                "usageGroup": "PRIMARY"
+            }
+        ],
+        "wireStates": [],
+        "hash": "afd76cd6520701a41d23e36ee7072c3d"
+    },
+    "clientFileVersion": "afd76cd6520701a41d23e36ee7072c3d",
+    "forms": [],
+    "defaultLocationForms": [],
+    "defaultLoadCases": [
+        {
+            "name": "Medium with insulators",
+            "type": "NESC 2012-2017",
+            "analysisMethod": "DIRECT_STIFFNESS",
+            "connectionType": "CONTINUATION",
+            "displacementBasedLoadChangesLevel": "ALL",
+            "windType": "SWEEP",
+            "sweepIncrement": "DEGREE_1",
+            "windStartAngle": {
+                "unit": "RADIAN",
+                "value": 0.0
+            },
+            "windEndAngle": {
+                "unit": "RADIAN",
+                "value": 6.283185307179586
+            },
+            "useStrengthResults": false,
+            "analyzeWithAverageSpan": false,
+            "maximumLoadingRatio": 1.0,
+            "addByDefault": true,
+            "constructionType": "NEW",
+            "checkUtilityWireTension": false,
+            "maximumAllowableUtilityWireTensionRatio": {
+                "unit": "PERCENT",
+                "value": 60.0
+            },
+            "checkCommWireTension": false,
+            "maximumAllowableCommunicationWireTensionRatio": {
+                "unit": "PERCENT",
+                "value": 60.0
+            },
+            "analyzeGroundLineOnly": false,
+            "components": [],
+            "insulatorTypes": [
+                "DEADEND",
+                "CLAMP"
+            ],
+            "analyzeWithoutLinearConstant": false,
+            "constructionGrade": "C",
+            "loadZone": "MEDIUM",
+            "wireTensionMethod": "INITIAL",
+            "creepWireTensionTemperature": {
+                "unit": "CELSIUS",
+                "value": -9.444444444444445
+            },
+            "creepWireTensionIceThickness": {
+                "unit": "METRE",
+                "value": 0.006350000000000001
+            },
+            "creepWireTensionWindPressure": {
+                "unit": "PASCAL",
+                "value": 191.52103592134338
+            },
+            "creepWireTensionIceDensity": {
+                "unit": "KILOGRAM_PER_CUBIC_METRE",
+                "value": 917.0
+            },
+            "highestWireTensionTemperature": {
+                "unit": "CELSIUS",
+                "value": -9.444444444444445
+            },
+            "highestWireTensionIceThickness": {
+                "unit": "METRE",
+                "value": 0.006350000000000001
+            },
+            "highestWireTensionWindPressure": {
+                "unit": "PASCAL",
+                "value": 191.52103592134338
+            },
+            "highestWireTensionIceDensity": {
+                "unit": "KILOGRAM_PER_CUBIC_METRE",
+                "value": 917.0
+            },
+            "outerStrandingCompression": false,
+            "overrides": {},
+            "valuesApplied": {
+                "ice": {
+                    "unit": "METRE",
+                    "value": 0.006350000000000001
+                },
+                "iceDensity": {
+                    "unit": "KILOGRAM_PER_CUBIC_METRE",
+                    "value": 917.0
+                },
+                "temperature": {
+                    "unit": "CELSIUS",
+                    "value": -9.444444444444445
+                },
+                "windPressure": {
+                    "unit": "PASCAL",
+                    "value": 191.52103592134338
+                },
+                "linearConstant": {
+                    "unit": "NEWTON_PER_METRE",
+                    "value": 2.918780587441273
+                },
+                "anchorStrengthFactor": 1.0,
+                "anchorTensionMultiplier": 1.1,
+                "anchorVerticalLoadMultiplier": 1.5,
+                "commOnlyTensionMultiplier": 0.0,
+                "guyStrengthFactor": 0.9,
+                "guyTensionMultiplier": 1.1,
+                "guyVerticalLoadMultiplier": 1.5,
+                "insulatorStrengthFactor": 1.0,
+                "insulatorTensionMultiplier": 1.3,
+                "insulatorVerticalLoadMultiplier": 1.9,
+                "insulatorWindMultiplier": 1.75,
+                "anchorWindMultiplier": 1.75,
+                "guyWindMultiplier": 1.75,
+                "foundationStrengthFactor": 1.0,
+                "foundationTensionMultiplier": 1.3,
+                "foundationVerticalLoadMultiplier": 1.9,
+                "foundationWindMultiplier": 1.75,
+                "poleStrengthFactors": {
+                    "WOOD": 0.85,
+                    "METAL": 1.0,
+                    "REINFORCED_CONCRETE": 0.85,
+                    "POLYMER": 1.0,
+                    "PRESTRESSED_CONCRETE": 1.0
+                },
+                "poleTensionMultipliers": {
+                    "WOOD": 1.3,
+                    "METAL": 1.1,
+                    "REINFORCED_CONCRETE": 1.3,
+                    "POLYMER": 1.3,
+                    "PRESTRESSED_CONCRETE": 1.1
+                },
+                "poleVerticalLoadMultipliers": {
+                    "WOOD": 1.9,
+                    "METAL": 1.5,
+                    "REINFORCED_CONCRETE": 1.9,
+                    "POLYMER": 1.5,
+                    "PRESTRESSED_CONCRETE": 1.5
+                },
+                "poleWindMultipliers": {
+                    "WOOD": 1.75,
+                    "METAL": 1.75,
+                    "REINFORCED_CONCRETE": 1.75,
+                    "POLYMER": 1.75,
+                    "PRESTRESSED_CONCRETE": 1.75
+                },
+                "crossArmStrengthFactors": {
+                    "WOOD": 0.85,
+                    "METAL": 1.0,
+                    "REINFORCED_CONCRETE": 0.85,
+                    "POLYMER": 1.0,
+                    "PRESTRESSED_CONCRETE": 1.0
+                },
+                "crossArmTensionMultipliers": {
+                    "WOOD": 1.3,
+                    "METAL": 1.1,
+                    "REINFORCED_CONCRETE": 1.3,
+                    "POLYMER": 1.3,
+                    "PRESTRESSED_CONCRETE": 1.1
+                },
+                "crossArmVerticalLoadMultipliers": {
+                    "WOOD": 1.9,
+                    "METAL": 1.5,
+                    "REINFORCED_CONCRETE": 1.9,
+                    "POLYMER": 1.5,
+                    "PRESTRESSED_CONCRETE": 1.5
+                },
+                "crossArmWindMultipliers": {
+                    "WOOD": 1.75,
+                    "METAL": 1.75,
+                    "REINFORCED_CONCRETE": 1.75,
+                    "POLYMER": 1.75,
+                    "PRESTRESSED_CONCRETE": 1.75
+                },
+                "areaMultipliers": {
+                    "ROUND": 1.0,
+                    "SQUARE": 1.6,
+                    "ROUND_LATTICE": 2.0,
+                    "SQUARE_LATTICE": 3.2
+                }
+            }
+        }
+    ],
+    "defaultStrengthCase": {
+        "type": "zoneStrengthCase",
+        "name": "NESC ZONE",
+        "addByDefault": false,
+        "includeThroughBolts": false,
+        "minimumAllowableRatio": 0.6666666666666666,
+        "heightToIncludeAtGroundline": {
+            "unit": "METRE",
+            "value": 0.0
+        }
+    },
+    "leads": [
+        {
+            "label": "Lead",
+            "locations": [
+                {
+                    "label": "Pole1-070623",
+                    "mapNumber": "",
+                    "comments": "",
+                    "address": {
+                        "number": "",
+                        "street": "",
+                        "city": "",
+                        "county": "",
+                        "state": "",
+                        "zip_code": ""
+                    },
+                    "technician": "",
+                    "crossStreet1": "",
+                    "crossStreet2": "",
+                    "geographicCoordinate": {
+                        "type": "Point",
+                        "coordinates": [
+                            -82.83032655715942,
+                            40.0250758191375,
+                            293.744750977
+                        ]
+                    },
+                    "remedies": [],
+                    "poleTags": [],
+                    "userDefinedValues": {},
+                    "summaryNotes": [],
+                    "forms": [],
+                    "images": [],
+                    "photosToBeAssigned": [],
+                    "designs": [
+                        {
+                            "label": "Measured Design",
+                            "layerType": "Measured",
+                            "structure": {
+                                "pole": {
+                                    "id": "Pole",
+                                    "externalId": "64a6e2f7dd602b3d61ef2d1b",
+                                    "owner": {
+                                        "industry": "UTILITY",
+                                        "id": "Acme Power"
+                                    },
+                                    "glc": {
+                                        "unit": "METRE",
+                                        "value": 0.9477782147652406
+                                    },
+                                    "agl": {
+                                        "unit": "METRE",
+                                        "value": 11.734800000000002
+                                    },
+                                    "autoGLC": true,
+                                    "autoAGL": true,
+                                    "cutTop": {
+                                        "unit": "METRE",
+                                        "value": 0.0
+                                    },
+                                    "environment": "None",
+                                    "temperature": {
+                                        "unit": "CELSIUS",
+                                        "value": 15.555555555555555
+                                    },
+                                    "stressRatio": 1.0,
+                                    "leanAngle": 0,
+                                    "leanDirection": 0.0,
+                                    "clientItemVersion": "8e5cc10f7400ef1825b0d548e441df60",
+                                    "clientItem": {
+                                        "species": "Southern Pine",
+                                        "classOfPole": "3",
+                                        "height": {
+                                            "unit": "METRE",
+                                            "value": 13.716000000000001
+                                        }
+                                    }
+                                },
+                                "wireEndPoints": [
+                                    {
+                                        "id": "WEP#2",
+                                        "externalId": "64a6fc11dd602b3d61efc1c1",
+                                        "direction": 0.0,
+                                        "distance": {
+                                            "unit": "METRE",
+                                            "value": 23.774400000000004
+                                        },
+                                        "relativeElevation": {
+                                            "unit": "METRE",
+                                            "value": 0.0
+                                        },
+                                        "inclination": {
+                                            "unit": "RADIAN",
+                                            "value": 0.0
+                                        },
+                                        "type": "OTHER_POLE",
+                                        "comments": "",
+                                        "environment": "None",
+                                        "wires": [
+                                            "Wire#4",
+                                            "Wire#6"
+                                        ],
+                                        "spanGuys": [],
+                                        "spanPoints": [],
+                                        "terrainPoints": [],
+                                        "environmentRegions": [],
+                                        "calculateClearances": true
+                                    },
+                                    {
+                                        "id": "WEP#1",
+                                        "externalId": "64a6ed1bdd602b3d61ef98ee",
+                                        "direction": 181.0,
+                                        "distance": {
+                                            "unit": "METRE",
+                                            "value": 23.777048173592377
+                                        },
+                                        "relativeElevation": {
+                                            "unit": "METRE",
+                                            "value": -0.35485839900002253
+                                        },
+                                        "inclination": {
+                                            "unit": "RADIAN",
+                                            "value": -0.014924963399059198
+                                        },
+                                        "type": "NEXT_POLE",
+                                        "comments": "",
+                                        "environment": "None",
+                                        "wires": [
+                                            "Wire#1",
+                                            "Wire#2",
+                                            "Wire#3",
+                                            "Wire#5"
+                                        ],
+                                        "spanGuys": [],
+                                        "spanPoints": [],
+                                        "terrainPoints": [],
+                                        "environmentRegions": [
+                                            {
+                                                "id": "EnvironmentRegion#1",
+                                                "externalId": "64a6efa2dd602b3d61efa1c6",
+                                                "distance": {
+                                                    "unit": "METRE",
+                                                    "value": 7.6200000000000045
+                                                },
+                                                "endDistance": {
+                                                    "unit": "METRE",
+                                                    "value": 15.849600000000006
+                                                },
+                                                "environment": "None",
+                                                "connectionId": "64a6efa2dd602b3d61efa1d1"
+                                            },
+                                            {
+                                                "id": "EnvironmentRegion#2",
+                                                "externalId": "64a6efa2dd602b3d61efa1c7",
+                                                "distance": {
+                                                    "unit": "METRE",
+                                                    "value": 0.0
+                                                },
+                                                "endDistance": {
+                                                    "unit": "METRE",
+                                                    "value": 7.6200000000000045
+                                                },
+                                                "environment": "None",
+                                                "connectionId": "64a6efa2dd602b3d61efa1c8"
+                                            },
+                                            {
+                                                "id": "EnvironmentRegion#3",
+                                                "externalId": "64a6efa2dd602b3d61efa1ca",
+                                                "distance": {
+                                                    "unit": "METRE",
+                                                    "value": 15.849600000000006
+                                                },
+                                                "endDistance": {
+                                                    "unit": "METRE",
+                                                    "value": 23.777048173592377
+                                                },
+                                                "environment": "None",
+                                                "connectionId": "64a6efa2dd602b3d61efa1cf"
+                                            }
+                                        ],
+                                        "connectionId": "64a6ed1bdd602b3d61ef98f2"
+                                    }
+                                ],
+                                "spanPoints": [],
+                                "anchors": [],
+                                "notePoints": [],
+                                "pointLoads": [],
+                                "wirePointLoads": [],
+                                "damages": [],
+                                "wires": [
+                                    {
+                                        "id": "Wire#1",
+                                        "externalId": "64a6ecdedd602b3d61ef92f1",
+                                        "owner": {
+                                            "industry": "UTILITY",
+                                            "id": "Acme Power"
+                                        },
+                                        "clientItemVersion": "a54138c9d80f011ba4deac6cf2bc6f9e",
+                                        "clientItem": {
+                                            "size": "1/0 ACSR",
+                                            "coreStrands": 1,
+                                            "conductorStrands": 6
+                                        },
+                                        "clientItemAlias": "1/0 ACSR 45m",
+                                        "attachmentHeight": {
+                                            "unit": "METRE",
+                                            "value": 11.922252
+                                        },
+                                        "usageGroup": "PRIMARY",
+                                        "tensionGroup": "45m",
+                                        "midspanHeight": {
+                                            "unit": "METRE",
+                                            "value": 0.0
+                                        },
+                                        "wireClass": {
+                                            "name": "0.75kV-5kV",
+                                            "usageGroup": "PRIMARY"
+                                        },
+                                        "connectionId": "64a6edb1dd602b3d61ef99c6",
+                                        "wireEndPointPlacement": {
+                                            "vector": [
+                                                -0.002074730038084716,
+                                                -0.11886120427605615,
+                                                11.922252
+                                            ],
+                                            "unit": "METRE"
+                                        }
+                                    },
+                                    {
+                                        "id": "Wire#2",
+                                        "externalId": "64a6ecdedd602b3d61ef92f3",
+                                        "owner": {
+                                            "industry": "UTILITY",
+                                            "id": "Acme Power"
+                                        },
+                                        "clientItemVersion": "a54138c9d80f011ba4deac6cf2bc6f9e",
+                                        "clientItem": {
+                                            "size": "1/0 ACSR",
+                                            "coreStrands": 1,
+                                            "conductorStrands": 6
+                                        },
+                                        "clientItemAlias": "1/0 ACSR 45m",
+                                        "attachmentHeight": {
+                                            "unit": "METRE",
+                                            "value": 9.7536
+                                        },
+                                        "usageGroup": "NEUTRAL",
+                                        "tensionGroup": "45m",
+                                        "midspanHeight": {
+                                            "unit": "METRE",
+                                            "value": 0.0
+                                        },
+                                        "connectionId": "64a6edb1dd602b3d61ef99c8",
+                                        "wireEndPointPlacement": {
+                                            "vector": [
+                                                -0.0018456576471096195,
+                                                -0.1057376557864267,
+                                                9.144000000000002
+                                            ],
+                                            "unit": "METRE"
+                                        }
+                                    },
+                                    {
+                                        "id": "Wire#3",
+                                        "externalId": "64a6edd4dd602b3d61ef9ac8",
+                                        "owner": {
+                                            "industry": "UTILITY",
+                                            "id": "Acme Power"
+                                        },
+                                        "clientItemVersion": "e8b8fcf78a0577bb3f6e02f5869aaf5f",
+                                        "clientItem": {
+                                            "size": "1/0 Triplex Bus",
+                                            "coreStrands": 1,
+                                            "conductorStrands": 6
+                                        },
+                                        "clientItemAlias": "1/0 Triplex Bus 45m",
+                                        "attachmentHeight": {
+                                            "unit": "METRE",
+                                            "value": 9.144000000000002
+                                        },
+                                        "usageGroup": "SECONDARY",
+                                        "tensionGroup": "45m",
+                                        "midspanHeight": {
+                                            "unit": "METRE",
+                                            "value": 0.0
+                                        },
+                                        "connectionId": "64a6edd9dd602b3d61ef9b2d",
+                                        "wireEndPointPlacement": {
+                                            "vector": [
+                                                0.1117487168316559,
+                                                -0.0019505811079415598,
+                                                7.924800000000001
+                                            ],
+                                            "unit": "METRE"
+                                        }
+                                    },
+                                    {
+                                        "id": "Wire#5",
+                                        "externalId": "64a6edffdd602b3d61ef9b42",
+                                        "owner": {
+                                            "industry": "COMMUNICATION",
+                                            "id": "Bob's Cable"
+                                        },
+                                        "clientItemVersion": "13fa046a4634cb22a98b0c304a52065e",
+                                        "clientItem": {
+                                            "size": "C11.2M1000",
+                                            "coreStrands": 0,
+                                            "conductorStrands": 7
+                                        },
+                                        "attachmentHeight": {
+                                            "unit": "METRE",
+                                            "value": 3.2512000000000003
+                                        },
+                                        "usageGroup": "COMMUNICATION",
+                                        "tensionGroup": "Full",
+                                        "midspanHeight": {
+                                            "unit": "METRE",
+                                            "value": 0.0
+                                        },
+                                        "connectionId": "64a6ee07dd602b3d61ef9ba0",
+                                        "wireEndPointPlacement": {
+                                            "vector": [
+                                                0.13629388276634166,
+                                                -0.0023790185730053755,
+                                                2.9464000000000006
+                                            ],
+                                            "unit": "METRE"
+                                        }
+                                    },
+                                    {
+                                        "id": "Wire#4",
+                                        "externalId": "64a6fabddd602b3d61efb9b9",
+                                        "owner": {
+                                            "industry": "UTILITY",
+                                            "id": "Acme Power"
+                                        },
+                                        "clientItemVersion": "a54138c9d80f011ba4deac6cf2bc6f9e",
+                                        "clientItem": {
+                                            "size": "1/0 ACSR",
+                                            "coreStrands": 1,
+                                            "conductorStrands": 6
+                                        },
+                                        "attachmentHeight": {
+                                            "unit": "METRE",
+                                            "value": 10.7188
+                                        },
+                                        "usageGroup": "PRIMARY",
+                                        "tensionGroup": "30m",
+                                        "midspanHeight": {
+                                            "unit": "METRE",
+                                            "value": 0.0
+                                        },
+                                        "wireClass": {
+                                            "name": "0.75kV-5kV",
+                                            "usageGroup": "PRIMARY"
+                                        }
+                                    },
+                                    {
+                                        "id": "Wire#6",
+                                        "externalId": "64a6fabddd602b3d61efb9ba",
+                                        "owner": {
+                                            "industry": "UTILITY",
+                                            "id": "Acme Power"
+                                        },
+                                        "clientItemVersion": "a54138c9d80f011ba4deac6cf2bc6f9e",
+                                        "clientItem": {
+                                            "size": "1/0 ACSR",
+                                            "coreStrands": 1,
+                                            "conductorStrands": 6
+                                        },
+                                        "attachmentHeight": {
+                                            "unit": "METRE",
+                                            "value": 9.499600000000001
+                                        },
+                                        "usageGroup": "NEUTRAL",
+                                        "tensionGroup": "30m",
+                                        "midspanHeight": {
+                                            "unit": "METRE",
+                                            "value": 0.0
+                                        }
+                                    }
+                                ],
+                                "spanGuys": [],
+                                "guys": [],
+                                "equipments": [],
+                                "wireMountedEquipments": [],
+                                "guyAttachPoints": [
+                                    {
+                                        "id": "GuyAttachPoint#1",
+                                        "externalId": "64a6ecdedd602b3d61ef92f9",
+                                        "supportedWEPs": [
+                                            "WEP#1"
+                                        ],
+                                        "attachHeight": {
+                                            "unit": "METRE",
+                                            "value": 11.049
+                                        }
+                                    },
+                                    {
+                                        "id": "GuyAttachPoint#2",
+                                        "externalId": "64a6fabddd602b3d61efb9be",
+                                        "supportedWEPs": [
+                                            "WEP#2"
+                                        ],
+                                        "attachHeight": {
+                                            "unit": "METRE",
+                                            "value": 10.1854
+                                        }
+                                    }
+                                ],
+                                "crossArms": [],
+                                "insulators": [
+                                    {
+                                        "id": "Insulator#1",
+                                        "externalId": "64a6ecdedd602b3d61ef92f5",
+                                        "owner": {
+                                            "industry": "UTILITY",
+                                            "id": "Acme Power"
+                                        },
+                                        "clientItemVersion": "300cbd1a9eea83b86ec3a8a37d0fed15",
+                                        "clientItem": "13.2 kV Pin Type Insulator (Pole Top)",
+                                        "offset": {
+                                            "unit": "METRE",
+                                            "value": 11.6332
+                                        },
+                                        "direction": 271.0,
+                                        "doubleInsulator": false,
+                                        "wires": [
+                                            "Wire#1"
+                                        ]
+                                    },
+                                    {
+                                        "id": "Insulator#2",
+                                        "externalId": "64a6ecdedd602b3d61ef92f6",
+                                        "owner": {
+                                            "industry": "UTILITY",
+                                            "id": "Acme Power"
+                                        },
+                                        "clientItemVersion": "e88a3ba7208e629c3d5a46156cbb8d86",
+                                        "clientItem": "3\" Spool Bolt",
+                                        "offset": {
+                                            "unit": "METRE",
+                                            "value": 9.7536
+                                        },
+                                        "direction": 271.0,
+                                        "doubleInsulator": false,
+                                        "wires": [
+                                            "Wire#2"
+                                        ]
+                                    },
+                                    {
+                                        "id": "Insulator#3",
+                                        "externalId": "64a6fabddd602b3d61efb9bb",
+                                        "owner": {
+                                            "industry": "UTILITY",
+                                            "id": "Acme Power"
+                                        },
+                                        "clientItemVersion": "dbe1343b5a14dd3423902fc9fb974c21",
+                                        "clientItem": "15 kV Dead End Insulator",
+                                        "offset": {
+                                            "unit": "METRE",
+                                            "value": 10.7188
+                                        },
+                                        "direction": 0.0,
+                                        "doubleInsulator": false,
+                                        "wires": [
+                                            "Wire#4"
+                                        ]
+                                    },
+                                    {
+                                        "id": "Insulator#4",
+                                        "externalId": "64a6fabddd602b3d61efb9bc",
+                                        "owner": {
+                                            "industry": "UTILITY",
+                                            "id": "Acme Power"
+                                        },
+                                        "clientItemVersion": "130fd4a4a7f56d25966e47619f1e4110",
+                                        "clientItem": "Neutral - D/E Clamp",
+                                        "offset": {
+                                            "unit": "METRE",
+                                            "value": 9.499600000000001
+                                        },
+                                        "direction": 0.0,
+                                        "doubleInsulator": false,
+                                        "wires": [
+                                            "Wire#6"
+                                        ]
+                                    }
+                                ],
+                                "pushBraces": [],
+                                "sidewalkBraces": [],
+                                "foundations": [],
+                                "trusses": [],
+                                "assemblies": [
+                                    {
+                                        "id": "Assembly#1",
+                                        "source": "CLIENT_ASSEMBLIES",
+                                        "externalId": "64a6edb0dd602b3d61ef9985",
+                                        "clientItemVersion": "90179feebfb6b435601cb28aa551a7a8",
+                                        "clientItem": "A1",
+                                        "items": [
+                                            "Insulator#2",
+                                            "Wire#1",
+                                            "Insulator#1",
+                                            "Wire#2",
+                                            "GuyAttachPoint#1"
+                                        ]
+                                    },
+                                    {
+                                        "id": "Assembly#2",
+                                        "source": "CLIENT_ASSEMBLIES",
+                                        "externalId": "64a6fc78dd602b3d61efc2ee",
+                                        "clientItemVersion": "8cde29c444bab4523b108a146a438072",
+                                        "clientItem": "Deadend: Vertical (15 kV)",
+                                        "items": [
+                                            "Insulator#3",
+                                            "Wire#4",
+                                            "Insulator#4",
+                                            "Wire#6",
+                                            "GuyAttachPoint#2"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "mapLocation": {
+                                "type": "Point",
+                                "coordinates": [
+                                    -82.83032655715942,
+                                    40.0250758191375,
+                                    293.744750977
+                                ]
+                            },
+                            "analysis": [
+                                {
+                                    "id": "Medium with insulators",
+                                    "analysisCaseDetails": {
+                                        "name": "Medium with insulators",
+                                        "type": "NESC 2012-2017",
+                                        "analysisMethod": "DIRECT_STIFFNESS",
+                                        "connectionType": "CONTINUATION",
+                                        "displacementBasedLoadChangesLevel": "ALL",
+                                        "windType": "SWEEP",
+                                        "sweepIncrement": "DEGREE_1",
+                                        "windStartAngle": {
+                                            "unit": "RADIAN",
+                                            "value": 0.0
+                                        },
+                                        "windEndAngle": {
+                                            "unit": "RADIAN",
+                                            "value": 6.283185307179586
+                                        },
+                                        "useStrengthResults": false,
+                                        "analyzeWithAverageSpan": false,
+                                        "maximumLoadingRatio": 1.0,
+                                        "addByDefault": true,
+                                        "constructionType": "NEW",
+                                        "checkUtilityWireTension": false,
+                                        "maximumAllowableUtilityWireTensionRatio": {
+                                            "unit": "PERCENT",
+                                            "value": 60.0
+                                        },
+                                        "checkCommWireTension": false,
+                                        "maximumAllowableCommunicationWireTensionRatio": {
+                                            "unit": "PERCENT",
+                                            "value": 60.0
+                                        },
+                                        "analyzeGroundLineOnly": false,
+                                        "components": [],
+                                        "insulatorTypes": [
+                                            "DEADEND",
+                                            "CLAMP"
+                                        ],
+                                        "analyzeWithoutLinearConstant": false,
+                                        "constructionGrade": "C",
+                                        "loadZone": "MEDIUM",
+                                        "wireTensionMethod": "INITIAL",
+                                        "creepWireTensionTemperature": {
+                                            "unit": "CELSIUS",
+                                            "value": -9.444444444444445
+                                        },
+                                        "creepWireTensionIceThickness": {
+                                            "unit": "METRE",
+                                            "value": 0.006350000000000001
+                                        },
+                                        "creepWireTensionWindPressure": {
+                                            "unit": "PASCAL",
+                                            "value": 191.52103592134338
+                                        },
+                                        "creepWireTensionIceDensity": {
+                                            "unit": "KILOGRAM_PER_CUBIC_METRE",
+                                            "value": 917.0
+                                        },
+                                        "highestWireTensionTemperature": {
+                                            "unit": "CELSIUS",
+                                            "value": -9.444444444444445
+                                        },
+                                        "highestWireTensionIceThickness": {
+                                            "unit": "METRE",
+                                            "value": 0.006350000000000001
+                                        },
+                                        "highestWireTensionWindPressure": {
+                                            "unit": "PASCAL",
+                                            "value": 191.52103592134338
+                                        },
+                                        "highestWireTensionIceDensity": {
+                                            "unit": "KILOGRAM_PER_CUBIC_METRE",
+                                            "value": 917.0
+                                        },
+                                        "outerStrandingCompression": false,
+                                        "overrides": {},
+                                        "valuesApplied": {
+                                            "ice": {
+                                                "unit": "METRE",
+                                                "value": 0.006350000000000001
+                                            },
+                                            "iceDensity": {
+                                                "unit": "KILOGRAM_PER_CUBIC_METRE",
+                                                "value": 917.0
+                                            },
+                                            "temperature": {
+                                                "unit": "CELSIUS",
+                                                "value": -9.444444444444445
+                                            },
+                                            "windPressure": {
+                                                "unit": "PASCAL",
+                                                "value": 191.52103592134338
+                                            },
+                                            "linearConstant": {
+                                                "unit": "NEWTON_PER_METRE",
+                                                "value": 2.918780587441273
+                                            },
+                                            "anchorStrengthFactor": 1.0,
+                                            "anchorTensionMultiplier": 1.1,
+                                            "anchorVerticalLoadMultiplier": 1.5,
+                                            "commOnlyTensionMultiplier": 0.0,
+                                            "guyStrengthFactor": 0.9,
+                                            "guyTensionMultiplier": 1.1,
+                                            "guyVerticalLoadMultiplier": 1.5,
+                                            "insulatorStrengthFactor": 1.0,
+                                            "insulatorTensionMultiplier": 1.3,
+                                            "insulatorVerticalLoadMultiplier": 1.9,
+                                            "insulatorWindMultiplier": 1.75,
+                                            "anchorWindMultiplier": 1.75,
+                                            "guyWindMultiplier": 1.75,
+                                            "foundationStrengthFactor": 1.0,
+                                            "foundationTensionMultiplier": 1.3,
+                                            "foundationVerticalLoadMultiplier": 1.9,
+                                            "foundationWindMultiplier": 1.75,
+                                            "poleStrengthFactors": {
+                                                "WOOD": 0.85,
+                                                "METAL": 1.0,
+                                                "REINFORCED_CONCRETE": 0.85,
+                                                "POLYMER": 1.0,
+                                                "PRESTRESSED_CONCRETE": 1.0
+                                            },
+                                            "poleTensionMultipliers": {
+                                                "WOOD": 1.3,
+                                                "METAL": 1.1,
+                                                "REINFORCED_CONCRETE": 1.3,
+                                                "POLYMER": 1.3,
+                                                "PRESTRESSED_CONCRETE": 1.1
+                                            },
+                                            "poleVerticalLoadMultipliers": {
+                                                "WOOD": 1.9,
+                                                "METAL": 1.5,
+                                                "REINFORCED_CONCRETE": 1.9,
+                                                "POLYMER": 1.5,
+                                                "PRESTRESSED_CONCRETE": 1.5
+                                            },
+                                            "poleWindMultipliers": {
+                                                "WOOD": 1.75,
+                                                "METAL": 1.75,
+                                                "REINFORCED_CONCRETE": 1.75,
+                                                "POLYMER": 1.75,
+                                                "PRESTRESSED_CONCRETE": 1.75
+                                            },
+                                            "crossArmStrengthFactors": {
+                                                "WOOD": 0.85,
+                                                "METAL": 1.0,
+                                                "REINFORCED_CONCRETE": 0.85,
+                                                "POLYMER": 1.0,
+                                                "PRESTRESSED_CONCRETE": 1.0
+                                            },
+                                            "crossArmTensionMultipliers": {
+                                                "WOOD": 1.3,
+                                                "METAL": 1.1,
+                                                "REINFORCED_CONCRETE": 1.3,
+                                                "POLYMER": 1.3,
+                                                "PRESTRESSED_CONCRETE": 1.1
+                                            },
+                                            "crossArmVerticalLoadMultipliers": {
+                                                "WOOD": 1.9,
+                                                "METAL": 1.5,
+                                                "REINFORCED_CONCRETE": 1.9,
+                                                "POLYMER": 1.5,
+                                                "PRESTRESSED_CONCRETE": 1.5
+                                            },
+                                            "crossArmWindMultipliers": {
+                                                "WOOD": 1.75,
+                                                "METAL": 1.75,
+                                                "REINFORCED_CONCRETE": 1.75,
+                                                "POLYMER": 1.75,
+                                                "PRESTRESSED_CONCRETE": 1.75
+                                            },
+                                            "areaMultipliers": {
+                                                "ROUND": 1.0,
+                                                "SQUARE": 1.6,
+                                                "ROUND_LATTICE": 2.0,
+                                                "SQUARE_LATTICE": 3.2
+                                            }
+                                        }
+                                    },
+                                    "results": [
+                                        {
+                                            "actual": 7.8072930548790245,
+                                            "allowable": 100.0,
+                                            "unit": "PERCENT",
+                                            "analysisDate": 1741493149928,
+                                            "component": "Insulator#4",
+                                            "loadInfo": "Medium with insulators",
+                                            "passes": true,
+                                            "analysisType": "FORCE"
+                                        },
+                                        {
+                                            "actual": 24.87558027715253,
+                                            "allowable": 100.0,
+                                            "unit": "PERCENT",
+                                            "analysisDate": 1741493149928,
+                                            "component": "Insulator#2",
+                                            "loadInfo": "Medium with insulators",
+                                            "passes": true,
+                                            "analysisType": "FORCE"
+                                        },
+                                        {
+                                            "actual": 6.945845193856543,
+                                            "allowable": 100.0,
+                                            "unit": "PERCENT",
+                                            "analysisDate": 1741493149928,
+                                            "component": "Insulator#3",
+                                            "loadInfo": "Medium with insulators",
+                                            "passes": true,
+                                            "analysisType": "FORCE"
+                                        },
+                                        {
+                                            "actual": 24.818972715551038,
+                                            "allowable": 100.0,
+                                            "unit": "PERCENT",
+                                            "analysisDate": 1741493149928,
+                                            "component": "Insulator#1",
+                                            "loadInfo": "Medium with insulators",
+                                            "passes": true,
+                                            "analysisType": "FORCE"
+                                        },
+                                        {
+                                            "actual": 85.05208062150946,
+                                            "allowable": 100.0,
+                                            "unit": "PERCENT",
+                                            "analysisDate": 1741493149928,
+                                            "component": "Pole",
+                                            "loadInfo": "Medium with insulators",
+                                            "passes": true,
+                                            "analysisType": "STRESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "NESC ZONE",
+                                    "analysisCaseDetails": {
+                                        "type": "zoneStrengthCase",
+                                        "name": "NESC ZONE",
+                                        "addByDefault": false,
+                                        "includeThroughBolts": false,
+                                        "minimumAllowableRatio": 0.6666666666666666,
+                                        "heightToIncludeAtGroundline": {
+                                            "unit": "METRE",
+                                            "value": 0.0
+                                        }
+                                    },
+                                    "results": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Pole2-070623",
+                    "mapNumber": "",
+                    "comments": "",
+                    "address": {
+                        "number": "",
+                        "street": "",
+                        "city": "",
+                        "county": "",
+                        "state": "",
+                        "zip_code": ""
+                    },
+                    "technician": "",
+                    "crossStreet1": "",
+                    "crossStreet2": "",
+                    "geographicCoordinate": {
+                        "type": "Point",
+                        "coordinates": [
+                            -82.8303314286473,
+                            40.02486210368481,
+                            293.389892578
+                        ]
+                    },
+                    "remedies": [],
+                    "poleTags": [],
+                    "userDefinedValues": {},
+                    "summaryNotes": [],
+                    "forms": [],
+                    "images": [],
+                    "photosToBeAssigned": [],
+                    "designs": [
+                        {
+                            "label": "Measured Design",
+                            "layerType": "Measured",
+                            "structure": {
+                                "pole": {
+                                    "id": "Pole",
+                                    "externalId": "64a6ed1bdd602b3d61ef98ec",
+                                    "owner": {
+                                        "industry": "UTILITY",
+                                        "id": "Acme Power"
+                                    },
+                                    "glc": {
+                                        "unit": "METRE",
+                                        "value": 0.9477782147652406
+                                    },
+                                    "agl": {
+                                        "unit": "METRE",
+                                        "value": 11.734800000000002
+                                    },
+                                    "autoGLC": true,
+                                    "autoAGL": true,
+                                    "cutTop": {
+                                        "unit": "METRE",
+                                        "value": 0.0
+                                    },
+                                    "environment": "None",
+                                    "temperature": {
+                                        "unit": "CELSIUS",
+                                        "value": 15.555555555555555
+                                    },
+                                    "stressRatio": 1.0,
+                                    "leanAngle": 0,
+                                    "leanDirection": 0.0,
+                                    "clientItemVersion": "8e5cc10f7400ef1825b0d548e441df60",
+                                    "clientItem": {
+                                        "species": "Southern Pine",
+                                        "classOfPole": "3",
+                                        "height": {
+                                            "unit": "METRE",
+                                            "value": 13.716000000000001
+                                        }
+                                    }
+                                },
+                                "wireEndPoints": [
+                                    {
+                                        "id": "WEP#2",
+                                        "externalId": "64a6fca3dd602b3d61efc4b8",
+                                        "direction": 237.0,
+                                        "distance": {
+                                            "unit": "METRE",
+                                            "value": 23.774400000000004
+                                        },
+                                        "relativeElevation": {
+                                            "unit": "METRE",
+                                            "value": 0.0
+                                        },
+                                        "inclination": {
+                                            "unit": "RADIAN",
+                                            "value": 0.0
+                                        },
+                                        "type": "BUILDING",
+                                        "comments": "",
+                                        "environment": "None",
+                                        "wires": [
+                                            "Wire#5"
+                                        ],
+                                        "spanGuys": [],
+                                        "spanPoints": [],
+                                        "terrainPoints": [],
+                                        "environmentRegions": [],
+                                        "calculateClearances": true
+                                    },
+                                    {
+                                        "id": "WEP#1",
+                                        "externalId": "64a6ed1bdd602b3d61ef98f3",
+                                        "direction": 1.0,
+                                        "distance": {
+                                            "unit": "METRE",
+                                            "value": 23.777048173592377
+                                        },
+                                        "relativeElevation": {
+                                            "unit": "METRE",
+                                            "value": 0.35485839900002253
+                                        },
+                                        "inclination": {
+                                            "unit": "RADIAN",
+                                            "value": 0.014924963399059198
+                                        },
+                                        "type": "PREVIOUS_POLE",
+                                        "comments": "",
+                                        "environment": "None",
+                                        "wires": [
+                                            "Wire#1",
+                                            "Wire#2",
+                                            "Wire#3",
+                                            "Wire#4"
+                                        ],
+                                        "spanGuys": [],
+                                        "spanPoints": [],
+                                        "terrainPoints": [],
+                                        "environmentRegions": [
+                                            {
+                                                "id": "EnvironmentRegion#1",
+                                                "externalId": "64a6efa2dd602b3d61efa1c7",
+                                                "distance": {
+                                                    "unit": "METRE",
+                                                    "value": 16.157048173592372
+                                                },
+                                                "endDistance": {
+                                                    "unit": "METRE",
+                                                    "value": 23.777048173592377
+                                                },
+                                                "environment": "None",
+                                                "connectionId": "64a6efa2dd602b3d61efa1c8"
+                                            },
+                                            {
+                                                "id": "EnvironmentRegion#2",
+                                                "externalId": "64a6efa2dd602b3d61efa1ca",
+                                                "distance": {
+                                                    "unit": "METRE",
+                                                    "value": 0.0
+                                                },
+                                                "endDistance": {
+                                                    "unit": "METRE",
+                                                    "value": 7.927448173592371
+                                                },
+                                                "environment": "None",
+                                                "connectionId": "64a6efa2dd602b3d61efa1cf"
+                                            },
+                                            {
+                                                "id": "EnvironmentRegion#3",
+                                                "externalId": "64a6efa2dd602b3d61efa1c6",
+                                                "distance": {
+                                                    "unit": "METRE",
+                                                    "value": 7.927448173592371
+                                                },
+                                                "endDistance": {
+                                                    "unit": "METRE",
+                                                    "value": 16.157048173592372
+                                                },
+                                                "environment": "None",
+                                                "connectionId": "64a6efa2dd602b3d61efa1d1"
+                                            }
+                                        ],
+                                        "connectionId": "64a6ed1bdd602b3d61ef98f2"
+                                    }
+                                ],
+                                "spanPoints": [],
+                                "anchors": [],
+                                "notePoints": [],
+                                "pointLoads": [],
+                                "wirePointLoads": [],
+                                "damages": [],
+                                "wires": [
+                                    {
+                                        "id": "Wire#1",
+                                        "externalId": "64a6ecdedd602b3d61ef92f1",
+                                        "owner": {
+                                            "industry": "UTILITY",
+                                            "id": "Acme Power"
+                                        },
+                                        "clientItemVersion": "a54138c9d80f011ba4deac6cf2bc6f9e",
+                                        "clientItem": {
+                                            "size": "1/0 ACSR",
+                                            "coreStrands": 1,
+                                            "conductorStrands": 6
+                                        },
+                                        "clientItemAlias": "1/0 ACSR 45m",
+                                        "attachmentHeight": {
+                                            "unit": "METRE",
+                                            "value": 11.922252
+                                        },
+                                        "usageGroup": "PRIMARY",
+                                        "tensionGroup": "45m",
+                                        "midspanHeight": {
+                                            "unit": "METRE",
+                                            "value": 0.0
+                                        },
+                                        "wireClass": {
+                                            "name": "0.75kV-5kV",
+                                            "usageGroup": "PRIMARY"
+                                        },
+                                        "connectionId": "64a6edb1dd602b3d61ef99c6",
+                                        "wireEndPointPlacement": {
+                                            "vector": [
+                                                0.002074730038084704,
+                                                0.11886120427605615,
+                                                11.922252
+                                            ],
+                                            "unit": "METRE"
+                                        }
+                                    },
+                                    {
+                                        "id": "Wire#2",
+                                        "externalId": "64a6ecdedd602b3d61ef92f3",
+                                        "owner": {
+                                            "industry": "UTILITY",
+                                            "id": "Acme Power"
+                                        },
+                                        "clientItemVersion": "a54138c9d80f011ba4deac6cf2bc6f9e",
+                                        "clientItem": {
+                                            "size": "1/0 ACSR",
+                                            "coreStrands": 1,
+                                            "conductorStrands": 6
+                                        },
+                                        "clientItemAlias": "1/0 ACSR 45m",
+                                        "attachmentHeight": {
+                                            "unit": "METRE",
+                                            "value": 9.144000000000002
+                                        },
+                                        "usageGroup": "NEUTRAL",
+                                        "tensionGroup": "45m",
+                                        "midspanHeight": {
+                                            "unit": "METRE",
+                                            "value": 0.0
+                                        },
+                                        "connectionId": "64a6edb1dd602b3d61ef99c8",
+                                        "wireEndPointPlacement": {
+                                            "vector": [
+                                                0.0017931959166936312,
+                                                0.1027321252638121,
+                                                9.7536
+                                            ],
+                                            "unit": "METRE"
+                                        }
+                                    },
+                                    {
+                                        "id": "Wire#3",
+                                        "externalId": "64a6edd4dd602b3d61ef9ac8",
+                                        "owner": {
+                                            "industry": "UTILITY",
+                                            "id": "Acme Power"
+                                        },
+                                        "clientItemVersion": "e8b8fcf78a0577bb3f6e02f5869aaf5f",
+                                        "clientItem": {
+                                            "size": "1/0 Triplex Bus",
+                                            "coreStrands": 1,
+                                            "conductorStrands": 6
+                                        },
+                                        "clientItemAlias": "1/0 Triplex Bus 45m",
+                                        "attachmentHeight": {
+                                            "unit": "METRE",
+                                            "value": 7.924800000000001
+                                        },
+                                        "usageGroup": "SECONDARY",
+                                        "tensionGroup": "45m",
+                                        "midspanHeight": {
+                                            "unit": "METRE",
+                                            "value": 0.0
+                                        },
+                                        "connectionId": "64a6edd9dd602b3d61ef9b2d",
+                                        "wireEndPointPlacement": {
+                                            "vector": [
+                                                -0.1057376557864267,
+                                                0.0018456576471095922,
+                                                9.144000000000002
+                                            ],
+                                            "unit": "METRE"
+                                        }
+                                    },
+                                    {
+                                        "id": "Wire#4",
+                                        "externalId": "64a6edffdd602b3d61ef9b42",
+                                        "owner": {
+                                            "industry": "COMMUNICATION",
+                                            "id": "Bob's Cable"
+                                        },
+                                        "clientItemVersion": "13fa046a4634cb22a98b0c304a52065e",
+                                        "clientItem": {
+                                            "size": "C11.2M1000",
+                                            "coreStrands": 0,
+                                            "conductorStrands": 7
+                                        },
+                                        "attachmentHeight": {
+                                            "unit": "METRE",
+                                            "value": 2.9464000000000006
+                                        },
+                                        "usageGroup": "COMMUNICATION",
+                                        "tensionGroup": "Full",
+                                        "midspanHeight": {
+                                            "unit": "METRE",
+                                            "value": 0.0
+                                        },
+                                        "connectionId": "64a6ee07dd602b3d61ef9ba0",
+                                        "wireEndPointPlacement": {
+                                            "vector": [
+                                                -0.1347911175050344,
+                                                0.0023527877077973713,
+                                                3.2512000000000003
+                                            ],
+                                            "unit": "METRE"
+                                        }
+                                    },
+                                    {
+                                        "id": "Wire#5",
+                                        "externalId": "64a6fabddd602b3d61efba43",
+                                        "owner": {
+                                            "industry": "COMMUNICATION",
+                                            "id": "Janet's Telco"
+                                        },
+                                        "clientItemVersion": "13fa046a4634cb22a98b0c304a52065e",
+                                        "clientItem": {
+                                            "size": "C11.2M1000",
+                                            "coreStrands": 0,
+                                            "conductorStrands": 7
+                                        },
+                                        "attachmentHeight": {
+                                            "unit": "METRE",
+                                            "value": 4.927600000000001
+                                        },
+                                        "usageGroup": "COMMUNICATION",
+                                        "tensionGroup": "Full",
+                                        "midspanHeight": {
+                                            "unit": "METRE",
+                                            "value": 0.0
+                                        }
+                                    }
+                                ],
+                                "spanGuys": [],
+                                "guys": [],
+                                "equipments": [],
+                                "wireMountedEquipments": [],
+                                "guyAttachPoints": [
+                                    {
+                                        "id": "GuyAttachPoint#1",
+                                        "externalId": "64a6ecdedd602b3d61ef92f9",
+                                        "supportedWEPs": [],
+                                        "attachHeight": {
+                                            "unit": "METRE",
+                                            "value": 11.049
+                                        }
+                                    }
+                                ],
+                                "crossArms": [],
+                                "insulators": [
+                                    {
+                                        "id": "Insulator#1",
+                                        "externalId": "64a6ecdedd602b3d61ef92f5",
+                                        "owner": {
+                                            "industry": "UTILITY",
+                                            "id": "Acme Power"
+                                        },
+                                        "clientItemVersion": "300cbd1a9eea83b86ec3a8a37d0fed15",
+                                        "clientItem": "13.2 kV Pin Type Insulator (Pole Top)",
+                                        "offset": {
+                                            "unit": "METRE",
+                                            "value": 11.6332
+                                        },
+                                        "direction": 91.0,
+                                        "doubleInsulator": false,
+                                        "wires": [
+                                            "Wire#1"
+                                        ]
+                                    },
+                                    {
+                                        "id": "Insulator#2",
+                                        "externalId": "64a6ecdedd602b3d61ef92f6",
+                                        "owner": {
+                                            "industry": "UTILITY",
+                                            "id": "Acme Power"
+                                        },
+                                        "clientItemVersion": "e88a3ba7208e629c3d5a46156cbb8d86",
+                                        "clientItem": "3\" Spool Bolt",
+                                        "offset": {
+                                            "unit": "METRE",
+                                            "value": 9.144000000000002
+                                        },
+                                        "direction": 91.0,
+                                        "doubleInsulator": false,
+                                        "wires": [
+                                            "Wire#2"
+                                        ]
+                                    },
+                                    {
+                                        "id": "Insulator#3",
+                                        "externalId": "64a6fabddd602b3d61efba45",
+                                        "owner": {
+                                            "industry": "COMMUNICATION",
+                                            "id": "Janet's Telco"
+                                        },
+                                        "clientItemVersion": "5ebd379375991181f3bdbc1d166e81ca",
+                                        "clientItem": "3 Bolt Clamp",
+                                        "offset": {
+                                            "unit": "METRE",
+                                            "value": 4.927600000000001
+                                        },
+                                        "direction": 327.0,
+                                        "doubleInsulator": false,
+                                        "wires": [
+                                            "Wire#5"
+                                        ]
+                                    }
+                                ],
+                                "pushBraces": [],
+                                "sidewalkBraces": [],
+                                "foundations": [],
+                                "trusses": [],
+                                "assemblies": [
+                                    {
+                                        "id": "Assembly#1",
+                                        "source": "CLIENT_ASSEMBLIES",
+                                        "externalId": "64a6edb0dd602b3d61ef9985",
+                                        "clientItemVersion": "90179feebfb6b435601cb28aa551a7a8",
+                                        "clientItem": "A1",
+                                        "items": [
+                                            "Wire#1",
+                                            "Wire#2",
+                                            "Insulator#1",
+                                            "Insulator#2",
+                                            "GuyAttachPoint#1"
+                                        ]
+                                    },
+                                    {
+                                        "id": "Assembly#2",
+                                        "source": "CLIENT_ASSEMBLIES",
+                                        "externalId": "64a6fcf0dd602b3d61efcbaf",
+                                        "clientItemVersion": "0c70f457f00345fa0f42d11c4293143c",
+                                        "clientItem": "Janet's TELCO Bundle",
+                                        "items": [
+                                            "Insulator#3",
+                                            "Wire#5"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "mapLocation": {
+                                "type": "Point",
+                                "coordinates": [
+                                    -82.8303314286473,
+                                    40.02486210368481,
+                                    293.389892578
+                                ]
+                            },
+                            "analysis": [
+                                {
+                                    "id": "Medium with insulators",
+                                    "analysisCaseDetails": {
+                                        "name": "Medium with insulators",
+                                        "type": "NESC 2012-2017",
+                                        "analysisMethod": "DIRECT_STIFFNESS",
+                                        "connectionType": "CONTINUATION",
+                                        "displacementBasedLoadChangesLevel": "ALL",
+                                        "windType": "SWEEP",
+                                        "sweepIncrement": "DEGREE_1",
+                                        "windStartAngle": {
+                                            "unit": "RADIAN",
+                                            "value": 0.0
+                                        },
+                                        "windEndAngle": {
+                                            "unit": "RADIAN",
+                                            "value": 6.283185307179586
+                                        },
+                                        "useStrengthResults": false,
+                                        "analyzeWithAverageSpan": false,
+                                        "maximumLoadingRatio": 1.0,
+                                        "addByDefault": true,
+                                        "constructionType": "NEW",
+                                        "checkUtilityWireTension": false,
+                                        "maximumAllowableUtilityWireTensionRatio": {
+                                            "unit": "PERCENT",
+                                            "value": 60.0
+                                        },
+                                        "checkCommWireTension": false,
+                                        "maximumAllowableCommunicationWireTensionRatio": {
+                                            "unit": "PERCENT",
+                                            "value": 60.0
+                                        },
+                                        "analyzeGroundLineOnly": false,
+                                        "components": [],
+                                        "insulatorTypes": [
+                                            "DEADEND",
+                                            "CLAMP"
+                                        ],
+                                        "analyzeWithoutLinearConstant": false,
+                                        "constructionGrade": "C",
+                                        "loadZone": "MEDIUM",
+                                        "wireTensionMethod": "INITIAL",
+                                        "creepWireTensionTemperature": {
+                                            "unit": "CELSIUS",
+                                            "value": -9.444444444444445
+                                        },
+                                        "creepWireTensionIceThickness": {
+                                            "unit": "METRE",
+                                            "value": 0.006350000000000001
+                                        },
+                                        "creepWireTensionWindPressure": {
+                                            "unit": "PASCAL",
+                                            "value": 191.52103592134338
+                                        },
+                                        "creepWireTensionIceDensity": {
+                                            "unit": "KILOGRAM_PER_CUBIC_METRE",
+                                            "value": 917.0
+                                        },
+                                        "highestWireTensionTemperature": {
+                                            "unit": "CELSIUS",
+                                            "value": -9.444444444444445
+                                        },
+                                        "highestWireTensionIceThickness": {
+                                            "unit": "METRE",
+                                            "value": 0.006350000000000001
+                                        },
+                                        "highestWireTensionWindPressure": {
+                                            "unit": "PASCAL",
+                                            "value": 191.52103592134338
+                                        },
+                                        "highestWireTensionIceDensity": {
+                                            "unit": "KILOGRAM_PER_CUBIC_METRE",
+                                            "value": 917.0
+                                        },
+                                        "outerStrandingCompression": false,
+                                        "overrides": {},
+                                        "valuesApplied": {
+                                            "ice": {
+                                                "unit": "METRE",
+                                                "value": 0.006350000000000001
+                                            },
+                                            "iceDensity": {
+                                                "unit": "KILOGRAM_PER_CUBIC_METRE",
+                                                "value": 917.0
+                                            },
+                                            "temperature": {
+                                                "unit": "CELSIUS",
+                                                "value": -9.444444444444445
+                                            },
+                                            "windPressure": {
+                                                "unit": "PASCAL",
+                                                "value": 191.52103592134338
+                                            },
+                                            "linearConstant": {
+                                                "unit": "NEWTON_PER_METRE",
+                                                "value": 2.918780587441273
+                                            },
+                                            "anchorStrengthFactor": 1.0,
+                                            "anchorTensionMultiplier": 1.1,
+                                            "anchorVerticalLoadMultiplier": 1.5,
+                                            "commOnlyTensionMultiplier": 0.0,
+                                            "guyStrengthFactor": 0.9,
+                                            "guyTensionMultiplier": 1.1,
+                                            "guyVerticalLoadMultiplier": 1.5,
+                                            "insulatorStrengthFactor": 1.0,
+                                            "insulatorTensionMultiplier": 1.3,
+                                            "insulatorVerticalLoadMultiplier": 1.9,
+                                            "insulatorWindMultiplier": 1.75,
+                                            "anchorWindMultiplier": 1.75,
+                                            "guyWindMultiplier": 1.75,
+                                            "foundationStrengthFactor": 1.0,
+                                            "foundationTensionMultiplier": 1.3,
+                                            "foundationVerticalLoadMultiplier": 1.9,
+                                            "foundationWindMultiplier": 1.75,
+                                            "poleStrengthFactors": {
+                                                "WOOD": 0.85,
+                                                "METAL": 1.0,
+                                                "REINFORCED_CONCRETE": 0.85,
+                                                "POLYMER": 1.0,
+                                                "PRESTRESSED_CONCRETE": 1.0
+                                            },
+                                            "poleTensionMultipliers": {
+                                                "WOOD": 1.3,
+                                                "METAL": 1.1,
+                                                "REINFORCED_CONCRETE": 1.3,
+                                                "POLYMER": 1.3,
+                                                "PRESTRESSED_CONCRETE": 1.1
+                                            },
+                                            "poleVerticalLoadMultipliers": {
+                                                "WOOD": 1.9,
+                                                "METAL": 1.5,
+                                                "REINFORCED_CONCRETE": 1.9,
+                                                "POLYMER": 1.5,
+                                                "PRESTRESSED_CONCRETE": 1.5
+                                            },
+                                            "poleWindMultipliers": {
+                                                "WOOD": 1.75,
+                                                "METAL": 1.75,
+                                                "REINFORCED_CONCRETE": 1.75,
+                                                "POLYMER": 1.75,
+                                                "PRESTRESSED_CONCRETE": 1.75
+                                            },
+                                            "crossArmStrengthFactors": {
+                                                "WOOD": 0.85,
+                                                "METAL": 1.0,
+                                                "REINFORCED_CONCRETE": 0.85,
+                                                "POLYMER": 1.0,
+                                                "PRESTRESSED_CONCRETE": 1.0
+                                            },
+                                            "crossArmTensionMultipliers": {
+                                                "WOOD": 1.3,
+                                                "METAL": 1.1,
+                                                "REINFORCED_CONCRETE": 1.3,
+                                                "POLYMER": 1.3,
+                                                "PRESTRESSED_CONCRETE": 1.1
+                                            },
+                                            "crossArmVerticalLoadMultipliers": {
+                                                "WOOD": 1.9,
+                                                "METAL": 1.5,
+                                                "REINFORCED_CONCRETE": 1.9,
+                                                "POLYMER": 1.5,
+                                                "PRESTRESSED_CONCRETE": 1.5
+                                            },
+                                            "crossArmWindMultipliers": {
+                                                "WOOD": 1.75,
+                                                "METAL": 1.75,
+                                                "REINFORCED_CONCRETE": 1.75,
+                                                "POLYMER": 1.75,
+                                                "PRESTRESSED_CONCRETE": 1.75
+                                            },
+                                            "areaMultipliers": {
+                                                "ROUND": 1.0,
+                                                "SQUARE": 1.6,
+                                                "ROUND_LATTICE": 2.0,
+                                                "SQUARE_LATTICE": 3.2
+                                            }
+                                        }
+                                    },
+                                    "results": [
+                                        {
+                                            "actual": 18.589775056476263,
+                                            "allowable": 100.0,
+                                            "unit": "PERCENT",
+                                            "analysisDate": 1741493151391,
+                                            "component": "Insulator#3",
+                                            "loadInfo": "Medium with insulators",
+                                            "passes": true,
+                                            "analysisType": "FORCE"
+                                        },
+                                        {
+                                            "actual": 24.764934449801164,
+                                            "allowable": 100.0,
+                                            "unit": "PERCENT",
+                                            "analysisDate": 1741493151391,
+                                            "component": "Insulator#2",
+                                            "loadInfo": "Medium with insulators",
+                                            "passes": true,
+                                            "analysisType": "FORCE"
+                                        },
+                                        {
+                                            "actual": 24.772662076465256,
+                                            "allowable": 100.0,
+                                            "unit": "PERCENT",
+                                            "analysisDate": 1741493151391,
+                                            "component": "Insulator#1",
+                                            "loadInfo": "Medium with insulators",
+                                            "passes": true,
+                                            "analysisType": "FORCE"
+                                        },
+                                        {
+                                            "actual": 99.05689174570436,
+                                            "allowable": 100.0,
+                                            "unit": "PERCENT",
+                                            "analysisDate": 1741493151391,
+                                            "component": "Pole",
+                                            "loadInfo": "Medium with insulators",
+                                            "passes": true,
+                                            "analysisType": "STRESS"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "NESC ZONE",
+                                    "analysisCaseDetails": {
+                                        "type": "zoneStrengthCase",
+                                        "name": "NESC ZONE",
+                                        "addByDefault": false,
+                                        "includeThroughBolts": false,
+                                        "minimumAllowableRatio": 0.6666666666666666,
+                                        "heightToIncludeAtGroundline": {
+                                            "unit": "METRE",
+                                            "value": 0.0
+                                        }
+                                    },
+                                    "results": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
