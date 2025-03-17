@@ -1,0 +1,51 @@
+{
+  "description": "A single component brace in a structure",
+  "id": "#/spidacalc/calc/componentBrace.schema",
+  "type": "object",
+  "required": [
+    "id",
+    "owner",
+    "attachmentHeight",
+    "direction",
+    "offset"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "externalId": {
+      "type": "string"
+    },
+    "owner": {
+      "$ref": "../../general/owner.schema"
+    },
+    "attachmentHeight": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "direction": {
+      "$ref": "../../general/bearing.schema"
+    },
+    "offset": {
+      "$ref": "../../general/measurable.schema"
+    },
+    "clientItem": {
+      "type": "string",
+      "description": "the size of the client component brace"
+    },
+    "clientItemVersion": {
+      "type": "string",
+      "description": "the client component brace version hash",
+      "pattern": "[a-f0-9]{32}"
+    },
+    "clientItemAlias": {
+      "type": "string",
+      "description": "an alias for a client component brace"
+    }
+  },
+  "anyOf": [
+    { "required": ["clientItem"] },
+    { "required": ["clientItemVersion"] },
+    { "required": ["clientItemAlias"] }
+  ],
+  "additionalValues": false
+}
