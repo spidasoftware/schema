@@ -3,7 +3,9 @@
     "ROUND", 
     "SQUARE", 
     "ROUND_LATTICE", 
-    "SQUARE_LATTICE"
+    "SQUARE_LATTICE",
+    "RECTANGLE",
+    "POLYGON"
   ], 
   "type": "string"
 }
