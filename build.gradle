@@ -10,7 +10,7 @@ apply plugin: 'com.spidasoftware.releaseNotes'
 apply plugin: 'org.owasp.dependencycheck'
 
 group = 'com.spidasoftware'
-version = '12.0.0-SNAPSHOT' // If you're changing the major version also change the currentVersion in ConverterUtils.
+version = '12.0.0-1595055' // If you're changing the major version also change the currentVersion in ConverterUtils.
 
 def schemaReleaseVersion = System.getenv("SCHEMA_RELEASE_VERSION")
 if(schemaReleaseVersion){
