@@ -39,6 +39,10 @@
       "description": "Measurable height that was cut off from top of pole",
       "$ref": "../../general/measurable.schema"
     },
+    "orientation": {
+      "description": "The pole's rotation around its vertical axis.",
+      "$ref": "../../general/bearing.schema"
+    },
     "leanAngle": {
       "description": "Lean angle measured vertical.",
       "type": "integer",
