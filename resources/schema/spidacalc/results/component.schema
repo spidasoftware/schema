@@ -147,6 +147,10 @@
       "description": "the direction in compass degress the wind was blowing for these results",
       "type": "integer"
     },
+    "uplift": {
+      "description": "uplift force for insulator components",
+      "$ref": "../../general/measurable.schema"
+    },
     "failingRatio": {
       "description": "the ratio at which this analysis will fail",
       "type": "number"
