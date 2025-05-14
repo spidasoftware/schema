@@ -46,7 +46,7 @@
             },
             "analyzeGroundLineOnly": false,
             "components": [],
-            "insulatorTypes": [],
+            "upliftInsulatorTypes": [],
             "rural": false,
             "constructionGrade": "A",
             "loadZone": "LIGHT",
@@ -220,7 +220,7 @@
             },
             "analyzeGroundLineOnly": false,
             "components": [],
-            "insulatorTypes": [
+            "upliftInsulatorTypes": [
                 "DEADEND",
                 "CLAMP"
             ],

@@ -1478,7 +1478,7 @@
                 },
                 "analyzeGroundLineOnly": false,
                 "components": [],
-                "insulatorTypes": [
+                "upliftInsulatorTypes": [
                     "DEADEND",
                     "CLAMP"
                 ],
@@ -1697,7 +1697,7 @@
             },
             "analyzeGroundLineOnly": false,
             "components": [],
-            "insulatorTypes": [
+            "upliftInsulatorTypes": [
                 "DEADEND",
                 "CLAMP"
             ],
@@ -2421,7 +2421,7 @@
                                         },
                                         "analyzeGroundLineOnly": false,
                                         "components": [],
-                                        "insulatorTypes": [
+                                        "upliftInsulatorTypes": [
                                             "DEADEND",
                                             "CLAMP"
                                         ],
@@ -3137,7 +3137,7 @@
                                         },
                                         "analyzeGroundLineOnly": false,
                                         "components": [],
-                                        "insulatorTypes": [
+                                        "upliftInsulatorTypes": [
                                             "DEADEND",
                                             "CLAMP"
                                         ],

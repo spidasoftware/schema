@@ -1,8 +1,13 @@
+/*
+ * Copyright (c) 2025 Bentley Systems, Incorporated. All rights reserved.
+ */
 package com.spidasoftware.schema.conversion.changeset.v12
 
 import com.spidasoftware.schema.conversion.changeset.ConversionException
 import com.spidasoftware.schema.conversion.changeset.client.AbstractClientDataChangeSet
+import groovy.transform.CompileStatic
 
+@CompileStatic
 class InsulatorTypesChangeset extends AbstractClientDataChangeSet {
 
 	@Override
@@ -44,7 +49,7 @@ class InsulatorTypesChangeset extends AbstractClientDataChangeSet {
 	@Override
 	boolean revertResults(Map resultsJSON) throws ConversionException {
 		boolean changed = super.revertResults(resultsJSON)
-		resultsJSON?.results?.each { result ->
+		resultsJSON?.results?.each { Map result ->
 			result?.components?.each { component ->
 				Map comp = component as Map
 				if (comp.containsKey("uplift")) {
@@ -53,8 +58,8 @@ class InsulatorTypesChangeset extends AbstractClientDataChangeSet {
 				}
 			}
 			Map details = result.analysisCaseDetails as Map
-			if (details.containsKey("insulatorTypes")) {
-				details.remove("insulatorTypes")
+			if (details.containsKey("upliftInsulatorTypes")) {
+				details.remove("upliftInsulatorTypes")
 				changed = true
 			}
 		}
@@ -63,8 +68,8 @@ class InsulatorTypesChangeset extends AbstractClientDataChangeSet {
 
 	boolean removeInsulatorTypesFromLoadCase(Map loadCaseJSON) {
 		boolean anyChanged = false
-		if (loadCaseJSON.containsKey("insulatorTypes")) {
-			loadCaseJSON.remove("insulatorTypes")
+		if (loadCaseJSON.containsKey("upliftInsulatorTypes")) {
+			loadCaseJSON.remove("upliftInsulatorTypes")
 			anyChanged = true
 		}
 		return anyChanged
