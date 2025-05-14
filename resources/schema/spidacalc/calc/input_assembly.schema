@@ -72,6 +72,10 @@
                 }
             },
             "description": "The value of each property must be the alias for the client wire to use for that usage group."
+          },
+          "clientDataWEPid": {
+            "type": "string",
+            "description": "Used to associate items from the client data to a specific wep# in the structure data"
           }
         },
         "additionalProperties": false
