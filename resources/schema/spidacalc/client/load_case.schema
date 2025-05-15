@@ -252,17 +252,10 @@
       "type": "object"
     },
     "upliftInsulatorTypes": {
+      "description": "optional list of insulators to perform uplift analysis on",
       "type": "array",
       "items": {
-        "enum": [
-          "RUNNING_ANGLE",
-          "POLE_TOP",
-          "BRACKET",
-          "PIN",
-          "SUSPENSION",
-          "DEADEND",
-          "CLAMP"
-        ]
+        "$ref": "enums/insulator_type.schema"
       }
     },
     "deflectionCase": {
