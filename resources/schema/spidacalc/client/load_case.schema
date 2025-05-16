@@ -251,6 +251,13 @@
       "description": "(Read-Only) all final strength factors and multipliers used during analysis (including default values)",
       "type": "object"
     },
+    "upliftInsulatorTypes": {
+      "description": "optional list of insulators to perform uplift analysis on",
+      "type": "array",
+      "items": {
+        "$ref": "enums/insulator_type.schema"
+      }
+    },
     "deflectionCase": {
       "type": "object",
       "required": [
