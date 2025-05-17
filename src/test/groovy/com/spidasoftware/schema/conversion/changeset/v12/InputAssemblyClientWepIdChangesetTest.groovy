@@ -5,12 +5,12 @@ package com.spidasoftware.schema.conversion.changeset.v12
 
 import spock.lang.Specification
 
-class InputAssemblyChangesetTest extends Specification {
+class InputAssemblyClientWepIdChangesetTest extends Specification {
 
-	static InputAssemblyChangeset changeset
+	static InputAssemblyClientWepIdChangeset changeset
 
 	def setupSpec() {
-		changeset = new InputAssemblyChangeset()
+		changeset = new InputAssemblyClientWepIdChangeset()
 	}
 
 	// make tests later

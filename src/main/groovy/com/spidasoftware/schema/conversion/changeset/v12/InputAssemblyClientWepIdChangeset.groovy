@@ -6,7 +6,7 @@ package com.spidasoftware.schema.conversion.changeset.v12
 import com.spidasoftware.schema.conversion.changeset.ConversionException
 import com.spidasoftware.schema.conversion.changeset.calc.AbstractCalcDesignChangeset
 
-class InputAssemblyChangeset extends AbstractCalcDesignChangeset {
+class InputAssemblyClientWepIdChangeset extends AbstractCalcDesignChangeset {
 
 	@Override
 	void applyToDesign(Map designJSON) throws ConversionException {
