@@ -87,6 +87,7 @@ class ConverterUtils {
         converter.addChangeSet(12, new PushBraceHeightChangeSet())
         converter.addChangeSet(12, new TensionOverrideChangeset())
         converter.addChangeSet(12, new ComponentBraceChangeset())
+        converter.addChangeSet(12, new SidedPoleChangeset())
         // add calc changesets above here
 
         converter.setCurrentVersion(currentVersion)
@@ -114,6 +115,7 @@ class ConverterUtils {
         converter.addChangeSet(12, new CSAMaxWindTemperatureChangeset())
         converter.addChangeSet(12, new TensionOverrideChangeset())
         converter.addChangeSet(12, new ComponentBraceChangeset())
+        converter.addChangeSet(12, new SidedPoleChangeset())
         // add client data changesets above here
 
         converter.setCurrentVersion(currentVersion)
@@ -142,6 +144,7 @@ class ConverterUtils {
         converter.addChangeSet(12, new TensionOverrideChangeset())
         converter.addChangeSet(12, new DetailedResultsVersionChangeset())
         converter.addChangeSet(12, new ComponentBraceChangeset())
+        converter.addChangeSet(12, new SidedPoleChangeset())
         // add result changesets above here
 
         converter.setCurrentVersion(currentVersion)
