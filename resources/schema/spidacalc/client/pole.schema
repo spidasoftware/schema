@@ -319,9 +319,11 @@
           },
           "required": [ "tipWidth", "tipDepth", "baseWidth", "baseDepth" ],
           "not": {
-            { "required": [ "numberOfSides" ] },
-            { "required": [ "taper" ] },
-            { "required": [ "ptc" ] }
+            "anyOf": [
+              { "required": [ "numberOfSides" ] },
+              { "required": [ "taper" ] },
+              { "required": [ "ptc" ] }
+            ]
           }
         },
         {
