@@ -166,7 +166,7 @@
               "enum": [ "METAL" ]
             }
           },
-          "required": [ "maximumAllowableStress" ],
+          "required": [ "shape", "materialCategory", "maximumAllowableStress" ],
           "not": {
             "anyOf": [
               { "required": [ "maximumGroundLineMoment" ] },
@@ -188,7 +188,7 @@
               "enum": [ "REINFORCED_CONCRETE", "PRESTRESSED_CONCRETE" ]
             }
           },
-          "required": [ "maximumGroundLineMoment" ],
+          "required": [ "shape", "materialCategory", "maximumGroundLineMoment" ],
           "not": {
             "anyOf": [
               { "required": [ "maximumAllowableStress" ] },
@@ -208,7 +208,7 @@
               "enum": [ "WOOD" ]
             }
           },
-          "required": [ "longitudinalModulusOfRupture", "transverseModulusOfRupture", "taperStopDistance" ],
+          "required": [ "shape", "materialCategory", "longitudinalModulusOfRupture", "transverseModulusOfRupture", "taperStopDistance" ],
           "not": {
             "anyOf": [
               { "required": [ "maximumAllowableStress" ] },
@@ -226,7 +226,7 @@
               "enum": [ "WOOD" ]
             }
           },
-          "required": [ "longitudinalModulusOfRupture", "taperStopDistance" ],
+          "required": [ "shape", "materialCategory", "longitudinalModulusOfRupture", "taperStopDistance" ],
           "not": {
             "anyOf": [
               { "required": [ "transverseModulusOfRupture" ] },
@@ -237,8 +237,10 @@
         },
         {
           "description": "All other combinations can have either allowable stress or moment",
+          "required": [ "shape", "materialCategory" ],
           "not": {
             "anyOf": [
+              { "required": [ "taperStopDistance" ] },
               {
                 "required": [ "shape", "materialCategory" ],
                 "properties": {
@@ -277,9 +279,6 @@
                 }
               }
             ]
-          },
-          "not": {
-            "required": [ "taperStopDistance" ]
           },
           "oneOf": [
             {
