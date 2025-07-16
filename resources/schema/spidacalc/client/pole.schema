@@ -240,6 +240,7 @@
           "not": {
             "anyOf": [
               {
+                "required": [ "shape", "materialCategory" ],
                 "properties": {
                   "shape": {
                     "not": {
@@ -252,6 +253,7 @@
                 }
               },
               {
+                "required": [ "shape", "materialCategory" ],
                 "properties": {
                   "shape": {
                     "not": {
@@ -264,6 +266,7 @@
                 }
               },
               {
+                "required": [ "shape", "materialCategory" ],
                 "properties": {
                   "shape": {
                     "enum": [ "SQUARE", "RECTANGLE" ]
