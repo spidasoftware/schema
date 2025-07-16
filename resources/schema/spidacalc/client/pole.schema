@@ -59,7 +59,7 @@
     },
     "taperStopDistance": {
       "description": "Distance tapering stops from the butt of the pole",
-      "type": "number"
+      "$ref": "../../general/measurable.schema"
     },
     "wallThickness": {
       "description":"Thickness of the material in the pole, solid if not provided.",
