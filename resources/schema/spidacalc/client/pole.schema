@@ -202,7 +202,7 @@
           "description": "Wood square/rectangular poles can only have longitudinal/transverse modulus of rupture",
           "properties": {
             "shape": {
-              "enum": [ "SQUARE", "RECTANGLE" ]
+              "enum": [ "RECTANGLE" ]
             },
             "materialCategory": {
               "enum": [ "WOOD" ]
@@ -211,6 +211,25 @@
           "required": [ "longitudinalModulusOfRupture", "transverseModulusOfRupture", "taperStopDistance" ],
           "not": {
             "anyOf": [
+              { "required": [ "maximumAllowableStress" ] },
+              { "required": [ "maximumGroundLineMoment" ] }
+            ]
+          }
+        },
+        {
+          "description": "Wood square poles can only have longitudinal modulus of rupture",
+          "properties": {
+            "shape": {
+              "enum": [ "SQUARE" ]
+            },
+            "materialCategory": {
+              "enum": [ "WOOD" ]
+            }
+          },
+          "required": [ "longitudinalModulusOfRupture", "taperStopDistance" ],
+          "not": {
+            "anyOf": [
+              { "required": [ "transverseModulusOfRupture" ] },
               { "required": [ "maximumAllowableStress" ] },
               { "required": [ "maximumGroundLineMoment" ] }
             ]
