@@ -54,10 +54,15 @@
       "type": "string"
     },
     "taper": {
+      "description": "Taper of the pole. Only for ROUND poles",
+      "type": "number"
+    },
+    "taperStopDistance": {
+      "description": "Distance tapering stops from the butt of the pole",
       "type": "number"
     },
     "wallThickness": {
-      "description":"Thinkness of the material in the pole, solid if not provided.",
+      "description":"Thickness of the material in the pole, solid if not provided.",
       "$ref": "../../general/measurable.schema"
     },
     "aliases": {
@@ -166,7 +171,8 @@
             "anyOf": [
               { "required": [ "maximumGroundLineMoment" ] },
               { "required": [ "longitudinalModulusOfRupture" ] },
-              { "required": [ "transverseModulusOfRupture" ] }
+              { "required": [ "transverseModulusOfRupture" ] },
+              { "required": [ "taperStopDistance" ] }
             ]
           }
         },
@@ -187,7 +193,8 @@
             "anyOf": [
               { "required": [ "maximumAllowableStress" ] },
               { "required": [ "longitudinalModulusOfRupture" ] },
-              { "required": [ "transverseModulusOfRupture" ] }
+              { "required": [ "transverseModulusOfRupture" ] },
+              { "required": [ "taperStopDistance" ] }
             ]
           }
         },
@@ -201,7 +208,7 @@
               "enum": [ "WOOD" ]
             }
           },
-          "required": [ "longitudinalModulusOfRupture", "transverseModulusOfRupture" ],
+          "required": [ "longitudinalModulusOfRupture", "transverseModulusOfRupture", "taperStopDistance" ],
           "not": {
             "anyOf": [
               { "required": [ "maximumAllowableStress" ] },
@@ -248,6 +255,9 @@
                 }
               }
             ]
+          },
+          "not": {
+            "required": [ "taperStopDistance" ]
           },
           "oneOf": [
             {
