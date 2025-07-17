@@ -9,10 +9,8 @@
     "materialCategory",
     "modulus",
     "poissonRatio",
-    "ptc",
     "shape",
     "species",
-    "taper",
     "settingType"
   ],
   "properties": {
@@ -56,10 +54,15 @@
       "type": "string"
     },
     "taper": {
+      "description": "Taper of the pole. Only for ROUND poles",
       "type": "number"
     },
+    "taperStopDistance": {
+      "description": "Distance tapering stops from the butt of the pole",
+      "$ref": "../../general/measurable.schema"
+    },
     "wallThickness": {
-      "description":"Thinkness of the material in the pole, solid if not provided.",
+      "description":"Thickness of the material in the pole, solid if not provided.",
       "$ref": "../../general/measurable.schema"
     },
     "aliases": {
@@ -106,10 +109,10 @@
     "baseDepth": {
       "$ref": "../../general/measurable.schema"
     },
-    "maximumLongitudinalMoment": {
+    "longitudinalModulusOfRupture": {
       "$ref": "../../general/measurable.schema"
     },
-    "maximumTransverseMoment": {
+    "transverseModulusOfRupture": {
       "$ref": "../../general/measurable.schema"
     }
   },
@@ -152,33 +155,153 @@
     {
       "oneOf": [
         {
-          "required": [ "maximumAllowableStress" ],
+          "description": "Sided steel poles can only have allowable stress",
+          "properties": {
+            "shape": {
+              "not": {
+                "enum": [ "ROUND" ]
+              }
+            },
+            "materialCategory": {
+              "enum": [ "METAL" ]
+            }
+          },
+          "required": [ "shape", "materialCategory", "maximumAllowableStress" ],
           "not": {
             "anyOf": [
               { "required": [ "maximumGroundLineMoment" ] },
-              { "required": [ "maximumLongitudinalMoment" ] },
-              { "required": [ "maximumTransverseMoment" ] }
+              { "required": [ "longitudinalModulusOfRupture" ] },
+              { "required": [ "transverseModulusOfRupture" ] },
+              { "required": [ "taperStopDistance" ] }
             ]
           }
         },
         {
-          "required": [ "maximumGroundLineMoment" ],
+          "description": "Sided concrete poles can only have allowable moment",
+          "properties": {
+            "shape": {
+              "not": {
+                "enum": [ "ROUND" ]
+              }
+            },
+            "materialCategory": {
+              "enum": [ "REINFORCED_CONCRETE", "PRESTRESSED_CONCRETE" ]
+            }
+          },
+          "required": [ "shape", "materialCategory", "maximumGroundLineMoment" ],
           "not": {
             "anyOf": [
               { "required": [ "maximumAllowableStress" ] },
-              { "required": [ "maximumLongitudinalMoment" ] },
-              { "required": [ "maximumTransverseMoment" ] }
+              { "required": [ "longitudinalModulusOfRupture" ] },
+              { "required": [ "transverseModulusOfRupture" ] },
+              { "required": [ "taperStopDistance" ] }
             ]
           }
         },
         {
-          "required": [ "maximumLongitudinalMoment", "maximumTransverseMoment" ],
+          "description": "Wood square/rectangular poles can only have longitudinal/transverse modulus of rupture",
+          "properties": {
+            "shape": {
+              "enum": [ "RECTANGLE" ]
+            },
+            "materialCategory": {
+              "enum": [ "WOOD" ]
+            }
+          },
+          "required": [ "shape", "materialCategory", "longitudinalModulusOfRupture", "transverseModulusOfRupture", "taperStopDistance" ],
           "not": {
             "anyOf": [
               { "required": [ "maximumAllowableStress" ] },
               { "required": [ "maximumGroundLineMoment" ] }
             ]
           }
+        },
+        {
+          "description": "Wood square poles can only have longitudinal modulus of rupture",
+          "properties": {
+            "shape": {
+              "enum": [ "SQUARE" ]
+            },
+            "materialCategory": {
+              "enum": [ "WOOD" ]
+            }
+          },
+          "required": [ "shape", "materialCategory", "longitudinalModulusOfRupture", "taperStopDistance" ],
+          "not": {
+            "anyOf": [
+              { "required": [ "transverseModulusOfRupture" ] },
+              { "required": [ "maximumAllowableStress" ] },
+              { "required": [ "maximumGroundLineMoment" ] }
+            ]
+          }
+        },
+        {
+          "description": "All other combinations can have either allowable stress or moment",
+          "required": [ "shape", "materialCategory" ],
+          "not": {
+            "anyOf": [
+              { "required": [ "taperStopDistance" ] },
+              {
+                "required": [ "shape", "materialCategory" ],
+                "properties": {
+                  "shape": {
+                    "not": {
+                      "enum": [ "ROUND" ]
+                    }
+                  },
+                  "materialCategory": {
+                    "enum": [ "METAL" ]
+                  }
+                }
+              },
+              {
+                "required": [ "shape", "materialCategory" ],
+                "properties": {
+                  "shape": {
+                    "not": {
+                      "enum": [ "ROUND" ]
+                    }
+                  },
+                  "materialCategory": {
+                    "enum": [ "REINFORCED_CONCRETE", "PRESTRESSED_CONCRETE" ]
+                  }
+                }
+              },
+              {
+                "required": [ "shape", "materialCategory" ],
+                "properties": {
+                  "shape": {
+                    "enum": [ "SQUARE", "RECTANGLE" ]
+                  },
+                  "materialCategory": {
+                    "enum": [ "WOOD" ]
+                  }
+                }
+              }
+            ]
+          },
+          "oneOf": [
+            {
+              "required": [ "maximumAllowableStress" ],
+              "not": {
+                "anyOf": [
+                  { "required": [ "maximumGroundLineMoment" ] },
+                  { "required": [ "longitudinalModulusOfRupture" ] },
+                  { "required": [ "transverseModulusOfRupture" ] }
+                ]
+              }
+            },
+            {
+              "required": [ "maximumGroundLineMoment" ],
+              "not": {
+                "anyOf": [
+                  { "required": [ "maximumAllowableStress" ] },
+                  { "required": [ "longitudinalModulusOfRupture" ] },
+                  { "required": [ "transverseModulusOfRupture" ] }
+                ]
+              }
+            }
+          ]
         }
       ]
     },
@@ -196,8 +319,8 @@
               { "required": [ "numberOfSides" ] },
               { "required": [ "tipDepth" ] },
               { "required": [ "baseDepth" ] },
-              { "required": [ "maximumLongitudinalMoment" ] },
-              { "required": [ "maximumTransverseMoment" ] }
+              { "required": [ "taper" ] },
+              { "required": [ "ptc" ] }
             ]
           }
         },
@@ -212,8 +335,10 @@
             "anyOf": [
               { "required": [ "tipDepth" ] },
               { "required": [ "baseDepth" ] },
-              { "required": [ "maximumLongitudinalMoment" ] },
-              { "required": [ "maximumTransverseMoment" ] }
+              { "required": [ "longitudinalModulusOfRupture" ] },
+              { "required": [ "transverseModulusOfRupture" ] },
+              { "required": [ "taper" ] },
+              { "required": [ "ptc" ] }
             ]
           }
         },
@@ -225,7 +350,11 @@
           },
           "required": [ "tipWidth", "tipDepth", "baseWidth", "baseDepth" ],
           "not": {
-            "required": [ "numberOfSides" ]
+            "anyOf": [
+              { "required": [ "numberOfSides" ] },
+              { "required": [ "taper" ] },
+              { "required": [ "ptc" ] }
+            ]
           }
         },
         {
@@ -234,6 +363,7 @@
               "enum": [ "ROUND" ]
             }
           },
+          "required": [ "taper", "ptc" ],
           "not": {
             "anyOf": [
               { "required": [ "numberOfSides" ] },
@@ -241,8 +371,8 @@
               { "required": [ "tipDepth" ] },
               { "required": [ "baseWidth" ] },
               { "required": [ "baseDepth" ] },
-              { "required": [ "maximumLongitudinalMoment" ] },
-              { "required": [ "maximumTransverseMoment" ] }
+              { "required": [ "longitudinalModulusOfRupture" ] },
+              { "required": [ "transverseModulusOfRupture" ] }
             ]
           }
         }
