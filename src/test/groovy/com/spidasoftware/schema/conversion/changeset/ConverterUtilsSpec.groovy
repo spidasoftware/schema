@@ -1,3 +1,6 @@
+/*
+ * Copyright (c) 2025 Bentley Systems, Incorporated. All rights reserved.
+ */
 package com.spidasoftware.schema.conversion.changeset
 
 import com.spidasoftware.schema.conversion.changeset.calc.CalcDesignConverter
@@ -8,6 +11,7 @@ import com.spidasoftware.schema.conversion.changeset.v2.PoleLeanChangeSetTest
 import com.spidasoftware.schema.validation.Validator
 import groovy.json.JsonSlurper
 import groovy.util.logging.Slf4j
+import org.apache.commons.lang3.SystemUtils
 import spock.lang.Specification
 
 @Slf4j
@@ -78,7 +82,13 @@ BUILD SUCCESSFUL in 0s
 	 */
 	def testSchemaVersionMatchesConverterUtilsVersion() {
 		when:
-			Process process = "./gradlew printVersion".execute()
+			String commandLine
+			if (SystemUtils.IS_OS_WINDOWS) {
+				commandLine = "gradlew.bat printVersion"
+			} else {
+				commandLine = "./gradlew printVersion"
+			}
+			Process process = commandLine.execute()
 			process.waitFor()
 			String output = process.text.trim()
 			int indexOfMajorVersion = output.indexOf("SCHEMA_VERSION: ") + "SCHEMA_VERSION: ".length()

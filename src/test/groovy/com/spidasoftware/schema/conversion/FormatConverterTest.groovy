@@ -1,3 +1,6 @@
+/*
+ * Copyright (c) 2025 Bentley Systems, Incorporated. All rights reserved.
+ */
 package com.spidasoftware.schema.conversion
 
 import com.github.fge.jsonschema.core.report.ProcessingReport
@@ -6,7 +9,6 @@ import com.spidasoftware.schema.conversion.changeset.ConverterUtils
 import com.spidasoftware.schema.validation.Validator
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
-import org.apache.commons.lang.NotImplementedException
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -422,7 +424,7 @@ class FormatConverterTest extends Specification {
 				dbKey = "calcResult"
 				break
 			default:
-				throw new NotImplementedException("Not implemented for type ${type}")
+				throw new Exception("Not implemented for type ${type}")
 		}
 
 		Map json = new JsonSlurper().parse(getClass().getResourceAsStream("/formats/spidadb/${project}/${type}.json"))

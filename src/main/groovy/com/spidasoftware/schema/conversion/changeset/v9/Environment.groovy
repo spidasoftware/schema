@@ -1,11 +1,7 @@
 /*
- * ©2009-2021 SPIDAWEB LLC
+ * Copyright (c) 2025 Bentley Systems, Incorporated. All rights reserved.
  */
 package com.spidasoftware.schema.conversion.changeset.v9
-
-
-import org.apache.commons.lang.WordUtils
-import org.apache.commons.lang3.StringUtils
 
 /**
  * Default environments prior to calc version 8.0
