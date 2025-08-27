@@ -1,0 +1,31 @@
+{
+  "type": "CSA 2020 Maximum Wind",
+  "overrides": {
+    "anchorStrengthFactor": 1.0,
+    "anchorTensionMultiplier": 1.6,
+    "anchorVerticalLoadMultiplier": 1.0,
+    "anchorWindMultiplier": 1.6,
+    "guyStrengthFactor": 1.0,
+    "guyTensionMultiplier": 1.6,
+    "guyVerticalLoadMultiplier": 1.0,
+    "guyWindMultiplier": 1.6,
+    "foundationStrengthFactor": 1.0,
+    "foundationTensionMultiplier": 1.9,
+    "foundationVerticalLoadMultiplier": 2.0,
+    "foundationWindMultiplier": 1.9
+  },
+  "valuesApplied": {
+    "anchorStrengthFactor": 1.0,
+    "anchorTensionMultiplier": 1.6,
+    "anchorVerticalLoadMultiplier": 1.0,
+    "anchorWindMultiplier": 1.6,
+    "guyStrengthFactor": 1.0,
+    "guyTensionMultiplier": 1.6,
+    "guyVerticalLoadMultiplier": 1.0,
+    "guyWindMultiplier": 1.6,
+    "foundationStrengthFactor": 1.0,
+    "foundationTensionMultiplier": 1.9,
+    "foundationVerticalLoadMultiplier": 2.0,
+    "foundationWindMultiplier": 1.9
+  }
+}
