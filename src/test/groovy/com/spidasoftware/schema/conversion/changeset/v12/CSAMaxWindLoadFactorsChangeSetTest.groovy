@@ -8,7 +8,7 @@ import spock.lang.Specification
 
 class CSAMaxWindLoadFactorsChangeSetTest extends Specification {
 
-    def "clientData"() {
+    def "removeCSALoadFactors"() {
         setup:
             CSAMaxWindLoadFactorsChangeSet changeSet = new CSAMaxWindLoadFactorsChangeSet()
             InputStream stream = CSAMaxWindLoadFactorsChangeSetTest.getResourceAsStream("/conversions/v12/csaMaxWindLoadFactors-v11.json")
