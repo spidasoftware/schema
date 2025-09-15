@@ -5,7 +5,6 @@
   "required": [
     "size",
     "width",
-    "depth",
     "weightPerLength",
     "modulus",
     "wallThickness",
@@ -71,5 +70,25 @@
       }
     }
   },
+  "oneOf": [
+    {
+      "required": [ "depth" ],
+      "properties": {
+        "shape": {
+          "enum": [ "ROUND" ]
+        }
+      }
+    },
+    {
+      "not": {
+        "required": [ "depth" ]
+      },
+      "properties": {
+        "shape": {
+          "enum": [ "RECTANGLE" ]
+        }
+      }
+    }
+  ],
   "additionalProperties": false
 }
