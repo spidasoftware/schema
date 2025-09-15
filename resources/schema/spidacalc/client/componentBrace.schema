@@ -12,10 +12,36 @@
     "materialCategory",
     "throughHoleDiameter"
   ],
-  "anyOf":[
-      {"required":["maxStrength"]},
-      {"required":["maxTension", "maxCompression"]}
-    ],
+  "allOf": [
+    {
+      "anyOf": [
+        { "required": [ "maxStrength" ] },
+        { "required": [ "maxTension", "maxCompression" ] }
+      ]
+    },
+    {
+      "oneOf": [
+        {
+          "required": [ "depth" ],
+          "properties": {
+            "shape": {
+              "enum": [ "ROUND" ]
+            }
+          }
+        },
+        {
+          "not": {
+            "required": [ "depth" ]
+          },
+          "properties": {
+            "shape": {
+              "enum": [ "RECTANGLE" ]
+            }
+          }
+        }
+      ]
+    }
+  ],
   "properties": {
     "id": {
       "type": "string"
@@ -70,25 +96,5 @@
       }
     }
   },
-  "oneOf": [
-    {
-      "required": [ "depth" ],
-      "properties": {
-        "shape": {
-          "enum": [ "ROUND" ]
-        }
-      }
-    },
-    {
-      "not": {
-        "required": [ "depth" ]
-      },
-      "properties": {
-        "shape": {
-          "enum": [ "RECTANGLE" ]
-        }
-      }
-    }
-  ],
   "additionalProperties": false
 }
