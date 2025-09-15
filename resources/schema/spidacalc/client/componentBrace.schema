@@ -25,7 +25,7 @@
           "required": [ "depth" ],
           "properties": {
             "shape": {
-              "enum": [ "ROUND" ]
+              "enum": [ "RECTANGLE" ]
             }
           }
         },
@@ -35,7 +35,7 @@
           },
           "properties": {
             "shape": {
-              "enum": [ "RECTANGLE" ]
+              "enum": [ "ROUND" ]
             }
           }
         }
