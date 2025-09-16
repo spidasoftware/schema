@@ -5,7 +5,6 @@
   "required": [
     "size",
     "width",
-    "depth",
     "weightPerLength",
     "modulus",
     "wallThickness",
@@ -13,10 +12,36 @@
     "materialCategory",
     "throughHoleDiameter"
   ],
-  "anyOf":[
-      {"required":["maxStrength"]},
-      {"required":["maxTension", "maxCompression"]}
-    ],
+  "allOf": [
+    {
+      "anyOf": [
+        { "required": [ "maxStrength" ] },
+        { "required": [ "maxTension", "maxCompression" ] }
+      ]
+    },
+    {
+      "oneOf": [
+        {
+          "required": [ "depth" ],
+          "properties": {
+            "shape": {
+              "enum": [ "RECTANGLE" ]
+            }
+          }
+        },
+        {
+          "not": {
+            "required": [ "depth" ]
+          },
+          "properties": {
+            "shape": {
+              "enum": [ "ROUND" ]
+            }
+          }
+        }
+      ]
+    }
+  ],
   "properties": {
     "id": {
       "type": "string"
