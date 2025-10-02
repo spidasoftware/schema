@@ -278,6 +278,12 @@
       "items": {
         "$ref": "../../spidacalc/results/item.schema"
       }
+    },
+    "componentBraces": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/results/item.schema"
+      }
     }
   },
   "additionalProperties": false
