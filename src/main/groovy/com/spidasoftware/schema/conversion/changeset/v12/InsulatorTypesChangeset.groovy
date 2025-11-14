@@ -56,6 +56,10 @@ class InsulatorTypesChangeset extends AbstractClientDataChangeSet {
 					comp.remove("uplift")
 					changed = true
 				}
+                if (comp.containsKey("upliftWindDirection")) {
+                    comp.remove("upliftWindDirection")
+                    changed = true
+                }
 			}
 			Map details = result.analysisCaseDetails as Map
 			if (details.containsKey("upliftInsulatorTypes")) {
