@@ -52,12 +52,14 @@ class InsulatorTypesChangesetTest extends Specification {
 			stream.close()
 		expect:
 			json.results[0].components[0].uplift
+			json.results[0].components[0].upliftWindDirection
 			json.results[0].analysisCaseDetails.upliftInsulatorTypes
 		when:
 			boolean reverted = changeSet.revertResults(json)
 		then:
 			reverted
 			!json.results[0].components[0].uplift
+			!json.results[0].components[0].upliftWindDirection
 			!json.results[0].analysisCaseDetails.upliftInsulatorTypes
 	}
 }

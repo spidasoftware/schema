@@ -1079,6 +1079,10 @@
                         "unit": "NEWTON",
                         "value": -274.7290480295196
                     },
+                    "upliftWindDirection": {
+                        "unit": "RADIAN",
+                        "value": 123.45
+                    },
                     "poles": [
                         {
                             "id": "Pole",

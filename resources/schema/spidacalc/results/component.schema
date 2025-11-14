@@ -151,6 +151,10 @@
       "description": "uplift force for insulator components",
       "$ref": "../../general/measurable.schema"
     },
+    "upliftWindDirection": {
+      "description": "wind direction where uplift is at its maximum",
+      "$ref": "../../general/measurable.schema"
+    },
     "failingRatio": {
       "description": "the ratio at which this analysis will fail",
       "type": "number"
