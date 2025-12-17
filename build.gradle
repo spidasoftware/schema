@@ -8,6 +8,7 @@ apply plugin: 'groovy'
 apply plugin: 'project-report'
 apply plugin: 'com.spidasoftware.releaseNotes'
 apply plugin: 'org.owasp.dependencycheck'
+apply plugin: 'application'
 
 group = 'com.spidasoftware'
 version = '12.0.2-SNAPSHOT' // If you're changing the major version also change the currentVersion in ConverterUtils.
@@ -45,7 +46,6 @@ sourceSets {
 // Dependencies
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 buildscript {
-
 	repositories {
 		mavenCentral()
 		maven { url System.getenv("ARTIFACTORY_URL_EXPOSED") }
@@ -55,6 +55,10 @@ buildscript {
 		classpath (group: 'com.spidasoftware', name:'releaseNotes', version:'0.3-SNAPSHOT', changing:true)
 		classpath 'org.owasp:dependency-check-gradle:6.5.0.1'
 	}
+}
+
+application {
+    mainClass = 'com.spidasoftware.schema.validation.CommandLineValidator'
 }
 
 repositories {
