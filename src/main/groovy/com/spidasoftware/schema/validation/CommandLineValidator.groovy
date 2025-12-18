@@ -19,6 +19,11 @@ class CommandLineValidator {
 			println("Usage: gradlew validateJson -Pschema=/path/to/schema -PjsonFile=/path/to/json")
 			println("  schema - path to schema starting from resources. eg. /v1/schema/spidacalc/calc/structure.schema")
 			println("  json - json file to be validated.")
+			println "   or"
+			println("If compiled to an distribution build:")
+			println("Usage: ./schema -Pschema=/path/to/schema -PjsonFile=/path/to/json")
+			println("  schema - path to schema starting from resources. eg. /v1/schema/spidacalc/calc/structure.schema")
+			println("  json - json file to be validated.")
 			System.exit(-2)
 		}
 

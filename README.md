@@ -117,6 +117,14 @@ For example, to validate the "one of everything" structure example, from the sch
 
 The tool uses our included Validator java class.
 
+This can also be compoiled to a distribution build with:
+
+    gradlew installDist
+Then run the resulting script in the build/install/schema/bin directory:
+    ./schema -Pschema=/path/to/schema -PjsonFile=/path/to/json
+    schema - path to schema starting from resources. eg. /schema/spidacalc/calc/structure.schema
+    json - json file to be validated.
+
 ### Changesets
 [Changesets Package](src/main/groovy/com/spidasoftware/schema/conversion/changeset)
 
