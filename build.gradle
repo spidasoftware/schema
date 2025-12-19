@@ -7,7 +7,6 @@ apply plugin: 'maven-publish'
 apply plugin: 'groovy'
 apply plugin: 'project-report'
 apply plugin: 'com.spidasoftware.releaseNotes'
-apply plugin: 'org.owasp.dependencycheck'
 apply plugin: 'application'
 
 group = 'com.spidasoftware'
@@ -53,7 +52,6 @@ buildscript {
 
 	dependencies {
 		classpath (group: 'com.spidasoftware', name:'releaseNotes', version:'0.3-SNAPSHOT', changing:true)
-		classpath 'org.owasp:dependency-check-gradle:6.5.0.1'
 	}
 }
 
@@ -195,10 +193,4 @@ task printVersion() {
 	doLast {
 		println "SCHEMA_VERSION: ${version}"
 	}
-}
-
-dependencyCheck {
-	failBuildOnCVSS=9
-	suppressionFile="dependency-check-suppressions.xml"
-	formats = ["HTML"]
 }

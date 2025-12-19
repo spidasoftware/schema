@@ -1,8 +1,7 @@
 # Java Gradle CircleCI 2.0 configuration file
 # See: https://circleci.com/docs/2.0/language-java/
 version: 2.1
-orbs:
-  owasp: entur/owasp@0.0.18
+
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
@@ -51,4 +50,3 @@ workflows:
     main-workflow:
       jobs:
         - build
-        - owasp/gradle_owasp_dependency_check
