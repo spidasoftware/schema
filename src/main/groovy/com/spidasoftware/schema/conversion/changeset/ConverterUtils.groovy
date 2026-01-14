@@ -16,6 +16,7 @@ import com.spidasoftware.schema.conversion.changeset.v9.*
 import com.spidasoftware.schema.conversion.changeset.v10.*
 import com.spidasoftware.schema.conversion.changeset.v11.*
 import com.spidasoftware.schema.conversion.changeset.v12.*
+import com.spidasoftware.schema.conversion.changeset.v13.*
 import groovy.util.logging.Slf4j
 import org.apache.commons.lang3.StringUtils
 
@@ -89,6 +90,7 @@ class ConverterUtils {
         converter.addChangeSet(12, new ComponentBraceChangeset())
         converter.addChangeSet(12, new SidedPoleChangeset())
         converter.addChangeSet(12, new CSAMaxWindLoadFactorsChangeSet())
+        converter.addChangeSet(13, new LeadAnalysisChangeSet())
         // add calc changesets above here
 
         converter.setCurrentVersion(currentVersion)
@@ -118,6 +120,7 @@ class ConverterUtils {
         converter.addChangeSet(12, new ComponentBraceChangeset())
         converter.addChangeSet(12, new SidedPoleChangeset())
         converter.addChangeSet(12, new CSAMaxWindLoadFactorsChangeSet())
+        converter.addChangeSet(13, new LeadAnalysisChangeSet())
         // add client data changesets above here
 
         converter.setCurrentVersion(currentVersion)
@@ -148,6 +151,7 @@ class ConverterUtils {
         converter.addChangeSet(12, new ComponentBraceChangeset())
         converter.addChangeSet(12, new SidedPoleChangeset())
         converter.addChangeSet(12, new CSAMaxWindLoadFactorsChangeSet())
+        converter.addChangeSet(13, new LeadAnalysisChangeSet())
         // add result changesets above here
 
         converter.setCurrentVersion(currentVersion)
