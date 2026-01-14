@@ -41,6 +41,9 @@
         "ALL"
       ]
     },
+    "includeNeighborStructures": {
+      "type": "boolean"
+    },
     "analyzeGroundLineOnly": {
       "type": "boolean"
     },
