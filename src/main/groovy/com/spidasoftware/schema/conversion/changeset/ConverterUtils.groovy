@@ -22,7 +22,7 @@ import org.apache.commons.lang3.StringUtils
 @Slf4j
 class ConverterUtils {
 
-    static final int currentVersion = 12
+    static final int currentVersion = 13
 
     static {
         addCalcConverter(new CalcProjectConverter())
@@ -185,6 +185,8 @@ class ConverterUtils {
             return null
         }
         switch (engineVersion) {
+            case 26.0:
+                return 13
             case 25.0:
                 return 12
             case 24.1:
