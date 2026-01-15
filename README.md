@@ -15,6 +15,7 @@ The data formats, examples, and available web service interfaces will all change
 
 | Schema version                                                                   | Java | SPIDAcalc               | SPIDAstudio |
 |----------------------------------------------------------------------------------|------|-------------------------|-------------|
+| [12.0.1](https://github.com/spidasoftware/schema/releases/tag/v12.0.1)           | 11+  | SPIDAcalc 25.0.0        |   |
 | [11.0.3](https://github.com/spidasoftware/schema/releases/tag/v11.0.3)           | 11+  | SPIDAcalc 24.1.1 - 24.1.2 | |
 | [11.0.2](https://github.com/spidasoftware/schema/releases/tag/v11.0.2)           | 11+  | SPIDAcalc 24.1.0        | |
 | [10.0.1](https://github.com/spidasoftware/schema/releases/tag/v10.0.1)           | 11+  | SPIDAcalc 24.0.0        | |
