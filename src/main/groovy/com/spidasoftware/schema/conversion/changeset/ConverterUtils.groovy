@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Bentley Systems, Incorporated. All rights reserved.
+ * Copyright (c) 2026 Bentley Systems, Incorporated. All rights reserved.
  */
 package com.spidasoftware.schema.conversion.changeset
 
@@ -16,13 +16,14 @@ import com.spidasoftware.schema.conversion.changeset.v9.*
 import com.spidasoftware.schema.conversion.changeset.v10.*
 import com.spidasoftware.schema.conversion.changeset.v11.*
 import com.spidasoftware.schema.conversion.changeset.v12.*
+import com.spidasoftware.schema.conversion.changeset.v13.*
 import groovy.util.logging.Slf4j
 import org.apache.commons.lang3.StringUtils
 
 @Slf4j
 class ConverterUtils {
 
-    static final int currentVersion = 12
+    static final int currentVersion = 13
 
     static {
         addCalcConverter(new CalcProjectConverter())
@@ -89,6 +90,7 @@ class ConverterUtils {
         converter.addChangeSet(12, new ComponentBraceChangeset())
         converter.addChangeSet(12, new SidedPoleChangeset())
         converter.addChangeSet(12, new CSAMaxWindLoadFactorsChangeSet())
+        converter.addChangeSet(13, new LeadAnalysisChangeSet())
         // add calc changesets above here
 
         converter.setCurrentVersion(currentVersion)
@@ -118,6 +120,7 @@ class ConverterUtils {
         converter.addChangeSet(12, new ComponentBraceChangeset())
         converter.addChangeSet(12, new SidedPoleChangeset())
         converter.addChangeSet(12, new CSAMaxWindLoadFactorsChangeSet())
+        converter.addChangeSet(13, new LeadAnalysisChangeSet())
         // add client data changesets above here
 
         converter.setCurrentVersion(currentVersion)
@@ -148,6 +151,7 @@ class ConverterUtils {
         converter.addChangeSet(12, new ComponentBraceChangeset())
         converter.addChangeSet(12, new SidedPoleChangeset())
         converter.addChangeSet(12, new CSAMaxWindLoadFactorsChangeSet())
+        converter.addChangeSet(13, new LeadAnalysisChangeSet())
         // add result changesets above here
 
         converter.setCurrentVersion(currentVersion)
@@ -185,6 +189,8 @@ class ConverterUtils {
             return null
         }
         switch (engineVersion) {
+            case 26.0:
+                return 13
             case 25.0:
                 return 12
             case 24.1:

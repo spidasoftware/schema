@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "id": "#/spidacalc/calc/structure_group.schema",
+  "description": "A mapping of structures to analyze",
+  "required": [
+    "primaryStructure",
+    "neighbors",
+    "spanningWireConnections"
+  ],
+  "properties": {
+    "primaryStructure": {
+      "description": "The primary structure to analyze",
+      "$ref": "../../spidacalc/calc/structure.schema"
+    },
+    "neighbors": {
+      "description": "List of neighbor structures to include in analysis finite model",
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/calc/structure.schema"
+      }
+    },
+    "spanningWireConnections": {
+      "description": "Attach height of the guy attach point.",
+      "type": "array",
+      "items": {
+        "description": "A mapping of (sourceStructureId, sourceWireId) -> (targetStructureId, targetWireId) for spanning wire connections",
+        "type": "object",
+        "required": [
+          "sourceStructureId",
+          "sourceWireId",
+          "targetStructureId",
+          "targetWireId"
+        ],
+        "properties": {
+          "sourceStructureId": {
+            "type": "string"
+          },
+          "sourceWireId": {
+            "type": "string"
+          },
+          "targetStructureId": {
+            "type": "string"
+          },
+          "targetWireId": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

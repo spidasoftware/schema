@@ -1,0 +1,57 @@
+{
+  "results": [
+    {
+      "analysisCase": "CSA Max Wind (don't include neighbor structures)",
+      "analysisCaseVersion": "b90d0a5dc19ec1e2614385e005c287cd",
+      "analysisDate": 1727896441703,
+      "engineVersion": "24.1.0.99999",
+      "analysisCaseDetails": {
+        "name": "old csa max wind",
+        "type": "CSA 2020 Maximum Wind",
+        "analysisMethod": "CO_ROTATIONAL",
+        "connectionType": "CONTINUATION",
+        "displacementBasedLoadChangesLevel": "PARTIAL",
+        "includeNeighborStructures": false
+      }
+    },
+    {
+      "analysisCase": "CSA Max Wind (include neighbor structures)",
+      "analysisCaseVersion": "b90d0a5dc19ec1e2614385e005c287cd",
+      "analysisDate": 1727896441703,
+      "engineVersion": "24.1.0.99999",
+      "analysisCaseDetails": {
+        "name": "old csa max wind",
+        "type": "CSA 2020 Maximum Wind",
+        "analysisMethod": "CO_ROTATIONAL",
+        "connectionType": "CONTINUATION",
+        "displacementBasedLoadChangesLevel": "PARTIAL",
+        "includeNeighborStructures": true
+      }
+    }
+  ],
+  "id": "66fd9b782cec05af05a684a1",
+  "clientData": {
+    "schema": "/schema/spidacalc/client/data.schema",
+    "version": 13,
+    "name": "Demo.client",
+    "analysisCases": [
+      {
+        "name": "CSA Max Wind (don't include neighbor structures)",
+        "type": "CSA 2020 Maximum Wind",
+        "analysisMethod": "CO_ROTATIONAL",
+        "connectionType": "CONTINUATION",
+        "displacementBasedLoadChangesLevel": "PARTIAL",
+        "includeNeighborStructures": false
+      },
+      {
+        "name": "CSA Max Wind (include neighbor structures)",
+        "type": "CSA 2020 Maximum Wind",
+        "analysisMethod": "CO_ROTATIONAL",
+        "connectionType": "CONTINUATION",
+        "displacementBasedLoadChangesLevel": "PARTIAL",
+        "includeNeighborStructures": true
+      }
+    ],
+    "hash": "42f9cd1777461fd888783a021847a43b"
+  }
+}
