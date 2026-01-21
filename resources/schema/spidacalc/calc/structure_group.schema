@@ -3,11 +3,16 @@
   "id": "#/spidacalc/calc/structure_group.schema",
   "description": "A mapping of structures to analyze",
   "required": [
+    "primaryStructureId",
     "primaryStructure",
     "neighbors",
     "spanningWireConnections"
   ],
   "properties": {
+    "primaryStructureId": {
+      "type": "string",
+      "description": "The ID of the primary structures parent"
+    },
     "primaryStructure": {
       "description": "The primary structure to analyze",
       "$ref": "../../spidacalc/calc/structure.schema"

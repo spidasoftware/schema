@@ -3,7 +3,7 @@
   "description": "SPIDA CEE analysis object.  The analysis objects are validated by the specific version of the engine that specified.",
   "type": "object",
   "required": [
-    "structure",
+    "structureGroup",
     "analysisCase",
     "clientData"
   ],
