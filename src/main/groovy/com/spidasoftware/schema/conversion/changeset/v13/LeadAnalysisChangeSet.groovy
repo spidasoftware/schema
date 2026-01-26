@@ -40,6 +40,7 @@ class LeadAnalysisChangeSet extends AbstractClientDataChangeSet {
             Map analysisCase = analysis.analysisCaseDetails as Map
             analysisCase?.remove("includeNeighborStructures")
         }
+        designJSON.remove("pendingAnalysis")
     }
 
     @Override

@@ -40,12 +40,15 @@
               "analysisCaseName": {
                 "type": "string"
               },
-              "structureHash": {
+              "structureGroupHash": {
                 "type": "string"
+              },
+              "neighborStructuresIncluded": {
+                "type": "boolean"
               }
             },
             "required": [
-              "jobId", "analysisCaseName", "structureHash"
+              "jobId", "analysisCaseName", "structureHash", "neighborStructuresIncluded"
             ]
           }
         },

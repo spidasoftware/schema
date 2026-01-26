@@ -79,6 +79,14 @@
                     "includeNeighborStructures": true
                   }
                 }
+              ],
+              "pendingAnalysis": [
+                {
+                  "jobId": "test-job-id",
+                  "analysisCaseName": "Test Analysis Case",
+                  "structureGroupHash": "test-structure-group-hash",
+                  "includeNeighborStructures": true
+                }
               ]
             }
           ]

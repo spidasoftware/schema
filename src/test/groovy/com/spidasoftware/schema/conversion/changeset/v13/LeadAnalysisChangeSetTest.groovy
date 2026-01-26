@@ -42,6 +42,7 @@ class LeadAnalysisChangeSetTest extends Specification {
             json.defaultLoadCases[1].includeNeighborStructures == true
             json.leads[0].locations[0].designs[0].analysis[0].analysisCaseDetails.includeNeighborStructures == false
             json.leads[0].locations[0].designs[0].analysis[1].analysisCaseDetails.includeNeighborStructures == true
+            json.leads[0].locations[0].designs[0].pendingAnalysis.size() == 1
         when:
             changeSet.revertProject(json)
         then:
@@ -51,6 +52,7 @@ class LeadAnalysisChangeSetTest extends Specification {
             json.defaultLoadCases[1].includeNeighborStructures == null
             json.leads[0].locations[0].designs[0].analysis[0].analysisCaseDetails.includeNeighborStructures == null
             json.leads[0].locations[0].designs[0].analysis[1].analysisCaseDetails.includeNeighborStructures == null
+            json.leads[0].locations[0].designs[0].pendingAnalysis == null
     }
 
     def "revert results"() {
