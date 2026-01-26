@@ -48,7 +48,7 @@
               }
             },
             "required": [
-              "jobId", "analysisCaseName", "structureHash", "neighborStructuresIncluded"
+              "jobId", "analysisCaseName", "structureGroupHash", "neighborStructuresIncluded"
             ]
           }
         },
