@@ -3,6 +3,8 @@
  */
 package com.spidasoftware.schema.conversion.changeset.v10
 
+import com.github.fge.jsonschema.core.report.ProcessingReport
+import com.spidasoftware.schema.validation.Validator
 import groovy.json.JsonSlurper
 import spock.lang.Specification
 
@@ -97,5 +99,45 @@ class LoadCaseChangeSetTest extends Specification {
             boolean anyChanged = changeSet.revertDesign(json.calcDesign)
         then: "no exception thrown"
             !anyChanged
+    }
+
+    def "reverting design json that causes analysis case results to be empty also removes the detailed results"() {
+        setup:
+            def stream = LoadCaseChangeSetTest.getResourceAsStream("/conversions/v10/LoadCase-project.json".toString())
+            Map json = new JsonSlurper().parse(stream) as Map
+            stream.close()
+            Map design =  json.leads[0].locations[0].designs[0]
+        expect: "design has an analysis with results that are not empty"
+            design.analysis.size() == 2
+            !design.analysis[0].results.isEmpty()
+            design.analysis[1].results.isEmpty()
+            design.analysisDetails
+            design.analysisCurrent == true
+        when: "revert design"
+            changeSet.revertDesign(design)
+        then: "design has no analysis with results"
+            design.analysis.size() == 1
+            design.analysis[0].results.isEmpty()
+        and: "analysis details is also removed and analysis is not current"
+            !design.analysisDetails
+            design.analysisCurrent == false
+    }
+
+    def "reverting results json that ends with empty results list is invalid"() {
+        setup:
+            def stream = LoadCaseChangeSetTest.getResourceAsStream("/conversions/v10/LoadCase-results.json".toString())
+            Map json = new JsonSlurper().parse(stream) as Map
+            stream.close()
+            String schemaPath = "/schema/spidacalc/results/results.schema"
+            Validator validator = new Validator()
+            ProcessingReport report
+        expect: "results not empty"
+            validator.validateAndReport(schemaPath, json).isSuccess()
+        when: "revert results"
+            changeSet.revertResults(json)
+        then: "results list is empty"
+            json.results.isEmpty()
+        and: "results is not valid"
+            !validator.validateAndReport(schemaPath, json).isSuccess()
     }
 }

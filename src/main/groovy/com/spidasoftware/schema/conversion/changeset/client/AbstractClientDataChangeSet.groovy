@@ -59,6 +59,9 @@ abstract class AbstractClientDataChangeSet extends AbstractResultsChangeSet {
 			boolean anyChanged = revertResults(detailedResultsJSON)
 			if (anyChanged) {
 				designJSON.analysisCurrent = false
+                if ((detailedResultsJSON.results as List<Map>)?.isEmpty()) {
+                    designJSON.remove("analysisDetails")
+                }
 			}
 		}
 	}
