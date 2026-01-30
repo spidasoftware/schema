@@ -53,7 +53,7 @@ class LoadCaseChangeSet extends AbstractClientDataChangeSet {
             List<Map> analysisList = designJSON.analysis as List<Map>
             analysisList.removeAll { loadCases.contains((it.analysisCaseDetails as Map)?.type) }
             // if load cases do not contain any summary results, then remove the analysisDetails as well
-            // because sometimes analysisDetails has a resultId that references a results.json file
+            // because sometimes analysisDetails has a resultId that references a results.json file that we cannot see
             if (!analysisList.any { it.hasProperty("results") && !(it.results as List<Map>).isEmpty() }) {
                 designJSON.remove("analysisDetails")
                 designJSON.analysisCurrent = false
