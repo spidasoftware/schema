@@ -11,7 +11,7 @@
   "properties": {
     "primaryStructureId": {
       "type": "string",
-      "description": "The ID of the primary structures parent"
+      "description": "The ID of the primary structure's parent"
     },
     "primaryStructure": {
       "description": "The primary structure to analyze",
@@ -25,7 +25,7 @@
       }
     },
     "spanningWireConnections": {
-      "description": "Attach height of the guy attach point.",
+      "description": "A list of spanning wire connection mappings between source and target structures",
       "type": "array",
       "items": {
         "description": "A mapping of (sourceStructureId, sourceWireId) -> (targetStructureId, targetWireId) for spanning wire connections",

@@ -20,7 +20,7 @@ class LeadAnalysisChangeSet extends AbstractClientDataChangeSet {
     boolean revertClientData(Map clientDataJSON) throws ConversionException {
         boolean changed = false
         clientDataJSON.analysisCases?.each { Map analysisCase ->
-            changed |= (analysisCase.remove("includeNeighborStructures") != null)
+            changed |= (analysisCase.remove("includeNeighborStructures") == true)
         }
         return changed
     }
@@ -49,7 +49,7 @@ class LeadAnalysisChangeSet extends AbstractClientDataChangeSet {
         resultsJSON.results?.each { Map result ->
             Map analysisCase = result.analysisCaseDetails as Map
             if (analysisCase) {
-                changed |= (analysisCase.remove("includeNeighborStructures") != null)
+                changed |= (analysisCase.remove("includeNeighborStructures") == true)
             }
         }
         return changed
