@@ -42,7 +42,6 @@ class ComponentBraceChangesetTest extends Specification {
 			InputStream stream = ComponentBraceChangesetTest.getResourceAsStream("/conversions/v12/project-crossarmbrace-loadcasecomponent.json")
 			Map json = new JsonSlurper().parse(stream) as Map
 			stream.close()
-			boolean changed
 
 		expect: "clientData has a componentBraces list"
 			json.clientData.containsKey("componentBraces")
