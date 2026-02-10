@@ -41,12 +41,29 @@ class ComponentBraceChangeset extends AbstractClientDataChangeSet {
 
 	@Override
 	boolean revertResults(Map resultsJSON) throws ConversionException {
-		super.revertResults(resultsJSON)
+		boolean changed = super.revertResults(resultsJSON)
 
 		if (resultsJSON.analyzedStructure != null) {
-			return revertStructure(resultsJSON.analyzedStructure as Map)
+			changed |= revertStructure(resultsJSON.analyzedStructure as Map)
 		}
-		return false
+		resultsJSON.results?.each { Map result ->
+			Map analysisCaseDetails = result.analysisCaseDetails as Map
+			List<String> loadCaseComponents = analysisCaseDetails?.components as List<String>
+			changed |= loadCaseComponents.remove("COMPONENT_BRACE")
+
+			List<Map> resultComponents = result.components as List<Map>
+			resultComponents.each { Map component ->
+				if (component.containsKey("componentBraces")) {
+					List<Map> componentBraces = component.componentBraces as List<Map>
+					if (!componentBraces.empty) {
+						changed = true
+					}
+					component.remove("componentBraces")
+				}
+			}
+		}
+
+		return changed
 	}
 
 	protected boolean revertStructure(Map structureJSON) {

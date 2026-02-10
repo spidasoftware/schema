@@ -36,4 +36,32 @@ class ComponentBraceChangesetTest extends Specification {
 		then:
 			!changed
 	}
+
+	def "revert loadcases in project json"() {
+
+	}
+
+	def "revert components in results"() {
+		setup:
+			InputStream stream = ComponentBraceChangesetTest.getResourceAsStream("/conversions/v12/detailedResult-crossarmbrace-analyzedcomponent.json")
+			Map json = new JsonSlurper().parse(stream) as Map
+			stream.close()
+			boolean changed
+		expect: "there is a load case with COMPONENT_BRACE as a component"
+			json.results.every { it.analysisCaseDetails.components.contains("COMPONENT_BRACE") }
+		and: "every result has a componentBraces component list"
+			json.results.every { it.components.every { it.containsKey("componentBraces") } }
+		when: "reverted"
+			changed = changeset.revertResults(json)
+		then:
+			changed
+		and: "no load case has COMPONENT_BRACE as a component"
+			!json.results.any { it.analysisCaseDetails.components.contains("COMPONENT_BRACE") }
+		and: "no result has any component braces component"
+			!json.results.any { it.components.any { it.containsKey("componentBraces") } }
+		when: "reverted again"
+			changed = changeset.revertResults(json)
+		then:
+			!changed
+	}
 }
