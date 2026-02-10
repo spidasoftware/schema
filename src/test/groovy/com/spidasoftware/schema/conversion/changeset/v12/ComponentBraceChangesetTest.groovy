@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Bentley Systems, Incorporated. All rights reserved.
+ * Copyright (c) 2026 Bentley Systems, Incorporated. All rights reserved.
  */
 package com.spidasoftware.schema.conversion.changeset.v12
 
@@ -37,8 +37,32 @@ class ComponentBraceChangesetTest extends Specification {
 			!changed
 	}
 
-	def "revert loadcases in project json"() {
+	def "revert project json"() {
+		setup:
+			InputStream stream = ComponentBraceChangesetTest.getResourceAsStream("/conversions/v12/project-crossarmbrace-loadcasecomponent.json")
+			Map json = new JsonSlurper().parse(stream) as Map
+			stream.close()
+			boolean changed
 
+		expect: "clientData has a componentBraces list"
+			json.clientData.containsKey("componentBraces")
+		and: "clientData has a load case with COMPONENT_BRACE as a component"
+			json.clientData.analysisCases[0].components.contains("COMPONENT_BRACE")
+		and: "default load case has COMPONENT_BRACE as a component"
+			json.defaultLoadCases[0].components.contains("COMPONENT_BRACE")
+		and: "design has a load case with COMPONENT_BRACE as a component"
+			json.leads[0].locations[0].designs[0].analysis[0].analysisCaseDetails.get("components").contains("COMPONENT_BRACE")
+
+		when: "revert project"
+			changeset.revertProject(json)
+		then: "clientData no longer has a componentBraces list"
+			!json.clientData.containsKey("componentBraces")
+		and: "load case in clientData does not COMPONENT_BRACE as a component"
+			!json.clientData.analysisCases[0].components.contains("COMPONENT_BRACE")
+		and: "default load case does not have COMPONENT_BRACE as a component"
+			!json.defaultLoadCases[0].components.contains("COMPONENT_BRACE")
+		and: "design load case does not have COMPONENT_BRACE as a component"
+			!json.leads[0].locations[0].designs[0].analysis[0].analysisCaseDetails.get("components").contains("COMPONENT_BRACE")
 	}
 
 	def "revert components in results"() {
