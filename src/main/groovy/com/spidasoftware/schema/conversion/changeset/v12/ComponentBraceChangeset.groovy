@@ -65,7 +65,7 @@ class ComponentBraceChangeset extends AbstractClientDataChangeSet {
 			changed |= revertLoadCase(result.analysisCaseDetails as Map)
 
 			List<Map> resultComponents = result.components as List<Map>
-			resultComponents.each { Map component ->
+			resultComponents?.each { Map component ->
 				if (component.containsKey("componentBraces")) {
 					List<Map> componentBraces = component.componentBraces as List<Map>
 					if (!componentBraces.empty) {
