@@ -1,0 +1,97 @@
+{
+  "label": "New Project",
+  "clientFile": "Demo.client",
+  "schema": "/schema/spidacalc/calc/project.schema",
+  "version": 13,
+  "clientData": {
+    "schema": "/schema/spidacalc/client/data.schema",
+    "version": 13,
+    "name": "Demo.client",
+    "analysisCases": [
+      {
+        "name": "CSA Max Wind (don't include neighbor structures)",
+        "type": "CSA 2020 Maximum Wind",
+        "analysisMethod": "CO_ROTATIONAL",
+        "connectionType": "CONTINUATION",
+        "displacementBasedLoadChangesLevel": "PARTIAL",
+        "includeNeighborStructures": false
+      },
+      {
+        "name": "CSA Max Wind (include neighbor structures)",
+        "type": "CSA 2020 Maximum Wind",
+        "analysisMethod": "CO_ROTATIONAL",
+        "connectionType": "CONTINUATION",
+        "displacementBasedLoadChangesLevel": "PARTIAL",
+        "includeNeighborStructures": true
+      }
+    ],
+    "hash": "42f9cd1777461fd888783a021847a43b"
+  },
+  "clientFileVersion": "42f9cd1777461fd888783a021847a43b",
+  "defaultLoadCases": [
+    {
+      "name": "CSA Max Wind (don't include neighbor structures)",
+      "type": "CSA 2020 Maximum Wind",
+      "analysisMethod": "CO_ROTATIONAL",
+      "connectionType": "CONTINUATION",
+      "displacementBasedLoadChangesLevel": "PARTIAL",
+      "includeNeighborStructures": false
+    },
+    {
+      "name": "CSA Max Wind (include neighbor structures)",
+      "type": "CSA 2020 Maximum Wind",
+      "analysisMethod": "CO_ROTATIONAL",
+      "connectionType": "CONTINUATION",
+      "displacementBasedLoadChangesLevel": "PARTIAL",
+      "includeNeighborStructures": true
+    }
+  ],
+  "leads": [
+    {
+      "label": "Lead",
+      "locations": [
+        {
+          "label": "Location-10-02-2024-13-07-40-393",
+          "designs": [
+            {
+              "label": "Measured Design",
+              "layerType": "Measured",
+              "analysis": [
+                {
+                  "id": "CSA Max Wind (don't include neighbor structures)",
+                  "analysisCaseDetails": {
+                    "name": "CSA Max Wind (don't include neighbor structures)",
+                    "type": "CSA 2020 Maximum Wind",
+                    "analysisMethod": "CO_ROTATIONAL",
+                    "connectionType": "CONTINUATION",
+                    "displacementBasedLoadChangesLevel": "PARTIAL",
+                    "includeNeighborStructures": false
+                  }
+                },
+                {
+                  "id": "CSA Max Wind (include neighbor structures)",
+                  "analysisCaseDetails": {
+                    "name": "CSA Max Wind (include neighbor structures)",
+                    "type": "CSA 2020 Maximum Wind",
+                    "analysisMethod": "CO_ROTATIONAL",
+                    "connectionType": "CONTINUATION",
+                    "displacementBasedLoadChangesLevel": "PARTIAL",
+                    "includeNeighborStructures": true
+                  }
+                }
+              ],
+              "pendingAnalysis": [
+                {
+                  "jobId": "test-job-id",
+                  "analysisCaseName": "Test Analysis Case",
+                  "structureGroupHash": "test-structure-group-hash",
+                  "includeNeighborStructures": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Bentley Systems, Incorporated. All rights reserved.
+ * Copyright (c) 2026 Bentley Systems, Incorporated. All rights reserved.
  */
 package com.spidasoftware.schema.conversion.changeset
 
@@ -60,7 +60,7 @@ class ConverterUtilsSpec extends Specification {
 
 	def "test getPossibleVersionsNewestToOldest"() {
 		expect:
-			ConverterUtils.getPossibleVersionsNewestToOldest() == [12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2] as LinkedHashSet
+			ConverterUtils.getPossibleVersionsNewestToOldest() == [13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2] as LinkedHashSet
 	}
 
 	def "pole-lean validation"() {
