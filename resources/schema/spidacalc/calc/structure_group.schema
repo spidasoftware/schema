@@ -6,7 +6,8 @@
     "primaryStructureId",
     "primaryStructure",
     "neighbors",
-    "spanningWireConnections"
+    "wireConnections",
+    "spanGuyConnections"
   ],
   "properties": {
     "primaryStructureId": {
@@ -24,11 +25,11 @@
         "$ref": "../../spidacalc/calc/structure.schema"
       }
     },
-    "spanningWireConnections": {
-      "description": "A list of spanning wire connection mappings between source and target structures",
+    "wireConnections": {
+      "description": "A list of wire connection mappings between source and target structures",
       "type": "array",
       "items": {
-        "description": "A mapping of (sourceStructureId, sourceWireId) -> (targetStructureId, targetWireId) for spanning wire connections",
+        "description": "A mapping of (sourceStructureId, sourceWireId) -> (targetStructureId, targetWireId) for wire connections",
         "type": "object",
         "required": [
           "sourceStructureId",
@@ -47,6 +48,34 @@
             "type": "string"
           },
           "targetWireId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "spanGuyConnections": {
+      "description": "A list of span guy connection mappings between source and target structures",
+      "type": "array",
+      "items": {
+        "description": "A mapping of (sourceStructureId, sourceSpanGuyId) -> (targetStructureId, targetSpanGuyId) for span guy connections",
+        "type": "object",
+        "required": [
+          "sourceStructureId",
+          "sourceSpanGuyId",
+          "targetStructureId",
+          "targetWireId"
+        ],
+        "properties": {
+          "sourceStructureId": {
+            "type": "string"
+          },
+          "sourceSpanGuyId": {
+            "type": "string"
+          },
+          "targetStructureId": {
+            "type": "string"
+          },
+          "targetSpanGuyId": {
             "type": "string"
           }
         }
