@@ -76,7 +76,6 @@
         "type": "number",
         "description": "Optional. Used to dictate station ordering within projects in SPIDAMin."
     }
-    }
   },
   "additionalProperties": false
 }
