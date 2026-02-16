@@ -28,7 +28,6 @@
           "structure",
           "horizontalDistance",
           "direction",
-          "hasWireConnection",
           "hasSpanGuyPath"
         ],
         "properties": {
@@ -51,10 +50,6 @@
           "relativeElevation": {
             "description": "The relative elevation of the neighbor structure compared to the primary structure",
             "$ref": "../../general/measurable.schema"
-          },
-          "hasWireConnection": {
-            "description": "Whether there is a wire connection between the previous structure and this neighbor structure",
-            "type": "boolean"
           },
           "hasSpanGuyPath": {
             "description": "Whether there is a span guy path between the primary structure and this neighbor structure",
