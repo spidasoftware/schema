@@ -22,7 +22,45 @@
       "description": "List of neighbor structures to include in analysis finite model",
       "type": "array",
       "items": {
-        "$ref": "../../spidacalc/calc/structure.schema"
+        "type": "object",
+        "required": [
+          "structureId",
+          "structure",
+          "horizontalDistance",
+          "direction",
+          "hasWireConnection",
+          "hasSpanGuyPath"
+        ],
+        "properties": {
+          "structureId": {
+            "type": "string",
+            "description": "The ID of the neighbor structure's parent"
+          },
+          "structure": {
+            "description": "The neighbor structure to include in analysis finite model",
+             "$ref": "../../spidacalc/calc/structure.schema"
+          },
+          "horizontalDistance": {
+            "description": "The horizontal distance from the primary structure to the neighbor structure",
+            "$ref": "../../general/measurable.schema"
+          },
+          "direction": {
+            "description": "The direction from the primary structure to the neighbor structure, in degrees clockwise from north",
+            "$ref": "../../general/measurable.schema"
+          },
+          "relativeElevation": {
+            "description": "The relative elevation of the neighbor structure compared to the primary structure",
+            "$ref": "../../general/measurable.schema"
+          },
+          "hasWireConnection": {
+            "description": "Whether there is a wire connection between the previous structure and this neighbor structure",
+            "type": "boolean"
+          },
+          "hasSpanGuyPath": {
+            "description": "Whether there is a span guy path between the primary structure and this neighbor structure",
+            "type": "boolean"
+          }
+        }
       }
     },
     "wireConnections": {
