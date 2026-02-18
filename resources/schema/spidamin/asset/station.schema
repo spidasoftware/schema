@@ -71,10 +71,6 @@
         "items": {
             "$ref": "../../spidamin/project/file.schema"
         }
-    },
-    "sortOrder": {
-        "type": "number",
-        "description": "Optional. Used to dictate station ordering within projects in SPIDAMin."
     }
   },
   "additionalProperties": false
