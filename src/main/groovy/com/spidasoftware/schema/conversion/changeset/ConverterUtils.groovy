@@ -4,6 +4,7 @@
 package com.spidasoftware.schema.conversion.changeset
 
 import com.spidasoftware.schema.conversion.changeset.calc.*
+import com.spidasoftware.schema.conversion.changeset.client.AbstractClientDataChangeSet
 import com.spidasoftware.schema.conversion.changeset.client.ClientDataConverter
 import com.spidasoftware.schema.conversion.changeset.v2.*
 import com.spidasoftware.schema.conversion.changeset.v3.*
@@ -91,6 +92,7 @@ class ConverterUtils {
         converter.addChangeSet(12, new SidedPoleChangeset())
         converter.addChangeSet(12, new CSAMaxWindLoadFactorsChangeSet())
         converter.addChangeSet(13, new LeadAnalysisChangeSet())
+
         // add calc changesets above here
 
         converter.setCurrentVersion(currentVersion)

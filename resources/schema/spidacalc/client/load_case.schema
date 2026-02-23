@@ -99,7 +99,8 @@
           "INSULATOR",
           "POLE",
           "SIDEWALK_BRACE",
-          "FOUNDATION"
+          "FOUNDATION",
+          "COMPONENT_BRACE"
         ]
       }
     },
