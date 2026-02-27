@@ -140,4 +140,22 @@ class LoadCaseChangeSetTest extends Specification {
         and: "results is not valid"
             !validator.validateAndReport(schemaPath, json).isSuccess()
     }
+
+    def "reverting design json with nonempty summary results does not remove the detailed results"() {
+        setup:
+            def stream = LoadCaseChangeSetTest.getResourceAsStream("/conversions/v10/LoadCase-project2.json".toString())
+            Map json = new JsonSlurper().parse(stream) as Map
+            stream.close()
+            Map design =  json.leads[0].locations[0].designs[0]
+        expect: "design has an analysis with summary results and analysis details"
+            design.analysis.size() == 1
+            !design.analysis[0].results.isEmpty()
+            design.analysisDetails
+            design.analysisCurrent == true
+        when: "revert design"
+            changeSet.revertDesign(design)
+        then: "analysis details is not removed and analysis is still current"
+            design.analysisDetails
+            design.analysisCurrent == true
+    }
 }
