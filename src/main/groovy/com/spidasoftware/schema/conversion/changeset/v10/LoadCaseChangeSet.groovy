@@ -49,9 +49,21 @@ class LoadCaseChangeSet extends AbstractClientDataChangeSet {
     void revertDesign(Map designJSON) throws ConversionException {
         super.revertDesign(designJSON)
 
+        if (designJSON.containsKey("analysisDetails") && ((Map)designJSON.analysisDetails).containsKey("detailedResults")) {
+            Map detailedResultsJSON = ((Map)designJSON.analysisDetails).detailedResults as Map
+            if ((detailedResultsJSON.results as List<Map>)?.isEmpty()) {
+                designJSON.remove("analysisDetails")
+            }
+        }
         if (designJSON.containsKey("analysis")) {
             List<Map> analysisList = designJSON.analysis as List<Map>
             analysisList.removeAll { loadCases.contains((it.analysisCaseDetails as Map)?.type) }
+            // if load cases do not contain any summary results, then remove the analysisDetails as well
+            // because sometimes analysisDetails has a resultId that references a results.json file that we cannot see
+            if (!analysisList.any { it.containsKey("results") && !(it.results as List<Map>)?.isEmpty() }) {
+                designJSON.remove("analysisDetails")
+                designJSON.analysisCurrent = false
+            }
         }
     }
 
@@ -61,7 +73,7 @@ class LoadCaseChangeSet extends AbstractClientDataChangeSet {
 
         if (resultsJSON.containsKey("results")) {
             List<Map> resultsList = resultsJSON.results as List<Map>
-            anyChanged = resultsList.removeAll { loadCases.contains((it.analysisCaseDetails as Map)?.type) }
+            anyChanged |= resultsList.removeAll { loadCases.contains((it.analysisCaseDetails as Map)?.type) }
         }
         return anyChanged
     }
