@@ -3,7 +3,6 @@
  */
 package com.spidasoftware.schema.conversion.changeset.v10
 
-import com.github.fge.jsonschema.core.report.ProcessingReport
 import com.spidasoftware.schema.validation.Validator
 import groovy.json.JsonSlurper
 import spock.lang.Specification
@@ -130,7 +129,6 @@ class LoadCaseChangeSetTest extends Specification {
             stream.close()
             String schemaPath = "/schema/spidacalc/results/results.schema"
             Validator validator = new Validator()
-            ProcessingReport report
         expect: "results not empty"
             validator.validateAndReport(schemaPath, json).isSuccess()
         when: "revert results"
