@@ -1,0 +1,984 @@
+{
+  "label": "New Project",
+  "company": {
+    "id": 2,
+    "name": "SPIDA"
+  },
+  "dateModified": 1770673532606,
+  "clientFile": "component-brace-analyzed-component.client",
+  "date": "2026-02-09",
+  "schema": "/schema/spidacalc/calc/project.schema",
+  "version": 12,
+  "engineer": "",
+  "comments": "",
+  "generalLocation": "",
+  "address": {
+    "number": "",
+    "street": "",
+    "city": "",
+    "county": "",
+    "state": "",
+    "zip_code": ""
+  },
+  "userDefinedValues": {},
+  "clientData": {
+    "schema": "/schema/spidacalc/client/data.schema",
+    "version": 12,
+    "name": "component-brace-analyzed-component.client",
+    "poles": [
+      {
+        "aliases": [],
+        "shape": "RECTANGLE",
+        "materialCategory": "WOOD",
+        "classOfPole": "MDT-3-45",
+        "species": "CDF-Tangent (MC)",
+        "height": {
+          "unit": "METRE",
+          "value": 13.716
+        },
+        "density": {
+          "unit": "KILOGRAM_PER_CUBIC_METRE",
+          "value": 656.5325573445464
+        },
+        "longitudinalModulusOfRupture": {
+          "unit": "PASCAL",
+          "value": 3.516319861E7
+        },
+        "taperStopDistance": {
+          "unit": "METRE",
+          "value": 1.9812
+        },
+        "transverseModulusOfRupture": {
+          "unit": "PASCAL",
+          "value": 5.58474330865E7
+        },
+        "modulus": {
+          "unit": "PASCAL",
+          "value": 1.58579130986E10
+        },
+        "wallThickness": {
+          "unit": "METRE",
+          "value": -1.0
+        },
+        "poissonRatio": 0.3,
+        "settingType": "CUSTOM",
+        "customSettingDepth": {
+          "unit": "METRE",
+          "value": 1.9812
+        },
+        "momentAtHeights": [],
+        "tipWidth": {
+          "unit": "METRE",
+          "value": 0.22225
+        },
+        "baseWidth": {
+          "unit": "METRE",
+          "value": 0.22225
+        },
+        "tipDepth": {
+          "unit": "METRE",
+          "value": 0.127
+        },
+        "baseDepth": {
+          "unit": "METRE",
+          "value": 0.3048
+        }
+      }
+    ],
+    "wires": [],
+    "anchors": [],
+    "equipments": [],
+    "equipmentTypes": [
+      {
+        "name": "APPARATUS_CASE",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "CAPACITOR",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "CROSS_CONNECT",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "CUTOUT_ARRESTOR",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "DRIP_LOOP",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "JOINT_USE_BOX",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "LOAD_COIL_CASE",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "POWER_SUPPLY",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "PRIMARY_METERING",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "RECLOSER",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "REGULATOR",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "RISER",
+        "industry": "BOTH"
+      },
+      {
+        "name": "SPLICE_CASE",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "STREET_LIGHT",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "SWITCH",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "TERMINATION_BRACKET",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "TRANSFORMER",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "WIRE_MOUNTED",
+        "industry": "BOTH"
+      },
+      {
+        "name": "WIRELESS_ANTENNA",
+        "industry": "BOTH"
+      }
+    ],
+    "insulators": [],
+    "foundations": [],
+    "crossArms": [],
+    "braces": [],
+    "bundleComponents": [],
+    "bundles": [],
+    "assemblies": [],
+    "trusses": [],
+    "componentBraces": [],
+    "environments": [],
+    "defaultEnvironment": {
+      "name": "None",
+      "description": "N/A"
+    },
+    "analysisCases": [
+      {
+        "name": "Medium with analyzed component brace",
+        "type": "NESC 2012-2017",
+        "analysisMethod": "DIRECT_STIFFNESS",
+        "connectionType": "CONTINUATION",
+        "displacementBasedLoadChangesLevel": "NONE",
+        "windType": "SWEEP",
+        "sweepIncrement": "DEGREE_1",
+        "windStartAngle": {
+          "unit": "RADIAN",
+          "value": 0.0
+        },
+        "windEndAngle": {
+          "unit": "RADIAN",
+          "value": 6.283185307179586
+        },
+        "useStrengthResults": false,
+        "analyzeWithAverageSpan": true,
+        "maximumLoadingRatio": 1.0,
+        "addByDefault": true,
+        "constructionType": "NEW",
+        "checkUtilityWireTension": false,
+        "maximumAllowableUtilityWireTensionRatio": {
+          "unit": "PERCENT",
+          "value": 60.0
+        },
+        "checkCommWireTension": false,
+        "maximumAllowableCommunicationWireTensionRatio": {
+          "unit": "PERCENT",
+          "value": 60.0
+        },
+        "analyzeGroundLineOnly": false,
+        "components": [
+          "POLE",
+          "COMPONENT_BRACE"
+        ],
+        "analyzeWithoutLinearConstant": false,
+        "constructionGrade": "C",
+        "loadZone": "MEDIUM",
+        "wireTensionMethod": "INITIAL",
+        "creepWireTensionTemperature": {
+          "unit": "CELSIUS",
+          "value": -9.444444444444445
+        },
+        "creepWireTensionIceThickness": {
+          "unit": "METRE",
+          "value": 0.006350000000000001
+        },
+        "creepWireTensionWindPressure": {
+          "unit": "PASCAL",
+          "value": 191.52103592134338
+        },
+        "creepWireTensionIceDensity": {
+          "unit": "KILOGRAM_PER_CUBIC_METRE",
+          "value": 917.0
+        },
+        "highestWireTensionTemperature": {
+          "unit": "CELSIUS",
+          "value": -9.444444444444445
+        },
+        "highestWireTensionIceThickness": {
+          "unit": "METRE",
+          "value": 0.006350000000000001
+        },
+        "highestWireTensionWindPressure": {
+          "unit": "PASCAL",
+          "value": 191.52103592134338
+        },
+        "highestWireTensionIceDensity": {
+          "unit": "KILOGRAM_PER_CUBIC_METRE",
+          "value": 917.0
+        },
+        "outerStrandingCompression": false,
+        "overrides": {},
+        "valuesApplied": {
+          "ice": {
+            "unit": "METRE",
+            "value": 0.006350000000000001
+          },
+          "iceDensity": {
+            "unit": "KILOGRAM_PER_CUBIC_METRE",
+            "value": 917.0
+          },
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": -9.444444444444445
+          },
+          "windPressure": {
+            "unit": "PASCAL",
+            "value": 191.52103592134338
+          },
+          "linearConstant": {
+            "unit": "NEWTON_PER_METRE",
+            "value": 2.918780587441273
+          },
+          "anchorStrengthFactor": 1.0,
+          "anchorTensionMultiplier": 1.1,
+          "anchorVerticalLoadMultiplier": 1.5,
+          "commOnlyTensionMultiplier": 0.0,
+          "guyStrengthFactor": 0.9,
+          "guyTensionMultiplier": 1.1,
+          "guyVerticalLoadMultiplier": 1.5,
+          "insulatorStrengthFactor": 1.0,
+          "insulatorTensionMultiplier": 1.3,
+          "insulatorVerticalLoadMultiplier": 1.9,
+          "insulatorWindMultiplier": 1.75,
+          "anchorWindMultiplier": 1.75,
+          "guyWindMultiplier": 1.75,
+          "foundationStrengthFactor": 1.0,
+          "foundationTensionMultiplier": 1.3,
+          "foundationVerticalLoadMultiplier": 1.9,
+          "foundationWindMultiplier": 1.75,
+          "poleStrengthFactors": {
+            "WOOD": 0.85,
+            "METAL": 1.0,
+            "REINFORCED_CONCRETE": 0.85,
+            "POLYMER": 1.0,
+            "PRESTRESSED_CONCRETE": 1.0
+          },
+          "poleTensionMultipliers": {
+            "WOOD": 1.3,
+            "METAL": 1.1,
+            "REINFORCED_CONCRETE": 1.3,
+            "POLYMER": 1.3,
+            "PRESTRESSED_CONCRETE": 1.1
+          },
+          "poleVerticalLoadMultipliers": {
+            "WOOD": 1.9,
+            "METAL": 1.5,
+            "REINFORCED_CONCRETE": 1.9,
+            "POLYMER": 1.5,
+            "PRESTRESSED_CONCRETE": 1.5
+          },
+          "poleWindMultipliers": {
+            "WOOD": 1.75,
+            "METAL": 1.75,
+            "REINFORCED_CONCRETE": 1.75,
+            "POLYMER": 1.75,
+            "PRESTRESSED_CONCRETE": 1.75
+          },
+          "crossArmStrengthFactors": {
+            "WOOD": 0.85,
+            "METAL": 1.0,
+            "REINFORCED_CONCRETE": 0.85,
+            "POLYMER": 1.0,
+            "PRESTRESSED_CONCRETE": 1.0
+          },
+          "crossArmTensionMultipliers": {
+            "WOOD": 1.3,
+            "METAL": 1.1,
+            "REINFORCED_CONCRETE": 1.3,
+            "POLYMER": 1.3,
+            "PRESTRESSED_CONCRETE": 1.1
+          },
+          "crossArmVerticalLoadMultipliers": {
+            "WOOD": 1.9,
+            "METAL": 1.5,
+            "REINFORCED_CONCRETE": 1.9,
+            "POLYMER": 1.5,
+            "PRESTRESSED_CONCRETE": 1.5
+          },
+          "crossArmWindMultipliers": {
+            "WOOD": 1.75,
+            "METAL": 1.75,
+            "REINFORCED_CONCRETE": 1.75,
+            "POLYMER": 1.75,
+            "PRESTRESSED_CONCRETE": 1.75
+          },
+          "areaMultipliers": {
+            "ROUND": 1.0,
+            "SQUARE": 1.6,
+            "ROUND_LATTICE": 2.0,
+            "SQUARE_LATTICE": 3.2,
+            "RECTANGLE": 1.6,
+            "POLYGON": 1.0
+          }
+        },
+        "bucklingCase": {
+          "sectionHeightMode": "LOAD",
+          "diameterMethod": "TAPERED_DIAMETER",
+          "analysisMethod": "TRADITIONAL_EULER",
+          "unguyedConstant": 2.0,
+          "bucklingCoefficient": 0.384,
+          "loadingHeightPercent": 1.0,
+          "diameterHeightPercent": 0.33,
+          "guyedConstants": [
+            {
+              "angle": {
+                "unit": "RADIAN",
+                "value": 6.283185307179586
+              },
+              "constant": 0.707
+            }
+          ]
+        },
+        "deflectionCase": {
+          "type": "PERCENT_OF_HEIGHT_DEFLECTION",
+          "percent": 0.15
+        }
+      }
+    ],
+    "owners": [
+      {
+        "industry": "UTILITY",
+        "id": "Acme Power"
+      }
+    ],
+    "notes": [],
+    "locationForms": [],
+    "projectForms": [],
+    "customReportSetups": [],
+    "designLayers": [
+      {
+        "name": "Measured Design",
+        "type": "Measured"
+      }
+    ],
+    "defaultLocationForms": [],
+    "defaultProjectForms": [],
+    "clearanceCases": [],
+    "componentGroups": [],
+    "wireClasses": [],
+    "wireStates": [],
+    "hash": "d7a7871ca51f7d01f88760f1476de71d"
+  },
+  "clientFileVersion": "d7a7871ca51f7d01f88760f1476de71d",
+  "forms": [
+    {
+      "title": "Project Summary",
+      "formDefinition": [
+        {
+          "fieldName": "Work Order #",
+          "fieldType": "customTextField"
+        },
+        {
+          "fieldName": "Total Estimated Cost",
+          "fieldType": "customTextField"
+        },
+        {
+          "fieldName": "Total Estimated Hours",
+          "fieldType": "customTextField"
+        },
+        {
+          "fieldName": "Pole Replacements",
+          "fieldType": "customSpinner"
+        },
+        {
+          "fieldName": "Rearrangements",
+          "fieldType": "customSpinner"
+        }
+      ],
+      "fields": {
+        "Work Order #": "",
+        "Total Estimated Cost": "",
+        "Total Estimated Hours": "",
+        "Pole Replacements": "0",
+        "Rearrangements": "0"
+      },
+      "template": "d7a7871ca51f7d01f88760f1476de71d-Project Summary"
+    }
+  ],
+  "defaultLocationForms": [],
+  "defaultLoadCases": [
+    {
+      "name": "Medium with analyzed component brace",
+      "type": "NESC 2012-2017",
+      "analysisMethod": "DIRECT_STIFFNESS",
+      "connectionType": "CONTINUATION",
+      "displacementBasedLoadChangesLevel": "NONE",
+      "windType": "SWEEP",
+      "sweepIncrement": "DEGREE_1",
+      "windStartAngle": {
+        "unit": "RADIAN",
+        "value": 0.0
+      },
+      "windEndAngle": {
+        "unit": "RADIAN",
+        "value": 6.283185307179586
+      },
+      "useStrengthResults": false,
+      "analyzeWithAverageSpan": true,
+      "maximumLoadingRatio": 1.0,
+      "addByDefault": true,
+      "constructionType": "NEW",
+      "checkUtilityWireTension": false,
+      "maximumAllowableUtilityWireTensionRatio": {
+        "unit": "PERCENT",
+        "value": 60.0
+      },
+      "checkCommWireTension": false,
+      "maximumAllowableCommunicationWireTensionRatio": {
+        "unit": "PERCENT",
+        "value": 60.0
+      },
+      "analyzeGroundLineOnly": false,
+      "components": [
+        "POLE",
+        "COMPONENT_BRACE"
+      ],
+      "analyzeWithoutLinearConstant": false,
+      "constructionGrade": "C",
+      "loadZone": "MEDIUM",
+      "wireTensionMethod": "INITIAL",
+      "creepWireTensionTemperature": {
+        "unit": "CELSIUS",
+        "value": -9.444444444444445
+      },
+      "creepWireTensionIceThickness": {
+        "unit": "METRE",
+        "value": 0.006350000000000001
+      },
+      "creepWireTensionWindPressure": {
+        "unit": "PASCAL",
+        "value": 191.52103592134338
+      },
+      "creepWireTensionIceDensity": {
+        "unit": "KILOGRAM_PER_CUBIC_METRE",
+        "value": 917.0
+      },
+      "highestWireTensionTemperature": {
+        "unit": "CELSIUS",
+        "value": -9.444444444444445
+      },
+      "highestWireTensionIceThickness": {
+        "unit": "METRE",
+        "value": 0.006350000000000001
+      },
+      "highestWireTensionWindPressure": {
+        "unit": "PASCAL",
+        "value": 191.52103592134338
+      },
+      "highestWireTensionIceDensity": {
+        "unit": "KILOGRAM_PER_CUBIC_METRE",
+        "value": 917.0
+      },
+      "outerStrandingCompression": false,
+      "overrides": {},
+      "valuesApplied": {
+        "ice": {
+          "unit": "METRE",
+          "value": 0.006350000000000001
+        },
+        "iceDensity": {
+          "unit": "KILOGRAM_PER_CUBIC_METRE",
+          "value": 917.0
+        },
+        "temperature": {
+          "unit": "CELSIUS",
+          "value": -9.444444444444445
+        },
+        "windPressure": {
+          "unit": "PASCAL",
+          "value": 191.52103592134338
+        },
+        "linearConstant": {
+          "unit": "NEWTON_PER_METRE",
+          "value": 2.918780587441273
+        },
+        "anchorStrengthFactor": 1.0,
+        "anchorTensionMultiplier": 1.1,
+        "anchorVerticalLoadMultiplier": 1.5,
+        "commOnlyTensionMultiplier": 0.0,
+        "guyStrengthFactor": 0.9,
+        "guyTensionMultiplier": 1.1,
+        "guyVerticalLoadMultiplier": 1.5,
+        "insulatorStrengthFactor": 1.0,
+        "insulatorTensionMultiplier": 1.3,
+        "insulatorVerticalLoadMultiplier": 1.9,
+        "insulatorWindMultiplier": 1.75,
+        "anchorWindMultiplier": 1.75,
+        "guyWindMultiplier": 1.75,
+        "foundationStrengthFactor": 1.0,
+        "foundationTensionMultiplier": 1.3,
+        "foundationVerticalLoadMultiplier": 1.9,
+        "foundationWindMultiplier": 1.75,
+        "poleStrengthFactors": {
+          "WOOD": 0.85,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 0.85,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "poleTensionMultipliers": {
+          "WOOD": 1.3,
+          "METAL": 1.1,
+          "REINFORCED_CONCRETE": 1.3,
+          "POLYMER": 1.3,
+          "PRESTRESSED_CONCRETE": 1.1
+        },
+        "poleVerticalLoadMultipliers": {
+          "WOOD": 1.9,
+          "METAL": 1.5,
+          "REINFORCED_CONCRETE": 1.9,
+          "POLYMER": 1.5,
+          "PRESTRESSED_CONCRETE": 1.5
+        },
+        "poleWindMultipliers": {
+          "WOOD": 1.75,
+          "METAL": 1.75,
+          "REINFORCED_CONCRETE": 1.75,
+          "POLYMER": 1.75,
+          "PRESTRESSED_CONCRETE": 1.75
+        },
+        "crossArmStrengthFactors": {
+          "WOOD": 0.85,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 0.85,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "crossArmTensionMultipliers": {
+          "WOOD": 1.3,
+          "METAL": 1.1,
+          "REINFORCED_CONCRETE": 1.3,
+          "POLYMER": 1.3,
+          "PRESTRESSED_CONCRETE": 1.1
+        },
+        "crossArmVerticalLoadMultipliers": {
+          "WOOD": 1.9,
+          "METAL": 1.5,
+          "REINFORCED_CONCRETE": 1.9,
+          "POLYMER": 1.5,
+          "PRESTRESSED_CONCRETE": 1.5
+        },
+        "crossArmWindMultipliers": {
+          "WOOD": 1.75,
+          "METAL": 1.75,
+          "REINFORCED_CONCRETE": 1.75,
+          "POLYMER": 1.75,
+          "PRESTRESSED_CONCRETE": 1.75
+        },
+        "areaMultipliers": {
+          "ROUND": 1.0,
+          "SQUARE": 1.6,
+          "ROUND_LATTICE": 2.0,
+          "SQUARE_LATTICE": 3.2,
+          "RECTANGLE": 1.6,
+          "POLYGON": 1.0
+        }
+      },
+      "bucklingCase": {
+        "sectionHeightMode": "LOAD",
+        "diameterMethod": "TAPERED_DIAMETER",
+        "analysisMethod": "TRADITIONAL_EULER",
+        "unguyedConstant": 2.0,
+        "bucklingCoefficient": 0.384,
+        "loadingHeightPercent": 1.0,
+        "diameterHeightPercent": 0.33,
+        "guyedConstants": [
+          {
+            "angle": {
+              "unit": "RADIAN",
+              "value": 6.283185307179586
+            },
+            "constant": 0.707
+          }
+        ]
+      },
+      "deflectionCase": {
+        "type": "PERCENT_OF_HEIGHT_DEFLECTION",
+        "percent": 0.15
+      }
+    }
+  ],
+  "leads": [
+    {
+      "label": "Lead",
+      "locations": [
+        {
+          "label": "Location-02-09-2026-16-34-45-853",
+          "mapNumber": "",
+          "comments": "",
+          "address": {
+            "number": "",
+            "street": "",
+            "city": "",
+            "county": "",
+            "state": "",
+            "zip_code": ""
+          },
+          "technician": "",
+          "crossStreet1": "",
+          "crossStreet2": "",
+          "remedies": [],
+          "poleTags": [],
+          "userDefinedValues": {},
+          "summaryNotes": [],
+          "forms": [],
+          "images": [],
+          "photosToBeAssigned": [],
+          "designs": [
+            {
+              "label": "Measured Design",
+              "layerType": "Measured",
+              "structure": {
+                "pole": {
+                  "id": "Pole",
+                  "externalId": "698a52f5da555a8436fb7691",
+                  "owner": {
+                    "industry": "UTILITY",
+                    "id": "Acme Power"
+                  },
+                  "agl": {
+                    "unit": "METRE",
+                    "value": 11.7348
+                  },
+                  "autoGLC": true,
+                  "autoAGL": true,
+                  "cutTop": {
+                    "unit": "METRE",
+                    "value": 0.0
+                  },
+                  "environment": "None",
+                  "temperature": {
+                    "unit": "CELSIUS",
+                    "value": 15.555555555555555
+                  },
+                  "stressRatio": 1.0,
+                  "orientation": 0.0,
+                  "leanAngle": 0,
+                  "leanDirection": 0.0,
+                  "clientItemVersion": "763fe93ea428412771ae8dbdc983d739",
+                  "clientItem": {
+                    "species": "CDF-Tangent (MC)",
+                    "classOfPole": "MDT-3-45",
+                    "height": {
+                      "unit": "METRE",
+                      "value": 13.716
+                    }
+                  }
+                },
+                "wireEndPoints": [],
+                "spanPoints": [],
+                "anchors": [],
+                "notePoints": [],
+                "pointLoads": [],
+                "wirePointLoads": [],
+                "damages": [],
+                "wires": [],
+                "spanGuys": [],
+                "guys": [],
+                "equipments": [],
+                "wireMountedEquipments": [],
+                "guyAttachPoints": [],
+                "crossArms": [],
+                "insulators": [],
+                "pushBraces": [],
+                "sidewalkBraces": [],
+                "foundations": [],
+                "trusses": [],
+                "componentBraces": [],
+                "assemblies": []
+              },
+              "analysis": [
+                {
+                  "id": "Medium with analyzed component brace",
+                  "analysisCaseDetails": {
+                    "name": "Medium with analyzed component brace",
+                    "type": "NESC 2012-2017",
+                    "analysisMethod": "DIRECT_STIFFNESS",
+                    "connectionType": "CONTINUATION",
+                    "displacementBasedLoadChangesLevel": "NONE",
+                    "windType": "SWEEP",
+                    "sweepIncrement": "DEGREE_1",
+                    "windStartAngle": {
+                      "unit": "RADIAN",
+                      "value": 0.0
+                    },
+                    "windEndAngle": {
+                      "unit": "RADIAN",
+                      "value": 6.283185307179586
+                    },
+                    "useStrengthResults": false,
+                    "analyzeWithAverageSpan": true,
+                    "maximumLoadingRatio": 1.0,
+                    "addByDefault": true,
+                    "constructionType": "NEW",
+                    "checkUtilityWireTension": false,
+                    "maximumAllowableUtilityWireTensionRatio": {
+                      "unit": "PERCENT",
+                      "value": 60.0
+                    },
+                    "checkCommWireTension": false,
+                    "maximumAllowableCommunicationWireTensionRatio": {
+                      "unit": "PERCENT",
+                      "value": 60.0
+                    },
+                    "analyzeGroundLineOnly": false,
+                    "components": [
+                      "POLE",
+                      "COMPONENT_BRACE"
+                    ],
+                    "analyzeWithoutLinearConstant": false,
+                    "constructionGrade": "C",
+                    "loadZone": "MEDIUM",
+                    "wireTensionMethod": "INITIAL",
+                    "creepWireTensionTemperature": {
+                      "unit": "CELSIUS",
+                      "value": -9.444444444444445
+                    },
+                    "creepWireTensionIceThickness": {
+                      "unit": "METRE",
+                      "value": 0.006350000000000001
+                    },
+                    "creepWireTensionWindPressure": {
+                      "unit": "PASCAL",
+                      "value": 191.52103592134338
+                    },
+                    "creepWireTensionIceDensity": {
+                      "unit": "KILOGRAM_PER_CUBIC_METRE",
+                      "value": 917.0
+                    },
+                    "highestWireTensionTemperature": {
+                      "unit": "CELSIUS",
+                      "value": -9.444444444444445
+                    },
+                    "highestWireTensionIceThickness": {
+                      "unit": "METRE",
+                      "value": 0.006350000000000001
+                    },
+                    "highestWireTensionWindPressure": {
+                      "unit": "PASCAL",
+                      "value": 191.52103592134338
+                    },
+                    "highestWireTensionIceDensity": {
+                      "unit": "KILOGRAM_PER_CUBIC_METRE",
+                      "value": 917.0
+                    },
+                    "outerStrandingCompression": false,
+                    "overrides": {},
+                    "valuesApplied": {
+                      "ice": {
+                        "unit": "METRE",
+                        "value": 0.006350000000000001
+                      },
+                      "iceDensity": {
+                        "unit": "KILOGRAM_PER_CUBIC_METRE",
+                        "value": 917.0
+                      },
+                      "temperature": {
+                        "unit": "CELSIUS",
+                        "value": -9.444444444444445
+                      },
+                      "windPressure": {
+                        "unit": "PASCAL",
+                        "value": 191.52103592134338
+                      },
+                      "linearConstant": {
+                        "unit": "NEWTON_PER_METRE",
+                        "value": 2.918780587441273
+                      },
+                      "anchorStrengthFactor": 1.0,
+                      "anchorTensionMultiplier": 1.1,
+                      "anchorVerticalLoadMultiplier": 1.5,
+                      "commOnlyTensionMultiplier": 0.0,
+                      "guyStrengthFactor": 0.9,
+                      "guyTensionMultiplier": 1.1,
+                      "guyVerticalLoadMultiplier": 1.5,
+                      "insulatorStrengthFactor": 1.0,
+                      "insulatorTensionMultiplier": 1.3,
+                      "insulatorVerticalLoadMultiplier": 1.9,
+                      "insulatorWindMultiplier": 1.75,
+                      "anchorWindMultiplier": 1.75,
+                      "guyWindMultiplier": 1.75,
+                      "foundationStrengthFactor": 1.0,
+                      "foundationTensionMultiplier": 1.3,
+                      "foundationVerticalLoadMultiplier": 1.9,
+                      "foundationWindMultiplier": 1.75,
+                      "poleStrengthFactors": {
+                        "WOOD": 0.85,
+                        "METAL": 1.0,
+                        "REINFORCED_CONCRETE": 0.85,
+                        "POLYMER": 1.0,
+                        "PRESTRESSED_CONCRETE": 1.0
+                      },
+                      "poleTensionMultipliers": {
+                        "WOOD": 1.3,
+                        "METAL": 1.1,
+                        "REINFORCED_CONCRETE": 1.3,
+                        "POLYMER": 1.3,
+                        "PRESTRESSED_CONCRETE": 1.1
+                      },
+                      "poleVerticalLoadMultipliers": {
+                        "WOOD": 1.9,
+                        "METAL": 1.5,
+                        "REINFORCED_CONCRETE": 1.9,
+                        "POLYMER": 1.5,
+                        "PRESTRESSED_CONCRETE": 1.5
+                      },
+                      "poleWindMultipliers": {
+                        "WOOD": 1.75,
+                        "METAL": 1.75,
+                        "REINFORCED_CONCRETE": 1.75,
+                        "POLYMER": 1.75,
+                        "PRESTRESSED_CONCRETE": 1.75
+                      },
+                      "crossArmStrengthFactors": {
+                        "WOOD": 0.85,
+                        "METAL": 1.0,
+                        "REINFORCED_CONCRETE": 0.85,
+                        "POLYMER": 1.0,
+                        "PRESTRESSED_CONCRETE": 1.0
+                      },
+                      "crossArmTensionMultipliers": {
+                        "WOOD": 1.3,
+                        "METAL": 1.1,
+                        "REINFORCED_CONCRETE": 1.3,
+                        "POLYMER": 1.3,
+                        "PRESTRESSED_CONCRETE": 1.1
+                      },
+                      "crossArmVerticalLoadMultipliers": {
+                        "WOOD": 1.9,
+                        "METAL": 1.5,
+                        "REINFORCED_CONCRETE": 1.9,
+                        "POLYMER": 1.5,
+                        "PRESTRESSED_CONCRETE": 1.5
+                      },
+                      "crossArmWindMultipliers": {
+                        "WOOD": 1.75,
+                        "METAL": 1.75,
+                        "REINFORCED_CONCRETE": 1.75,
+                        "POLYMER": 1.75,
+                        "PRESTRESSED_CONCRETE": 1.75
+                      },
+                      "areaMultipliers": {
+                        "ROUND": 1.0,
+                        "SQUARE": 1.6,
+                        "ROUND_LATTICE": 2.0,
+                        "SQUARE_LATTICE": 3.2,
+                        "RECTANGLE": 1.6,
+                        "POLYGON": 1.0
+                      }
+                    },
+                    "bucklingCase": {
+                      "sectionHeightMode": "LOAD",
+                      "diameterMethod": "TAPERED_DIAMETER",
+                      "analysisMethod": "TRADITIONAL_EULER",
+                      "unguyedConstant": 2.0,
+                      "bucklingCoefficient": 0.384,
+                      "loadingHeightPercent": 1.0,
+                      "diameterHeightPercent": 0.33,
+                      "guyedConstants": [
+                        {
+                          "angle": {
+                            "unit": "RADIAN",
+                            "value": 6.283185307179586
+                          },
+                          "constant": 0.707
+                        }
+                      ]
+                    },
+                    "deflectionCase": {
+                      "type": "PERCENT_OF_HEIGHT_DEFLECTION",
+                      "percent": 0.15
+                    }
+                  },
+                  "results": [
+                    {
+                      "actual": 10.462836000620927,
+                      "allowable": 100.0,
+                      "unit": "PERCENT",
+                      "analysisDate": 1770673531851,
+                      "component": "Pole",
+                      "loadInfo": "Medium with analyzed component brace",
+                      "passes": true,
+                      "analysisType": "STRESS"
+                    },
+                    {
+                      "actual": 2.0839774926781254,
+                      "allowable": 100.0,
+                      "unit": "PERCENT",
+                      "analysisDate": 1770673531851,
+                      "component": "Pole",
+                      "loadInfo": "Medium with analyzed component brace",
+                      "passes": true,
+                      "analysisType": "BUCKLING"
+                    },
+                    {
+                      "actual": 4.169134935926095,
+                      "allowable": 100.0,
+                      "unit": "PERCENT",
+                      "analysisDate": 1770673531851,
+                      "component": "Pole",
+                      "loadInfo": "Medium with analyzed component brace",
+                      "passes": true,
+                      "analysisType": "DEFLECTION"
+                    }
+                  ]
+                }
+              ],
+              "analysisDetails": {
+                "resultId": "698a557ada555a8436fb7767"
+              },
+              "analysisCurrent": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
