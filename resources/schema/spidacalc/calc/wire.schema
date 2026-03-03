@@ -8,6 +8,16 @@
     "owner",
     "usageGroup"
   ],
+  "oneOf": [
+    { "required": ["tensionAdjustment"] },
+    { "required": ["adjustedTension"] },
+    { "required": ["measuredSag"] },
+    { "not": { "anyOf": [
+      { "required": ["tensionAdjustment"] },
+      { "required": ["adjustedTension"] },
+      { "required": ["measuredSag"] }
+    ]}}
+  ],
   "properties": {
     "id": {
       "type": "string",
@@ -63,6 +73,37 @@
     "tensionAdjustment": {
       "type": "number",
       "description": "Additional wire-specific tension adjustment in addition to load case tension multipliers."
+    },
+    "adjustedTension": {
+      "$ref": "../../general/measurable.schema",
+      "description": "The wire's tension, used to calculate the Tension Adjustment Factor."
+    },
+    "measuredSag": {
+      "type": "object",
+      "description": "Measured sag for the wire, to be used to calculate the Tension Adjustment Factor.",
+      "properties": {
+        "sag": {
+          "$ref": "../../general/measurable.schema",
+          "description": "The measured sag value."
+        },
+        "distanceFromPole": {
+          "$ref": "../../general/measurable.schema",
+          "description": "Distance from the pole where the sag was measured."
+        },
+        "geographicCoordinate": {
+          "$ref": "../../general/geometry.schema",
+          "description": "The geographic coordinate of where the sag was measured."
+        },
+        "temperature": {
+          "$ref": "../../general/measurable.schema",
+          "description": "Temperature at the time of measurement."
+        }
+      },
+      "required": ["sag", "temperature"],
+      "oneOf": [
+        { "required": ["distanceFromPole"] , "not": { "required": ["geographicCoordinate"] } },
+        { "required": ["geographicCoordinate"] , "not": { "required": ["distanceFromPole"] } }
+      ]
     },
     "connectionId": {
       "description": "The shared connection id.  Represents the unique connection between two objects.  Must be two and only two objects with the same id.",
