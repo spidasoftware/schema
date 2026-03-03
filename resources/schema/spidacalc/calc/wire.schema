@@ -72,15 +72,15 @@
     },
     "tensionAdjustment": {
       "type": "number",
-      "description": "Additional wire-specific tension adjustment in addition to load case tension multipliers."
+      "description": "Additional wire-specific tension adjustment in addition to load case tension multipliers.  If this is present, neither adjustedTension nor measuredSag may be present."
     },
     "adjustedTension": {
       "$ref": "../../general/measurable.schema",
-      "description": "The wire's tension, used to calculate the Tension Adjustment Factor."
+      "description": "The wire's tension, used to calculate the Tension Adjustment Factor.  If this is present, neither tensionAdjustment nor measuredSag may be present."
     },
     "measuredSag": {
       "type": "object",
-      "description": "Measured sag for the wire, to be used to calculate the Tension Adjustment Factor.",
+      "description": "Measured sag for the wire, to be used to calculate the Tension Adjustment Factor.  If this is present, neither tensionAdjustment nor adjustedTension may be present.",
       "properties": {
         "sag": {
           "$ref": "../../general/measurable.schema",
@@ -101,8 +101,8 @@
       },
       "required": ["sag", "temperature"],
       "oneOf": [
-        { "required": ["distanceFromPole"] , "not": { "required": ["geographicCoordinate"] } },
-        { "required": ["geographicCoordinate"] , "not": { "required": ["distanceFromPole"] } }
+        { "required": ["distanceFromPole"] },
+        { "required": ["geographicCoordinate"] }
       ]
     },
     "connectionId": {
