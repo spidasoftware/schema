@@ -28,7 +28,9 @@
           "structure",
           "horizontalDistance",
           "direction",
-          "hasSpanGuyPath"
+          "hasSpanGuyPath",
+          "parentStructureId",
+          "childStructureIds"
         ],
         "properties": {
           "structureId": {
@@ -54,6 +56,17 @@
           "hasSpanGuyPath": {
             "description": "Whether there is a span guy path between the primary structure and this neighbor structure",
             "type": "boolean"
+          },
+          "parentStructureId": {
+            "description": "The ID of the parent structure for this neighbor structure",
+            "type": "string"
+          },
+          "childStructureIds": {
+            "description": "A list of IDs of child structures for this neighbor structure",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         }
       }
