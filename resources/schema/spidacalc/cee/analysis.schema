@@ -4,7 +4,6 @@
   "type": "object",
   "required": [
     "structureGroup",
-    "analysisCase",
     "clientData"
   ],
   "properties": {
@@ -23,6 +22,12 @@
         {"$ref": "../../spidacalc/client/strength_case.schema"}
       ]
     },
+    "clearanceCases": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/client/clearance_case.schema"
+      }
+    },
     "structureGroup": {
       "description": "The structure group to be analyzed. Includes primary structure and optional neighbor structures.",
       "$ref": "../../spidacalc/calc/structure_group.schema"
@@ -30,6 +35,10 @@
     "clientData": {
       "description": "The engineering data to be used to fill in the references on the structure.",
       "$ref": "../../spidacalc/client/data.schema"
-      }
     }
-  }
+  },
+  "anyOf": [
+    { "required": ["analysisCase"] },
+    { "required": ["clearanceCases"] }
+  ]
+}
