@@ -4,7 +4,6 @@
   "type": "object",
   "required": [
     "structure",
-    "analysisCase",
     "clientData"
   ],
   "properties": {
@@ -23,6 +22,12 @@
         {"$ref": "../../spidacalc/client/strength_case.schema"}
       ]
     },
+    "clearanceCases": {
+      "type": "array",
+      "items": {
+        "$ref": "../../spidacalc/client/clearance_case.schema"
+      }
+    }
     "structure": {
       "description": "The structure to be analyzed.",
       "$ref": "../../spidacalc/calc/structure.schema"
@@ -32,4 +37,9 @@
       "$ref": "../../spidacalc/client/data.schema"
       }
     }
-  }
+  },
+  "anyOf": [
+    { "required": ["analysisCase"] },
+    { "required": ["clearanceCases"] }
+  ]
+}
