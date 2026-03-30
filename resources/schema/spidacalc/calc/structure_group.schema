@@ -109,7 +109,7 @@
           "sourceStructureId",
           "sourceSpanGuyId",
           "targetStructureId",
-          "targetWireId"
+          "targetSpanGuyId"
         ],
         "properties": {
           "sourceStructureId": {
