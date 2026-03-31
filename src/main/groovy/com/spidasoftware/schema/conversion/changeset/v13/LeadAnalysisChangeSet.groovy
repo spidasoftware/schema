@@ -21,6 +21,7 @@ class LeadAnalysisChangeSet extends AbstractClientDataChangeSet {
         boolean changed = false
         clientDataJSON.analysisCases?.each { Map analysisCase ->
             changed |= (analysisCase.remove("includeNeighborStructures") == true)
+            changed |= (analysisCase.remove("useSparseMatrices") == true)
         }
         return changed
     }
@@ -30,6 +31,7 @@ class LeadAnalysisChangeSet extends AbstractClientDataChangeSet {
         super.revertProject(projectJSON)
         projectJSON.defaultLoadCases?.each { Map loadCase ->
             loadCase.remove("includeNeighborStructures")
+            loadCase.remove("useSparseMatrices")
         }
     }
 
@@ -39,6 +41,7 @@ class LeadAnalysisChangeSet extends AbstractClientDataChangeSet {
         designJSON.analysis?.each { Map analysis ->
             Map analysisCase = analysis.analysisCaseDetails as Map
             analysisCase?.remove("includeNeighborStructures")
+            analysisCase?.remove("useSparseMatrices")
         }
         designJSON.remove("pendingAnalysis")
     }
@@ -50,6 +53,7 @@ class LeadAnalysisChangeSet extends AbstractClientDataChangeSet {
             Map analysisCase = result.analysisCaseDetails as Map
             if (analysisCase) {
                 changed |= (analysisCase.remove("includeNeighborStructures") == true)
+                changed |= (analysisCase.remove("useSparseMatrices") == true)
             }
         }
         return changed
