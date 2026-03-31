@@ -1,0 +1,18 @@
+{
+  "id": "#/spidacalc/cee/cee_results.schema",
+  "description": "Combined CEE analysis output",
+  "type": "object",
+  "properties": {
+    "analysisResults": {
+      "$ref": "../../spidacalc/results/results.schema"
+    },
+    "clearanceResults": {
+      "$ref": "../../spidacalc/results/clearance_results.schema"
+    }
+  },
+  "anyOf": [
+    { "required": ["analysisResults"] },
+    { "required": ["clearanceResults"] }
+  ],
+  "additionalProperties": false
+}
