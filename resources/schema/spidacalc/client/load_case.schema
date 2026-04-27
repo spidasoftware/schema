@@ -41,6 +41,12 @@
         "ALL"
       ]
     },
+    "includeNeighborStructures": {
+      "type": "boolean"
+    },
+    "useSparseMatrices": {
+      "type": "boolean"
+    },
     "analyzeGroundLineOnly": {
       "type": "boolean"
     },
