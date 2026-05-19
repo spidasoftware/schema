@@ -106,7 +106,7 @@ station={
 
 This sets the "station" parameter, and we can then create a station with a curl call like the following:
 
-`curl -k -d @station.json 'https://demo.spidasoftware.com/assetmaster/assetCreationAPI/createOrUpdate?apiToken=tokenvalue'`
+`curl -k --data-urlencode 'station@station.json' 'https://demo.spidasoftware.com/assetmaster/assetCreationAPI/createOrUpdate?apiToken=tokenvalue'`
 
 This would result in a success response of:
 
