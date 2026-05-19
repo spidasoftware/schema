@@ -6,15 +6,22 @@ A comprehensive [Bruno](https://www.usebruno.com/) collection for making REST ca
 
 1. Open Bruno and click **Open Collection**
 2. Select this `bruno-collection/` folder
-3. Choose an environment: **Local** (multi-port dev) or **Docker** (single host)
+3. Choose an environment: **Local** for local dev, or **Remote** for a deployed instance
 4. Set the `apiToken` variable in your environment to your user's API token
+5. For Remote, change the `host` variable to your target instance (e.g. `https://demo.spidastudio.com`)
 
 ## Environments
 
 | Environment | Description |
 |-------------|-------------|
 | **Local** | Local dev with separate ports — PM: 8888, UM: 8383, DB: 8181, AM/FF: 8080 |
-| **Docker** | Single Docker host with app context paths on one port |
+| **Remote** | Deployed instance — change `host` to your target (e.g. `https://test-spida.spidastudio.com`) |
+
+To target a different instance, select the Remote environment in Bruno and edit the `host` variable. All other base URLs derive from it. Common instances:
+- `https://test-spida.spidastudio.com`
+- `https://demo.spidastudio.com`
+- `https://qa1-spida.spidastudio.com`
+- `https://qa2-spida.spidastudio.com`
 
 ## Collection Contents — 83 files
 
@@ -23,8 +30,8 @@ A comprehensive [Bruno](https://www.usebruno.com/) collection for making REST ca
 - `collection.bru` — Collection-level settings (Content-Type header, apiToken query param)
 
 ### Environments (2 files)
-- `environments/Local.bru` — Local development environment variables
-- `environments/Docker.bru` — Docker environment variables
+- `environments/Local.json` — Local development environment variables
+- `environments/Remote.json` — Remote deployed instance environment variables
 
 ### Project API (20 requests → ProjectManager :8888)
 | File | Method | Endpoint |

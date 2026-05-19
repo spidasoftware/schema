@@ -1,0 +1,11 @@
+{
+  "variables": [
+    { "name": "host", "value": "http://localhost", "enabled": true, "secret": false, "type": "text" },
+    { "name": "pmBase", "value": "{{host}}:8888/projectmanager", "enabled": true, "secret": false, "type": "text" },
+    { "name": "umBase", "value": "{{host}}:8383/usersmaster", "enabled": true, "secret": false, "type": "text" },
+    { "name": "amBase", "value": "{{host}}:8080/assetmaster", "enabled": true, "secret": false, "type": "text" },
+    { "name": "ffBase", "value": "{{host}}:8080/filefort", "enabled": true, "secret": false, "type": "text" },
+    { "name": "dbBase", "value": "{{host}}:8181/spidadb", "enabled": true, "secret": false, "type": "text" },
+    { "name": "apiToken", "value": "your-api-token-here", "enabled": true, "secret": true, "type": "text" }
+  ]
+}
