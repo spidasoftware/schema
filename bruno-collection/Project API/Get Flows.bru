@@ -1,0 +1,23 @@
+meta {
+  name: Get Flows
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{pmBase}}/projectAPI/getFlows?apiToken={{apiToken}}
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  ~include_viewable: true
+}
+
+docs {
+  Returns available flows (workflows) for project creation.
+
+  Parameters:
+  - include_viewable: if true, all viewable flows returned; if false, only creation flows
+}

@@ -1,0 +1,25 @@
+meta {
+  name: Purge Projects
+  type: http
+  seq: 20
+}
+
+post {
+  url: {{pmBase}}/projectAPI/purge?apiToken={{apiToken}}
+  body: formUrlEncoded
+  auth: none
+}
+
+body:form-urlencoded {
+  project_ids: [1]
+}
+
+docs {
+  Permanently delete projects from the database (not just soft-delete).
+  Requires ROLE_PM_ADMINISTRATOR and must be enabled via config (com.spidasoftware.min.enablePurgeAPI=true).
+
+  Parameters:
+  - project_ids: JSON array of project ids to purge (required)
+
+  Returns: {"result": {"success": [...], "fail": [...]}}
+}

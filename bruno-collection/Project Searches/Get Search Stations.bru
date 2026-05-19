@@ -1,0 +1,26 @@
+meta {
+  name: Get Search Stations
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{pmBase}}/rest/projectSearches/:id/stations?apiToken={{apiToken}}
+  body: none
+  auth: none
+}
+
+params:path {
+  id: 123456
+}
+
+params:query {
+  apiToken: {{apiToken}}
+}
+
+docs {
+  Get stations matching a saved project search.
+
+  Parameters:
+  - id: the project search ID (in URL path, required)
+}

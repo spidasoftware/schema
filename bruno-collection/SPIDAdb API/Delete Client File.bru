@@ -1,0 +1,26 @@
+meta {
+  name: Delete Client File
+  type: http
+  seq: 20
+}
+
+delete {
+  url: {{dbBase}}/clientFiles/:id?apiToken={{apiToken}}
+  body: none
+  auth: none
+}
+
+params:path {
+  id: your-client-file-id
+}
+
+params:query {
+  apiToken: {{apiToken}}
+}
+
+docs {
+  Delete a client file from SPIDAdb.
+
+  Parameters:
+  - id: the client file ID (in URL path, required)
+}

@@ -1,0 +1,24 @@
+meta {
+  name: View Webhooks
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{pmBase}}/webhookAPI/view?apiToken={{apiToken}}
+  body: json
+  auth: none
+}
+
+body:json {
+  {}
+}
+
+docs {
+  View previously registered active webhooks.
+  Pass an empty JSON object to view all registered webhooks.
+
+  Parameters (JSON body, all optional):
+  - url: View all webhooks with this url
+  - hookId: View the webhook with this hookId
+}

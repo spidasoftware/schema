@@ -22,6 +22,10 @@ The server will respond with a JSON object containing the following properties:
 * message: error/success message
 * leaseEnd: The time this webhook will expire.  Represented as milliseconds since the unix epoch.
 
+##### Bruno
+
+Use the **Register** request in the `Webhook API` folder. Set `url`, `channel`, and `leaseTime` in the JSON body. Optionally set `eventFilter` and `hookId`.
+
 #### Unregister
 Unregister a previous registered webhook with a POST request to `/productname/webhookAPI/unregister?apiToken=your-api-token`
 
@@ -33,6 +37,10 @@ The server will respond with a JSON object containing the following properties:
 * hookIds: An array of the hookIds unregistered
 * success: true/false
 * message: error/success message
+
+##### Bruno
+
+Use the **Unregister** request in the `Webhook API` folder. Set `url` or `hookId` in the JSON body.
 
 #### Renew
 Renew previously registered, currently active webhooks with a POST request to `/productname/webhookAPI/renew?apiToken=your-api-token`
@@ -48,6 +56,10 @@ The server will respond with a JSON object containing the following properties:
 * success: true/false
 * message: error/success message
 * leaseEnd: The time the webhooks will expire.  Represented as milliseconds since the unix epoch.
+
+##### Bruno
+
+Use the **Renew** request in the `Webhook API` folder. Set `url` or `hookId` and `leaseTime` in the JSON body.
 
 #### View
 To view previously registered active webhooks create a POST request to
@@ -65,6 +77,10 @@ The server will respond with a JSON object containing the following properties:
 	* eventFilter: A filter on event name.  Will be a Java regular expression.
 	* hookId: The user defined id for this hook.  
 	* leaseEnd: The time this webhook will expire.  Represented as milliseconds since the unix epoch.
+
+##### Bruno
+
+Use the **View Webhooks** request in the `Webhook API` folder. Optionally set `url` or `hookId` in the JSON body to filter, or send an empty `{}` body to view all.
 
 ## Callbacks
 When an event within the given channel and matching the given eventName happens on the Min server.  A callback to the webhook's registered url will be created.  This callback will be an HTTP POST request with content-type application/json.  The request body will be a JSON object containing the following properties:

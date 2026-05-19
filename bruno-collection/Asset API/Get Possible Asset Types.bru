@@ -1,0 +1,19 @@
+meta {
+  name: Get Possible Asset Types
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{amBase}}/assetAPI/getPossibleAssetTypes?apiToken={{apiToken}}
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+}
+
+docs {
+  Return the asset types this service returns.
+}

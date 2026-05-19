@@ -1,0 +1,31 @@
+meta {
+  name: Get User
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{umBase}}/usersAPI/getUser?apiToken={{apiToken}}&id=1
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  ~id: 1
+  ~api_token: 
+  ~email: 
+  ~includeForeignCompanies: true
+}
+
+docs {
+  Return user details. One of the first three parameters is required.
+
+  Parameters (one required):
+  - id: the id of the user
+  - api_token: the api token of the user
+  - email: the email of the user
+  - includeForeignCompanies: if false, excludes foreign company info (defaults to true)
+
+  Returns a user object.
+}

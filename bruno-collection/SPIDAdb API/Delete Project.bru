@@ -1,0 +1,25 @@
+meta {
+  name: Delete Project
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{dbBase}}/projects/:id?apiToken={{apiToken}}
+  body: none
+  auth: none
+}
+
+params:path {
+  id: your-project-id
+}
+
+params:query {
+  apiToken: {{apiToken}}
+}
+
+docs {
+  Delete a project from SPIDAdb. This is permanent.
+
+  Deleting a project also deletes all its locations and designs.
+}

@@ -1,0 +1,21 @@
+meta {
+  name: Save Client File
+  type: http
+  seq: 19
+}
+
+post {
+  url: {{dbBase}}/clientFiles?apiToken={{apiToken}}
+  body: json
+  auth: none
+}
+
+body:json {
+  {}
+}
+
+docs {
+  Save a new client file to SPIDAdb.
+
+  Body: a JSON client file object.
+}

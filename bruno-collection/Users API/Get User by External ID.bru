@@ -1,0 +1,27 @@
+meta {
+  name: Get User by External ID
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{umBase}}/usersAPI/getUserByExternalId?apiToken={{apiToken}}&system=ExternalSystem&value=ext-123
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  system: ExternalSystem
+  value: ext-123
+}
+
+docs {
+  Return user details from the alias used by an external system.
+
+  Parameters:
+  - system: the name of the external system (required)
+  - value: the value in that system (required)
+
+  Returns a user object.
+}

@@ -1,0 +1,25 @@
+meta {
+  name: Get Created Date
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{ffBase}}/assetFileAPI/getCreatedDate?apiToken={{apiToken}}&uuid=your-uuid-here
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  uuid: your-uuid-here
+}
+
+docs {
+  Get date the attachment was created.
+
+  Parameters:
+  - uuid: attachment uuid (required)
+
+  Returns a number (timestamp).
+}

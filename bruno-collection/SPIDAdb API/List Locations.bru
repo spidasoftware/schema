@@ -1,0 +1,33 @@
+meta {
+  name: List Locations
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{dbBase}}/locations.referenced?apiToken={{apiToken}}
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  ~label: 
+  ~limit: 25
+  ~skip: 0
+  ~labelMatchType: 
+  ~projectId: 
+  ~projectLabel: 
+}
+
+docs {
+  List locations matching a query. Use .referenced format for smaller payloads.
+
+  Parameters (all optional):
+  - label: filter by location label
+  - limit: max results to return
+  - skip: number of results to skip
+  - labelMatchType: CONTAINS_CASE_INSENSITIVE, CONTAINS_CASE_SENSITIVE, FULL_TEXT_CASE_INSENSITIVE, or FULL_TEXT_CASE_SENSITIVE
+  - projectId: filter by parent project id
+  - projectLabel: filter by parent project label
+}

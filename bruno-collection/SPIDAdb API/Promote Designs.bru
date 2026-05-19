@@ -1,0 +1,22 @@
+meta {
+  name: Promote Designs
+  type: http
+  seq: 13
+}
+
+post {
+  url: {{dbBase}}/status/promote?apiToken={{apiToken}}
+  body: json
+  auth: none
+}
+
+body:json {
+  ["design-id-1", "design-id-2"]
+}
+
+docs {
+  Promote designs and their locations.
+
+  Pass a JSON array of design IDs.
+  This copies each design and its location, returning a map of old ID to new ID.
+}

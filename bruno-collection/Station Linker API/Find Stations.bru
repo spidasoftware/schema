@@ -1,0 +1,31 @@
+meta {
+  name: Find Stations
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{pmBase}}/stationLinkerAPI/findStations?apiToken={{apiToken}}&station_id=abc123
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  ~station_id: abc123
+  ~tag: 
+  ~geometry: 
+  ~details: true
+}
+
+docs {
+  Get a set of stations based on parameters provided.
+
+  Parameters (station_id or tag required):
+  - station_id: the id of the station in an asset service
+  - tag: the asset tag value
+  - geometry: GPS coordinates of one location
+  - details: true if all details should be returned
+
+  Returns an array of stations sorted by distance to GPS point.
+}

@@ -1,0 +1,27 @@
+meta {
+  name: Get My Projects
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{pmBase}}/projectAPI/getMyProjects?apiToken={{apiToken}}
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  ~company_id: 2
+  ~details: true
+  ~db_only: false
+}
+
+docs {
+  Return a list of projects for the current user.
+
+  Parameters (all optional):
+  - company_id: finds projects in this company
+  - details: if true includes all stations
+  - db_only: if true includes only projects with a spidaDBId
+}

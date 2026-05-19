@@ -1,0 +1,27 @@
+meta {
+  name: Renew Webhook
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{pmBase}}/webhookAPI/renew?apiToken={{apiToken}}
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "hookId": "my-hook-1",
+    "leaseTime": 86400
+  }
+}
+
+docs {
+  Renew previously registered, currently active webhooks.
+
+  Parameters (JSON body):
+  - url: Renew all webhooks with this url (use url OR hookId)
+  - hookId: Renew the webhook with this hookId
+  - leaseTime: seconds until expiration (required)
+}

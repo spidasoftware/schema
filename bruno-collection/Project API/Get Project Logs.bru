@@ -1,0 +1,23 @@
+meta {
+  name: Get Project Logs
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{pmBase}}/projectAPI/getProjectLogs?apiToken={{apiToken}}&project_id=1
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  project_id: 1
+}
+
+docs {
+  Get a list of all log messages on a project.
+
+  Parameters:
+  - project_id: the project id (required)
+}

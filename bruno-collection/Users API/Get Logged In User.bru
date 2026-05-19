@@ -1,0 +1,23 @@
+meta {
+  name: Get Logged In User
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{umBase}}/usersAPI/getLoggedInUser?apiToken={{apiToken}}
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+}
+
+docs {
+  Returns the user in the current session based on the api token.
+
+  Parameters: none
+
+  Returns a user object.
+}

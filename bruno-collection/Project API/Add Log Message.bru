@@ -1,0 +1,24 @@
+meta {
+  name: Add Log Message
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{pmBase}}/projectAPI/addLogMessage?apiToken={{apiToken}}
+  body: formUrlEncoded
+  auth: none
+}
+
+body:form-urlencoded {
+  project_id: 1
+  log_message_json: {"message":"Log entry from API"}
+}
+
+docs {
+  Add a log message to a project.
+
+  Parameters:
+  - project_id: the project id (required)
+  - log_message_json: a logMessage object (required)
+}

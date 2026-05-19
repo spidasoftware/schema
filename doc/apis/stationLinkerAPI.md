@@ -18,7 +18,7 @@ The linker extends a regular asset service in some ways and therefor has most of
 
 1. [getName](./assetAPI.md#get-name)
 1. [getPossibleAssetTypes](./assetAPI.md#get-possible-asset-types)
-1. [getStations](./assetAPI.md#get-stations)
+1. [getStations](./assetAPI.md#get-stations) — also supports `only_specified_details` parameter (see below)
 
 Find Stations
 -----
@@ -46,6 +46,19 @@ station_id OR tag are required.
 
 result with an array of stations sorted by distance to gps point passed in
 
+#### Examples
+
+##### Bruno
+
+Use the **Find Stations** request in the `Station Linker API` folder. Set `station_id` or `tag`, and optionally `geometry` and `details`.
+
+Get Stations (Extended)
+-----
+
+The linker's `getStations` endpoint supports one additional parameter not in the base Asset API:
+
+1. `only_specified_details`: an optional JSON array of detail names. If specified, the `details` parameter is ignored and only the requested details are included. Accepted values include `"primaryAssetTag"` (include the display tag on the primary asset).
+
 Get Links
 -----
 
@@ -71,6 +84,12 @@ source and station OR linker_id are required.
 
 array of links
 
+#### Examples
+
+##### Bruno
+
+Use the **Get Links** request in the `Station Linker API` folder. Set `source` and `station_id`, or `linker_id`.
+
 Link Stations
 -----
 
@@ -93,6 +112,12 @@ Links stations in different services together returns the linkerId of the linked
 
 1. An [id array](../../resources/schema/general/ids.schema)
 
+#### Examples
+
+##### Bruno
+
+Use the **Link Stations** request in the `Station Linker API` folder. Set `station_ids` to a service_and_ids JSON object.
+
 Unlink Stations
 -----
 
@@ -113,3 +138,9 @@ Unlinks stations from any other station, returns the linkerIds of the unlinked s
 #### Returns
 
 1. An [id array](../../resources/schema/general/ids.schema)
+
+#### Examples
+
+##### Bruno
+
+Use the **Unlink Stations** request in the `Station Linker API` folder. Set `station_ids` to a service_and_ids JSON object.

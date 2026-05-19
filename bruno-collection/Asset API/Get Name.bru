@@ -1,0 +1,19 @@
+meta {
+  name: Get Name
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{amBase}}/assetAPI/getName?apiToken={{apiToken}}
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+}
+
+docs {
+  Get the name of this asset service. Used in display of assets.
+}

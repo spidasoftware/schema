@@ -1,0 +1,25 @@
+meta {
+  name: Get Location Thumbnails by DB ID
+  type: http
+  seq: 17
+}
+
+get {
+  url: {{pmBase}}/projectAPI/getLocationThumbnailsByDBId?apiToken={{apiToken}}&db_id=5d31b8e78cd8ac33b51dceab
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  db_id: 5d31b8e78cd8ac33b51dceab
+  ~version: 
+}
+
+docs {
+  Get location thumbnail photos by SPIDAdb location ID. Returns a zip file with photos.
+
+  Parameters:
+  - db_id: a db id string (required)
+  - version: schema version (optional, auto-detected from User-Agent if not set)
+}

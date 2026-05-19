@@ -1,0 +1,27 @@
+meta {
+  name: Get Links
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{pmBase}}/stationLinkerAPI/getLinks?apiToken={{apiToken}}&source=assetmaster&station_id=abc123
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  ~source: assetmaster
+  ~station_id: abc123
+  ~linker_id: 
+}
+
+docs {
+  Get a set of linkages based on parameters provided.
+
+  Parameters (source+station_id OR linker_id required):
+  - source: name of the service that owns the station
+  - station_id: id of the station in the source service
+  - linker_id: common id that links all stations
+}

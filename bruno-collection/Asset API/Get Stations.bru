@@ -1,0 +1,31 @@
+meta {
+  name: Get Stations
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{amBase}}/assetAPI/getStations?apiToken={{apiToken}}&station_ids=["1"]
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  ~station_ids: ["1"]
+  ~tags: ["tag-value"]
+  ~bounding_box: 
+  ~company_ids: 
+  ~details: true
+}
+
+docs {
+  Get a set of stations based on parameters provided.
+
+  Parameters (one of the first three required):
+  - station_ids: array of ids to retrieve
+  - tags: array of tags to search
+  - bounding_box: a polygon geometry (south, west, north, east)
+  - company_ids: array of company ids (optional)
+  - details: boolean, fetch station asset details (optional)
+}

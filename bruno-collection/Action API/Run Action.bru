@@ -1,0 +1,33 @@
+meta {
+  name: Run Action
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{pmBase}}/actionAPI/run/myActionName?apiToken={{apiToken}}
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "Parameter 1": "Value for parameter 1",
+    "projectPartId": "12345"
+  }
+}
+
+docs {
+  Run a named action on the projectmanager.
+
+  URL: /actionAPI/run/{actionName}
+  Replace {actionName} in the URL with the actual action name.
+
+  Parameters (JSON body):
+  - Each action defines its own parameters as name/value string pairs
+  - projectPartId: required if the action requires a project part
+
+  Security levels: ADMIN, USERWITHPART, USER
+
+  Returns: {"success": true/false, "message": "..."}
+}

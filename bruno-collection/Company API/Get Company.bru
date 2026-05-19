@@ -1,0 +1,27 @@
+meta {
+  name: Get Company
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{umBase}}/companyAPI/getCompany?apiToken={{apiToken}}&id=2
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  id: 2
+  ~params: %5B%22userGroups%22%5D
+}
+
+docs {
+  Gets the company details of the given Company ID.
+
+  Parameters:
+  - id: a required company id
+  - params: URI-encoded JSON array of optional attributes (e.g. ["userGroups"])
+
+  Available attributes: userGroups
+}

@@ -18,7 +18,7 @@ Get the name of this service.  Used in display of assets.
 
 #### URL
 
-`https://${HOST}/${APP}/assetAPI/getName`
+`https://${HOST}/${APP}/assetCreationAPI/getName`
 
 #### Parameters
 
@@ -34,7 +34,11 @@ none
 
 #### Examples
 
-`https://demo.spidasoftware.com/assetmaster/assetAPI/getName`
+`https://demo.spidasoftware.com/assetmaster/assetCreationAPI/getName`
+
+##### Bruno
+
+Not included in the collection (use Get Name from Asset API folder instead).
 
 Create or Update
 ----------
@@ -56,7 +60,7 @@ station, asset, or attachment required
 
 1. `asset`: An [asset object](../../resources/schema/spidamin/asset/asset.schema)
 1. `station`: A [station object](../../resources/schema/spidamin/asset/station.schema)
-1. `attachment`: An array of [attachment object](../../resources/schema/spidamin/asset/attachment.schema)
+1. `attachments`: An array of [attachment objects](../../resources/schema/spidamin/asset/attachment.schema) (FileFort only — note: AssetMaster does not support attachment creation)
 
 #### Returns
 
@@ -110,6 +114,10 @@ This would result in a success response of:
 
 This is the given id for the created asset.
 
+##### Bruno
+
+Use the **Create or Update** request in the `Asset Creation API` folder. Set the `station`, `asset`, or `attachments` form parameter with the appropriate JSON.
+
 Delete
 ----------
 
@@ -131,7 +139,7 @@ Note: You must be careful when deleting stations from an asset service because o
 
 1. `asset_ids`: An array of ids
 1. `station_ids`: An array of ids
-1. `attachment_uuids`: An array of uuids.
+1. `attachment_uuids`: An array of uuids (FileFort only — AssetMaster returns UNSUPPORTED for this parameter)
 
 #### Returns
 
@@ -150,3 +158,7 @@ station_ids=[
   "ff8081814b84506a014d583304e76144"
 ]
 ```
+
+##### Bruno
+
+Use the **Delete** request in the `Asset Creation API` folder. Set `station_ids` and/or `asset_ids` form parameters with JSON arrays of IDs.

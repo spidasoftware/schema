@@ -1,0 +1,26 @@
+meta {
+  name: Export Search
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{pmBase}}/rest/projectSearches/:id/export?apiToken={{apiToken}}
+  body: none
+  auth: none
+}
+
+params:path {
+  id: 123456
+}
+
+params:query {
+  apiToken: {{apiToken}}
+}
+
+docs {
+  Export a project search definition as a JSON file download.
+
+  Parameters:
+  - id: the project search ID (in URL path, required)
+}

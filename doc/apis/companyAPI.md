@@ -81,3 +81,7 @@ A sample return for the above example:
     }
 }
 ```
+
+##### Bruno
+
+Use the **Get Company** request in the `Company API` folder. Set the `id` query parameter to the company ID. Optionally enable `params` with a JSON array like `["userGroups"]`.

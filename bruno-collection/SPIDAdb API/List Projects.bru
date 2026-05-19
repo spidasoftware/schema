@@ -1,0 +1,35 @@
+meta {
+  name: List Projects
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{dbBase}}/projects.referenced?apiToken={{apiToken}}
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  ~label: 
+  ~limit: 25
+  ~skip: 0
+  ~userId: 
+  ~userEmail: 
+  ~exactMatch: 
+}
+
+docs {
+  List projects matching a query. Use .referenced format for smaller payloads.
+
+  Parameters (all optional):
+  - label: filter by project name
+  - limit: max results to return (pagination)
+  - skip: number of results to skip (pagination)
+  - userId: filter by user id
+  - userEmail: filter by user email
+  - exactMatch: if set, matches label exactly
+
+  Results are ordered by date last modified, most recent first.
+}

@@ -36,6 +36,10 @@ none
 
 `https://demo.spidasoftware.com/assetmaster/assetAPI/getName`
 
+##### Bruno
+
+Use the **Get Name** request in the `Asset API` folder.
+
 Get Possible Asset Details
 ----------
 
@@ -59,7 +63,11 @@ Array of `string`
 
 #### Examples
 
-Get Possible Asset Details
+##### Bruno
+
+Use the **Get Possible Asset Details** request in the `Asset API` folder.
+
+Get Possible Asset Types
 ----------
 
 Return the asset types this service returns.
@@ -70,6 +78,8 @@ Return the asset types this service returns.
 
 #### Parameters
 
+none
+
 #### Allowed Methods
 
 `GET`
@@ -79,6 +89,10 @@ Return the asset types this service returns.
 [asset_details.schema](../../resources/schema/spidamin/asset/asset_details.schema)
 
 #### Examples
+
+##### Bruno
+
+Use the **Get Possible Asset Types** request in the `Asset API` folder.
 
 Get Stations
 ----------
@@ -91,7 +105,7 @@ Get a set of Stations based on parameters provided
 
 #### Parameters
 
-1. `stations_ids`: an array of the ids to retrieve. Required if bounding box or tags is not provided.  If the tag parameter is not implemented this should search tags as well as station ids
+1. `station_ids`: an array of the ids to retrieve. Required if bounding box or tags is not provided.  If the tag parameter is not implemented this should search tags as well as station ids
 1. `tags`: Services may optionally implement this parameter.  If this is implemented any stations containing this tags will be returned.  Required if bounding box or station_ids is not provided.
 1. `bounding_box`: A [polygon object](../../resources/schema/general/geometry.schema) that is the south, west, north, east of information to return. Required if no station ids or tags are provided.  If a more complex polygon than a simple cardinal direction aligned rectangle is sent, it is converted to the smallest cardinal direction aligned rectangle which contains the given polygon. 
 1. `company_ids`: an array of ids for the company to retrieve from. Not required.
@@ -116,6 +130,10 @@ The response from the server this time is:
     {"result":{"stations":[]}}
 
 This is a successful message, it just didn't find any stations with that id.
+
+##### Bruno
+
+Use the **Get Stations** request in the `Asset API` folder. Enable `station_ids`, `tags`, or `bounding_box` query parameters as needed. Optionally enable `company_ids` and `details`.
 
 A response that found something would look more like:
 
@@ -172,6 +190,10 @@ Get a set of Assets based on parameters provided
 [stations.schema](../../resources/schema/spidamin/asset/stations.schema)
 
 #### Examples
+
+##### Bruno
+
+Use the **Get Assets** request in the `Asset API` folder. Set the `asset_ids` query parameter to a JSON array of IDs.
 
 Upload JSON File
 ----------

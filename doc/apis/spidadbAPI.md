@@ -56,7 +56,7 @@ One last thing before we get to the good stuff, and that's the matter of authent
 
 # Examples
 
-These examples will all use the command-line tool curl, just because of it's ubiquity. There are plenty of other good tools out there for testing, though, such as the Postman Chrome extension. If you need a curl reference to help follow along, check out [the curl man page](http://curl.haxx.se/docs/manpage.html)
+These examples will all use the command-line tool curl, just because of it's ubiquity. There are plenty of other good tools out there for testing, though, such as the Postman Chrome extension or [Bruno](https://www.usebruno.com/). A complete Bruno collection is available in the `bruno-collection/SPIDAdb API/` folder of this repository. If you need a curl reference to help follow along, check out [the curl man page](http://curl.haxx.se/docs/manpage.html)
 
 ## Saving a project - POST - `<baseURL>/<resource-type>`
 
@@ -91,6 +91,10 @@ The response from SPIDAdb (formatted for readability):
 
 The response 'status' just tells us that everything went ok. If there is ever a problem processing a request, the status will be "error". The 'project' field shows us the SPIDAdb id for the newly saved project. The locations and designs fields are simply arrays of the ids for those objects.
 
+##### Bruno
+
+Use the **Save Project (calc)** or **Save Project (exchange)** request in the `SPIDAdb API` folder.
+
 ## Update the Project - PUT - `<baseURL>/projects/<id>`
 
 If we want to update an existing project instead of saving a new one, we issue a PUT request instead of a POST. Since we're doing this to a specific project, we put the project's id in the url.
@@ -102,6 +106,10 @@ Send the request:
 	 https://www.example.com/spidadb/projects/53e13203e4b07e53be02f130
 
 The response will be essentially the save as for a POST (save) request.
+
+##### Bruno
+
+Use the **Update Project** request in the `SPIDAdb API` folder. Set the project ID in the URL path.
 
 ## Show the project - GET - `<baseURL>/<resource-type>/<id>`
 
@@ -122,11 +130,54 @@ The response (truncated):
         }
     }
 
+##### Bruno
+
+Use the **Show Project**, **Show Location**, or **Show Design** request in the `SPIDAdb API` folder. Set the resource ID in the URL path.
+
 ## List multiple resources - GET - `<baseURL>/<resource-type>`
 
 If we want to return multiple projects (or Locations or Designs), we can do that with GET requests as well. Just send a GET to "<base url>/projects". By default, this will simply return the most recent project that was saved. You can narrow the search by adding various query parameters, too. For instance, if you want to list projects with a specific name, just make a GET to "<base url>/projects?label=MyProject&apiToken=abc123". When you list resources (GET, but not for a specific resource), SPIDAdb will always return an Array of resources. If no resources match your query, the array will just be empty. SPIDAdb always orders results by the date last modified, returning the most recent results first.
 
 So what if your query returns many resources? You won't want to return a thousand designs with a single request because it would take forever. This is why the API allows for special 'projection' parameters. There are two of them, and they are 'skip' and 'limit'. "Limit" will simply limit the total number of results returned to the specified size. "Skip" will first skip that number of resources in the results set. So, by combining these two, you can paginate query results. Let's say we have 1000 Locations that have the label, "Pole1". We can request locations 0 - 25 just by sending a GET to: "<base url>/locations?limit=25&label=Pole1&apiToken=abc123". To get locations 26-50, just add the parameter, "skip=25". Also, remember that most clients will want to use the .referenced format for these requests, which will allow dealing with larger result sets.
+
+### List Query Parameters by Resource Type
+
+#### Projects (`/projects`)
+| Parameter   | Description                                  |
+|-------------|----------------------------------------------|
+| label       | Filter by project name (case-insensitive)    |
+| userId      | Filter by user id                            |
+| userEmail   | Filter by user email                         |
+| exactMatch  | If set, matches label exactly                |
+| limit       | Max results to return (default/max: 1 for calc, 100 for referenced) |
+| skip        | Number of results to skip                    |
+| version     | Schema version for response                  |
+| format      | `calc`, `referenced`, or `exchange`          |
+
+#### Locations (`/locations`)
+| Parameter      | Description                                                |
+|----------------|------------------------------------------------------------|
+| label          | Filter by location label (default: case-insensitive contains) |
+| labelMatchType | One of: `CONTAINS_CASE_INSENSITIVE` (default), `CONTAINS_CASE_SENSITIVE`, `FULL_TEXT_CASE_INSENSITIVE`, `FULL_TEXT_CASE_SENSITIVE` |
+| projectId      | Filter by parent project id                                |
+| projectLabel   | Filter by parent project label                             |
+| limit          | Max results (default/max: 25 for calc, 100 for referenced) |
+| skip           | Number of results to skip                                  |
+| version        | Schema version for response                                |
+| format         | `calc` or `referenced`                                     |
+
+#### Designs (`/designs`)
+| Parameter      | Description                                  |
+|----------------|----------------------------------------------|
+| label          | Filter by design label (case-insensitive)    |
+| projectId      | Filter by parent project id                  |
+| projectLabel   | Filter by parent project label               |
+| locationId     | Filter by parent location id                 |
+| locationLabel  | Filter by parent location label              |
+| limit          | Max results (default/max: 100 for both formats) |
+| skip           | Number of results to skip                    |
+| version        | Schema version for response                  |
+| format         | `calc` or `referenced`                       |
 
 Send the request (this one lists up to 50 projects with the label, "MyProject"):
 
@@ -145,6 +196,10 @@ The response (truncated):
         ]
     }
 
+##### Bruno
+
+Use the **List Projects**, **List Locations**, or **List Designs** request in the `SPIDAdb API` folder. Set query parameters like `label`, `limit`, `skip`, and append format to URL (e.g. `.referenced`).
+
 ## Delete the project - DELETE - `<base-url>/projects/<id>`
 
 This is an easy one.
@@ -156,9 +211,30 @@ The response:
 
 `{"status": "ok"}`
 
+##### Bruno
+
+Use the **Delete Project** request in the `SPIDAdb API` folder. Set the project ID in the URL path.
+
+## Schema Version - GET - `<baseURL>/versions/max`
+
+Get the maximum schema version supported by this SPIDAdb instance.
+
+`curl https://www.example.com/spidadb/versions/max?apiToken=abc123`
+
+The response:
+
+    {
+        "status": "ok",
+        "version": 12
+    }
+
+##### Bruno
+
+Use the **Max Version** request in the `SPIDAdb API` folder.
+
 ## Photos
 
-We've sort of avoided this topic until now because photos are a bit different than other resources. There is no way to directly save, update, or delete a photo. They are instead considered to be part of a Location for these purposes. However, when you request a Location, SPIDAdb does not send the photos along with it. Instead, if a location contains photos, each image will have a 'link' attribute that provides the id of that photo. You can then send a GET to "<base-url>/photos/<id>" to retrieve the photo.
+We've sort of avoided this topic until now because photos are a bit different than other resources. There is no way to directly save, update, or delete a photo. They are instead considered to be part of a Location for these purposes. However, when you request a Location, SPIDAdb does not send the photos along with it. Instead, if a location contains photos, each image will have a 'link' attribute that provides the uuid of that photo. You can then send a GET to `<base-url>/photos/<uuid>` to retrieve the photo.
 
  An example of an image 'link' (the rest of the location is not shown):
 
@@ -188,6 +264,10 @@ The response:
 
 The response will include the photo bytes as a base64 encoded string in the body of the JSON response. This would then be decoded by the client and written to a file. There is currently no support for any other request type or options for photos.
 
+##### Bruno
+
+Use the **Get Photo** request in the `SPIDAdb API` folder. Set the photo UUID in the URL path.
+
 ## Detailed Results
 
 Starting with the version 6 schema detailed results will be pushed from SPIDAcalc to SPIDAdb.  The detailed results are very large json objects so SPIDAdb will not send the detailed results nested in the objects returned from the API.  Instead a resultId will be returned, you will have to make an extra request to retrieve the detailed results.
@@ -206,6 +286,10 @@ To retrieve the results for 588a58e17d84ad3bd41c4562:
 
 `curl https://www.example.com/spidadb/results/588a58e17d84ad3bd41c4562?apiToken=abc123`
 
+##### Bruno
+
+Use the **Show Result** request in the `SPIDAdb API` folder. Set the result ID in the URL path.
+
 ## Creating a project from location ids
 
 Pass the project name and location ids into `projects/createFromLocations` 
@@ -214,12 +298,20 @@ Example:
 
 `curl -vvv -X POST -H "Content-Type: application/json" -d '{"projectName":"p1","locationIds":["5cdd91ff8cd8ac0e15aec8c8","5c8a3da18cd8ac70a42aec0d"]}' http://www.example.com/spidadb/projects/createFromLocations?apiToken=abc123`
 
+##### Bruno
+
+Use the **Create from Locations** request in the `SPIDAdb API` folder. Set `projectName` and `locationIds` in the JSON body.
+
 ## Promoting designs and their locations
 
 Pass a JSON array of design ids into `status/promote`
 
 Example
 `curl -vvv -X POST -H "Content-Type: application/json" -d '["111","333"]' http://localhost:8181/spidadb/status/promote?apiToken=abc123`
+
+##### Bruno
+
+Use the **Promote Designs** request in the `SPIDAdb API` folder. Set a JSON array of design IDs in the request body.
 
 This will copy each design and it's location and return a map of old id to new id. For example:
 `{"locationsPromoted":{"111":"222","333":"444"},"designsPromoted":{"555":"666","777":"888"}}`
@@ -231,8 +323,69 @@ Pass a JSON array of location ids into `status/demote`
 Example
 `curl -vvv -X POST -H "Content-Type: application/json" -d '["111","333"]' http://localhost:8181/spidadb/status/demote?apiToken=abc123`
 
+##### Bruno
+
+Use the **Demote Locations** request in the `SPIDAdb API` folder. Set a JSON array of location IDs in the request body.
+
 This will change the status of each location and it's design and return a map of list of ids demoted. For example:
 `{"locationsDemoted":["111", "333"],"designsDemoted":["555", "666"]}`
+
+## Listing Results by IDs - POST - `<baseURL>/results`
+
+Retrieve multiple detailed results by providing a JSON array of result IDs in the request body. This is a POST request because the list of IDs is sent in the body.
+
+`curl -X POST -H "Content-Type: application/json" -d '["588a58e17d84ad3bd41c4562", "588a58e17d84ad3bd41c4563"]' https://www.example.com/spidadb/results?apiToken=abc123`
+
+#### Parameters
+
+| Parameter | Description                          |
+|-----------|--------------------------------------|
+| version   | Schema version for response          |
+| format    | `calc` or `referenced`               |
+| limit     | Max results (default/max: 1 for calc, 1000 for referenced) |
+
+The request body must be a JSON array of result ID strings.
+
+##### Bruno
+
+Use the **List Results** request in the `SPIDAdb API` folder. Set a JSON array of result IDs in the request body.
+
+## Client Files
+
+Client files can be managed through a RESTful API at `<base-url>/clientFiles`.
+
+#### List Client Files - GET - `<baseURL>/clientFiles`
+
+`curl https://www.example.com/spidadb/clientFiles?apiToken=abc123`
+
+| Parameter | Description                                         |
+|-----------|-----------------------------------------------------|
+| query     | Search by name or id (case-insensitive regex match) |
+| limit     | Max results to return (default: 100)                |
+| skip      | Number of results to skip                           |
+| version   | Schema version for response                         |
+
+#### Show Client File - GET - `<baseURL>/clientFiles/<id>`
+
+`curl https://www.example.com/spidadb/clientFiles/myClientFileId?apiToken=abc123`
+
+| Parameter | Description                 |
+|-----------|-----------------------------|
+| version   | Schema version for response |
+
+#### Save Client File - POST - `<baseURL>/clientFiles`
+
+Send the client file JSON in the request body.
+
+`curl -X POST -H "Content-Type: application/json" -d '{"name":"myFile", ...}' https://www.example.com/spidadb/clientFiles?apiToken=abc123`
+
+#### Delete Client File - DELETE - `<baseURL>/clientFiles/<id>`
+
+`curl -X DELETE https://www.example.com/spidadb/clientFiles/myClientFileId?apiToken=abc123`
+
+##### Bruno
+
+Use the **List Client Files**, **Show Client File**, **Save Client File**, or **Delete Client File** requests in the `SPIDAdb API` folder.
 
 # The Finer Points
 

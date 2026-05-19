@@ -1,0 +1,28 @@
+meta {
+  name: Get Search Projects
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{pmBase}}/rest/projectSearches/:id/projects?apiToken={{apiToken}}
+  body: none
+  auth: none
+}
+
+params:path {
+  id: 123456
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  ~details: false
+}
+
+docs {
+  Get projects matching a saved project search.
+
+  Parameters:
+  - id: the project search ID (in URL path, required)
+  - details: boolean, if true include full station details (optional)
+}

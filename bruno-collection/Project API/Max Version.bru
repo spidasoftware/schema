@@ -1,0 +1,19 @@
+meta {
+  name: Max Version
+  type: http
+  seq: 19
+}
+
+get {
+  url: {{pmBase}}/projectAPI/maxVersion?apiToken={{apiToken}}
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+}
+
+docs {
+  Returns the max schema version supported by SPIDAdb.
+}

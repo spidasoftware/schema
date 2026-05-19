@@ -1,0 +1,27 @@
+meta {
+  name: Get DB Project by DB ID
+  type: http
+  seq: 11
+}
+
+get {
+  url: {{pmBase}}/projectAPI/getDBProjectByDBId?apiToken={{apiToken}}&db_id=5c8a3f358cd8ac70a42aec58
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  db_id: 5c8a3f358cd8ac70a42aec58
+  ~format: referenced
+  ~version: 
+}
+
+docs {
+  Get a SPIDAdb Project by its DB ID using projectmanager permissions.
+
+  Parameters:
+  - db_id: a db id string (required)
+  - format: calc, referenced, or exchange (defaults to calc)
+  - version: schema version (optional, auto-detected from User-Agent if not set)
+}

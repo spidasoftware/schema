@@ -1,0 +1,25 @@
+meta {
+  name: Get File
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{ffBase}}/assetFileAPI/getFile?apiToken={{apiToken}}&uuid=your-uuid-here
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  uuid: your-uuid-here
+  ~offset: 0
+}
+
+docs {
+  Get path for attachment with uuid.
+
+  Parameters:
+  - uuid: attachment uuid (required)
+  - offset: version offset (defaults to 0)
+}

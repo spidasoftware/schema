@@ -1,0 +1,24 @@
+meta {
+  name: Create or Update Project
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{pmBase}}/projectAPI/createOrUpdate?apiToken={{apiToken}}
+  body: formUrlEncoded
+  auth: none
+}
+
+body:form-urlencoded {
+  project_json: {"name":"New Project","flowId":1}
+}
+
+docs {
+  Create or update a project. An update is performed if project.id is present, create if not.
+
+  Parameters:
+  - project_json: a project object (required). Include "id" field to update.
+
+  Returns an id object: {"result":{"id":12345}}
+}

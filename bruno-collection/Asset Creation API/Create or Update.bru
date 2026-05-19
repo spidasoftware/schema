@@ -1,0 +1,26 @@
+meta {
+  name: Create or Update
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{amBase}}/assetCreationAPI/createOrUpdate?apiToken={{apiToken}}
+  body: formUrlEncoded
+  auth: none
+}
+
+body:form-urlencoded {
+  station: {"assetTypes":["POLE"],"primaryAssetOwnerId":57,"primaryAssetType":"POLE","dataProviderId":57,"geometry":{"type":"Point","coordinates":[-82.95,39.98]},"stationAssets":[{"assetType":"POLE","ownerId":57,"primaryAsset":true,"assetTags":[{"primary":true,"name":"Primary Tag","value":"10"}]}]}
+}
+
+docs {
+  Creates or Updates a Station, Asset, or Attachment. Creates if no id is present, updates if id exists.
+
+  Parameters (one required):
+  - station: a station object
+  - asset: an asset object
+  - attachment: an array of attachment objects
+
+  Returns an id array.
+}

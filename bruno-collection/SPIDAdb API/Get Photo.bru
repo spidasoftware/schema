@@ -1,0 +1,25 @@
+meta {
+  name: Get Photo
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{dbBase}}/photos/:id?apiToken={{apiToken}}
+  body: none
+  auth: none
+}
+
+params:path {
+  id: photo-id
+}
+
+params:query {
+  apiToken: {{apiToken}}
+}
+
+docs {
+  Get a photo by its ID. Photos are referenced from location image "link" objects.
+
+  Returns the photo as a base64 encoded string in the response body.
+}

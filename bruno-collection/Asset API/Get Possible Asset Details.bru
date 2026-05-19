@@ -1,0 +1,21 @@
+meta {
+  name: Get Possible Asset Details
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{amBase}}/assetAPI/getPossibleAssetDetails?apiToken={{apiToken}}
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+}
+
+docs {
+  Return the asset detail keys that can be returned by this service.
+
+  Returns an array of strings.
+}
