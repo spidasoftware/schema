@@ -36,6 +36,10 @@ none
 
 `https://demo.spidasoftware.com/assetmaster/assetSearchAPI/getName`
 
+##### Bruno
+
+Not included in the collection (use Get Name from Asset API folder instead).
+
 Quick Find
 ----------
 
@@ -57,6 +61,12 @@ Find stations based string.  This searches some basic information on the station
 #### Returns
 
 1. `stations`: A [stations object](../../resources/schema/spidamin/asset/stations.schema).
+
+#### Examples
+
+##### Bruno
+
+Use the **Quick Find** request in the `Asset Search API` folder. Set the `find_param` query parameter to the search string.
 
 Advanced Find
 ----------
@@ -80,6 +90,11 @@ Find stations based on the given params.
 
 1. A [stations object](../../resources/schema/spidamin/asset/stations.schema).
 
+#### Examples
+
+##### Bruno
+
+Use the **Advanced Find** request in the `Asset Search API` folder. Set the `find_query` query parameter to a JSON query object.
 
 Get Advanced Find Options
 ----------
@@ -101,3 +116,9 @@ none
 #### Returns
 
 1. `find_options`: An [method response object](../../resources/schema/spidamin/asset/find_options.schema)
+
+#### Examples
+
+##### Bruno
+
+Use the **Get Advanced Find Options** request in the `Asset Search API` folder.

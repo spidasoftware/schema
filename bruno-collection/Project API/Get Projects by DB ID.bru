@@ -1,0 +1,25 @@
+meta {
+  name: Get Projects by DB ID
+  type: http
+  seq: 15
+}
+
+get {
+  url: {{pmBase}}/projectAPI/getProjectsByDBId?apiToken={{apiToken}}&db_ids=["5d30ae9a8cd8ac09ab3b2a45"]&details=true
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  db_ids: ["5d30ae9a8cd8ac09ab3b2a45"]
+  ~details: true
+}
+
+docs {
+  Get projectmanager projects that have the SPIDAdb ids passed in.
+
+  Parameters:
+  - db_ids: the SPIDAdb id strings in a JSON array (required)
+  - details: true or false (defaults to false)
+}

@@ -1,0 +1,27 @@
+meta {
+  name: List Client Files
+  type: http
+  seq: 17
+}
+
+get {
+  url: {{dbBase}}/clientFiles?apiToken={{apiToken}}
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  ~limit: 25
+  ~skip: 0
+  ~query: 
+}
+
+docs {
+  List client files stored in SPIDAdb.
+
+  Parameters (all optional):
+  - limit: max results to return
+  - skip: number of results to skip
+  - query: search by name or id
+}

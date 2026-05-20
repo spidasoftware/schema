@@ -26,6 +26,12 @@ Example:
 If the action requires a project part, the id for the project part must be
 passed in the JSON as a parameter with the name `projectPartId`.
 
+#### Examples
+
+##### Bruno
+
+Use the **Run Action** request in the `Action API` folder. Set the action name in the URL path (replace `{actionName}`) and pass parameters as JSON in the request body. The **Reload Actions** request reloads all action scripts.
+
 #### Response
 If the action was able to be run, the response body will contain a JSON object with 2 properties:
 - `success` -- True/False indicates if the action returned an error

@@ -1,0 +1,26 @@
+meta {
+  name: Show Location
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{dbBase}}/locations/:id?apiToken={{apiToken}}
+  body: none
+  auth: none
+}
+
+params:path {
+  id: your-location-id
+}
+
+params:query {
+  apiToken: {{apiToken}}
+}
+
+docs {
+  Get a single location by ID from SPIDAdb.
+
+  Use .referenced suffix for smaller payloads.
+  Locations are read-only - modify via parent project.
+}

@@ -1,0 +1,24 @@
+meta {
+  name: Find Stations to Match
+  type: http
+  seq: 16
+}
+
+post {
+  url: {{pmBase}}/projectAPI/findStationsToMatch?apiToken={{apiToken}}
+  body: formUrlEncoded
+  auth: none
+}
+
+body:form-urlencoded {
+  stations: [{"display":"Pole 1","geometry":{"type":"Point","coordinates":[-82.86,40.00]}}]
+  ~projectId: 
+}
+
+docs {
+  Find the best match stations for a given project. Used as part of uploading a SPIDAcalc file.
+
+  Parameters:
+  - stations: required list of stations with at least a "display" field
+  - projectId: optional SPIDAmin project ID to limit searching
+}

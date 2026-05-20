@@ -35,6 +35,10 @@ none
 
 `https://demo.spidasoftware.com/filefort/assetAPI/getName`
 
+##### Bruno
+
+Not included in the collection (use Get Name from Asset API folder instead).
+
 Get Version Count
 ----------
 
@@ -57,6 +61,10 @@ Get version count of attachment with uuid.  This can be used in the offset in fu
 `number`
 
 #### Examples
+
+##### Bruno
+
+Use the **Get Version Count** request in the `Asset File API` folder. Set the `uuid` query parameter.
 
 Get Created Date
 ----------
@@ -81,6 +89,10 @@ Get date the attachment was created.
 
 #### Examples
 
+##### Bruno
+
+Use the **Get Created Date** request in the `Asset File API` folder. Set the `uuid` query parameter.
+
 Get Updated Date
 ----------
 
@@ -103,6 +115,10 @@ Get date the attachment was last updated.
 `number`
 
 #### Examples
+
+##### Bruno
+
+Use the **Get Updated Date** request in the `Asset File API` folder. Set the `uuid` query parameter.
 
 Get File
 ----------
@@ -128,6 +144,10 @@ Get path for attachment with uuid
 
 #### Examples
 
+##### Bruno
+
+Use the **Get File** request in the `Asset File API` folder. Set `uuid` and optionally `offset`.
+
 Get Bytes
 ----------
 
@@ -152,6 +172,10 @@ Get base64 encoded bytes for attachment with uuid
 
 #### Examples
 
+##### Bruno
+
+Use the **Get Bytes** request in the `Asset File API` folder. Set `uuid` and optionally `offset`.
+
 Get Raw
 ----------
 
@@ -175,3 +199,7 @@ Get get the raw bytes in the response body with the "Content-disposition:attachm
 file response body
 
 #### Examples
+
+##### Bruno
+
+Use the **Get Raw** request in the `Asset File API` folder. Set `uuid` and optionally `offset`. The response will download the file.

@@ -1,0 +1,25 @@
+meta {
+  name: Get Bytes
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{ffBase}}/assetFileAPI/getBytes?apiToken={{apiToken}}&uuid=your-uuid-here
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  uuid: your-uuid-here
+  ~offset: 0
+}
+
+docs {
+  Get base64 encoded bytes for attachment with uuid.
+
+  Parameters:
+  - uuid: attachment uuid (required)
+  - offset: version offset (defaults to 0)
+}

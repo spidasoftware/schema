@@ -1,0 +1,32 @@
+meta {
+  name: Export Search CSV
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{pmBase}}/rest/projectSearches/:id/exportCsv?apiToken={{apiToken}}
+  body: none
+  auth: none
+}
+
+params:path {
+  id: 123456
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  ~mode: PROJECT
+  ~tzOffsetMinutes: 
+  ~usesDst: 
+}
+
+docs {
+  Export search results as a CSV file download.
+
+  Parameters:
+  - id: the project search ID (in URL path, required)
+  - mode: PROJECT or STATION (determines CSV structure)
+  - tzOffsetMinutes: timezone offset in minutes
+  - usesDst: boolean, whether timezone uses daylight saving time
+}

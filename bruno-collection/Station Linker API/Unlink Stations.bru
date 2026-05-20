@@ -1,0 +1,25 @@
+meta {
+  name: Unlink Stations
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{pmBase}}/stationLinkerAPI/unlinkStations?apiToken={{apiToken}}&station_ids={}
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  station_ids: {}
+}
+
+docs {
+  Unlinks stations from any other station.
+
+  Parameters:
+  - station_ids: a service_and_ids object (required)
+
+  Returns an id array with linkerIds of unlinked stations.
+}

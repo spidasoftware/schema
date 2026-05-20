@@ -1,0 +1,20 @@
+meta {
+  name: Reload Actions
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{pmBase}}/actionAPI/reload?apiToken={{apiToken}}
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+}
+
+docs {
+  Reload all action scripts, conditions, reports, and transforms.
+  Clears loaded classes and reloads from filesystem.
+}

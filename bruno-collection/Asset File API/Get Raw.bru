@@ -1,0 +1,25 @@
+meta {
+  name: Get Raw
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{ffBase}}/assetFileAPI/getRaw?apiToken={{apiToken}}&uuid=your-uuid-here
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  uuid: your-uuid-here
+  ~offset: 0
+}
+
+docs {
+  Download the raw file bytes with Content-disposition:attachment header.
+
+  Parameters:
+  - uuid: attachment uuid (required)
+  - offset: version offset (defaults to 0)
+}

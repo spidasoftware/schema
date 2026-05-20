@@ -1,0 +1,19 @@
+meta {
+  name: Get Advanced Find Options
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{amBase}}/assetSearchAPI/getAdvancedFindOptions?apiToken={{apiToken}}
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+}
+
+docs {
+  Get the options for advanced searching. Returns an object descriptor for constructing complex queries.
+}

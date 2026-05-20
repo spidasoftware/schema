@@ -9,8 +9,9 @@ For working with project searches.
 &nbsp;
 
 > **Note:**  
-> Examples use the {{variable}} notation to denote POSTMAN environment variables (i.e. {{host}}, {{api-token}}, {{token}}).  
-> Authentication will require the parameter **token** or **api-tokens** to be included in each request.
+> Examples use the {{variable}} notation to denote environment variables (i.e. {{host}}, {{apiToken}}, {{token}}).  
+> POSTMAN and Bruno collections are available in the repository. Bruno collection is at `bruno-collection/` in the schema repo.  
+> Authentication will require the parameter **token** or **apiToken** to be included in each request.
 
 &nbsp;
 
@@ -24,7 +25,7 @@ Get all project searches for the company to which the current user belongs.
 
 ### URL
 
-`https://${HOST}/${APP}/projectSearches/company`
+`https://${HOST}/${APP}/rest/projectSearches/company`
 
 ### Allowed Methods
 
@@ -48,19 +49,15 @@ Get all project searches for the company to which the current user belongs.
 
 `GET {{host}}/projectmanager/rest/projectSearches/company?token={{token}}`
 
-&nbsp;
+##### Bruno
 
----
-
-&nbsp;
-
-## Count
+Use the **Get Company Searches** request in the `Project Searches` folder. The `apiToken` is set at the collection level.
 
 Count the number of projects matching the search criteria.
 
 ### URL
 
-`https://${HOST}/${APP}/projectSearches/${ID}/count`
+`https://${HOST}/${APP}/rest/projectSearches/${ID}/count`
 
 ### Allowed Methods
 
@@ -84,21 +81,15 @@ Count the number of projects matching the search criteria.
 
 `GET {{host}}/projectmanager/rest/projectSearches/123456/count?token={{token}}`
 
-&nbsp;
+##### Bruno
 
----
-
-&nbsp;
-
-## Project Searches
-
-Get project searches.
+Use the **Count Search Results** request in the `Project Searches` folder. Set the `id` path parameter to the search ID.
 
 ### URLs
 
-`https://${HOST}/${APP}/projectSearches`
-`https://${HOST}/${APP}/projectSearches/${ID}`  
-`https://${HOST}/${APP}/projectSearches/${ID}/show`
+`https://${HOST}/${APP}/rest/projectSearches`
+`https://${HOST}/${APP}/rest/projectSearches/${ID}`  
+`https://${HOST}/${APP}/rest/projectSearches/${ID}/show`
 
 ### Allowed Methods
 
@@ -146,19 +137,13 @@ Get project searches.
 
 `{{host}}/projectmanager/rest/projectSearches/123456?token={{token}}`
 
-&nbsp;
+##### Bruno
 
----
-
-&nbsp;
-
-## Project Searches
-
-Create a project search.
+Use the **Get Project Searches** request in the `Project Searches` folder. Optionally set `ids` query parameter or the `id` path parameter to filter by ID.
 
 ### URL
 
-`https://${HOST}/${APP}/projectSearches`
+`https://${HOST}/${APP}/rest/projectSearches`
 
 ### Allowed Methods
 
@@ -166,7 +151,7 @@ Create a project search.
 
 ### Parameters
 
-`A` [projectSearch](../../resources/schema/project/projectSearch.schema) object.
+`A` [projectSearch](../../resources/schema/project/projectSearch.schema) object passed as JSON in the request body.
 
 ### Returns
 
@@ -174,16 +159,26 @@ Create a project search.
 
 ### Examples
 
-##### POSTMAN using api token authentication (see project-search-json example below)
+##### POSTMAN using api token authentication
 
-`POST {{host}}/projectmanager/rest/projectSearches/projectSearch=<project-search-json>?apiToken={{apiToken}}`
+`POST {{host}}/projectmanager/rest/projectSearches?apiToken={{apiToken}}`
 
-##### POSTMAN using oidc token authentication (see project-search-json example below)
-
-`POST {{host}}/projectmanager/rest/projectSearches/projectSearch=<project-search-json>?token={{token}}`
-
-```
+Body (JSON):
+```json
 {
+    "projectSearch": {
+        ...
+    }
+}
+```
+
+##### POSTMAN using oidc token authentication
+
+`POST {{host}}/projectmanager/rest/projectSearches?token={{token}}`
+
+##### Bruno
+
+Use the **Create Search** request (POST) in the `Project Searches` folder if available, or create a new POST request to `{{pmBase}}/rest/projectSearches` with the projectSearch JSON in the body.
     "projectSearch": {
         "name": "test",
         "userId": null,
@@ -227,7 +222,7 @@ Delete a project search.
 
 ### URL
 
-`https://${HOST}/${APP}/projectSearches/${ID}/delete`
+`https://${HOST}/${APP}/rest/projectSearches/${ID}`
 
 ### Allowed Methods
 
@@ -245,25 +240,21 @@ Delete a project search.
 
 ##### POSTMAN using api token authentication (see project-search-json example below)
 
-`DELETE {{host}}/projectmanager/rest/projectSearches/123456/delete?apiToken={{apiToken}}`
+`DELETE {{host}}/projectmanager/rest/projectSearches/123456?apiToken={{apiToken}}`
 
 ##### POSTMAN using oidc token authentication (see project-search-json example below)
 
-`DELETE {{host}}/projectmanager/rest/projectSearches/123456/delete?token={{token}}`
+`DELETE {{host}}/projectmanager/rest/projectSearches/123456?token={{token}}`
 
-&nbsp;
+##### Bruno
 
----
+Use the **Delete Search** request (DELETE) in the `Project Searches` folder if available, or send a DELETE to `{{pmBase}}/rest/projectSearches/{id}`.
 
-&nbsp;
-
-## Projects
-
-Return all projects matching the project searches.
+Return all projects matching the project search.
 
 ### URL
 
-`https://${HOST}/${APP}/${id}/projects`
+`https://${HOST}/${APP}/rest/projectSearches/${ID}/projects`
 
 ### Allowed Methods
 
@@ -271,7 +262,7 @@ Return all projects matching the project searches.
 
 ### Parameters
 
-`None`
+1. `details`: `boolean`, if true include full station details (optional, defaults to false)
 
 ### Returns
 
@@ -287,19 +278,15 @@ Return all projects matching the project searches.
 
 `GET {{host}}/projectmanager/rest/projectSearches/123456/projects?token={{token}}`
 
-&nbsp;
+##### Bruno
 
----
+Use the **Get Search Projects** request in the `Project Searches` folder. Set the `id` path parameter to the search ID. Optionally enable the `details` query parameter.
 
-&nbsp;
-
-## Stations
-
-Return all stations matching the project searches.
+Return all stations matching the project search.
 
 ### URL
 
-`https://${HOST}/${APP}/${id}/stations`
+`https://${HOST}/${APP}/rest/projectSearches/${ID}/stations`
 
 ### Allowed Methods
 
@@ -317,8 +304,98 @@ Return all stations matching the project searches.
 
 ##### POSTMAN using api token authentication
 
-`GET {{host}}/projectmanager/rest/projectSearches/123456/projects?apiToken={{apiToken}}`
+`GET {{host}}/projectmanager/rest/projectSearches/123456/stations?apiToken={{apiToken}}`
 
 ##### POSTMAN using oidc token authentication
 
-`GET {{host}}/projectmanager/rest/projectSearches/123456/projects?token={{token}}`
+`GET {{host}}/projectmanager/rest/projectSearches/123456/stations?token={{token}}`
+
+##### Bruno
+
+Use the **Get Search Stations** request in the `Project Searches` folder. Set the `id` path parameter to the search ID.
+
+Export a project search definition as a JSON file download.
+
+### URL
+
+`https://${HOST}/${APP}/rest/projectSearches/${ID}/export`
+
+### Allowed Methods
+
+`GET`
+
+### Parameters
+
+`None`
+
+### Returns
+
+A JSON file download of the [projectSearch](../../resources/schema/project/projectSearch.schema) object.
+
+### Examples
+
+##### POSTMAN using api token authentication
+
+`GET {{host}}/projectmanager/rest/projectSearches/123456/export?apiToken={{apiToken}}`
+
+##### Bruno
+
+Use the **Export Search** request in the `Project Searches` folder. Set the `id` path parameter to the search ID.
+
+Export search results as a CSV file download.
+
+### URL
+
+`https://${HOST}/${APP}/rest/projectSearches/${ID}/exportCsv`
+
+### Allowed Methods
+
+`GET`
+
+### Parameters
+
+1. `mode`: `PROJECT` or `STATION` (determines CSV structure)
+1. `tzOffsetMinutes`: timezone offset in minutes
+1. `usesDst`: `boolean`, whether timezone uses daylight saving time
+
+### Returns
+
+A CSV file download.
+
+### Examples
+
+##### POSTMAN using api token authentication
+
+`GET {{host}}/projectmanager/rest/projectSearches/123456/exportCsv?mode=PROJECT&apiToken={{apiToken}}`
+
+##### Bruno
+
+Use the **Export Search CSV** request in the `Project Searches` folder. Set the `id` path parameter and configure `mode` (`PROJECT` or `STATION`), `tzOffsetMinutes`, and `usesDst` query parameters.
+
+Update an existing project search.
+
+### URL
+
+`https://${HOST}/${APP}/rest/projectSearches/${ID}`
+
+### Allowed Methods
+
+`PUT`
+
+### Parameters
+
+`A` [projectSearch](../../resources/schema/project/projectSearch.schema) object.
+
+### Returns
+
+`A` [projectSearch](../../resources/schema/project/projectSearch.schema) object.
+
+### Examples
+
+##### POSTMAN using api token authentication
+
+`PUT {{host}}/projectmanager/rest/projectSearches/123456?apiToken={{apiToken}}`
+
+##### Bruno
+
+Send a PUT request to `{{pmBase}}/rest/projectSearches/{id}` with the updated projectSearch JSON in the body.

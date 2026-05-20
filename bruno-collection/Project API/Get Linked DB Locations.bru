@@ -1,0 +1,27 @@
+meta {
+  name: Get Linked DB Locations
+  type: http
+  seq: 13
+}
+
+get {
+  url: {{pmBase}}/projectAPI/getLinkedDBLocations?apiToken={{apiToken}}&station_id=5d934ae88cd8ac812e38b9e1
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  station_id: 5d934ae88cd8ac812e38b9e1
+  ~source: 
+  ~version: 
+}
+
+docs {
+  Get all SPIDAdb locations linked to a SPIDAdb location ID.
+
+  Parameters:
+  - station_id: a station id string (required)
+  - source: the source asset service (optional)
+  - version: the schema version (optional)
+}

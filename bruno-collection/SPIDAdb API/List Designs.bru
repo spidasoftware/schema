@@ -1,0 +1,35 @@
+meta {
+  name: List Designs
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{dbBase}}/designs.referenced?apiToken={{apiToken}}
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  ~label: 
+  ~limit: 25
+  ~skip: 0
+  ~projectId: 
+  ~projectLabel: 
+  ~locationId: 
+  ~locationLabel: 
+}
+
+docs {
+  List designs matching a query. Use .referenced format for smaller payloads.
+
+  Parameters (all optional):
+  - label: filter by design label
+  - limit: max results to return
+  - skip: number of results to skip
+  - projectId: filter by parent project id
+  - projectLabel: filter by parent project label
+  - locationId: filter by parent location id
+  - locationLabel: filter by parent location label
+}

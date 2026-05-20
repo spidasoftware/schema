@@ -1,0 +1,25 @@
+meta {
+  name: Quick Find
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{amBase}}/assetSearchAPI/quickFind?apiToken={{apiToken}}&find_param=pole1
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  find_param: pole1
+  ~companyId: 
+}
+
+docs {
+  Find stations based on a string. Searches basic info including ID and tags.
+
+  Parameters:
+  - find_param: search string (required)
+  - companyId: search a company other than your home company (optional)
+}

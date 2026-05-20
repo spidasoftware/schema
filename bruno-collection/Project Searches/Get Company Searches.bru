@@ -1,0 +1,21 @@
+meta {
+  name: Get Company Searches
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{pmBase}}/rest/projectSearches/company?apiToken={{apiToken}}
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+}
+
+docs {
+  Get all project searches for the company to which the current user belongs.
+
+  Returns a list of projectSearch objects.
+}

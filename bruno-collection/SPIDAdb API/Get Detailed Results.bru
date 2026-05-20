@@ -1,0 +1,26 @@
+meta {
+  name: Get Detailed Results
+  type: http
+  seq: 11
+}
+
+get {
+  url: {{dbBase}}/results/:id?apiToken={{apiToken}}
+  body: none
+  auth: none
+}
+
+params:path {
+  id: result-id
+}
+
+params:query {
+  apiToken: {{apiToken}}
+}
+
+docs {
+  Get detailed analysis results by resultId.
+
+  The resultId is found in the design's analysis array.
+  Detailed results are large and not embedded in normal responses.
+}

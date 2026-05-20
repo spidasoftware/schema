@@ -1,0 +1,25 @@
+meta {
+  name: Delete
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{pmBase}}/projectAPI/delete?apiToken={{apiToken}}
+  body: formUrlEncoded
+  auth: none
+}
+
+body:form-urlencoded {
+  project_ids: [1]
+}
+
+docs {
+  Delete Members, ProjectCodes, Stations, or Projects.
+
+  Parameters (at least one required):
+  - project_ids: array of project ids
+  - project_code_ids: array of project code ids
+  - member_ids: array of member ids
+  - station_ids: array of station ids
+}

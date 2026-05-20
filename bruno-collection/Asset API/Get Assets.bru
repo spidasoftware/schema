@@ -1,0 +1,25 @@
+meta {
+  name: Get Assets
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{amBase}}/assetAPI/getAssets?apiToken={{apiToken}}&asset_ids=["1"]
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  asset_ids: ["1"]
+  ~details: true
+}
+
+docs {
+  Get a set of assets based on parameters provided.
+
+  Parameters:
+  - asset_ids: array of ids to retrieve (required)
+  - details: boolean, fetch asset details (optional)
+}

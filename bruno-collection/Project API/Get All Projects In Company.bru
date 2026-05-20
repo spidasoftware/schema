@@ -1,0 +1,28 @@
+meta {
+  name: Get All Projects In Company
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{pmBase}}/projectAPI/getAllProjectsInCompany?apiToken={{apiToken}}
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  ~company_id: 2
+  ~include_finished: false
+  ~db_only: false
+}
+
+docs {
+  Return a list of projects with projectCodes and ids for the company.
+  Requires ROLE_PM_ADMINISTRATOR.
+
+  Parameters (all optional):
+  - company_id: finds all projects in this company
+  - include_finished: if true includes finished projects (defaults to false)
+  - db_only: if true includes only projects with a spidaDBId (defaults to false)
+}

@@ -1,0 +1,26 @@
+meta {
+  name: Create Project from Locations
+  type: http
+  seq: 12
+}
+
+post {
+  url: {{dbBase}}/projects/createFromLocations?apiToken={{apiToken}}
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "projectName": "New Project",
+    "locationIds": ["location-id-1", "location-id-2"]
+  }
+}
+
+docs {
+  Create a new project from existing location IDs.
+
+  Parameters (JSON body):
+  - projectName: name for the new project
+  - locationIds: array of existing location IDs
+}

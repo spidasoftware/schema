@@ -1,0 +1,32 @@
+meta {
+  name: Register Webhook
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{pmBase}}/webhookAPI/register?apiToken={{apiToken}}
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "url": "https://example.com/webhook/callback",
+    "channel": "Project",
+    "eventFilter": ".*",
+    "hookId": "my-hook-1",
+    "leaseTime": 86400
+  }
+}
+
+docs {
+  Register a webhook to receive event callbacks.
+
+  Parameters (JSON body):
+  - url: The URL to post to (required)
+  - channel: The channel to listen to - Form, Project, Station, Status, Phase (required)
+  - eventFilter: Java regex filter on event name (defaults to .*)
+  - hookId: User-defined id for this hook
+  - leaseTime: Expire webhook after this many seconds
+}

@@ -1,0 +1,28 @@
+meta {
+  name: Show Client File
+  type: http
+  seq: 18
+}
+
+get {
+  url: {{dbBase}}/clientFiles/:id?apiToken={{apiToken}}
+  body: none
+  auth: none
+}
+
+params:path {
+  id: your-client-file-id
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  ~version: 
+}
+
+docs {
+  Get a single client file by ID from SPIDAdb.
+
+  Parameters:
+  - id: the client file ID (in URL path, required)
+  - version: schema version (optional)
+}

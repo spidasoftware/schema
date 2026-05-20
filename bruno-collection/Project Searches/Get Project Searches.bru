@@ -1,0 +1,27 @@
+meta {
+  name: Get Project Searches
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{pmBase}}/rest/projectSearches?apiToken={{apiToken}}
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  ~ids: 
+}
+
+docs {
+  Get project searches for the current user.
+
+  Parameters:
+  - ids: URL-encoded JSON array of search IDs (optional)
+
+  Alternative URLs:
+  - /rest/projectSearches/{id} - get by single ID
+  - /rest/projectSearches/{id}/show - get by single ID
+}

@@ -1,0 +1,25 @@
+meta {
+  name: Update Project (PUT)
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{dbBase}}/projects/:id?apiToken={{apiToken}}
+  body: formUrlEncoded
+  auth: none
+}
+
+params:path {
+  id: your-project-id
+}
+
+body:form-urlencoded {
+  project: {"label":"updated-project","leads":[],"locations":[]}
+}
+
+docs {
+  Update an existing project in SPIDAdb.
+
+  PUT to /projects/{id} with the updated project JSON.
+}

@@ -1,0 +1,27 @@
+meta {
+  name: Delete
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{amBase}}/assetCreationAPI/delete?apiToken={{apiToken}}
+  body: formUrlEncoded
+  auth: none
+}
+
+body:form-urlencoded {
+  station_ids: ["ff8081814b84506a014d583304e76144"]
+}
+
+docs {
+  Deletes stations or assets.
+
+  WARNING: Deleting stations from an asset service breaks links from Projectmanager.
+  Use createOrUpdate to modify details instead. If you must delete, update links via Station Linker API.
+
+  Parameters (at least one required):
+  - asset_ids: array of asset ids
+  - station_ids: array of station ids
+  - attachment_uuids: array of attachment uuids
+}

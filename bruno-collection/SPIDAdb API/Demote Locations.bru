@@ -1,0 +1,22 @@
+meta {
+  name: Demote Locations
+  type: http
+  seq: 14
+}
+
+post {
+  url: {{dbBase}}/status/demote?apiToken={{apiToken}}
+  body: json
+  auth: none
+}
+
+body:json {
+  ["location-id-1", "location-id-2"]
+}
+
+docs {
+  Demote locations and their designs.
+
+  Pass a JSON array of location IDs.
+  Returns maps of demoted location and design IDs.
+}

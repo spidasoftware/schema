@@ -1,0 +1,11 @@
+{
+  "variables": [
+    { "name": "host", "value": "https://test-spida.spidastudio.com", "enabled": true, "secret": false, "type": "text" },
+    { "name": "pmBase", "value": "{{host}}/projectmanager", "enabled": true, "secret": false, "type": "text" },
+    { "name": "umBase", "value": "{{host}}/usersmaster", "enabled": true, "secret": false, "type": "text" },
+    { "name": "amBase", "value": "{{host}}/assetmaster", "enabled": true, "secret": false, "type": "text" },
+    { "name": "ffBase", "value": "{{host}}/filefort", "enabled": true, "secret": false, "type": "text" },
+    { "name": "dbBase", "value": "{{host}}/spidadb", "enabled": true, "secret": false, "type": "text" },
+    { "name": "apiToken", "value": "", "enabled": true, "secret": true, "type": "text" }
+  ]
+}

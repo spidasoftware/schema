@@ -1,0 +1,26 @@
+meta {
+  name: Show Project
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{dbBase}}/projects/:id?apiToken={{apiToken}}
+  body: none
+  auth: none
+}
+
+params:path {
+  id: your-project-id
+}
+
+params:query {
+  apiToken: {{apiToken}}
+}
+
+docs {
+  Get a single project by ID from SPIDAdb.
+
+  Use .referenced suffix for smaller payloads: /projects/{id}.referenced
+  Use .calc (default) for full project with all locations and designs.
+}

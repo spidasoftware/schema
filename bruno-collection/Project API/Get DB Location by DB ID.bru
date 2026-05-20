@@ -1,0 +1,29 @@
+meta {
+  name: Get DB Location by DB ID
+  type: http
+  seq: 12
+}
+
+get {
+  url: {{pmBase}}/projectAPI/getDBLocationByDBId?apiToken={{apiToken}}&db_id=5ceec30c8cd8ac160e76f777
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  db_id: 5ceec30c8cd8ac160e76f777
+  ~format: referenced
+  ~detailed_results: false
+  ~version: 
+}
+
+docs {
+  Get a SPIDAdb Location by its DB ID using projectmanager permissions.
+
+  Parameters:
+  - db_id: a db id string (required)
+  - format: calc or referenced (defaults to calc)
+  - detailed_results: if true retrieves and embeds all detailed results
+  - version: schema version (optional, auto-detected from User-Agent if not set)
+}

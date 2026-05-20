@@ -1,0 +1,31 @@
+meta {
+  name: Find DB Projects in DB
+  type: http
+  seq: 14
+}
+
+get {
+  url: {{pmBase}}/projectAPI/findDBProjectsInDB?apiToken={{apiToken}}&label=pole
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  label: pole
+  ~limit: 100
+  ~format: referenced
+  ~version: 
+  ~exactMatch: false
+}
+
+docs {
+  Find SPIDAdb projects with a label containing the search string.
+
+  Parameters:
+  - label: the string to search for (required)
+  - limit: max number of projects to return (defaults to 100)
+  - format: calc or referenced (defaults to referenced)
+  - version: schema version (optional, auto-detected from User-Agent if not set)
+  - exactMatch: if true, matches label exactly (defaults to false)
+}

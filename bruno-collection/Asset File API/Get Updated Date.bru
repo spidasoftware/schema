@@ -1,0 +1,25 @@
+meta {
+  name: Get Updated Date
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{ffBase}}/assetFileAPI/getUpdatedDate?apiToken={{apiToken}}&uuid=your-uuid-here
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  uuid: your-uuid-here
+}
+
+docs {
+  Get date the attachment was last updated.
+
+  Parameters:
+  - uuid: attachment uuid (required)
+
+  Returns a number (timestamp).
+}

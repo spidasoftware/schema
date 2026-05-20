@@ -1,0 +1,25 @@
+meta {
+  name: Unregister Webhook
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{pmBase}}/webhookAPI/unregister?apiToken={{apiToken}}
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "hookId": "my-hook-1"
+  }
+}
+
+docs {
+  Unregister a previously registered webhook.
+
+  Parameters (JSON body, exactly one required):
+  - url: Unregister all webhooks with this url
+  - hookId: Unregister the webhook with this hookId
+}

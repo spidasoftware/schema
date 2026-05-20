@@ -1,0 +1,25 @@
+meta {
+  name: Get Version Count
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{ffBase}}/assetFileAPI/getVersionCount?apiToken={{apiToken}}&uuid=your-uuid-here
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  uuid: your-uuid-here
+}
+
+docs {
+  Get version count of attachment with uuid.
+
+  Parameters:
+  - uuid: attachment uuid (required)
+
+  Returns a number.
+}

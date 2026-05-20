@@ -1,0 +1,31 @@
+meta {
+  name: Get Stations
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{pmBase}}/stationLinkerAPI/getStations?apiToken={{apiToken}}&station_ids=["1"]
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  ~station_ids: ["1"]
+  ~tags: 
+  ~bounding_box: 
+  ~company_ids: 
+  ~details: true
+}
+
+docs {
+  Get stations through the station linker (aggregates across linked asset services).
+
+  Parameters (station_ids or bounding_box required):
+  - station_ids: JSON array of station ids
+  - tags: JSON array of tag values
+  - bounding_box: a geometry polygon
+  - company_ids: JSON array of company ids
+  - details: boolean, fetch asset details
+}

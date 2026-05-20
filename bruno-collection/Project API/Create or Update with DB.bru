@@ -1,0 +1,28 @@
+meta {
+  name: Create or Update with DB
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{pmBase}}/projectAPI/createOrUpdateWithDB?apiToken={{apiToken}}
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  project_json: {"name":"api-test","flowName":"test","stations":[{"spotted":true,"display":"api-test-loc","geometry":{"coordinates":[-82.86,40.00],"type":"Point"}}]}
+  spidaFile: @file()
+  clientFile: @file()
+}
+
+docs {
+  Create or update a project with a linked SPIDAdb project.
+
+  Parameters:
+  - project_json: a project object (required)
+  - spidaFile: an exchange.spida file (required for linked db project)
+  - clientFile: client file in json format (required for linked db project)
+
+  Returns an id object.
+}

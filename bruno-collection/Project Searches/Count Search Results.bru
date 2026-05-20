@@ -1,0 +1,26 @@
+meta {
+  name: Count Search Results
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{pmBase}}/rest/projectSearches/:id/count?apiToken={{apiToken}}
+  body: none
+  auth: none
+}
+
+params:path {
+  id: 123456
+}
+
+params:query {
+  apiToken: {{apiToken}}
+}
+
+docs {
+  Count the number of projects matching a saved search's criteria.
+
+  Parameters:
+  - id: the project search ID (in URL path)
+}

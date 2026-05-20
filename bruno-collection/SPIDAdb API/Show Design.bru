@@ -1,0 +1,26 @@
+meta {
+  name: Show Design
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{dbBase}}/designs/:id?apiToken={{apiToken}}
+  body: none
+  auth: none
+}
+
+params:path {
+  id: your-design-id
+}
+
+params:query {
+  apiToken: {{apiToken}}
+}
+
+docs {
+  Get a single design by ID from SPIDAdb.
+
+  Use .referenced suffix for smaller payloads.
+  Designs are read-only - modify via parent project.
+}

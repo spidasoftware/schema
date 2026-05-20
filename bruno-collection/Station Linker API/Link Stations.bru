@@ -1,0 +1,25 @@
+meta {
+  name: Link Stations
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{pmBase}}/stationLinkerAPI/linkStations?apiToken={{apiToken}}&station_ids={}
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  station_ids: {}
+}
+
+docs {
+  Links stations in different services together.
+
+  Parameters:
+  - station_ids: a service_and_ids object (required)
+
+  Returns an id array with linkerIds.
+}

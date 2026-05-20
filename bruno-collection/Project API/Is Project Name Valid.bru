@@ -1,0 +1,29 @@
+meta {
+  name: Is Project Name Valid
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{pmBase}}/projectAPI/isProjectNameValid?apiToken={{apiToken}}&name=test
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  name: test
+  ~company_id: 2
+  ~details: false
+}
+
+docs {
+  Checks if a project name has valid characters and is unique within a company.
+
+  Parameters:
+  - name: project name to check (required)
+  - company_id: the company id (optional, defaults to current company)
+  - details: if true, returns validation error details; if false returns only valid boolean (optional)
+
+  Returns: {"valid": true/false} or {"valid": false, "errors": [...]}
+}

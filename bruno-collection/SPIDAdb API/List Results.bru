@@ -1,0 +1,26 @@
+meta {
+  name: List Results
+  type: http
+  seq: 16
+}
+
+post {
+  url: {{dbBase}}/results?apiToken={{apiToken}}
+  body: json
+  auth: none
+}
+
+body:json {
+  ["result-id-1", "result-id-2"]
+}
+
+docs {
+  Retrieve multiple detailed results by an array of result IDs.
+
+  Body: JSON array of result ID strings.
+
+  Parameters:
+  - version: schema version (optional)
+  - format: calc or referenced (optional)
+  - limit: max results (optional)
+}

@@ -1,0 +1,29 @@
+meta {
+  name: Get Projects
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{pmBase}}/projectAPI/getProjects?apiToken={{apiToken}}
+  body: none
+  auth: none
+}
+
+params:query {
+  apiToken: {{apiToken}}
+  ~project_ids: [1,2]
+  ~project_code_values: 
+  ~associated_station_ids: 
+  ~details: true
+}
+
+docs {
+  Return a list of projects. Includes deleted and closed projects.
+
+  Parameters (at least one of the first three required):
+  - project_ids: JSON array of project ids
+  - project_code_values: JSON array of project code strings
+  - associated_station_ids: JSON array of station id strings (location labels or asset service stationIds)
+  - details: boolean, whether to fetch all stations (defaults to false)
+}
