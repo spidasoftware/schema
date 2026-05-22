@@ -10,6 +10,10 @@ post {
   auth: none
 }
 
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
 body:form-urlencoded {
   station: {"assetTypes":["POLE"],"primaryAssetOwnerId":57,"primaryAssetType":"POLE","dataProviderId":57,"geometry":{"type":"Point","coordinates":[-82.95,39.98]},"stationAssets":[{"assetType":"POLE","ownerId":57,"primaryAsset":true,"assetTags":[{"primary":true,"name":"Primary Tag","value":"10"}]}]}
 }
