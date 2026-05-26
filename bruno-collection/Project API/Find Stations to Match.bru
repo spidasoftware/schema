@@ -10,6 +10,10 @@ post {
   auth: none
 }
 
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
 body:form-urlencoded {
   stations: [{"display":"Pole 1","geometry":{"type":"Point","coordinates":[-82.86,40.00]}}]
   ~projectId: 

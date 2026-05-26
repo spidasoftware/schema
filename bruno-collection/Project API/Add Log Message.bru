@@ -10,6 +10,10 @@ post {
   auth: none
 }
 
+headers {
+  Content-Type: application/x-www-form-urlencoded
+}
+
 body:form-urlencoded {
   project_id: 1
   log_message_json: {"message":"Log entry from API"}
