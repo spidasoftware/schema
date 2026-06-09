@@ -38,7 +38,7 @@ class UrlFormFieldChangeSetTest extends Specification {
             json.projectForms[2].fields.size() == 1
             json.projectForms[2].fields.tabby.size() == 2
 
-            // form named ""table field containing url" with one table field containing one text field and one url field
+            // form named "table field containing url" with one table field containing one text field and one url field
             json.projectForms[3].formDefinition.size() == 1
             json.projectForms[3].formDefinition[0].fieldDefinitions.size() == 2
             json.projectForms[3].formDefinition[0].fieldDefinitions.count { it.fieldType == "customUrlField" } == 1
