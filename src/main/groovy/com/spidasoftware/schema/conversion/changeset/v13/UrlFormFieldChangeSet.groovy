@@ -108,8 +108,11 @@ class UrlFormFieldChangeSet extends AbstractClientDataChangeSet {
      * Remove any fields with the given field names from the given fields map.
      */
     protected void revertFields(Map<String, ?> fields, List<String> fieldNamesToRevert) {
+        if (!fields || !fieldNamesToRevert) {
+            return
+        }
         fieldNamesToRevert.each { String fieldName ->
-            fields.removeAll {it.key == fieldName }
+            fields.remove(fieldName)
         }
     }
 }
