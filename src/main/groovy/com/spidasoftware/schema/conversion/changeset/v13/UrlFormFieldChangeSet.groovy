@@ -95,10 +95,13 @@ class UrlFormFieldChangeSet extends AbstractClientDataChangeSet {
     /**
      * Remove any url fields from the form definition, and return a list of the field names of the removed url fields.
      */
-    protected List<String> revertDefinition(List<Map<String, String>> definition) {
+    protected List<String> revertDefinition(List<Map> definition) {
+        if (!definition) {
+            return []
+        }
         List<Map> fieldsToRevert = definition.findAll { it.fieldType == "customUrlField" }
-        fieldsToRevert.each { definition.remove(it) }
-        return fieldsToRevert*.fieldName
+        definition.removeAll(fieldsToRevert)
+        return fieldsToRevert.collect { it.fieldName as String }
     }
 
     /**
