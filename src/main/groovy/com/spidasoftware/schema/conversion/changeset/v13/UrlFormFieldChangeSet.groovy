@@ -54,17 +54,27 @@ class UrlFormFieldChangeSet extends AbstractClientDataChangeSet {
         boolean changed = false
 
         List<Map> formDefinition = form.formDefinition as List<Map>
+        if (!formDefinition) {
+            return false
+        }
+
+        Map<String, ?> fields = form.fields as Map<String, ?>
 
         // simple fields
         List<String> urlFieldNames = revertDefinition(formDefinition)
-        revertFields(form.fields as Map<String, ?>, urlFieldNames)
+        if (fields) {
+            revertFields(fields, urlFieldNames)
+        }
         changed |= !urlFieldNames.isEmpty()
 
         // tab containers
         List<Map> tabFields = formDefinition.findAll { it.fieldType == "customTabbedPane" }
         tabFields.each { Map tabField ->
             urlFieldNames = revertDefinition(tabField.fieldDefinitions as List<Map>)
-            revertFields(form.fields[tabField.fieldName as String] as Map<String, ?>, urlFieldNames)
+            Map<String, ?> tabValues = fields?.get(tabField.fieldName as String) as Map<String, ?>
+            if (tabValues) {
+                revertFields(tabValues, urlFieldNames)
+            }
             changed |= !urlFieldNames.isEmpty()
         }
 
@@ -72,8 +82,9 @@ class UrlFormFieldChangeSet extends AbstractClientDataChangeSet {
         List<Map> tableFields = formDefinition.findAll { it.fieldType == "customTable" }
         tableFields.each { Map tableField ->
             urlFieldNames = revertDefinition(tableField.fieldDefinitions as List<Map>)
-            (form.fields[tableField.fieldName as String] as List<Map<String, String>>).each { Map<String, ?> row ->
-                revertFields(row, urlFieldNames)
+            List<Map> rows = fields?.get(tableField.fieldName as String) as List<Map>
+            rows?.each { Map row ->
+                revertFields(row as Map<String, ?>, urlFieldNames)
             }
             changed |= !urlFieldNames.isEmpty()
         }
