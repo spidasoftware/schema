@@ -9,7 +9,7 @@
         },
         "fieldType": {
           "type": "string",
-          "description": "The field's type.  One of:  customTextField, customTextArea, customCheckBox, customSpinner, customFootInchField, customCalendarField"
+          "description": "The field's type.  One of:  customTextField, customTextArea, customCheckBox, customSpinner, customFootInchField, customCalendarField, customUrlField"
         }
       },
       "required": ["fieldName", "fieldType"]

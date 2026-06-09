@@ -24,7 +24,8 @@
                   "customListSelection",
                   "customGroup",
                   "customTabbedPane",
-                  "customTable"
+                  "customTable",
+                  "customUrlField"
                ]
         }
     }
