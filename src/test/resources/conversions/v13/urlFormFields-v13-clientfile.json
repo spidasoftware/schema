@@ -1,0 +1,724 @@
+{
+    "schema": "/schema/spidacalc/client/data.schema",
+    "name": "UrlFormFields.client",
+    "poles": [
+        {
+            "aliases": [],
+            "shape": "ROUND",
+            "materialCategory": "WOOD",
+            "classOfPole": "3",
+            "species": "Southern Pine",
+            "height": {
+                "unit": "METRE",
+                "value": 10.668000000000001
+            },
+            "density": {
+                "unit": "KILOGRAM_PER_CUBIC_METRE",
+                "value": 576.664681462565
+            },
+            "maximumAllowableStress": {
+                "unit": "PASCAL",
+                "value": 5.515805834534689E7
+            },
+            "modulus": {
+                "unit": "PASCAL",
+                "value": 1.72368932329209E10
+            },
+            "wallThickness": {
+                "unit": "METRE",
+                "value": -0.0254
+            },
+            "poissonRatio": 0.3,
+            "settingType": "ANSI",
+            "momentAtHeights": [],
+            "taper": 0.120738201,
+            "ptc": {
+                "unit": "METRE",
+                "value": 0.5841999645522462
+            }
+        }
+    ],
+    "wires": [],
+    "anchors": [],
+    "equipments": [],
+    "equipmentTypes": [
+        {
+            "name": "APPARATUS_CASE",
+            "industry": "COMMUNICATION"
+        },
+        {
+            "name": "CAPACITOR",
+            "industry": "UTILITY"
+        },
+        {
+            "name": "CROSS_CONNECT",
+            "industry": "COMMUNICATION"
+        },
+        {
+            "name": "CUTOUT_ARRESTOR",
+            "industry": "UTILITY"
+        },
+        {
+            "name": "DRIP_LOOP",
+            "industry": "UTILITY"
+        },
+        {
+            "name": "JOINT_USE_BOX",
+            "industry": "COMMUNICATION"
+        },
+        {
+            "name": "LOAD_COIL_CASE",
+            "industry": "COMMUNICATION"
+        },
+        {
+            "name": "POWER_SUPPLY",
+            "industry": "COMMUNICATION"
+        },
+        {
+            "name": "PRIMARY_METERING",
+            "industry": "UTILITY"
+        },
+        {
+            "name": "RECLOSER",
+            "industry": "UTILITY"
+        },
+        {
+            "name": "REGULATOR",
+            "industry": "UTILITY"
+        },
+        {
+            "name": "RISER",
+            "industry": "BOTH"
+        },
+        {
+            "name": "SPLICE_CASE",
+            "industry": "COMMUNICATION"
+        },
+        {
+            "name": "STREET_LIGHT",
+            "industry": "UTILITY"
+        },
+        {
+            "name": "SWITCH",
+            "industry": "UTILITY"
+        },
+        {
+            "name": "TERMINATION_BRACKET",
+            "industry": "UTILITY"
+        },
+        {
+            "name": "TRANSFORMER",
+            "industry": "UTILITY"
+        },
+        {
+            "name": "WIRE_MOUNTED",
+            "industry": "BOTH"
+        },
+        {
+            "name": "WIRELESS_ANTENNA",
+            "industry": "BOTH"
+        }
+    ],
+    "insulators": [],
+    "foundations": [],
+    "crossArms": [],
+    "braces": [],
+    "bundleComponents": [],
+    "bundles": [],
+    "assemblies": [],
+    "trusses": [],
+    "componentBraces": [],
+    "environments": [],
+    "defaultEnvironment": {
+        "name": "None",
+        "description": "N/A"
+    },
+    "analysisCases": [],
+    "owners": [
+        {
+            "industry": "UTILITY",
+            "id": "Acme Power"
+        },
+        {
+            "industry": "UTILITY",
+            "id": "Voltage Electric"
+        },
+        {
+            "industry": "COMMUNICATION",
+            "id": "Bob's Cable"
+        },
+        {
+            "industry": "COMMUNICATION",
+            "id": "Janet's Telco"
+        },
+        {
+            "industry": "COMMUNICATION",
+            "id": "Joe's Cable"
+        },
+        {
+            "industry": "COMMUNICATION",
+            "id": "Phil's Telco"
+        },
+        {
+            "industry": "COMMUNICATION",
+            "id": "Traffic"
+        }
+    ],
+    "notes": [],
+    "locationForms": [
+        {
+            "title": "Joint Use Audit",
+            "formDefinition": [
+                {
+                    "fieldName": "Pole Owner",
+                    "fieldType": "customDropDown",
+                    "inputChoices": [
+                        "--",
+                        "ACME Power",
+                        "Voltage Electric",
+                        "Janet's Telco",
+                        "Phil's Telco"
+                    ]
+                },
+                {
+                    "fieldName": "Attacher1",
+                    "fieldType": "customDropDown",
+                    "inputChoices": [
+                        "--",
+                        "Bob's Cable",
+                        "Joe's Cable",
+                        "Janet's Telco",
+                        "Phil's Telco",
+                        "Traffic"
+                    ]
+                },
+                {
+                    "fieldName": "Attacher1 Messengered Cables",
+                    "fieldType": "customSpinner"
+                },
+                {
+                    "fieldName": "Attacher1 Service Drop Contacts",
+                    "fieldType": "customSpinner"
+                },
+                {
+                    "fieldName": "Attacher2",
+                    "fieldType": "customDropDown",
+                    "inputChoices": [
+                        "--",
+                        "Bob's Cable",
+                        "Joe's Cable",
+                        "Janet's Telco",
+                        "Phil's Telco",
+                        "Traffic"
+                    ]
+                },
+                {
+                    "fieldName": "Attacher2 Messengered Cables",
+                    "fieldType": "customSpinner"
+                },
+                {
+                    "fieldName": "Attacher2 Service Drop Contacts",
+                    "fieldType": "customSpinner"
+                },
+                {
+                    "fieldName": "Attacher3",
+                    "fieldType": "customDropDown",
+                    "inputChoices": [
+                        "--",
+                        "Bob's Cable",
+                        "Joe's Cable",
+                        "Janet's Telco",
+                        "Phil's Telco",
+                        "Traffic"
+                    ]
+                },
+                {
+                    "fieldName": "Attacher3 Messengered Cables",
+                    "fieldType": "customSpinner"
+                },
+                {
+                    "fieldName": "Attacher3 Service Drop Contacts",
+                    "fieldType": "customSpinner"
+                },
+                {
+                    "fieldName": "Remedy",
+                    "fieldType": "customDropDown",
+                    "inputChoices": [
+                        "--",
+                        "OK Pole",
+                        "Joint Use Rearrangement",
+                        "Simple Power Make Ready",
+                        "Complex Power Make Ready",
+                        "Extreme Power Make Ready",
+                        "Pole Replacement",
+                        "Underground"
+                    ]
+                }
+            ],
+            "fields": {
+                "Pole Owner": "--",
+                "Attacher1": "--",
+                "Attacher1 Messengered Cables": "0",
+                "Attacher1 Service Drop Contacts": "0",
+                "Attacher2": "--",
+                "Attacher2 Messengered Cables": "0",
+                "Attacher2 Service Drop Contacts": "0",
+                "Attacher3": "--",
+                "Attacher3 Messengered Cables": "0",
+                "Attacher3 Service Drop Contacts": "0",
+                "Remedy": "--"
+            }
+        },
+        {
+            "title": "location url",
+            "formDefinition": [
+                {
+                    "fieldName": "site name",
+                    "fieldType": "customTextField"
+                },
+                {
+                    "fieldName": "site url",
+                    "fieldType": "customUrlField"
+                }
+            ],
+            "fields": {
+                "site name": "",
+                "site url": ""
+            }
+        },
+        {
+            "title": "ROW",
+            "formDefinition": [
+                {
+                    "fieldName": "ROW Info",
+                    "fieldType": "customTable",
+                    "fieldDefinitions": [
+                        {
+                            "fieldName": "Work Type",
+                            "fieldType": "customDropDown",
+                            "inputChoices": [
+                                "--",
+                                "RAR",
+                                "Install Anchor",
+                                "Pole Replacement",
+                                "Midspan Pole"
+                            ]
+                        },
+                        {
+                            "fieldName": "Distance from Edge of Pavement",
+                            "fieldType": "customSpinner"
+                        },
+                        {
+                            "fieldName": "Distance from Center Line",
+                            "fieldType": "customSpinner"
+                        },
+                        {
+                            "fieldName": "ROW Type",
+                            "fieldType": "customDropDown",
+                            "inputChoices": [
+                                "--",
+                                "ACME Power",
+                                "Private",
+                                "City ROW",
+                                "County ROW",
+                                "State ROW"
+                            ]
+                        },
+                        {
+                            "fieldName": "Truck Access",
+                            "fieldType": "customDropDown",
+                            "inputChoices": [
+                                "--",
+                                "Yes",
+                                "No"
+                            ]
+                        },
+                        {
+                            "fieldName": "Lane Closure",
+                            "fieldType": "customDropDown",
+                            "inputChoices": [
+                                "--",
+                                "N/A",
+                                "Yes",
+                                "No"
+                            ]
+                        },
+                        {
+                            "fieldName": "Flaggers Required",
+                            "fieldType": "customDropDown",
+                            "inputChoices": [
+                                "--",
+                                "N/A",
+                                "Yes",
+                                "No"
+                            ]
+                        },
+                        {
+                            "fieldName": "Owner Name",
+                            "fieldType": "customTextField"
+                        },
+                        {
+                            "fieldName": "Address",
+                            "fieldType": "customTextField"
+                        },
+                        {
+                            "fieldName": "Contact Info",
+                            "fieldType": "customTextField"
+                        }
+                    ]
+                }
+            ],
+            "fields": {
+                "ROW Info": []
+            }
+        }
+    ],
+    "projectForms": [
+        {
+            "title": "hyperform single field",
+            "formDefinition": [
+                {
+                    "fieldName": "hyperfield",
+                    "fieldType": "customUrlField"
+                }
+            ],
+            "fields": {
+                "hyperfield": ""
+            }
+        },
+        {
+            "title": "Project Summary",
+            "formDefinition": [
+                {
+                    "fieldName": "Work Order #",
+                    "fieldType": "customTextField"
+                },
+                {
+                    "fieldName": "Total Estimated Cost",
+                    "fieldType": "customTextField"
+                },
+                {
+                    "fieldName": "Total Estimated Hours",
+                    "fieldType": "customTextField"
+                },
+                {
+                    "fieldName": "Pole Replacements",
+                    "fieldType": "customSpinner"
+                },
+                {
+                    "fieldName": "Rearrangements",
+                    "fieldType": "customSpinner"
+                }
+            ],
+            "fields": {
+                "Work Order #": "",
+                "Total Estimated Cost": "",
+                "Total Estimated Hours": "",
+                "Pole Replacements": "0",
+                "Rearrangements": "0"
+            }
+        },
+        {
+            "title": "tab field containing url",
+            "formDefinition": [
+                {
+                    "fieldName": "tabby",
+                    "fieldType": "customTabbedPane",
+                    "fieldDefinitions": [
+                        {
+                            "fieldName": "text",
+                            "fieldType": "customTextField"
+                        },
+                        {
+                            "fieldName": "url",
+                            "fieldType": "customUrlField"
+                        }
+                    ]
+                }
+            ],
+            "fields": {
+                "tabby": {
+                    "text": "",
+                    "url": ""
+                }
+            }
+        },
+        {
+            "title": "table field containing url",
+            "formDefinition": [
+                {
+                    "fieldName": "table",
+                    "fieldType": "customTable",
+                    "fieldDefinitions": [
+                        {
+                            "fieldName": "text",
+                            "fieldType": "customTextField"
+                        },
+                        {
+                            "fieldName": "url",
+                            "fieldType": "customUrlField"
+                        }
+                    ]
+                }
+            ],
+            "fields": {
+                "table": []
+            }
+        }
+    ],
+    "customReportSetups": [],
+    "designLayers": [],
+    "defaultLocationForms": [
+        "location url"
+    ],
+    "defaultProjectForms": [
+        "Project Summary",
+        "hyperform single field"
+    ],
+    "clearanceCases": [
+        {
+            "type": "At Pole",
+            "name": "dumb",
+            "upper": [
+                {
+                    "type": "Wire",
+                    "name": "utility",
+                    "description": "",
+                    "industry": "UTILITY",
+                    "includedOwners": [],
+                    "excludedOwners": [],
+                    "includedClientItems": [],
+                    "wireClasses": [],
+                    "usageGroups": []
+                }
+            ],
+            "lower": [
+                {
+                    "type": "Wire",
+                    "name": "communication",
+                    "description": "",
+                    "industry": "COMMUNICATION",
+                    "includedOwners": [],
+                    "excludedOwners": [],
+                    "includedClientItems": [],
+                    "wireClasses": [],
+                    "usageGroups": []
+                }
+            ],
+            "clearances": [
+                {
+                    "upper": {
+                        "type": "Wire",
+                        "name": "utility",
+                        "description": "",
+                        "industry": "UTILITY",
+                        "includedOwners": [],
+                        "excludedOwners": [],
+                        "includedClientItems": [],
+                        "wireClasses": [],
+                        "usageGroups": []
+                    },
+                    "lower": {
+                        "type": "Wire",
+                        "name": "communication",
+                        "description": "",
+                        "industry": "COMMUNICATION",
+                        "includedOwners": [],
+                        "excludedOwners": [],
+                        "includedClientItems": [],
+                        "wireClasses": [],
+                        "usageGroups": []
+                    },
+                    "allowable": {
+                        "value": 1.0,
+                        "unit": "FOOT"
+                    }
+                }
+            ],
+            "exception": false,
+            "addByDefault": false
+        }
+    ],
+    "componentGroups": [
+        {
+            "type": "Wire",
+            "name": "communication",
+            "description": "",
+            "industry": "COMMUNICATION",
+            "includedOwners": [],
+            "excludedOwners": [],
+            "includedClientItems": [],
+            "wireClasses": [],
+            "usageGroups": []
+        },
+        {
+            "type": "Wire",
+            "name": "utility",
+            "description": "",
+            "industry": "UTILITY",
+            "includedOwners": [],
+            "excludedOwners": [],
+            "includedClientItems": [],
+            "wireClasses": [],
+            "usageGroups": []
+        }
+    ],
+    "wireClasses": [],
+    "wireStates": [
+        {
+            "name": "cold",
+            "wireTensionType": "INITIAL",
+            "designCondition": {
+                "name": "cold",
+                "iceThickness": {
+                    "value": 0.0,
+                    "unit": "CENTIMETRE"
+                },
+                "iceDensity": {
+                    "value": 0.0,
+                    "unit": "KILOGRAM_PER_CUBIC_METRE"
+                },
+                "windPressure": {
+                    "value": 0.0,
+                    "unit": "PASCAL"
+                },
+                "windSpeed": {
+                    "value": 0.0,
+                    "unit": "METRE_PER_SECOND"
+                },
+                "temperature": {
+                    "value": 0.0,
+                    "unit": "CELSIUS"
+                }
+            },
+            "highestStressCondition": {
+                "name": "default",
+                "iceThickness": {
+                    "value": 0.0,
+                    "unit": "MILLIMETRE"
+                },
+                "iceDensity": {
+                    "value": 917.0,
+                    "unit": "KILOGRAM_PER_CUBIC_METRE"
+                },
+                "windPressure": {
+                    "value": 0.0,
+                    "unit": "PASCAL"
+                },
+                "windSpeed": {
+                    "value": 0.0,
+                    "unit": "METRE_PER_SECOND"
+                },
+                "temperature": {
+                    "value": 60.0,
+                    "unit": "FAHRENHEIT"
+                }
+            },
+            "creepCondition": {
+                "name": "default",
+                "iceThickness": {
+                    "value": 0.0,
+                    "unit": "MILLIMETRE"
+                },
+                "iceDensity": {
+                    "value": 917.0,
+                    "unit": "KILOGRAM_PER_CUBIC_METRE"
+                },
+                "windPressure": {
+                    "value": 0.0,
+                    "unit": "PASCAL"
+                },
+                "windSpeed": {
+                    "value": 0.0,
+                    "unit": "METRE_PER_SECOND"
+                },
+                "temperature": {
+                    "value": 60.0,
+                    "unit": "FAHRENHEIT"
+                }
+            },
+            "outerStrandingCompression": false
+        },
+        {
+            "name": "hot",
+            "wireTensionType": "INITIAL",
+            "designCondition": {
+                "name": "hot",
+                "iceThickness": {
+                    "value": 0.0,
+                    "unit": "CENTIMETRE"
+                },
+                "iceDensity": {
+                    "value": 0.0,
+                    "unit": "KILOGRAM_PER_CUBIC_METRE"
+                },
+                "windPressure": {
+                    "value": 0.0,
+                    "unit": "PASCAL"
+                },
+                "windSpeed": {
+                    "value": 0.0,
+                    "unit": "METRE_PER_SECOND"
+                },
+                "temperature": {
+                    "value": 100.0,
+                    "unit": "CELSIUS"
+                }
+            },
+            "highestStressCondition": {
+                "name": "default",
+                "iceThickness": {
+                    "value": 0.0,
+                    "unit": "MILLIMETRE"
+                },
+                "iceDensity": {
+                    "value": 917.0,
+                    "unit": "KILOGRAM_PER_CUBIC_METRE"
+                },
+                "windPressure": {
+                    "value": 0.0,
+                    "unit": "PASCAL"
+                },
+                "windSpeed": {
+                    "value": 0.0,
+                    "unit": "METRE_PER_SECOND"
+                },
+                "temperature": {
+                    "value": 60.0,
+                    "unit": "FAHRENHEIT"
+                }
+            },
+            "creepCondition": {
+                "name": "default",
+                "iceThickness": {
+                    "value": 0.0,
+                    "unit": "MILLIMETRE"
+                },
+                "iceDensity": {
+                    "value": 917.0,
+                    "unit": "KILOGRAM_PER_CUBIC_METRE"
+                },
+                "windPressure": {
+                    "value": 0.0,
+                    "unit": "PASCAL"
+                },
+                "windSpeed": {
+                    "value": 0.0,
+                    "unit": "METRE_PER_SECOND"
+                },
+                "temperature": {
+                    "value": 60.0,
+                    "unit": "FAHRENHEIT"
+                }
+            },
+            "outerStrandingCompression": false
+        }
+    ],
+    "defaultOwner": {
+        "industry": "UTILITY",
+        "id": "Acme Power"
+    },
+    "dateModified": "2026-06-08T14:57:06.754Z",
+    "version": 13,
+    "hash": "ebc5da096e8e336c0141715fd4dfa06c"
+}

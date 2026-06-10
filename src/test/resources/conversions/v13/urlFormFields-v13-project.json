@@ -1,0 +1,431 @@
+{
+    "label": "urlFormFields",
+    "company": {
+        "id": 2,
+        "name": "SPIDA"
+    },
+    "dateModified": 1780931695566,
+    "clientFile": "UrlFormFields.client",
+    "date": "2026-06-08",
+    "schema": "/schema/spidacalc/calc/project.schema",
+    "version": 13,
+    "engineer": "",
+    "comments": "",
+    "generalLocation": "",
+    "address": {
+        "number": "",
+        "street": "",
+        "city": "",
+        "county": "",
+        "state": "",
+        "zip_code": ""
+    },
+    "userDefinedValues": {},
+    "clientData": {
+        "schema": "/schema/spidacalc/client/data.schema",
+        "version": 13,
+        "name": "UrlFormFields.client",
+        "poles": [
+            {
+                "aliases": [],
+                "shape": "ROUND",
+                "materialCategory": "WOOD",
+                "classOfPole": "3",
+                "species": "Southern Pine",
+                "height": {
+                    "unit": "METRE",
+                    "value": 10.668000000000001
+                },
+                "density": {
+                    "unit": "KILOGRAM_PER_CUBIC_METRE",
+                    "value": 576.664681462565
+                },
+                "maximumAllowableStress": {
+                    "unit": "PASCAL",
+                    "value": 5.515805834534689E7
+                },
+                "modulus": {
+                    "unit": "PASCAL",
+                    "value": 1.72368932329209E10
+                },
+                "wallThickness": {
+                    "unit": "METRE",
+                    "value": -0.0254
+                },
+                "poissonRatio": 0.3,
+                "settingType": "ANSI",
+                "momentAtHeights": [],
+                "taper": 0.120738201,
+                "ptc": {
+                    "unit": "METRE",
+                    "value": 0.5841999645522462
+                }
+            }
+        ],
+        "wires": [],
+        "anchors": [],
+        "equipments": [],
+        "equipmentTypes": [
+            {
+                "name": "APPARATUS_CASE",
+                "industry": "COMMUNICATION"
+            },
+            {
+                "name": "CAPACITOR",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "CROSS_CONNECT",
+                "industry": "COMMUNICATION"
+            },
+            {
+                "name": "CUTOUT_ARRESTOR",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "DRIP_LOOP",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "JOINT_USE_BOX",
+                "industry": "COMMUNICATION"
+            },
+            {
+                "name": "LOAD_COIL_CASE",
+                "industry": "COMMUNICATION"
+            },
+            {
+                "name": "POWER_SUPPLY",
+                "industry": "COMMUNICATION"
+            },
+            {
+                "name": "PRIMARY_METERING",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "RECLOSER",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "REGULATOR",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "RISER",
+                "industry": "BOTH"
+            },
+            {
+                "name": "SPLICE_CASE",
+                "industry": "COMMUNICATION"
+            },
+            {
+                "name": "STREET_LIGHT",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "SWITCH",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "TERMINATION_BRACKET",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "TRANSFORMER",
+                "industry": "UTILITY"
+            },
+            {
+                "name": "WIRE_MOUNTED",
+                "industry": "BOTH"
+            },
+            {
+                "name": "WIRELESS_ANTENNA",
+                "industry": "BOTH"
+            }
+        ],
+        "insulators": [],
+        "foundations": [],
+        "crossArms": [],
+        "braces": [],
+        "bundleComponents": [],
+        "bundles": [],
+        "assemblies": [],
+        "trusses": [],
+        "componentBraces": [],
+        "environments": [],
+        "defaultEnvironment": {
+            "name": "None",
+            "description": "N/A"
+        },
+        "analysisCases": [],
+        "owners": [
+            {
+                "industry": "UTILITY",
+                "id": "Acme Power"
+            }
+        ],
+        "notes": [],
+        "locationForms": [],
+        "projectForms": [],
+        "customReportSetups": [],
+        "designLayers": [
+            {
+                "name": "Measured Design",
+                "type": "Measured"
+            }
+        ],
+        "defaultLocationForms": [],
+        "defaultProjectForms": [],
+        "clearanceCases": [],
+        "componentGroups": [],
+        "wireClasses": [],
+        "wireStates": [],
+        "hash": "ebc5da096e8e336c0141715fd4dfa06c"
+    },
+    "clientFileVersion": "ebc5da096e8e336c0141715fd4dfa06c",
+    "forms": [
+        {
+            "title": "hyperform single field",
+            "formDefinition": [
+                {
+                    "fieldName": "hyperfield",
+                    "fieldType": "customUrlField"
+                }
+            ],
+            "fields": {
+                "hyperfield": ""
+            },
+            "template": "ebc5da096e8e336c0141715fd4dfa06c-hyperform single field"
+        },
+        {
+            "title": "Project Summary",
+            "formDefinition": [
+                {
+                    "fieldName": "Work Order #",
+                    "fieldType": "customTextField"
+                },
+                {
+                    "fieldName": "Total Estimated Cost",
+                    "fieldType": "customTextField"
+                },
+                {
+                    "fieldName": "Total Estimated Hours",
+                    "fieldType": "customTextField"
+                },
+                {
+                    "fieldName": "Pole Replacements",
+                    "fieldType": "customSpinner"
+                },
+                {
+                    "fieldName": "Rearrangements",
+                    "fieldType": "customSpinner"
+                }
+            ],
+            "fields": {
+                "Work Order #": "",
+                "Total Estimated Cost": "",
+                "Total Estimated Hours": "",
+                "Pole Replacements": "0",
+                "Rearrangements": "0"
+            },
+            "template": "ebc5da096e8e336c0141715fd4dfa06c-Project Summary"
+        },
+        {
+            "title": "tab field containing url",
+            "formDefinition": [
+                {
+                    "fieldName": "tabby",
+                    "fieldType": "customTabbedPane",
+                    "fieldDefinitions": [
+                        {
+                            "fieldName": "text",
+                            "fieldType": "customTextField"
+                        },
+                        {
+                            "fieldName": "url",
+                            "fieldType": "customUrlField"
+                        }
+                    ]
+                }
+            ],
+            "fields": {
+                "tabby": {
+                    "text": "text",
+                    "url": "ftp://url"
+                }
+            },
+            "template": "ebc5da096e8e336c0141715fd4dfa06c-tab field containing url"
+        },
+        {
+            "title": "table field containing url",
+            "formDefinition": [
+                {
+                    "fieldName": "table",
+                    "fieldType": "customTable",
+                    "fieldDefinitions": [
+                        {
+                            "fieldName": "text",
+                            "fieldType": "customTextField"
+                        },
+                        {
+                            "fieldName": "url",
+                            "fieldType": "customUrlField"
+                        }
+                    ]
+                }
+            ],
+            "fields": {
+                "table": [
+                    {
+                        "text": "a",
+                        "url": ""
+                    },
+                    {
+                        "text": "foo",
+                        "url": "http://foo.com"
+                    }
+                ]
+            },
+            "template": "ebc5da096e8e336c0141715fd4dfa06c-table field containing url"
+        }
+    ],
+    "defaultLocationForms": [
+        {
+            "title": "location url",
+            "formDefinition": [
+                {
+                    "fieldName": "site name",
+                    "fieldType": "customTextField"
+                },
+                {
+                    "fieldName": "site url",
+                    "fieldType": "customUrlField"
+                }
+            ],
+            "fields": {
+                "site name": "",
+                "site url": ""
+            },
+            "template": "ebc5da096e8e336c0141715fd4dfa06c-location url"
+        }
+    ],
+    "defaultLoadCases": [],
+    "leads": [
+        {
+            "label": "Lead",
+            "locations": [
+                {
+                    "label": "Location-06-08-2026-08-50-28-431",
+                    "mapNumber": "",
+                    "comments": "",
+                    "address": {
+                        "number": "",
+                        "street": "",
+                        "city": "",
+                        "county": "",
+                        "state": "",
+                        "zip_code": ""
+                    },
+                    "technician": "",
+                    "crossStreet1": "",
+                    "crossStreet2": "",
+                    "remedies": [],
+                    "poleTags": [],
+                    "userDefinedValues": {},
+                    "summaryNotes": [],
+                    "forms": [
+                        {
+                            "title": "location url",
+                            "formDefinition": [
+                                {
+                                    "fieldName": "site name",
+                                    "fieldType": "customTextField"
+                                },
+                                {
+                                    "fieldName": "site url",
+                                    "fieldType": "customUrlField"
+                                }
+                            ],
+                            "fields": {
+                                "site name": "foo",
+                                "site url": ""
+                            },
+                            "template": "ebc5da096e8e336c0141715fd4dfa06c-location url"
+                        }
+                    ],
+                    "images": [],
+                    "photosToBeAssigned": [],
+                    "designs": [
+                        {
+                            "label": "Measured Design",
+                            "layerType": "Measured",
+                            "structure": {
+                                "pole": {
+                                    "id": "Pole",
+                                    "externalId": "6a26ba9473cfbe2aa773a3f9",
+                                    "owner": {
+                                        "industry": "UTILITY",
+                                        "id": "Acme Power"
+                                    },
+                                    "glc": {
+                                        "unit": "METRE",
+                                        "value": 0.8202447301832992
+                                    },
+                                    "agl": {
+                                        "unit": "METRE",
+                                        "value": 7.467600000000001
+                                    },
+                                    "autoGLC": true,
+                                    "autoAGL": false,
+                                    "cutTop": {
+                                        "unit": "METRE",
+                                        "value": 0.0
+                                    },
+                                    "environment": "None",
+                                    "temperature": {
+                                        "unit": "CELSIUS",
+                                        "value": 15.555555555555555
+                                    },
+                                    "stressRatio": 1.0,
+                                    "leanAngle": 0,
+                                    "leanDirection": 0.0,
+                                    "clientItemVersion": "8d9ce638e15e0387df07cd4c3b8aff4e",
+                                    "clientItem": {
+                                        "species": "Southern Pine",
+                                        "classOfPole": "3",
+                                        "height": {
+                                            "unit": "METRE",
+                                            "value": 10.668000000000001
+                                        }
+                                    }
+                                },
+                                "wireEndPoints": [],
+                                "spanPoints": [],
+                                "anchors": [],
+                                "notePoints": [],
+                                "pointLoads": [],
+                                "wirePointLoads": [],
+                                "damages": [],
+                                "wires": [],
+                                "spanGuys": [],
+                                "guys": [],
+                                "equipments": [],
+                                "wireMountedEquipments": [],
+                                "guyAttachPoints": [],
+                                "crossArms": [],
+                                "insulators": [],
+                                "pushBraces": [],
+                                "sidewalkBraces": [],
+                                "foundations": [],
+                                "trusses": [],
+                                "componentBraces": [],
+                                "assemblies": []
+                            },
+                            "analysis": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
