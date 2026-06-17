@@ -16,7 +16,6 @@ params:query {
   ~project_code_values: 
   ~associated_station_ids: 
   ~details: true
-  ~project_attributes: ["files", "stations"]
 }
 
 docs {
@@ -27,5 +26,4 @@ docs {
   - project_code_values: JSON array of project code strings
   - associated_station_ids: JSON array of station id strings (location labels or asset service stationIds)
   - details: boolean, whether to fetch all stations (defaults to false)
-  - project_attributes: JSON array of attributes to include; supported values are files and stations
 }

@@ -439,7 +439,6 @@ Return a list of projects
 1. `project_code_values`: Get project containing this `string` array of the project codes.
 1. `associated_station_ids`: Get projects containing stations with this `string` array of ids.
 1. `details`: a boolean on whether to fetch all stations.
-1. `project_attributes`: a `string` array of comma-separated attributes to include. Currently supported values: `files`, `stations`.
 
 #### Returns
 
@@ -449,7 +448,7 @@ Return a list of projects
 
 ##### Bruno
 
-Use the **Get Projects** request in the `Project API` folder. Set at least one of `project_ids`, `project_code_values`, or `associated_station_ids`. Optionally set `details` and `project_attributes` (`files`, `stations`).
+Use the **Get Projects** request in the `Project API` folder. Set at least one of `project_ids`, `project_code_values`, or `associated_station_ids`. Optionally enable `details`.
 
 Get My Projects
 ----------
