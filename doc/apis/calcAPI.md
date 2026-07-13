@@ -129,13 +129,29 @@ Generate a report for the current project. Returns file location of report.
 
 #### Parameters
 
-1. `outputDirectory`: an `string` of location to save the report.
+1. `outputDirectory`: a `string` of location to save the report.
 1. `reportName`: a `string` for the preset custom report to generate. You can also call pre-existing `Project Summary Report` and `Project Details Report` by using that for your report name.
-1. `format`: an `string` of either PDF or HTML.
+1. `format`: a `string` of either PDF or HTML.
 
 #### Returns
 
 A JSON response body {"reportPath":"/pathToReport/report.pdf"}
+
+
+Generate an Excel report
+-----
+
+Generate an Excel report for the current project. Returns the location of the report file.
+#### URL
+
+`http://localhost:4560/calc/generateExcelReport`
+#### Parameters
+
+1. `outputDirectory`: a `string` of location to save the report.
+
+#### Returns
+
+A JSON response body {"reportPath":"/pathToReport/report.xlsx"}
 
 
 Run Script
