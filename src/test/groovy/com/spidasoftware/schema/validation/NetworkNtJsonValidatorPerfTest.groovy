@@ -6,6 +6,7 @@ package com.spidasoftware.schema.validation
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.google.common.io.Files
+import groovy.ant.AntBuilder
 import groovy.util.logging.Slf4j
 import spock.lang.Specification
 

@@ -42,7 +42,7 @@ class SpidaDBLocation extends AbstractSpidaDBComponent {
 
 	@Override
 	Map getCalcJSON() {
-		return getMap().get('calcLocation')
+		return getMap().get('calcLocation') as Map
 	}
 
     @Override

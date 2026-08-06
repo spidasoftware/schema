@@ -1,6 +1,7 @@
 package com.spidasoftware.schema.validation
 
 import groovy.json.JsonSlurper
+import groovy.test.GroovyTestCase
 
 class CalcSchemaTest extends GroovyTestCase {
 

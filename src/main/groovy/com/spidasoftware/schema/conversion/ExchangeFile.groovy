@@ -5,6 +5,7 @@ package com.spidasoftware.schema.conversion
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.google.common.io.Files
+import groovy.ant.AntBuilder
 import groovy.util.logging.Slf4j
 import org.apache.commons.io.FileUtils
 import org.apache.commons.io.IOUtils

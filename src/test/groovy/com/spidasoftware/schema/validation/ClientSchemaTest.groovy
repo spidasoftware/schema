@@ -3,6 +3,8 @@
  */
 package com.spidasoftware.schema.validation
 
+import groovy.test.GroovyTestCase
+
 class ClientSchemaTest extends GroovyTestCase {
 	def report
 

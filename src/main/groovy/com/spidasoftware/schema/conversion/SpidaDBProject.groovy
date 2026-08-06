@@ -16,7 +16,7 @@ class SpidaDBProject extends AbstractSpidaDBComponent {
      * @return the SPIDAdb ids of the locations contained in this project
      */
     List<String> getChildLocationIds(){
-        return getCalcJSON().get("leads")?.collect{Map lead-> lead.locations}?.flatten()?.collect {Map location-> location.id }
+        return getCalcJSON().get("leads")?.collect{Map lead-> lead.locations}?.flatten()?.collect {Map location-> location.id } as List<String>
     }
 
     void updateLocationIds(Map<String, String> oldToNew){
@@ -36,7 +36,7 @@ class SpidaDBProject extends AbstractSpidaDBComponent {
 
 	@Override
 	Map getCalcJSON() {
-		return getMap().get('calcProject')
+		return getMap().get('calcProject') as Map
 	}
 
 	@Override

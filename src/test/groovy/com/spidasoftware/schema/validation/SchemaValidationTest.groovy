@@ -6,6 +6,7 @@ import com.networknt.schema.JsonMetaSchema
 import com.networknt.schema.JsonSchema
 import com.networknt.schema.JsonSchemaFactory
 import com.networknt.schema.SpecVersion
+import groovy.test.GroovyTestCase
 
 class SchemaValidationTest extends GroovyTestCase {
 

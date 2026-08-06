@@ -1,6 +1,7 @@
 package com.spidasoftware.schema.validation
 
 import groovy.json.JsonOutput
+import groovy.test.GroovyTestCase
 
 class MinSchemaTest extends GroovyTestCase {
 

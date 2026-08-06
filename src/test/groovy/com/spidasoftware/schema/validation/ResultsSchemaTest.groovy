@@ -1,5 +1,7 @@
 package com.spidasoftware.schema.validation
 
+import groovy.test.GroovyTestCase
+
 class ResultsSchemaTest extends GroovyTestCase {
 
 	def report

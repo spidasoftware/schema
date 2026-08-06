@@ -10,7 +10,7 @@ apply plugin: 'com.spidasoftware.releaseNotes'
 apply plugin: 'application'
 
 group = 'com.spidasoftware'
-version = '13.0.0-SNAPSHOT' // If you're changing the major version also change the currentVersion in ConverterUtils.
+version = '13.0.0-G4' // If you're changing the major version also change the currentVersion in ConverterUtils.
 
 def schemaReleaseVersion = System.getenv("SCHEMA_RELEASE_VERSION")
 if(schemaReleaseVersion){
@@ -19,8 +19,8 @@ if(schemaReleaseVersion){
 }
 description = "Schema"
 
-sourceCompatibility = JavaVersion.VERSION_11
-targetCompatibility = JavaVersion.VERSION_11
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 
 sourceSets {
 	main {
@@ -91,7 +91,10 @@ dependencies {
 	implementation 'commons-codec:commons-codec:1.15'
 	implementation group: 'org.apache.ant', name: 'ant', version: '1.10.13'
 	implementation group: 'org.apache.ant', name: 'ant-launcher', version: '1.10.13'
-	implementation group: 'org.codehaus.groovy', name: 'groovy-all', version:'2.5.14'
+	implementation group: 'org.apache.groovy', name: 'groovy', version:'4.0.29'
+	implementation group: 'org.apache.groovy', name: 'groovy-ant', version:'4.0.29'
+	implementation group: 'org.apache.groovy', name: 'groovy-json', version:'4.0.29'
+	implementation group: 'org.apache.groovy', name: 'groovy-test', version:'4.0.29'
 	implementation (group: 'ch.qos.logback', name: 'logback-classic', version: '1.5.22') {
 		exclude(module: 'slf4j-api')
 	}
@@ -103,7 +106,7 @@ dependencies {
 	api group: 'org.mongodb', name:'mongo-java-driver', version:'2.11.1'
 	implementation group: 'com.spidasoftware', name: 'schema-v4', version:'0.1'
 	testImplementation group: 'junit', name: 'junit', version:'4.13.2'
-	testImplementation group: 'org.spockframework', name: 'spock-core', version: '2.3-groovy-2.5'
+	testImplementation group: 'org.spockframework', name: 'spock-core', version: '2.3-groovy-4.0'
 	testRuntimeOnly('net.bytebuddy:byte-buddy:1.14.2')  // so spock can create mocks
 	testImplementation group: 'org.objenesis', name:'objenesis', version: '2.6'
 	testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.9.2")

@@ -34,11 +34,11 @@ class SpidaDBDesign extends AbstractSpidaDBComponent {
      * @return JSONObject in the format created by ResultJSON class, or null if it's not found
      */
     public Map getWorstPoleLoadingResult() {
-        return getWorstCaseAnalysisResults()?.get('pole')
+        return getWorstCaseAnalysisResults()?.get('pole') as Map
     }
 
 	public Map getWorstCaseAnalysisResults(){
-		return getMap().get('worstCaseAnalysisResults')
+		return getMap().get('worstCaseAnalysisResults') as Map
 	}
 
     /**
@@ -61,7 +61,7 @@ class SpidaDBDesign extends AbstractSpidaDBComponent {
 
 	@Override
 	Map getCalcJSON() {
-		return getMap().get('calcDesign')
+		return getMap().get('calcDesign') as Map
 	}
 
     /**

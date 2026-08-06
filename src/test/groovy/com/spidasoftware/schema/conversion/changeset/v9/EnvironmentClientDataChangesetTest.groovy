@@ -15,7 +15,7 @@ class EnvironmentClientDataChangesetTest extends Specification {
 		when: "apply up conversion to client data"
 			new EnvironmentClientDataChangeset().applyToClientData(json)
 		then: "old defaults are added to client data"
-			json.environments.size == 15
+			json.environments.size() == 15
 			json.environments[0].name == "Alley"
 			json.environments[0].description == "N/A"
 			json.environments[1].name == "Commercial Driveway"
@@ -56,7 +56,7 @@ class EnvironmentClientDataChangesetTest extends Specification {
 		when: "apply up conversion to project"
 			new EnvironmentClientDataChangeset().applyToProject(json)
 		then: "Add project environments to clientData"
-			json.clientData.environments.size == 4
+			json.clientData.environments.size() == 4
 			json.clientData.environments[0].name == "Commercial Driveway"
 			json.clientData.environments[0].description == "N/A"
 			json.clientData.environments[1].name == "Obstructed Parallel To Street"
@@ -80,7 +80,7 @@ class EnvironmentClientDataChangesetTest extends Specification {
 		stream.close()
 		new EnvironmentClientDataChangeset().applyToResults(json)
 		then: "Add analyzedStructure environments to clientData"
-			json.clientData.environments.size == 4
+			json.clientData.environments.size() == 4
 			json.clientData.environments[0].name == "Commercial Driveway"
 			json.clientData.environments[0].description == "N/A"
 			json.clientData.environments[1].name == "Obstructed Parallel To Street"
@@ -103,7 +103,7 @@ class EnvironmentClientDataChangesetTest extends Specification {
 		Map json = new JsonSlurper().parse(stream)
 		stream.close()
 		expect:
-			json.environments.size == 4
+			json.environments.size() == 4
 			json.environments[0].name == "Street"
 			json.environments[0].description == "Street"
 			json.environments[1].name == "Parking Lot"
@@ -125,7 +125,7 @@ class EnvironmentClientDataChangesetTest extends Specification {
 		Map json = new JsonSlurper().parse(stream)
 		stream.close()
 		expect:
-			json.clientData.environments.size == 4
+			json.clientData.environments.size() == 4
 			json.clientData.environments[0].name == "Street"
 			json.clientData.environments[0].description == "Street"
 			json.clientData.environments[1].name == "Parking Lot"
@@ -157,7 +157,7 @@ class EnvironmentClientDataChangesetTest extends Specification {
 		Map json = new JsonSlurper().parse(stream)
 		stream.close()
 		expect:
-			json.clientData.environments.size == 3
+			json.clientData.environments.size() == 3
 			json.clientData.environments[0].name == "Street"
 			json.clientData.environments[0].description == "N/A"
 			json.clientData.environments[1].name == "Parking Lot"
