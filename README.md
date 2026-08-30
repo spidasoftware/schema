@@ -47,6 +47,7 @@ Products
 Desktop pole modeling and loading analysis software.
 - [2018 Getting Started Video](https://youtu.be/xh1BTeFA19c)
 - [Developer Guide](doc/calc.md)
+- [Lidar / Point Cloud Integration Guide](doc/lidar_integration.md)
 - [Schema](resources/schema/spidacalc)
 - [Examples](resources/examples/spidacalc)
 

@@ -20,6 +20,8 @@ It supports detailed information at the level of a data collection program, allo
 
 It also supports defining structures on the level of prebuilt standards through our Input Assemblies concept. This is usually the easiest way to get started for integrations with Staking platforms and GIS applications.
 
+For integrations converting lidar, point cloud, or other classified survey data into this format, see the [Lidar / Point Cloud Integration Guide](lidar_integration.md).
+
 Finally, for export only it can include high level analysis results, including loading percentages or safety factors for all analyzed components on a pole.
 
 In short, for pretty much anything you can do in calc, you get it in or out through this simple and readable data format.
