@@ -2,7 +2,7 @@
   "clientFile": "Demo.client",
   "schema": "https://raw.github.com/spidasoftware/schema/master/resources/schema/spidacalc/calc/project.schema",
   "label": "Willow Creek Road Feeder 7 Lidar Extraction",
-  "comments": "Example of a lidar-derived five-pole connected project that supplies terrain as a project-level terrain layer instead of individual wireEndPoints[].terrainPoints. The ground surface extracted from the classified point cloud is delivered once as terrainLayers[].points (latitude/longitude with absolute elevations, same datum as the lidar deliverable), and appliedTerrainLayers assigns it to the 'Measured Design' design layer so every design in that layer gets ground under its spans. Pole-to-pole relative elevations on the wire end points are consistent with the terrain layer elevations. Connectivity and field-measured sags follow the same rules as the other lidar examples. See doc/lidar_integration.md and the Terrain Layers section of doc/calc.md.",
+  "comments": "Example of a lidar-derived five-pole connected project that supplies terrain as a project-level terrain layer instead of individual wireEndPoints[].terrainPoints. The ground surface extracted from the classified point cloud is delivered once as terrainLayers[].points (latitude/longitude with absolute elevations, same datum as the lidar deliverable), and appliedTerrainLayers assigns it to the 'Measured Design' design layer so every design in that layer gets ground under its spans. IMPORTANT: for the terrain layer to be applied, every design's mapLocation (and the location geographicCoordinate) must include a third GeoJSON coordinate - the pole base ground elevation in meters above sea level, on the same vertical datum as the terrain layer elevations. SPIDAcalc subtracts that pole altitude from each terrain layer point's absolute elevation to place the ground relative to the pole base; without it the layer is silently ignored and spans fall back to per-span terrainPoints. Terrain layer points are only used for a span when they fall within profileViewWidth of that span's centerline. Pole-to-pole relative elevations on the wire end points are consistent with the pole altitudes and terrain layer elevations here. Connectivity and field-measured sags follow the same rules as the other lidar examples. See doc/lidar_integration.md and the Terrain Layers section of doc/calc.md.",
   "terrainLayers": [
     {
       "name": "Lidar Ground Surface",
@@ -140,7 +140,8 @@
             "type": "Point",
             "coordinates": [
               -82.9051,
-              40.0225
+              40.0225,
+              238.3536
             ]
           },
           "poleTags": [
@@ -162,7 +163,8 @@
                 "type": "Point",
                 "coordinates": [
                   -82.9051,
-                  40.0225
+                  40.0225,
+                  238.3536
                 ]
               },
               "structure": {
@@ -345,7 +347,8 @@
             "type": "Point",
             "coordinates": [
               -82.904571,
-              40.022429
+              40.022429,
+              237.92688
             ]
           },
           "poleTags": [
@@ -367,7 +370,8 @@
                 "type": "Point",
                 "coordinates": [
                   -82.904571,
-                  40.022429
+                  40.022429,
+                  237.92688
                 ]
               },
               "structure": {
@@ -690,7 +694,8 @@
             "type": "Point",
             "coordinates": [
               -82.904017,
-              40.022384
+              40.022384,
+              236.95152
             ]
           },
           "poleTags": [
@@ -712,7 +717,8 @@
                 "type": "Point",
                 "coordinates": [
                   -82.904017,
-                  40.022384
+                  40.022384,
+                  236.95152
                 ]
               },
               "structure": {
@@ -1035,7 +1041,8 @@
             "type": "Point",
             "coordinates": [
               -82.903485,
-              40.02237
+              40.02237,
+              237.4392
             ]
           },
           "poleTags": [
@@ -1057,7 +1064,8 @@
                 "type": "Point",
                 "coordinates": [
                   -82.903485,
-                  40.02237
+                  40.02237,
+                  237.4392
                 ]
               },
               "structure": {
@@ -1380,7 +1388,8 @@
             "type": "Point",
             "coordinates": [
               -82.90294,
-              40.022385
+              40.022385,
+              237.80496
             ]
           },
           "poleTags": [
@@ -1402,7 +1411,8 @@
                 "type": "Point",
                 "coordinates": [
                   -82.90294,
-                  40.022385
+                  40.022385,
+                  237.80496
                 ]
               },
               "structure": {

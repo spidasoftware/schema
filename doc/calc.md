@@ -337,6 +337,11 @@ Terrain layers are assigned to design layers by name with the project-level `app
 ]
 ```
 
+For an applied terrain layer to actually take effect on a design, two conditions must be met:
+
+* **The design must have an absolute elevation.** Terrain layer point elevations are absolute (above sea level), so SPIDAcalc needs the pole base elevation to place the ground relative to the pole. Include it as the third GeoJSON coordinate — altitude in **meters** above sea level — in the design's `mapLocation` (`"coordinates": [longitude, latitude, altitude]`), on the same vertical datum as the terrain layer elevations. If the design has no altitude, the terrain layer is silently ignored and the design falls back to its per-span `terrainPoints`. (When a terrain layer is applied interactively in SPIDAcalc, the application fills in this altitude from the nearest terrain layer point; a project file that arrives with the layer already applied must supply it.)
+* **Points must be near the spans.** For each span, only terrain layer points within `profileViewWidth` of the span centerline (including just behind the pole and just beyond the wire end point) are used as ground. Points farther away are ignored, so a sparse or offset ground sample may produce no terrain under a span.
+
 [Terrain Layer Example](/resources/examples/spidacalc/projects/lidar_terrain_layer_project.json) (five connected poles with a lidar-derived terrain layer applied to the Measured Design layer)
 
 ## Calc Pole Structure
