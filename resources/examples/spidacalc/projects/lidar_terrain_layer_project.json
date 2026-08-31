@@ -2,7 +2,7 @@
   "clientFile": "Demo.client",
   "schema": "https://raw.github.com/spidasoftware/schema/master/resources/schema/spidacalc/calc/project.schema",
   "label": "Willow Creek Road Feeder 7 Lidar Extraction",
-  "comments": "Example of a lidar-derived five-pole connected project that supplies terrain as a project-level terrain layer instead of individual wireEndPoints[].terrainPoints. The ground surface extracted from the classified point cloud is delivered once as terrainLayers[].points (latitude/longitude with absolute elevations, same datum as the lidar deliverable), and appliedTerrainLayers assigns it to the 'Measured Design' design layer so every design in that layer gets ground under its spans. IMPORTANT: for the terrain layer to be applied, every design's mapLocation (and the location geographicCoordinate) must include a third GeoJSON coordinate - the pole base ground elevation in meters above sea level, on the same vertical datum as the terrain layer elevations. SPIDAcalc subtracts that pole altitude from each terrain layer point's absolute elevation to place the ground relative to the pole base; without it the layer is silently ignored and spans fall back to per-span terrainPoints. In this example the terrain layer elevations are expressed in METRE so the numbers are directly comparable to the mapLocation z coordinates (which are always meters per GeoJSON); at each pole coordinate the terrain elevation equals the pole altitude exactly. Terrain layer points are only used for a span when they fall within profileViewWidth of that span's centerline. Pole-to-pole relative elevations on the wire end points are consistent with the pole altitudes and terrain layer elevations here. Connectivity and field-measured sags follow the same rules as the other lidar examples. See doc/lidar_integration.md and the Terrain Layers section of doc/calc.md.",
+  "comments": "Example of a lidar-derived five-pole connected project that supplies terrain as a project-level terrain layer instead of individual wireEndPoints[].terrainPoints. The ground surface extracted from the classified point cloud is delivered once as terrainLayers[].points (latitude/longitude with absolute elevations, same datum as the lidar deliverable), and appliedTerrainLayers assigns it to the 'Measured Design' design layer so every design in that layer gets ground under its spans. IMPORTANT: for the terrain layer to be applied, every design's mapLocation (and the location geographicCoordinate) must include a third GeoJSON coordinate - the pole base ground elevation in meters above sea level, on the same vertical datum as the terrain layer elevations. SPIDAcalc subtracts that pole altitude from each terrain layer point's absolute elevation to place the ground relative to the pole base; without it the layer is silently ignored and spans fall back to per-span terrainPoints. In this example the terrain layer elevations are expressed in METRE so the numbers are directly comparable to the mapLocation z coordinates (which are always meters per GeoJSON); at each pole coordinate the terrain elevation equals the pole altitude exactly. Terrain layer points are only used for a span when they fall within profileViewWidth of that span's centerline. Pole-to-pole relative elevations on the wire end points are consistent with the pole altitudes and terrain layer elevations here, and wire end point distances are set at or above the geodesic (great-circle) separation of the pole coordinates so that terrain layer points at the far pole of each span stay within the span's profile view instead of being silently dropped. Connectivity and field-measured sags follow the same rules as the other lidar examples. See doc/lidar_integration.md and the Terrain Layers section of doc/calc.md.",
   "terrainLayers": [
     {
       "name": "Lidar Ground Surface",
@@ -206,7 +206,7 @@
                     "connectionId": "66d2e58b0000000000000a01",
                     "distance": {
                       "unit": "FOOT",
-                      "value": 150.0
+                      "value": 150.1
                     },
                     "direction": 100,
                     "relativeElevation": {
@@ -413,7 +413,7 @@
                     "connectionId": "66d2e58b0000000000000a01",
                     "distance": {
                       "unit": "FOOT",
-                      "value": 150.0
+                      "value": 150.1
                     },
                     "direction": 280,
                     "relativeElevation": {
@@ -436,7 +436,7 @@
                     "connectionId": "66d2e58b0000000000000b01",
                     "distance": {
                       "unit": "FOOT",
-                      "value": 155.5
+                      "value": 155.8
                     },
                     "direction": 96,
                     "relativeElevation": {
@@ -760,7 +760,7 @@
                     "connectionId": "66d2e58b0000000000000b01",
                     "distance": {
                       "unit": "FOOT",
-                      "value": 155.5
+                      "value": 155.8
                     },
                     "direction": 276,
                     "relativeElevation": {
@@ -783,7 +783,7 @@
                     "connectionId": "66d2e58b0000000000000c01",
                     "distance": {
                       "unit": "FOOT",
-                      "value": 148.6
+                      "value": 148.8
                     },
                     "direction": 92,
                     "relativeElevation": {
@@ -1107,7 +1107,7 @@
                     "connectionId": "66d2e58b0000000000000c01",
                     "distance": {
                       "unit": "FOOT",
-                      "value": 148.6
+                      "value": 148.8
                     },
                     "direction": 272,
                     "relativeElevation": {
@@ -1130,7 +1130,7 @@
                     "connectionId": "66d2e58b0000000000000d01",
                     "distance": {
                       "unit": "FOOT",
-                      "value": 152.0
+                      "value": 152.5
                     },
                     "direction": 88,
                     "relativeElevation": {
@@ -1454,7 +1454,7 @@
                     "connectionId": "66d2e58b0000000000000d01",
                     "distance": {
                       "unit": "FOOT",
-                      "value": 152.0
+                      "value": 152.5
                     },
                     "direction": 268,
                     "relativeElevation": {
