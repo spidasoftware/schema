@@ -79,7 +79,7 @@ Project Structure
 - [doc](doc) - Documentation and overview of services that are available through all our APIs.
   - [resources](resources)
     - [schema](resources/schema) - All schema files. Schema files describe the payload data format for the SPIDA API services.
-      - [spidacalc](resources/schema/spidacalc) - Schemas for communication with SPIDACalc
+      - [spidacalc](resources/schema/spidacalc) - Schemas for communication with SPIDAcalc
       - [spidamin](resources/schema/spidamin) - Schemas for communication with SPIDAMin
     - [examples](resources/examples) - Example data files and simple integrations.
 - [src](src) - Java utilities for schema validation and service communication.

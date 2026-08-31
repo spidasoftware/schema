@@ -1,8 +1,8 @@
 Client API
 =========
 
-Methods to allow you to retrieve client (engineering) information from your running SPIDACalc instance.  This is useful
-for constructing and validating structures outside the SPIDACalc interface.  Location at [http://localhost:4560/clientData/](http://localhost:4560/clientData/).
+Methods to allow you to retrieve client (engineering) information from your running SPIDAcalc instance.  This is useful
+for constructing and validating structures outside the SPIDAcalc interface.  Location at [http://localhost:4560/clientData/](http://localhost:4560/clientData/).
 
 ## Implementing Apps
 
