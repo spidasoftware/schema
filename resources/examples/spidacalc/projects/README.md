@@ -27,6 +27,9 @@ lidar_connected_locations_project.json
 lidar_end_to_end_project.json
 	A semi-realistic five-pole lidar-derived line: connected locations, connected wires, field-measured sags for the tension data on every span, terrain points under every span (including a creek crossing), deadend guying, and a transformer.
 
+lidar_terrain_layer_project.json
+	A five-pole lidar-derived connected line that delivers ground as a project-level terrain layer (terrainLayers + appliedTerrainLayers assigned to the Measured Design layer) instead of individual terrainPoints along each span.
+
 multiple_projects.json
 	Shows the exchange format for sending more than one project at a time.
 

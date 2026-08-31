@@ -326,6 +326,19 @@ Terrain layers have five properties:
 ]
 ```
 
+Terrain layers are assigned to design layers by name with the project-level `appliedTerrainLayers` property:
+
+```
+"appliedTerrainLayers": [
+    {
+        "designLayer": "Measured Design",
+        "terrainLayer": "terrain layer"
+    }
+]
+```
+
+[Terrain Layer Example](/resources/examples/spidacalc/projects/lidar_terrain_layer_project.json) (five connected poles with a lidar-derived terrain layer applied to the Measured Design layer)
+
 ## Calc Pole Structure
 
 The calc structure is a model of a single pole under analysis and everything directly attached to it.
