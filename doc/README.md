@@ -1,3 +1,19 @@
+# SPIDA Documentation
+
+Documentation in this folder covers all SPIDA products.
+
+**SPIDAcalc integration guides:**
+
+- [Calc Integration API](calc.md) - data format, exchange files, web services, and command line analysis
+- [Data Requirements for Loading Analysis](data_requirements.md) - what information an integration must supply
+- [Input Assembly / Staker Style Integration Guide](input_assemblies.md)
+- [Lidar / Point Cloud Integration Guide](lidar_integration.md)
+- [Client Item References](clientReferences.md) - how components reference the client materials library
+- [Analysis Results Guide](results.md)
+- [SPIDAcee Job API](cee.md) - cloud analysis service
+
+The remainder of this document covers the SPIDAmin APIs.
+
 # SPIDAmin API Overview
 
 All of the specific endpoints in our APIs are described in the [apis](apis) folder.

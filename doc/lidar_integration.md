@@ -5,7 +5,7 @@ This guide is for integrators converting lidar scans, photogrammetry, or other c
 
 > "What are the main fields of the JSON to be filled in from the lidar acquisition?"
 
-It covers which fields matter most to SPIDAcalc's loading analysis, how measured geometry maps into the schema, and what information a point cloud *cannot* provide (and where to get it instead).
+It covers which fields matter most to SPIDAcalc's loading analysis, how measured geometry maps into the schema, and what information a point cloud likely *cannot* provide (and where you maybe able to get it from instead).
 
 Read this alongside the [Data Requirements](data_requirements.md) overview and the [Calc Integration API](calc.md) guide.
 
@@ -14,7 +14,7 @@ Read this alongside the [Data Requirements](data_requirements.md) overview and t
 In priority order, the data to extract and populate:
 
 | Priority | Data | Schema fields |
-|----------|------|---------------|
+| --- | --- | --- |
 | 1 | **Pole identity & geometry** | `location.label`, `location.geographicCoordinate`, `pole.clientItem` (species/class/height) or `pole.clientItemAlias`, measured `pole.agl` and `pole.glc` |
 | 2 | **Span geometry** (where adjacent poles/buildings are) | `wireEndPoints[]`: `distance`, `direction`, `relativeElevation`, `type` |
 | 3 | **Wire attachments** | `wires[]`: `attachmentHeight`, `usageGroup`, `owner`, `clientItem`/`clientItemAlias`, `tensionGroup`; plus each wire's ID listed in the correct `wireEndPoints[].wires` |
@@ -23,7 +23,7 @@ In priority order, the data to extract and populate:
 | 6 | **Other attachments** | `equipments[]`, `crossArms[]`, `insulators[]` heights and directions |
 | 7 | **Pole condition & metadata** | `pole.leanAngle`/`leanDirection`, `images`, `poleTags`, `externalId` everywhere |
 
-Items 1–4 are what the [Data Requirements](data_requirements.md) doc calls the "highest priorities for accurate loading": pole species/height/class, span geometry, wire type and tensions, and guying. Without them, loading results will rarely be useful. Item 5 is where lidar shines compared to traditional field collection.
+Items 1–4 are what the [Data Requirements](data_requirements.md) doc calls the "highest priorities for accurate loading": pole species/height/class, span geometry, wire type and tensions, and guying. Without them, loading results will rarely be useful. Item 5 is where lidar shines compared to traditional field collection, though tension adjustment factor through measured sag feature is not yet released, and set to be released in SPIDAcalc in v26.
 
 ## How the JSON Is Organized
 
@@ -70,11 +70,11 @@ Understanding how SPIDAcalc consumes each field explains the priority order:
 What you can measure from a classified point cloud and where it goes:
 
 | You measured | Schema field | Notes |
-|---|---|---|
+| --- | --- | --- |
 | Pole base position (lat/lon) | `location.geographicCoordinate` | GeoJSON Point, `coordinates` are `[longitude, latitude]` |
 | Pole height above ground | `pole.agl` | Measured height from ground line to pole top. If the pole top is broken/cut, also see `pole.cutTop` |
 | Pole circumference at ground line | `pole.glc` | Fit from the point cloud at the ground line. Engine prefers this measured value |
-| Pole lean | `pole.leanAngle` (integer degrees from vertical, 0–20), `pole.leanDirection` (bearing the top points) | |
+| Pole lean | `pole.leanAngle` (integer degrees from vertical, 0–20), `pole.leanDirection` (bearing the top points) |  |
 | Adjacent pole/building position | `wireEndPoints[].distance` (horizontal span length), `.direction` (bearing), `.relativeElevation` (base-to-base elevation change), `.type` (`NEXT_POLE`, `PREVIOUS_POLE`, `OTHER_POLE`, `BUILDING`) | One NEXT and one PREVIOUS max; any number of OTHER/BUILDING |
 | Wire attachment height on pole | `wires[].attachmentHeight` | Height above the ground line, per span |
 | Which wires run in which span | `wireEndPoints[].wires` (array of wire IDs) | **A wire not listed in any WEP has no span and will stop analysis** |
@@ -83,10 +83,10 @@ What you can measure from a classified point cloud and where it goes:
 | Wire height at specific span stations (crossings, clearance points) | `spanPoints[]` (distance from pole, environment, per-wire heights), referenced from `wireEndPoints[].spanPoints` | For clearance workflows |
 | Exact far-end attachment point | `wires[].wireEndPointPlacement` | Optional; relative to the WEP base |
 | Guy attachment height | `guys[].attachmentHeight` | Plus `clientItem`/`clientItemAlias` for the guy wire type |
-| Anchor position | `anchors[].distance` (lead from pole), `.direction`, `.height` (relative to pole base), `.guys` (IDs of guys on this anchor), `.supportedWEPs` | |
-| Span guy (pole-to-pole guy) | `spanGuys[]` with `attachmentHeight` (this pole) and `height` (far end), listed in `wireEndPoints[].spanGuys` | |
+| Anchor position | `anchors[].distance` (lead from pole), `.direction`, `.height` (relative to pole base), `.guys` (IDs of guys on this anchor), `.supportedWEPs` |  |
+| Span guy (pole-to-pole guy) | `spanGuys[]` with `attachmentHeight` (this pole) and `height` (far end), listed in `wireEndPoints[].spanGuys` |  |
 | Equipment (transformers, risers, lights…) | `equipments[]`: `attachmentHeight` (attach/bolt height), `bottomHeight` (bottom of unit), `direction` | Type comes from `clientItem`/`clientItemAlias` |
-| Crossarm | `crossArms[]`: `attachmentHeight`, `direction` (bearing the arm end points), `offset`, `supportedWEPs`, `insulators` | |
+| Crossarm | `crossArms[]`: `attachmentHeight`, `direction` (bearing the arm end points), `offset`, `supportedWEPs`, `insulators` |  |
 | Insulator | `insulators[]`: `offset` (attach height on pole, or distance along arm), `direction`, `wires` (IDs held) | How wires connect to pole/arms |
 | Terrain under spans | `wireEndPoints[].terrainPoints`, `design.terrainLayer` | For clearance analysis |
 | Ground environment | `pole.environment`, `wireEndPoints[].environment`, `spanPoints[].environment` | STREET, RAILROAD, etc. — names from client data |
@@ -99,7 +99,7 @@ What you can measure from a classified point cloud and where it goes:
 These are required, but do not come from geometry:
 
 | Field | Required on | Typical source |
-|---|---|---|
+| --- | --- | --- |
 | `owner` (`id` + `industry`) | pole, every wire, guy, anchor, equipment… | Utility records / attachment agreements; often inferred from usage group and height zone |
 | `clientItem` / `clientItemAlias` | every physical component | Client file lookup (see below) |
 | `tensionGroup` or a tension alternative | every wire | Client standards / assumption / `measuredSag` |

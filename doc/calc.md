@@ -14,6 +14,8 @@ Calc Integration API
 
 Calc defines an open, human readable format for importing pole and project information. It is in JSON, an industry standard that can be written from any source language. The data format is defined by the schemas available in this project, which can also be used to validate files before they are sent to Calc.
 
+For an overview of what information an integration needs to supply for useful loading analysis, see the [Data Requirements](data_requirements.md) guide. For how components in the JSON reference the client file's materials library, see [Client Item References](clientReferences.md).
+
 Calc supports a project structure and information about locations. It can import and export addresses, GPS points, and other expected meta-data surrounding pole collection and analysis.
 
 It supports detailed information at the level of a data collection program, allowing for the specification of every attachment to the pole at its exact height and direction, with appropriate material properties. This is the level that will give the most specific and reliable analysis results, and is best used by those looking to integrate Calc with their existing data collection programs. It is also how a structure created in calc will be exported, and can be used to generate custom reports or high-level analysis across multiple projects, or to import specific fields back into an accounting or work order system.

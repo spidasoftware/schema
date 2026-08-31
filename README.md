@@ -1,9 +1,9 @@
 SPIDA Software JSON Interfaces
 ==============================
 
-* LAST RELEASED VERSION: 11.0.3 (Java 11+)
+* LAST RELEASED VERSION: 12.0.3 (Java 11+)
 
-* CURRENT MASTER VERSION: 12.0.0 (Java 11+)
+* CURRENT MASTER VERSION: 13.0.0 (Java 11+)
 
 General Overview
 --------------------------------
@@ -47,7 +47,11 @@ Products
 Desktop pole modeling and loading analysis software.
 - [2018 Getting Started Video](https://youtu.be/xh1BTeFA19c)
 - [Developer Guide](doc/calc.md)
+- [Data Requirements for Loading Analysis](doc/data_requirements.md)
+- [Input Assembly / Staker Style Integration Guide](doc/input_assemblies.md)
 - [Lidar / Point Cloud Integration Guide](doc/lidar_integration.md)
+- [Client Item References](doc/clientReferences.md)
+- [Analysis Results Guide](doc/results.md)
 - [Schema](resources/schema/spidacalc)
 - [Examples](resources/examples/spidacalc)
 
@@ -60,6 +64,7 @@ Web based utility project and asset management software.
 ### SPIDAcee
 Cloud based pole analysis service.
 - [Developer Guide and cee-cli Tool](https://github.com/spidasoftware/cee-cli)
+- [Job API](doc/cee.md)
 - [Schema](resources/schema/spidacalc/cee)
 - [Examples](resources/examples/spidacalc/cee)
 
@@ -121,7 +126,7 @@ For example, to validate the "one of everything" structure example, from the sch
 
 The tool uses our included Validator java class.
 
-This can also be compoiled to a distribution build with:
+This can also be compiled to a distribution build with:
 
     gradlew installDist
 Then run the resulting script in the build/install/schema/bin directory:

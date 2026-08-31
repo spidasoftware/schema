@@ -3,7 +3,7 @@ Schema Files
 
 The files contained in these folders are used to validate objects passed in some of our API methods.  
 
-To better understand the available methods, look in the [docs](../../../doc).
+To better understand the available methods, look in the [docs](../../doc).
 
 [Getting Started with cee-cli](https://github.com/spidasoftware/cee-cli/tree/master/GETTING_STARTED.md)
 ==========
