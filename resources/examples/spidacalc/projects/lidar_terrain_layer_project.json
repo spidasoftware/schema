@@ -2,7 +2,7 @@
   "clientFile": "Demo.client",
   "schema": "https://raw.github.com/spidasoftware/schema/master/resources/schema/spidacalc/calc/project.schema",
   "label": "Willow Creek Road Feeder 7 Lidar Extraction",
-  "comments": "Example of a lidar-derived five-pole connected project that supplies terrain as a project-level terrain layer instead of individual wireEndPoints[].terrainPoints. The ground surface extracted from the classified point cloud is delivered once as terrainLayers[].points (latitude/longitude with absolute elevations, same datum as the lidar deliverable), and appliedTerrainLayers assigns it to the 'Measured Design' design layer so every design in that layer gets ground under its spans. IMPORTANT: for the terrain layer to be applied, every design's mapLocation (and the location geographicCoordinate) must include a third GeoJSON coordinate - the pole base ground elevation in meters above sea level, on the same vertical datum as the terrain layer elevations. SPIDAcalc subtracts that pole altitude from each terrain layer point's absolute elevation to place the ground relative to the pole base; without it the layer is silently ignored and spans fall back to per-span terrainPoints. Terrain layer points are only used for a span when they fall within profileViewWidth of that span's centerline. Pole-to-pole relative elevations on the wire end points are consistent with the pole altitudes and terrain layer elevations here. Connectivity and field-measured sags follow the same rules as the other lidar examples. See doc/lidar_integration.md and the Terrain Layers section of doc/calc.md.",
+  "comments": "Example of a lidar-derived five-pole connected project that supplies terrain as a project-level terrain layer instead of individual wireEndPoints[].terrainPoints. The ground surface extracted from the classified point cloud is delivered once as terrainLayers[].points (latitude/longitude with absolute elevations, same datum as the lidar deliverable), and appliedTerrainLayers assigns it to the 'Measured Design' design layer so every design in that layer gets ground under its spans. IMPORTANT: for the terrain layer to be applied, every design's mapLocation (and the location geographicCoordinate) must include a third GeoJSON coordinate - the pole base ground elevation in meters above sea level, on the same vertical datum as the terrain layer elevations. SPIDAcalc subtracts that pole altitude from each terrain layer point's absolute elevation to place the ground relative to the pole base; without it the layer is silently ignored and spans fall back to per-span terrainPoints. In this example the terrain layer elevations are expressed in METRE so the numbers are directly comparable to the mapLocation z coordinates (which are always meters per GeoJSON); at each pole coordinate the terrain elevation equals the pole altitude exactly. Terrain layer points are only used for a span when they fall within profileViewWidth of that span's centerline. Pole-to-pole relative elevations on the wire end points are consistent with the pole altitudes and terrain layer elevations here. Connectivity and field-measured sags follow the same rules as the other lidar examples. See doc/lidar_integration.md and the Terrain Layers section of doc/calc.md.",
   "terrainLayers": [
     {
       "name": "Lidar Ground Surface",
@@ -20,104 +20,104 @@
           "latitude": 40.0225,
           "longitude": -82.9051,
           "elevation": {
-            "unit": "FOOT",
-            "value": 782.0
+            "unit": "METRE",
+            "value": 238.3536
           }
         },
         {
           "latitude": 40.022476,
           "longitude": -82.904924,
           "elevation": {
-            "unit": "FOOT",
-            "value": 781.4
+            "unit": "METRE",
+            "value": 238.17072
           }
         },
         {
           "latitude": 40.022452,
           "longitude": -82.904747,
           "elevation": {
-            "unit": "FOOT",
-            "value": 780.9
+            "unit": "METRE",
+            "value": 238.01832
           }
         },
         {
           "latitude": 40.022429,
           "longitude": -82.904571,
           "elevation": {
-            "unit": "FOOT",
-            "value": 780.6
+            "unit": "METRE",
+            "value": 237.92688
           }
         },
         {
           "latitude": 40.022414,
           "longitude": -82.904386,
           "elevation": {
-            "unit": "FOOT",
-            "value": 779.2
+            "unit": "METRE",
+            "value": 237.50016
           }
         },
         {
           "latitude": 40.022399,
           "longitude": -82.904202,
           "elevation": {
-            "unit": "FOOT",
-            "value": 778.0
+            "unit": "METRE",
+            "value": 237.1344
           }
         },
         {
           "latitude": 40.022384,
           "longitude": -82.904017,
           "elevation": {
-            "unit": "FOOT",
-            "value": 777.4
+            "unit": "METRE",
+            "value": 236.95152
           }
         },
         {
           "latitude": 40.022379,
           "longitude": -82.90384,
           "elevation": {
-            "unit": "FOOT",
-            "value": 776.4
+            "unit": "METRE",
+            "value": 236.64672
           }
         },
         {
           "latitude": 40.022375,
           "longitude": -82.903662,
           "elevation": {
-            "unit": "FOOT",
-            "value": 777.8
+            "unit": "METRE",
+            "value": 237.07344
           }
         },
         {
           "latitude": 40.02237,
           "longitude": -82.903485,
           "elevation": {
-            "unit": "FOOT",
-            "value": 779.0
+            "unit": "METRE",
+            "value": 237.4392
           }
         },
         {
           "latitude": 40.022375,
           "longitude": -82.903303,
           "elevation": {
-            "unit": "FOOT",
-            "value": 779.4
+            "unit": "METRE",
+            "value": 237.56112
           }
         },
         {
           "latitude": 40.02238,
           "longitude": -82.903122,
           "elevation": {
-            "unit": "FOOT",
-            "value": 779.8
+            "unit": "METRE",
+            "value": 237.68304
           }
         },
         {
           "latitude": 40.022385,
           "longitude": -82.90294,
           "elevation": {
-            "unit": "FOOT",
-            "value": 780.2
+            "unit": "METRE",
+            "value": 237.80496
           }
         }
       ]
