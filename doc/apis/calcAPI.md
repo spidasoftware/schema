@@ -97,7 +97,7 @@ a complete [project object](../../resources/schema/spidacalc/calc/project.schema
 Exit
 -----
 
-Exit SPIDACalc. This will shutdown control services.
+Exit SPIDAcalc. This will shutdown control services.
 
 #### URL
 

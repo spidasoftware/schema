@@ -1,0 +1,768 @@
+{
+  "clientFile": "Demo.client",
+  "schema": "https://raw.github.com/spidasoftware/schema/master/resources/schema/spidacalc/calc/project.schema",
+  "label": "Lidar Connected Spans Example",
+  "comments": "Example of a lidar-derived project with three connected locations. Wire end points and wires are connected between designs with connectionIds (lowercase 24-character hex), the middle pole ties its two spans together with connectedWire, and every span carries a measuredSag taken from the classified point cloud. Connected items must agree: connected WEPs have the same distance and opposite directions, and connected wires share the same client item, owner, usage group, tension group, and measuredSag. See doc/lidar_integration.md and the Connectivity section of doc/calc.md.",
+  "leads": [
+    {
+      "label": "Circuit 12",
+      "locations": [
+        {
+          "label": "P-2101",
+          "comments": "First pole of the run. Span to P-2102 extracted from point cloud tile 87.",
+          "geographicCoordinate": {
+            "type": "Point",
+            "coordinates": [
+              -82.8895,
+              40.0173
+            ]
+          },
+          "poleTags": [
+            {
+              "type": "FIELD",
+              "value": "2101",
+              "visible": true
+            }
+          ],
+          "userDefinedValues": {
+            "scanDate": "2025-06-14",
+            "pointCloudTile": "tile_87.laz"
+          },
+          "designs": [
+            {
+              "label": "Measured Design",
+              "layerType": "Measured",
+              "mapLocation": {
+                "type": "Point",
+                "coordinates": [
+                  -82.8895,
+                  40.0173
+                ]
+              },
+              "structure": {
+                "pole": {
+                  "externalId": "pc-pole-002101",
+                  "clientItem": {
+                    "species": "Southern Pine",
+                    "classOfPole": "5",
+                    "height": {
+                      "unit": "FOOT",
+                      "value": 40
+                    }
+                  },
+                  "agl": {
+                    "unit": "FOOT",
+                    "value": 34.6
+                  },
+                  "glc": {
+                    "unit": "FOOT",
+                    "value": 2.75
+                  },
+                  "leanAngle": 1,
+                  "leanDirection": 120,
+                  "environment": "STREET",
+                  "temperature": {
+                    "unit": "FAHRENHEIT",
+                    "value": 68
+                  },
+                  "owner": {
+                    "industry": "UTILITY",
+                    "id": "AEP"
+                  }
+                },
+                "wireEndPoints": [
+                  {
+                    "id": "WEP#1",
+                    "externalId": "pc-pole-002102",
+                    "type": "NEXT_POLE",
+                    "connectionId": "665f00000000000000000a01",
+                    "distance": {
+                      "unit": "FOOT",
+                      "value": 152.4
+                    },
+                    "direction": 78,
+                    "relativeElevation": {
+                      "unit": "FOOT",
+                      "value": 1.2
+                    },
+                    "environment": "STREET",
+                    "wires": [
+                      "Wire#1",
+                      "Wire#2",
+                      "Wire#3"
+                    ],
+                    "spanGuys": [],
+                    "spanPoints": []
+                  }
+                ],
+                "wires": [
+                  {
+                    "id": "Wire#1",
+                    "externalId": "pc-seg-5501",
+                    "connectionId": "665f00000000000000000a11",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "AEP"
+                    },
+                    "clientItem": {
+                      "size": "4 ACSR",
+                      "coreStrands": 1,
+                      "conductorStrands": 6
+                    },
+                    "usageGroup": "PRIMARY",
+                    "tensionGroup": "Full",
+                    "attachmentHeight": {
+                      "unit": "FOOT",
+                      "value": 33.6
+                    },
+                    "measuredSag": {
+                      "sag": {
+                        "unit": "FOOT",
+                        "value": 1.68
+                      },
+                      "geographicCoordinate": {
+                        "type": "Point",
+                        "coordinates": [
+                          -82.889233,
+                          40.017344
+                        ]
+                      },
+                      "temperature": {
+                        "unit": "FAHRENHEIT",
+                        "value": 68
+                      }
+                    }
+                  },
+                  {
+                    "id": "Wire#2",
+                    "externalId": "pc-seg-5502",
+                    "connectionId": "665f00000000000000000a12",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "AEP"
+                    },
+                    "clientItem": {
+                      "size": "4 ACSR",
+                      "coreStrands": 1,
+                      "conductorStrands": 6
+                    },
+                    "usageGroup": "NEUTRAL",
+                    "tensionGroup": "Full",
+                    "attachmentHeight": {
+                      "unit": "FOOT",
+                      "value": 29.8
+                    },
+                    "measuredSag": {
+                      "sag": {
+                        "unit": "FOOT",
+                        "value": 1.85
+                      },
+                      "geographicCoordinate": {
+                        "type": "Point",
+                        "coordinates": [
+                          -82.889235,
+                          40.017343
+                        ]
+                      },
+                      "temperature": {
+                        "unit": "FAHRENHEIT",
+                        "value": 68
+                      }
+                    }
+                  },
+                  {
+                    "id": "Wire#3",
+                    "externalId": "pc-seg-5503",
+                    "connectionId": "665f00000000000000000a13",
+                    "owner": {
+                      "industry": "COMMUNICATION",
+                      "id": "Frontier Comm"
+                    },
+                    "clientItem": {
+                      "size": "C6.6M0500",
+                      "coreStrands": 0,
+                      "conductorStrands": 7
+                    },
+                    "usageGroup": "COMMUNICATION",
+                    "tensionGroup": "Slack",
+                    "attachmentHeight": {
+                      "unit": "FOOT",
+                      "value": 24.3
+                    },
+                    "measuredSag": {
+                      "sag": {
+                        "unit": "FOOT",
+                        "value": 2.6
+                      },
+                      "geographicCoordinate": {
+                        "type": "Point",
+                        "coordinates": [
+                          -82.889237,
+                          40.017342
+                        ]
+                      },
+                      "temperature": {
+                        "unit": "FAHRENHEIT",
+                        "value": 68
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "label": "P-2102",
+          "comments": "Middle pole. The through-running conductors are modeled as one wire per span, tied together with connectedWire.",
+          "geographicCoordinate": {
+            "type": "Point",
+            "coordinates": [
+              -82.888966,
+              40.017387
+            ]
+          },
+          "poleTags": [
+            {
+              "type": "FIELD",
+              "value": "2102",
+              "visible": true
+            }
+          ],
+          "userDefinedValues": {
+            "scanDate": "2025-06-14",
+            "pointCloudTile": "tile_87.laz"
+          },
+          "designs": [
+            {
+              "label": "Measured Design",
+              "layerType": "Measured",
+              "mapLocation": {
+                "type": "Point",
+                "coordinates": [
+                  -82.888966,
+                  40.017387
+                ]
+              },
+              "structure": {
+                "pole": {
+                  "externalId": "pc-pole-002102",
+                  "clientItem": {
+                    "species": "Southern Pine",
+                    "classOfPole": "5",
+                    "height": {
+                      "unit": "FOOT",
+                      "value": 40
+                    }
+                  },
+                  "agl": {
+                    "unit": "FOOT",
+                    "value": 34.3
+                  },
+                  "glc": {
+                    "unit": "FOOT",
+                    "value": 2.82
+                  },
+                  "leanAngle": 2,
+                  "leanDirection": 200,
+                  "environment": "STREET",
+                  "temperature": {
+                    "unit": "FAHRENHEIT",
+                    "value": 68
+                  },
+                  "owner": {
+                    "industry": "UTILITY",
+                    "id": "AEP"
+                  }
+                },
+                "wireEndPoints": [
+                  {
+                    "id": "WEP#1",
+                    "externalId": "pc-pole-002101",
+                    "type": "PREVIOUS_POLE",
+                    "connectionId": "665f00000000000000000a01",
+                    "distance": {
+                      "unit": "FOOT",
+                      "value": 152.4
+                    },
+                    "direction": 258,
+                    "relativeElevation": {
+                      "unit": "FOOT",
+                      "value": -1.2
+                    },
+                    "environment": "STREET",
+                    "wires": [
+                      "Wire#1",
+                      "Wire#2",
+                      "Wire#3"
+                    ],
+                    "spanGuys": [],
+                    "spanPoints": []
+                  },
+                  {
+                    "id": "WEP#2",
+                    "externalId": "pc-pole-002103",
+                    "type": "NEXT_POLE",
+                    "connectionId": "665f00000000000000000b01",
+                    "distance": {
+                      "unit": "FOOT",
+                      "value": 147.8
+                    },
+                    "direction": 84,
+                    "relativeElevation": {
+                      "unit": "FOOT",
+                      "value": 0.6
+                    },
+                    "environment": "STREET",
+                    "wires": [
+                      "Wire#4",
+                      "Wire#5",
+                      "Wire#6"
+                    ],
+                    "spanGuys": [],
+                    "spanPoints": []
+                  }
+                ],
+                "wires": [
+                  {
+                    "id": "Wire#1",
+                    "externalId": "pc-seg-5501",
+                    "connectionId": "665f00000000000000000a11",
+                    "connectedWire": "Wire#4",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "AEP"
+                    },
+                    "clientItem": {
+                      "size": "4 ACSR",
+                      "coreStrands": 1,
+                      "conductorStrands": 6
+                    },
+                    "usageGroup": "PRIMARY",
+                    "tensionGroup": "Full",
+                    "attachmentHeight": {
+                      "unit": "FOOT",
+                      "value": 33.4
+                    },
+                    "measuredSag": {
+                      "sag": {
+                        "unit": "FOOT",
+                        "value": 1.68
+                      },
+                      "geographicCoordinate": {
+                        "type": "Point",
+                        "coordinates": [
+                          -82.889233,
+                          40.017344
+                        ]
+                      },
+                      "temperature": {
+                        "unit": "FAHRENHEIT",
+                        "value": 68
+                      }
+                    }
+                  },
+                  {
+                    "id": "Wire#2",
+                    "externalId": "pc-seg-5502",
+                    "connectionId": "665f00000000000000000a12",
+                    "connectedWire": "Wire#5",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "AEP"
+                    },
+                    "clientItem": {
+                      "size": "4 ACSR",
+                      "coreStrands": 1,
+                      "conductorStrands": 6
+                    },
+                    "usageGroup": "NEUTRAL",
+                    "tensionGroup": "Full",
+                    "attachmentHeight": {
+                      "unit": "FOOT",
+                      "value": 29.6
+                    },
+                    "measuredSag": {
+                      "sag": {
+                        "unit": "FOOT",
+                        "value": 1.85
+                      },
+                      "geographicCoordinate": {
+                        "type": "Point",
+                        "coordinates": [
+                          -82.889235,
+                          40.017343
+                        ]
+                      },
+                      "temperature": {
+                        "unit": "FAHRENHEIT",
+                        "value": 68
+                      }
+                    }
+                  },
+                  {
+                    "id": "Wire#3",
+                    "externalId": "pc-seg-5503",
+                    "connectionId": "665f00000000000000000a13",
+                    "connectedWire": "Wire#6",
+                    "owner": {
+                      "industry": "COMMUNICATION",
+                      "id": "Frontier Comm"
+                    },
+                    "clientItem": {
+                      "size": "C6.6M0500",
+                      "coreStrands": 0,
+                      "conductorStrands": 7
+                    },
+                    "usageGroup": "COMMUNICATION",
+                    "tensionGroup": "Slack",
+                    "attachmentHeight": {
+                      "unit": "FOOT",
+                      "value": 24.1
+                    },
+                    "measuredSag": {
+                      "sag": {
+                        "unit": "FOOT",
+                        "value": 2.6
+                      },
+                      "geographicCoordinate": {
+                        "type": "Point",
+                        "coordinates": [
+                          -82.889237,
+                          40.017342
+                        ]
+                      },
+                      "temperature": {
+                        "unit": "FAHRENHEIT",
+                        "value": 68
+                      }
+                    }
+                  },
+                  {
+                    "id": "Wire#4",
+                    "externalId": "pc-seg-5511",
+                    "connectionId": "665f00000000000000000b11",
+                    "connectedWire": "Wire#1",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "AEP"
+                    },
+                    "clientItem": {
+                      "size": "4 ACSR",
+                      "coreStrands": 1,
+                      "conductorStrands": 6
+                    },
+                    "usageGroup": "PRIMARY",
+                    "tensionGroup": "Full",
+                    "attachmentHeight": {
+                      "unit": "FOOT",
+                      "value": 33.4
+                    },
+                    "measuredSag": {
+                      "sag": {
+                        "unit": "FOOT",
+                        "value": 1.58
+                      },
+                      "geographicCoordinate": {
+                        "type": "Point",
+                        "coordinates": [
+                          -82.888703,
+                          40.017408
+                        ]
+                      },
+                      "temperature": {
+                        "unit": "FAHRENHEIT",
+                        "value": 68
+                      }
+                    }
+                  },
+                  {
+                    "id": "Wire#5",
+                    "externalId": "pc-seg-5512",
+                    "connectionId": "665f00000000000000000b12",
+                    "connectedWire": "Wire#2",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "AEP"
+                    },
+                    "clientItem": {
+                      "size": "4 ACSR",
+                      "coreStrands": 1,
+                      "conductorStrands": 6
+                    },
+                    "usageGroup": "NEUTRAL",
+                    "tensionGroup": "Full",
+                    "attachmentHeight": {
+                      "unit": "FOOT",
+                      "value": 29.6
+                    },
+                    "measuredSag": {
+                      "sag": {
+                        "unit": "FOOT",
+                        "value": 1.74
+                      },
+                      "geographicCoordinate": {
+                        "type": "Point",
+                        "coordinates": [
+                          -82.888705,
+                          40.017407
+                        ]
+                      },
+                      "temperature": {
+                        "unit": "FAHRENHEIT",
+                        "value": 68
+                      }
+                    }
+                  },
+                  {
+                    "id": "Wire#6",
+                    "externalId": "pc-seg-5513",
+                    "connectionId": "665f00000000000000000b13",
+                    "connectedWire": "Wire#3",
+                    "owner": {
+                      "industry": "COMMUNICATION",
+                      "id": "Frontier Comm"
+                    },
+                    "clientItem": {
+                      "size": "C6.6M0500",
+                      "coreStrands": 0,
+                      "conductorStrands": 7
+                    },
+                    "usageGroup": "COMMUNICATION",
+                    "tensionGroup": "Slack",
+                    "attachmentHeight": {
+                      "unit": "FOOT",
+                      "value": 24.1
+                    },
+                    "measuredSag": {
+                      "sag": {
+                        "unit": "FOOT",
+                        "value": 2.45
+                      },
+                      "geographicCoordinate": {
+                        "type": "Point",
+                        "coordinates": [
+                          -82.888707,
+                          40.017406
+                        ]
+                      },
+                      "temperature": {
+                        "unit": "FAHRENHEIT",
+                        "value": 68
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "label": "P-2103",
+          "comments": "Last pole of the run. Span back to P-2102 extracted from point cloud tile 88.",
+          "geographicCoordinate": {
+            "type": "Point",
+            "coordinates": [
+              -82.888439,
+              40.017429
+            ]
+          },
+          "poleTags": [
+            {
+              "type": "FIELD",
+              "value": "2103",
+              "visible": true
+            }
+          ],
+          "userDefinedValues": {
+            "scanDate": "2025-06-14",
+            "pointCloudTile": "tile_88.laz"
+          },
+          "designs": [
+            {
+              "label": "Measured Design",
+              "layerType": "Measured",
+              "mapLocation": {
+                "type": "Point",
+                "coordinates": [
+                  -82.888439,
+                  40.017429
+                ]
+              },
+              "structure": {
+                "pole": {
+                  "externalId": "pc-pole-002103",
+                  "clientItem": {
+                    "species": "Southern Pine",
+                    "classOfPole": "5",
+                    "height": {
+                      "unit": "FOOT",
+                      "value": 40
+                    }
+                  },
+                  "agl": {
+                    "unit": "FOOT",
+                    "value": 34.5
+                  },
+                  "glc": {
+                    "unit": "FOOT",
+                    "value": 2.77
+                  },
+                  "leanAngle": 1,
+                  "leanDirection": 30,
+                  "environment": "STREET",
+                  "temperature": {
+                    "unit": "FAHRENHEIT",
+                    "value": 68
+                  },
+                  "owner": {
+                    "industry": "UTILITY",
+                    "id": "AEP"
+                  }
+                },
+                "wireEndPoints": [
+                  {
+                    "id": "WEP#1",
+                    "externalId": "pc-pole-002102",
+                    "type": "PREVIOUS_POLE",
+                    "connectionId": "665f00000000000000000b01",
+                    "distance": {
+                      "unit": "FOOT",
+                      "value": 147.8
+                    },
+                    "direction": 264,
+                    "relativeElevation": {
+                      "unit": "FOOT",
+                      "value": -0.6
+                    },
+                    "environment": "STREET",
+                    "wires": [
+                      "Wire#1",
+                      "Wire#2",
+                      "Wire#3"
+                    ],
+                    "spanGuys": [],
+                    "spanPoints": []
+                  }
+                ],
+                "wires": [
+                  {
+                    "id": "Wire#1",
+                    "externalId": "pc-seg-5511",
+                    "connectionId": "665f00000000000000000b11",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "AEP"
+                    },
+                    "clientItem": {
+                      "size": "4 ACSR",
+                      "coreStrands": 1,
+                      "conductorStrands": 6
+                    },
+                    "usageGroup": "PRIMARY",
+                    "tensionGroup": "Full",
+                    "attachmentHeight": {
+                      "unit": "FOOT",
+                      "value": 33.7
+                    },
+                    "measuredSag": {
+                      "sag": {
+                        "unit": "FOOT",
+                        "value": 1.58
+                      },
+                      "geographicCoordinate": {
+                        "type": "Point",
+                        "coordinates": [
+                          -82.888703,
+                          40.017408
+                        ]
+                      },
+                      "temperature": {
+                        "unit": "FAHRENHEIT",
+                        "value": 68
+                      }
+                    }
+                  },
+                  {
+                    "id": "Wire#2",
+                    "externalId": "pc-seg-5512",
+                    "connectionId": "665f00000000000000000b12",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "AEP"
+                    },
+                    "clientItem": {
+                      "size": "4 ACSR",
+                      "coreStrands": 1,
+                      "conductorStrands": 6
+                    },
+                    "usageGroup": "NEUTRAL",
+                    "tensionGroup": "Full",
+                    "attachmentHeight": {
+                      "unit": "FOOT",
+                      "value": 29.9
+                    },
+                    "measuredSag": {
+                      "sag": {
+                        "unit": "FOOT",
+                        "value": 1.74
+                      },
+                      "geographicCoordinate": {
+                        "type": "Point",
+                        "coordinates": [
+                          -82.888705,
+                          40.017407
+                        ]
+                      },
+                      "temperature": {
+                        "unit": "FAHRENHEIT",
+                        "value": 68
+                      }
+                    }
+                  },
+                  {
+                    "id": "Wire#3",
+                    "externalId": "pc-seg-5513",
+                    "connectionId": "665f00000000000000000b13",
+                    "owner": {
+                      "industry": "COMMUNICATION",
+                      "id": "Frontier Comm"
+                    },
+                    "clientItem": {
+                      "size": "C6.6M0500",
+                      "coreStrands": 0,
+                      "conductorStrands": 7
+                    },
+                    "usageGroup": "COMMUNICATION",
+                    "tensionGroup": "Slack",
+                    "attachmentHeight": {
+                      "unit": "FOOT",
+                      "value": 24.4
+                    },
+                    "measuredSag": {
+                      "sag": {
+                        "unit": "FOOT",
+                        "value": 2.45
+                      },
+                      "geographicCoordinate": {
+                        "type": "Point",
+                        "coordinates": [
+                          -82.888707,
+                          40.017406
+                        ]
+                      },
+                      "temperature": {
+                        "unit": "FAHRENHEIT",
+                        "value": 68
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

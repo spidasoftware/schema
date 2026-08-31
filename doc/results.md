@@ -1,4 +1,4 @@
-SPIDACalc Analysis Results
+SPIDAcalc Analysis Results
 ==========================
 
 This document is to highlight the most important fields for reporting on results. It does not document all result features. For more detailed information please look at the relevant schema files.

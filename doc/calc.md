@@ -1,11 +1,11 @@
 Calc Integration API
 ====================
 
-# SPIDACalc API Capabilities Overview
+# SPIDAcalc API Capabilities Overview
 
 ## There are four parts to the Calc APIs
 
-- A data transfer format for moving project, structure, and results information in and out of SPIDACalc.
+- A data transfer format for moving project, structure, and results information in and out of SPIDAcalc.
 - A REST-like remote control interface for controlling a running instance of calc.
 - A REST interface for querying calc client engineering data.
 - A command line tool for running analysis on an entire project.
@@ -14,11 +14,15 @@ Calc Integration API
 
 Calc defines an open, human readable format for importing pole and project information. It is in JSON, an industry standard that can be written from any source language. The data format is defined by the schemas available in this project, which can also be used to validate files before they are sent to Calc.
 
+For an overview of what information an integration needs to supply for useful loading analysis, see the [Data Requirements](data_requirements.md) guide. For how components in the JSON reference the client file's materials library, see [Client Item References](clientReferences.md).
+
 Calc supports a project structure and information about locations. It can import and export addresses, GPS points, and other expected meta-data surrounding pole collection and analysis.
 
 It supports detailed information at the level of a data collection program, allowing for the specification of every attachment to the pole at its exact height and direction, with appropriate material properties. This is the level that will give the most specific and reliable analysis results, and is best used by those looking to integrate Calc with their existing data collection programs. It is also how a structure created in calc will be exported, and can be used to generate custom reports or high-level analysis across multiple projects, or to import specific fields back into an accounting or work order system.
 
 It also supports defining structures on the level of prebuilt standards through our Input Assemblies concept. This is usually the easiest way to get started for integrations with Staking platforms and GIS applications.
+
+For integrations converting lidar, point cloud, or other classified survey data into this format, see the [Lidar / Point Cloud Integration Guide](lidar_integration.md).
 
 Finally, for export only it can include high level analysis results, including loading percentages or safety factors for all analyzed components on a pole.
 
@@ -51,29 +55,32 @@ then the user must have Demo.client in their clients directory in order to prope
 
 #### Supported Structure Fields
 
-The calc import API supports the following attributes of a structure.
+The calc import API supports the following attributes of a structure (JSON field names from [structure.schema](/resources/schema/spidacalc/calc/structure.schema) in parentheses):
 
-- Pole
-- Wires
-- Wire Endpoints
-- Cross Arms
-- Insulators
-- Anchors
-- Guys
-- Guy Attach Points
-- Sidewalk Guys
-- Span Guys
-- Equipment
-- Push Braces
-- Sidewalk Braces
-- Equipments
-- Damages
-- Note Points
-- Point Loads
-- Wire Point Loads
-- Span Points
-- Foundations
-- Assemblies
+- Pole (`pole`)
+- Wires (`wires`)
+- Wire End Points (`wireEndPoints`)
+- Span Points (`spanPoints`)
+- Span Guys (`spanGuys`)
+- Cross Arms (`crossArms`)
+- Insulators (`insulators`)
+- Equipment (`equipments`)
+- Wire-Mounted Equipment (`wireMountedEquipments`)
+- Guys (`guys`)
+- Guy Attach Points (`guyAttachPoints`)
+- Anchors (`anchors`)
+- Push Braces (`pushBraces`)
+- Sidewalk Braces (`sidewalkBraces`)
+- Trusses (`trusses`)
+- Component Braces (`componentBraces`)
+- Foundations (`foundations`)
+- Damages (`damages`)
+- Note Points (`notePoints`)
+- Point Loads (`pointLoads`)
+- Wire Point Loads (`wirePointLoads`)
+- Assemblies (`assemblies`)
+
+Sidewalk guys from older versions are modeled as a guy plus a sidewalk brace.
 
 #### Analysis Results
 For more information on processing analysis results, see the [results](results.md) guide.
@@ -95,13 +102,13 @@ The Calc service is best thought of as a remote control for a running copy of ca
 - Generating reports.
 - Running custom scripts that SPIDA has provided to the client.
 
-See full documentation [here](https://github.com/spidasoftware/schema/blob/master/doc/apis/calcAPI.md).
+See full documentation in the [Calc RPC API guide](apis/calcAPI.md).
 
 ### Client Data Service
 
 The client data service allows querying of our client-specific materials libraries. This should allow data-collection type integrations to show the user the available attachments in their own interface and to select them when building a design to send to calc for analysis.
 
-See full documentation [here](https://github.com/spidasoftware/schema/blob/master/doc/apis/clientAPI.md).
+See full documentation in the [Client Data API guide](apis/clientAPI.md).
 
 ## Command line tool
 
@@ -145,39 +152,37 @@ Analyze locally and save a json file to the desktop
 |1| The project file could not be found, or there was some other issue with the arguments passed into the tool. See the logs.|
 |2| There was an issue with the license. Either the user does not have a valid license, or the license does not support the local/SPIDAcee analysis option chosen. See the logs.|
 |3| There was an error during analysis. The file could not be read to, no designs were analyzed, the connection to SPIDAcee was lost, etc. See the logs.|
-|4| Unknwn error. See the logs.|
+|4| Unknown error. See the logs.|
 
 # Developer Guide
 
-These are the Integration API descriptions for SPIDACalc.
+These are the Integration API descriptions for SPIDAcalc.
 
 #### Data schemas
 
-This describes the data format  supported by calc. It is available broken into logical units in v1/calc or as a single file for simpler validation in public/v1/calc. Example data files are in the examples directory. The format is best approached after learning basic calc functionality. All properties mirror the calc user interface pretty closely.
+This describes the data format supported by calc. The schemas are broken into logical units in [resources/schema/spidacalc/calc](/resources/schema/spidacalc/calc). Example data files are in [resources/examples/spidacalc](/resources/examples/spidacalc). The format is best approached after learning basic calc functionality. All properties mirror the calc user interface pretty closely.
 
 ##### structure.schema
 
 Schema for an individual detailed pole structure. It will define individual attachments, end points, and other physical components. This is for import from another data collection or pole design tool.
 
-##### ~~framing_plan.schema~~
+##### framing_plan.schema (removed)
 
-Framing Plans are no longer supported in 7.0. See input assemblies.
+Framing plans were removed in SPIDAcalc 7.0. Use [input assemblies](input_assemblies.md) to define designs in terms of prebuilt standards instead.
 
-~~Schema for a simplified framing plan. It defines a pole design in very broad terms in code units. This tends to be a more useful way to import from a staking tool or GIS database.~~
-
-#### input_assembly.schema
+##### input_assembly.schema
 
 Schema for input assemblies, which allow stacking of assemblies like dropping in the graphic view.
 
 See the [Input Assembly Guide](input_assemblies.md)
 
-##### calc_project.schema
+##### project.schema
 
-Schema for a calc project. Includes information on GPS positions, street addresses, photos, remedies, and design structure defined by either design.schema or ~~framing_plan.schema~~. This is the format that can be opened and exported directly by SPIDACalc.
+Schema for a calc project. Includes information on GPS positions, street addresses, photos, remedies, and design structure defined by design.schema. This is the format that can be opened and exported directly by SPIDAcalc.
 
 #### RPC Interfaces
 
-RPC interfaces are exposed at http://localhost:4560/ while SPIDACalc is running. They allow control over core operations of SPIDACalc from another programming running locally via basic HTTP POST requests. There is an example script using these methods in examples/scripts/example_RPC_client.coffee.
+RPC interfaces are exposed at http://localhost:4560/ while SPIDAcalc is running. They allow control over core operations of SPIDAcalc from another program running locally via basic HTTP POST requests. There is an example script using these methods at [resources/examples/spidacalc/demos/example_RPC_client.coffee](/resources/examples/spidacalc/demos/example_RPC_client.coffee).
 
 ##### [client_data](/doc/apis/clientAPI.md)
 
@@ -186,7 +191,7 @@ Located at http://localhost:4560/clientData/<method name>. This interface provid
 
 ##### [calc](/doc/apis/calcAPI.md)
 
-Located at http://localhost:4560/calc/<method name>. Provides stateful control methods to a running instance of SPIDACalc. Includes methods to open a file, run analysis, run a report, etc.
+Located at http://localhost:4560/calc/<method name>. Provides stateful control methods to a running instance of SPIDAcalc. Includes methods to open a file, run analysis, run a report, etc.
 
 #### Using the examples
 
@@ -196,39 +201,53 @@ The example data files are json files that can be opened in any text editor.
 
 [Example Integration showing data export to KML](/resources/examples/spidacalc/demos/kml-demo)
 
-[Example RPC integration using coffescript](/resources/examples/spidacalc/demos/example_RPC_client.coffee)
+[Example RPC integration using CoffeeScript](/resources/examples/spidacalc/demos/example_RPC_client.coffee)
+
+[More demos - CSV imports, design app, webinar client file](/resources/examples/spidacalc/demos)
 
 #### Looking around
 
-An easy way to start playing with what is available in the SPIDACalc API is to open Calc, then open a web browser to
+An easy way to start playing with what is available in the SPIDAcalc API is to open Calc, then open a web browser to
 
     http://localhost:4560/calc/getProject
 
 Your web browser will show you the JSON version of the currently open project (this is where a browser extension that formats JSON is very useful for development.)
 
-If you change something in SPIDACalc and refresh your browser, the changes will be reflected in the browser window.
+If you change something in SPIDAcalc and refresh your browser, the changes will be reflected in the browser window.
 
 #### More definition of terms
 
-Some of the schemas use terms that are specific to SPIDACalc or the utility industry. A basic description of the values is included in the schema itself. For a more complete definition of those terms, please see the help menu in SPIDACalc.
+Some of the schemas use terms that are specific to SPIDAcalc or the utility industry. A basic description of the values is included in the schema itself. For a more complete definition of those terms, please see the help menu in SPIDAcalc.
 
-#### External IDs
+#### Identifiers and Validation
 
-Calc stores external ids for all components on the pole. They aren't used as identifiers by the program - they are for interfacing with other applications. You may include them if you have track them, but the id field is the one that is important for building the pole.
+SPIDAcalc validates every imported project JSON against [project.schema](/resources/schema/spidacalc/calc/project.schema) and rejects the file if validation fails. By default, additional properties that are not in the schema are ignored with a warning; if the project JSON contains `"strict": true`, additional properties fail validation instead. Running the [command line validator](/README.md#command-line-validator) on your files before sending them to calc will catch most issues early.
+
+The identifier fields in the JSON each have their own rules:
+
+**Component `id` (e.g. `"Wire#1"`, `"Insulator#2"`)** - The display id shown in the calc UI. May contain letters, numbers, underscores, spaces, and `#`, must be at least 2 characters, and must not begin or end with a space. The conventional form is `Type#Number` (`Wire#1`, `Equip#1`), but any conforming string is accepted. Ids must be unique within a structure: all cross-references between components (wire end point → wires, anchor → guys, insulator → wires, etc.) are resolved by id, and a duplicated id resolves to the first matching item. calc enforces uniqueness when a user edits an id in the UI, but does not reject duplicates on import, so an integration must guarantee uniqueness itself.
+
+**`externalId`** - Free-form. Never validated, never modified, and not required to be unique; calc preserves these for round-tripping to external systems. calc generates 24-character hex values for components it creates, but yours may be any string.
+
+**`connectionId`** - A lowercase 24-character hex string (schema pattern `[a-f0-9]{24}`); calc generates MongoDB ObjectIds. The format is enforced by schema validation, so a nonconforming value will reject the import. Exactly two items in two different designs in the same design layer may share a connectionId. If more than two items share one, or two items in the *same* design share one, or a connected design has no map location, the problem is logged and the connectionId is dropped, leaving the items disconnected. See [Design Connectivity](#design-connectivity).
+
+**`clientItemVersion`** - A lowercase 32-character hex version hash (schema pattern `[a-f0-9]{32}`) identifying an exact version of a client file item. The format is enforced by schema validation. calc writes these on export; on import, if the hash is not found in the user's client file, calc falls back to the `clientItem` description and then the `clientItemAlias`. Load case `version` and result `analysisCaseVersion` hashes use the same format. See [Client Item References](clientReferences.md).
+
+**Project, lead, location, and design `id`** - Free-form strings managed by calc, which generates ObjectIds for them and regenerates duplicates. Integrations can simply omit them.
+
+**Labels (project, lead, location, design)** - Limited to 72 characters, with no leading, trailing, or consecutive spaces, and no filesystem-special characters (`\ / : * ? " < > |` and several others; project labels also disallow `.`). An invalid label is dropped on import with a validation warning.
 
 #### Useful JSON Development tools:
 
-- [jsonlint.com] - validates that your json is correctly formed with more useful errors.
-- node_modules/JSV/examples/index.html - provides an easy to use interface for schema validation and viewing errors
-- [https://chrome.google.com/webstore/detail/chklaanhfefbnpoihckbnefhakgolnmc] JSONView or similar - a browser extension that will format JSON output cleanly.
+- [jsonlint.com](https://jsonlint.com) - validates that your json is correctly formed with more useful errors.
+- The `validateJson` gradle task in this repo - validates a json file against any of the included schemas. See the [command line validator](/README.md#command-line-validator) section of the README for usage.
+- JSONView or a similar browser extension - formats JSON output cleanly, which is very useful when browsing the RPC interfaces during development.
 
 
 #### Limitations and known issues:
 
 - parameters sent to RPC interface must be in the order specified in the interface description.
-- ~~All ID on the structure must conform to the Calc naming conventions. All wires must be named with something starting with "Wire#", all equipment with "Equip#". This will be fixed in a later version to allow generic labeling. Correct ID Form is CASE SENSITIVE. EQUIP#1 is not a correct ID. Equip#1 is.~~ This has been fixed in Calc 5.3 ID's may be any alphanumeric string.
-- ~~UUIDs must be actual UUIDs and in the canonical form xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx  http://en.wikipedia.org/wiki/Universally_unique_identifier In future versions this will be more generic.~~ As of version 5.3 UUIDs have been removed. externalIds can be in any form.
-- ~~Load case names are case-sensitive, to what is in the client file. This can be different from what is shown in calc.~~ This has been fixed in calc 5.3.
+- See [Identifiers and Validation](#identifiers-and-validation) for the rules on component ids, externalIds, connectionIds, and client item version hashes.
 
 ## Calc Project Structure
 
@@ -307,6 +326,26 @@ Terrain layers have five properties:
 ]
 ```
 
+Terrain layers are assigned to design layers by name with the project-level `appliedTerrainLayers` property:
+
+```
+"appliedTerrainLayers": [
+    {
+        "designLayer": "Measured Design",
+        "terrainLayer": "terrain layer"
+    }
+]
+```
+
+For an applied terrain layer to actually take effect on a design, two conditions must be met:
+
+* **The design must have an absolute elevation.** Terrain layer point elevations are absolute (above sea level), so SPIDAcalc needs the pole base elevation to place the ground relative to the pole. Include it as the third GeoJSON coordinate — altitude in **meters** above sea level — in the design's `mapLocation` (`"coordinates": [longitude, latitude, altitude]`), on the same vertical datum as the terrain layer elevations. If the design has no altitude, the terrain layer is silently ignored and the design falls back to its per-span `terrainPoints`. (When a terrain layer is applied interactively in SPIDAcalc, the application fills in this altitude from the nearest terrain layer point; a project file that arrives with the layer already applied must supply it.) Watch the units: the `mapLocation` altitude is a bare number that is **always meters** (GeoJSON convention), while a terrain layer point `elevation` is a measurable with an explicit `unit` — an altitude of `238.3536` and an elevation of `{"value": 782.0, "unit": "FOOT"}` describe the same ground. Expressing terrain layer elevations in `METRE` makes the two directly comparable and avoids apparent (or real) datum mismatches.
+* **Points must be near the spans.** For each span, only terrain layer points within `profileViewWidth` of the span centerline (including just behind the pole and just beyond the wire end point) are used as ground. Points farther away are ignored, so a sparse or offset ground sample may produce no terrain under a span.
+
+One more pitfall for generated data: along the span, a terrain layer point is only kept if its projected distance from the pole is between 0 and the wire end point's horizontal distance (`distance` corrected for `relativeElevation`). SPIDAcalc measures that projected distance on a spherical earth model from the GPS coordinates, so if the authored wire end point `distance` is even slightly shorter than the true geodesic separation of the two poles (a common result of converting coordinates with flat-earth approximations), the terrain points at the far end of the span silently disappear from that span's profile view — while still appearing at distance 0 when the same ground is viewed from the other pole. When generating coordinates and span distances from lidar data, compute pole-to-pole distances geodesically (or round span distances up) so that each wire end point `distance` is at least the great-circle distance between the pole coordinates.
+
+[Terrain Layer Example](/resources/examples/spidacalc/projects/lidar_terrain_layer_project.json) (five connected poles with a lidar-derived terrain layer applied to the Measured Design layer)
+
 ## Calc Pole Structure
 
 The calc structure is a model of a single pole under analysis and everything directly attached to it.
@@ -328,8 +367,6 @@ Components at a distance from the pole have structure in common
 #### Directions
 
 Directions are in degrees. 0 is North, 90 is East, 180 is South, 270 is west. They are the bearing from the main pole to that item. This matches the display in Calc.
-
-*Note* in the 4.4.2 release, there is a bug in the direction handling. The rotation is reversed. 0 is North, 270 is East, 180 is South, 90 is West.
 
 #### Wire End Points
 
@@ -358,7 +395,7 @@ Custom equipment types are supported. However, the following types are recognize
 - TRANSFORMER
 - JOINT_USE_BOX
 - APPARATUS_CASE
-- CROSS_CONNEC T
+- CROSS_CONNECT
 - LOAD_COIL_CASE
 - POWER_SUPPLY
 - SPLICE_CASE
@@ -394,7 +431,7 @@ Wire#1 and Wire#3 will now synchronize properties between the two -- if the user
 
 ### Design Connectivity
 
-Design connectivity is maintained by a connectionId between each two *items* that are connected between designs *in the same design layer*. The connectionId must be unique per pair of items per design layer. Properties of those two connected items should match -- if they do not, behavior is undefined (one or the other may be overridden). The connectionIds generated by calc are MongoDB ObjectIDs, but it will accept any 24-character hex value.
+Design connectivity is maintained by a connectionId between each two *items* that are connected between designs *in the same design layer*. The connectionId must be unique per pair of items per design layer. Properties of those two connected items should match -- if they do not, behavior is undefined (one or the other may be overridden). The connectionIds generated by calc are MongoDB ObjectIDs, but it will accept any lowercase 24-character hex value (the schema enforces the pattern `[a-f0-9]{24}`).
 
 ```
 "locations": [{
@@ -432,7 +469,7 @@ Design connectivity is maintained by a connectionId between each two *items* tha
 ```
 If a wire end point is connected, all of its children must be connected (wires, span guys, span points). Moreover, all of the properties must match between connected items. For example, two wires representing the same span should have the same midspan, tension group, and client wire. Connected wire end points must have the same distance and opposite directions. If connectivity is incomplete or incorrect, the wire end point will be disconnected and all item properties preserved on the two disconnected designs.
 
-[Connectivity Example](/resources/examples/spidacalc/projects/connectivity_two_locations.json)
+[Connectivity Example](/resources/examples/spidacalc/projects/connectivity_two_locations.json) · [Lidar Connected Locations Example](/resources/examples/spidacalc/projects/lidar_connected_locations_project.json) (three poles with connected wires and measured sags on every span) · [Lidar End-to-End Example](/resources/examples/spidacalc/projects/lidar_end_to_end_project.json) (five-pole line with connectivity, measured sags, and terrain points under every span)
 
 ### Environment Regions
 
@@ -487,4 +524,4 @@ The report ID is any report named in your client file, as well as two of the rep
 
 #### Questions/Support
 
-For questions about the SPIDACalc API, please submit a ticket at <https://spidasoftware.zendesk.com/hc/en-us>
+For questions about the SPIDAcalc API, please submit a ticket at our [user support portal](https://bentleysystems.service-now.com/csp?id=csm_sc_cat_item&sys_id=0a2342ef1b10c1103eeeeb53604bcb0b)
