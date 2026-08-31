@@ -135,7 +135,7 @@ Only one of `measuredSag` / `adjustedTension` / `tensionAdjustment` may be prese
 - **`wireEndPoints[].distance`** is the horizontal span length; vertical change goes in `relativeElevation` (base of this pole to base of the far pole).
 - **`anchors[].height`** is relative to the base of the pole (uphill anchors positive, downhill negative).
 - **`geographicCoordinate`** is GeoJSON: `{"type": "Point", "coordinates": [longitude, latitude]}` — longitude first, WGS84.
-- **`id`** values are display IDs and must be unique within the structure (e.g. `"Wire#1"`, `"WEP#1"`, `"Anchor#1"`). Cross-references (WEP→wires, anchor→guys, insulator→wires) use these IDs.
+- **`id`** values are display IDs and must be unique within the structure (e.g. `"Wire#1"`, `"WEP#1"`, `"Anchor#1"`). Cross-references (WEP→wires, anchor→guys, insulator→wires) use these IDs. IDs may contain letters, numbers, underscores, spaces, and `#`, must be at least 2 characters, and must not begin or end with a space. See [Identifiers and Validation](calc.md#identifiers-and-validation) for the rules on every ID type.
 
 ## Validation Checklist
 
