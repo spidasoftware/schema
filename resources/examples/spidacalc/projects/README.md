@@ -24,6 +24,9 @@ lidar_measured_project.json
 lidar_connected_locations_project.json
 	Shows a three-pole lidar-derived run: connected locations (connectionIds), connected wires through the middle pole (connectedWire), and measured sags on every span.
 
+lidar_end_to_end_project.json
+	A semi-realistic five-pole lidar-derived line: connected locations, connected wires, field-measured sags for the tension data on every span, terrain points under every span (including a creek crossing), deadend guying, and a transformer.
+
 multiple_projects.json
 	Shows the exchange format for sending more than one project at a time.
 
