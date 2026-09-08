@@ -2,7 +2,7 @@
   "clientFile": "Demo.client",
   "schema": "https://raw.github.com/spidasoftware/schema/master/resources/schema/spidacalc/calc/project.schema",
   "label": "Willow Creek Road Feeder 7 Lidar Extraction with Clearances",
-  "comments": "Builds on lidar_terrain_layer_project.json (five connected poles, connected wires, field-measured sags, and a lidar-derived terrain layer applied to the 'Measured Design' design layer - see that example for the terrain layer rules) and adds clearance cases so SPIDAcalc checks NESC-style required clearances. Three case types are shown: 'Vertical to Ground' (wires over the ground environments along each span), 'Wire To Wire' (supply-to-communication separation midspan), and 'At Pole' (vertical separation between attachments on the pole). The same three cases appear twice on purpose: project-level defaultClearanceCases holds the project defaults used when new designs are created, and each design's clearanceCases holds the cases actually applied to that design - a design only runs the cases in its own list, so an imported file must repeat them per design (this mirrors what SPIDAcalc itself writes). Component groups in the cases match wires by usageGroups and industry ('Supply' = PRIMARY/SECONDARY/NEUTRAL utility wires, 'Communication' = communication wires), and the Vertical to Ground case's lower environments must equal environments defined in the client file and used on wireEndPoints[].environment: four spans here are 'STREET' and the WC-204 to WC-205 span is 'PEDESTRIAN' (a walking-path section), so the Street rows fire on the street spans and the Pedestrian rows fire on that last span. This environment mapping is where lidar land-use classification feeds the clearance analysis. Allowable values, wire states (thermal 'Energized 212F', physical 'NESC Medium Loaded'), and clearance distances are illustrative demo values, not engineering guidance. See doc/lidar_integration.md and the Clearance Cases section of doc/calc.md.",
+  "comments": "Builds on lidar_terrain_layer_project.json (five connected poles, connected wires, field-measured sags, and a lidar-derived terrain layer applied to the 'Measured Design' design layer - see that example for the terrain layer rules) and adds clearance cases so SPIDAcalc checks NESC-style required clearances. Three case types are shown: 'Vertical to Ground' (wires over the ground environments along each span), 'Wire To Wire' (supply-to-communication separation midspan), and 'At Pole' (vertical separation between attachments on the pole). The same three cases appear twice on purpose: project-level defaultClearanceCases holds the project defaults used when new designs are created, and each design's clearanceCases holds the cases actually applied to that design - a design only runs the cases in its own list, so an imported file must repeat them per design (this mirrors what SPIDAcalc itself writes). Component groups in the cases match wires by usageGroups and industry ('Supply' = PRIMARY/SECONDARY/NEUTRAL utility wires, 'Communication' = communication wires), and the Vertical to Ground case's lower environments must equal environments defined in the client file and used on wireEndPoints[].environment: four spans here are 'STREET' and the WC-204 to WC-205 span is 'PEDESTRIAN' (a walking-path section), so the Street rows fire on the street spans and the Pedestrian rows fire on that last span. This environment mapping is where lidar land-use classification feeds the clearance analysis. Every inline wire state carries all three weather conditions (designCondition, highestStressCondition, creepCondition, each with windSpeed) - the schema minimum is enough to import but SPIDAcalc's clearance editor reads highestStressCondition for any non-INITIAL tension type, so omitting it breaks the case editor. The component groups match wires by usageGroups alone, which is sufficient (usage groups and wire classes are alternatives), and deliberately avoid wireClasses because the Demo client file defines none - referencing undefined wire classes triggers a mapping prompt on import. Allowable values, wire states (thermal 'Energized 212F', physical 'NESC Medium Loaded'), and clearance distances are illustrative demo values, not engineering guidance. See doc/lidar_integration.md and the Clearance Cases section of doc/calc.md.",
   "terrainLayers": [
     {
       "name": "Lidar Ground Surface",
@@ -281,9 +281,36 @@
               "unit": "PASCAL",
               "value": 0.0
             },
+            "windSpeed": {
+              "unit": "METRE_PER_SECOND",
+              "value": 0.0
+            },
             "temperature": {
               "unit": "FAHRENHEIT",
               "value": 212.0
+            }
+          },
+          "highestStressCondition": {
+            "name": "Everyday 60F",
+            "iceThickness": {
+              "unit": "INCH",
+              "value": 0.0
+            },
+            "iceDensity": {
+              "unit": "KILOGRAM_PER_CUBIC_METRE",
+              "value": 917.0
+            },
+            "windPressure": {
+              "unit": "PASCAL",
+              "value": 0.0
+            },
+            "windSpeed": {
+              "unit": "METRE_PER_SECOND",
+              "value": 0.0
+            },
+            "temperature": {
+              "unit": "FAHRENHEIT",
+              "value": 60.0
             }
           },
           "creepCondition": {
@@ -298,6 +325,10 @@
             },
             "windPressure": {
               "unit": "PASCAL",
+              "value": 0.0
+            },
+            "windSpeed": {
+              "unit": "METRE_PER_SECOND",
               "value": 0.0
             },
             "temperature": {
@@ -337,6 +368,29 @@
               "value": 15.0
             }
           },
+          "highestStressCondition": {
+            "name": "Everyday 60F",
+            "iceThickness": {
+              "unit": "INCH",
+              "value": 0.0
+            },
+            "iceDensity": {
+              "unit": "KILOGRAM_PER_CUBIC_METRE",
+              "value": 917.0
+            },
+            "windPressure": {
+              "unit": "PASCAL",
+              "value": 0.0
+            },
+            "windSpeed": {
+              "unit": "METRE_PER_SECOND",
+              "value": 0.0
+            },
+            "temperature": {
+              "unit": "FAHRENHEIT",
+              "value": 60.0
+            }
+          },
           "creepCondition": {
             "name": "Everyday 60F",
             "iceThickness": {
@@ -349,6 +403,10 @@
             },
             "windPressure": {
               "unit": "PASCAL",
+              "value": 0.0
+            },
+            "windSpeed": {
+              "unit": "METRE_PER_SECOND",
               "value": 0.0
             },
             "temperature": {
@@ -446,9 +504,36 @@
               "unit": "PASCAL",
               "value": 0.0
             },
+            "windSpeed": {
+              "unit": "METRE_PER_SECOND",
+              "value": 0.0
+            },
             "temperature": {
               "unit": "FAHRENHEIT",
               "value": 212.0
+            }
+          },
+          "highestStressCondition": {
+            "name": "Everyday 60F",
+            "iceThickness": {
+              "unit": "INCH",
+              "value": 0.0
+            },
+            "iceDensity": {
+              "unit": "KILOGRAM_PER_CUBIC_METRE",
+              "value": 917.0
+            },
+            "windPressure": {
+              "unit": "PASCAL",
+              "value": 0.0
+            },
+            "windSpeed": {
+              "unit": "METRE_PER_SECOND",
+              "value": 0.0
+            },
+            "temperature": {
+              "unit": "FAHRENHEIT",
+              "value": 60.0
             }
           },
           "creepCondition": {
@@ -463,6 +548,10 @@
             },
             "windPressure": {
               "unit": "PASCAL",
+              "value": 0.0
+            },
+            "windSpeed": {
+              "unit": "METRE_PER_SECOND",
               "value": 0.0
             },
             "temperature": {
@@ -502,6 +591,29 @@
               "value": 15.0
             }
           },
+          "highestStressCondition": {
+            "name": "Everyday 60F",
+            "iceThickness": {
+              "unit": "INCH",
+              "value": 0.0
+            },
+            "iceDensity": {
+              "unit": "KILOGRAM_PER_CUBIC_METRE",
+              "value": 917.0
+            },
+            "windPressure": {
+              "unit": "PASCAL",
+              "value": 0.0
+            },
+            "windSpeed": {
+              "unit": "METRE_PER_SECOND",
+              "value": 0.0
+            },
+            "temperature": {
+              "unit": "FAHRENHEIT",
+              "value": 60.0
+            }
+          },
           "creepCondition": {
             "name": "Everyday 60F",
             "iceThickness": {
@@ -514,6 +626,10 @@
             },
             "windPressure": {
               "unit": "PASCAL",
+              "value": 0.0
+            },
+            "windSpeed": {
+              "unit": "METRE_PER_SECOND",
               "value": 0.0
             },
             "temperature": {
@@ -542,6 +658,56 @@
             },
             "windPressure": {
               "unit": "PASCAL",
+              "value": 0.0
+            },
+            "windSpeed": {
+              "unit": "METRE_PER_SECOND",
+              "value": 0.0
+            },
+            "temperature": {
+              "unit": "FAHRENHEIT",
+              "value": 60.0
+            }
+          },
+          "highestStressCondition": {
+            "name": "Everyday 60F",
+            "iceThickness": {
+              "unit": "INCH",
+              "value": 0.0
+            },
+            "iceDensity": {
+              "unit": "KILOGRAM_PER_CUBIC_METRE",
+              "value": 917.0
+            },
+            "windPressure": {
+              "unit": "PASCAL",
+              "value": 0.0
+            },
+            "windSpeed": {
+              "unit": "METRE_PER_SECOND",
+              "value": 0.0
+            },
+            "temperature": {
+              "unit": "FAHRENHEIT",
+              "value": 60.0
+            }
+          },
+          "creepCondition": {
+            "name": "Everyday 60F",
+            "iceThickness": {
+              "unit": "INCH",
+              "value": 0.0
+            },
+            "iceDensity": {
+              "unit": "KILOGRAM_PER_CUBIC_METRE",
+              "value": 917.0
+            },
+            "windPressure": {
+              "unit": "PASCAL",
+              "value": 0.0
+            },
+            "windSpeed": {
+              "unit": "METRE_PER_SECOND",
               "value": 0.0
             },
             "temperature": {
@@ -581,6 +747,29 @@
               "value": 15.0
             }
           },
+          "highestStressCondition": {
+            "name": "Everyday 60F",
+            "iceThickness": {
+              "unit": "INCH",
+              "value": 0.0
+            },
+            "iceDensity": {
+              "unit": "KILOGRAM_PER_CUBIC_METRE",
+              "value": 917.0
+            },
+            "windPressure": {
+              "unit": "PASCAL",
+              "value": 0.0
+            },
+            "windSpeed": {
+              "unit": "METRE_PER_SECOND",
+              "value": 0.0
+            },
+            "temperature": {
+              "unit": "FAHRENHEIT",
+              "value": 60.0
+            }
+          },
           "creepCondition": {
             "name": "Everyday 60F",
             "iceThickness": {
@@ -593,6 +782,10 @@
             },
             "windPressure": {
               "unit": "PASCAL",
+              "value": 0.0
+            },
+            "windSpeed": {
+              "unit": "METRE_PER_SECOND",
               "value": 0.0
             },
             "temperature": {
@@ -858,9 +1051,36 @@
                           "unit": "PASCAL",
                           "value": 0.0
                         },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
                         "temperature": {
                           "unit": "FAHRENHEIT",
                           "value": 212.0
+                        }
+                      },
+                      "highestStressCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
                         }
                       },
                       "creepCondition": {
@@ -875,6 +1095,10 @@
                         },
                         "windPressure": {
                           "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
                           "value": 0.0
                         },
                         "temperature": {
@@ -914,6 +1138,29 @@
                           "value": 15.0
                         }
                       },
+                      "highestStressCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
+                        }
+                      },
                       "creepCondition": {
                         "name": "Everyday 60F",
                         "iceThickness": {
@@ -926,6 +1173,10 @@
                         },
                         "windPressure": {
                           "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
                           "value": 0.0
                         },
                         "temperature": {
@@ -1023,9 +1274,36 @@
                           "unit": "PASCAL",
                           "value": 0.0
                         },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
                         "temperature": {
                           "unit": "FAHRENHEIT",
                           "value": 212.0
+                        }
+                      },
+                      "highestStressCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
                         }
                       },
                       "creepCondition": {
@@ -1040,6 +1318,10 @@
                         },
                         "windPressure": {
                           "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
                           "value": 0.0
                         },
                         "temperature": {
@@ -1079,6 +1361,29 @@
                           "value": 15.0
                         }
                       },
+                      "highestStressCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
+                        }
+                      },
                       "creepCondition": {
                         "name": "Everyday 60F",
                         "iceThickness": {
@@ -1091,6 +1396,10 @@
                         },
                         "windPressure": {
                           "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
                           "value": 0.0
                         },
                         "temperature": {
@@ -1119,6 +1428,56 @@
                         },
                         "windPressure": {
                           "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
+                        }
+                      },
+                      "highestStressCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
+                        }
+                      },
+                      "creepCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
                           "value": 0.0
                         },
                         "temperature": {
@@ -1158,6 +1517,29 @@
                           "value": 15.0
                         }
                       },
+                      "highestStressCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
+                        }
+                      },
                       "creepCondition": {
                         "name": "Everyday 60F",
                         "iceThickness": {
@@ -1170,6 +1552,10 @@
                         },
                         "windPressure": {
                           "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
                           "value": 0.0
                         },
                         "temperature": {
@@ -1604,9 +1990,36 @@
                           "unit": "PASCAL",
                           "value": 0.0
                         },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
                         "temperature": {
                           "unit": "FAHRENHEIT",
                           "value": 212.0
+                        }
+                      },
+                      "highestStressCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
                         }
                       },
                       "creepCondition": {
@@ -1621,6 +2034,10 @@
                         },
                         "windPressure": {
                           "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
                           "value": 0.0
                         },
                         "temperature": {
@@ -1660,6 +2077,29 @@
                           "value": 15.0
                         }
                       },
+                      "highestStressCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
+                        }
+                      },
                       "creepCondition": {
                         "name": "Everyday 60F",
                         "iceThickness": {
@@ -1672,6 +2112,10 @@
                         },
                         "windPressure": {
                           "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
                           "value": 0.0
                         },
                         "temperature": {
@@ -1769,9 +2213,36 @@
                           "unit": "PASCAL",
                           "value": 0.0
                         },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
                         "temperature": {
                           "unit": "FAHRENHEIT",
                           "value": 212.0
+                        }
+                      },
+                      "highestStressCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
                         }
                       },
                       "creepCondition": {
@@ -1786,6 +2257,10 @@
                         },
                         "windPressure": {
                           "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
                           "value": 0.0
                         },
                         "temperature": {
@@ -1825,6 +2300,29 @@
                           "value": 15.0
                         }
                       },
+                      "highestStressCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
+                        }
+                      },
                       "creepCondition": {
                         "name": "Everyday 60F",
                         "iceThickness": {
@@ -1837,6 +2335,10 @@
                         },
                         "windPressure": {
                           "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
                           "value": 0.0
                         },
                         "temperature": {
@@ -1865,6 +2367,56 @@
                         },
                         "windPressure": {
                           "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
+                        }
+                      },
+                      "highestStressCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
+                        }
+                      },
+                      "creepCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
                           "value": 0.0
                         },
                         "temperature": {
@@ -1904,6 +2456,29 @@
                           "value": 15.0
                         }
                       },
+                      "highestStressCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
+                        }
+                      },
                       "creepCondition": {
                         "name": "Everyday 60F",
                         "iceThickness": {
@@ -1916,6 +2491,10 @@
                         },
                         "windPressure": {
                           "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
                           "value": 0.0
                         },
                         "temperature": {
@@ -2490,9 +3069,36 @@
                           "unit": "PASCAL",
                           "value": 0.0
                         },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
                         "temperature": {
                           "unit": "FAHRENHEIT",
                           "value": 212.0
+                        }
+                      },
+                      "highestStressCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
                         }
                       },
                       "creepCondition": {
@@ -2507,6 +3113,10 @@
                         },
                         "windPressure": {
                           "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
                           "value": 0.0
                         },
                         "temperature": {
@@ -2546,6 +3156,29 @@
                           "value": 15.0
                         }
                       },
+                      "highestStressCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
+                        }
+                      },
                       "creepCondition": {
                         "name": "Everyday 60F",
                         "iceThickness": {
@@ -2558,6 +3191,10 @@
                         },
                         "windPressure": {
                           "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
                           "value": 0.0
                         },
                         "temperature": {
@@ -2655,9 +3292,36 @@
                           "unit": "PASCAL",
                           "value": 0.0
                         },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
                         "temperature": {
                           "unit": "FAHRENHEIT",
                           "value": 212.0
+                        }
+                      },
+                      "highestStressCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
                         }
                       },
                       "creepCondition": {
@@ -2672,6 +3336,10 @@
                         },
                         "windPressure": {
                           "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
                           "value": 0.0
                         },
                         "temperature": {
@@ -2711,6 +3379,29 @@
                           "value": 15.0
                         }
                       },
+                      "highestStressCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
+                        }
+                      },
                       "creepCondition": {
                         "name": "Everyday 60F",
                         "iceThickness": {
@@ -2723,6 +3414,10 @@
                         },
                         "windPressure": {
                           "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
                           "value": 0.0
                         },
                         "temperature": {
@@ -2751,6 +3446,56 @@
                         },
                         "windPressure": {
                           "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
+                        }
+                      },
+                      "highestStressCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
+                        }
+                      },
+                      "creepCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
                           "value": 0.0
                         },
                         "temperature": {
@@ -2790,6 +3535,29 @@
                           "value": 15.0
                         }
                       },
+                      "highestStressCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
+                        }
+                      },
                       "creepCondition": {
                         "name": "Everyday 60F",
                         "iceThickness": {
@@ -2802,6 +3570,10 @@
                         },
                         "windPressure": {
                           "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
                           "value": 0.0
                         },
                         "temperature": {
@@ -3376,9 +4148,36 @@
                           "unit": "PASCAL",
                           "value": 0.0
                         },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
                         "temperature": {
                           "unit": "FAHRENHEIT",
                           "value": 212.0
+                        }
+                      },
+                      "highestStressCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
                         }
                       },
                       "creepCondition": {
@@ -3393,6 +4192,10 @@
                         },
                         "windPressure": {
                           "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
                           "value": 0.0
                         },
                         "temperature": {
@@ -3432,6 +4235,29 @@
                           "value": 15.0
                         }
                       },
+                      "highestStressCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
+                        }
+                      },
                       "creepCondition": {
                         "name": "Everyday 60F",
                         "iceThickness": {
@@ -3444,6 +4270,10 @@
                         },
                         "windPressure": {
                           "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
                           "value": 0.0
                         },
                         "temperature": {
@@ -3541,9 +4371,36 @@
                           "unit": "PASCAL",
                           "value": 0.0
                         },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
                         "temperature": {
                           "unit": "FAHRENHEIT",
                           "value": 212.0
+                        }
+                      },
+                      "highestStressCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
                         }
                       },
                       "creepCondition": {
@@ -3558,6 +4415,10 @@
                         },
                         "windPressure": {
                           "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
                           "value": 0.0
                         },
                         "temperature": {
@@ -3597,6 +4458,29 @@
                           "value": 15.0
                         }
                       },
+                      "highestStressCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
+                        }
+                      },
                       "creepCondition": {
                         "name": "Everyday 60F",
                         "iceThickness": {
@@ -3609,6 +4493,10 @@
                         },
                         "windPressure": {
                           "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
                           "value": 0.0
                         },
                         "temperature": {
@@ -3637,6 +4525,56 @@
                         },
                         "windPressure": {
                           "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
+                        }
+                      },
+                      "highestStressCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
+                        }
+                      },
+                      "creepCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
                           "value": 0.0
                         },
                         "temperature": {
@@ -3676,6 +4614,29 @@
                           "value": 15.0
                         }
                       },
+                      "highestStressCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
+                        }
+                      },
                       "creepCondition": {
                         "name": "Everyday 60F",
                         "iceThickness": {
@@ -3688,6 +4649,10 @@
                         },
                         "windPressure": {
                           "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
                           "value": 0.0
                         },
                         "temperature": {
@@ -4262,9 +5227,36 @@
                           "unit": "PASCAL",
                           "value": 0.0
                         },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
                         "temperature": {
                           "unit": "FAHRENHEIT",
                           "value": 212.0
+                        }
+                      },
+                      "highestStressCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
                         }
                       },
                       "creepCondition": {
@@ -4279,6 +5271,10 @@
                         },
                         "windPressure": {
                           "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
                           "value": 0.0
                         },
                         "temperature": {
@@ -4318,6 +5314,29 @@
                           "value": 15.0
                         }
                       },
+                      "highestStressCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
+                        }
+                      },
                       "creepCondition": {
                         "name": "Everyday 60F",
                         "iceThickness": {
@@ -4330,6 +5349,10 @@
                         },
                         "windPressure": {
                           "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
                           "value": 0.0
                         },
                         "temperature": {
@@ -4427,9 +5450,36 @@
                           "unit": "PASCAL",
                           "value": 0.0
                         },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
                         "temperature": {
                           "unit": "FAHRENHEIT",
                           "value": 212.0
+                        }
+                      },
+                      "highestStressCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
                         }
                       },
                       "creepCondition": {
@@ -4444,6 +5494,10 @@
                         },
                         "windPressure": {
                           "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
                           "value": 0.0
                         },
                         "temperature": {
@@ -4483,6 +5537,29 @@
                           "value": 15.0
                         }
                       },
+                      "highestStressCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
+                        }
+                      },
                       "creepCondition": {
                         "name": "Everyday 60F",
                         "iceThickness": {
@@ -4495,6 +5572,10 @@
                         },
                         "windPressure": {
                           "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
                           "value": 0.0
                         },
                         "temperature": {
@@ -4523,6 +5604,56 @@
                         },
                         "windPressure": {
                           "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
+                        }
+                      },
+                      "highestStressCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
+                        }
+                      },
+                      "creepCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
                           "value": 0.0
                         },
                         "temperature": {
@@ -4562,6 +5693,29 @@
                           "value": 15.0
                         }
                       },
+                      "highestStressCondition": {
+                        "name": "Everyday 60F",
+                        "iceThickness": {
+                          "unit": "INCH",
+                          "value": 0.0
+                        },
+                        "iceDensity": {
+                          "unit": "KILOGRAM_PER_CUBIC_METRE",
+                          "value": 917.0
+                        },
+                        "windPressure": {
+                          "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
+                          "value": 0.0
+                        },
+                        "temperature": {
+                          "unit": "FAHRENHEIT",
+                          "value": 60.0
+                        }
+                      },
                       "creepCondition": {
                         "name": "Everyday 60F",
                         "iceThickness": {
@@ -4574,6 +5728,10 @@
                         },
                         "windPressure": {
                           "unit": "PASCAL",
+                          "value": 0.0
+                        },
+                        "windSpeed": {
+                          "unit": "METRE_PER_SECOND",
                           "value": 0.0
                         },
                         "temperature": {
