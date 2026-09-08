@@ -346,6 +346,69 @@ One more pitfall for generated data: along the span, a terrain layer point is on
 
 [Terrain Layer Example](/resources/examples/spidacalc/projects/lidar_terrain_layer_project.json) (five connected poles with a lidar-derived terrain layer applied to the Measured Design layer)
 
+### Clearance Cases
+
+Clearance cases define the required separations that SPIDAcalc's clearance engine checks — wire-to-ground along the span, wire-to-wire midspan, and attachment-to-attachment at the pole. They appear in two places in a project file:
+
+* **`defaultClearanceCases`** (project level) — the project's default set. On import it replaces the defaults that came from the client file, and it is used to populate newly created designs. It does **not** by itself attach cases to designs already in the file.
+* **`clearanceCases`** (design level) — the cases actually applied to that design. A design only runs the cases in its own list, so a file that arrives with designs must repeat the cases on every design that should be checked (this duplication mirrors what SPIDAcalc itself writes when saving).
+
+Each case has a `type` (one of three), a `name`, an `upper`/`lower` axis defining the case table, and a `clearances` array holding one required `allowable` distance per (upper, lower) pair:
+
+* **"Vertical to Ground"** — checks wires against the ground environments along each span. `upper` entries are component groups (wrapped in a `componentGroup` meta object); `lower` entries are environments.
+* **"Wire To Wire"** — checks vertical separation between two groups of wires in the span (for example supply over communication). `upper` entries are component group metas; `lower` entries are plain component groups.
+* **"At Pole"** — checks vertical separation between attachments on the pole itself. Both `upper` and `lower` are plain component groups, and no wire states are involved.
+
+For a case to actually produce checks on a design, its axes must match things that exist in the structure:
+
+* **Component groups match wires by filter.** A `"type": "Wire"` component group matches wires by `usageGroups` (values from the wire usage group enum, e.g. `PRIMARY`, `NEUTRAL`, `COMMUNICATION`), by `industry` (`UTILITY`, `COMMUNICATION`, or `BOTH` — compared against the wire owner's industry), and optionally by `includedOwners`/`excludedOwners`, `wireClasses`, or `includedClientItems`. Empty filter lists mean "any". A group that matches no wires in the design generates no rules.
+* **Environments must match the client file and the spans.** The `lower` environments of a Vertical to Ground case must be environments defined in the client file, written with the client file's exact `name` (and `description`). A row only fires on spans whose `wireEndPoints[].environment` (or span points / environment regions) resolve to that environment — the wire end point string is matched to client environments case- and format-insensitively (`"STREET"` resolves to client environment `Street`), but the clearance case's environment object must equal the resolved client environment exactly. Environments listed in a case but never used on a span are simply inert.
+* **Weather cases need wire states.** "Vertical to Ground" and "Wire To Wire" cases carry an `upperThermalState` (and optionally, when `checkPhysicalState` is true, an `upperPhysicalState`; Wire To Wire also has `lowerThermalState`/`lowerPhysicalState`). Each is a wire height calculator — usually `"type": "Wire State"` with an inline wire state (tension type plus design/creep weather conditions), or `"Line of Sight"`/`"Measured Wire"` to use the measured geometry directly.
+
+```
+"clearanceCases": [
+    {
+        "type": "Vertical to Ground",
+        "name": "NESC Vertical to Ground",
+        "exception": false,
+        "addByDefault": true,
+        "upper": [
+            {
+                "componentGroup": {
+                    "type": "Wire",
+                    "name": "Supply",
+                    "industry": "UTILITY",
+                    "usageGroups": ["PRIMARY", "SECONDARY", "NEUTRAL"]
+                }
+            }
+        ],
+        "lower": [
+            {
+                "name": "Street",
+                "description": "N/A"
+            }
+        ],
+        "clearances": [
+            {
+                "upper": { ...same component group meta... },
+                "lower": { "name": "Street", "description": "N/A" },
+                "allowable": {
+                    "unit": "FOOT",
+                    "value": 18.5
+                }
+            }
+        ],
+        "upperThermalState": { "type": "Wire State", "name": "Energized 212F", "wireState": { ... } },
+        "upperPhysicalState": { "type": "Wire State", "name": "NESC Medium Loaded", "wireState": { ... } },
+        "checkPhysicalState": true,
+        "thermalStateName": "Thermal",
+        "physicalStateName": "Physical"
+    }
+]
+```
+
+[Clearance Cases Example](/resources/examples/spidacalc/projects/lidar_clearance_cases_project.json) (the terrain layer example extended with Vertical to Ground, Wire To Wire, and At Pole clearance cases applied to every design, including a PEDESTRIAN environment span)
+
 ## Calc Pole Structure
 
 The calc structure is a model of a single pole under analysis and everything directly attached to it.

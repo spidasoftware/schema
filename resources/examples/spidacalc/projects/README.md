@@ -30,6 +30,9 @@ lidar_end_to_end_project.json
 lidar_terrain_layer_project.json
 	A five-pole lidar-derived connected line that delivers ground as a project-level terrain layer (terrainLayers + appliedTerrainLayers assigned to the Measured Design layer) instead of individual terrainPoints along each span.
 
+lidar_clearance_cases_project.json
+	The terrain layer project extended with clearance cases: Vertical to Ground, Wire To Wire, and At Pole cases defined as project defaultClearanceCases and applied to every design's clearanceCases, with four STREET spans and one PEDESTRIAN span driving the Vertical to Ground rows.
+
 multiple_projects.json
 	Shows the exchange format for sending more than one project at a time.
 
