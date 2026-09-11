@@ -8,6 +8,8 @@ Materials/engineering information is pre-configured per client in their Client D
 
 A good integration will also potentially include geolocations, photos, and span connectivity information.
 
+If you are converting lidar, point cloud, or other classified survey datasets, see the [Lidar / Point Cloud Integration Guide](lidar_integration.md) for a field-by-field mapping of measured geometry into the schema.
+
 ## Basic Location Information
 
 A minimal SPIDAcalc file consists of a list of named locations. This will import into SPIDAcalc with default poles based on the client file chosen. This is similar to the CSV import functionality.

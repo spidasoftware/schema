@@ -1,13 +1,13 @@
 SPIDAdb API
 ===========
 
-SPIDAdb is a web application that stores the complex pole data described by the SPIDACalc Project JSON schema. The aim of SPIDAdb is to provide a simple and robust API for storing and accessing pole data that can be used in a wide variety of integration and reporting scenarios.
+SPIDAdb is a web application that stores the complex pole data described by the SPIDAcalc Project JSON schema. The aim of SPIDAdb is to provide a simple and robust API for storing and accessing pole data that can be used in a wide variety of integration and reporting scenarios.
 
 # General Concepts
 
 1. You will need to have a basic understanding of how to make HTTP requests. If you are unfamiliar with how to send an HTTP request, you should familiarize yourself before continuing with this document. HTTP requests can be made using any programming language, tool, or platform, so there are plenty of options.
-2. SPIDAdb primarily deals with data coming from SPIDACalc Project format. The JSON schema can be found [here.](https://github.com/spidasoftware/schema/blob/master/resources/schema/spidacalc/calc/project.schema) This describes the overall scope of the data that can be stored in SPIDAdb.
-3. SPIDAdb deals with this data on three different levels: Projects, Locations, and Designs. Just like in SPIDACalc, a Project can have many Locations, and a Location can have many Designs. These objects correspond exactly with the project components in SPIDACalc.
+2. SPIDAdb primarily deals with data coming from SPIDAcalc Project format. The JSON schema can be found [here.](https://github.com/spidasoftware/schema/blob/master/resources/schema/spidacalc/calc/project.schema) This describes the overall scope of the data that can be stored in SPIDAdb.
+3. SPIDAdb deals with this data on three different levels: Projects, Locations, and Designs. Just like in SPIDAcalc, a Project can have many Locations, and a Location can have many Designs. These objects correspond exactly with the project components in SPIDAcalc.
 4. Only Projects can be directly created, updated, or deleted. Locations, Designs, and Photos are effectively read-only. They can only be deleted or modified by deleting or updating thier parent project.
 
 ## REST
@@ -35,13 +35,13 @@ The basic idea is that http verbs are used to indicate what the client wants to 
 - `<format>`        = The format of the data you are sending or requesting. This is not required.
 
 #### Resource Types
-SPIDAdb deals with three main types of data, projects, locations and designs. These correspond to the same objects in a SPIDACalc project. The API has an endpoint (resource-type) for each type of component. For example, let's say we have SPIDAdb running at the following base url: `https://www.example.com/SPIDAdb`. In order to deal with projects, we will simply add `/projects` to the base url, resulting in: `https://www.example.com/SPIDAdb/projects`. If we instead with to work with Locations or Designs, then we would simply replace that url segment with... surprise, "/locations" or "/designs".
+SPIDAdb deals with three main types of data, projects, locations and designs. These correspond to the same objects in a SPIDAcalc project. The API has an endpoint (resource-type) for each type of component. For example, let's say we have SPIDAdb running at the following base url: `https://www.example.com/SPIDAdb`. In order to deal with projects, we will simply add `/projects` to the base url, resulting in: `https://www.example.com/SPIDAdb/projects`. If we instead with to work with Locations or Designs, then we would simply replace that url segment with... surprise, "/locations" or "/designs".
 
 #### id
 Each resource in SPIDAdb has its own unique id. When requesting a resource, the id is just a part of the url. The URL `/projects/123` refers to the project with id '123'. Id's can be specified when creating a project, but every resource's id must be unique.
 
 #### Format
-Here's where things get interesting. Even though there is only one schema, there are several formats that the data can be in. When you save a project to SPIDAdb, it will typically contain several Locations, which in turn may contain several Designs. This is all sent to SPIDAdb via a POST or PUT request as a single JSON document. This is the default format, and it is called "__calc__" format. When you go to the project menu in SPIDACalc and export the project JSON, this is what you get: A single JSON document containing all the Locations and Designs in the Project. All requests will default to this format if none is specified.
+Here's where things get interesting. Even though there is only one schema, there are several formats that the data can be in. When you save a project to SPIDAdb, it will typically contain several Locations, which in turn may contain several Designs. This is all sent to SPIDAdb via a POST or PUT request as a single JSON document. This is the default format, and it is called "__calc__" format. When you go to the project menu in SPIDAcalc and export the project JSON, this is what you get: A single JSON document containing all the Locations and Designs in the Project. All requests will default to this format if none is specified.
 
 This is not how SPIDAdb stores the data internally, however. The aim of SPIDAdb is to make it easy to separate individual Locations and Designs from their parent Project, so they are each stored separately. Then, each item will contain _references_ to it's parent and each of it's children. This is called "__referenced__" format. The .referenced format is read-only, meaning that a client cannot Save or Update using it, but it is very useful for querying the data.
 
@@ -249,7 +249,7 @@ We've sort of avoided this topic until now because photos are a bit different th
         }
     ]
 
-This shows an example of a location with one photo. The 'url' property will typically just be a filename. This will be resolved when a project in imported into SPIDACalc, but SPIDAdb simply ignores it. The part that SPIDAdb is interested in is the 'link'. It contains the id for that photo.
+This shows an example of a location with one photo. The 'url' property will typically just be a filename. This will be resolved when a project in imported into SPIDAcalc, but SPIDAdb simply ignores it. The part that SPIDAdb is interested in is the 'link'. It contains the id for that photo.
 
 To request the image from the example:
 
@@ -399,7 +399,7 @@ There are several possible ways to save/update a project.
 
 - **Project JSON and Detailed Results**  This is essentially the same as above, except that all the results for the project must be sent with the request. This MUST be a 'multipart' request.  Each result should be added to the request as its own 'part' with a Content-Type of "application/json" and the 'name' of the parameter must match the results id given in the 'resultId' property of the analysis array. For example, given the result: `{"resultId":"588a58e17d84ad3bd41c4562.json"}`, the request would need to have a part with its name as "588a58e17d84ad3bd41c4562.json".
 
-- **Upload an Exchange File**  Once you have an exchange file, it can simply be sent as part of a multipart POST request to `<base-url>/projects.exchange`. Notice the '.exchange' format - this is required if you're sending an exchange file. SPIDAdb will take care of unzipping the file and saving the project json and all the photos. This oftentimes tends to be the simplest way, since SPIDACalc can simply export projects directly to an exchange file.
+- **Upload an Exchange File**  Once you have an exchange file, it can simply be sent as part of a multipart POST request to `<base-url>/projects.exchange`. Notice the '.exchange' format - this is required if you're sending an exchange file. SPIDAdb will take care of unzipping the file and saving the project json and all the photos. This oftentimes tends to be the simplest way, since SPIDAcalc can simply export projects directly to an exchange file.
 
 - **Filefort uuid**  If you have the uuid of an exchange file in Filefort, then you can simply provide the uuid in the `filefortUuid` parameter. SPIDAdb will get the exchange file from filefort and use it to create the project.
 

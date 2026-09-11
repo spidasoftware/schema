@@ -5,7 +5,7 @@ There are two javascript files here that each contain an example of making an ht
 
 ### saveProject.js
 
-This script will take one of the example SPIDACalc project json files and save it to SPIDAdb using a POST request. The response from this request has been written out to the file: 'exampleSaveResponse.txt' as an example.
+This script will take one of the example SPIDAcalc project json files and save it to SPIDAdb using a POST request. The response from this request has been written out to the file: 'exampleSaveResponse.txt' as an example.
 
 ### retrieveSavedProjects.js
 

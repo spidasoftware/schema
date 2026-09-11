@@ -37,7 +37,7 @@ Get all project searches for the company to which the current user belongs.
 
 ### Returns
 
-`A list of 0 or more` [projectSearch](../../resources/schema/project/projectSearch.schema) objects.
+`A list of 0 or more` [projectSearch](../../resources/schema/spidamin/project/projectSearch.schema) objects.
 
 ### Examples
 
@@ -101,7 +101,7 @@ Use the **Count Search Results** request in the `Project Searches` folder. Set t
 
 ### Returns
 
-`A list of 0 or more` [projectSearch](../../resources/schema/project/projectSearch.schema) objects.
+`A list of 0 or more` [projectSearch](../../resources/schema/spidamin/project/projectSearch.schema) objects.
 
 ### Examples
 
@@ -151,11 +151,11 @@ Use the **Get Project Searches** request in the `Project Searches` folder. Optio
 
 ### Parameters
 
-`A` [projectSearch](../../resources/schema/project/projectSearch.schema) object passed as JSON in the request body.
+`A` [projectSearch](../../resources/schema/spidamin/project/projectSearch.schema) object passed as JSON in the request body.
 
 ### Returns
 
-`A` [projectSearch](../../resources/schema/project/projectSearch.schema) object.
+`A` [projectSearch](../../resources/schema/spidamin/project/projectSearch.schema) object.
 
 ### Examples
 
@@ -266,7 +266,7 @@ Return all projects matching the project search.
 
 ### Returns
 
-`A list of 0 or more` [project](../../resources/schema/project/project.schema) objects.
+`A list of 0 or more` [project](../../resources/schema/spidamin/project/project.schema) objects.
 
 ### Examples
 
@@ -298,7 +298,7 @@ Return all stations matching the project search.
 
 ### Returns
 
-`A list of 0 or more` [station](../../resources/schema/asset/station.schema) objects.
+`A list of 0 or more` [station](../../resources/schema/spidamin/asset/station.schema) objects.
 
 ### Examples
 
@@ -330,7 +330,7 @@ Export a project search definition as a JSON file download.
 
 ### Returns
 
-A JSON file download of the [projectSearch](../../resources/schema/project/projectSearch.schema) object.
+A JSON file download of the [projectSearch](../../resources/schema/spidamin/project/projectSearch.schema) object.
 
 ### Examples
 
@@ -384,11 +384,11 @@ Update an existing project search.
 
 ### Parameters
 
-`A` [projectSearch](../../resources/schema/project/projectSearch.schema) object.
+`A` [projectSearch](../../resources/schema/spidamin/project/projectSearch.schema) object.
 
 ### Returns
 
-`A` [projectSearch](../../resources/schema/project/projectSearch.schema) object.
+`A` [projectSearch](../../resources/schema/spidamin/project/projectSearch.schema) object.
 
 ### Examples
 
