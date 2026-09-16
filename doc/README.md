@@ -63,7 +63,7 @@ REST is a specific type of data service, and a few of our more data centric serv
 
 1. [webhooks](apis/webhookAPI.md) - Listen to activity in SPIDAMin from another system
 1. [action](apis/actionAPI.md) - Trigger any of the actions in a work flow with this service.
-1. [spidadb](apis/spidadbAPI.md) - Push and pull projects into SPIDAdb.
+1. [spidadb](apis/spidadbAPI.md) - Push and pull projects into SPIDAdb. Requires an administrator (`ROLE_MIN_ADMINISTRATOR`) API token.
 
 ### License Agreement (EULA)
 
@@ -71,7 +71,7 @@ All users must accept the License Agreement. If this has not been accepted, all 
 
 ## API Token
 
-For most of the calls against a SPIDAmin service you will need to include your apiToken parameter, this is in addition to any parameters required by the method. This would be for the service interface if it is implemented on a server environment. There are times when we implement the same service in the local environments, and then the apiToken would not be needed, but in most cases it will be required. If you make a service call but get redirect to a security login, then your apiToken was not included or was invalid.
+For most of the calls against a SPIDAmin service you will need to include your apiToken parameter, this is in addition to any parameters required by the method. This would be for the service interface if it is implemented on a server environment. There are times when we implement the same service in the local environments, and then the apiToken would not be needed, but in most cases it will be required. If you make a service call but get redirected (HTTP `302`) to a security login, then your apiToken was not included, was invalid, or belongs to a user without the role that endpoint requires. For example, every [SPIDAdb](apis/spidadbAPI.md) endpoint requires an administrator token.
 
 ## Sessions
 

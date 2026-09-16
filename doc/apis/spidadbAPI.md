@@ -53,6 +53,12 @@ Formats are specified using a .suffix attached to the url, similar to a file ext
 
 One last thing before we get to the good stuff, and that's the matter of authentication. REST stands for REpresentational State Transfer. This essentially means that the server is Stateless, and the request is expected to contain all of the information that the server needs in order to complete the request. This means that every request to SPIDAdb must contain an apiToken parameter, or else the server won't know which user is making the request. SPIDAdb ignores all Cookies and other session information sent with a request. For all the requests in this example, we'll use the api token, "abc123", but each users actual api token will be a unique alpha-numeric value that is somewhat longer.
 
+##### Administrator role required
+
+Every SPIDAdb endpoint (`/spidadb/**`) is restricted to SPIDAmin administrators. The user that owns the apiToken must hold the `ROLE_MIN_ADMINISTRATOR` role; a token for an ordinary SPIDAmin user will not work, even though the same token is accepted by other SPIDAmin services such as Project Manager.
+
+When the apiToken is missing, invalid, or belongs to a user without the administrator role, SPIDAdb does not return a JSON error body. The security layer responds with an HTTP `302` redirect to the SPIDAmin login page (and an HTML login form if your client follows redirects). If you receive a `302` from a SPIDAdb URL, check the token and the user's role first before troubleshooting the host, path, or format.
+
 
 # Examples
 

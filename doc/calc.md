@@ -102,6 +102,8 @@ The Calc service is best thought of as a remote control for a running copy of ca
 - Generating reports.
 - Running custom scripts that SPIDA has provided to the client.
 
+Every response is wrapped in the generic [method response](../resources/schema/general/method_response.schema) envelope: a successful call returns `{"result": ...}` and a failed call returns `{"error": {"code": ..., "message": ...}}`. For example, `getProject` returns `{"result": { ...project JSON... }}` rather than the bare project object, so integrators must unwrap `result` before validating against the project schema.
+
 See full documentation in the [Calc RPC API guide](apis/calcAPI.md).
 
 ### Client Data Service
@@ -120,7 +122,7 @@ The tool writes logs to both the command line and the normal SPIDAcalc log files
 
 The tool returns success if at least one design was analyzed. Unfortunately, Analysis Stopper validation errors are not currently available in the JSON, and the project will need to be opened to view them. The best way for an integrator to note this condition is to check for the existence of analysis results on each design that was sent in. If there are no results, then that design was unable to validate for some reason.
 
-In a default installation, the command line analysis tool is found in ```C:\Program Files\SPIDA\calc\bin\calc-cli.bat```
+In a default installation, the command line analysis tool is found in ```C:\Program Files\Bentley\SPIDA\bin\calc-cli.bat```. Older installations placed it at ```C:\Program Files\SPIDA\calc\bin\calc-cli.bat```; if the tool is not at the default location above, check there.
 
 ### Usage
 
