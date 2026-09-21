@@ -11,7 +11,7 @@ For working with project searches.
 > **Note:**  
 > Examples use the {{variable}} notation to denote environment variables (i.e. {{host}}, {{apiToken}}, {{token}}).  
 > POSTMAN and Bruno collections are available in the repository. Bruno collection is at `bruno-collection/` in the schema repo.  
-> Authentication will require the parameter **token** or **apiToken** to be included in each request.
+> Authentication requires either the **apiToken** parameter on each request, or, on servers configured for OpenID Connect, the OIDC access token sent in an **Authorization: Bearer {{token}}** header. The OIDC token is only read from that header; it is not read from a `token` query parameter. In POSTMAN, set the request's Authorization type to *Bearer Token*. See [SPIDAstudio API Responses and Errors](../spidamin_responses.md#authentication-and-authorization-responses) for the responses to authentication failures.
 
 &nbsp;
 
@@ -47,7 +47,8 @@ Get all project searches for the company to which the current user belongs.
 
 ##### POSTMAN using oidc token authentication
 
-`GET {{host}}/projectmanager/rest/projectSearches/company?token={{token}}`
+`GET {{host}}/projectmanager/rest/projectSearches/company`  
+`Authorization: Bearer {{token}}`
 
 ##### Bruno
 
@@ -79,7 +80,8 @@ Count the number of projects matching the search criteria.
 
 ##### POSTMAN using oidc token authentication
 
-`GET {{host}}/projectmanager/rest/projectSearches/123456/count?token={{token}}`
+`GET {{host}}/projectmanager/rest/projectSearches/123456/count`  
+`Authorization: Bearer {{token}}`
 
 ##### Bruno
 
@@ -123,19 +125,23 @@ Use the **Count Search Results** request in the `Project Searches` folder. Set t
 
 ##### POSTMAN get all project searches for the current user using oidc token authentication
 
-`{{host}}/projectmanager/rest/projectSearches?token={{token}}`
+`{{host}}/projectmanager/rest/projectSearches`  
+`Authorization: Bearer {{token}}`
 
 ##### POSTMAN get all project searches for the current user with matching ids using oidc token authentication
 
-`{{host}}/projectmanager/rest/projectSearches?token={{token}}&ids=%5B31%20%2C36%5D`
+`{{host}}/projectmanager/rest/projectSearches?ids=%5B31%20%2C36%5D`  
+`Authorization: Bearer {{token}}`
 
 ##### POSTMAN get all project searches for the current user with matching single id using oidc token authentication
 
-`{{host}}/projectmanager/rest/projectSearches/123456/show?token={{token}}`
+`{{host}}/projectmanager/rest/projectSearches/123456/show`  
+`Authorization: Bearer {{token}}`
 
 ##### POSTMAN get all project searches for the current user with matching single id using oidc token authentication
 
-`{{host}}/projectmanager/rest/projectSearches/123456?token={{token}}`
+`{{host}}/projectmanager/rest/projectSearches/123456`  
+`Authorization: Bearer {{token}}`
 
 ##### Bruno
 
@@ -174,7 +180,10 @@ Body (JSON):
 
 ##### POSTMAN using oidc token authentication
 
-`POST {{host}}/projectmanager/rest/projectSearches?token={{token}}`
+`POST {{host}}/projectmanager/rest/projectSearches`  
+`Authorization: Bearer {{token}}`
+
+Body (JSON): same as the api token example above.
 
 ##### Bruno
 
@@ -244,7 +253,8 @@ Delete a project search.
 
 ##### POSTMAN using oidc token authentication (see project-search-json example below)
 
-`DELETE {{host}}/projectmanager/rest/projectSearches/123456?token={{token}}`
+`DELETE {{host}}/projectmanager/rest/projectSearches/123456`  
+`Authorization: Bearer {{token}}`
 
 ##### Bruno
 
@@ -276,7 +286,8 @@ Return all projects matching the project search.
 
 ##### POSTMAN using oidc token authentication
 
-`GET {{host}}/projectmanager/rest/projectSearches/123456/projects?token={{token}}`
+`GET {{host}}/projectmanager/rest/projectSearches/123456/projects`  
+`Authorization: Bearer {{token}}`
 
 ##### Bruno
 
@@ -308,7 +319,8 @@ Return all stations matching the project search.
 
 ##### POSTMAN using oidc token authentication
 
-`GET {{host}}/projectmanager/rest/projectSearches/123456/stations?token={{token}}`
+`GET {{host}}/projectmanager/rest/projectSearches/123456/stations`  
+`Authorization: Bearer {{token}}`
 
 ##### Bruno
 
