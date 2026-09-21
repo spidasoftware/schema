@@ -58,6 +58,7 @@ Desktop pole modeling and loading analysis software.
 ### SPIDAmin
 Web based utility project and asset management software.
 - [Developer Guide](doc)
+- [API Responses and Errors](doc/spidamin_responses.md)
 - [Schema](resources/schema/spidamin)
 - [Examples](resources/examples/spidamin)
 

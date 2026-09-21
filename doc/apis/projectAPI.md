@@ -7,6 +7,21 @@ For working with projects and the associated members, codes, and referenced stat
 
 1. projectmanager
 
+## Responses
+
+Successful calls return the generic [method response](../../resources/schema/general/method_response.schema) envelope, `{"result": ...}`, unless a method's _Returns_ section says otherwise (several of the SPIDAdb lookups below return the object, array, or file directly). Failures return `{"error": {"code": "...", "message": "..."}}`. Parameter errors (missing or unparseable parameters, invalid JSON) are returned with HTTP `200`, so always check the body for an `error` key.
+
+`createOrUpdate`, `createOrUpdateWithDB`, and `addLogMessage` additionally set the HTTP status when the request was well formed but could not be applied:
+
+| HTTP status | Error code | Meaning |
+|-------------|------------|---------|
+| `200` | `MISSING_REQUIRED_PARAM`, `INVALID_PARAM`, `MISSING_RESOURCE`, `PERMISSION_DENIED` | Missing parameter, JSON that fails schema validation, unknown project id, or an API client restriction. |
+| `422` | `INVALID_PARAM`, `MISSING_RESOURCE` | A business rule failed: duplicate name, unknown flow/member/project code/station, invalid status transition, and so on. Nothing was saved. |
+| `403` | `PERMISSION_DENIED` | The user may not edit the project, use the flow, or change the draft flag. Nothing was saved. |
+| `500` | `INTERNAL_ERROR`, or a plain-text body | A status transition was rejected by a workflow action, SPIDAdb rejected the exchange file, or stations could not be linked. |
+
+The messages for each case, and the responses of every other method, are listed in [SPIDAstudio API Responses and Errors](../spidamin_responses.md#project-api).
+
 Methods
 ========
 
@@ -42,6 +57,16 @@ This would give me the following, if the flow was available to my user:
     {"result":{"id":55485}}
 
 This result gives you the id of the newly created project and that can be used in the future to add/remove stations, members, files etc. to/from this project.
+
+If the flow was not available, the response would instead be HTTP `403`:
+
+    {"error":{"code":"PERMISSION_DENIED","message":"Flow id 26988 is not available to current user 123"}}
+
+and if the name was already taken, HTTP `422`:
+
+    {"error":{"code":"INVALID_PARAM","message":"The project name 'Name' is not unique."}}
+
+See [Responses](#responses) above for the full status mapping.
 
 ##### Bruno
 
@@ -84,6 +109,10 @@ Create or update a project with a spida db project
 #### Returns
 
 1. An [id object](../../resources/schema/general/id.schema)
+
+#### Errors
+
+In addition to the statuses listed under [Responses](#responses), if SPIDAdb rejects the `spidaFile` the response is HTTP `500` with a plain-text body beginning `Project not successfully sent to SPIDAdb.` and neither the SPIDAmin project nor the SPIDAdb project is created. The usual cause is an exchange file whose `project.json` does not validate against the [calc project schema](../../resources/schema/spidacalc/calc/project.schema) or has locations without a `geographicCoordinate`; pushing the same file directly to the [SPIDAdb API](spidadbAPI.md) will show SPIDAdb's own error message.
 
 #### Examples
 
@@ -157,6 +186,14 @@ Get a SPIDA DB Project with a SPIDA DB ID using projectmanager project permissio
 1. A [calc project](../../resources/schema/spidacalc/calc/project.schema) or
 1. A [referenced project](../../resources/schema/spidamin/spidadb/referenced_project.schema)
 
+The project is returned directly, not wrapped in `result`.
+
+#### Errors
+
+1. `db_id` missing: HTTP `200`, `{"error":{"code":"MISSING_REQUIRED_PARAM","message":"Please provide db_id parameter."}}`
+1. No project with that id: HTTP `404`, plain text `unable to find a project from db with id <db_id>`
+1. Project not visible to the user: HTTP `403`, plain text `you do not have permission to view this project`
+
 #### Examples
 
 The following curl command gets a spida db project through projectmanager
@@ -193,6 +230,14 @@ Get a SPIDA DB Location with a SPIDA DB ID using projectmanager project permissi
   * the location may be a [calc location](../../resources/schema/spidacalc/calc/location.schema) or
   * the location may be a [referenced location](../../resources/schema/spidamin/spidadb/referenced_location.schema)
   * the clientData is a [client data object](../../resources/schema/spidacalc/client/data.schema)
+
+The object is returned directly, not wrapped in `result`.
+
+#### Errors
+
+1. `db_id` missing: HTTP `200`, `{"error":{"code":"MISSING_REQUIRED_PARAM","message":"Please provide db_id parameter."}}`
+1. No location with that id: HTTP `404`, plain text `unable to find a location from db with id <db_id>`
+1. Location not visible to the user: HTTP `403`, plain text `you do not have permission to view this location`
 
 #### Examples
 
@@ -260,6 +305,13 @@ Get location thumbnail photos by the location id using projectmanager project pe
 
 a zip file with photos
 
+#### Errors
+
+1. `db_id` missing: HTTP `200`, `{"error":{"code":"MISSING_REQUIRED_PARAM","message":"Please provide db_id parameter."}}`
+1. No location with that id: HTTP `404`, plain text `unable to find a location from db with id <db_id>`
+1. Location has no photos: HTTP `404`, plain text `unable to find photos in filefort with db_id <db_id>`
+1. Location not visible to the user: HTTP `403`, plain text `you do not have permission to view this location`
+
 #### Examples
 
 The following curl command gets a zip of photos
@@ -291,6 +343,10 @@ Get location photos by the location id using projectmanager project permissions
 #### Returns
 
 a zip file with photos
+
+#### Errors
+
+Same as [Get Location Thumbnails by DB ID](#get-location-thumbnails-by-db-id).
 
 #### Examples
 
@@ -379,6 +435,8 @@ If no matches are found, the `station` will contain only the station information
 #### Returns
 
 1. A [project](../../resources/schema/spidamin/project/project.schema) . If the project's `id` is present, this is an existing project in the system. Otherwise it is the stations portion of the project payload needed to create a new project with the stations specified in the request, with some additional information in the `availableStations` field if there was more than one good match for a given station. To actually create a project from this payload you will need to additionally specify the workflow.
+
+The project is returned directly, not wrapped in `result`. If `projectId` is given but the project does not exist or is not visible to the user, the response is HTTP `404` with the plain-text body `unable to find project <projectId> (or you don't have permission to see it)`. The `stations` parameter is required; omitting it or sending something that is not a JSON array produces an HTTP `500` error page rather than an error envelope.
 
 #### Examples
 
@@ -537,6 +595,14 @@ Get a list of all log messages on a project
 
 1. a json array of [logMessage](../../resources/schema/spidamin/project/log_message.schema)
 
+The array is returned directly, not wrapped in `result`. Log messages recorded by workflow actions are included, so this is where to look for the reason a status transition was rejected by `createOrUpdate`.
+
+#### Errors
+
+1. `project_id` missing: HTTP `200`, `{"error":{"code":"MISSING_REQUIRED_PARAM","message":"Please provide the project_id parameter."}}`
+1. No project with that id: HTTP `200`, `{"error":{"code":"MISSING_RESOURCE","message":"The requested project: <project_id> was not found."}}`
+1. Project exists but the user may not view its log: HTTP `403`, empty body
+
 #### Examples
 
 `curl 'http://${HOST}/projectmanager/projectAPI/getProjectLogs?project_id=20183&apiToken=abc'`
@@ -597,7 +663,11 @@ deletes Members, ProjectCodes, Stations, Projects
 
 #### Returns
 
-A [general response object](../../resources/schema/general/method_response.schema)
+A [general response object](../../resources/schema/general/method_response.schema): `{"result":{"success":true}}` when everything requested was deleted.
+
+#### Errors
+
+The method attempts every id and reports all failures together. When anything fails the response is HTTP `200` with code `INVALID_PARAM` and a message made of one or more of the following sentences joined by spaces: `Project <id> not found.`, `You do not have permission to edit project <id>.`, `Error deleting project <id>.`, `Station <id> not found.`, `Project is locked.  Unable to delete station <id>.`, `You do not have permission to edit station <id>.`, `Project Code <id> not found.`, `Member <id> not found.`, `Member <id> associated with project <projectId> that you do not have permission to edit.` The items that did not fail have still been deleted.
 
 #### Examples
 
@@ -678,7 +748,13 @@ Permanently deletes projects from the database. Unlike the `delete` method which
 
 #### Returns
 
-1. A result object with `success` and `fail` arrays describing the outcome for each project
+1. A result object with `success` and `fail` arrays containing a message for each project: `{"result":{"success":["Project purged id:1 name:Example"],"fail":["Project id 3 not found."]}}`
+
+#### Errors
+
+1. Purge not enabled on the server: HTTP `403`, plain text `Purge API is not enabled on this server.`
+1. `project_ids` missing or not a JSON array: HTTP `400`, plain text `Please provide project_ids parameter.` or `Please provide project_ids.`
+1. Projects that could not be purged are reported in `fail` (`Project id <id> not found.` or `Error purging project id <id>.`) rather than causing an error response; the other projects are still purged.
 
 #### Examples
 
