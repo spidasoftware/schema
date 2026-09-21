@@ -40,7 +40,7 @@ Each method in the documentation has a parameter section and it will give you a 
 
 #### Responses
 
-The response body will always be formatted in the generic [_method\_response_](resources/general/method_response.schema), this allows for passing error codes and the result.
+The response body will always be formatted in the generic [_method\_response_](../resources/schema/general/method_response.schema), this allows for passing error codes and the result.
 
     {"result":5}
 
@@ -48,7 +48,7 @@ Would be a valid response object, that might be returned. An example of an error
 
     {"error":  { "code": "MISSING_REQUIRED_PARAM", "message": "station_ids or bounding_box not provided"} }
 
-Notice this is an error message and it is pretty informative.  The different response codes are found in the response code [schema](../general/method_response.schema).
+Notice this is an error message and it is pretty informative.  The different response codes are found in the response code [schema](../resources/schema/general/method_response.schema).
 
 Again each method in the documentation will tell you what it returns and a link to a schema if applicable.
 
@@ -56,7 +56,7 @@ Again each method in the documentation will tell you what it returns and a link 
 
 The other main way that you may be looking to use our services is to implement one of them with internal data to increase the functionality of SPIDAMin.  An example for this would be if you had additional asset information that you wanted to have show up in SPIDAMin.  The process of implementing a custom service is probably going to require varying amounts of support and integration work with us to achieve the desired results, but this section will give you an idea of the work required and allow you to scope the level of your own internal work.  
 
-For this example, lets assume you have identified the need to show your own asset information from some internal service, and you would like that asset information to show up on the SPIDAMin map so that you can create projects from those assets.  The first step is to identify the needed service interfaces you would have to implement, this is where SPIDA can assist.  In this case, the service interface that you need to implement it is the [asset.json](asset/interfaces/asset.json).  If you examine that file, it would indicate what methods your service would need to respond to and what the method signatures would be.  Once you have the service methods and have identified what internal data and services you will use to respond to those methods you have to decide how you are going to expose this internal service.
+For this example, lets assume you have identified the need to show your own asset information from some internal service, and you would like that asset information to show up on the SPIDAMin map so that you can create projects from those assets.  The first step is to identify the needed service interfaces you would have to implement, this is where SPIDA can assist.  In this case, the service interface that you need to implement it is the [asset service](apis/assetAPI.md).  If you examine that documentation, it would indicate what methods your service would need to respond to and what the method signatures would be.  Once you have the service methods and have identified what internal data and services you will use to respond to those methods you have to decide how you are going to expose this internal service.
 
 There are two main ways expose your service, Direct JSON URL End Point, and a Service Adapter.
 

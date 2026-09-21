@@ -1,8 +1,8 @@
 Client API
 =========
 
-Methods to allow you to retrieve client (engineering) information from your running SPIDACalc instance.  This is useful
-for constructing and validating structures outside the SPIDACalc interface.  Location at [http://localhost:4560/clientData/](http://localhost:4560/clientData/).
+Methods to allow you to retrieve client (engineering) information from your running SPIDAcalc instance.  This is useful
+for constructing and validating structures outside the SPIDAcalc interface.  Location at [http://localhost:4560/clientData/](http://localhost:4560/clientData/).
 
 ## Implementing Apps
 
@@ -291,7 +291,7 @@ Return a client bundle Component from the client file.
 #### Parameters
 
 1. clientFile: a _required_ `string` of the client file name to pull from
-1. bundleComponent: a _required_ [bundle Component reference](../../resources/schema/spidacalc/calc/client_references/bundle_component.schema) of the bundle Component to retrieve. {size}
+1. bundleComponent: a _required_ [bundle Component reference](../../resources/schema/spidacalc/client/bundle_component.schema) of the bundle Component to retrieve. {size}
 
 #### Returns
 
@@ -472,7 +472,7 @@ Return a client sidewalkBrace from the client file.
 
 #### Returns
 
-A [client sidewalkBrace](../../resources/schema/spidacalc/client/sidewalkBrace.schema)
+A [client sidewalkBrace](../../resources/schema/spidacalc/client/sidewalk_brace.schema)
 
 Load Cases
 -----

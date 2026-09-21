@@ -7,6 +7,28 @@ Endpoints that allow you to control your locally installed SPIDAcalc program.  L
 
 1. SPIDAcalc
 
+## Responses
+
+The Calc service only accepts requests from the local machine. Every response has a `Content-Type` of `application/json` and is wrapped in the generic [method response](../../resources/schema/general/method_response.schema) envelope. A successful call puts the return value under `result`:
+
+    {"result": true}
+
+    {"result": {"reportPath": "C:\\reports\\Project Summary Report.pdf"}}
+
+The value under `result` is what each method's _Returns_ section below describes. Methods with no meaningful return value respond with `{"result": true}`. `getProject` returns the project object nested under `result`, not at the top level, so unwrap `result` before validating against the project schema.
+
+A failed call returns an `error` object instead of `result`, and the HTTP status is set to match the error code:
+
+    {"error": {"code": "BAD_REQUEST", "message": "The report 'Missing Report' does not exist."}}
+
+| Error code           | HTTP status | Meaning |
+|----------------------|-------------|---------|
+| `BAD_REQUEST`        | 400 | A required parameter is missing or invalid, the file does not exist, or the project JSON failed schema validation. The `message` contains the details. |
+| `FORBIDDEN`          | 403 | The request was not permitted. |
+| `MISSING_RESOURCE`   | 404 | The requested resource (such as the service descriptor) could not be found. |
+| `MISSING_METHOD`     | 405 | The method name in the URL is not defined for this service. |
+| any other code       | 500 | An internal error such as `INTERNAL_ERROR`, a project that could not be opened, or a user cancelling an action in the SPIDAcalc UI. |
+
 Methods
 ======
 
@@ -29,7 +51,7 @@ Opens a project with the given object
 
 #### Returns
 
-none
+`{"result": true}` once the project has been opened.
 
 Open Project File
 -----
@@ -50,7 +72,7 @@ Opens a project with the given file path
 
 #### Returns
 
-none
+`{"result": true}` once the project has been opened.
 
 Save Current Project
 -----
@@ -71,12 +93,12 @@ Save the currently opened project
 
 #### Returns
 
-none
+`{"result": true}` once the project has been saved.
 
 Get Project
 -----
 
-Save the currently opened project
+Get the currently opened project as JSON
 
 #### URL
 
@@ -92,12 +114,12 @@ none
 
 #### Returns
 
-a complete [project object](../../resources/schema/spidacalc/calc/project.schema) with results.
+`{"result": { ... }}` where the value of `result` is a complete [project object](../../resources/schema/spidacalc/calc/project.schema) with results. The project is nested under `result`; the response body is not itself a project object.
 
 Exit
 -----
 
-Exit SPIDACalc. This will shutdown control services.
+Exit SPIDAcalc. This will shutdown control services.
 
 #### URL
 
@@ -113,7 +135,7 @@ none
 
 #### Returns
 
-a complete [project object](../../resources/schema/spidacalc/calc/project.schema) with results.
+`{"result": true}` if SPIDAcalc is shutting down, or `{"result": false}` if the application could not be closed (for example, the user cancelled a prompt to save unsaved changes).
 
 Generate a report
 -----
@@ -135,7 +157,7 @@ Generate a report for the current project. Returns file location of report.
 
 #### Returns
 
-A JSON response body {"reportPath":"/pathToReport/report.pdf"}
+`{"result": {"reportPath": "/pathToReport/report.pdf"}}`
 
 
 Generate an Excel report
@@ -151,7 +173,7 @@ Generate an Excel report for the current project. Returns the location of the re
 
 #### Returns
 
-A JSON response body {"reportPath":"/pathToReport/report.xlsx"}
+`{"result": {"reportPath": "/pathToReport/report.xlsx"}}`
 
 
 Run Script
@@ -173,4 +195,4 @@ Run a script on the current project.
 
 #### Returns
 
-none
+`{"result": true}` once the script has been started.

@@ -1,0 +1,403 @@
+{
+  "clientFile": "Demo.client",
+  "schema": "https://raw.github.com/spidasoftware/schema/master/resources/schema/spidacalc/calc/project.schema",
+  "label": "Lidar Collection Example",
+  "comments": "Example of a project generated from a classified point cloud. Demonstrates measured pole dimensions (agl/glc), pole lean, measured sag, midspan heights, and span points captured from a lidar acquisition. See doc/lidar_integration.md.",
+  "leads": [
+    {
+      "label": "Circuit 7",
+      "locations": [
+        {
+          "label": "P-1041",
+          "comments": "Pole extracted from point cloud tile 41. Species and class from GIS records.",
+          "geographicCoordinate": {
+            "type": "Point",
+            "coordinates": [
+              -82.98123456,
+              39.96123456
+            ]
+          },
+          "poleTags": [
+            {
+              "type": "FIELD",
+              "value": "1041",
+              "visible": true
+            }
+          ],
+          "userDefinedValues": {
+            "scanDate": "2025-06-14",
+            "pointCloudTile": "tile_41.laz",
+            "extractionConfidence": "0.97"
+          },
+          "designs": [
+            {
+              "label": "Measured Design",
+              "layerType": "Measured",
+              "structure": {
+                "pole": {
+                  "externalId": "pc-pole-000123",
+                  "clientItem": {
+                    "species": "Southern Pine",
+                    "classOfPole": "5",
+                    "height": {
+                      "unit": "FOOT",
+                      "value": 40
+                    }
+                  },
+                  "agl": {
+                    "unit": "FOOT",
+                    "value": 34.4
+                  },
+                  "glc": {
+                    "unit": "FOOT",
+                    "value": 2.79
+                  },
+                  "leanAngle": 2,
+                  "leanDirection": 145,
+                  "environment": "STREET",
+                  "temperature": {
+                    "unit": "FAHRENHEIT",
+                    "value": 68
+                  },
+                  "owner": {
+                    "industry": "UTILITY",
+                    "id": "AEP"
+                  }
+                },
+                "wireEndPoints": [
+                  {
+                    "id": "WEP#1",
+                    "externalId": "pc-pole-000124",
+                    "type": "NEXT_POLE",
+                    "distance": {
+                      "unit": "FOOT",
+                      "value": 152.4
+                    },
+                    "direction": 78,
+                    "relativeElevation": {
+                      "unit": "FOOT",
+                      "value": 1.2
+                    },
+                    "environment": "STREET",
+                    "wires": [
+                      "Wire#1",
+                      "Wire#2",
+                      "Wire#3"
+                    ],
+                    "spanGuys": [],
+                    "spanPoints": [
+                      "SpanPoint#1"
+                    ]
+                  },
+                  {
+                    "id": "WEP#2",
+                    "externalId": "pc-pole-000122",
+                    "type": "PREVIOUS_POLE",
+                    "distance": {
+                      "unit": "FOOT",
+                      "value": 147.8
+                    },
+                    "direction": 261,
+                    "relativeElevation": {
+                      "unit": "FOOT",
+                      "value": -0.8
+                    },
+                    "environment": "STREET",
+                    "wires": [
+                      "Wire#4",
+                      "Wire#5",
+                      "Wire#6"
+                    ],
+                    "spanGuys": [],
+                    "spanPoints": []
+                  }
+                ],
+                "wires": [
+                  {
+                    "id": "Wire#1",
+                    "externalId": "pc-seg-4451",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "AEP"
+                    },
+                    "clientItem": {
+                      "size": "4 ACSR",
+                      "coreStrands": 1,
+                      "conductorStrands": 6
+                    },
+                    "usageGroup": "PRIMARY",
+                    "tensionGroup": "Full",
+                    "attachmentHeight": {
+                      "unit": "FOOT",
+                      "value": 33.6
+                    },
+                    "measuredSag": {
+                      "sag": {
+                        "unit": "FOOT",
+                        "value": 1.62
+                      },
+                      "distanceFromPole": {
+                        "unit": "FOOT",
+                        "value": 74.5
+                      },
+                      "temperature": {
+                        "unit": "FAHRENHEIT",
+                        "value": 68
+                      }
+                    }
+                  },
+                  {
+                    "id": "Wire#2",
+                    "externalId": "pc-seg-4452",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "AEP"
+                    },
+                    "clientItem": {
+                      "size": "4 ACSR",
+                      "coreStrands": 1,
+                      "conductorStrands": 6
+                    },
+                    "usageGroup": "NEUTRAL",
+                    "tensionGroup": "Full",
+                    "attachmentHeight": {
+                      "unit": "FOOT",
+                      "value": 29.8
+                    },
+                    "midspanHeight": {
+                      "unit": "FOOT",
+                      "value": 24.9
+                    }
+                  },
+                  {
+                    "id": "Wire#3",
+                    "externalId": "pc-seg-4453",
+                    "owner": {
+                      "industry": "COMMUNICATION",
+                      "id": "Frontier Comm"
+                    },
+                    "clientItem": {
+                      "size": "C6.6M0500",
+                      "coreStrands": 0,
+                      "conductorStrands": 7
+                    },
+                    "usageGroup": "COMMUNICATION",
+                    "tensionGroup": "Slack",
+                    "attachmentHeight": {
+                      "unit": "FOOT",
+                      "value": 24.3
+                    },
+                    "midspanHeight": {
+                      "unit": "FOOT",
+                      "value": 20.7
+                    }
+                  },
+                  {
+                    "id": "Wire#4",
+                    "externalId": "pc-seg-4454",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "AEP"
+                    },
+                    "clientItem": {
+                      "size": "4 ACSR",
+                      "coreStrands": 1,
+                      "conductorStrands": 6
+                    },
+                    "usageGroup": "PRIMARY",
+                    "tensionGroup": "Full",
+                    "attachmentHeight": {
+                      "unit": "FOOT",
+                      "value": 33.6
+                    },
+                    "measuredSag": {
+                      "sag": {
+                        "unit": "FOOT",
+                        "value": 1.55
+                      },
+                      "distanceFromPole": {
+                        "unit": "FOOT",
+                        "value": 71.2
+                      },
+                      "temperature": {
+                        "unit": "FAHRENHEIT",
+                        "value": 68
+                      }
+                    }
+                  },
+                  {
+                    "id": "Wire#5",
+                    "externalId": "pc-seg-4455",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "AEP"
+                    },
+                    "clientItem": {
+                      "size": "4 ACSR",
+                      "coreStrands": 1,
+                      "conductorStrands": 6
+                    },
+                    "usageGroup": "NEUTRAL",
+                    "tensionGroup": "Full",
+                    "attachmentHeight": {
+                      "unit": "FOOT",
+                      "value": 29.8
+                    },
+                    "midspanHeight": {
+                      "unit": "FOOT",
+                      "value": 25.1
+                    }
+                  },
+                  {
+                    "id": "Wire#6",
+                    "externalId": "pc-seg-4456",
+                    "owner": {
+                      "industry": "COMMUNICATION",
+                      "id": "Frontier Comm"
+                    },
+                    "clientItem": {
+                      "size": "C6.6M0500",
+                      "coreStrands": 0,
+                      "conductorStrands": 7
+                    },
+                    "usageGroup": "COMMUNICATION",
+                    "tensionGroup": "Slack",
+                    "attachmentHeight": {
+                      "unit": "FOOT",
+                      "value": 24.3
+                    },
+                    "midspanHeight": {
+                      "unit": "FOOT",
+                      "value": 20.9
+                    }
+                  }
+                ],
+                "insulators": [
+                  {
+                    "id": "Insulator#1",
+                    "externalId": "pc-ins-000123-1",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "AEP"
+                    },
+                    "clientItem": "13.2 kV Pin Type Insulator (Pole Top)",
+                    "offset": {
+                      "unit": "FOOT",
+                      "value": 33.6
+                    },
+                    "direction": 78,
+                    "doubleInsulator": false,
+                    "wires": [
+                      "Wire#1",
+                      "Wire#4"
+                    ]
+                  }
+                ],
+                "guys": [
+                  {
+                    "id": "Guy#1",
+                    "externalId": "pc-guy-000123-1",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "AEP"
+                    },
+                    "clientItem": {
+                      "size": "3/8\" EHS",
+                      "coreStrands": 0,
+                      "conductorStrands": 7
+                    },
+                    "attachmentHeight": {
+                      "unit": "FOOT",
+                      "value": 33.0
+                    }
+                  }
+                ],
+                "anchors": [
+                  {
+                    "id": "Anchor#1",
+                    "externalId": "pc-anchor-000123-1",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "AEP"
+                    },
+                    "clientItem": "10\" - 10\" Double Helix (Class 4) 1 1/4\" Rod",
+                    "distance": {
+                      "unit": "FOOT",
+                      "value": 18.2
+                    },
+                    "direction": 350,
+                    "height": {
+                      "unit": "FOOT",
+                      "value": 0
+                    },
+                    "supportedWEPs": [],
+                    "guys": [
+                      "Guy#1"
+                    ]
+                  }
+                ],
+                "equipments": [
+                  {
+                    "id": "Equip#1",
+                    "externalId": "pc-equip-000123-1",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "AEP"
+                    },
+                    "clientItem": {
+                      "type": "TRANSFORMER",
+                      "size": "25 kVA Single Phase"
+                    },
+                    "attachmentHeight": {
+                      "unit": "FOOT",
+                      "value": 26.9
+                    },
+                    "bottomHeight": {
+                      "unit": "FOOT",
+                      "value": 25.2
+                    },
+                    "direction": 170
+                  }
+                ],
+                "spanPoints": [
+                  {
+                    "id": "SpanPoint#1",
+                    "externalId": "pc-crossing-8812",
+                    "distance": {
+                      "unit": "FOOT",
+                      "value": 76.2
+                    },
+                    "environment": "STREET",
+                    "heights": [
+                      {
+                        "wireId": "Wire#1",
+                        "height": {
+                          "unit": "FOOT",
+                          "value": 26.8
+                        }
+                      },
+                      {
+                        "wireId": "Wire#2",
+                        "height": {
+                          "unit": "FOOT",
+                          "value": 25.0
+                        }
+                      },
+                      {
+                        "wireId": "Wire#3",
+                        "height": {
+                          "unit": "FOOT",
+                          "value": 20.7
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
