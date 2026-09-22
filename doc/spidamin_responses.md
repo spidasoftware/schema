@@ -99,10 +99,10 @@ A response never contains both keys. The `Content-Type` is `application/json; ch
 | `PERMISSION_DENIED` | Authenticated, but not allowed to do this. | Missing role, project locked, project belongs to another company, flow not shared with the user, or an API client restriction (see [API client restrictions](#api-client-restrictions)). |
 | `INTERNAL_ERROR` | The server could not complete the request. | A workflow action failed during a status change, a downstream service (SPIDAdb, an asset service) did not respond, or an unexpected exception. |
 | `UNSUPPORTED` | The implementing application does not support this method. | Calling `assetFileAPI` on assetmaster, or deleting by UUID on a service that does not support it. |
-| `UNAUTHORIZED` | The resource belongs to another company. | filefort attachment operations across companies. |
+| `UNAUTHORIZED` | The asset services' permission code: the user may not act on a resource that belongs to another company. | Creating, updating, or modifying a station or asset for another company in assetmaster; filefort attachment operations across companies. |
 | `SCHEMA_NOT_FOUND`, `MISSING_METHOD` | Reserved codes from the schema; you should not see them from SPIDAstudio. | — |
 
-`UNSUPPORTED` and `UNAUTHORIZED` are emitted by the asset services but are not part of the `method_response.schema` enum; do not reject responses whose `error.code` is not in the enum.
+`UNSUPPORTED` and `UNAUTHORIZED` are only emitted by the asset services (assetmaster and filefort); the other applications use `PERMISSION_DENIED` for permission failures. New codes may be added to the schema over time, so treat any `error.code` you do not recognize as a failure rather than rejecting the response.
 
 ### HTTP 200 with an error body
 
@@ -320,6 +320,7 @@ All responses are HTTP 200. Success values are `{"result": {"stations": [...]}}`
 | `station or asset not provided` | `MISSING_REQUIRED_PARAM` | Asset Creation API. |
 | `Deletion by UUID not supported`, `Operation not supported on this service`, `station or asset creation or updating not supported with this service` | `UNSUPPORTED` | The method exists in the interface but this application does not implement it (for example `assetFileAPI` on assetmaster, or asset creation on filefort). |
 | `Attachment does not belong to the current user's company` | `UNAUTHORIZED` | filefort attachment in another company. |
+| `You do not have permission to create or update stations for this company.`, `You do not have permission to modify this station.`, `You do not have permission to create or update assets for this company.`, `You do not have permission to modify this asset.` | `UNAUTHORIZED` | assetmaster Asset Creation API: the station or asset (or its `dataProviderId`/`companyId`) belongs to a company the user is not a member of. |
 | `Please provide the uuid parameter.`, `Please correct the offset parameter.`, `The requested <uuid> was not found.`, `Unable to get <x> for <uuid>` | various | filefort `assetFileAPI`. `getRaw` returns the file bytes with `Content-Disposition: attachment; filename="..."` rather than JSON. |
 
 Webhook API
