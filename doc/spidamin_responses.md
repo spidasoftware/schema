@@ -46,8 +46,6 @@ The token is read from the `apiToken` request parameter only: either `?apiToken=
 
 Once a token has been accepted, the server sets a `JSESSIONID` cookie. If your HTTP client stores cookies, later requests may succeed *without* the token because they ride on that session. Do not rely on this: always send the token, and pass `expireSession=true` (see [Sessions](README.md#sessions)) so you do not leave sessions open on the server.
 
-Servers configured for OpenID Connect also accept an `Authorization: Bearer <JWT>` header on the same paths. The responses below are the same for both; the JWT failure message reads `Unable to Authenticate with jwt authentication.` instead.
-
 ### Outcomes
 
 | Situation | HTTP status | Body | What to do |

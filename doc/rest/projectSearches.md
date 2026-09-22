@@ -9,9 +9,9 @@ For working with project searches.
 &nbsp;
 
 > **Note:**  
-> Examples use the {{variable}} notation to denote environment variables (i.e. {{host}}, {{apiToken}}, {{token}}).  
+> Examples use the {{variable}} notation to denote environment variables (i.e. {{host}}, {{apiToken}}).  
 > POSTMAN and Bruno collections are available in the repository. Bruno collection is at `bruno-collection/` in the schema repo.  
-> Authentication requires either the **apiToken** parameter on each request, or, on servers configured for OpenID Connect, the OIDC access token sent in an **Authorization: Bearer {{token}}** header. The OIDC token is only read from that header; it is not read from a `token` query parameter. In POSTMAN, set the request's Authorization type to *Bearer Token*. See [SPIDAstudio API Responses and Errors](../spidamin_responses.md#authentication-and-authorization-responses) for the responses to authentication failures.
+> Authentication requires the **apiToken** parameter to be included in each request. See [SPIDAstudio API Responses and Errors](../spidamin_responses.md#authentication-and-authorization-responses) for the responses to authentication failures.
 
 &nbsp;
 
@@ -45,11 +45,6 @@ Get all project searches for the company to which the current user belongs.
 
 `GET {{host}}/projectmanager/rest/projectSearches/company?apiToken={{apiToken}}`
 
-##### POSTMAN using oidc token authentication
-
-`GET {{host}}/projectmanager/rest/projectSearches/company`  
-`Authorization: Bearer {{token}}`
-
 ##### Bruno
 
 Use the **Get Company Searches** request in the `Project Searches` folder. The `apiToken` is set at the collection level.
@@ -77,11 +72,6 @@ Count the number of projects matching the search criteria.
 ##### POSTMAN using api token authentication
 
 `GET {{host}}/projectmanager/rest/projectSearches/123456/count?apiToken={{apiToken}}`
-
-##### POSTMAN using oidc token authentication
-
-`GET {{host}}/projectmanager/rest/projectSearches/123456/count`  
-`Authorization: Bearer {{token}}`
 
 ##### Bruno
 
@@ -123,26 +113,6 @@ Use the **Count Search Results** request in the `Project Searches` folder. Set t
 
 `{{host}}/projectmanager/rest/projectSearches/123456?apiToken={{apiToken}}`
 
-##### POSTMAN get all project searches for the current user using oidc token authentication
-
-`{{host}}/projectmanager/rest/projectSearches`  
-`Authorization: Bearer {{token}}`
-
-##### POSTMAN get all project searches for the current user with matching ids using oidc token authentication
-
-`{{host}}/projectmanager/rest/projectSearches?ids=%5B31%20%2C36%5D`  
-`Authorization: Bearer {{token}}`
-
-##### POSTMAN get all project searches for the current user with matching single id using oidc token authentication
-
-`{{host}}/projectmanager/rest/projectSearches/123456/show`  
-`Authorization: Bearer {{token}}`
-
-##### POSTMAN get all project searches for the current user with matching single id using oidc token authentication
-
-`{{host}}/projectmanager/rest/projectSearches/123456`  
-`Authorization: Bearer {{token}}`
-
 ##### Bruno
 
 Use the **Get Project Searches** request in the `Project Searches` folder. Optionally set `ids` query parameter or the `id` path parameter to filter by ID.
@@ -177,13 +147,6 @@ Body (JSON):
     }
 }
 ```
-
-##### POSTMAN using oidc token authentication
-
-`POST {{host}}/projectmanager/rest/projectSearches`  
-`Authorization: Bearer {{token}}`
-
-Body (JSON): same as the api token example above.
 
 ##### Bruno
 
@@ -251,11 +214,6 @@ Delete a project search.
 
 `DELETE {{host}}/projectmanager/rest/projectSearches/123456?apiToken={{apiToken}}`
 
-##### POSTMAN using oidc token authentication (see project-search-json example below)
-
-`DELETE {{host}}/projectmanager/rest/projectSearches/123456`  
-`Authorization: Bearer {{token}}`
-
 ##### Bruno
 
 Use the **Delete Search** request (DELETE) in the `Project Searches` folder if available, or send a DELETE to `{{pmBase}}/rest/projectSearches/{id}`.
@@ -284,11 +242,6 @@ Return all projects matching the project search.
 
 `GET {{host}}/projectmanager/rest/projectSearches/123456/projects?apiToken={{apiToken}}`
 
-##### POSTMAN using oidc token authentication
-
-`GET {{host}}/projectmanager/rest/projectSearches/123456/projects`  
-`Authorization: Bearer {{token}}`
-
 ##### Bruno
 
 Use the **Get Search Projects** request in the `Project Searches` folder. Set the `id` path parameter to the search ID. Optionally enable the `details` query parameter.
@@ -316,11 +269,6 @@ Return all stations matching the project search.
 ##### POSTMAN using api token authentication
 
 `GET {{host}}/projectmanager/rest/projectSearches/123456/stations?apiToken={{apiToken}}`
-
-##### POSTMAN using oidc token authentication
-
-`GET {{host}}/projectmanager/rest/projectSearches/123456/stations`  
-`Authorization: Bearer {{token}}`
 
 ##### Bruno
 
