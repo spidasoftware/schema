@@ -16,7 +16,7 @@ The remainder of this document covers the SPIDAmin APIs.
 
 # SPIDAmin API Overview
 
-All of the specific endpoints in our APIs are described in the [apis](apis) folder.
+All of the specific endpoints in our APIs are described in the [apis](apis) folder. [SPIDAstudio API Responses and Errors](spidamin_responses.md) explains the response envelopes, HTTP status codes, and error messages the applications return.
 
 We have two main kinds of APIs: RPC and REST. We also expose a WFS service using geoserver.
 
@@ -67,11 +67,15 @@ REST is a specific type of data service, and a few of our more data centric serv
 
 ### License Agreement (EULA)
 
-All users must accept the License Agreement. If this has not been accepted, all HTTP requests will be redirected to usersmaster/agreement. Login to SPIDAmin and you will be redirected to the License Agreement. Click the 'Accept' button at the bottom of the page.
+All users must accept the License Agreement. If this has not been accepted, HTTP requests made from a browser session will be redirected to usersmaster/agreement. Login to SPIDAmin and you will be redirected to the License Agreement. Click the 'Accept' button at the bottom of the page. API requests authenticated with an apiToken are not redirected to the agreement page.
 
 ## API Token
 
-For most of the calls against a SPIDAmin service you will need to include your apiToken parameter, this is in addition to any parameters required by the method. This would be for the service interface if it is implemented on a server environment. There are times when we implement the same service in the local environments, and then the apiToken would not be needed, but in most cases it will be required. If you make a service call but get redirected (HTTP `302`) to a security login, then your apiToken was not included, was invalid, or belongs to a user without the role that endpoint requires. For example, every [SPIDAdb](apis/spidadbAPI.md) endpoint requires an administrator token.
+For most of the calls against a SPIDAmin service you will need to include your apiToken parameter, this is in addition to any parameters required by the method. This would be for the service interface if it is implemented on a server environment. There are times when we implement the same service in the local environments, and then the apiToken would not be needed, but in most cases it will be required.
+
+The token is only read from the `apiToken` request parameter (query string or form body); it is not read from an HTTP header. The user the token belongs to must have an API user role or an administrator role, and every [SPIDAdb](apis/spidadbAPI.md) endpoint requires an administrator token.
+
+If you make a service call and get redirected (HTTP `302`) to a security login, then your apiToken was not included, the user does not have a role that allows API access, or the URL is not an API endpoint. If the apiToken is included but does not match any user, the response is HTTP `401` with the body `{"error":{"code":"PERMISSION_DENIED","message":"Unable to Authenticate with apiToken."}}`. See [SPIDAstudio API Responses and Errors](spidamin_responses.md#authentication-and-authorization-responses) for the full list of authentication responses.
 
 ## Sessions
 
@@ -84,6 +88,8 @@ The parameter expireSession set to true can also be passed with calls in order t
     curl -g 'https://test.spidasoftware.com/assetmaster/assetAPI/getStations?station_ids=["1"]&expireSession=true'
 
 The advantage of passing the expireSession parameter is that it does not require another http request just to expire the session.
+
+Once a token has been accepted the application sets a `JSESSIONID` cookie, so a client that stores cookies may find later requests succeed without the apiToken. Do not rely on this; send the apiToken with every request.
 
 ## Switching Companies and Users
 

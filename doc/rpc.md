@@ -50,6 +50,8 @@ Would be a valid response object, that might be returned. An example of an error
 
 Notice this is an error message and it is pretty informative.  The different response codes are found in the response code [schema](../resources/schema/general/method_response.schema).
 
+Most RPC methods return the error object with an HTTP status of `200`, so check the body for an `error` key rather than relying on the status code alone. A few Project API methods do set the HTTP status (for example `createOrUpdate` returns `422`, `403`, or `500` for business rule failures) and a few return an unwrapped object, a file, or plain text instead of the envelope. [SPIDAstudio API Responses and Errors](spidamin_responses.md) lists those exceptions and explains each error code and message.
+
 Again each method in the documentation will tell you what it returns and a link to a schema if applicable.
 
 ## Example Service Implementation

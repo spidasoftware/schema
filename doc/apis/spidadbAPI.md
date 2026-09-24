@@ -57,7 +57,23 @@ One last thing before we get to the good stuff, and that's the matter of authent
 
 Every SPIDAdb endpoint (`/spidadb/**`) is restricted to SPIDAmin administrators. The user that owns the apiToken must hold the `ROLE_MIN_ADMINISTRATOR` role; a token for an ordinary SPIDAmin user will not work, even though the same token is accepted by other SPIDAmin services such as Project Manager.
 
-When the apiToken is missing, invalid, or belongs to a user without the administrator role, SPIDAdb does not return a JSON error body. The security layer responds with an HTTP `302` redirect to the SPIDAmin login page (and an HTML login form if your client follows redirects). If you receive a `302` from a SPIDAdb URL, check the token and the user's role first before troubleshooting the host, path, or format.
+When the apiToken is missing, or belongs to a user without the administrator role, SPIDAdb does not return a JSON error body. The security layer responds with an HTTP `302` redirect to the SPIDAmin login page (and an HTML login form if your client follows redirects). If you receive a `302` from a SPIDAdb URL, check the token and the user's role first before troubleshooting the host, path, or format. If the apiToken is present but does not match any user, the response is HTTP `401` with the body `{"error":{"code":"PERMISSION_DENIED","message":"Unable to Authenticate with apiToken."}}`.
+
+##### Error responses
+
+Once authenticated, every failure sets the HTTP status and returns a JSON body with `status` set to `"error"`, the HTTP status repeated in `code`, and a `message`:
+
+    {"status":"error","code":400,"message":"format is invalid: valid values are calc, referenced, and exchange."}
+
+| HTTP status | Message | Meaning |
+|-------------|---------|---------|
+| `400` | `Missing required parameter: <name>` | A required parameter (usually `id`) was not sent. |
+| `400` | `<param> is invalid: <reason>.` | The parameter was sent but rejected. Reasons include an unknown format suffix, an unknown or too-new `version`, `project missing from request.`, `project json does not validate against the schema. <report>.`, `Error converting project json to current schema version.`, and `client data json with id <id> does not validate against the schema. <report>.` |
+| `403` | `You do not have permission to access this project` | The project belongs to a company the token's user does not administer. |
+| `404` | `No resource could be found with id: <id>` | Wrong id, wrong resource type, or the resource has been deleted. |
+| `500` | `Internal Error` | Unhandled server error. |
+
+Two responses do not follow the usual `{"status":"ok"}` shape: `POST /clientFiles` responds with HTTP `201`, and the promote/demote endpoints return bare maps. Requests to unknown URLs or with the wrong HTTP method are answered by the framework with an HTML error page rather than JSON. See [SPIDAstudio API Responses and Errors](../spidamin_responses.md#spidadb-rest-api) for more detail.
 
 
 # Examples
@@ -95,7 +111,7 @@ The response from SPIDAdb (formatted for readability):
         ]
     }
 
-The response 'status' just tells us that everything went ok. If there is ever a problem processing a request, the status will be "error". The 'project' field shows us the SPIDAdb id for the newly saved project. The locations and designs fields are simply arrays of the ids for those objects.
+The response 'status' just tells us that everything went ok. If there is ever a problem processing a request, the status will be "error" and the response will also contain a numeric `code` (matching the HTTP status) and a `message` describing the problem; see [Error responses](#error-responses) above. The 'project' field shows us the SPIDAdb id for the newly saved project. The locations and designs fields are simply arrays of the ids for those objects.
 
 ##### Bruno
 

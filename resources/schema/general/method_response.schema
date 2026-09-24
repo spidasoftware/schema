@@ -33,7 +33,9 @@
             "MISSING_REQUIRED_PARAM",
             "INTERNAL_ERROR",
             "SCHEMA_NOT_FOUND",
-            "INVALID_PARAM"
+            "INVALID_PARAM",
+            "UNSUPPORTED",
+            "UNAUTHORIZED"
           ]
         },
         "message": {
