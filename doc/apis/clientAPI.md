@@ -291,7 +291,7 @@ Return a client bundle component from the client file.
 #### Parameters
 
 1. clientFile: a _required_ `string` of the client file name to pull from
-1. bundleComponent: a _required_ `object` reference of the bundle component to retrieve. {size}
+1. bundleComponent: a _required_ [bundle component reference](../../resources/schema/spidacalc/client/bundle_component.schema) of the bundle component to retrieve. {size}
 
 #### Returns
 
