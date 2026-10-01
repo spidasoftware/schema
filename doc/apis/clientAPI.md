@@ -273,12 +273,12 @@ Return the client bundle components in the client file.
 
 #### Returns
 
-A `array` of client bundle Components
+A `array` of client bundle components
 
 Bundle Component
 -----
 
-Return a client bundle Component from the client file.
+Return a client bundle component from the client file.
 
 #### URL
 
@@ -291,11 +291,11 @@ Return a client bundle Component from the client file.
 #### Parameters
 
 1. clientFile: a _required_ `string` of the client file name to pull from
-1. bundleComponent: a _required_ [bundle Component reference](../../resources/schema/spidacalc/client/bundle_component.schema) of the bundle Component to retrieve. {size}
+1. bundleComponent: a _required_ [bundle component reference](../../resources/schema/spidacalc/client/bundle_component.schema) of the bundle component to retrieve. {size}
 
 #### Returns
 
-A [client bundle Component](../../resources/schema/spidacalc/client/bundle_component.schema)
+A [client bundle component](../../resources/schema/spidacalc/client/bundle_component.schema)
 
 Equipments
 -----
@@ -313,7 +313,7 @@ Return the client equipments in the client file.
 #### Parameters
 
 1. clientFile: a _required_ `string` of the client file name to pull from
-1. industry: a `string` filter on the industry of the equipment.
+1. type: a `string` filter on the equipment type name.
 1. details: a `boolean` on if the complete details should be returned.
 
 #### Returns
@@ -474,6 +474,182 @@ Return a client sidewalkBrace from the client file.
 
 A [client sidewalkBrace](../../resources/schema/spidacalc/client/sidewalk_brace.schema)
 
+Trusses
+-----
+
+Return the client trusses in the client file.
+
+#### URL
+
+`http://localhost:4560/clientData/trusses`
+
+#### Allowed Methods
+
+`GET`
+
+#### Parameters
+
+1. clientFile: a _required_ `string` of the client file name to pull from
+1. details: a `boolean` on if the complete details should be returned.
+
+#### Returns
+
+A `array` of client trusses
+
+Truss
+-----
+
+Return a client truss from the client file.
+
+#### URL
+
+`http://localhost:4560/clientData/truss`
+
+#### Allowed Methods
+
+`GET`
+
+#### Parameters
+
+1. clientFile: a _required_ `string` of the client file name to pull from
+1. truss: a _required_ `string` of the truss size to retrieve.
+
+#### Returns
+
+A [client truss](../../resources/schema/spidacalc/client/truss.schema)
+
+Component Braces
+-----
+
+Return the client component braces in the client file.
+
+#### URL
+
+`http://localhost:4560/clientData/componentBraces`
+
+#### Allowed Methods
+
+`GET`
+
+#### Parameters
+
+1. clientFile: a _required_ `string` of the client file name to pull from
+1. details: a `boolean` on if the complete details should be returned.
+
+#### Returns
+
+A `array` of client component braces
+
+Component Brace
+-----
+
+Return a client component brace from the client file.
+
+#### URL
+
+`http://localhost:4560/clientData/componentBrace`
+
+#### Allowed Methods
+
+`GET`
+
+#### Parameters
+
+1. clientFile: a _required_ `string` of the client file name to pull from
+1. componentBrace: a _required_ `string` of the component brace size to retrieve.
+
+#### Returns
+
+A [client component brace](../../resources/schema/spidacalc/client/componentBrace.schema)
+
+Wire States
+-----
+
+Return the wire states in the client file.
+
+#### URL
+
+`http://localhost:4560/clientData/wireStates`
+
+#### Allowed Methods
+
+`GET`
+
+#### Parameters
+
+1. clientFile: a _required_ `string` of the client file name to pull from
+1. details: a `boolean` on if the complete details should be returned; otherwise only the names are returned.
+
+#### Returns
+
+A `array` of wire states
+
+Wire State
+-----
+
+Return a wire state from the client file.
+
+#### URL
+
+`http://localhost:4560/clientData/wireState`
+
+#### Allowed Methods
+
+`GET`
+
+#### Parameters
+
+1. clientFile: a _required_ `string` of the client file name to pull from
+1. wireState: a _required_ `string` of the wire state name to retrieve.
+
+#### Returns
+
+A [wire state](../../resources/schema/spidacalc/client/wire_state.schema)
+
+Wire Classes
+-----
+
+Return the wire classes in the client file.
+
+#### URL
+
+`http://localhost:4560/clientData/wireClasses`
+
+#### Allowed Methods
+
+`GET`
+
+#### Parameters
+
+1. clientFile: a _required_ `string` of the client file name to pull from
+1. details: a `boolean` on if the complete details should be returned; otherwise only the names are returned.
+
+#### Returns
+
+A `array` of wire classes
+
+Wire Class
+-----
+
+Return a wire class from the client file.
+
+#### URL
+
+`http://localhost:4560/clientData/wireClass`
+
+#### Allowed Methods
+
+`GET`
+
+#### Parameters
+
+1. clientFile: a _required_ `string` of the client file name to pull from
+1. wireClass: a _required_ `string` of the wire class name to retrieve.
+
+#### Returns
+
+A [wire class](../../resources/schema/spidacalc/client/wire_class.schema)
+
 Load Cases
 -----
 
@@ -500,7 +676,8 @@ A `array` of load cases
 Assemblies
 -----
 
-Return the framing units in the client file.
+Return the assemblies in the client file, plus the assemblies from the local assemblies file that are valid for the
+client file.
 
 #### URL
 
@@ -513,12 +690,35 @@ Return the framing units in the client file.
 #### Parameters
 
 1. clientFile: a _required_ `string` of the client file name to pull from
-1. details: a `boolean` on if the complete details should be returned.
-1. assemblyType: an _optional_ 'string' of the assembly type (FRAMING or SUPPORT)
+1. assemblyType: an _optional_ `string` filter on the assembly type (FRAMING or SUPPORT)
+1. details: a `boolean` on if the complete details should be returned; otherwise only `code` and `assemblyType` are returned.
 
 #### Returns
 
 A `array` of assemblies
+
+Assembly
+-----
+
+Return an assembly by code. Assemblies in the client file take priority, falling back to local assemblies that are
+valid for the client file.
+
+#### URL
+
+`http://localhost:4560/clientData/assembly`
+
+#### Allowed Methods
+
+`GET`
+
+#### Parameters
+
+1. clientFile: a _required_ `string` of the client file name to pull from
+1. assembly: a _required_ `string` of the assembly code to retrieve.
+
+#### Returns
+
+A [client assembly](../../resources/schema/spidacalc/client/assembly.schema)
 
 
 Scripts
