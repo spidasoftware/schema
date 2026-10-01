@@ -1,10 +1,6 @@
 SPIDA Software JSON Interfaces
 ==============================
 
-* LAST RELEASED VERSION: 12.0.3 (Java 11+)
-
-* CURRENT MASTER VERSION: 13.0.0 (Java 11+)
-
 General Overview
 --------------------------------
 The SPIDAschema project documents the available services and data formats for third parties wanting to integrate with SPIDA Software applications.
@@ -15,7 +11,8 @@ The data formats, examples, and available web service interfaces will all change
 
 | Schema version                                                                   | Java | SPIDAcalc                 | SPIDAstudio |
 |----------------------------------------------------------------------------------|------|---------------------------|-----------|
-| [12.0.3](https://github.com/spidasoftware/schema/releases/tag/v12.0.3)           | 11+  | SPIDAcalc 25.0.2          | |
+| [13.0.0](https://github.com/spidasoftware/schema/releases/tag/v13.0.0)           | 11+  | SPIDAcalc 26.0.0          | |
+| [12.0.3](https://github.com/spidasoftware/schema/releases/tag/v12.0.3)           | 11+  | SPIDAcalc 25.0.2 - 25.0.3 | |
 | [12.0.2](https://github.com/spidasoftware/schema/releases/tag/v12.0.2)           | 11+  | SPIDAcalc 25.0.1          | |
 | [12.0.1](https://github.com/spidasoftware/schema/releases/tag/v12.0.1)           | 11+  | SPIDAcalc 25.0.0          | |
 | [11.0.3](https://github.com/spidasoftware/schema/releases/tag/v11.0.3)           | 11+  | SPIDAcalc 24.1.1 - 24.1.2 | |
