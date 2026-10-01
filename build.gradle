@@ -148,26 +148,27 @@ tasks.named('jar') {
 
 /**
  * Searches the project properties first (where the properties should be kept),
- * then the system properties (where older integrations might expect them),
- * and returns null if the property is not set.
+ * then the system properties (where older integrations might expect them).
+ * Both are read through Providers so the configuration cache tracks them as inputs.
  */
-private String findPropertyAnywhere(Project project, String propertyName) {
-	return project.findProperty(propertyName) ?: System.getProperty(propertyName)
+Provider<String> findPropertyAnywhere(String propertyName) {
+	return providers.gradleProperty(propertyName)
+		.orElse(providers.systemProperty(propertyName))
+		.filter { !it.isEmpty() }
 }
 
-String schema = findPropertyAnywhere(project, 'schema')
-String jsonFile = findPropertyAnywhere(project, 'jsonFile')
+Provider<String> schema = findPropertyAnywhere('schema')
+Provider<RegularFile> jsonFile = layout.projectDirectory.file(findPropertyAnywhere('jsonFile'))
 
-task validateJson(type: JavaExec) {
+tasks.register('validateJson', JavaExec) {
 	dependsOn classes
 
 	classpath = sourceSets.main.runtimeClasspath
 	mainClass = 'com.spidasoftware.schema.validation.CommandLineValidator'
 
-	if (jsonFile && schema) {
-		// project.file resolves relative paths against the project dir, not the daemon's cwd
-		args schema
-		args project.file(jsonFile).absolutePath
+	// projectDirectory.file resolves relative paths against the project dir, not the daemon's cwd
+	if (schema.present && jsonFile.present) {
+		args schema.get(), jsonFile.get().asFile.absolutePath
 	}
 }
 
