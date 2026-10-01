@@ -16,7 +16,7 @@ group = 'com.spidasoftware'
 version = providers.environmentVariable('SCHEMA_RELEASE_VERSION')
 	.filter { !it.isEmpty() }
 	.getOrElse('14.0.0-SNAPSHOT')
-description = "Schema"
+description = 'JSON schemas, validation, and version conversion for integrating with SPIDA Software applications.'
 
 java {
 	toolchain { languageVersion = JavaLanguageVersion.of(11) }
@@ -83,6 +83,7 @@ dependencies {
 test {
 	useJUnitPlatform()
     testLogging.showStandardStreams = true
+	maxParallelForks = Runtime.runtime.availableProcessors().intdiv(2) ?: 1
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
