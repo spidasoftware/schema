@@ -6,7 +6,6 @@ apply plugin: 'java-library'
 apply plugin: 'maven-publish'
 apply plugin: 'groovy'
 apply plugin: 'project-report'
-apply plugin: 'com.spidasoftware.releaseNotes'
 apply plugin: 'application'
 
 group = 'com.spidasoftware'
@@ -46,17 +45,6 @@ sourceSets {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependencies
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-buildscript {
-	repositories {
-		mavenCentral()
-		maven { url System.getenv("ARTIFACTORY_URL_EXPOSED") }
-	}
-
-	dependencies {
-		classpath (group: 'com.spidasoftware', name:'releaseNotes', version:'0.3-SNAPSHOT', changing:true)
-	}
-}
-
 application {
     mainClass = 'com.spidasoftware.schema.validation.CommandLineValidator'
 }
@@ -82,11 +70,6 @@ publishing {
 			}
 		}
 	}
-}
-
-releaseNotes {
-    start = "git describe HEAD~1 --abbrev=0 --tags --match v*".execute().text.trim()
-    project = "147173"
 }
 
 dependencies {
