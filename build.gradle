@@ -60,7 +60,6 @@ publishing {
 }
 
 dependencies {
-	implementation 'commons-codec:commons-codec:1.15'
 	implementation group: 'org.apache.ant', name: 'ant', version: '1.10.18'
 	implementation group: 'org.codehaus.groovy', name: 'groovy-all', version:'2.5.14'
 	implementation (group: 'ch.qos.logback', name: 'logback-classic', version: '1.5.22') {
