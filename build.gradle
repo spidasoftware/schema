@@ -23,24 +23,8 @@ java {
 	withSourcesJar()
 }
 
-sourceSets {
-	main {
-		groovy {
-			srcDir 'src/main/groovy'
-		}
-		resources {
-			srcDir 'resources'
-		}
-	}
-	test {
-		groovy {
-			srcDir 'src/test/groovy'
-		}
-		resources {
-			srcDir 'src/test/resources'
-		}
-	}
-}
+// Schemas are kept in the top-level 'resources' dir rather than src/main/resources.
+sourceSets.main.resources.srcDir('resources')
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependencies
@@ -96,10 +80,6 @@ dependencies {
 test {
 	useJUnitPlatform()
     testLogging.showStandardStreams = true
-}
-
-processTestResources {
-	duplicatesStrategy = DuplicatesStrategy.WARN
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
