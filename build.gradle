@@ -11,13 +11,11 @@ plugins {
 }
 
 group = 'com.spidasoftware'
-version = '14.0.0-SNAPSHOT' // If you're changing the major version also change the currentVersion in ConverterUtils.
-
-def schemaReleaseVersion = System.getenv("SCHEMA_RELEASE_VERSION")
-if(schemaReleaseVersion){
-	println "Using ENV version $schemaReleaseVersion"
-	version = schemaReleaseVersion
-}
+// SCHEMA_RELEASE_VERSION overrides the default on release builds.
+// If you're changing the major version also change the currentVersion in ConverterUtils.
+version = providers.environmentVariable('SCHEMA_RELEASE_VERSION')
+	.filter { !it.isEmpty() }
+	.getOrElse('14.0.0-SNAPSHOT')
 description = "Schema"
 
 java {
@@ -35,9 +33,12 @@ application {
     mainClass = 'com.spidasoftware.schema.validation.CommandLineValidator'
 }
 
+// Internal Artifactory is optional so a fresh clone can still resolve public dependencies.
+def artifactoryUrl = providers.environmentVariable('ARTIFACTORY_URL_EXPOSED').filter { !it.isEmpty() }
+
 repositories {
 	mavenCentral()
-	maven { url = System.getenv("ARTIFACTORY_URL_EXPOSED") }
+	maven { url = artifactoryUrl.get() }
 }
 
 publishing {
@@ -49,10 +50,10 @@ publishing {
 
 	repositories {
 		maven {
-			url = System.getenv("ARTIFACTORY_URL_EXPOSED")
+			url = artifactoryUrl.get()
 			credentials {
-				username = System.getenv('ARTIFACTORY_USERNAME')
-				password = System.getenv('ARTIFACTORY_PASSWORD')
+				username = providers.environmentVariable('ARTIFACTORY_USERNAME').orNull
+				password = providers.environmentVariable('ARTIFACTORY_PASSWORD').orNull
 			}
 		}
 	}
