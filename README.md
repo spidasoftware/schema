@@ -119,7 +119,9 @@ We include a command line validator to validate against any of our included sche
 
     gradlew :validateJson -Pschema=/path/to/schema -PjsonFile=/path/to/json
     schema - path to schema starting from resources. eg. /schema/spidacalc/calc/structure.schema
-    json - json file to be validated.
+    json - json file to be validated. Relative paths are resolved from the project directory.
+
+Validation is non-strict by default (unknown properties are ignored). Add `"strict": true` to the top level of the json file to also reject additional properties.
 
 For example, to validate the "one of everything" structure example, from the schema directory you would type:
 

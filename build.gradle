@@ -152,9 +152,9 @@ task validateJson(type: JavaExec) {
 	standardOutput = System.out
 
 	if (jsonFile && schema) {
-		def jFile = new File("$jsonFile")
+		// project.file resolves relative paths against the project dir, not the daemon's cwd
 		args schema
-		args jFile.absolutePath
+		args project.file(jsonFile).absolutePath
 	}
 }
 
