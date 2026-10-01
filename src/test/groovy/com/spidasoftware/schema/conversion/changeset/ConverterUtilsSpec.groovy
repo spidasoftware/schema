@@ -11,7 +11,6 @@ import com.spidasoftware.schema.conversion.changeset.v2.PoleLeanChangeSetTest
 import com.spidasoftware.schema.validation.Validator
 import groovy.json.JsonSlurper
 import groovy.util.logging.Slf4j
-import org.apache.commons.lang3.SystemUtils
 import spock.lang.Specification
 
 @Slf4j
@@ -73,30 +72,15 @@ class ConverterUtilsSpec extends Specification {
 			validateProjectSchema("/conversions/v2/foundation.json")
 	}
 
-	/*
-	Output of "./gradlew printVersion" is:
-> Configure project :
-SCHEMA_VERSION: 6.0.0-SNAPSHOT
-
-BUILD SUCCESSFUL in 0s
-	 */
 	def testSchemaVersionMatchesConverterUtilsVersion() {
 		when:
-			String commandLine
-			if (SystemUtils.IS_OS_WINDOWS) {
-				commandLine = "gradlew.bat printVersion"
-			} else {
-				commandLine = "./gradlew printVersion"
-			}
-			Process process = commandLine.execute()
-			process.waitFor()
-			String output = process.text.trim()
-			int indexOfMajorVersion = output.indexOf("SCHEMA_VERSION: ") + "SCHEMA_VERSION: ".length()
-			String versionStart = output.substring(indexOfMajorVersion, output.length())
+			Properties props = new Properties()
+			ConverterUtilsSpec.getResourceAsStream("/schema-version.properties").withStream { props.load(it) }
+			String schemaVersion = props.getProperty("version")
 		then:
-			versionStart.startsWith("${ConverterUtils.currentVersion}")
+			schemaVersion.startsWith("${ConverterUtils.currentVersion}")
 			ConverterUtils.converters.values().every { Converter converter ->
-				versionStart.startsWith("${converter.currentVersion}") && converter.currentVersion == ConverterUtils.currentVersion
+				schemaVersion.startsWith("${converter.currentVersion}") && converter.currentVersion == ConverterUtils.currentVersion
 			}
 	}
 

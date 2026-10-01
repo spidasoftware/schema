@@ -172,8 +172,11 @@ tasks.register('validateJson', JavaExec) {
 	}
 }
 
-task printVersion() {
-	doLast {
-		println "SCHEMA_VERSION: ${version}"
-	}
+def generatedVersionDir = layout.buildDirectory.dir('generated/version')
+
+tasks.register('generateVersionProperties', WriteProperties) {
+	destinationFile = generatedVersionDir.map { it.file('schema-version.properties') }
+	property('version', version)
 }
+
+sourceSets.main.resources.srcDir(files(generatedVersionDir).builtBy('generateVersionProperties'))
