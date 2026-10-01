@@ -148,8 +148,6 @@ task validateJson(type: JavaExec) {
 
 	classpath = sourceSets.main.runtimeClasspath
 	mainClass = 'com.spidasoftware.schema.validation.CommandLineValidator'
-	standardInput = System.in
-	standardOutput = System.out
 
 	if (jsonFile && schema) {
 		// project.file resolves relative paths against the project dir, not the daemon's cwd
