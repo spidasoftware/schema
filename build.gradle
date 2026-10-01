@@ -106,25 +106,40 @@ processTestResources {
 // Build Process
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-task buildInfo {
-	def cmd = "git rev-parse --short HEAD"
-	def proc = cmd.execute()
-	project.ext.revision = proc.text.trim()
-	cmd = "git show -s --format=%ct HEAD"
-	proc = cmd.execute()
-	project.ext.timestamp = proc.text.trim()
-}
+// ValueSource lets the configuration cache run git as a tracked build input instead of
+// an untracked external process at configuration time.
+import javax.inject.Inject
+import org.gradle.process.ExecOperations
 
-task assembleManifest(dependsOn:["buildInfo"]){
-	doLast {
-		jar {
-			manifest.attributes("VCSVersion": project.ext["revision"],
-								"VCSTimeStamp": project.ext["timestamp"],
-								"Version": version)
+abstract class GitValue implements ValueSource<String, GitValue.Params> {
+	interface Params extends ValueSourceParameters {
+		ListProperty<String> getArgs()
+	}
+
+	@Inject
+	abstract ExecOperations getExec()
+
+	@Override
+	String obtain() {
+		def out = new ByteArrayOutputStream()
+		exec.exec { spec ->
+			spec.commandLine(['git'] + parameters.args.get())
+			spec.standardOutput = out
 		}
+		return out.toString().trim()
 	}
 }
-jar.dependsOn assembleManifest
+
+def gitRevision = providers.of(GitValue) { parameters.args = ['rev-parse', '--short', 'HEAD'] }
+def gitTimestamp = providers.of(GitValue) { parameters.args = ['show', '-s', '--format=%ct', 'HEAD'] }
+
+tasks.named('jar') {
+	manifest.attributes(
+		'VCSVersion': gitRevision,
+		'VCSTimeStamp': gitTimestamp,
+		'Version': version
+	)
+}
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
