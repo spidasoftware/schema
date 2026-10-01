@@ -2,11 +2,13 @@
 // General Gradle Settings
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-apply plugin: 'java-library'
-apply plugin: 'maven-publish'
-apply plugin: 'groovy'
-apply plugin: 'project-report'
-apply plugin: 'application'
+plugins {
+	id 'java-library'
+	id 'groovy'
+	id 'maven-publish'
+	id 'project-report'
+	id 'application'
+}
 
 group = 'com.spidasoftware'
 version = '14.0.0-SNAPSHOT' // If you're changing the major version also change the currentVersion in ConverterUtils.
