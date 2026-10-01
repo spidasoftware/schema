@@ -140,23 +140,8 @@ private String findPropertyAnywhere(Project project, String propertyName) {
 	return project.findProperty(propertyName) ?: System.getProperty(propertyName)
 }
 
-String csvFile = findPropertyAnywhere(project, 'file')
 String schema = findPropertyAnywhere(project, 'schema')
 String jsonFile = findPropertyAnywhere(project, 'jsonFile')
-
-task csv(type: JavaExec) {
-	dependsOn classes
-
-	classpath = sourceSets.main.runtimeClasspath
-	mainClass = 'com.spidasoftware.schema.conversion.PoleCSVStationConverter'
-	standardInput = System.in
-	standardOutput = System.out
-
-	if(csvFile){
-		def file = new File("$csvFile")
-		args file.absolutePath
-	}
-}
 
 task validateJson(type: JavaExec) {
 	dependsOn classes
