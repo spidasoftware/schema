@@ -144,15 +144,14 @@ Provider<String> schema = findPropertyAnywhere('schema')
 Provider<RegularFile> jsonFile = layout.projectDirectory.file(findPropertyAnywhere('jsonFile'))
 
 tasks.register('validateJson', JavaExec) {
-	dependsOn classes
-
 	classpath = sourceSets.main.runtimeClasspath
 	mainClass = 'com.spidasoftware.schema.validation.CommandLineValidator'
 
-	// projectDirectory.file resolves relative paths against the project dir, not the daemon's cwd
-	if (schema.present && jsonFile.present) {
-		args schema.get(), jsonFile.get().asFile.absolutePath
-	}
+	// Evaluated at execution time so the providers stay lazy.
+	// projectDirectory.file resolves relative paths against the project dir, not the daemon's cwd.
+	argumentProviders.add({
+		schema.present && jsonFile.present ? [schema.get(), jsonFile.get().asFile.absolutePath] : []
+	} as CommandLineArgumentProvider)
 }
 
 def generatedVersionDir = layout.buildDirectory.dir('generated/version')
