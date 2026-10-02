@@ -14,6 +14,7 @@ import com.networknt.schema.JsonMetaSchema
 import com.networknt.schema.JsonSchema
 import com.networknt.schema.JsonSchemaFactory
 import com.networknt.schema.NonValidationKeyword
+import com.networknt.schema.SchemaLocation
 import com.networknt.schema.SpecVersion
 import com.networknt.schema.ValidationMessage
 import groovy.util.logging.Slf4j
@@ -38,7 +39,7 @@ class Validator {
 			schemaNode = (new ObjectMapper()).readTree(this.class.getResource(schemaPath))
 			schemaPathCache.put(schemaPath, schemaNode)
 		}
-		return validateWithStrictModeCheck(jsonNode, schemaNode, this.class.getResource(schemaPath).toURI())
+		return validateWithStrictModeCheck(jsonNode, schemaNode, SchemaLocation.of(this.class.getResource(schemaPath).toURI().toString()))
 	}
 
 	protected ProcessingReport validateUsingSchemaText(String schemaText, JsonNode jsonNode) {
@@ -50,7 +51,15 @@ class Validator {
 		return validateWithStrictModeCheck(jsonNode, schemaNode)
 	}
 
-	ProcessingReport validateWithStrictModeCheck(JsonNode jsonNode, JsonNode schemaNode, URI schemaUri = null){
+	/**
+	 * @deprecated use {@link #validateWithStrictModeCheck(JsonNode, JsonNode, SchemaLocation)}
+	 */
+	@Deprecated
+	ProcessingReport validateWithStrictModeCheck(JsonNode jsonNode, JsonNode schemaNode, URI schemaUri) {
+		return validateWithStrictModeCheck(jsonNode, schemaNode, schemaUri == null ? null : SchemaLocation.of(schemaUri.toString()))
+	}
+
+	ProcessingReport validateWithStrictModeCheck(JsonNode jsonNode, JsonNode schemaNode, SchemaLocation schemaLocation = null) {
 		boolean ignoreAdditionalProperties = true
 		JsonNode strictNode = jsonNode.get('strict')
 
@@ -68,11 +77,11 @@ class Validator {
 		}
 		JsonSchema schema = schemaCache.get(schemaNode)
 		if(schema == null) {
-			JsonSchemaFactory factory = getJsonSchemaFactory(ignoreAdditionalProperties)  // todo cache these too
-			if (schemaUri == null) {  // try (schemaUri, schemaNode) regardless of nullness
+			JsonSchemaFactory factory = getJsonSchemaFactory(ignoreAdditionalProperties)
+			if (schemaLocation == null) {
 				schema = factory.getSchema(schemaNode)
 			} else {
-				schema = factory.getSchema(schemaUri, schemaNode)
+				schema = factory.getSchema(schemaLocation, schemaNode)
 			}
 			schemaCache.put(schemaNode, schema)
 		}
@@ -97,14 +106,14 @@ class Validator {
 		if(ignoreAdditionalProperties) {
 			if(schemaFactoryNotStrict == null) {
 				JsonMetaSchema v4 = JsonMetaSchema.getV4()
-				JsonMetaSchema jsonMetaSchema = JsonMetaSchema.builder(v4.getUri(), v4)
+				JsonMetaSchema jsonMetaSchema = JsonMetaSchema.builder(v4.getIri(), v4)
 						// overrides the V4 validator so additionalProperties is parsed but not enforced
-						.addKeyword(new NonValidationKeyword("additionalProperties"))
+						.keyword(new NonValidationKeyword("additionalProperties"))
 						.build()
 
 				schemaFactoryNotStrict = JsonSchemaFactory.builder()
-						.defaultMetaSchemaURI(jsonMetaSchema.getUri())
-						.addMetaSchema(jsonMetaSchema)
+						.defaultMetaSchemaIri(jsonMetaSchema.getIri())
+						.metaSchema(jsonMetaSchema)
 						.build()
 			}
 			return schemaFactoryNotStrict
