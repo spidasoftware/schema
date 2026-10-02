@@ -60,8 +60,10 @@ publishing {
 }
 
 dependencies {
+	def groovyVersion = '2.5.14'
 	implementation group: 'org.apache.ant', name: 'ant', version: '1.10.18'
-	implementation group: 'org.codehaus.groovy', name: 'groovy-all', version:'2.5.14'
+	implementation group: 'org.codehaus.groovy', name: 'groovy', version: groovyVersion
+	implementation group: 'org.codehaus.groovy', name: 'groovy-ant', version: groovyVersion  // AntBuilder in ExchangeFile
 	implementation (group: 'ch.qos.logback', name: 'logback-classic', version: '1.5.22') {
 		exclude(module: 'slf4j-api')
 	}
@@ -72,6 +74,8 @@ dependencies {
 	implementation 'com.networknt:json-schema-validator:1.0.30-SNAPSHOT'
 	api group: 'org.mongodb', name:'mongo-java-driver', version:'2.11.1'
 	implementation group: 'com.spidasoftware', name: 'schema-v4', version:'0.1'
+	testImplementation group: 'org.codehaus.groovy', name: 'groovy-json', version: groovyVersion  // JsonSlurper/JsonOutput
+	testImplementation group: 'org.codehaus.groovy', name: 'groovy-test', version: groovyVersion  // GroovyTestCase
 	testImplementation group: 'junit', name: 'junit', version:'4.13.2'
 	testImplementation group: 'org.spockframework', name: 'spock-core', version: '2.3-groovy-2.5'
 	testRuntimeOnly('net.bytebuddy:byte-buddy:1.14.2')  // so spock can create mocks
