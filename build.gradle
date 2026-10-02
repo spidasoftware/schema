@@ -2,66 +2,43 @@
 // General Gradle Settings
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-apply plugin: 'java-library'
-apply plugin: 'maven-publish'
-apply plugin: 'groovy'
-apply plugin: 'project-report'
-apply plugin: 'com.spidasoftware.releaseNotes'
-apply plugin: 'application'
+plugins {
+	id 'java-library'
+	id 'groovy'
+	id 'maven-publish'
+	id 'project-report'
+	id 'application'
+}
 
 group = 'com.spidasoftware'
-version = '14.0.0-SNAPSHOT' // If you're changing the major version also change the currentVersion in ConverterUtils.
+// SCHEMA_RELEASE_VERSION overrides the default on release builds.
+// If you're changing the major version also change the currentVersion in ConverterUtils.
+version = providers.environmentVariable('SCHEMA_RELEASE_VERSION')
+	.filter { !it.isEmpty() }
+	.getOrElse('14.0.0-SNAPSHOT')
+description = 'JSON schemas, validation, and version conversion for integrating with SPIDA Software applications.'
 
-def schemaReleaseVersion = System.getenv("SCHEMA_RELEASE_VERSION")
-if(schemaReleaseVersion){
-	println "Using ENV version $schemaReleaseVersion"
-	version = schemaReleaseVersion
+java {
+	toolchain { languageVersion = JavaLanguageVersion.of(11) }
+	withSourcesJar()
 }
-description = "Schema"
 
-sourceCompatibility = JavaVersion.VERSION_11
-targetCompatibility = JavaVersion.VERSION_11
-
-sourceSets {
-	main {
-		groovy {
-			srcDir 'src/main/groovy'
-		}
-		resources {
-			srcDir 'resources'
-		}
-	}
-	test {
-		groovy {
-			srcDir 'src/test/groovy'
-		}
-		resources {
-			srcDir 'src/test/resources'
-		}
-	}
-}
+// Schemas are kept in the top-level 'resources' dir rather than src/main/resources.
+sourceSets.main.resources.srcDir('resources')
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependencies
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-buildscript {
-	repositories {
-		mavenCentral()
-		maven { url System.getenv("ARTIFACTORY_URL_EXPOSED") }
-	}
-
-	dependencies {
-		classpath (group: 'com.spidasoftware', name:'releaseNotes', version:'0.3-SNAPSHOT', changing:true)
-	}
-}
-
 application {
     mainClass = 'com.spidasoftware.schema.validation.CommandLineValidator'
 }
 
+// Internal Artifactory is optional so a fresh clone can still resolve public dependencies.
+def artifactoryUrl = providers.environmentVariable('ARTIFACTORY_URL_EXPOSED').filter { !it.isEmpty() }
+
 repositories {
 	mavenCentral()
-	maven { url System.getenv("ARTIFACTORY_URL_EXPOSED") }
+	maven { url = artifactoryUrl.get() }
 }
 
 publishing {
@@ -73,18 +50,13 @@ publishing {
 
 	repositories {
 		maven {
-			url System.getenv("ARTIFACTORY_URL_EXPOSED")
+			url = artifactoryUrl.get()
 			credentials {
-				username = System.getenv('ARTIFACTORY_USERNAME')
-				password = System.getenv('ARTIFACTORY_PASSWORD')
+				username = providers.environmentVariable('ARTIFACTORY_USERNAME').orNull
+				password = providers.environmentVariable('ARTIFACTORY_PASSWORD').orNull
 			}
 		}
 	}
-}
-
-releaseNotes {
-    start = "git describe HEAD~1 --abbrev=0 --tags --match v*".execute().text.trim()
-    project = "147173"
 }
 
 dependencies {
@@ -111,35 +83,47 @@ dependencies {
 test {
 	useJUnitPlatform()
     testLogging.showStandardStreams = true
-}
-
-processTestResources {
-	duplicatesStrategy = DuplicatesStrategy.WARN
+	maxParallelForks = Runtime.runtime.availableProcessors().intdiv(2) ?: 1
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Build Process
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-task buildInfo {
-	def cmd = "git rev-parse --short HEAD"
-	def proc = cmd.execute()
-	project.ext.revision = proc.text.trim()
-	cmd = "git show -s --format=%ct HEAD"
-	proc = cmd.execute()
-	project.ext.timestamp = proc.text.trim()
-}
+// ValueSource lets the configuration cache run git as a tracked build input instead of
+// an untracked external process at configuration time.
+import javax.inject.Inject
+import org.gradle.process.ExecOperations
 
-task assembleManifest(dependsOn:["buildInfo"]){
-	doLast {
-		jar {
-			manifest.attributes("VCSVersion": project.ext["revision"],
-								"VCSTimeStamp": project.ext["timestamp"],
-								"Version": version)
+abstract class GitValue implements ValueSource<String, GitValue.Params> {
+	interface Params extends ValueSourceParameters {
+		ListProperty<String> getArgs()
+	}
+
+	@Inject
+	abstract ExecOperations getExec()
+
+	@Override
+	String obtain() {
+		def out = new ByteArrayOutputStream()
+		exec.exec { spec ->
+			spec.commandLine(['git'] + parameters.args.get())
+			spec.standardOutput = out
 		}
+		return out.toString().trim()
 	}
 }
-jar.dependsOn assembleManifest
+
+def gitRevision = providers.of(GitValue) { parameters.args = ['rev-parse', '--short', 'HEAD'] }
+def gitTimestamp = providers.of(GitValue) { parameters.args = ['show', '-s', '--format=%ct', 'HEAD'] }
+
+tasks.named('jar') {
+	manifest.attributes(
+		'VCSVersion': gitRevision,
+		'VCSTimeStamp': gitTimestamp,
+		'Version': version
+	)
+}
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -148,48 +132,34 @@ jar.dependsOn assembleManifest
 
 /**
  * Searches the project properties first (where the properties should be kept),
- * then the system properties (where older integrations might expect them),
- * and returns null if the property is not set.
+ * then the system properties (where older integrations might expect them).
+ * Both are read through Providers so the configuration cache tracks them as inputs.
  */
-private String findPropertyAnywhere(Project project, String propertyName) {
-	return project.findProperty(propertyName) ?: System.getProperty(propertyName)
+Provider<String> findPropertyAnywhere(String propertyName) {
+	return providers.gradleProperty(propertyName)
+		.orElse(providers.systemProperty(propertyName))
+		.filter { !it.isEmpty() }
 }
 
-String csvFile = findPropertyAnywhere(project, 'file')
-String schema = findPropertyAnywhere(project, 'schema')
-String jsonFile = findPropertyAnywhere(project, 'jsonFile')
+Provider<String> schema = findPropertyAnywhere('schema')
+Provider<RegularFile> jsonFile = layout.projectDirectory.file(findPropertyAnywhere('jsonFile'))
 
-task csv(type: JavaExec) {
-	dependsOn classes
-
-	classpath = sourceSets.main.runtimeClasspath
-	mainClass = 'com.spidasoftware.schema.conversion.PoleCSVStationConverter'
-	standardInput = System.in
-	standardOutput = System.out
-
-	if(csvFile){
-		def file = new File("$csvFile")
-		args file.absolutePath
-	}
-}
-
-task validateJson(type: JavaExec) {
-	dependsOn classes
-
+tasks.register('validateJson', JavaExec) {
 	classpath = sourceSets.main.runtimeClasspath
 	mainClass = 'com.spidasoftware.schema.validation.CommandLineValidator'
-	standardInput = System.in
-	standardOutput = System.out
 
-	if (jsonFile && schema) {
-		def jFile = new File("$jsonFile")
-		args schema
-		args jFile.absolutePath
-	}
+	// Evaluated at execution time so the providers stay lazy.
+	// projectDirectory.file resolves relative paths against the project dir, not the daemon's cwd.
+	argumentProviders.add({
+		schema.present && jsonFile.present ? [schema.get(), jsonFile.get().asFile.absolutePath] : []
+	} as CommandLineArgumentProvider)
 }
 
-task printVersion() {
-	doLast {
-		println "SCHEMA_VERSION: ${version}"
-	}
+def generatedVersionDir = layout.buildDirectory.dir('generated/version')
+
+tasks.register('generateVersionProperties', WriteProperties) {
+	destinationFile = generatedVersionDir.map { it.file('schema-version.properties') }
+	property('version', version)
 }
+
+sourceSets.main.resources.srcDir(files(generatedVersionDir).builtBy('generateVersionProperties'))
