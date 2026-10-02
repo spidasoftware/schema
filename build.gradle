@@ -59,15 +59,26 @@ publishing {
 	}
 }
 
+// Logging binding for the standalone CommandLineValidator only. Kept out of the published POM so
+// consumers (calc, min) choose their own SLF4J binding and are not forced onto a newer slf4j-api.
+// Extends runtimeClasspath so Gradle resolves a single slf4j-api version for the CLI.
+configurations {
+	cliRuntime {
+		extendsFrom runtimeClasspath
+		canBeConsumed = false
+	}
+}
+
 dependencies {
 	def groovyVersion = '2.5.14'
+	def logbackVersion = '1.5.22'
 	implementation group: 'org.apache.ant', name: 'ant', version: '1.10.18'
 	implementation group: 'org.codehaus.groovy', name: 'groovy', version: groovyVersion
 	implementation group: 'org.codehaus.groovy', name: 'groovy-ant', version: groovyVersion  // AntBuilder in ExchangeFile
-	implementation (group: 'ch.qos.logback', name: 'logback-classic', version: '1.5.22') {
-		exclude(module: 'slf4j-api')
-	}
+	// Library surface is the SLF4J facade only. Stays at 1.7.x so the POM does not raise consumers' slf4j-api.
 	implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.36'
+	cliRuntime group: 'ch.qos.logback', name: 'logback-classic', version: logbackVersion  // pulls its matching slf4j-api 2.x
+	testRuntimeOnly group: 'ch.qos.logback', name: 'logback-classic', version: logbackVersion
 	implementation group: 'commons-io', name: 'commons-io', version:'2.21.0'
 	api 'com.github.java-json-tools:json-schema-core:1.2.14'  // fge updated to java-json-tools - results schema does not parse
 	api 'org.mozilla:rhino:1.7.15.1'  // replace the vulnerable version pulled in by json-schema-core
@@ -147,8 +158,12 @@ Provider<String> findPropertyAnywhere(String propertyName) {
 Provider<String> schema = findPropertyAnywhere('schema')
 Provider<RegularFile> jsonFile = layout.projectDirectory.file(findPropertyAnywhere('jsonFile'))
 
+tasks.named('run') {
+	classpath = sourceSets.main.output + configurations.cliRuntime
+}
+
 tasks.register('validateJson', JavaExec) {
-	classpath = sourceSets.main.runtimeClasspath
+	classpath = sourceSets.main.output + configurations.cliRuntime
 	mainClass = 'com.spidasoftware.schema.validation.CommandLineValidator'
 
 	// Evaluated at execution time so the providers stay lazy.
