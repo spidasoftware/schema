@@ -1,5 +1,5 @@
 /*
- * ©2009-2019 SPIDAWEB LLC
+ * Copyright (c) 2026 Bentley Systems, Incorporated. All rights reserved.
  */
 package com.spidasoftware.schema.validation
 
@@ -16,8 +16,6 @@ import com.networknt.schema.JsonSchemaFactory
 import com.networknt.schema.NonValidationKeyword
 import com.networknt.schema.SpecVersion
 import com.networknt.schema.ValidationMessage
-import com.networknt.schema.ValidatorTypeCode
-import groovy.transform.CompileDynamic
 import groovy.util.logging.Slf4j
 
 /**
@@ -95,25 +93,15 @@ class Validator {
 		return processingReport
 	}
 
-	@CompileDynamic
 	private JsonSchemaFactory getJsonSchemaFactory(boolean ignoreAdditionalProperties) {
 		if(ignoreAdditionalProperties) {
 			if(schemaFactoryNotStrict == null) {
-				JsonMetaSchema jsonMetaSchema = new JsonMetaSchema.Builder(JsonMetaSchema.V4.URI)
-						.idKeyword(JsonMetaSchema.V4.ID)
-						.addFormats(JsonMetaSchema.V4.BUILTIN_FORMATS)
-						.addKeywords(ValidatorTypeCode.getNonFormatKeywords(SpecVersion.VersionFlag.V4))
-				// keywords that may validly exist, but have no validation aspect to them
-						.addKeywords(Arrays.asList(
-								new NonValidationKeyword('$schema'),
-								new NonValidationKeyword("id"),
-								new NonValidationKeyword("title"),
-								new NonValidationKeyword("description"),
-								new NonValidationKeyword("default"),
-								new NonValidationKeyword("definitions"),
-								new NonValidationKeyword("additionalProperties")// this suppresses the additionalProperties validation
-						))
+				JsonMetaSchema v4 = JsonMetaSchema.getV4()
+				JsonMetaSchema jsonMetaSchema = JsonMetaSchema.builder(v4.getUri(), v4)
+						// overrides the V4 validator so additionalProperties is parsed but not enforced
+						.addKeyword(new NonValidationKeyword("additionalProperties"))
 						.build()
+
 				schemaFactoryNotStrict = JsonSchemaFactory.builder()
 						.defaultMetaSchemaURI(jsonMetaSchema.getUri())
 						.addMetaSchema(jsonMetaSchema)
@@ -128,7 +116,8 @@ class Validator {
 			return schemaFactoryStrict
 		}
 	}
-		/**
+
+	/**
 	 * @param schemaPath resource URL to the schema. eg, "/v1/schema/spidacalc/calc/project.schema"
 	 * @param json string representation of json to be validated.
 	 * @return The fge schema-validator report
