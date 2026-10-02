@@ -82,7 +82,7 @@ dependencies {
 	api 'com.github.java-json-tools:json-schema-core:1.2.14'  // fge updated to java-json-tools - results schema does not parse
 	api 'org.mozilla:rhino:1.7.15.1'  // replace the vulnerable version pulled in by json-schema-core
 	implementation 'com.networknt:json-schema-validator:1.0.30-SNAPSHOT'
-	api group: 'org.mongodb', name:'mongo-java-driver', version:'2.11.1'
+	implementation 'org.mongodb:bson:5.13.0'
 	implementation group: 'com.spidasoftware', name: 'schema-v4', version:'0.1'
 	testImplementation group: 'org.codehaus.groovy', name: 'groovy-json', version: groovyVersion  // JsonSlurper/JsonOutput
 	testImplementation group: 'org.codehaus.groovy', name: 'groovy-test', version: groovyVersion  // GroovyTestCase
