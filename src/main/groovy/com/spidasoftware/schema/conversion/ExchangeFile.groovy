@@ -6,9 +6,8 @@ package com.spidasoftware.schema.conversion
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.google.common.io.Files
 import groovy.util.logging.Slf4j
-import org.apache.commons.io.FileUtils
-import org.apache.commons.io.IOUtils
 import org.apache.tools.ant.BuildException
+
 /**
  *
  * Represents a .exchange.spida file and has methods for creating and opening them. Basically just takes care of
