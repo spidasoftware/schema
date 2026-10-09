@@ -125,7 +125,20 @@
         "id": "SCE",
         "externalId": "433d78b4-5af0-4c10-b800-939d5f2dc2aa"
       },
-      "tensionAdjustment": 1,
+      "measuredHeightAboveGround": {
+        "heightAboveGround": {
+          "unit": "FOOT",
+          "value": 24.2
+        },
+        "distanceFromPole": {
+          "unit": "FOOT",
+          "value": 75
+        },
+        "temperature": {
+          "unit": "FAHRENHEIT",
+          "value": 60
+        }
+      },
       "tensionGroup": "Full",
       "usageGroup": "PRIMARY",
       "externalId": "aa44a5bd-075e-408d-ba7b-38fb9372a0ab"
