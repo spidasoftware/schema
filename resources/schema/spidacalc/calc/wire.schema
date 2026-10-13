@@ -12,10 +12,12 @@
     { "required": ["tensionAdjustment"] },
     { "required": ["adjustedTension"] },
     { "required": ["measuredSag"] },
+    { "required": ["measuredHeightAboveGround"] },
     { "not": { "anyOf": [
       { "required": ["tensionAdjustment"] },
       { "required": ["adjustedTension"] },
-      { "required": ["measuredSag"] }
+      { "required": ["measuredSag"] },
+      { "required": ["measuredHeightAboveGround"] }
     ]}}
   ],
   "properties": {
@@ -72,15 +74,15 @@
     },
     "tensionAdjustment": {
       "type": "number",
-      "description": "Additional wire-specific tension adjustment in addition to load case tension multipliers.  If this is present, neither adjustedTension nor measuredSag may be present."
+      "description": "Additional wire-specific tension adjustment in addition to load case tension multipliers.  If this is present, none of adjustedTension, measuredSag, or measuredHeightAboveGround may be present."
     },
     "adjustedTension": {
       "$ref": "../../general/measurable.schema",
-      "description": "The wire's tension, used to calculate the Tension Adjustment Factor.  If this is present, neither tensionAdjustment nor measuredSag may be present."
+      "description": "The wire's tension, used to calculate the Tension Adjustment Factor.  If this is present, none of tensionAdjustment, measuredSag, or measuredHeightAboveGround may be present."
     },
     "measuredSag": {
       "type": "object",
-      "description": "Measured sag for the wire, to be used to calculate the Tension Adjustment Factor.  If this is present, neither tensionAdjustment nor adjustedTension may be present.",
+      "description": "Measured sag for the wire, to be used to calculate the Tension Adjustment Factor.  If this is present, none of tensionAdjustment, adjustedTension, or measuredHeightAboveGround may be present.",
       "properties": {
         "sag": {
           "$ref": "../../general/measurable.schema",
@@ -100,6 +102,33 @@
         }
       },
       "required": ["sag", "temperature"],
+      "oneOf": [
+        { "required": ["distanceFromPole"] },
+        { "required": ["geographicCoordinate"] }
+      ]
+    },
+    "measuredHeightAboveGround": {
+      "type": "object",
+      "description": "Measured height above ground for the wire, to be used to calculate the Tension Adjustment Factor.  If this is present, none of tensionAdjustment, adjustedTension, or measuredSag may be present.",
+      "properties": {
+        "heightAboveGround": {
+          "$ref": "../../general/measurable.schema",
+          "description": "The measured height above ground value."
+        },
+        "distanceFromPole": {
+          "$ref": "../../general/measurable.schema",
+          "description": "Distance from the pole where the height was measured."
+        },
+        "geographicCoordinate": {
+          "$ref": "../../general/geometry.schema",
+          "description": "The geographic coordinate of where the height was measured."
+        },
+        "temperature": {
+          "$ref": "../../general/measurable.schema",
+          "description": "Temperature at the time of measurement."
+        }
+      },
+      "required": ["heightAboveGround", "temperature"],
       "oneOf": [
         { "required": ["distanceFromPole"] },
         { "required": ["geographicCoordinate"] }
