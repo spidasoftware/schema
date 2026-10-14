@@ -38,8 +38,9 @@ class SidedPoleChangeset extends AbstractClientDataChangeSet {
         boolean changed = super.revertResults(resultsJSON)
 
         resultsJSON?.results?.each { Map result ->
-            Map details = result.analysisCaseDetails as Map
-            changed |= revertLoadCase(details)
+            if (result.analysisCaseDetails != null) {
+                changed |= revertLoadCase(result.analysisCaseDetails as Map)
+            }
         }
 
         return changed
