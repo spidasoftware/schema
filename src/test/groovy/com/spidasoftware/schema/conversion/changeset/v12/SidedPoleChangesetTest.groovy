@@ -38,6 +38,16 @@ class SidedPoleChangesetTest extends Specification {
             thrown(ConversionException)
     }
 
+    def "revertResults tolerates results without analysisCaseDetails"() {
+        setup:
+            Map results = [results: [[:], [analysisCaseDetails: [overrides: [areaMultipliers: [RECTANGLE: 1.625]]]]]]
+        when:
+            boolean changed = changeset.revertResults(results)
+        then:
+            changed
+            !results.results[1].analysisCaseDetails.overrides.areaMultipliers.containsKey("RECTANGLE")
+    }
+
     def "revertLoadCase"() {
         setup:
             Map loadCase
