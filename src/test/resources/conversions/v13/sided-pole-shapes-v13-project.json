@@ -1,0 +1,6020 @@
+{
+  "label": "10782639734",
+  "dateModified": 1791320462729,
+  "clientFile": "CES1.client",
+  "date": "2026-10-06",
+  "schema": "/schema/spidacalc/calc/project.schema",
+  "version": 13,
+  "engineer": "",
+  "comments": "",
+  "generalLocation": "",
+  "address": {
+    "number": "",
+    "street": "",
+    "city": "",
+    "county": "",
+    "state": "",
+    "zip_code": ""
+  },
+  "userDefinedValues": {},
+  "clientData": {
+    "schema": "/schema/spidacalc/client/data.schema",
+    "version": 13,
+    "name": "CES1.client",
+    "poles": [
+      {
+        "aliases": [],
+        "shape": "ROUND",
+        "materialCategory": "WOOD",
+        "classOfPole": "4",
+        "species": "Douglas Fir",
+        "height": {
+          "unit": "METRE",
+          "value": 13.716000000000001
+        },
+        "density": {
+          "unit": "KILOGRAM_PER_CUBIC_METRE",
+          "value": 961.1078024376084
+        },
+        "maximumAllowableStress": {
+          "unit": "PASCAL",
+          "value": 5.515805834534689E7
+        },
+        "modulus": {
+          "unit": "PASCAL",
+          "value": 1.3100038857019886E10
+        },
+        "wallThickness": {
+          "unit": "METRE",
+          "value": -1.0000000000000002
+        },
+        "poissonRatio": 0.3,
+        "settingType": "ANSI",
+        "momentAtHeights": [],
+        "taper": 0.114,
+        "ptc": {
+          "unit": "METRE",
+          "value": 0.5334000000000001
+        }
+      }
+    ],
+    "wires": [
+      {
+        "aliases": [],
+        "size": "336.4 ACSR Merlin",
+        "calculation": "DYNAMIC",
+        "strength": {
+          "unit": "NEWTON",
+          "value": 38610.563620461144
+        },
+        "weight": {
+          "unit": "NEWTON_PER_METRE",
+          "value": 5.326774572080323
+        },
+        "crossArea": {
+          "unit": "SQUARE_METRE",
+          "value": 1.79935124E-4
+        },
+        "diameter": {
+          "unit": "METRE",
+          "value": 0.017373600000000003
+        },
+        "description": "Merlin",
+        "coreStrands": 1,
+        "conductorStrands": 18,
+        "numberOfConductors": 1,
+        "usageGroups": [
+          "PRIMARY",
+          "NEUTRAL"
+        ],
+        "conductorProperties": "TOTAL",
+        "expansionCoefficient": {
+          "unit": "PER_CELSIUS",
+          "value": 2.131776E-5
+        },
+        "modulus": {
+          "unit": "PASCAL",
+          "value": 6.8258097202366776E10
+        },
+        "tensionGroups": [
+          {
+            "name": "Light Full",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.555555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 73.152
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 5644.793229765574
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 91.44000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 5844.963202452297
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 128.01600000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 6209.717374903658
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 115.82400000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 6094.063612906885
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 6418.783790820902
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 48.76800000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 5373.451711234684
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 54.864000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 5440.1750354635915
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 30.480000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 5199.971068239524
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 121.92000000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 6156.338715520532
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 134.11200000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 6263.096034286784
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 152.4
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 6418.783790820902
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 42.672000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 5311.176608621037
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 36.576
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 5253.349727622651
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 146.304
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 6369.853353053037
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 103.632
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 5973.961629294852
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 79.248
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 5711.516553994482
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 140.20800000000003
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 6316.47469366991
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 97.53600000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 5911.686526681205
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 109.72800000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 6036.236731908499
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 60.96000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 5506.898359692499
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 67.05600000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 5578.069905536668
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 85.34400000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 5778.2398782233895
+                }
+              }
+            ]
+          },
+          {
+            "name": "Light Reduced Guyed",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.555555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 22.860000000000003
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 382.54705891240303
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 45.720000000000006
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 1005.2980850488731
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 1334.4664845781501
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 7.620000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 128.9984268425545
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 15.240000000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 253.5486320698485
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 30.480000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 582.7170315991256
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 60.96000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 1334.4664845781501
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 53.34
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 1227.709165811898
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 38.1
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 791.783447516369
+                }
+              }
+            ]
+          },
+          {
+            "name": "Light Reduced Unguyed",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.555555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 22.860000000000003
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 257.996853685109
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 45.720000000000006
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 422.5810534497475
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 551.579480292302
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 7.620000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 84.5162106899495
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 15.240000000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 173.4806429951595
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 30.480000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 275.789740146151
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 60.96000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 551.579480292302
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 53.34
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 489.30437767865504
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 38.1
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 360.3059508361005
+                }
+              }
+            ]
+          },
+          {
+            "name": "Heavy Full",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.555555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 73.152
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3327.269768214854
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 91.44000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3331.7179898301147
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 128.01600000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3331.7179898301147
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 115.82400000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3331.7179898301147
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3331.7179898301147
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 48.76800000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3327.269768214854
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 54.864000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3327.269768214854
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 30.480000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3322.8215465995936
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 121.92000000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3331.7179898301147
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 134.11200000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3331.7179898301147
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 152.4
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3331.7179898301147
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 42.672000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3322.8215465995936
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 36.576
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3322.8215465995936
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 146.304
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3331.7179898301147
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 103.632
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3331.7179898301147
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 79.248
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3327.269768214854
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 140.20800000000003
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3331.7179898301147
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 97.53600000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3331.7179898301147
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 109.72800000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3331.7179898301147
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 60.96000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3327.269768214854
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 67.05600000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3327.269768214854
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 85.34400000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3327.269768214854
+                }
+              }
+            ]
+          },
+          {
+            "name": "Heavy Reduced Guyed",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.555555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 22.860000000000003
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 382.54705891240303
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 45.720000000000006
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 1005.2980850488731
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 1334.4664845781501
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 7.620000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 128.9984268425545
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 15.240000000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 253.5486320698485
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 30.480000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 582.7170315991256
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 60.96000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 1334.4664845781501
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 53.34
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 1227.709165811898
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 38.1
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 791.783447516369
+                }
+              }
+            ]
+          },
+          {
+            "name": "Heavy Reduced Unguyed",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.555555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 22.860000000000003
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 257.996853685109
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 45.720000000000006
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 422.5810534497475
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 551.579480292302
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 7.620000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 84.5162106899495
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 15.240000000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 173.4806429951595
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 30.480000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 275.789740146151
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 60.96000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 551.579480292302
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 53.34
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 489.30437767865504
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 38.1
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 360.3059508361005
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "aliases": [],
+        "size": "6 Al. Duplex",
+        "calculation": "DYNAMIC",
+        "strength": {
+          "unit": "NEWTON",
+          "value": 5293.383722159995
+        },
+        "weight": {
+          "unit": "NEWTON_PER_METRE",
+          "value": 1.0653549144160646
+        },
+        "crossArea": {
+          "unit": "SQUARE_METRE",
+          "value": 1.5483840000000002E-5
+        },
+        "diameter": {
+          "unit": "METRE",
+          "value": 0.011430000000000003
+        },
+        "description": "Setter",
+        "coreStrands": 1,
+        "conductorStrands": 6,
+        "numberOfConductors": 1,
+        "usageGroups": [
+          "SECONDARY"
+        ],
+        "conductorProperties": "TOTAL",
+        "expansionCoefficient": {
+          "unit": "PER_CELSIUS",
+          "value": 1.8961199999999997E-5
+        },
+        "modulus": {
+          "unit": "PASCAL",
+          "value": 7.984128945488963E10
+        },
+        "tensionGroups": [
+          {
+            "name": "Light Full",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.555555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 73.152
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 520.4419289854785
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 91.44000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 471.511491217613
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 128.01600000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 435.925718295529
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 115.82400000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 444.82216152605
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 427.029275065008
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 48.76800000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 649.440355828033
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 54.864000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 609.4063612906886
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 30.480000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 787.3352259011085
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 121.92000000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 440.37393991078955
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 134.11200000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 435.925718295529
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 152.4
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 427.029275065008
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 42.672000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 693.922571980638
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 36.576
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 742.8530097485035
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 146.304
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 431.47749668026853
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 103.632
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 458.1668263718315
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 79.248
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 498.200820909176
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 140.20800000000003
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 431.47749668026853
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 97.53600000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 462.615047987092
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 109.72800000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 449.2703831413105
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 60.96000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 578.268809983865
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 67.05600000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 547.1312586770415
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 85.34400000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 484.8561560633945
+                }
+              }
+            ]
+          },
+          {
+            "name": "Light Reduced Guyed",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.555555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 22.860000000000003
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 75.6197674594285
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 45.720000000000006
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 93.4126539204705
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 111.2055403815125
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 7.620000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 26.689329691563
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 15.240000000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 48.9304377678655
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 30.480000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 88.96443230521001
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 60.96000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 111.2055403815125
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 53.34
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 97.860875535731
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 38.1
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 88.96443230521001
+                }
+              }
+            ]
+          },
+          {
+            "name": "Light Reduced Unguyed",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.555555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 22.860000000000003
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 53.378659383126
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 45.720000000000006
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 84.5162106899495
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 111.2055403815125
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 7.620000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 17.792886461042002
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 15.240000000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 35.585772922084004
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 30.480000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 53.378659383126
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 60.96000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 111.2055403815125
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 53.34
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 97.860875535731
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 38.1
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 71.17154584416801
+                }
+              }
+            ]
+          },
+          {
+            "name": "Heavy Full",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.555555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 73.152
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 128.9984268425545
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 91.44000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 128.9984268425545
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 128.01600000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 128.9984268425545
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 115.82400000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 128.9984268425545
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 128.9984268425545
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 48.76800000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 133.446648457815
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 54.864000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 133.446648457815
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 30.480000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 146.7913133035965
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 121.92000000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 128.9984268425545
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 134.11200000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 128.9984268425545
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 152.4
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 128.9984268425545
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 42.672000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 137.8948700730755
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 36.576
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 142.34309168833602
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 146.304
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 128.9984268425545
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 103.632
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 128.9984268425545
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 79.248
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 128.9984268425545
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 140.20800000000003
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 128.9984268425545
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 97.53600000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 128.9984268425545
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 109.72800000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 128.9984268425545
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 60.96000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 133.446648457815
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 67.05600000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 128.9984268425545
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 85.34400000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 128.9984268425545
+                }
+              }
+            ]
+          },
+          {
+            "name": "Heavy Reduced Guyed",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.555555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 22.860000000000003
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 75.6197674594285
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 45.720000000000006
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 93.4126539204705
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 111.2055403815125
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 7.620000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 26.689329691563
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 15.240000000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 48.9304377678655
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 30.480000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 88.96443230521001
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 60.96000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 111.2055403815125
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 53.34
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 97.860875535731
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 38.1
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 88.96443230521001
+                }
+              }
+            ]
+          },
+          {
+            "name": "Heavy Reduced Unguyed",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.555555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 22.860000000000003
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 53.378659383126
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 45.720000000000006
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 84.5162106899495
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 111.2055403815125
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 7.620000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 17.792886461042002
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 15.240000000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 35.585772922084004
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 30.480000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 53.378659383126
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 60.96000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 111.2055403815125
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 53.34
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 97.860875535731
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 38.1
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 71.17154584416801
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "aliases": [],
+        "size": "1\" CATV 1/4\" Messenger",
+        "calculation": "DYNAMIC",
+        "strength": {
+          "unit": "NEWTON",
+          "value": 29580.673741482326
+        },
+        "weight": {
+          "unit": "NEWTON_PER_METRE",
+          "value": 6.2753782629987365
+        },
+        "crossArea": {
+          "unit": "SQUARE_METRE",
+          "value": 2.2709632E-5
+        },
+        "diameter": {
+          "unit": "METRE",
+          "value": 0.025400000000000002
+        },
+        "description": "1 Inch Cable Bundle with 6,650 lb. Strength (1/4\" EHS)",
+        "coreStrands": 0,
+        "conductorStrands": 7,
+        "numberOfConductors": 1,
+        "usageGroups": [
+          "COMMUNICATION"
+        ],
+        "conductorProperties": "TOTAL",
+        "expansionCoefficient": {
+          "unit": "PER_CELSIUS",
+          "value": 1.1519999999999998E-5
+        },
+        "modulus": {
+          "unit": "PASCAL",
+          "value": 1.7236893232920905E11
+        },
+        "tensionGroups": [
+          {
+            "name": "Light Full",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.555555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 73.152
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3745.4026000493413
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 91.44000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3754.299043279862
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 128.01600000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3772.091929740904
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 115.82400000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3767.6437081256436
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3785.4365945866857
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 48.76800000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3736.5061568188203
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 54.864000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3740.954378434081
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 30.480000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3745.4026000493413
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 121.92000000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3772.091929740904
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 134.11200000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3776.5401513561646
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 152.4
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3785.4365945866857
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 42.672000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3736.5061568188203
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 36.576
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3740.954378434081
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 146.304
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3780.988372971425
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 103.632
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3763.195486510383
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 79.248
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3749.850821664602
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 140.20800000000003
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3780.988372971425
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 97.53600000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3758.7472648951225
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 109.72800000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3767.6437081256436
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 60.96000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3740.954378434081
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 67.05600000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3745.4026000493413
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 85.34400000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3754.299043279862
+                }
+              }
+            ]
+          },
+          {
+            "name": "Light Reduced Guyed",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.555555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 22.860000000000003
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 271.34151853089054
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 45.720000000000006
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 716.1636800569405
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 836.2656636689741
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 7.620000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 88.96443230521001
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 15.240000000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 173.4806429951595
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 30.480000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 480.40793444813403
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 53.34
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 836.2656636689741
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 38.1
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 596.061696444907
+                }
+              }
+            ]
+          },
+          {
+            "name": "Light Reduced Unguyed",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.555555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 22.860000000000003
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 186.825307840941
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 45.720000000000006
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 484.8561560633945
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 569.3723667533441
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 7.620000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 62.275102613647
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 15.240000000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 124.550205227294
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 30.480000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 324.7201779140165
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 53.34
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 569.3723667533441
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 38.1
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 404.78816698870554
+                }
+              }
+            ]
+          },
+          {
+            "name": "Heavy Full",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.555555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 73.152
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3522.9915192863164
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 91.44000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3514.0950760557953
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 128.01600000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3514.0950760557953
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 115.82400000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3514.0950760557953
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3527.4397409015764
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 48.76800000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3554.1290705931397
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 54.864000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3540.784405747358
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 30.480000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3603.059508361005
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 121.92000000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3514.0950760557953
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 134.11200000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3518.543297671056
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 152.4
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3527.4397409015764
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 42.672000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3567.4737354389213
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 36.576
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3585.266621899963
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 146.304
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3522.9915192863164
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 103.632
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3509.6468544405348
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 79.248
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3518.543297671056
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 140.20800000000003
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3518.543297671056
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 97.53600000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3509.6468544405348
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 109.72800000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3514.0950760557953
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 60.96000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3531.887962516837
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 67.05600000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3527.4397409015764
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 85.34400000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 3514.0950760557953
+                }
+              }
+            ]
+          },
+          {
+            "name": "Heavy Reduced Guyed",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.555555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 22.860000000000003
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 271.34151853089054
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 45.720000000000006
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 716.1636800569405
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 836.2656636689741
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 7.620000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 88.96443230521001
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 15.240000000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 173.4806429951595
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 30.480000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 480.40793444813403
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 53.34
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 836.2656636689741
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 38.1
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 596.061696444907
+                }
+              }
+            ]
+          },
+          {
+            "name": "Heavy Reduced Unguyed",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.555555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 22.860000000000003
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 186.825307840941
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 45.720000000000006
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 484.8561560633945
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 569.3723667533441
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 7.620000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 62.275102613647
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 15.240000000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 124.550205227294
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 30.480000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 324.7201779140165
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 53.34
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 569.3723667533441
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 38.1
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 404.78816698870554
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "aliases": [],
+        "size": "1.5\" TELCO 5/16\" Messenger",
+        "calculation": "DYNAMIC",
+        "strength": {
+          "unit": "NEWTON",
+          "value": 26689.329691563
+        },
+        "weight": {
+          "unit": "NEWTON_PER_METRE",
+          "value": 16.461922513168776
+        },
+        "crossArea": {
+          "unit": "SQUARE_METRE",
+          "value": 3.838702E-5
+        },
+        "diameter": {
+          "unit": "METRE",
+          "value": 0.03810000000000001
+        },
+        "description": "1.5 Inch Telephone Bundle with 5/16\" EHS Messenger",
+        "coreStrands": 0,
+        "conductorStrands": 7,
+        "numberOfConductors": 1,
+        "usageGroups": [
+          "COMMUNICATION"
+        ],
+        "conductorProperties": "TOTAL",
+        "expansionCoefficient": {
+          "unit": "PER_CELSIUS",
+          "value": 1.1519999999999998E-5
+        },
+        "modulus": {
+          "unit": "PASCAL",
+          "value": 1.7236893232920905E11
+        },
+        "tensionGroups": [
+          {
+            "name": "Light Full",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.555555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 73.152
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 8193.624215309841
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 91.44000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 8211.417101770883
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 128.01600000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 8238.106431462445
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 115.82400000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 8229.209988231925
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 8247.002874692967
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 48.76800000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 8166.934885618279
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 54.864000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 8175.8313288488
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 30.480000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 8158.038442387758
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 121.92000000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 8233.658209847186
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 134.11200000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 8238.106431462445
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 152.4
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 8247.002874692967
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 42.672000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 8162.486664003018
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 36.576
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 8162.486664003018
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 146.304
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 8247.002874692967
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 103.632
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 8220.313545001405
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 79.248
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 8198.072436925102
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 140.20800000000003
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 8242.554653077706
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 97.53600000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 8215.865323386144
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 109.72800000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 8224.761766616664
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 60.96000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 8180.27955046406
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 67.05600000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 8184.72777207932
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 85.34400000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 8202.520658540363
+                }
+              }
+            ]
+          },
+          {
+            "name": "Light Reduced Guyed",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.555555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 22.860000000000003
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 685.026128750117
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 45.720000000000006
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 1886.045964870452
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 2201.8696995539476
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 7.620000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 226.85930237828552
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 15.240000000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 458.1668263718315
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 30.480000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 1258.8467171187215
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 53.34
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 2201.8696995539476
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 38.1
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 1574.670451802217
+                }
+              }
+            ]
+          },
+          {
+            "name": "Light Reduced Unguyed",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.555555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 22.860000000000003
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 489.30437767865504
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 45.720000000000006
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 1281.0878251950242
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 1490.1542411122675
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 7.620000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 164.5841997646385
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 15.240000000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 324.7201779140165
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 30.480000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 854.058550130016
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 53.34
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 1490.1542411122675
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 38.1
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 1067.57318766252
+                }
+              }
+            ]
+          },
+          {
+            "name": "Heavy Full",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.555555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 73.152
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 5066.52441978171
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 91.44000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 4795.182901250819
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 128.01600000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 4572.771820487794
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 115.82400000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 4621.70225825566
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 4506.048496258887
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 48.76800000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 6067.374283215322
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 54.864000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 5689.27544591818
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 30.480000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 7908.938031933169
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 121.92000000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 4595.012928564097
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 134.11200000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 4550.530712411492
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 152.4
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 4506.048496258887
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 42.672000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 6587.816212200801
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 36.576
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 7268.394119335658
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 146.304
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 4519.393161104668
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 103.632
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 4692.873804099828
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 79.248
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 4955.318879400197
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 140.20800000000003
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 4532.737825950449
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 97.53600000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 4737.356020252433
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 109.72800000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 4652.839809562483
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 60.96000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 5417.933927387289
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 67.05600000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 5217.7639547005665
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 85.34400000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 4866.354447094987
+                }
+              }
+            ]
+          },
+          {
+            "name": "Heavy Reduced Guyed",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.555555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 22.860000000000003
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 685.026128750117
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 45.720000000000006
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 1886.045964870452
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 2201.8696995539476
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 7.620000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 226.85930237828552
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 15.240000000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 458.1668263718315
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 30.480000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 1258.8467171187215
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 53.34
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 2201.8696995539476
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 38.1
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 1574.670451802217
+                }
+              }
+            ]
+          },
+          {
+            "name": "Heavy Reduced Unguyed",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.555555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 22.860000000000003
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 489.30437767865504
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 45.720000000000006
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 1281.0878251950242
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 1490.1542411122675
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 7.620000000000001
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 164.5841997646385
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 15.240000000000002
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 324.7201779140165
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 30.480000000000004
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 854.058550130016
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 53.34
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 1490.1542411122675
+                }
+              },
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 38.1
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 1067.57318766252
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "aliases": [
+          {
+            "id": "1/4\" EHS"
+          }
+        ],
+        "size": "1/4\" EHS",
+        "calculation": "DYNAMIC",
+        "strength": {
+          "unit": "NEWTON",
+          "value": 29580.673741482326
+        },
+        "weight": {
+          "unit": "NEWTON_PER_METRE",
+          "value": 1.7658622554019698
+        },
+        "crossArea": {
+          "unit": "SQUARE_METRE",
+          "value": 2.2709632E-5
+        },
+        "diameter": {
+          "unit": "METRE",
+          "value": 0.006350000000000001
+        },
+        "description": "1/4\" EHS Steel - Class A Galvanizing (1)",
+        "coreStrands": 0,
+        "conductorStrands": 7,
+        "numberOfConductors": 1,
+        "usageGroups": [
+          "GUY"
+        ],
+        "conductorProperties": "TOTAL",
+        "expansionCoefficient": {
+          "unit": "PER_CELSIUS",
+          "value": 1.1519999999999998E-5
+        },
+        "modulus": {
+          "unit": "PASCAL",
+          "value": 1.7236893232920905E11
+        },
+        "tensionGroups": [
+          {
+            "name": "Light Full",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.555555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 2668.9329691563003
+                }
+              }
+            ]
+          },
+          {
+            "name": "Heavy Full",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.555555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 2668.9329691563003
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "aliases": [
+          {
+            "id": "3/8\" EHS"
+          }
+        ],
+        "size": "3/8\" EHS",
+        "calculation": "DYNAMIC",
+        "strength": {
+          "unit": "NEWTON",
+          "value": 68502.6128750117
+        },
+        "weight": {
+          "unit": "NEWTON_PER_METRE",
+          "value": 3.9841355018573377
+        },
+        "crossArea": {
+          "unit": "SQUARE_METRE",
+          "value": 5.1096672000000005E-5
+        },
+        "diameter": {
+          "unit": "METRE",
+          "value": 0.009144000000000001
+        },
+        "description": "3/8\" EHS Steel - Class A Galvanizing (1)",
+        "coreStrands": 0,
+        "conductorStrands": 7,
+        "numberOfConductors": 1,
+        "usageGroups": [
+          "GUY"
+        ],
+        "conductorProperties": "TOTAL",
+        "expansionCoefficient": {
+          "unit": "PER_CELSIUS",
+          "value": 1.1519999999999998E-5
+        },
+        "modulus": {
+          "unit": "PASCAL",
+          "value": 1.7236893232920905E11
+        },
+        "tensionGroups": [
+          {
+            "name": "Light Full",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.555555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 9341.265392047051
+                }
+              }
+            ]
+          },
+          {
+            "name": "Heavy Full",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.555555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 9341.265392047051
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "aliases": [
+          {
+            "id": "5/16\" EHS"
+          }
+        ],
+        "size": "5/16\" EHS",
+        "calculation": "DYNAMIC",
+        "strength": {
+          "unit": "NEWTON",
+          "value": 49820.0820909176
+        },
+        "weight": {
+          "unit": "NEWTON_PER_METRE",
+          "value": 2.9917501021273045
+        },
+        "crossArea": {
+          "unit": "SQUARE_METRE",
+          "value": 3.838702E-5
+        },
+        "diameter": {
+          "unit": "METRE",
+          "value": 0.007924800000000001
+        },
+        "description": "",
+        "coreStrands": 0,
+        "conductorStrands": 7,
+        "numberOfConductors": 1,
+        "usageGroups": [
+          "GUY"
+        ],
+        "conductorProperties": "TOTAL",
+        "expansionCoefficient": {
+          "unit": "PER_CELSIUS",
+          "value": 1.1519999999999998E-5
+        },
+        "modulus": {
+          "unit": "PASCAL",
+          "value": 1.7236893232920905E11
+        },
+        "tensionGroups": [
+          {
+            "name": "Light Full",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.555555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 4893.043776786551
+                }
+              }
+            ]
+          },
+          {
+            "name": "Heavy Full",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.555555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 4893.043776786551
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "aliases": [
+          {
+            "id": "9/32\" EHS"
+          }
+        ],
+        "size": "9/32\" EHS",
+        "calculation": "DYNAMIC",
+        "strength": {
+          "unit": "NEWTON",
+          "value": 39811.58345658148
+        },
+        "weight": {
+          "unit": "NEWTON_PER_METRE",
+          "value": 2.3934000817018437
+        },
+        "crossArea": {
+          "unit": "SQUARE_METRE",
+          "value": 4.00837908E-5
+        },
+        "diameter": {
+          "unit": "METRE",
+          "value": 0.007143750000000001
+        },
+        "description": "",
+        "coreStrands": 0,
+        "conductorStrands": 7,
+        "numberOfConductors": 1,
+        "usageGroups": [
+          "GUY"
+        ],
+        "conductorProperties": "TOTAL",
+        "expansionCoefficient": {
+          "unit": "PER_CELSIUS",
+          "value": 1.1519999999999998E-5
+        },
+        "modulus": {
+          "unit": "PASCAL",
+          "value": 1.7236893232920905E11
+        },
+        "tensionGroups": [
+          {
+            "name": "Light Full",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.555555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 2668.9329691563003
+                }
+              }
+            ]
+          },
+          {
+            "name": "Heavy Full",
+            "temperature": {
+              "unit": "CELSIUS",
+              "value": 15.555555555555555
+            },
+            "groups": [
+              {
+                "distance": {
+                  "unit": "METRE",
+                  "value": 1523.6952
+                },
+                "tension": {
+                  "unit": "NEWTON",
+                  "value": 2668.9329691563003
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "anchors": [
+      {
+        "aliases": [
+          {
+            "id": "1\" Triple Eye - Anchor Rod and Plate"
+          }
+        ],
+        "size": "1\" Triple Eye - Anchor Rod and Plate",
+        "strength": {
+          "unit": "NEWTON",
+          "value": 106757.318766252
+        }
+      }
+    ],
+    "equipments": [
+      {
+        "aliases": [],
+        "size": "3 PVC",
+        "type": {
+          "name": "RISER",
+          "industry": "BOTH"
+        },
+        "distanceToBottom": {
+          "unit": "METRE",
+          "value": 0.0
+        },
+        "distanceToTop": {
+          "unit": "METRE",
+          "value": 0.0
+        },
+        "valuePerLength": {
+          "unit": "METRE",
+          "value": 0.3048
+        },
+        "shape": "ROUND",
+        "offset": {
+          "unit": "METRE",
+          "value": 0.045720000000000004
+        },
+        "weight": {
+          "unit": "NEWTON",
+          "value": 6.383198017898818
+        },
+        "lateralArea": {
+          "unit": "SQUARE_METRE",
+          "value": 0.0269418816
+        },
+        "poleSideArea": {
+          "unit": "SQUARE_METRE",
+          "value": 0.0269418816
+        },
+        "throughHoleDiameter": {
+          "unit": "METRE",
+          "value": -0.0015875000000000002
+        }
+      },
+      {
+        "aliases": [],
+        "size": "4 PVC",
+        "type": {
+          "name": "RISER",
+          "industry": "BOTH"
+        },
+        "distanceToBottom": {
+          "unit": "METRE",
+          "value": 0.0
+        },
+        "distanceToTop": {
+          "unit": "METRE",
+          "value": 0.0
+        },
+        "valuePerLength": {
+          "unit": "METRE",
+          "value": 0.3048
+        },
+        "shape": "ROUND",
+        "offset": {
+          "unit": "METRE",
+          "value": 0.05791200000000001
+        },
+        "weight": {
+          "unit": "NEWTON",
+          "value": 9.087716759977203
+        },
+        "lateralArea": {
+          "unit": "SQUARE_METRE",
+          "value": 0.0353031552
+        },
+        "poleSideArea": {
+          "unit": "SQUARE_METRE",
+          "value": 0.0353031552
+        },
+        "throughHoleDiameter": {
+          "unit": "METRE",
+          "value": -0.0015875000000000002
+        }
+      },
+      {
+        "aliases": [],
+        "size": "Roadway - 2.5 ft",
+        "type": {
+          "name": "STREET_LIGHT",
+          "industry": "UTILITY"
+        },
+        "distanceToBottom": {
+          "unit": "METRE",
+          "value": 0.14081760000000004
+        },
+        "distanceToTop": {
+          "unit": "METRE",
+          "value": 0.05181600000000001
+        },
+        "valuePerLength": {
+          "unit": "METRE",
+          "value": 0.0
+        },
+        "shape": "ROUND",
+        "offset": {
+          "unit": "METRE",
+          "value": 0.7620000000000001
+        },
+        "weight": {
+          "unit": "NEWTON",
+          "value": 186.825307840941
+        },
+        "lateralArea": {
+          "unit": "SQUARE_METRE",
+          "value": 0.1570061376
+        },
+        "poleSideArea": {
+          "unit": "SQUARE_METRE",
+          "value": 0.0808256448
+        },
+        "throughHoleDiameter": {
+          "unit": "METRE",
+          "value": -0.0015875000000000002
+        }
+      }
+    ],
+    "equipmentTypes": [
+      {
+        "name": "APPARATUS_CASE",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "CAPACITOR",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "CROSS_CONNECT",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "CUTOUT_ARRESTOR",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "DRIP_LOOP",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "JOINT_USE_BOX",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "LOAD_COIL_CASE",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "POWER_SUPPLY",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "PRIMARY_METERING",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "RECLOSER",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "REGULATOR",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "RISER",
+        "industry": "BOTH"
+      },
+      {
+        "name": "SPLICE_CASE",
+        "industry": "COMMUNICATION"
+      },
+      {
+        "name": "STREET_LIGHT",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "SWITCH",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "TERMINATION_BRACKET",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "TRANSFORMER",
+        "industry": "UTILITY"
+      },
+      {
+        "name": "WIRE_MOUNTED",
+        "industry": "BOTH"
+      },
+      {
+        "name": "WIRELESS_ANTENNA",
+        "industry": "BOTH"
+      }
+    ],
+    "insulators": [
+      {
+        "aliases": [],
+        "size": "16 kV Deadend",
+        "type": "DEADEND",
+        "horizontalOffset": {
+          "unit": "METRE",
+          "value": 0.5430520000000001
+        },
+        "verticalOffset": {
+          "unit": "METRE",
+          "value": 0.0
+        },
+        "lateralArea": {
+          "unit": "SQUARE_METRE",
+          "value": 0.034467027840000004
+        },
+        "poleSideArea": {
+          "unit": "SQUARE_METRE",
+          "value": 0.00287999424
+        },
+        "shape": "ROUND",
+        "strength": {
+          "unit": "NEWTON",
+          "value": 66723.3242289075
+        },
+        "weight": {
+          "unit": "NEWTON",
+          "value": 53.378659383126
+        },
+        "throughHoleDiameter": {
+          "unit": "METRE",
+          "value": 0.012700000000000001
+        }
+      },
+      {
+        "aliases": [],
+        "size": "3 Bolt Clamp",
+        "type": "CLAMP",
+        "horizontalOffset": {
+          "unit": "METRE",
+          "value": 0.0
+        },
+        "verticalOffset": {
+          "unit": "METRE",
+          "value": 0.0
+        },
+        "lateralArea": {
+          "unit": "SQUARE_METRE",
+          "value": 5.94579456E-4
+        },
+        "poleSideArea": {
+          "unit": "SQUARE_METRE",
+          "value": 0.002452640256
+        },
+        "shape": "SQUARE",
+        "strength": {
+          "unit": "NEWTON",
+          "value": 11120.554038151251
+        },
+        "weight": {
+          "unit": "NEWTON",
+          "value": 4.4482216152605005
+        },
+        "throughHoleDiameter": {
+          "unit": "METRE",
+          "value": -0.0015875000000000002
+        }
+      },
+      {
+        "aliases": [],
+        "size": "3\" Spool Bolt",
+        "type": "CLAMP",
+        "horizontalOffset": {
+          "unit": "METRE",
+          "value": 0.0
+        },
+        "verticalOffset": {
+          "unit": "METRE",
+          "value": 0.0
+        },
+        "lateralArea": {
+          "unit": "SQUARE_METRE",
+          "value": 0.00580644
+        },
+        "poleSideArea": {
+          "unit": "SQUARE_METRE",
+          "value": 0.00580644
+        },
+        "shape": "ROUND",
+        "strength": {
+          "unit": "NEWTON",
+          "value": 8896.443230521001
+        },
+        "weight": {
+          "unit": "NEWTON",
+          "value": 7.784387826705875
+        },
+        "throughHoleDiameter": {
+          "unit": "METRE",
+          "value": -0.0015875000000000002
+        }
+      }
+    ],
+    "foundations": [],
+    "crossArms": [
+      {
+        "aliases": [],
+        "size": "10 Foot Cross Arm",
+        "doubleCrossArm": false,
+        "poissonRatio": 0.3,
+        "wallThickness": {
+          "unit": "METRE",
+          "value": -0.025400000000000002
+        },
+        "materialCategory": "WOOD",
+        "width": {
+          "unit": "METRE",
+          "value": 0.09525000000000002
+        },
+        "height": {
+          "unit": "METRE",
+          "value": 0.12065000000000002
+        },
+        "length": {
+          "unit": "METRE",
+          "value": 3.0480000000000005
+        },
+        "shape": "SQUARE",
+        "density": {
+          "unit": "KILOGRAM_PER_CUBIC_METRE",
+          "value": 624.7200715844455
+        },
+        "modulus": {
+          "unit": "PASCAL",
+          "value": 1.3237934002883255E10
+        },
+        "stressAllow": {
+          "unit": "PASCAL",
+          "value": 5.102120396944588E7
+        },
+        "throughHoleDiameter": {
+          "unit": "METRE",
+          "value": -0.0015875000000000002
+        }
+      },
+      {
+        "aliases": [],
+        "size": "10 Foot Triple Cross Arm",
+        "doubleCrossArm": true,
+        "poissonRatio": 0.3,
+        "wallThickness": {
+          "unit": "METRE",
+          "value": -0.025400000000000002
+        },
+        "materialCategory": "WOOD",
+        "width": {
+          "unit": "METRE",
+          "value": 0.14287500000000003
+        },
+        "height": {
+          "unit": "METRE",
+          "value": 0.12065000000000002
+        },
+        "length": {
+          "unit": "METRE",
+          "value": 3.0480000000000005
+        },
+        "shape": "SQUARE",
+        "density": {
+          "unit": "KILOGRAM_PER_CUBIC_METRE",
+          "value": 624.7200715844455
+        },
+        "modulus": {
+          "unit": "PASCAL",
+          "value": 1.3237934002883255E10
+        },
+        "stressAllow": {
+          "unit": "PASCAL",
+          "value": 5.102120396944588E7
+        },
+        "throughHoleDiameter": {
+          "unit": "METRE",
+          "value": -0.0015875000000000002
+        }
+      },
+      {
+        "aliases": [],
+        "size": "4 Foot Cross Arm",
+        "doubleCrossArm": false,
+        "poissonRatio": 0.3,
+        "wallThickness": {
+          "unit": "METRE",
+          "value": -0.025400000000000002
+        },
+        "materialCategory": "WOOD",
+        "width": {
+          "unit": "METRE",
+          "value": 0.09525000000000002
+        },
+        "height": {
+          "unit": "METRE",
+          "value": 0.12065000000000002
+        },
+        "length": {
+          "unit": "METRE",
+          "value": 1.2192000000000003
+        },
+        "shape": "SQUARE",
+        "density": {
+          "unit": "KILOGRAM_PER_CUBIC_METRE",
+          "value": 624.7200715844455
+        },
+        "modulus": {
+          "unit": "PASCAL",
+          "value": 1.3237934002883255E10
+        },
+        "stressAllow": {
+          "unit": "PASCAL",
+          "value": 5.102120396944588E7
+        },
+        "throughHoleDiameter": {
+          "unit": "METRE",
+          "value": -0.0015875000000000002
+        }
+      }
+    ],
+    "braces": [],
+    "bundleComponents": [],
+    "bundles": [],
+    "assemblies": [],
+    "trusses": [],
+    "componentBraces": [],
+    "environments": [
+      {
+        "name": "Street",
+        "description": "N/A"
+      }
+    ],
+    "defaultEnvironment": {
+      "name": "None",
+      "description": "N/A"
+    },
+    "analysisCases": [
+      {
+        "type": "go95ABStrengthCase",
+        "name": "GO95",
+        "addByDefault": false,
+        "includeThroughBolts": false,
+        "minimumAllowableRatio": 0.6666666666666666,
+        "heightToIncludeAtGroundline": {
+          "unit": "METRE",
+          "value": 0.0
+        }
+      },
+      {
+        "name": "In Service, 12 lb, Grade A",
+        "type": "GO95 01-2012",
+        "analysisMethod": "CO_ROTATIONAL",
+        "connectionType": "CONTINUATION",
+        "displacementBasedLoadChangesLevel": "PARTIAL",
+        "windType": "SWEEP",
+        "sweepIncrement": "DEGREE_10",
+        "windStartAngle": {
+          "unit": "RADIAN",
+          "value": 0.0
+        },
+        "windEndAngle": {
+          "unit": "RADIAN",
+          "value": 0.017453292519943295
+        },
+        "useStrengthResults": true,
+        "analyzeWithAverageSpan": true,
+        "maximumLoadingRatio": 1.0,
+        "addByDefault": false,
+        "constructionType": "REPLACEMENT",
+        "checkUtilityWireTension": false,
+        "maximumAllowableUtilityWireTensionRatio": {
+          "unit": "PERCENT",
+          "value": 60.0
+        },
+        "checkCommWireTension": false,
+        "maximumAllowableCommunicationWireTensionRatio": {
+          "unit": "PERCENT",
+          "value": 60.0
+        },
+        "pretensionGuys": true,
+        "retensionWiresAfterPretensionDisplacement": false,
+        "staticPretensionMultiplier": 0.03,
+        "includeNeighborStructures": false,
+        "useSparseMatrices": false,
+        "hybridLoadingEnabled": false,
+        "minimumDisplacementLoadingTension": {
+          "unit": "NEWTON",
+          "value": 225.0
+        },
+        "loadingStepCountMultiplier": 1,
+        "components": [
+          "POLE",
+          "GUY",
+          "SIDEWALK_BRACE"
+        ],
+        "rural": false,
+        "constructionGrade": "A",
+        "loadZone": "LIGHT",
+        "wireTensionMethod": "INITIAL",
+        "creepWireTensionTemperature": {
+          "unit": "CELSIUS",
+          "value": 7.222222222222222
+        },
+        "creepWireTensionIceThickness": {
+          "unit": "METRE",
+          "value": 0.0
+        },
+        "creepWireTensionWindPressure": {
+          "unit": "PASCAL",
+          "value": 574.5631077640301
+        },
+        "creepWireTensionIceDensity": {
+          "unit": "KILOGRAM_PER_CUBIC_METRE",
+          "value": 917.0
+        },
+        "highestWireTensionTemperature": {
+          "unit": "CELSIUS",
+          "value": 7.222222222222222
+        },
+        "highestWireTensionIceThickness": {
+          "unit": "METRE",
+          "value": 0.0
+        },
+        "highestWireTensionWindPressure": {
+          "unit": "PASCAL",
+          "value": 574.5631077640301
+        },
+        "highestWireTensionIceDensity": {
+          "unit": "KILOGRAM_PER_CUBIC_METRE",
+          "value": 917.0
+        },
+        "outerStrandingCompression": false,
+        "overrides": {
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 7.222222222222222
+          },
+          "windPressure": {
+            "unit": "PASCAL",
+            "value": 574.5631077640301
+          },
+          "poleStrengthFactors": {
+            "WOOD": 0.5,
+            "METAL": 0.666,
+            "REINFORCED_CONCRETE": 0.375,
+            "POLYMER": 0.375,
+            "PRESTRESSED_CONCRETE": 0.833
+          },
+          "areaMultipliers": {
+            "ROUND": 1.0,
+            "SQUARE": 1.625,
+            "ROUND_LATTICE": 1.5,
+            "SQUARE_LATTICE": 2.438,
+            "RECTANGLE": 1.625,
+            "POLYGON": 1.0
+          }
+        },
+        "valuesApplied": {
+          "ice": {
+            "unit": "METRE",
+            "value": 0.0
+          },
+          "iceDensity": {
+            "unit": "KILOGRAM_PER_CUBIC_METRE",
+            "value": 917.0
+          },
+          "temperature": {
+            "unit": "CELSIUS",
+            "value": 7.222222222222222
+          },
+          "windPressure": {
+            "unit": "PASCAL",
+            "value": 574.5631077640301
+          },
+          "linearConstant": {
+            "unit": "NEWTON_PER_METRE",
+            "value": 0.0
+          },
+          "anchorStrengthFactor": 0.75,
+          "anchorTensionMultiplier": 1.0,
+          "anchorVerticalLoadMultiplier": 1.0,
+          "commOnlyTensionMultiplier": 0.0,
+          "guyStrengthFactor": 0.75,
+          "guyTensionMultiplier": 1.0,
+          "guyVerticalLoadMultiplier": 1.0,
+          "insulatorStrengthFactor": 0.5,
+          "insulatorTensionMultiplier": 1.0,
+          "insulatorVerticalLoadMultiplier": 1.0,
+          "insulatorWindMultiplier": 1.0,
+          "anchorWindMultiplier": 1.0,
+          "guyWindMultiplier": 1.0,
+          "foundationStrengthFactor": 0.666666666666667,
+          "foundationTensionMultiplier": 1.0,
+          "foundationVerticalLoadMultiplier": 1.0,
+          "foundationWindMultiplier": 1.0,
+          "poleStrengthFactors": {
+            "WOOD": 0.5,
+            "METAL": 0.666,
+            "REINFORCED_CONCRETE": 0.375,
+            "POLYMER": 0.375,
+            "PRESTRESSED_CONCRETE": 0.833
+          },
+          "poleTensionMultipliers": {
+            "WOOD": 1.0,
+            "METAL": 1.0,
+            "REINFORCED_CONCRETE": 1.0,
+            "POLYMER": 1.0,
+            "PRESTRESSED_CONCRETE": 1.0
+          },
+          "poleVerticalLoadMultipliers": {
+            "WOOD": 1.0,
+            "METAL": 1.0,
+            "REINFORCED_CONCRETE": 1.0,
+            "POLYMER": 1.0,
+            "PRESTRESSED_CONCRETE": 1.0
+          },
+          "poleWindMultipliers": {
+            "WOOD": 1.0,
+            "METAL": 1.0,
+            "REINFORCED_CONCRETE": 1.0,
+            "POLYMER": 1.0,
+            "PRESTRESSED_CONCRETE": 1.0
+          },
+          "crossArmStrengthFactors": {
+            "WOOD": 0.75,
+            "METAL": 1.0,
+            "REINFORCED_CONCRETE": 0.8333333333333334,
+            "POLYMER": 1.0,
+            "PRESTRESSED_CONCRETE": 0.8333333333333334
+          },
+          "crossArmTensionMultipliers": {
+            "WOOD": 1.0,
+            "METAL": 1.0,
+            "REINFORCED_CONCRETE": 1.0,
+            "POLYMER": 1.0,
+            "PRESTRESSED_CONCRETE": 1.0
+          },
+          "crossArmVerticalLoadMultipliers": {
+            "WOOD": 1.0,
+            "METAL": 1.0,
+            "REINFORCED_CONCRETE": 1.0,
+            "POLYMER": 1.0,
+            "PRESTRESSED_CONCRETE": 1.0
+          },
+          "crossArmWindMultipliers": {
+            "WOOD": 1.0,
+            "METAL": 1.0,
+            "REINFORCED_CONCRETE": 1.0,
+            "POLYMER": 1.0,
+            "PRESTRESSED_CONCRETE": 1.0
+          },
+          "areaMultipliers": {
+            "ROUND": 1.0,
+            "SQUARE": 1.625,
+            "ROUND_LATTICE": 1.5,
+            "SQUARE_LATTICE": 2.438,
+            "RECTANGLE": 1.625,
+            "POLYGON": 1.0
+          }
+        }
+      }
+    ],
+    "owners": [
+      {
+        "industry": "UTILITY",
+        "id": "SCE"
+      },
+      {
+        "industry": "COMMUNICATION",
+        "id": "Proposed Spectrum"
+      },
+      {
+        "industry": "COMMUNICATION",
+        "id": "Telco"
+      },
+      {
+        "industry": "COMMUNICATION",
+        "id": "TV"
+      }
+    ],
+    "notes": [],
+    "locationForms": [],
+    "projectForms": [],
+    "customReportSetups": [],
+    "designLayers": [
+      {
+        "name": "As Is",
+        "type": "Measured"
+      },
+      {
+        "name": "As Designed",
+        "type": "Theoretical"
+      }
+    ],
+    "defaultLocationForms": [],
+    "defaultProjectForms": [],
+    "clearanceCases": [],
+    "componentGroups": [],
+    "wireClasses": [],
+    "wireStates": [],
+    "hash": "bfa8e73165913a86018e1c7f43ca0091"
+  },
+  "clientFileVersion": "bfa8e73165913a86018e1c7f43ca0091",
+  "forms": [],
+  "defaultLocationForms": [],
+  "defaultLoadCases": [
+    {
+      "name": "In Service, 12 lb, Grade A",
+      "type": "GO95 01-2012",
+      "analysisMethod": "CO_ROTATIONAL",
+      "connectionType": "CONTINUATION",
+      "displacementBasedLoadChangesLevel": "PARTIAL",
+      "windType": "SWEEP",
+      "sweepIncrement": "DEGREE_10",
+      "windStartAngle": {
+        "unit": "RADIAN",
+        "value": 0.0
+      },
+      "windEndAngle": {
+        "unit": "RADIAN",
+        "value": 0.017453292519943295
+      },
+      "useStrengthResults": true,
+      "analyzeWithAverageSpan": true,
+      "maximumLoadingRatio": 1.0,
+      "addByDefault": false,
+      "constructionType": "REPLACEMENT",
+      "checkUtilityWireTension": false,
+      "maximumAllowableUtilityWireTensionRatio": {
+        "unit": "PERCENT",
+        "value": 60.0
+      },
+      "checkCommWireTension": false,
+      "maximumAllowableCommunicationWireTensionRatio": {
+        "unit": "PERCENT",
+        "value": 60.0
+      },
+      "pretensionGuys": true,
+      "retensionWiresAfterPretensionDisplacement": false,
+      "staticPretensionMultiplier": 0.03,
+      "includeNeighborStructures": false,
+      "useSparseMatrices": false,
+      "hybridLoadingEnabled": false,
+      "minimumDisplacementLoadingTension": {
+        "unit": "NEWTON",
+        "value": 225.0
+      },
+      "loadingStepCountMultiplier": 1,
+      "components": [
+        "POLE",
+        "GUY",
+        "SIDEWALK_BRACE"
+      ],
+      "rural": false,
+      "constructionGrade": "A",
+      "loadZone": "LIGHT",
+      "wireTensionMethod": "INITIAL",
+      "creepWireTensionTemperature": {
+        "unit": "CELSIUS",
+        "value": 7.222222222222222
+      },
+      "creepWireTensionIceThickness": {
+        "unit": "METRE",
+        "value": 0.0
+      },
+      "creepWireTensionWindPressure": {
+        "unit": "PASCAL",
+        "value": 574.5631077640301
+      },
+      "creepWireTensionIceDensity": {
+        "unit": "KILOGRAM_PER_CUBIC_METRE",
+        "value": 917.0
+      },
+      "highestWireTensionTemperature": {
+        "unit": "CELSIUS",
+        "value": 7.222222222222222
+      },
+      "highestWireTensionIceThickness": {
+        "unit": "METRE",
+        "value": 0.0
+      },
+      "highestWireTensionWindPressure": {
+        "unit": "PASCAL",
+        "value": 574.5631077640301
+      },
+      "highestWireTensionIceDensity": {
+        "unit": "KILOGRAM_PER_CUBIC_METRE",
+        "value": 917.0
+      },
+      "outerStrandingCompression": false,
+      "overrides": {
+        "temperature": {
+          "unit": "CELSIUS",
+          "value": 7.222222222222222
+        },
+        "windPressure": {
+          "unit": "PASCAL",
+          "value": 574.5631077640301
+        },
+        "poleStrengthFactors": {
+          "WOOD": 0.5,
+          "METAL": 0.666,
+          "REINFORCED_CONCRETE": 0.375,
+          "POLYMER": 0.375,
+          "PRESTRESSED_CONCRETE": 0.833
+        },
+        "areaMultipliers": {
+          "ROUND": 1.0,
+          "SQUARE": 1.625,
+          "ROUND_LATTICE": 1.5,
+          "SQUARE_LATTICE": 2.438,
+          "RECTANGLE": 1.625,
+          "POLYGON": 1.0
+        }
+      },
+      "valuesApplied": {
+        "ice": {
+          "unit": "METRE",
+          "value": 0.0
+        },
+        "iceDensity": {
+          "unit": "KILOGRAM_PER_CUBIC_METRE",
+          "value": 917.0
+        },
+        "temperature": {
+          "unit": "CELSIUS",
+          "value": 7.222222222222222
+        },
+        "windPressure": {
+          "unit": "PASCAL",
+          "value": 574.5631077640301
+        },
+        "linearConstant": {
+          "unit": "NEWTON_PER_METRE",
+          "value": 0.0
+        },
+        "anchorStrengthFactor": 0.75,
+        "anchorTensionMultiplier": 1.0,
+        "anchorVerticalLoadMultiplier": 1.0,
+        "commOnlyTensionMultiplier": 0.0,
+        "guyStrengthFactor": 0.75,
+        "guyTensionMultiplier": 1.0,
+        "guyVerticalLoadMultiplier": 1.0,
+        "insulatorStrengthFactor": 0.5,
+        "insulatorTensionMultiplier": 1.0,
+        "insulatorVerticalLoadMultiplier": 1.0,
+        "insulatorWindMultiplier": 1.0,
+        "anchorWindMultiplier": 1.0,
+        "guyWindMultiplier": 1.0,
+        "foundationStrengthFactor": 0.666666666666667,
+        "foundationTensionMultiplier": 1.0,
+        "foundationVerticalLoadMultiplier": 1.0,
+        "foundationWindMultiplier": 1.0,
+        "poleStrengthFactors": {
+          "WOOD": 0.5,
+          "METAL": 0.666,
+          "REINFORCED_CONCRETE": 0.375,
+          "POLYMER": 0.375,
+          "PRESTRESSED_CONCRETE": 0.833
+        },
+        "poleTensionMultipliers": {
+          "WOOD": 1.0,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 1.0,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "poleVerticalLoadMultipliers": {
+          "WOOD": 1.0,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 1.0,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "poleWindMultipliers": {
+          "WOOD": 1.0,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 1.0,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "crossArmStrengthFactors": {
+          "WOOD": 0.75,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 0.8333333333333334,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 0.8333333333333334
+        },
+        "crossArmTensionMultipliers": {
+          "WOOD": 1.0,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 1.0,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "crossArmVerticalLoadMultipliers": {
+          "WOOD": 1.0,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 1.0,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "crossArmWindMultipliers": {
+          "WOOD": 1.0,
+          "METAL": 1.0,
+          "REINFORCED_CONCRETE": 1.0,
+          "POLYMER": 1.0,
+          "PRESTRESSED_CONCRETE": 1.0
+        },
+        "areaMultipliers": {
+          "ROUND": 1.0,
+          "SQUARE": 1.625,
+          "ROUND_LATTICE": 1.5,
+          "SQUARE_LATTICE": 2.438,
+          "RECTANGLE": 1.625,
+          "POLYGON": 1.0
+        }
+      }
+    }
+  ],
+  "defaultStrengthCase": {
+    "type": "go95ABStrengthCase",
+    "name": "GO95",
+    "addByDefault": false,
+    "includeThroughBolts": false,
+    "minimumAllowableRatio": 0.6666666666666666,
+    "heightToIncludeAtGroundline": {
+      "unit": "METRE",
+      "value": 0.0
+    }
+  },
+  "leads": [
+    {
+      "label": "Lead",
+      "locations": [
+        {
+          "label": "4147360E",
+          "mapNumber": "",
+          "comments": "",
+          "address": {
+            "number": "",
+            "street": "",
+            "city": "",
+            "county": "",
+            "state": "",
+            "zip_code": ""
+          },
+          "technician": "",
+          "crossStreet1": "",
+          "crossStreet2": "",
+          "geographicCoordinate": {
+            "type": "Point",
+            "coordinates": [
+              -118.130031,
+              34.654541
+            ]
+          },
+          "remedies": [],
+          "poleTags": [],
+          "userDefinedValues": {},
+          "summaryNotes": [],
+          "forms": [],
+          "images": [
+            {
+              "url": "4147360E-1.jpg",
+              "direction": "N/A",
+              "originalFilePath": "\\\\nfs1\\Engineering\\Charter Communications\\Projects\\10782639734 - 42545 Wall St, Lancaster, CA\\1-Aerial Engineering\\4-Windload, Grid Maps and Make Ready\\Pictures\\RESIZED\\IMG_3337.jpg",
+              "sceneInfo": {
+                "topOfPole": {
+                  "x": 0.5,
+                  "y": 0.25
+                },
+                "bottomOfPole": {
+                  "x": 0.5,
+                  "y": 0.75
+                },
+                "topOfReference": {
+                  "x": 0.5,
+                  "y": 0.4000000059604645
+                },
+                "bottomOfReference": {
+                  "x": 0.5,
+                  "y": 0.6000000238418579
+                },
+                "referenceHeight": {
+                  "unit": "METRE",
+                  "value": 1.8288000000000002
+                }
+              }
+            },
+            {
+              "url": "4147360E-2.jpg",
+              "direction": "N/A",
+              "originalFilePath": "\\\\nfs1\\Engineering\\Charter Communications\\Projects\\10782639734 - 42545 Wall St, Lancaster, CA\\1-Aerial Engineering\\4-Windload, Grid Maps and Make Ready\\Pictures\\RESIZED\\IMG_3339.jpg",
+              "sceneInfo": {
+                "topOfPole": {
+                  "x": 0.5,
+                  "y": 0.25
+                },
+                "bottomOfPole": {
+                  "x": 0.5,
+                  "y": 0.75
+                },
+                "topOfReference": {
+                  "x": 0.5,
+                  "y": 0.4000000059604645
+                },
+                "bottomOfReference": {
+                  "x": 0.5,
+                  "y": 0.6000000238418579
+                },
+                "referenceHeight": {
+                  "unit": "METRE",
+                  "value": 1.8288000000000002
+                }
+              }
+            },
+            {
+              "url": "4147360E-3.jpg",
+              "direction": "N/A",
+              "originalFilePath": "\\\\nfs1\\Engineering\\Charter Communications\\Projects\\10782639734 - 42545 Wall St, Lancaster, CA\\1-Aerial Engineering\\4-Windload, Grid Maps and Make Ready\\Pictures\\RESIZED\\IMG_3340.jpg",
+              "sceneInfo": {
+                "topOfPole": {
+                  "x": 0.5,
+                  "y": 0.25
+                },
+                "bottomOfPole": {
+                  "x": 0.5,
+                  "y": 0.75
+                },
+                "topOfReference": {
+                  "x": 0.5,
+                  "y": 0.4000000059604645
+                },
+                "bottomOfReference": {
+                  "x": 0.5,
+                  "y": 0.6000000238418579
+                },
+                "referenceHeight": {
+                  "unit": "METRE",
+                  "value": 1.8288000000000002
+                }
+              }
+            }
+          ],
+          "photosToBeAssigned": [],
+          "designs": [
+            {
+              "label": "As Is",
+              "layerType": "Measured",
+              "analysis": []
+            },
+            {
+              "label": "As Designed",
+              "layerType": "Theoretical",
+              "structure": {
+                "pole": {
+                  "id": "Pole",
+                  "externalId": "6ac55e597c6f9399af5e02c3",
+                  "owner": {
+                    "industry": "UTILITY",
+                    "id": "SCE"
+                  },
+                  "glc": {
+                    "unit": "METRE",
+                    "value": 0.8881750318216498
+                  },
+                  "agl": {
+                    "unit": "METRE",
+                    "value": 11.887200000000002
+                  },
+                  "autoGLC": true,
+                  "autoAGL": false,
+                  "cutTop": {
+                    "unit": "METRE",
+                    "value": 0.0
+                  },
+                  "environment": "Street",
+                  "temperature": {
+                    "unit": "CELSIUS",
+                    "value": 15.555555555555555
+                  },
+                  "stressRatio": 1.0,
+                  "leanAngle": 0,
+                  "leanDirection": 0.0,
+                  "clientItemVersion": "33a685920fcce3328cd822a671c62db2",
+                  "clientItem": {
+                    "species": "Douglas Fir",
+                    "classOfPole": "4",
+                    "height": {
+                      "unit": "METRE",
+                      "value": 13.716000000000001
+                    }
+                  }
+                },
+                "wireEndPoints": [
+                  {
+                    "id": "WEP#1",
+                    "externalId": "6ac55f3c7c6f9399af5e03ee",
+                    "direction": 180.0,
+                    "distance": {
+                      "unit": "METRE",
+                      "value": 37.4904
+                    },
+                    "relativeElevation": {
+                      "unit": "METRE",
+                      "value": 0.0
+                    },
+                    "inclination": {
+                      "unit": "RADIAN",
+                      "value": 0.0
+                    },
+                    "type": "OTHER_POLE",
+                    "comments": "",
+                    "environment": "None",
+                    "wires": [
+                      "Wire#1",
+                      "Wire#4",
+                      "Wire#2",
+                      "Wire#3",
+                      "Wire#5",
+                      "Wire#6"
+                    ],
+                    "spanGuys": [],
+                    "spanPoints": [],
+                    "terrainPoints": [],
+                    "environmentRegions": [],
+                    "calculateClearances": true
+                  },
+                  {
+                    "id": "WEP#2",
+                    "externalId": "6ac5606f7c6f9399af5e093f",
+                    "direction": 180.0,
+                    "distance": {
+                      "unit": "METRE",
+                      "value": 45.720000000000006
+                    },
+                    "relativeElevation": {
+                      "unit": "METRE",
+                      "value": 0.0
+                    },
+                    "inclination": {
+                      "unit": "RADIAN",
+                      "value": 0.0
+                    },
+                    "type": "PREVIOUS_POLE",
+                    "comments": "",
+                    "environment": "None",
+                    "wires": [
+                      "Wire#7"
+                    ],
+                    "spanGuys": [],
+                    "spanPoints": [],
+                    "terrainPoints": [],
+                    "environmentRegions": [],
+                    "calculateClearances": true
+                  },
+                  {
+                    "id": "WEP#3",
+                    "externalId": "6ac5606f7c6f9399af5e0940",
+                    "direction": 0.0,
+                    "distance": {
+                      "unit": "METRE",
+                      "value": 45.720000000000006
+                    },
+                    "relativeElevation": {
+                      "unit": "METRE",
+                      "value": 0.0
+                    },
+                    "inclination": {
+                      "unit": "RADIAN",
+                      "value": 0.0
+                    },
+                    "type": "NEXT_POLE",
+                    "comments": "",
+                    "environment": "None",
+                    "wires": [],
+                    "spanGuys": [],
+                    "spanPoints": [],
+                    "terrainPoints": [],
+                    "environmentRegions": [],
+                    "calculateClearances": true
+                  }
+                ],
+                "spanPoints": [],
+                "anchors": [
+                  {
+                    "id": "Anchor#1",
+                    "externalId": "6ac55ff67c6f9399af5e0635",
+                    "height": {
+                      "unit": "METRE",
+                      "value": 0.0
+                    },
+                    "direction": 0.0,
+                    "distance": {
+                      "unit": "METRE",
+                      "value": 10.972800000000001
+                    },
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "SCE"
+                    },
+                    "supportedWEPs": [
+                      "WEP#1"
+                    ],
+                    "clientItemVersion": "295729f0eeb365a78ac24dc3b1cbd1ed",
+                    "clientItem": "1\" Triple Eye - Anchor Rod and Plate",
+                    "clientItemAlias": "1\" Triple Eye - Anchor Rod and Plate",
+                    "guys": [
+                      "Guy#1",
+                      "Guy#2",
+                      "Guy#3"
+                    ]
+                  },
+                  {
+                    "id": "Anchor#2",
+                    "externalId": "6ac560ae7c6f9399af5e0afc",
+                    "height": {
+                      "unit": "METRE",
+                      "value": 0.0
+                    },
+                    "direction": 0.0,
+                    "distance": {
+                      "unit": "METRE",
+                      "value": 6.096000000000001
+                    },
+                    "owner": {
+                      "industry": "COMMUNICATION",
+                      "id": "Telco"
+                    },
+                    "supportedWEPs": [
+                      "WEP#1"
+                    ],
+                    "clientItemVersion": "295729f0eeb365a78ac24dc3b1cbd1ed",
+                    "clientItem": "1\" Triple Eye - Anchor Rod and Plate",
+                    "clientItemAlias": "1\" Triple Eye - Anchor Rod and Plate",
+                    "guys": [
+                      "Guy#4",
+                      "Guy#5"
+                    ]
+                  }
+                ],
+                "notePoints": [],
+                "pointLoads": [],
+                "wirePointLoads": [],
+                "damages": [],
+                "wires": [
+                  {
+                    "id": "Wire#1",
+                    "externalId": "6ac55f757c6f9399af5e0411",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "SCE"
+                    },
+                    "clientItemVersion": "7161777e04328d26dc179cb32e5e2233",
+                    "clientItem": {
+                      "size": "336.4 ACSR Merlin",
+                      "coreStrands": 1,
+                      "conductorStrands": 18
+                    },
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 11.734800000000002
+                    },
+                    "usageGroup": "PRIMARY",
+                    "tensionGroup": "Light Full",
+                    "midspanHeight": {
+                      "unit": "METRE",
+                      "value": 0.0
+                    }
+                  },
+                  {
+                    "id": "Wire#2",
+                    "externalId": "6ac55f757c6f9399af5e0414",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "SCE"
+                    },
+                    "clientItemVersion": "7161777e04328d26dc179cb32e5e2233",
+                    "clientItem": {
+                      "size": "336.4 ACSR Merlin",
+                      "coreStrands": 1,
+                      "conductorStrands": 18
+                    },
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 11.734800000000002
+                    },
+                    "usageGroup": "PRIMARY",
+                    "tensionGroup": "Light Full",
+                    "midspanHeight": {
+                      "unit": "METRE",
+                      "value": 0.0
+                    }
+                  },
+                  {
+                    "id": "Wire#3",
+                    "externalId": "6ac55f757c6f9399af5e0417",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "SCE"
+                    },
+                    "clientItemVersion": "7161777e04328d26dc179cb32e5e2233",
+                    "clientItem": {
+                      "size": "336.4 ACSR Merlin",
+                      "coreStrands": 1,
+                      "conductorStrands": 18
+                    },
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 11.734800000000002
+                    },
+                    "usageGroup": "PRIMARY",
+                    "tensionGroup": "Light Full",
+                    "midspanHeight": {
+                      "unit": "METRE",
+                      "value": 0.0
+                    }
+                  },
+                  {
+                    "id": "Wire#4",
+                    "externalId": "6ac55f757c6f9399af5e041a",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "SCE"
+                    },
+                    "clientItemVersion": "7161777e04328d26dc179cb32e5e2233",
+                    "clientItem": {
+                      "size": "336.4 ACSR Merlin",
+                      "coreStrands": 1,
+                      "conductorStrands": 18
+                    },
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 11.734800000000002
+                    },
+                    "usageGroup": "PRIMARY",
+                    "tensionGroup": "Light Full",
+                    "midspanHeight": {
+                      "unit": "METRE",
+                      "value": 0.0
+                    }
+                  },
+                  {
+                    "id": "Wire#5",
+                    "externalId": "6ac55fb87c6f9399af5e04ee",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "SCE"
+                    },
+                    "clientItemVersion": "03801d748d527be5608057eb622d4ad5",
+                    "clientItem": {
+                      "size": "6 Al. Duplex",
+                      "coreStrands": 1,
+                      "conductorStrands": 6
+                    },
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 8.712200000000001
+                    },
+                    "usageGroup": "SECONDARY",
+                    "tensionGroup": "Light Full",
+                    "midspanHeight": {
+                      "unit": "METRE",
+                      "value": 0.0
+                    }
+                  },
+                  {
+                    "id": "Wire#6",
+                    "externalId": "6ac5604a7c6f9399af5e0844",
+                    "owner": {
+                      "industry": "COMMUNICATION",
+                      "id": "TV"
+                    },
+                    "clientItemVersion": "8c74c0d2616dd0892f5dc941caeeea14",
+                    "clientItem": {
+                      "size": "1\" CATV 1/4\" Messenger",
+                      "coreStrands": 0,
+                      "conductorStrands": 7
+                    },
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 7.315200000000001
+                    },
+                    "usageGroup": "COMMUNICATION",
+                    "tensionGroup": "Light Full",
+                    "midspanHeight": {
+                      "unit": "METRE",
+                      "value": 0.0
+                    }
+                  },
+                  {
+                    "id": "Wire#7",
+                    "externalId": "6ac5606f7c6f9399af5e0941",
+                    "owner": {
+                      "industry": "COMMUNICATION",
+                      "id": "Telco"
+                    },
+                    "clientItemVersion": "8fce5cb688b1d91b5556dcc3c7506f07",
+                    "clientItem": {
+                      "size": "1.5\" TELCO 5/16\" Messenger",
+                      "coreStrands": 0,
+                      "conductorStrands": 7
+                    },
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 7.010400000000001
+                    },
+                    "usageGroup": "COMMUNICATION",
+                    "tensionGroup": "Light Full",
+                    "midspanHeight": {
+                      "unit": "METRE",
+                      "value": 0.0
+                    }
+                  }
+                ],
+                "spanGuys": [],
+                "guys": [
+                  {
+                    "id": "Guy#1",
+                    "externalId": "6ac55ff67c6f9399af5e0636",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "SCE"
+                    },
+                    "clientItemVersion": "2c0c4ed78bee2be6ea507bf52b32f1ae",
+                    "clientItem": {
+                      "size": "3/8\" EHS",
+                      "coreStrands": 0,
+                      "conductorStrands": 7
+                    },
+                    "clientItemAlias": "3/8\" EHS",
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 11.480800000000002
+                    }
+                  },
+                  {
+                    "id": "Guy#2",
+                    "externalId": "6ac5600a7c6f9399af5e0726",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "SCE"
+                    },
+                    "clientItemVersion": "2c0c4ed78bee2be6ea507bf52b32f1ae",
+                    "clientItem": {
+                      "size": "3/8\" EHS",
+                      "coreStrands": 0,
+                      "conductorStrands": 7
+                    },
+                    "clientItemAlias": "3/8\" EHS",
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 10.871200000000002
+                    }
+                  },
+                  {
+                    "id": "Guy#3",
+                    "externalId": "6ac560167c6f9399af5e07bf",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "SCE"
+                    },
+                    "clientItemVersion": "6a51fda9179eaf549db96922b33d60c2",
+                    "clientItem": {
+                      "size": "9/32\" EHS",
+                      "coreStrands": 0,
+                      "conductorStrands": 7
+                    },
+                    "clientItemAlias": "9/32\" EHS",
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 10.2108
+                    }
+                  },
+                  {
+                    "id": "Guy#4",
+                    "externalId": "6ac560ae7c6f9399af5e0afd",
+                    "owner": {
+                      "industry": "COMMUNICATION",
+                      "id": "Telco"
+                    },
+                    "clientItemVersion": "087e67760ad7ec794115ec2716b7533d",
+                    "clientItem": {
+                      "size": "5/16\" EHS",
+                      "coreStrands": 0,
+                      "conductorStrands": 7
+                    },
+                    "clientItemAlias": "5/16\" EHS",
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 7.010400000000001
+                    }
+                  },
+                  {
+                    "id": "Guy#5",
+                    "externalId": "6ac560c67c6f9399af5e0c22",
+                    "owner": {
+                      "industry": "COMMUNICATION",
+                      "id": "TV"
+                    },
+                    "clientItemVersion": "7a69ddbf239e8456d9f894e754bfc59d",
+                    "clientItem": {
+                      "size": "1/4\" EHS",
+                      "coreStrands": 0,
+                      "conductorStrands": 7
+                    },
+                    "clientItemAlias": "1/4\" EHS",
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 7.315200000000001
+                    }
+                  }
+                ],
+                "equipments": [
+                  {
+                    "id": "Equip#1",
+                    "externalId": "6ac55fd27c6f9399af5e057c",
+                    "direction": 140.0,
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "SCE"
+                    },
+                    "clientItemVersion": "8f92ffe8725d2a36288b5735c4a85f5e",
+                    "clientItem": {
+                      "type": "STREET_LIGHT",
+                      "size": "Roadway - 2.5 ft"
+                    },
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 7.620000000000001
+                    },
+                    "bottomHeight": {
+                      "unit": "METRE",
+                      "value": 7.4791824
+                    },
+                    "autoBottomHeight": true
+                  },
+                  {
+                    "id": "Equip#2",
+                    "externalId": "6ac5612b7c6f9399af5e0def",
+                    "direction": 5.0,
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "SCE"
+                    },
+                    "clientItemVersion": "5def1b139c9ebabd34b23ce788f91a01",
+                    "clientItem": {
+                      "type": "RISER",
+                      "size": "4 PVC"
+                    },
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 9.448800000000002
+                    },
+                    "bottomHeight": {
+                      "unit": "METRE",
+                      "value": 0.0
+                    },
+                    "autoBottomHeight": true
+                  },
+                  {
+                    "id": "Equip#3",
+                    "externalId": "6ac561507c6f9399af5e0f1f",
+                    "direction": 295.0,
+                    "owner": {
+                      "industry": "COMMUNICATION",
+                      "id": "Proposed Spectrum"
+                    },
+                    "clientItemVersion": "1fcf5a584c177da6d5b2369f3c1a1e8f",
+                    "clientItem": {
+                      "type": "RISER",
+                      "size": "3 PVC"
+                    },
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 7.010400000000001
+                    },
+                    "bottomHeight": {
+                      "unit": "METRE",
+                      "value": 0.0
+                    },
+                    "autoBottomHeight": true
+                  }
+                ],
+                "wireMountedEquipments": [],
+                "guyAttachPoints": [],
+                "crossArms": [
+                  {
+                    "id": "CrossArm#1",
+                    "externalId": "6ac55f757c6f9399af5e0409",
+                    "direction": 90.0,
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "SCE"
+                    },
+                    "supportedWEPs": [
+                      "WEP#1"
+                    ],
+                    "clientItemVersion": "8d66d67a43b857340533f3347def5412",
+                    "clientItem": "10 Foot Triple Cross Arm",
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 11.734800000000002
+                    },
+                    "offset": {
+                      "unit": "METRE",
+                      "value": 1.5240000000000002
+                    },
+                    "insulators": [
+                      "Insulator#2",
+                      "Insulator#3",
+                      "Insulator#1",
+                      "Insulator#4"
+                    ],
+                    "braces": []
+                  },
+                  {
+                    "id": "CrossArm#2",
+                    "externalId": "6ac55f887c6f9399af5e049c",
+                    "direction": 90.0,
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "SCE"
+                    },
+                    "supportedWEPs": [],
+                    "clientItemVersion": "fdb1c430358f373eb7019bbda8b58a13",
+                    "clientItem": "10 Foot Cross Arm",
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 10.2108
+                    },
+                    "offset": {
+                      "unit": "METRE",
+                      "value": 1.5240000000000002
+                    },
+                    "insulators": [],
+                    "braces": []
+                  },
+                  {
+                    "id": "CrossArm#3",
+                    "externalId": "6ac560ef7c6f9399af5e0d0b",
+                    "direction": 0.0,
+                    "owner": {
+                      "industry": "COMMUNICATION",
+                      "id": "TV"
+                    },
+                    "supportedWEPs": [],
+                    "clientItemVersion": "e3676e5840b1078784f3ab68db5e2033",
+                    "clientItem": "4 Foot Cross Arm",
+                    "attachmentHeight": {
+                      "unit": "METRE",
+                      "value": 7.467600000000001
+                    },
+                    "offset": {
+                      "unit": "METRE",
+                      "value": 0.6096000000000001
+                    },
+                    "insulators": [],
+                    "braces": []
+                  }
+                ],
+                "insulators": [
+                  {
+                    "id": "Insulator#1",
+                    "externalId": "6ac55f757c6f9399af5e040b",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "SCE"
+                    },
+                    "clientItemVersion": "64f76a6a241d2c5b28880c81f9b43c06",
+                    "clientItem": "16 kV Deadend",
+                    "offset": {
+                      "unit": "METRE",
+                      "value": 0.10160000000000001
+                    },
+                    "direction": 180.0,
+                    "doubleInsulator": false,
+                    "wires": [
+                      "Wire#1"
+                    ]
+                  },
+                  {
+                    "id": "Insulator#2",
+                    "externalId": "6ac55f757c6f9399af5e040c",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "SCE"
+                    },
+                    "clientItemVersion": "64f76a6a241d2c5b28880c81f9b43c06",
+                    "clientItem": "16 kV Deadend",
+                    "offset": {
+                      "unit": "METRE",
+                      "value": 1.0414
+                    },
+                    "direction": 180.0,
+                    "doubleInsulator": false,
+                    "wires": [
+                      "Wire#2"
+                    ]
+                  },
+                  {
+                    "id": "Insulator#3",
+                    "externalId": "6ac55f757c6f9399af5e040d",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "SCE"
+                    },
+                    "clientItemVersion": "64f76a6a241d2c5b28880c81f9b43c06",
+                    "clientItem": "16 kV Deadend",
+                    "offset": {
+                      "unit": "METRE",
+                      "value": 2.0066
+                    },
+                    "direction": 180.0,
+                    "doubleInsulator": false,
+                    "wires": [
+                      "Wire#3"
+                    ]
+                  },
+                  {
+                    "id": "Insulator#4",
+                    "externalId": "6ac55f757c6f9399af5e040e",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "SCE"
+                    },
+                    "clientItemVersion": "64f76a6a241d2c5b28880c81f9b43c06",
+                    "clientItem": "16 kV Deadend",
+                    "offset": {
+                      "unit": "METRE",
+                      "value": 2.9464000000000006
+                    },
+                    "direction": 180.0,
+                    "doubleInsulator": false,
+                    "wires": [
+                      "Wire#4"
+                    ]
+                  },
+                  {
+                    "id": "Insulator#5",
+                    "externalId": "6ac55fb87c6f9399af5e04eb",
+                    "owner": {
+                      "industry": "UTILITY",
+                      "id": "SCE"
+                    },
+                    "clientItemVersion": "860b49b053ea01660f3d1afb34b97412",
+                    "clientItem": "3\" Spool Bolt",
+                    "offset": {
+                      "unit": "METRE",
+                      "value": 8.712200000000001
+                    },
+                    "direction": 180.0,
+                    "doubleInsulator": false,
+                    "wires": [
+                      "Wire#5"
+                    ]
+                  },
+                  {
+                    "id": "Insulator#6",
+                    "externalId": "6ac5604a7c6f9399af5e0841",
+                    "owner": {
+                      "industry": "COMMUNICATION",
+                      "id": "TV"
+                    },
+                    "clientItemVersion": "1e79caad1e90b6b64b63e5b1c3bc4b06",
+                    "clientItem": "3 Bolt Clamp",
+                    "offset": {
+                      "unit": "METRE",
+                      "value": 7.315200000000001
+                    },
+                    "direction": 180.0,
+                    "doubleInsulator": false,
+                    "wires": [
+                      "Wire#6"
+                    ]
+                  },
+                  {
+                    "id": "Insulator#7",
+                    "externalId": "6ac5606f7c6f9399af5e093e",
+                    "owner": {
+                      "industry": "COMMUNICATION",
+                      "id": "Telco"
+                    },
+                    "clientItemVersion": "1e79caad1e90b6b64b63e5b1c3bc4b06",
+                    "clientItem": "3 Bolt Clamp",
+                    "offset": {
+                      "unit": "METRE",
+                      "value": 7.010400000000001
+                    },
+                    "direction": 180.0,
+                    "doubleInsulator": false,
+                    "wires": [
+                      "Wire#7"
+                    ]
+                  }
+                ],
+                "pushBraces": [],
+                "sidewalkBraces": [],
+                "foundations": [],
+                "trusses": [],
+                "componentBraces": [],
+                "assemblies": []
+              },
+              "mapLocation": {
+                "type": "Point",
+                "coordinates": [
+                  -118.130031,
+                  34.654541
+                ]
+              },
+              "analysis": [
+                {
+                  "id": "In Service, 12 lb, Grade A",
+                  "analysisCaseDetails": {
+                    "name": "In Service, 12 lb, Grade A",
+                    "type": "GO95 01-2012",
+                    "analysisMethod": "CO_ROTATIONAL",
+                    "connectionType": "CONTINUATION",
+                    "displacementBasedLoadChangesLevel": "PARTIAL",
+                    "windType": "SWEEP",
+                    "sweepIncrement": "DEGREE_10",
+                    "windStartAngle": {
+                      "unit": "RADIAN",
+                      "value": 0.0
+                    },
+                    "windEndAngle": {
+                      "unit": "RADIAN",
+                      "value": 0.017453292519943295
+                    },
+                    "useStrengthResults": true,
+                    "analyzeWithAverageSpan": true,
+                    "maximumLoadingRatio": 1.0,
+                    "addByDefault": false,
+                    "constructionType": "REPLACEMENT",
+                    "checkUtilityWireTension": false,
+                    "maximumAllowableUtilityWireTensionRatio": {
+                      "unit": "PERCENT",
+                      "value": 60.0
+                    },
+                    "checkCommWireTension": false,
+                    "maximumAllowableCommunicationWireTensionRatio": {
+                      "unit": "PERCENT",
+                      "value": 60.0
+                    },
+                    "pretensionGuys": true,
+                    "retensionWiresAfterPretensionDisplacement": false,
+                    "staticPretensionMultiplier": 0.03,
+                    "includeNeighborStructures": false,
+                    "useSparseMatrices": false,
+                    "hybridLoadingEnabled": false,
+                    "minimumDisplacementLoadingTension": {
+                      "unit": "NEWTON",
+                      "value": 225.0
+                    },
+                    "loadingStepCountMultiplier": 1,
+                    "components": [
+                      "POLE",
+                      "GUY",
+                      "SIDEWALK_BRACE"
+                    ],
+                    "rural": false,
+                    "constructionGrade": "A",
+                    "loadZone": "LIGHT",
+                    "wireTensionMethod": "INITIAL",
+                    "creepWireTensionTemperature": {
+                      "unit": "CELSIUS",
+                      "value": 7.222222222222222
+                    },
+                    "creepWireTensionIceThickness": {
+                      "unit": "METRE",
+                      "value": 0.0
+                    },
+                    "creepWireTensionWindPressure": {
+                      "unit": "PASCAL",
+                      "value": 574.5631077640301
+                    },
+                    "creepWireTensionIceDensity": {
+                      "unit": "KILOGRAM_PER_CUBIC_METRE",
+                      "value": 917.0
+                    },
+                    "highestWireTensionTemperature": {
+                      "unit": "CELSIUS",
+                      "value": 7.222222222222222
+                    },
+                    "highestWireTensionIceThickness": {
+                      "unit": "METRE",
+                      "value": 0.0
+                    },
+                    "highestWireTensionWindPressure": {
+                      "unit": "PASCAL",
+                      "value": 574.5631077640301
+                    },
+                    "highestWireTensionIceDensity": {
+                      "unit": "KILOGRAM_PER_CUBIC_METRE",
+                      "value": 917.0
+                    },
+                    "outerStrandingCompression": false,
+                    "overrides": {
+                      "temperature": {
+                        "unit": "CELSIUS",
+                        "value": 7.222222222222222
+                      },
+                      "windPressure": {
+                        "unit": "PASCAL",
+                        "value": 574.5631077640301
+                      },
+                      "poleStrengthFactors": {
+                        "WOOD": 0.5,
+                        "METAL": 0.666,
+                        "REINFORCED_CONCRETE": 0.375,
+                        "POLYMER": 0.375,
+                        "PRESTRESSED_CONCRETE": 0.833
+                      },
+                      "areaMultipliers": {
+                        "ROUND": 1.0,
+                        "SQUARE": 1.625,
+                        "ROUND_LATTICE": 1.5,
+                        "SQUARE_LATTICE": 2.438,
+                        "RECTANGLE": 1.625,
+                        "POLYGON": 1.0
+                      }
+                    },
+                    "valuesApplied": {
+                      "ice": {
+                        "unit": "METRE",
+                        "value": 0.0
+                      },
+                      "iceDensity": {
+                        "unit": "KILOGRAM_PER_CUBIC_METRE",
+                        "value": 917.0
+                      },
+                      "temperature": {
+                        "unit": "CELSIUS",
+                        "value": 7.222222222222222
+                      },
+                      "windPressure": {
+                        "unit": "PASCAL",
+                        "value": 574.5631077640301
+                      },
+                      "linearConstant": {
+                        "unit": "NEWTON_PER_METRE",
+                        "value": 0.0
+                      },
+                      "anchorStrengthFactor": 0.75,
+                      "anchorTensionMultiplier": 1.0,
+                      "anchorVerticalLoadMultiplier": 1.0,
+                      "commOnlyTensionMultiplier": 0.0,
+                      "guyStrengthFactor": 0.75,
+                      "guyTensionMultiplier": 1.0,
+                      "guyVerticalLoadMultiplier": 1.0,
+                      "insulatorStrengthFactor": 0.5,
+                      "insulatorTensionMultiplier": 1.0,
+                      "insulatorVerticalLoadMultiplier": 1.0,
+                      "insulatorWindMultiplier": 1.0,
+                      "anchorWindMultiplier": 1.0,
+                      "guyWindMultiplier": 1.0,
+                      "foundationStrengthFactor": 0.666666666666667,
+                      "foundationTensionMultiplier": 1.0,
+                      "foundationVerticalLoadMultiplier": 1.0,
+                      "foundationWindMultiplier": 1.0,
+                      "poleStrengthFactors": {
+                        "WOOD": 0.5,
+                        "METAL": 0.666,
+                        "REINFORCED_CONCRETE": 0.375,
+                        "POLYMER": 0.375,
+                        "PRESTRESSED_CONCRETE": 0.833
+                      },
+                      "poleTensionMultipliers": {
+                        "WOOD": 1.0,
+                        "METAL": 1.0,
+                        "REINFORCED_CONCRETE": 1.0,
+                        "POLYMER": 1.0,
+                        "PRESTRESSED_CONCRETE": 1.0
+                      },
+                      "poleVerticalLoadMultipliers": {
+                        "WOOD": 1.0,
+                        "METAL": 1.0,
+                        "REINFORCED_CONCRETE": 1.0,
+                        "POLYMER": 1.0,
+                        "PRESTRESSED_CONCRETE": 1.0
+                      },
+                      "poleWindMultipliers": {
+                        "WOOD": 1.0,
+                        "METAL": 1.0,
+                        "REINFORCED_CONCRETE": 1.0,
+                        "POLYMER": 1.0,
+                        "PRESTRESSED_CONCRETE": 1.0
+                      },
+                      "crossArmStrengthFactors": {
+                        "WOOD": 0.75,
+                        "METAL": 1.0,
+                        "REINFORCED_CONCRETE": 0.8333333333333334,
+                        "POLYMER": 1.0,
+                        "PRESTRESSED_CONCRETE": 0.8333333333333334
+                      },
+                      "crossArmTensionMultipliers": {
+                        "WOOD": 1.0,
+                        "METAL": 1.0,
+                        "REINFORCED_CONCRETE": 1.0,
+                        "POLYMER": 1.0,
+                        "PRESTRESSED_CONCRETE": 1.0
+                      },
+                      "crossArmVerticalLoadMultipliers": {
+                        "WOOD": 1.0,
+                        "METAL": 1.0,
+                        "REINFORCED_CONCRETE": 1.0,
+                        "POLYMER": 1.0,
+                        "PRESTRESSED_CONCRETE": 1.0
+                      },
+                      "crossArmWindMultipliers": {
+                        "WOOD": 1.0,
+                        "METAL": 1.0,
+                        "REINFORCED_CONCRETE": 1.0,
+                        "POLYMER": 1.0,
+                        "PRESTRESSED_CONCRETE": 1.0
+                      },
+                      "areaMultipliers": {
+                        "ROUND": 1.0,
+                        "SQUARE": 1.625,
+                        "ROUND_LATTICE": 1.5,
+                        "SQUARE_LATTICE": 2.438,
+                        "RECTANGLE": 1.625,
+                        "POLYGON": 1.0
+                      }
+                    }
+                  },
+                  "results": [
+                    {
+                      "actual": 3.294900740909222,
+                      "allowable": 2.0,
+                      "unit": "SF",
+                      "analysisDate": 1791320453343,
+                      "component": "Pole",
+                      "loadInfo": "In Service, 12 lb, Grade A",
+                      "passes": true,
+                      "analysisType": "STRESS"
+                    },
+                    {
+                      "actual": 4.887888655554238,
+                      "allowable": 1.3333333333333333,
+                      "unit": "SF",
+                      "analysisDate": 1791320453343,
+                      "component": "Guy#4",
+                      "loadInfo": "In Service, 12 lb, Grade A",
+                      "passes": true,
+                      "analysisType": "FORCE"
+                    },
+                    {
+                      "actual": 5.58172927078433,
+                      "allowable": 1.3333333333333333,
+                      "unit": "SF",
+                      "analysisDate": 1791320453343,
+                      "component": "Guy#5",
+                      "loadInfo": "In Service, 12 lb, Grade A",
+                      "passes": true,
+                      "analysisType": "FORCE"
+                    },
+                    {
+                      "actual": 5.154872364885835,
+                      "allowable": 1.3333333333333333,
+                      "unit": "SF",
+                      "analysisDate": 1791320453343,
+                      "component": "Guy#3",
+                      "loadInfo": "In Service, 12 lb, Grade A",
+                      "passes": true,
+                      "analysisType": "FORCE"
+                    },
+                    {
+                      "actual": 3.7919575871741764,
+                      "allowable": 1.3333333333333333,
+                      "unit": "SF",
+                      "analysisDate": 1791320453343,
+                      "component": "Guy#2",
+                      "loadInfo": "In Service, 12 lb, Grade A",
+                      "passes": true,
+                      "analysisType": "FORCE"
+                    },
+                    {
+                      "actual": 2.341539072303034,
+                      "allowable": 1.3333333333333333,
+                      "unit": "SF",
+                      "analysisDate": 1791320453343,
+                      "component": "Guy#1",
+                      "loadInfo": "In Service, 12 lb, Grade A",
+                      "passes": true,
+                      "analysisType": "FORCE"
+                    }
+                  ]
+                },
+                {
+                  "id": "GO95",
+                  "analysisCaseDetails": {
+                    "type": "go95ABStrengthCase",
+                    "name": "GO95",
+                    "addByDefault": false,
+                    "includeThroughBolts": false,
+                    "minimumAllowableRatio": 0.6666666666666666,
+                    "heightToIncludeAtGroundline": {
+                      "unit": "METRE",
+                      "value": 0.0
+                    }
+                  },
+                  "results": []
+                }
+              ],
+              "analysisDetails": {
+                "resultId": "6ac5616e7c6f9399af5e106f"
+              },
+              "analysisCurrent": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
