@@ -62,4 +62,15 @@ class InsulatorTypesChangesetTest extends Specification {
 			!json.results[0].components[0].upliftWindDirection
 			!json.results[0].analysisCaseDetails.upliftInsulatorTypes
 	}
+
+	def "revert results with null analysisCaseDetails"() {
+		setup:
+			Map json = [results: [[analysisCaseDetails: null, components: [[uplift: true]]]]]
+		when:
+			boolean reverted = changeSet.revertResults(json)
+		then:
+			notThrown(NullPointerException)
+			reverted
+			!json.results[0].components[0].containsKey("uplift")
+	}
 }
