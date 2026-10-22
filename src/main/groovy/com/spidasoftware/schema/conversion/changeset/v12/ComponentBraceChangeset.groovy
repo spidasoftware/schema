@@ -83,14 +83,17 @@ class ComponentBraceChangeset extends AbstractClientDataChangeSet {
 		boolean anyChanged = (structureJSON.componentBraces as List)?.size() > 0
 
 		structureJSON.remove("componentBraces")
-		(structureJSON.crossArms as List<Map>).each {
-			it.remove("braces")
+		(structureJSON.crossArms as List<Map>)?.each {
+			it?.remove("braces")
 		}
 
 		return anyChanged
 	}
 
 	protected boolean revertLoadCase(Map loadCaseJSON) {
+		if (loadCaseJSON == null) {
+			return false
+		}
 		List<String> components = loadCaseJSON.components as List<String>
 		if (components != null) {
 			return components.remove("COMPONENT_BRACE")
