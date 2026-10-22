@@ -45,21 +45,13 @@ class CSAMaxWindTemperatureChangeset extends AbstractClientDataChangeSet {
     @Override
     void applyToDesign(Map designJSON) throws ConversionException {
         super.applyToDesign(designJSON)
-        designJSON.analysis?.each { Map analysis ->
-            if (analysis.analysisCaseDetails != null) {
-                applyTemperatureToLoadCase(analysis.analysisCaseDetails as Map)
-            }
-        }
+        eachDesignLoadCase(designJSON) { Map loadCase -> applyTemperatureToLoadCase(loadCase) }
     }
 
     @Override
     boolean applyToResults(Map resultsJSON) throws ConversionException {
         boolean changed = super.applyToResults(resultsJSON)
-        resultsJSON.results?.each { Map result ->
-            if (result.analysisCaseDetails != null) {
-                applyTemperatureToLoadCase(result.analysisCaseDetails as Map)
-            }
-        }
+        eachResultLoadCase(resultsJSON) { Map loadCase -> applyTemperatureToLoadCase(loadCase) }
         return changed
     }
 
@@ -82,21 +74,13 @@ class CSAMaxWindTemperatureChangeset extends AbstractClientDataChangeSet {
     @Override
     void revertDesign(Map designJSON) throws ConversionException {
         super.revertDesign(designJSON)
-        designJSON.analysis?.each { Map analysis ->
-            if (analysis.analysisCaseDetails != null) {
-                revertTemperatureFromLoadCase(analysis.analysisCaseDetails as Map)
-            }
-        }
+        eachDesignLoadCase(designJSON) { Map loadCase -> revertTemperatureFromLoadCase(loadCase) }
     }
 
     @Override
     boolean revertResults(Map resultsJSON) throws ConversionException {
         boolean changed = super.revertResults(resultsJSON)
-        resultsJSON.results?.each { Map result ->
-            if (result.analysisCaseDetails != null) {
-                revertTemperatureFromLoadCase(result.analysisCaseDetails as Map)
-            }
-        }
+        eachResultLoadCase(resultsJSON) { Map loadCase -> revertTemperatureFromLoadCase(loadCase) }
         return changed
     }
 
