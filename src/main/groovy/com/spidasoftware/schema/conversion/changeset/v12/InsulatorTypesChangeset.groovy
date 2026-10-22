@@ -61,10 +61,8 @@ class InsulatorTypesChangeset extends AbstractClientDataChangeSet {
                     changed = true
                 }
 			}
-			Map details = result.analysisCaseDetails as Map
-			if (details.containsKey("upliftInsulatorTypes")) {
-				details.remove("upliftInsulatorTypes")
-				changed = true
+			if (result.analysisCaseDetails != null) {
+				changed |= removeInsulatorTypesFromLoadCase(result.analysisCaseDetails as Map)
 			}
 		}
 		return changed
