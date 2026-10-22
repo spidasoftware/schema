@@ -87,4 +87,22 @@ class ComponentBraceChangesetTest extends Specification {
 		then:
 			!changed
 	}
+
+	def "revert design with summary analysis results and no crossArms"() {
+		setup:
+			Map design = [
+				structure: [pole: [:]],
+				analysis : [
+					[id: "GO95", results: [[component: "Pole", actual: 100, analysisType: "STRENGTH"]]]
+				]
+			]
+			Map result = [results: [[components: [[label: "Pole"]]]]]
+		when:
+			changeset.revertDesign(design)
+			boolean changed = changeset.revertResults(result)
+		then:
+			noExceptionThrown()
+			!changed
+			design.analysis[0].id == "GO95"
+	}
 }
