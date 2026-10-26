@@ -38,12 +38,7 @@ class InsulatorTypesChangeset extends AbstractClientDataChangeSet {
 	@Override
 	void revertDesign(Map designJSON) throws ConversionException {
 		super.revertDesign(designJSON)
-
-		designJSON.analysis?.each { Map analysisMap ->
-			if (analysisMap.analysisCaseDetails != null) {
-				removeInsulatorTypesFromLoadCase(analysisMap.analysisCaseDetails as Map)
-			}
-		}
+		eachDesignLoadCase(designJSON) { Map loadCase -> removeInsulatorTypesFromLoadCase(loadCase) }
 	}
 
 	@Override
@@ -61,12 +56,8 @@ class InsulatorTypesChangeset extends AbstractClientDataChangeSet {
                     changed = true
                 }
 			}
-			Map details = result.analysisCaseDetails as Map
-			if (details.containsKey("upliftInsulatorTypes")) {
-				details.remove("upliftInsulatorTypes")
-				changed = true
-			}
 		}
+		changed |= eachResultLoadCase(resultsJSON) { Map loadCase -> removeInsulatorTypesFromLoadCase(loadCase) }
 		return changed
 	}
 
