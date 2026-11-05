@@ -131,4 +131,64 @@ class AnalyzedStructureGroupChangesetTest extends Specification {
         then:
             json == [id: "results-1", results: [], analyzedStructure: structure]
     }
+
+    def "applyToDesign converts inline detailed results"() {
+        setup:
+            Map structure = [pole: [glc: [value: 1.0, unit: "METRE"]]]
+            Map design = [analysisDetails: [detailedResults: [id: "results-1", results: [], analyzedStructure: structure]]]
+        when:
+            changeset.applyToDesign(design)
+        then:
+            Map detailedResults = design.analysisDetails.detailedResults
+            !detailedResults.containsKey("analyzedStructure")
+            detailedResults.analyzedStructureGroup.primaryStructure.is(structure)
+    }
+
+    def "revertDesign converts inline detailed results"() {
+        setup:
+            Map structure = [pole: [glc: [value: 1.0, unit: "METRE"]]]
+            Map design = [analysisDetails: [detailedResults: [id: "results-1", results: [],
+                    analyzedStructureGroup: [primaryStructureId: "results-1", primaryStructure: structure, neighbors: [], wireConnections: [], spanGuyConnections: []]]]]
+        when:
+            changeset.revertDesign(design)
+        then:
+            Map detailedResults = design.analysisDetails.detailedResults
+            !detailedResults.containsKey("analyzedStructureGroup")
+            detailedResults.analyzedStructure.is(structure)
+    }
+
+    def "applyToDesign and revertDesign ignore designs without inline detailed results"() {
+        setup:
+            Map noAnalysisDetails = [structure: [:]]
+            Map resultIdOnly = [analysisDetails: [resultId: "results-1"]]
+        when:
+            changeset.applyToDesign(noAnalysisDetails)
+            changeset.revertDesign(noAnalysisDetails)
+            changeset.applyToDesign(resultIdOnly)
+            changeset.revertDesign(resultIdOnly)
+        then:
+            noAnalysisDetails == [structure: [:]]
+            resultIdOnly == [analysisDetails: [resultId: "results-1"]]
+    }
+
+    def "design converter down-converts inline detailed results to v13 analyzedStructure"() {
+        setup:
+            Map structure = [pole: [glc: [value: 1.0, unit: "METRE"]]]
+            Map design = [schema: "/schema/spidacalc/calc/design.schema", version: 14, structure: [:],
+                    analysisDetails: [detailedResults: [id: "results-1", results: [],
+                            analyzedStructureGroup: [primaryStructureId: "results-1", primaryStructure: structure, neighbors: [], wireConnections: [], spanGuyConnections: []]]]]
+            Converter converter = ConverterUtils.getConverterInstance("/schema/spidacalc/calc/design.schema")
+        when:
+            converter.convert(design, 13)
+        then:
+            design.version == 13
+            !design.analysisDetails.detailedResults.containsKey("analyzedStructureGroup")
+            design.analysisDetails.detailedResults.analyzedStructure.is(structure)
+        when:
+            converter.convert(design, 14)
+        then:
+            design.version == 14
+            !design.analysisDetails.detailedResults.containsKey("analyzedStructure")
+            design.analysisDetails.detailedResults.analyzedStructureGroup.primaryStructure.is(structure)
+    }
 }

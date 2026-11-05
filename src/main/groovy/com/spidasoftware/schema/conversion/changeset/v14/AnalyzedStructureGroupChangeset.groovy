@@ -38,11 +38,22 @@ class AnalyzedStructureGroupChangeset extends AbstractResultsChangeSet {
 
     @Override
     void applyToDesign(Map designJSON) throws ConversionException {
-        // do nothing
+        Map detailedResults = inlineDetailedResults(designJSON)
+        if (detailedResults != null) {
+            applyToResults(detailedResults)
+        }
     }
 
     @Override
     void revertDesign(Map designJSON) throws ConversionException {
-        // do nothing
+        Map detailedResults = inlineDetailedResults(designJSON)
+        if (detailedResults != null) {
+            revertResults(detailedResults)
+        }
+    }
+
+    private static Map inlineDetailedResults(Map designJSON) {
+        Map analysisDetails = designJSON.analysisDetails as Map
+        return analysisDetails?.detailedResults as Map
     }
 }

@@ -93,6 +93,7 @@ class ConverterUtils {
         converter.addChangeSet(12, new CSAMaxWindLoadFactorsChangeSet())
         converter.addChangeSet(13, new LeadAnalysisChangeSet())
         converter.addChangeSet(13, new UrlFormFieldChangeSet())
+        converter.addChangeSet(14, new AnalyzedStructureGroupChangeset())
 
         // add calc changesets above here
 
