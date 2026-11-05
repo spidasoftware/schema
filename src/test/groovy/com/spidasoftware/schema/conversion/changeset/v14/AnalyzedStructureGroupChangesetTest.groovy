@@ -3,14 +3,62 @@
  */
 package com.spidasoftware.schema.conversion.changeset.v14
 
+import com.spidasoftware.schema.conversion.changeset.Converter
+import com.spidasoftware.schema.conversion.changeset.ConverterUtils
+import com.spidasoftware.schema.validation.Validator
+import groovy.json.JsonSlurper
 import spock.lang.Specification
 
 class AnalyzedStructureGroupChangesetTest extends Specification {
+
+    static final String RESULTS_SCHEMA = "/schema/spidacalc/results/results.schema"
 
     static AnalyzedStructureGroupChangeset changeset
 
     def setupSpec() {
         changeset = new AnalyzedStructureGroupChangeset()
+    }
+
+    private static Map loadV13Results() {
+        InputStream stream = AnalyzedStructureGroupChangesetTest.getResourceAsStream("/conversions/v14/minimalResults-v13-results.json")
+        Map json = new JsonSlurper().parse(stream) as Map
+        stream.close()
+        return json
+    }
+
+    def "converter up-converts v13 results to a schema-valid v14 structure group"() {
+        setup:
+            Map json = loadV13Results()
+            Converter converter = ConverterUtils.getConverterInstance(RESULTS_SCHEMA)
+            Validator validator = new Validator()
+        expect: "v13 results are not valid against the current schema"
+            json.version == 13
+            !validator.validateAndReport(RESULTS_SCHEMA, json).isSuccess()
+        when:
+            converter.convert(json, 14)
+        then:
+            json.version == 14
+            !json.containsKey("analyzedStructure")
+            json.analyzedStructureGroup.primaryStructureId == "66fd9b782cec05af05a684a1"
+            json.analyzedStructureGroup.primaryStructure.wires == []
+            json.analyzedStructureGroup.neighbors == []
+        and: "converted results validate against the current schema"
+            validator.validateAndReport(RESULTS_SCHEMA, json).isSuccess()
+    }
+
+    def "converter down-converts v14 results back to v13 analyzedStructure"() {
+        setup:
+            Map json = loadV13Results()
+            Converter converter = ConverterUtils.getConverterInstance(RESULTS_SCHEMA)
+            converter.convert(json, 14)
+        expect:
+            json.containsKey("analyzedStructureGroup")
+        when:
+            converter.convert(json, 13)
+        then:
+            json.version == 13
+            !json.containsKey("analyzedStructureGroup")
+            json.analyzedStructure.wires == []
     }
 
     def "applyToResults wraps analyzedStructure in a structure group"() {
