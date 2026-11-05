@@ -5,6 +5,7 @@ package com.spidasoftware.schema.conversion.changeset
 
 import com.spidasoftware.schema.conversion.changeset.calc.*
 import com.spidasoftware.schema.conversion.changeset.client.ClientDataConverter
+import com.spidasoftware.schema.conversion.changeset.v14.AnalyzedStructureGroupChangeset
 import com.spidasoftware.schema.conversion.changeset.v2.*
 import com.spidasoftware.schema.conversion.changeset.v3.*
 import com.spidasoftware.schema.conversion.changeset.v4.*
@@ -156,6 +157,7 @@ class ConverterUtils {
         converter.addChangeSet(12, new CSAMaxWindLoadFactorsChangeSet())
         converter.addChangeSet(13, new LeadAnalysisChangeSet())
         converter.addChangeSet(13, new UrlFormFieldChangeSet())
+        converter.addChangeSet(14, new AnalyzedStructureGroupChangeset())
         // add result changesets above here
 
         converter.setCurrentVersion(currentVersion)
