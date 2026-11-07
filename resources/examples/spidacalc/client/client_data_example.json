@@ -431,6 +431,79 @@
          "unit": "NEWTON_METRE",
          "value": 1000.0
        }
+     },
+     {
+       "size": "structural client truss",
+       "modelingType": "STRUCTURAL",
+       "lateralArea": {
+         "unit": "SQUARE_METRE",
+         "value": 1.74
+       },
+       "poleSideArea": {
+         "unit": "SQUARE_METRE",
+         "value": 0.93
+       },
+       "shape": "RECTANGLE",
+       "defaultHeightAboveGround": {
+         "unit": "METRE",
+         "value": 9.144
+       },
+       "momentCapacity": {
+         "unit": "NEWTON_METRE",
+         "value": 286200.0
+       },
+       "width": {
+         "unit": "CENTIMETRE",
+         "value": 38.0
+       },
+       "height": {
+         "unit": "CENTIMETRE",
+         "value": 19.9
+       },
+       "momentOfInertia": {
+         "unit": "CENTIMETRE_TO_THE_FOURTH",
+         "value": 61200.0
+       },
+       "crossSectionalArea": {
+         "unit": "SQUARE_CENTIMETRE",
+         "value": 48.4
+       },
+       "modulus": {
+         "unit": "PASCAL",
+         "value": 2.0E11
+       },
+       "poissonRatio": 0.3,
+       "density": {
+         "unit": "KILOGRAM_PER_CUBIC_METRE",
+         "value": 7850.0
+       },
+       "materialCategory": "METAL",
+       "embedmentDepth": {
+         "unit": "METRE",
+         "value": 1.829
+       },
+       "momentCapacityAtHeights": [
+         {
+           "heightAboveGroundLine": {
+             "unit": "METRE",
+             "value": 0.0
+           },
+           "maximumAllowableMoment": {
+             "unit": "NEWTON_METRE",
+             "value": 286200.0
+           }
+         },
+         {
+           "heightAboveGroundLine": {
+             "unit": "METRE",
+             "value": 9.144
+           },
+           "maximumAllowableMoment": {
+             "unit": "NEWTON_METRE",
+             "value": 12400.0
+           }
+         }
+       ]
      }
    ]
  }

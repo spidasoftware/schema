@@ -20,6 +20,11 @@
     "size": {
       "type": "string"
     },
+    "modelingType": {
+      "description": "How the analysis models this truss. MOMENT_CAPACITY (the default when absent) adds momentCapacity to the pole's capacity over the truss height; STRUCTURAL models the truss as its own member using the section, material and capacity-table properties below.",
+      "type": "string",
+      "enum": ["MOMENT_CAPACITY", "STRUCTURAL"]
+    },
     "lateralArea": {
       "$ref": "../../general/measurable.schema"
     },
@@ -33,7 +38,115 @@
       "$ref": "../../general/measurable.schema"
     },
     "momentCapacity": {
+      "description": "Maximum allowable moment at the groundline. For STRUCTURAL trusses this matches the 0-height entry of momentCapacityAtHeights.",
       "$ref": "../../general/measurable.schema"
+    },
+    "width": {
+      "description": "Section dimension perpendicular to the pole radius (the face that sees wind along the truss plane), at the bottom of the truss.",
+      "$ref": "../../general/measurable.schema"
+    },
+    "height": {
+      "description": "Section dimension along the pole radius (pole side to outer face), at the bottom of the truss.",
+      "$ref": "../../general/measurable.schema"
+    },
+    "topWidth": {
+      "description": "Width at the top of the truss. Absent means the section is prismatic (same as width).",
+      "$ref": "../../general/measurable.schema"
+    },
+    "topHeight": {
+      "description": "Height at the top of the truss. Absent means the section is prismatic (same as height).",
+      "$ref": "../../general/measurable.schema"
+    },
+    "momentOfInertia": {
+      "description": "Second moment of area at the bottom of the truss about the axis for bending toward/away from the pole (length^4).",
+      "$ref": "../../general/measurable.schema"
+    },
+    "lateralMomentOfInertia": {
+      "description": "Second moment of area at the bottom of the truss about the axis for bending along the pole (length^4). Absent means the same as momentOfInertia.",
+      "$ref": "../../general/measurable.schema"
+    },
+    "topMomentOfInertia": {
+      "description": "Second moment of area at the top of the truss (length^4). Absent means it is derived from momentOfInertia and the top/bottom dimensions.",
+      "$ref": "../../general/measurable.schema"
+    },
+    "crossSectionalArea": {
+      "description": "Material cross-sectional area at the bottom of the truss.",
+      "$ref": "../../general/measurable.schema"
+    },
+    "topCrossSectionalArea": {
+      "description": "Material cross-sectional area at the top of the truss. Absent means the same as crossSectionalArea.",
+      "$ref": "../../general/measurable.schema"
+    },
+    "sectionModulus": {
+      "description": "Elastic section modulus about the momentOfInertia axis (length^3). Optional; enables the stress check for sections that are not doubly symmetric.",
+      "$ref": "../../general/measurable.schema"
+    },
+    "lateralSectionModulus": {
+      "description": "Elastic section modulus about the lateralMomentOfInertia axis (length^3).",
+      "$ref": "../../general/measurable.schema"
+    },
+    "modulus": {
+      "description": "Modulus of elasticity of the truss material.",
+      "$ref": "../../general/measurable.schema"
+    },
+    "poissonRatio": {
+      "description": "Poisson's ratio of the truss material.",
+      "type": "number"
+    },
+    "density": {
+      "description": "Mass density of the truss material.",
+      "$ref": "../../general/measurable.schema"
+    },
+    "weight": {
+      "description": "Total weight of the truss unit as a force. Takes precedence over density when both are given.",
+      "$ref": "../../general/measurable.schema"
+    },
+    "materialCategory": {
+      "$ref": "../../spidacalc/client/enums/material_category.schema"
+    },
+    "stressAllow": {
+      "description": "Maximum allowable stress of the truss material.",
+      "$ref": "../../general/measurable.schema"
+    },
+    "embedmentDepth": {
+      "description": "Length of the truss below the groundline.",
+      "$ref": "../../general/measurable.schema"
+    },
+    "momentCapacityAtHeights": {
+      "description": "Maximum allowable moment of the truss about the momentOfInertia axis, by height above the groundline.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "map entry of height above the groundline to maximum allowable moment",
+        "required": ["heightAboveGroundLine", "maximumAllowableMoment"],
+        "properties": {
+          "heightAboveGroundLine": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "maximumAllowableMoment": {
+            "$ref": "../../general/measurable.schema"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "lateralMomentCapacityAtHeights": {
+      "description": "Maximum allowable moment of the truss about the lateralMomentOfInertia axis, by height above the groundline.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "map entry of height above the groundline to maximum allowable moment",
+        "required": ["heightAboveGroundLine", "maximumAllowableMoment"],
+        "properties": {
+          "heightAboveGroundLine": {
+            "$ref": "../../general/measurable.schema"
+          },
+          "maximumAllowableMoment": {
+            "$ref": "../../general/measurable.schema"
+          }
+        },
+        "additionalProperties": false
+      }
     },
     "aliases": {
       "type": "array",

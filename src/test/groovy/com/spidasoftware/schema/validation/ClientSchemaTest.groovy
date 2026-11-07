@@ -48,4 +48,23 @@ class ClientSchemaTest extends GroovyTestCase {
 	void testClientTruss() {
 		test("truss")
 	}
+
+	void testClientTrussStructural() {
+		report = validator.validateAndReport("/schema/spidacalc/client/truss.schema", new File("resources/examples/spidacalc/client/client_truss_structural_example.json").text)
+		assertTrue "this instance should be valid against the schema \n${report.toString()}", report.isSuccess()
+	}
+
+	void testClientTrussRejectsUnknownModelingType() {
+		Map json = new groovy.json.JsonSlurper().parse(new File("resources/examples/spidacalc/client/client_truss_example.json")) as Map
+		json.modelingType = "PRISMATIC"
+		report = validator.validateAndReport("/schema/spidacalc/client/truss.schema", json)
+		assertFalse "an unknown modelingType should be rejected", report.isSuccess()
+	}
+
+	void testClientTrussCapacityTableRowRequiresBothValues() {
+		Map json = new groovy.json.JsonSlurper().parse(new File("resources/examples/spidacalc/client/client_truss_structural_example.json")) as Map
+		(json.momentCapacityAtHeights as List<Map>)[0].remove("maximumAllowableMoment")
+		report = validator.validateAndReport("/schema/spidacalc/client/truss.schema", json)
+		assertFalse "a capacity table row without a moment should be rejected", report.isSuccess()
+	}
 }
