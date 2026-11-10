@@ -20,7 +20,53 @@ class AbstractClientDataChangeSetTest extends Specification {
 		boolean result(Map json, Closure closure) { return eachResultLoadCase(json, closure) }
 	}
 
+	static class ChangingChangeSet extends AbstractClientDataChangeSet {
+		@Override
+		boolean applyToClientData(Map clientDataJSON) { clientDataJSON.applied = true; return true }
+
+		@Override
+		boolean revertClientData(Map clientDataJSON) { clientDataJSON.reverted = true; return true }
+	}
+
 	TestChangeSet changeSet = new TestChangeSet()
+	ChangingChangeSet changingChangeSet = new ChangingChangeSet()
+
+	@Unroll
+	def "applyToResults and revertResults report change regardless of hash presence: #description"() {
+		when:
+			boolean appliedChanged = changingChangeSet.applyToResults([clientData: applyClientData])
+			boolean revertedChanged = changingChangeSet.revertResults([clientData: revertClientData])
+		then:
+			appliedChanged
+			revertedChanged
+			!applyClientData.containsKey("hash")
+			!revertClientData.containsKey("hash")
+			applyClientData.applied
+			revertClientData.reverted
+		where:
+			description    | applyClientData | revertClientData
+			"with hash"    | [hash: "abc"]   | [hash: "abc"]
+			"without hash" | [:]             | [:]
+	}
+
+	def "revertDesign marks analysis stale when results client data has no hash"() {
+		setup:
+			Map designJSON = [analysisCurrent: true, analysisDetails: [detailedResults: [clientData: [:]]]]
+		when:
+			changingChangeSet.revertDesign(designJSON)
+		then:
+			designJSON.analysisCurrent == false
+	}
+
+	def "results are unchanged when changeset makes no changes"() {
+		setup:
+			Map resultsJSON = [clientData: [hash: "abc"]]
+		when:
+			boolean changed = changeSet.applyToResults(resultsJSON) | changeSet.revertResults(resultsJSON)
+		then:
+			!changed
+			resultsJSON.clientData.hash == "abc"
+	}
 
 	@Unroll
 	def "eachDesignLoadCase skips missing or null entries: #description"() {
