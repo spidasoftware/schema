@@ -518,6 +518,15 @@ Return a client truss from the client file.
 
 A [client truss](../../resources/schema/spidacalc/client/truss.schema)
 
+#### Modeling types
+
+Since schema version 14 (SPIDAcalc 27.0) a client truss carries an optional `modelingType`:
+
+- `MOMENT_CAPACITY` (the default when the property is absent, and the only behavior of earlier versions): the truss adds `momentCapacity` to the pole's allowable moment over its height. Only the six required properties are used.
+- `STRUCTURAL`: the truss is modeled as its own structural member. The schema adds optional section properties (`width`, `height`, `topWidth`, `topHeight`, `momentOfInertia`, `lateralMomentOfInertia`, `topMomentOfInertia`, `crossSectionalArea`, `topCrossSectionalArea`, `sectionModulus`, `lateralSectionModulus`), material properties (`modulus`, `poissonRatio`, `density`, `weight`, `materialCategory`, `stressAllow`), `embedmentDepth`, and the capacity tables `momentCapacityAtHeights` / `lateralMomentCapacityAtHeights` (lists of `{heightAboveGroundLine, maximumAllowableMoment}` measurables, heights measured above the groundline). `momentCapacity` stays required and should equal the 0-height entry of `momentCapacityAtHeights`.
+
+All new properties are optional in the schema; which ones a `STRUCTURAL` truss needs is enforced by SPIDAcalc's design validation, not by the schema. Omitted `top*` dimensions mean a prismatic section, an omitted `lateralMomentOfInertia` defaults to `momentOfInertia`, and omitted material properties default to steel. See [client_truss_structural_example.json](../../resources/examples/spidacalc/client/client_truss_structural_example.json). Saving to schema version 13 or earlier drops every property listed above, leaving a `MOMENT_CAPACITY` truss.
+
 Component Braces
 -----
 

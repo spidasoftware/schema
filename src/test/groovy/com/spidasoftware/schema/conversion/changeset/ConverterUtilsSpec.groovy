@@ -62,6 +62,32 @@ class ConverterUtilsSpec extends Specification {
 			ConverterUtils.getPossibleVersionsNewestToOldest() == [14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2] as LinkedHashSet
 	}
 
+	def "structural truss round trip between v14 and v13"() {
+		setup:
+			Map clientJSON = new JsonSlurper().parse(ConverterUtilsSpec.getResourceAsStream("/conversions/v14/structuralTruss-v14-clientfile.json")) as Map
+			Map projectJSON = new JsonSlurper().parse(ConverterUtilsSpec.getResourceAsStream("/conversions/v14/structuralTruss-v14-project.json")) as Map
+		when: "client data to v13"
+			ConverterUtils.convertJSON(clientJSON, 13)
+		then:
+			clientJSON.version == 13
+			clientJSON.trusses.every { Map truss -> !truss.containsKey("modelingType") && !truss.containsKey("momentCapacityAtHeights") }
+			clientJSON.trusses.every { Map truss -> truss.momentCapacity != null }
+			!clientJSON.containsKey("hash")
+		when: "back to the current version"
+			ConverterUtils.convertJSON(clientJSON)
+		then: "a v13 truss stays a moment capacity truss (modelingType absent)"
+			clientJSON.version == 14
+			clientJSON.trusses.every { Map truss -> !truss.containsKey("modelingType") }
+			new Validator().validateAndReport("/schema/spidacalc/client/data.schema", clientJSON).isSuccess()
+		when: "project to v13"
+			ConverterUtils.convertJSON(projectJSON, 13)
+		then:
+			projectJSON.version == 13
+			!projectJSON.clientData.trusses[0].containsKey("modelingType")
+			projectJSON.leads[0].locations[0].designs[0].analysisCurrent == false
+			!projectJSON.leads[0].locations[0].designs[0].analysisDetails.detailedResults.clientData.trusses[0].containsKey("width")
+	}
+
 	def "pole-lean validation"() {
 		expect:
 			validateProjectSchema("/conversions/v2/pole-lean.json")

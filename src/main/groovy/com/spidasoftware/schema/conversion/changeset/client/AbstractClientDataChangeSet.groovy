@@ -28,7 +28,7 @@ abstract class AbstractClientDataChangeSet extends AbstractResultsChangeSet {
 		projectJSON.remove("clientFileVersion")
 		if (projectJSON.containsKey("clientData")) {
 			Map clientDataJSON = projectJSON.clientData as Map
-			if (applyToClientData(clientDataJSON) && clientDataJSON.containsKey("hash")) {
+			if (applyToClientData(clientDataJSON)) {
 				clientDataJSON.remove("hash")
 			}
 		}
@@ -40,7 +40,7 @@ abstract class AbstractClientDataChangeSet extends AbstractResultsChangeSet {
 		projectJSON.remove("clientFileVersion")
 		if (projectJSON.containsKey("clientData")) {
 			Map clientDataJSON = projectJSON.clientData as Map
-			if (revertClientData(clientDataJSON) && clientDataJSON.containsKey("hash")) {
+			if (revertClientData(clientDataJSON)) {
 				clientDataJSON.remove("hash")
 			}
 		}
@@ -70,7 +70,7 @@ abstract class AbstractClientDataChangeSet extends AbstractResultsChangeSet {
         boolean anyChanged = false
 		if (resultsJSON.containsKey("clientData")) {
 			Map clientDataJSON = resultsJSON.clientData as Map
-			if (applyToClientData(clientDataJSON) && clientDataJSON.containsKey("hash")) {
+			if (applyToClientData(clientDataJSON)) {
 				clientDataJSON.remove("hash")
                 anyChanged = true
 			}
@@ -83,7 +83,7 @@ abstract class AbstractClientDataChangeSet extends AbstractResultsChangeSet {
         boolean anyChanged = false
 		if (resultsJSON.containsKey("clientData")) {
 			Map clientDataJSON = resultsJSON.clientData as Map
-			if (revertClientData(clientDataJSON) && clientDataJSON.containsKey("hash")) {
+			if (revertClientData(clientDataJSON)) {
 				clientDataJSON.remove("hash")
                 anyChanged = true
 			}
