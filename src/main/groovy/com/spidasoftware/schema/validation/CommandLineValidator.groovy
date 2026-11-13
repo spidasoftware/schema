@@ -14,24 +14,27 @@ class CommandLineValidator {
 
 	public static void main(String[] args) {
 		if (args.length < 2) {
-			println "Usage: java -cp schema.jar com.spidasoftware.schema.validation.Validator /path/to/schema /path/to/json"
+			println "Usage: java -cp schema.jar com.spidasoftware.schema.validation.CommandLineValidator /path/to/schema /path/to/json"
 			println "   or"
 			println("Usage: gradlew validateJson -Pschema=/path/to/schema -PjsonFile=/path/to/json")
-			println("  schema - path to schema starting from resources. eg. /v1/schema/spidacalc/calc/structure.schema")
-			println("  json - json file to be validated.")
-			println "   or"
-			println("If compiled to an distribution build:")
-			println("Usage: ./schema -Pschema=/path/to/schema -PjsonFile=/path/to/json")
-			println("  schema - path to schema starting from resources. eg. /v1/schema/spidacalc/calc/structure.schema")
-			println("  json - json file to be validated.")
+			println("  schema - resource path to schema. eg. /schema/spidacalc/calc/structure.schema")
+			println("  json - json file to be validated. Relative paths are resolved from the project directory.")
+			println("  Add \"strict\": true to the json to also reject additional properties.")
 			System.exit(-2)
 		}
 
-		Validator validator = new NetworkNtJsonValidator();
-		def json = new File(args[1]).text
+		File jsonFile = new File(args[1])
+		if (!jsonFile.isFile()) {
+			println "JSON file not found: ${jsonFile.absolutePath}"
+			System.exit(-2)
+		}
 
-
-		def report = validator.validateAndReport(args[0], json)
+		Validator validator = new NetworkNtJsonValidator()
+		def report = validator.validateAndReport(args[0], jsonFile.text)
+		if (report == null) {
+			println "Could not validate ${args[1]} against schema ${args[0]}. Check that the schema path exists and the file is valid JSON."
+			System.exit(-1)
+		}
 		if(!report.isSuccess()){
 			report.messages.each { println it }
 			println "JSON does not pass validation against the projects schema.  See Logs."

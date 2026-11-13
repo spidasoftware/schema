@@ -25,24 +25,13 @@ class SidedPoleChangeset extends AbstractClientDataChangeSet {
     @Override
     void revertDesign(Map designJSON) throws ConversionException {
         super.revertDesign(designJSON)
-
-        designJSON.analysis?.each { Map analysisMap ->
-            if (analysisMap.analysisCaseDetails != null) {
-                revertLoadCase(analysisMap.analysisCaseDetails as Map)
-            }
-        }
+        eachDesignLoadCase(designJSON) { Map loadCase -> revertLoadCase(loadCase) }
     }
 
     @Override
     boolean revertResults(Map resultsJSON) throws ConversionException {
         boolean changed = super.revertResults(resultsJSON)
-
-        resultsJSON?.results?.each { Map result ->
-            if (result.analysisCaseDetails != null) {
-                changed |= revertLoadCase(result.analysisCaseDetails as Map)
-            }
-        }
-
+        changed |= eachResultLoadCase(resultsJSON) { Map loadCase -> revertLoadCase(loadCase) }
         return changed
     }
 

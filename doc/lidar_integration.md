@@ -19,7 +19,7 @@ In priority order, the data to extract and populate:
 | 2 | **Span geometry** (where adjacent poles/buildings are) | `wireEndPoints[]`: `distance`, `direction`, `relativeElevation`, `type` |
 | 3 | **Wire attachments** | `wires[]`: `attachmentHeight`, `usageGroup`, `owner`, `clientItem`/`clientItemAlias`, `tensionGroup`; plus each wire's ID listed in the correct `wireEndPoints[].wires` |
 | 4 | **Guying** | `anchors[]`: `distance`, `direction`, `height`; `guys[]`: `attachmentHeight`; `spanGuys[]`; anchor↔guy associations |
-| 5 | **Wire sag** (lidar's unique value-add) | `wires[].measuredSag` or `wires[].midspanHeight`, `spanPoints` |
+| 5 | **Wire sag** (lidar's unique value-add) | `wires[].measuredSag` or `wires[].measuredHeightAboveGround`, `wires[].midspanHeight`, `spanPoints` |
 | 6 | **Other attachments** | `equipments[]`, `crossArms[]`, `insulators[]` heights and directions |
 | 7 | **Pole condition & metadata** | `pole.leanAngle`/`leanDirection`, `images`, `poleTags`, `externalId` everywhere |
 
@@ -62,7 +62,7 @@ Understanding how SPIDAcalc consumes each field explains the priority order:
 - **Measured `glc` and `agl` are preferred over nominal values.** When you supply a measured ground line circumference and above-ground length, the engine uses them directly for pole strength and geometry instead of deriving defaults from the species/class tables (default embedment is 10% of length + 2 ft). Lidar-derived values here directly improve accuracy over "nominal" assumptions.
 - **Guys are the restraint system.** Guy attachment heights and anchor lead distance/direction determine whether a deadend or angle pole passes. Wrong or missing guy geometry invalidates results on exactly the poles clients care most about.
 - **Pole lean adds second-order effects.** `leanAngle`/`leanDirection` feed P-Δ moment magnification.
-- **Sag ⇒ tension.** If you provide `measuredSag`, SPIDAcalc back-calculates a per-wire tension adjustment from your measurement — see [Wire Tension Options](#wire-tension-options-what-to-do-without-tension-data).
+- **Sag ⇒ tension.** If you provide `measuredSag` or `measuredHeightAboveGround`, SPIDAcalc back-calculates a per-wire tension adjustment from your measurement — see [Wire Tension Options](#wire-tension-options-what-to-do-without-tension-data).
 - **Equipment/crossarm/insulator details are secondary for pole loading** but matter for clients that analyze those components, and for wind/weight contribution of large equipment. Prioritize getting them *present with correct heights*; exact model selection can follow client guidance.
 
 ## Field-by-Field Mapping: Point Cloud ⇒ Schema
@@ -79,7 +79,7 @@ What you can measure from a classified point cloud and where it goes:
 | Wire attachment height on pole | `wires[].attachmentHeight` | Height above the ground line, per span |
 | Which wires run in which span | `wireEndPoints[].wires` (array of wire IDs) | **A wire not listed in any WEP has no span and will stop analysis** |
 | Wire class (power vs comm vs neutral) | `wires[].usageGroup` | `PRIMARY`, `NEUTRAL`, `SECONDARY`, `COMMUNICATION`, `COMMUNICATION_BUNDLE`, etc. Your classifier's power/comm zones map here |
-| Wire sag / lowest point | `wires[].measuredSag` (sag + temperature + `distanceFromPole` or `geographicCoordinate`) | Used to back-calculate tension. Alternatively record `wires[].midspanHeight` |
+| Wire sag / lowest point | `wires[].measuredSag` (sag + temperature + `distanceFromPole` or `geographicCoordinate`) or `wires[].measuredHeightAboveGround` (height above ground + temperature + `distanceFromPole` or `geographicCoordinate`) | Used to back-calculate tension. Alternatively record `wires[].midspanHeight` |
 | Wire height at specific span stations (crossings, clearance points) | `spanPoints[]` (distance from pole, environment, per-wire heights), referenced from `wireEndPoints[].spanPoints` | For clearance workflows |
 | Exact far-end attachment point | `wires[].wireEndPointPlacement` | Optional; relative to the WEP base |
 | Guy attachment height | `guys[].attachmentHeight` | Plus `clientItem`/`clientItemAlias` for the guy wire type |
@@ -123,10 +123,11 @@ Every wire needs a tension for analysis. In order of typical preference for lida
 
 1. **`tensionGroup`** — name a pre-configured tension group on the client wire (e.g. "Full Tension", "Slack"). This is the standard approach; the utility chooses the assumption. Using a **wire alias** selects both the wire type and its tension group in one string.
 2. **`measuredSag`** — provide the sag you measured from the point cloud plus the temperature at acquisition and either the distance from the pole or the geographic coordinate of the measurement point. SPIDAcalc computes a tension adjustment from your actual measurement. `{ "sag": {...}, "temperature": {...}, "distanceFromPole": {...} }`
-3. **`adjustedTension`** — a known tension value (e.g. from a dynamometer or the client's sag-tension run).
-4. **`tensionAdjustment`** — a bare multiplier on the tension group value.
+3. **`measuredHeightAboveGround`** — provide the wire's height above ground you measured from the point cloud plus the temperature at acquisition and either the distance from the pole or the geographic coordinate of the measurement point. SPIDAcalc derives the sag from the attachment heights and span geometry, then computes a tension adjustment. `{ "heightAboveGround": {...}, "temperature": {...}, "distanceFromPole": {...} }`
+4. **`adjustedTension`** — a known tension value (e.g. from a dynamometer or the client's sag-tension run).
+5. **`tensionAdjustment`** — a bare multiplier on the tension group value.
 
-Only one of `measuredSag` / `adjustedTension` / `tensionAdjustment` may be present on a wire. Independently of these, `midspanHeight` can record the measured midspan height, and `spanPoints` can record wire-over-ground heights for clearance checking.
+Only one of `measuredSag` / `measuredHeightAboveGround` / `adjustedTension` / `tensionAdjustment` may be present on a wire. Independently of these, `midspanHeight` can record the measured midspan height, and `spanPoints` can record wire-over-ground heights for clearance checking.
 
 ## Units, Datums, and Conventions
 

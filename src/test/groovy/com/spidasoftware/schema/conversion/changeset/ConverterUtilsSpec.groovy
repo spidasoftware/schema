@@ -11,7 +11,6 @@ import com.spidasoftware.schema.conversion.changeset.v2.PoleLeanChangeSetTest
 import com.spidasoftware.schema.validation.Validator
 import groovy.json.JsonSlurper
 import groovy.util.logging.Slf4j
-import org.apache.commons.lang3.SystemUtils
 import spock.lang.Specification
 
 @Slf4j
@@ -60,7 +59,33 @@ class ConverterUtilsSpec extends Specification {
 
 	def "test getPossibleVersionsNewestToOldest"() {
 		expect:
-			ConverterUtils.getPossibleVersionsNewestToOldest() == [13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2] as LinkedHashSet
+			ConverterUtils.getPossibleVersionsNewestToOldest() == [14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2] as LinkedHashSet
+	}
+
+	def "structural truss round trip between v14 and v13"() {
+		setup:
+			Map clientJSON = new JsonSlurper().parse(ConverterUtilsSpec.getResourceAsStream("/conversions/v14/structuralTruss-v14-clientfile.json")) as Map
+			Map projectJSON = new JsonSlurper().parse(ConverterUtilsSpec.getResourceAsStream("/conversions/v14/structuralTruss-v14-project.json")) as Map
+		when: "client data to v13"
+			ConverterUtils.convertJSON(clientJSON, 13)
+		then:
+			clientJSON.version == 13
+			clientJSON.trusses.every { Map truss -> !truss.containsKey("modelingType") && !truss.containsKey("momentCapacityAtHeights") }
+			clientJSON.trusses.every { Map truss -> truss.momentCapacity != null }
+			!clientJSON.containsKey("hash")
+		when: "back to the current version"
+			ConverterUtils.convertJSON(clientJSON)
+		then: "a v13 truss stays a moment capacity truss (modelingType absent)"
+			clientJSON.version == 14
+			clientJSON.trusses.every { Map truss -> !truss.containsKey("modelingType") }
+			new Validator().validateAndReport("/schema/spidacalc/client/data.schema", clientJSON).isSuccess()
+		when: "project to v13"
+			ConverterUtils.convertJSON(projectJSON, 13)
+		then:
+			projectJSON.version == 13
+			!projectJSON.clientData.trusses[0].containsKey("modelingType")
+			projectJSON.leads[0].locations[0].designs[0].analysisCurrent == false
+			!projectJSON.leads[0].locations[0].designs[0].analysisDetails.detailedResults.clientData.trusses[0].containsKey("width")
 	}
 
 	def "pole-lean validation"() {
@@ -73,30 +98,15 @@ class ConverterUtilsSpec extends Specification {
 			validateProjectSchema("/conversions/v2/foundation.json")
 	}
 
-	/*
-	Output of "./gradlew printVersion" is:
-> Configure project :
-SCHEMA_VERSION: 6.0.0-SNAPSHOT
-
-BUILD SUCCESSFUL in 0s
-	 */
 	def testSchemaVersionMatchesConverterUtilsVersion() {
 		when:
-			String commandLine
-			if (SystemUtils.IS_OS_WINDOWS) {
-				commandLine = "gradlew.bat printVersion"
-			} else {
-				commandLine = "./gradlew printVersion"
-			}
-			Process process = commandLine.execute()
-			process.waitFor()
-			String output = process.text.trim()
-			int indexOfMajorVersion = output.indexOf("SCHEMA_VERSION: ") + "SCHEMA_VERSION: ".length()
-			String versionStart = output.substring(indexOfMajorVersion, output.length())
+			Properties props = new Properties()
+			ConverterUtilsSpec.getResourceAsStream("/schema-version.properties").withStream { props.load(it) }
+			String schemaVersion = props.getProperty("version")
 		then:
-			versionStart.startsWith("${ConverterUtils.currentVersion}")
+			schemaVersion.startsWith("${ConverterUtils.currentVersion}")
 			ConverterUtils.converters.values().every { Converter converter ->
-				versionStart.startsWith("${converter.currentVersion}") && converter.currentVersion == ConverterUtils.currentVersion
+				schemaVersion.startsWith("${converter.currentVersion}") && converter.currentVersion == ConverterUtils.currentVersion
 			}
 	}
 

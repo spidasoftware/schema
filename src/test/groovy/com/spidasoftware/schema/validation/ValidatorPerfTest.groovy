@@ -5,16 +5,17 @@ package com.spidasoftware.schema.validation
 
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.google.common.io.Files
 import groovy.util.logging.Slf4j
 import spock.lang.Specification
+
+import java.nio.file.Files
 
 @Slf4j
 class ValidatorPerfTest extends Specification {
 
 	def test() {
 //		setup:
-			File tempdir = Files.createTempDir()
+			File tempdir = Files.createTempDirectory('perf').toFile()
 			(new AntBuilder()).unzip(src: "/Users/jasongarrett/Downloads/SeveralAnalyzedDesigns-v7.2.spida", dest: tempdir.getCanonicalPath(), encoding: 'UTF-8')
 			File projectFile = new File(tempdir, "project.json")
 			List<File> resultsFiles = (new File(tempdir, "Results")).listFiles()

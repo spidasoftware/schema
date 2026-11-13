@@ -44,21 +44,13 @@ class CSAMaxWindLoadFactorsChangeSet extends AbstractClientDataChangeSet {
     @Override
     void applyToDesign(Map designJSON) throws ConversionException {
         super.applyToDesign(designJSON)
-        designJSON.analysis?.each { Map analysis ->
-            if (analysis.analysisCaseDetails != null) {
-                removeCSALoadFactors(analysis.analysisCaseDetails as Map)
-            }
-        }
+        eachDesignLoadCase(designJSON) { Map loadCase -> removeCSALoadFactors(loadCase) }
     }
 
     @Override
     boolean applyToResults(Map resultsJSON) throws ConversionException {
         boolean changed = super.applyToResults(resultsJSON)
-        resultsJSON.results?.each { Map result ->
-            if (result.analysisCaseDetails != null) {
-                changed |= removeCSALoadFactors(result.analysisCaseDetails as Map)
-            }
-        }
+        changed |= eachResultLoadCase(resultsJSON) { Map loadCase -> removeCSALoadFactors(loadCase) }
         return changed
     }
 
@@ -82,21 +74,13 @@ class CSAMaxWindLoadFactorsChangeSet extends AbstractClientDataChangeSet {
     @Override
     void revertDesign(Map designJSON) throws ConversionException {
         super.revertDesign(designJSON)
-        designJSON.analysis?.each { Map analysis ->
-            if (analysis.analysisCaseDetails != null) {
-                removeCSALoadFactors(analysis.analysisCaseDetails as Map)
-            }
-        }
+        eachDesignLoadCase(designJSON) { Map loadCase -> removeCSALoadFactors(loadCase) }
     }
 
     @Override
     boolean revertResults(Map resultsJSON) throws ConversionException {
         boolean changed = super.revertResults(resultsJSON)
-        resultsJSON.results?.each { Map result ->
-            if (result.analysisCaseDetails != null) {
-                changed |= removeCSALoadFactors(result.analysisCaseDetails as Map)
-            }
-        }
+        changed |= eachResultLoadCase(resultsJSON) { Map loadCase -> removeCSALoadFactors(loadCase) }
         return changed
     }
 

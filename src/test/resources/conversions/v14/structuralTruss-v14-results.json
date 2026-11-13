@@ -1,0 +1,74 @@
+{
+  "results": [],
+  "id": "66fd9b782cec05af05a684a1",
+  "clientData": {
+    "schema": "/schema/spidacalc/client/data.schema",
+    "version": 14,
+    "name": "StructuralTruss.client",
+    "trusses": [
+      {
+        "size": "legacy truss",
+        "modelingType": "MOMENT_CAPACITY",
+        "lateralArea": {
+          "unit": "SQUARE_METRE",
+          "value": 0.5
+        },
+        "poleSideArea": {
+          "unit": "SQUARE_METRE",
+          "value": 0.25
+        },
+        "shape": "RECTANGLE",
+        "defaultHeightAboveGround": {
+          "unit": "METRE",
+          "value": 3.048
+        },
+        "momentCapacity": {
+          "unit": "NEWTON_METRE",
+          "value": 1000.0
+        }
+      },
+      {
+        "size": "structural truss",
+        "modelingType": "STRUCTURAL",
+        "lateralArea": {
+          "unit": "SQUARE_METRE",
+          "value": 1.74
+        },
+        "poleSideArea": {
+          "unit": "SQUARE_METRE",
+          "value": 0.93
+        },
+        "shape": "RECTANGLE",
+        "defaultHeightAboveGround": {
+          "unit": "METRE",
+          "value": 9.144
+        },
+        "momentCapacity": {
+          "unit": "NEWTON_METRE",
+          "value": 286200.0
+        },
+        "width": {
+          "unit": "CENTIMETRE",
+          "value": 38.0
+        },
+        "height": {
+          "unit": "CENTIMETRE",
+          "value": 19.9
+        },
+        "momentOfInertia": {
+          "unit": "CENTIMETRE_TO_THE_FOURTH",
+          "value": 61200.0
+        },
+        "crossSectionalArea": {
+          "unit": "SQUARE_CENTIMETRE",
+          "value": 48.4
+        },
+        "stressAllow": {
+          "unit": "PASCAL",
+          "value": 5.5E8
+        }
+      }
+    ],
+    "hash": "7a2f0b6b1c9e4d8f9a3b5c7d1e2f4a6b"
+  }
+}

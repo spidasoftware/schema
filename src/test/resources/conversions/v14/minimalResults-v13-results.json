@@ -1,0 +1,19 @@
+{
+  "schema": "/schema/spidacalc/results/results.schema",
+  "strict": true,
+  "version": 13,
+  "id": "66fd9b782cec05af05a684a1",
+  "results": [
+    {
+      "analysisCase": "NESC Heavy",
+      "engineVersion": "24.1.0.99999",
+      "analysisDate": 1727896441703,
+      "components": []
+    }
+  ],
+  "analyzedStructure": {
+    "wires": [],
+    "guys": [],
+    "equipments": []
+  }
+}

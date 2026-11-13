@@ -1,5 +1,6 @@
 {
   "size": "client truss",
+  "modelingType": "MOMENT_CAPACITY",
   "lateralArea": {
     "unit": "SQUARE_METRE",
     "value": 10.0

@@ -1,0 +1,146 @@
+{
+  "size": "TTU-25-30",
+  "modelingType": "STRUCTURAL",
+  "lateralArea": {
+    "unit": "SQUARE_METRE",
+    "value": 1.74
+  },
+  "poleSideArea": {
+    "unit": "SQUARE_METRE",
+    "value": 0.93
+  },
+  "shape": "RECTANGLE",
+  "defaultHeightAboveGround": {
+    "unit": "METRE",
+    "value": 9.144
+  },
+  "momentCapacity": {
+    "unit": "NEWTON_METRE",
+    "value": 286200.0
+  },
+  "width": {
+    "unit": "CENTIMETRE",
+    "value": 38.0
+  },
+  "height": {
+    "unit": "CENTIMETRE",
+    "value": 19.9
+  },
+  "topWidth": {
+    "unit": "CENTIMETRE",
+    "value": 20.3
+  },
+  "topHeight": {
+    "unit": "CENTIMETRE",
+    "value": 10.2
+  },
+  "momentOfInertia": {
+    "unit": "CENTIMETRE_TO_THE_FOURTH",
+    "value": 61200.0
+  },
+  "lateralMomentOfInertia": {
+    "unit": "CENTIMETRE_TO_THE_FOURTH",
+    "value": 24100.0
+  },
+  "topMomentOfInertia": {
+    "unit": "CENTIMETRE_TO_THE_FOURTH",
+    "value": 9800.0
+  },
+  "crossSectionalArea": {
+    "unit": "SQUARE_CENTIMETRE",
+    "value": 48.4
+  },
+  "topCrossSectionalArea": {
+    "unit": "SQUARE_CENTIMETRE",
+    "value": 25.8
+  },
+  "sectionModulus": {
+    "unit": "CUBIC_CENTIMETRE",
+    "value": 4100.0
+  },
+  "lateralSectionModulus": {
+    "unit": "CUBIC_CENTIMETRE",
+    "value": 1270.0
+  },
+  "modulus": {
+    "unit": "PASCAL",
+    "value": 2.0E11
+  },
+  "poissonRatio": 0.3,
+  "density": {
+    "unit": "KILOGRAM_PER_CUBIC_METRE",
+    "value": 7850.0
+  },
+  "weight": {
+    "unit": "NEWTON",
+    "value": 3114.0
+  },
+  "materialCategory": "METAL",
+  "stressAllow": {
+    "unit": "PASCAL",
+    "value": 5.5E8
+  },
+  "embedmentDepth": {
+    "unit": "METRE",
+    "value": 1.829
+  },
+  "momentCapacityAtHeights": [
+    {
+      "heightAboveGroundLine": {
+        "unit": "METRE",
+        "value": 0.0
+      },
+      "maximumAllowableMoment": {
+        "unit": "NEWTON_METRE",
+        "value": 286200.0
+      }
+    },
+    {
+      "heightAboveGroundLine": {
+        "unit": "METRE",
+        "value": 0.914
+      },
+      "maximumAllowableMoment": {
+        "unit": "NEWTON_METRE",
+        "value": 258000.0
+      }
+    },
+    {
+      "heightAboveGroundLine": {
+        "unit": "METRE",
+        "value": 9.144
+      },
+      "maximumAllowableMoment": {
+        "unit": "NEWTON_METRE",
+        "value": 12400.0
+      }
+    }
+  ],
+  "lateralMomentCapacityAtHeights": [
+    {
+      "heightAboveGroundLine": {
+        "unit": "METRE",
+        "value": 0.0
+      },
+      "maximumAllowableMoment": {
+        "unit": "NEWTON_METRE",
+        "value": 112000.0
+      }
+    },
+    {
+      "heightAboveGroundLine": {
+        "unit": "METRE",
+        "value": 9.144
+      },
+      "maximumAllowableMoment": {
+        "unit": "NEWTON_METRE",
+        "value": 4900.0
+      }
+    }
+  ],
+  "aliases": [
+    {
+      "id": "TTU2530"
+    }
+  ]
+}

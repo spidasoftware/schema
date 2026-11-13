@@ -4,11 +4,12 @@
 package com.spidasoftware.schema.conversion
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.google.common.io.Files
 import groovy.util.logging.Slf4j
-import org.apache.commons.io.FileUtils
-import org.apache.commons.io.IOUtils
 import org.apache.tools.ant.BuildException
+
+import java.nio.file.Files
+import java.nio.file.StandardCopyOption
+
 /**
  *
  * Represents a .exchange.spida file and has methods for creating and opening them. Basically just takes care of
@@ -87,7 +88,7 @@ public class ExchangeFile {
 	 * @return a new ExchangeFile that provides access to the project JSON and photos.
 	 */
 	static ExchangeFile createFromZipFile(File zipFile) {
-		File workingTemp = Files.createTempDir()
+		File workingTemp = Files.createTempDirectory('exchange').toFile()
 		AntBuilder ant = new AntBuilder()
 		ant.unzip(src: zipFile.getCanonicalPath(), dest: workingTemp.getCanonicalPath(), encoding: 'UTF-8')
 		return createFromDirectory(workingTemp)
@@ -104,7 +105,7 @@ public class ExchangeFile {
 	 * @return the exchangeFile, ready to be written
 	 */
 	static ExchangeFile createFromProjectJSON(Map projectJson, Collection<File> photoFiles = null, Closure resultsCopier = null) {
-		ExchangeFile exf = new ExchangeFile(Files.createTempDir())
+		ExchangeFile exf = new ExchangeFile(Files.createTempDirectory('exchange').toFile())
 		exf.setProjectJSON(projectJson)
 		ObjectMapper mapper = new ObjectMapper()
 		mapper.writeValue(exf.getProjectJSONFile(), projectJson)
@@ -123,7 +124,7 @@ public class ExchangeFile {
 			log.debug("Copying all photos to: ${photoDir}")
 			photoFiles.each{File photo->
 				File target = new File(photoDir, photo.name)
-				Files.copy(photo, target)
+				Files.copy(photo.toPath(), target.toPath(), StandardCopyOption.REPLACE_EXISTING)
 			}
 		}
 	}

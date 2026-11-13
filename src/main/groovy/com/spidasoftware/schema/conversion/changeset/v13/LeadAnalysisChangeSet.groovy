@@ -20,8 +20,7 @@ class LeadAnalysisChangeSet extends AbstractClientDataChangeSet {
     boolean revertClientData(Map clientDataJSON) throws ConversionException {
         boolean changed = false
         clientDataJSON.analysisCases?.each { Map analysisCase ->
-            changed |= (analysisCase.remove("includeNeighborStructures") == true)
-            changed |= (analysisCase.remove("useSparseMatrices") == true)
+            changed |= revertLoadCase(analysisCase)
         }
         return changed
     }
@@ -30,32 +29,27 @@ class LeadAnalysisChangeSet extends AbstractClientDataChangeSet {
     void revertProject(Map projectJSON) throws ConversionException {
         super.revertProject(projectJSON)
         projectJSON.defaultLoadCases?.each { Map loadCase ->
-            loadCase.remove("includeNeighborStructures")
-            loadCase.remove("useSparseMatrices")
+            revertLoadCase(loadCase)
         }
     }
 
     @Override
     void revertDesign(Map designJSON) throws ConversionException {
         super.revertDesign(designJSON)
-        designJSON.analysis?.each { Map analysis ->
-            Map analysisCase = analysis.analysisCaseDetails as Map
-            analysisCase?.remove("includeNeighborStructures")
-            analysisCase?.remove("useSparseMatrices")
-        }
+        eachDesignLoadCase(designJSON) { Map loadCase -> revertLoadCase(loadCase) }
         designJSON.remove("pendingAnalysis")
     }
 
     @Override
     boolean revertResults(Map resultsJSON) throws ConversionException {
         boolean changed = super.revertResults(resultsJSON)
-        resultsJSON.results?.each { Map result ->
-            Map analysisCase = result.analysisCaseDetails as Map
-            if (analysisCase) {
-                changed |= (analysisCase.remove("includeNeighborStructures") == true)
-                changed |= (analysisCase.remove("useSparseMatrices") == true)
-            }
-        }
+        changed |= eachResultLoadCase(resultsJSON) { Map loadCase -> revertLoadCase(loadCase) }
+        return changed
+    }
+
+    boolean revertLoadCase(Map loadCaseJSON) {
+        boolean changed = (loadCaseJSON.remove("includeNeighborStructures") == true)
+        changed |= (loadCaseJSON.remove("useSparseMatrices") == true)
         return changed
     }
 }

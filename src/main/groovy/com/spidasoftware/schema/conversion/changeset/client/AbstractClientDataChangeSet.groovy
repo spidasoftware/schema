@@ -6,6 +6,8 @@ package com.spidasoftware.schema.conversion.changeset.client
 import com.spidasoftware.schema.conversion.changeset.ConversionException
 import com.spidasoftware.schema.conversion.changeset.calc.AbstractResultsChangeSet
 import groovy.transform.CompileStatic
+import groovy.transform.stc.ClosureParams
+import groovy.transform.stc.SimpleType
 import groovy.util.logging.Slf4j
 
 @Slf4j
@@ -26,7 +28,7 @@ abstract class AbstractClientDataChangeSet extends AbstractResultsChangeSet {
 		projectJSON.remove("clientFileVersion")
 		if (projectJSON.containsKey("clientData")) {
 			Map clientDataJSON = projectJSON.clientData as Map
-			if (applyToClientData(clientDataJSON) && clientDataJSON.containsKey("hash")) {
+			if (applyToClientData(clientDataJSON)) {
 				clientDataJSON.remove("hash")
 			}
 		}
@@ -38,7 +40,7 @@ abstract class AbstractClientDataChangeSet extends AbstractResultsChangeSet {
 		projectJSON.remove("clientFileVersion")
 		if (projectJSON.containsKey("clientData")) {
 			Map clientDataJSON = projectJSON.clientData as Map
-			if (revertClientData(clientDataJSON) && clientDataJSON.containsKey("hash")) {
+			if (revertClientData(clientDataJSON)) {
 				clientDataJSON.remove("hash")
 			}
 		}
@@ -68,7 +70,7 @@ abstract class AbstractClientDataChangeSet extends AbstractResultsChangeSet {
         boolean anyChanged = false
 		if (resultsJSON.containsKey("clientData")) {
 			Map clientDataJSON = resultsJSON.clientData as Map
-			if (applyToClientData(clientDataJSON) && clientDataJSON.containsKey("hash")) {
+			if (applyToClientData(clientDataJSON)) {
 				clientDataJSON.remove("hash")
                 anyChanged = true
 			}
@@ -81,11 +83,38 @@ abstract class AbstractClientDataChangeSet extends AbstractResultsChangeSet {
         boolean anyChanged = false
 		if (resultsJSON.containsKey("clientData")) {
 			Map clientDataJSON = resultsJSON.clientData as Map
-			if (revertClientData(clientDataJSON) && clientDataJSON.containsKey("hash")) {
+			if (revertClientData(clientDataJSON)) {
 				clientDataJSON.remove("hash")
                 anyChanged = true
 			}
 		}
         return anyChanged
+	}
+
+	/**
+	 * Invokes closure for each non-null design.analysis[*].analysisCaseDetails.
+	 * @return true if closure returned true for any load case
+	 */
+	protected static boolean eachDesignLoadCase(Map designJSON, @ClosureParams(value = SimpleType, options = "java.util.Map") Closure closure) {
+		return eachLoadCase(designJSON?.analysis as List<Map>, closure)
+	}
+
+	/**
+	 * Invokes closure for each non-null results.results[*].analysisCaseDetails.
+	 * @return true if closure returned true for any load case
+	 */
+	protected static boolean eachResultLoadCase(Map resultsJSON, @ClosureParams(value = SimpleType, options = "java.util.Map") Closure closure) {
+		return eachLoadCase(resultsJSON?.results as List<Map>, closure)
+	}
+
+	private static boolean eachLoadCase(List<Map> containers, Closure closure) {
+		boolean anyChanged = false
+		containers?.each { Map container ->
+			Map loadCaseJSON = container?.analysisCaseDetails as Map
+			if (loadCaseJSON != null) {
+				anyChanged |= (closure.call(loadCaseJSON) == true)
+			}
+		}
+		return anyChanged
 	}
 }

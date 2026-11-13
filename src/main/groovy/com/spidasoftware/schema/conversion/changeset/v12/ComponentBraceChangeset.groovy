@@ -49,9 +49,7 @@ class ComponentBraceChangeset extends AbstractClientDataChangeSet {
 		if (designJSON.structure != null) {
 			revertStructure(designJSON.structure as Map)
 		}
-		designJSON.analysis?.each { Map analysis ->
-			revertLoadCase(analysis.analysisCaseDetails as Map)
-		}
+		eachDesignLoadCase(designJSON) { Map loadCase -> revertLoadCase(loadCase) }
 	}
 
 	@Override
@@ -61,9 +59,8 @@ class ComponentBraceChangeset extends AbstractClientDataChangeSet {
 		if (resultsJSON.analyzedStructure != null) {
 			changed |= revertStructure(resultsJSON.analyzedStructure as Map)
 		}
+		changed |= eachResultLoadCase(resultsJSON) { Map loadCase -> revertLoadCase(loadCase) }
 		resultsJSON.results?.each { Map result ->
-			changed |= revertLoadCase(result.analysisCaseDetails as Map)
-
 			List<Map> resultComponents = result.components as List<Map>
 			resultComponents?.each { Map component ->
 				if (component.containsKey("componentBraces")) {
