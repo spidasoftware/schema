@@ -71,7 +71,7 @@ configurations {
 
 dependencies {
 	def groovyVersion = '2.5.14'
-	def logbackVersion = '1.5.22'
+	def logbackVersion = '1.6.6'
 	implementation group: 'org.apache.ant', name: 'ant', version: '1.10.18'
 	implementation group: 'org.codehaus.groovy', name: 'groovy', version: groovyVersion
 	implementation group: 'org.codehaus.groovy', name: 'groovy-ant', version: groovyVersion  // AntBuilder in ExchangeFile
